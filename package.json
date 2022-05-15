@@ -1,0 +1,17 @@
+{
+  "name": "1ilsang.dev",
+  "private": true,
+  "version": "0.0.0",
+  "author": "1ilsang <1ilsang@naver.com>",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "blog": "yarn workspace blog"
+  },
+  "devDependencies": {
+    "turbo": "^1.2.9",
+    "typescript": "^4.6.4"
+  }
+}
