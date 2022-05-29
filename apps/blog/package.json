@@ -3,19 +3,25 @@
   "version": "1.0.0",
   "author": "1ilsang <1ilsang@naver.com>",
   "description": "https://1ilsang.dev",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "export": "next export",
+    "lint:markdown": "markdownlint --config ./.markdownlint.js *.{md,mdx} ./**/*.{md,mdx}",
     "lint": "next lint",
     "clean": "rm -rf .next out .turbo"
   },
   "dependencies": {
+    "gray-matter": "^4.0.3",
     "next": "^12.1.6",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "ui": "*"
+    "remark": "^14.0.2",
+    "remark-html": "^15.0.1",
+    "ui": "*",
+    "content": "*"
   },
   "devDependencies": {
     "@types/node": "^17.0.33",

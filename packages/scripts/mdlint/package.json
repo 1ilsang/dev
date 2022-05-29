@@ -1,0 +1,16 @@
+{
+  "name": "mdlint",
+  "private": true,
+  "version": "0.0.0",
+  "author": "1ilsang <1ilsang@naver.com>",
+  "description": "For markdown lint",
+  "license": "MIT",
+  "files": [
+    "./base.js"
+  ],
+  "main": "./base.js",
+  "devDependencies": {
+    "markdownlint": "^0.25.1",
+    "markdownlint-cli": "^0.31.1"
+  }
+}

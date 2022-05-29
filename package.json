@@ -1,22 +1,27 @@
 {
   "name": "1ilsang.dev",
-  "packageManager": "yarn@3.2.1",
+  "packageManager": "yarn@1.22.10",
   "private": true,
   "version": "0.0.0",
   "author": "1ilsang <1ilsang@naver.com>",
+  "license": "MIT",
   "workspaces": [
     "apps/*",
     "packages/**/*"
   ],
   "scripts": {
     "blog": "yarn workspace blog",
+    "content": "yarn workspace content",
+    "mdlint": "yarn workspace mdlint",
     "clean": "turbo run clean",
     "lint": "turbo run lint"
   },
   "devDependencies": {
     "eslint": "^8.15.0",
     "eslint-config-custom": "*",
-    "turbo": "^1.2.9",
-    "typescript": "^4.6.4"
+    "typescript": "^4.7.2"
+  },
+  "dependencies": {
+    "turbo": "^1.2.14"
   }
 }
