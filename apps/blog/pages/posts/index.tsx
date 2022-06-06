@@ -20,7 +20,7 @@ const PostHome: NextPage<PostHomeProps> = ({ posts }) => {
             return (
               <li key={post.title}>
                 <Link href={`/posts/${post.slug}`}>
-                  <a className="hover:text-gray-700">
+                  <a>
                     <h1 className="text-xl mr-4">{post.title}</h1>
                     <h1>{post.description}</h1>
                     <DateFormatter iso={post.date} />

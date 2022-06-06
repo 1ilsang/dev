@@ -1,5 +1,3 @@
-import Author from "./author";
-
 interface PostType {
   slug: string;
   title: string;
@@ -7,7 +5,6 @@ interface PostType {
   tags: string[];
   coverImage: string;
   description: string;
-  author: Author;
   ogImage: {
     url: string;
   };

@@ -1,7 +1,11 @@
 import { NextPage } from "next";
 import ErrorPage from "next/error";
 import { useRouter } from "next/router";
+import Avatar from "../../components/common/Avatar";
+import HashTag from "../../components/common/HashTag";
 import Navbar from "../../components/common/Navbar";
+import PublishedDate from "../../components/common/PublishedDate";
+import PostBody from "../../components/PostBody";
 import markdownToHtml from "../../helpers/markdown";
 import { getAllPosts, getPostBySlug } from "../../helpers/post";
 import PostType from "../../types/posts";
@@ -25,12 +29,22 @@ const Posts: NextPage<PostsProps> = ({ post }) => {
     <div className="home-container">
       <Navbar />
       <div className="post-container">
-        <h1>{post.title}</h1>
-        {post.tags.map((tag) => (
-          <a key={tag} href={`/tags/${tag}`}>
-            #{tag}
-          </a>
-        ))}
+        <h1 className="text-6xl">{post.title}</h1>
+        <div className="mt-4">
+          <Avatar />
+        </div>
+        <div className="flex mt-2 items-end">
+          {post.tags.map((tag) => (
+            <HashTag
+              className="mr-2"
+              key={tag}
+              link={`/tags/${tag}`}
+              content={tag}
+            />
+          ))}
+        </div>
+        <PublishedDate date={post.date} />
+        <PostBody post={post} />
       </div>
     </div>
   );

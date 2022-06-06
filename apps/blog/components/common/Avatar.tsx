@@ -2,9 +2,13 @@ import profile from "../../_data/1ilsang.json";
 import Image from "next/image";
 import Link from "next/link";
 
-export const AvatarImage = () => {
+export const AvatarImage = ({ nav = false }) => {
   return (
-    <div className="w-12 h-12 rounded-full mr-2 relative">
+    <div
+      className={`${
+        nav ? "w-8 h-8 mt-2" : "w-12 h-12"
+      } rounded-full mr-2 relative`}
+    >
       <Link href="/about">
         <a>
           <Image
@@ -25,7 +29,7 @@ const Avatar = () => {
     <div className="flex items-center">
       <AvatarImage />
       <div className="text-xl font-medium">
-        {profile.name}
+        <Link href="/about">{profile.name}</Link>
         <div className="text-sm text-slate-700 dark:text-slate-500">
           {profile.description}
         </div>

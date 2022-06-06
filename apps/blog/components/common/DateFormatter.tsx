@@ -6,7 +6,11 @@ interface DateFormatterProps {
 }
 
 const DateFormatter: FunctionComponent<DateFormatterProps> = ({ iso }) => {
-  return <time dateTime={iso}>{parseISO(iso)}</time>;
+  return (
+    <time className="date-format" dateTime={iso}>
+      {parseISO(iso)}
+    </time>
+  );
 };
 
 export default DateFormatter;

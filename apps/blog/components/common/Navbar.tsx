@@ -16,8 +16,8 @@ const NavText: FunctionComponent<NavTextProps> = ({
   return (
     <h2
       className={`${
-        logo ? "text-2xl font-bold mt-2 mb-2 ml-3" : "text-xl mr-7 mt-2.5"
-      } tracking-tight hover:text-gray-700 focus:text-gray-700 `}
+        logo ? "text-2xl font-bold mt-2 mb-2 ml-3.5" : "text-xl mt-2.5 mr-6"
+      } tracking-tight focus:text-gray-700 `}
     >
       <Link href={`${link}`}>
         <a className="hover-underline">{text}</a>
@@ -33,7 +33,7 @@ const Navbar = () => {
       <div className="flex">
         <NavText text="posts" link="/posts" />
         <NavText text="tags" link="/tags" />
-        <AvatarImage />
+        <AvatarImage nav />
       </div>
     </nav>
   );

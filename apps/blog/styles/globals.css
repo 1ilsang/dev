@@ -4,10 +4,19 @@
 
 /* TODO: scss 적용 */
 
+.hashtag {
+	color: rgb(59, 130, 246);
+}
+.hashtag:hover {
+	color: rgb(59, 130, 246, 0.7);
+}
+.date-published {
+	color: #6c6e6f
+}
 .home-container {
 	overflow: auto;
 	scroll-snap-type: y mandatory;
-	height: 100vh
+	height: 100vh;
 }
 .scroll-snap {
 	height: 100vh;
@@ -60,6 +69,5 @@
 	text-decoration: underline;
 }
 .post-container {
-	margin: 10vh 10vw auto 10vw;
-	height: 100vh;
+	margin: 10vh 10vw 10vh 10vw;
 }
