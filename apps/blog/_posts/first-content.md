@@ -1,12 +1,9 @@
 ---
-title: "Test"
-excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus."
+title: "첫 번째 게시글"
+description: "첫 번째 게시글이라는 점이 매우 흥미로워요."
 tags: ["hi", "world"]
 coverImage: "/assets/blog/dynamic-routing/cover.jpg"
-date: "2020-03-16T05:35:07.322Z"
-author:
-  name: JJ Kasper
-  picture: "/assets/blog/authors/jj.jpeg"
+date: "2022-06-06T03:13:10.667Z"
 ogImage:
   url: "/assets/blog/dynamic-routing/cover.jpg"
 ---

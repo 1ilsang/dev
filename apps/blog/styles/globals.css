@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* TODO: scss 적용 */
+
+.home-container {
+	overflow: auto;
+	scroll-snap-type: y mandatory;
+	height: 100vh
+}
+.scroll-snap {
+	height: 100vh;
+	scroll-snap-align: start;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.home-logo {
+	height: 100vh;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-image: url('/assets/background.png');	
+}
+.home-logo2 {
+	height: 100vh;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-image: url('/assets/back2.png');	
+}
+
+@keyframes water-rainbow {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+.water-rainbow:hover {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: water-rainbow 7s ease infinite;
+	z-index: 300;
+}
+.nav {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	justify-items: center;
+	position: fixed;
+	z-index: 300;
+}
+.hover-underline:hover {
+	text-decoration: underline;
+}
+.post-container {
+	margin: 10vh 10vw auto 10vw;
+	height: 100vh;
+}

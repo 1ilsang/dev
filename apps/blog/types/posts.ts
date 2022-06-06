@@ -6,8 +6,8 @@ interface PostType {
   date: string;
   tags: string[];
   coverImage: string;
+  description: string;
   author: Author;
-  excerpt: string;
   ogImage: {
     url: string;
   };

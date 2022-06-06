@@ -1,8 +1,10 @@
 import { NextPage } from "next";
 import Image from "next/image";
-import Navbar from "../components/common/Navbar";
+import Navbar from "../../components/common/Navbar";
 
-const About: NextPage = () => {
+interface TagsProps {}
+
+const Tags: NextPage<TagsProps> = () => {
   return (
     <div className="home-container">
       <Navbar />
@@ -16,4 +18,6 @@ const About: NextPage = () => {
   );
 };
 
-export default About;
+export default Tags;
+
+// TODO: tags 뽑아내기

@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import ErrorPage from "next/error";
 import { useRouter } from "next/router";
+import Navbar from "../../components/common/Navbar";
 import markdownToHtml from "../../helpers/markdown";
 import { getAllPosts, getPostBySlug } from "../../helpers/post";
 import PostType from "../../types/posts";
@@ -21,11 +22,16 @@ const Posts: NextPage<PostsProps> = ({ post }) => {
   }
 
   return (
-    <div>
-      {post.title}
-      {post.tags.map((tag) => (
-        <div key={tag}>#{tag}</div>
-      ))}
+    <div className="home-container">
+      <Navbar />
+      <div className="post-container">
+        <h1>{post.title}</h1>
+        {post.tags.map((tag) => (
+          <a key={tag} href={`/tags/${tag}`}>
+            #{tag}
+          </a>
+        ))}
+      </div>
     </div>
   );
 };
@@ -43,7 +49,6 @@ export async function getStaticProps({ params }: GetStaticPropsParams) {
     "title",
     "date",
     "slug",
-    "author",
     "content",
     "tags",
     "ogImage",
