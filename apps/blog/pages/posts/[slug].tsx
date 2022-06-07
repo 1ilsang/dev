@@ -26,7 +26,7 @@ const Posts: NextPage<PostsProps> = ({ post }) => {
   }
 
   return (
-    <div className="home-container">
+    <div className="post-layout">
       <Navbar />
       <div className="post-container">
         <h1 className="text-6xl">{post.title}</h1>

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* TODO: scss 적용 */
-
+/* PC */
 .hashtag {
 	color: rgb(59, 130, 246);
 }
@@ -54,7 +54,7 @@
 .water-rainbow:hover {
 	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 	background-size: 400% 400%;
-	animation: water-rainbow 7s ease infinite;
+	animation: water-rainbow 5s ease infinite;
 	z-index: 300;
 }
 .nav {
@@ -68,6 +68,19 @@
 .hover-underline:hover {
 	text-decoration: underline;
 }
+.post-layout {
+	overflow: auto
+}
 .post-container {
 	margin: 10vh 10vw 10vh 10vw;
+}
+.post-nav-trans {
+	opacity: 1;
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+	.post-nav-trans {
+		opacity: 0.1;
+	}	
 }
