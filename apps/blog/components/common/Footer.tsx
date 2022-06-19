@@ -11,7 +11,17 @@ const Footer: FunctionComponent = () => {
         <li>
           <Link href="https://github.com/1ilsang" passHref>
             <a rel="noopener noreferrer" target="_blank">
-              github
+              GitHub
+            </a>
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="https://www.linkedin.com/in/sang-chul-lee-91a32b154/"
+            passHref
+          >
+            <a rel="noopener noreferrer" target="_blank">
+              Linked-In
             </a>
           </Link>
         </li>

@@ -105,6 +105,9 @@ html, body {
 	margin: 0 10vw 0 10vw;
 	padding: 10vh 0 5vh 0;
 }
+.post-container {
+	margin-bottom: 5vw;
+}
 .post-nav-trans {
 	opacity: 1;
 }

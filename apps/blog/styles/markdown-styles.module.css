@@ -1,7 +1,12 @@
 .markdown {
   @apply text-lg leading-relaxed;
 }
-
+.markdown a {
+  color: rgb(59, 130, 246);
+}
+.markdown a:hover {
+  color: rgb(59, 130, 246, 0.7);
+}
 .markdown p {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
@@ -32,6 +37,18 @@
   color: #ddd;
 }
 
+.markdown pre code {
+  color: #ddd;
+  background-color: transparent;
+}
+
+.markdown code {
+  border-radius: 4px;
+  padding: 2px 3px 2px 3px;
+  background-color: #666;
+  color: white;
+}
+
 .markdown ol {
   @apply list-decimal;
 }
@@ -45,4 +62,21 @@
 
 .markdown h3 {
   @apply text-2xl mt-8 mb-4 leading-snug;
+}
+
+.markdown img {
+  width: 70%;
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+  .markdown img {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .markdown img {
+    width: 45%;
+  }
 }
