@@ -14,7 +14,8 @@
     "content": "yarn workspace content",
     "mdlint": "yarn workspace mdlint",
     "clean": "turbo run clean",
-    "lint": "turbo run lint"
+    "lint": "turbo run lint",
+    "deploy-blog": "turbo run deploy --filter=blog"
   },
   "devDependencies": {
     "eslint": "^8.15.0",
