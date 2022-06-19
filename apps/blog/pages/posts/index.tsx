@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import Link from "next/link";
 import DateFormatter from "../../components/common/DateFormatter";
+import Footer from "../../components/common/Footer";
 import Navbar from "../../components/common/Navbar";
 import { getAllPosts, getPostBySlug } from "../../helpers/post";
 import PostType from "../../types/posts";
@@ -12,10 +13,10 @@ interface PostHomeProps {
 
 const PostHome: NextPage<PostHomeProps> = ({ posts }) => {
   return (
-    <div className="home-container">
+    <div className="post-layout">
       <Navbar />
       <div className="post-container">
-        <ul className="list-disc">
+        <ul className="post-list">
           {posts.map((post) => {
             return (
               <li key={post.title}>
@@ -31,6 +32,7 @@ const PostHome: NextPage<PostHomeProps> = ({ posts }) => {
           })}
         </ul>
       </div>
+      <Footer />
     </div>
   );
 };

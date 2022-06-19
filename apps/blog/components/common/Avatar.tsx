@@ -6,7 +6,7 @@ export const AvatarImage = ({ nav = false }) => {
   return (
     <div
       className={`${
-        nav ? "w-8 h-8 mt-2" : "w-12 h-12"
+        nav ? "nav-avatar" : "avatar-image"
       } rounded-full mr-2 relative`}
     >
       <Link href="/about">
@@ -28,11 +28,11 @@ const Avatar = () => {
   return (
     <div className="flex items-center">
       <AvatarImage />
-      <div className="text-xl font-medium">
-        <Link href="/about">{profile.name}</Link>
-        <div className="text-sm text-slate-700 dark:text-slate-500">
-          {profile.description}
-        </div>
+      <div>
+        <Link href="/about">
+          <a className="avatar-name">{profile.name}</a>
+        </Link>
+        <div className="avatar-description">{profile.description}</div>
       </div>
     </div>
   );

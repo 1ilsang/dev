@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import ErrorPage from "next/error";
 import { useRouter } from "next/router";
 import Avatar from "../../components/common/Avatar";
+import Footer from "../../components/common/Footer";
 import HashTag from "../../components/common/HashTag";
 import Navbar from "../../components/common/Navbar";
 import PublishedDate from "../../components/common/PublishedDate";
@@ -29,8 +30,8 @@ const Posts: NextPage<PostsProps> = ({ post }) => {
     <div className="post-layout">
       <Navbar />
       <div className="post-container">
-        <h1 className="text-6xl">{post.title}</h1>
-        <div className="mt-4">
+        <h1 className="post-header">{post.title}</h1>
+        <div className="post-profile-container">
           <Avatar />
         </div>
         <div className="flex mt-2 items-end">
@@ -46,6 +47,7 @@ const Posts: NextPage<PostsProps> = ({ post }) => {
         <PublishedDate date={post.date} />
         <PostBody post={post} />
       </div>
+      <Footer />
     </div>
   );
 };
