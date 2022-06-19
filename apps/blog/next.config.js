@@ -4,8 +4,7 @@ module.exports = {
     // outputFileTracingRoot: path.join(__dirname, "../../packages/content/posts"),
   },
   images: {
-    loader: "imgix",
-    path: "https://1ilsang.dev/",
-    domains: ["avatars.githubusercontent.com"],
+    loader: "akamai",
+    path: "",
   },
 };
