@@ -8,6 +8,8 @@ ogImage:
   url: "https://user-images.githubusercontent.com/23524849/178152297-6995c412-1f3d-4e28-b17b-b3294a41cc8c.png"
 ---
 
+<img width="1200" src="https://user-images.githubusercontent.com/23524849/178152297-6995c412-1f3d-4e28-b17b-b3294a41cc8c.png" alt="turborepo">
+
 라인 엔지니어링 블로그에 [작성한 글](https://engineering.linecorp.com/ko/blog/monorepo-with-turborepo/)이다.
 
 글쓰면서 정말 많이 배웠던것 같다. 모노레포와 함께할 때 캐싱기능은 너무 경험이 좋았기 때문에 앞으로도 꾸준히 사용해볼 예정이다.
