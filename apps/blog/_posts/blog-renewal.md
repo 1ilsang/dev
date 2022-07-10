@@ -2,10 +2,10 @@
 title: "블로그 리뉴얼"
 description: "블로그를 리뉴얼하며 있었던 소소한 이야기들"
 tags: ["blog", "architecture", "goal", "daily"]
-coverImage: "/assets/blog/blog-renewal/cover.png"
+coverImage: "https://user-images.githubusercontent.com/23524849/178150336-2453c93a-3de0-4117-b9fc-15c9b8699305.png"
 date: "2022-06-06T03:13:10.667Z"
 ogImage:
-  url: "/assets/blog/blog-renewal/cover.png"
+  url: "https://user-images.githubusercontent.com/23524849/178150336-2453c93a-3de0-4117-b9fc-15c9b8699305.png"
 ---
 
 블로그를 리뉴얼하며 있었던 이야기들을 해보려고 한다.
@@ -18,7 +18,7 @@ FE개발을 하게된 이후부터 블로그를 직접 만들어야지 생각을
 
 ## 기본 설계
 
-<img src="/assets/blog/blog-renewal/hierarchy.png" alt="directory hierarchy" />
+<img width="500" src="https://user-images.githubusercontent.com/23524849/178150300-d96e4a98-0a18-4354-8d78-5f57b722fa48.png" alt="directory hierarchy" />
 
 [Next.js](https://nextjs.org/)와 [Turborepo](https://turborepo.org/)를 꾸준히 사용하고 싶었기 때문에 이 두가지를 기본으로 채택하고 시작했다. [Remix](https://remix.run/)로 시작할까 고민하다 Next부터 잘 알고 시작하자는 마음으로 Next.js를 선택하게 되었다.
 

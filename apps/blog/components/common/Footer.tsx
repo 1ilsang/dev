@@ -21,7 +21,7 @@ const Footer: FunctionComponent = () => {
             passHref
           >
             <a rel="noopener noreferrer" target="_blank">
-              Linked-In
+              LinkedIn
             </a>
           </Link>
         </li>
