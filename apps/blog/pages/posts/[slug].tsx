@@ -1,5 +1,6 @@
 import { NextPage } from "next";
 import ErrorPage from "next/error";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import Avatar from "../../components/common/Avatar";
 import Footer from "../../components/common/Footer";
@@ -27,28 +28,35 @@ const Posts: NextPage<PostsProps> = ({ post }) => {
   }
 
   return (
-    <div className="post-layout">
-      <Navbar />
-      <div className="post-container">
-        <h1 className="post-header">{post.title}</h1>
-        <div className="post-profile-container">
-          <Avatar />
+    <>
+      <Head>
+        <title>{post.title} - 1ilsang.dev</title>
+        <meta property="og:image" content={post.ogImage.url} />
+        <meta name="description" content={post.description} />
+      </Head>
+      <div className="post-layout">
+        <Navbar />
+        <div className="post-container">
+          <h1 className="post-header">{post.title}</h1>
+          <div className="post-profile-container">
+            <Avatar />
+          </div>
+          <div className="flex mt-2 items-end">
+            {post.tags.map((tag) => (
+              <HashTag
+                className="mr-2"
+                key={tag}
+                link={`/tags/${tag}`}
+                content={tag}
+              />
+            ))}
+          </div>
+          <PublishedDate date={post.date} />
+          <PostBody post={post} />
         </div>
-        <div className="flex mt-2 items-end">
-          {post.tags.map((tag) => (
-            <HashTag
-              className="mr-2"
-              key={tag}
-              link={`/tags/${tag}`}
-              content={tag}
-            />
-          ))}
-        </div>
-        <PublishedDate date={post.date} />
-        <PostBody post={post} />
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   );
 };
 

@@ -7,6 +7,8 @@ export default class MyDocument extends Document {
       <Html>
         <Head>
           <meta charSet="utf-8" />
+          <meta name="author" content="1ilsang" />
+          <meta name="keyword" content="1ilsang,dev,front,frontend,react" />
           <Favicon />
         </Head>
         <body>

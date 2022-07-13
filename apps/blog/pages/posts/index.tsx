@@ -1,8 +1,10 @@
 import { NextPage } from "next";
+import Head from "next/head";
 import Link from "next/link";
 import DateFormatter from "../../components/common/DateFormatter";
 import Footer from "../../components/common/Footer";
 import Navbar from "../../components/common/Navbar";
+import { ImageUrl } from "../../helpers/constant";
 import { getAllPosts, getPostBySlug } from "../../helpers/post";
 import PostType from "../../types/posts";
 
@@ -13,27 +15,34 @@ interface PostHomeProps {
 
 const PostHome: NextPage<PostHomeProps> = ({ posts }) => {
   return (
-    <div className="post-layout">
-      <Navbar />
-      <div className="post-container">
-        <ul className="post-list">
-          {posts.map((post) => {
-            return (
-              <li key={post.title}>
-                <Link href={`/posts/${post.slug}`}>
-                  <a>
-                    <h1 className="text-xl mr-4">{post.title}</h1>
-                    <h1>{post.description}</h1>
-                    <DateFormatter iso={post.date} />
-                  </a>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+    <>
+      <Head>
+        <title>1ilsang.dev</title>
+        <meta property="og:image" content={ImageUrl.HOME} />
+        <meta name="description" content="posts" />
+      </Head>
+      <div className="post-layout">
+        <Navbar />
+        <div className="post-container">
+          <ul className="post-list">
+            {posts.map((post) => {
+              return (
+                <li key={post.title}>
+                  <Link href={`/posts/${post.slug}`}>
+                    <a>
+                      <h1 className="text-xl mr-4">{post.title}</h1>
+                      <h1>{post.description}</h1>
+                      <DateFormatter iso={post.date} />
+                    </a>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   );
 };
 
