@@ -18,7 +18,9 @@ const PostHome: NextPage<PostHomeProps> = ({ posts }) => {
     <>
       <Head>
         <title>1ilsang.dev</title>
+        <meta property="og:title" content={`1ilsang.dev`} />
         <meta property="og:image" content={ImageUrl.HOME} />
+        <meta property="og:description" content={`posts`} />
         <meta name="description" content="posts" />
       </Head>
       <div className="post-layout">

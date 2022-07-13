@@ -31,7 +31,9 @@ const Posts: NextPage<PostsProps> = ({ post }) => {
     <>
       <Head>
         <title>{post.title} - 1ilsang.dev</title>
+        <meta property="og:title" content={`${post.title} - 1ilsang.dev`} />
         <meta property="og:image" content={post.ogImage.url} />
+        <meta property="og:description" content={post.description} />
         <meta name="description" content={post.description} />
       </Head>
       <div className="post-layout">

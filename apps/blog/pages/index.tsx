@@ -7,8 +7,11 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
+        {/* TODO: Meta 컴포넌트화 및 페이지에 모두 적용 */}
         <title>1ilsang.dev</title>
+        <meta property="og:title" content={`1ilsang.dev`} />
         <meta property="og:image" content={ImageUrl.HOME} />
+        <meta property="og:description" content={`1ilsang.dev`} />
         <meta name="description" content="1ilsang.dev" />
       </Head>
       <div className="home-container">
