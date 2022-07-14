@@ -5,9 +5,11 @@ import { useRouter } from "next/router";
 import Avatar from "../../components/common/Avatar";
 import Footer from "../../components/common/Footer";
 import HashTag from "../../components/common/HashTag";
+import Meta from "../../components/common/Meta";
 import Navbar from "../../components/common/Navbar";
 import PublishedDate from "../../components/common/PublishedDate";
 import PostBody from "../../components/PostBody";
+import { MetaTitle } from "../../helpers/constant";
 import markdownToHtml from "../../helpers/markdown";
 import { getAllPosts, getPostBySlug } from "../../helpers/post";
 import PostType from "../../types/posts";
@@ -30,11 +32,11 @@ const Posts: NextPage<PostsProps> = ({ post }) => {
   return (
     <>
       <Head>
-        <title>{post.title} - 1ilsang.dev</title>
-        <meta property="og:title" content={`${post.title} - 1ilsang.dev`} />
-        <meta property="og:image" content={post.ogImage.url} />
-        <meta property="og:description" content={post.description} />
-        <meta name="description" content={post.description} />
+        <Meta
+          title={`${post.title} - ${MetaTitle.HOME}`}
+          ogImageUrl={post.ogImage.url}
+          description={post.description}
+        />
       </Head>
       <div className="post-layout">
         <Navbar />

@@ -1,18 +1,18 @@
 import { NextPage } from "next";
 import Head from "next/head";
+import Meta from "../components/common/Meta";
 import Navbar from "../components/common/Navbar";
-import { ImageUrl } from "../helpers/constant";
+import { ImageUrl, MetaDescription, MetaTitle } from "../helpers/constant";
 
 const Home: NextPage = () => {
   return (
     <>
       <Head>
-        {/* TODO: Meta 컴포넌트화 및 페이지에 모두 적용 */}
-        <title>1ilsang.dev</title>
-        <meta property="og:title" content={`1ilsang.dev`} />
-        <meta property="og:image" content={ImageUrl.HOME} />
-        <meta property="og:description" content={`1ilsang.dev`} />
-        <meta name="description" content="1ilsang.dev" />
+        <Meta
+          title={MetaTitle.HOME}
+          ogImageUrl={ImageUrl.HOME}
+          description={MetaDescription.HOME}
+        />
       </Head>
       <div className="home-container">
         <Navbar />

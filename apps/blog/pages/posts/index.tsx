@@ -3,8 +3,9 @@ import Head from "next/head";
 import Link from "next/link";
 import DateFormatter from "../../components/common/DateFormatter";
 import Footer from "../../components/common/Footer";
+import Meta from "../../components/common/Meta";
 import Navbar from "../../components/common/Navbar";
-import { ImageUrl } from "../../helpers/constant";
+import { ImageUrl, MetaDescription, MetaTitle } from "../../helpers/constant";
 import { getAllPosts, getPostBySlug } from "../../helpers/post";
 import PostType from "../../types/posts";
 
@@ -17,11 +18,11 @@ const PostHome: NextPage<PostHomeProps> = ({ posts }) => {
   return (
     <>
       <Head>
-        <title>1ilsang.dev</title>
-        <meta property="og:title" content={`1ilsang.dev`} />
-        <meta property="og:image" content={ImageUrl.HOME} />
-        <meta property="og:description" content={`posts`} />
-        <meta name="description" content="posts" />
+        <Meta
+          title={MetaTitle.HOME}
+          ogImageUrl={ImageUrl.HOME}
+          description={MetaDescription.HOME}
+        />
       </Head>
       <div className="post-layout">
         <Navbar />
