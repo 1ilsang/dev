@@ -1,21 +1,18 @@
 import { NextPage } from "next";
-import Head from "next/head";
 import Image from "next/image";
 import Footer from "../components/common/Footer";
-import Meta from "../components/common/Meta";
+import MetaHeader from "../components/common/MetaHeader";
 import Navbar from "../components/common/Navbar";
 import { ImageUrl, MetaDescription, MetaTitle } from "../helpers/constant";
 
 const About: NextPage = () => {
   return (
     <>
-      <Head>
-        <Meta
-          title={MetaTitle.HOME}
-          ogImageUrl={ImageUrl.HOME}
-          description={MetaDescription.HOME}
-        />
-      </Head>
+      <MetaHeader
+        title={MetaTitle.HOME}
+        ogImageUrl={ImageUrl.HOME}
+        description={MetaDescription.HOME}
+      />
       <div className="about-layout">
         <Navbar />
         <div className="about-container">

@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import Avatar from "../../components/common/Avatar";
 import Footer from "../../components/common/Footer";
 import HashTag from "../../components/common/HashTag";
-import Meta from "../../components/common/Meta";
+import MetaHeader from "../../components/common/MetaHeader";
 import Navbar from "../../components/common/Navbar";
 import PublishedDate from "../../components/common/PublishedDate";
 import PostBody from "../../components/PostBody";
@@ -31,35 +31,36 @@ const Posts: NextPage<PostsProps> = ({ post }) => {
 
   return (
     <>
-      <Head>
-        <Meta
-          title={`${post.title} - ${MetaTitle.HOME}`}
-          ogImageUrl={post.ogImage.url}
-          description={post.description}
-        />
-      </Head>
-      <div className="post-layout">
-        <Navbar />
-        <div className="post-container">
-          <h1 className="post-header">{post.title}</h1>
-          <div className="post-profile-container">
-            <Avatar />
+      <MetaHeader
+        key={`${post.title} - ${MetaTitle.HOME}`}
+        title={`${post.title} - ${MetaTitle.HOME}`}
+        ogImageUrl={post.ogImage.url}
+        description={post.description}
+      />
+      <main>
+        <div className="post-layout">
+          <Navbar />
+          <div className="post-container">
+            <h1 className="post-header">{post.title}</h1>
+            <div className="post-profile-container">
+              <Avatar />
+            </div>
+            <div className="flex mt-2 items-end">
+              {post.tags.map((tag) => (
+                <HashTag
+                  className="mr-2"
+                  key={tag}
+                  link={`/tags/${tag}`}
+                  content={tag}
+                />
+              ))}
+            </div>
+            <PublishedDate date={post.date} />
+            <PostBody post={post} />
           </div>
-          <div className="flex mt-2 items-end">
-            {post.tags.map((tag) => (
-              <HashTag
-                className="mr-2"
-                key={tag}
-                link={`/tags/${tag}`}
-                content={tag}
-              />
-            ))}
-          </div>
-          <PublishedDate date={post.date} />
-          <PostBody post={post} />
+          <Footer />
         </div>
-        <Footer />
-      </div>
+      </main>
     </>
   );
 };
@@ -78,6 +79,7 @@ export async function getStaticProps({ params }: GetStaticPropsParams) {
     "date",
     "slug",
     "content",
+    "description",
     "tags",
     "ogImage",
     "coverImage",
