@@ -5,20 +5,18 @@ interface MetaProps {
   title?: string;
   description?: string;
   ogImageUrl?: string;
-  key?: string;
 }
 
-const Meta: FunctionComponent<MetaProps> = ({
+const MetaHeader: FunctionComponent<MetaProps> = ({
   title,
   description,
   ogImageUrl,
-  key,
 }) => {
   return (
     <Head>
       {title && (
         <>
-          <title key={key}>{title}</title>
+          <title key={title}>{title}</title>
           <meta property="og:title" content={title} />
         </>
       )}
@@ -33,4 +31,4 @@ const Meta: FunctionComponent<MetaProps> = ({
   );
 };
 
-export default Meta;
+export default MetaHeader;

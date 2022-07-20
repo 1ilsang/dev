@@ -32,7 +32,6 @@ const Posts: NextPage<PostsProps> = ({ post }) => {
   return (
     <>
       <MetaHeader
-        key={`${post.title} - ${MetaTitle.HOME}`}
         title={`${post.title} - ${MetaTitle.HOME}`}
         ogImageUrl={post.ogImage.url}
         description={post.description}
