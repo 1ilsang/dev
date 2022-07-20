@@ -7,6 +7,9 @@ out
 .turbo
 .DS_Store
 
+# TypeScript cache
+*.tsbuildinfo
+
 # For zero-install
 # https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
 .yarn/*
