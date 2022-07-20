@@ -17,7 +17,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 	╚═╝ ╚═╝ ╚═════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ 
 																										 
 								\u001b[31mThank you for visiting.\u001b[0m
-			`
+			`,
     );
   }
   return <Component {...pageProps} />;

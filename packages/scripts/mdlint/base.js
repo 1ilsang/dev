@@ -7,7 +7,7 @@ module.exports = {
   MD013: { line_length: 1300 },
   MD024: false,
   MD026: false,
-  MD029: { style: "ordered", "ol-prefix": false },
+  MD029: false,
   MD033: false,
   MD034: false,
   MD036: false,

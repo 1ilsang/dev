@@ -1,4 +1,5 @@
 import { FunctionComponent } from "react";
+
 import PostType from "../types/posts";
 import markdownStyles from ".././styles/markdown-styles.module.scss";
 

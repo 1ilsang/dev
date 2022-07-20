@@ -10,8 +10,11 @@
     "start": "next start",
     "export": "next export",
     "deploy": "next build && next export",
+    "lint:prettier": "prettier --list-different \"./{pages,components}/**/*.{json,html,yml,tsx,ts,js,jsx}\"",
+    "lint:eslint": "eslint --ext .ts,.tsx,.js,.jsx \"./**/*.{js,jsx,ts,tsx}\"",
     "lint:markdown": "markdownlint --config ./.markdownlint.js *.{md,mdx} ./**/*.{md,mdx}",
-    "lint": "next lint",
+    "lint:typeCheck": "tsc --pretty",
+    "lint": "FORCE_COLOR=1 npm-run-all -p --print-label \"lint:**\"",
     "clean": "rm -rf .next out .turbo"
   },
   "dependencies": {
@@ -21,17 +24,17 @@
     "react-dom": "18.2.0",
     "remark": "14.0.2",
     "remark-html": "15.0.1",
-    "sass": "1.53.0",
-    "ui": "*"
+    "sass": "1.53.0"
   },
   "devDependencies": {
     "@types/node": "17.0.36",
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",
     "autoprefixer": "10.4.7",
-    "eslint-config-custom": "*",
     "postcss": "8.4.14",
     "tailwindcss": "3.0.24",
-    "tsconfig": "*"
+    "@1ilsang/tsconfig": "*",
+    "@1ilsang/eslint": "*",
+    "@1ilsang/mdlint": "*"
   }
 }

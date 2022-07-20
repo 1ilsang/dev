@@ -1,15 +1,18 @@
 {
-  "name": "mdlint",
+  "name": "@1ilsang/mdlint",
   "private": true,
   "version": "0.0.0",
   "author": "1ilsang <1ilsang@naver.com>",
   "description": "For markdown lint",
   "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf node_modules .turbo"
+  },
   "files": [
     "./base.js"
   ],
   "main": "./base.js",
-  "devDependencies": {
+  "dependencies": {
     "markdownlint": "0.26.0",
     "markdownlint-cli": "0.31.1"
   }

@@ -1,4 +1,5 @@
 import { FunctionComponent } from "react";
+
 import DateFormatter from "./DateFormatter";
 
 interface PublishedDateProps {

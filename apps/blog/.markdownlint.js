@@ -1,1 +1,1 @@
-module.exports = require("mdlint");
+module.exports = require("@1ilsang/mdlint");

@@ -1,5 +1,6 @@
 import { NextPage } from "next";
 import Image from "next/image";
+
 import MetaHeader from "../../components/common/MetaHeader";
 import Navbar from "../../components/common/Navbar";
 import { ImageUrl, MetaDescription, MetaTitle } from "../../helpers/constant";

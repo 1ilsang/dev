@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FunctionComponent, useState } from "react";
+
 import { AvatarImage } from "./Avatar";
 
 interface NavTextProps {

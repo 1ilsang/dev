@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import ErrorPage from "next/error";
-import Head from "next/head";
 import { useRouter } from "next/router";
+
 import Avatar from "../../components/common/Avatar";
 import Footer from "../../components/common/Footer";
 import HashTag from "../../components/common/HashTag";

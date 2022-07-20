@@ -11,9 +11,7 @@
   ],
   "scripts": {
     "blog": "yarn workspace blog",
-    "content": "yarn workspace content",
-    "mdlint": "yarn workspace mdlint",
-    "clean": "turbo run clean",
+    "clean": "turbo run clean && rm -rf node_modules",
     "lint": "turbo run lint",
     "deploy-blog": "turbo run deploy --filter=blog",
     "prepare": "husky install"
@@ -22,6 +20,8 @@
     "eslint": "8.19.0",
     "eslint-config-custom": "*",
     "husky": "8.0.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.7.1",
     "typescript": "4.7.4"
   },
   "dependencies": {

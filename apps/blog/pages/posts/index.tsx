@@ -1,6 +1,6 @@
 import { NextPage } from "next";
-import Head from "next/head";
 import Link from "next/link";
+
 import DateFormatter from "../../components/common/DateFormatter";
 import Footer from "../../components/common/Footer";
 import MetaHeader from "../../components/common/MetaHeader";
