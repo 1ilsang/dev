@@ -1,7 +1,6 @@
 import { FunctionComponent } from "react";
 
 import PostType from "../types/posts";
-import markdownStyles from ".././styles/markdown-styles.module.scss";
 
 interface PostBodyProps {
   post: PostType;
@@ -15,7 +14,7 @@ const PostBody: FunctionComponent<PostBodyProps> = ({ post }) => {
    */
   return (
     <div
-      className={`${markdownStyles["markdown"]}`}
+      className="markdown"
       dangerouslySetInnerHTML={{ __html: `${post.content}` }}
     />
   );

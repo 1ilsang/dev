@@ -3,7 +3,7 @@ import { FunctionComponent } from "react";
 
 const Footer: FunctionComponent = () => {
   return (
-    <div className="footer">
+    <footer className="footer">
       <ul>
         <li>
           <Link href="/about">1ilsang</Link>
@@ -26,7 +26,7 @@ const Footer: FunctionComponent = () => {
           </Link>
         </li>
       </ul>
-    </div>
+    </footer>
   );
 };
 

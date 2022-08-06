@@ -1,0 +1,21 @@
+/* PC */
+.nav {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	justify-items: center;
+	position: fixed;
+	z-index: 300;
+}
+.nav-avatar {
+	width: 2rem;
+	height: 2rem;
+	margin-top: 0.5rem;
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+	.post-nav-trans {
+		opacity: 0.1;
+	}
+}

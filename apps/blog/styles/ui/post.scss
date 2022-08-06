@@ -1,0 +1,42 @@
+/* PC */
+.post-container {
+	height : auto;
+  min-height: 100%;
+	margin: 0 10vw 0 10vw;
+	padding: 10vh 0 5vh 0;
+}
+.post-layout {
+	height: 100vh;
+}
+.post-nav-trans {
+	opacity: 1;
+}
+.post-list li {
+	padding: 1vh 8vw 1vh;
+	margin-bottom: 15px;
+	border-radius: 40px 80px / 80px 40px;
+}
+.post-list li:hover {
+	color: white;
+	background: linear-gradient(-45deg,  #ee7752, #1B1B1B, #23a6d5, #0ddbdb);
+	background-size: 400% 400%;
+	animation: water-rainbow 5s ease infinite;
+}
+.post-header {
+	font-size: 3.75rem;
+  line-height: 1;
+}
+.post-profile-container {
+	margin-top: 2vh;
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+	.post-nav-trans {
+		opacity: 0.1;
+	}
+	.post-header {
+		font-size: 2.3rem;
+		line-height: 1;
+	}
+}

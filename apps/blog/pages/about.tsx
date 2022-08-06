@@ -16,14 +16,16 @@ const About: NextPage = () => {
       />
       <div className="about-layout">
         <Navbar />
-        <div className="about-container">
-          <Image
-            src="/assets/build.png"
-            layout="fill"
-            objectFit="contain"
-            alt={"공사중"}
-          />
-        </div>
+        <main>
+          <div className="about-container">
+            <Image
+              src="/assets/build.png"
+              layout="fill"
+              objectFit="contain"
+              alt={"공사중"}
+            />
+          </div>
+        </main>
         <Footer />
       </div>
     </>

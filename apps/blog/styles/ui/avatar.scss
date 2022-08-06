@@ -1,0 +1,31 @@
+/* PC */
+.avatar-image {
+	width: 3rem;
+	height: 3rem;
+}
+.avatar-name {
+	font-weight: 500;
+	font-size: 1.25rem;
+	line-height: 1.75rem;
+}
+.avatar-description {
+	font-size: 0.875rem;
+	line-height: 1.25rem;
+	--tw-text-opacity: 1;
+	color: rgb(100 116 139 / var(--tw-text-opacity));
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+	.avatar-image {
+		width: 2rem;
+		height: 2rem;
+	}
+	.avatar-name {
+		font-size: 1rem;
+		line-height: 1rem;
+	}
+	.avatar-description {
+		line-height: 1rem;
+	}
+}

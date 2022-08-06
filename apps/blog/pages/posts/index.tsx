@@ -23,24 +23,26 @@ const PostHome: NextPage<PostHomeProps> = ({ posts }) => {
         description={MetaDescription.HOME}
       />
       <div className="post-layout">
-        <Navbar />
-        <div className="post-container">
-          <ul className="post-list">
-            {posts.map((post) => {
-              return (
-                <li key={post.title}>
-                  <Link href={`/posts/${post.slug}`}>
-                    <a>
-                      <h1 className="text-xl mr-4">{post.title}</h1>
-                      <h1>{post.description}</h1>
-                      <DateFormatter iso={post.date} />
-                    </a>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        <main>
+          <Navbar />
+          <div className="post-container">
+            <ul className="post-list">
+              {posts.map((post) => {
+                return (
+                  <li key={post.title}>
+                    <Link href={`/posts/${post.slug}`}>
+                      <a>
+                        <h1 className="text-xl mr-4">{post.title}</h1>
+                        <h1>{post.description}</h1>
+                        <DateFormatter iso={post.date} />
+                      </a>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </main>
         <Footer />
       </div>
     </>

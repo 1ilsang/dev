@@ -17,12 +17,14 @@ const Tags: NextPage<TagsProps> = () => {
       />
       <div className="home-container">
         <Navbar />
-        <Image
-          src="/assets/build.png"
-          layout="fill"
-          objectFit="contain"
-          alt={"공사중"}
-        />
+        <main>
+          <Image
+            src="/assets/build.png"
+            layout="fill"
+            objectFit="contain"
+            alt={"공사중"}
+          />
+        </main>
       </div>
     </>
   );

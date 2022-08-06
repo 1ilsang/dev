@@ -13,6 +13,7 @@
     "blog": "yarn workspace blog",
     "clean": "turbo run clean && rm -rf node_modules",
     "lint": "turbo run lint",
+    "dev": "turbo run dev",
     "deploy-blog": "turbo run deploy --filter=blog",
     "prepare": "husky install"
   },

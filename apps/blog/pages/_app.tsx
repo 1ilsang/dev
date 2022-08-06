@@ -1,5 +1,5 @@
 import { AppProps } from "next/app";
-import "../styles/globals.scss";
+import "../styles/index.scss";
 
 let bannerOpened = false;
 

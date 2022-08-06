@@ -1,0 +1,30 @@
+.date-published {
+	color: #6c6e6f
+}
+.scroll-snap {
+	height: 100vh;
+	scroll-snap-align: start;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+@keyframes water-rainbow {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+.water-rainbow:hover {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: water-rainbow 5s ease infinite;
+	z-index: 300;
+}
+.hover-underline:hover {
+	text-decoration: underline;
+}
