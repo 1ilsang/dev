@@ -15,7 +15,7 @@
     "lint:markdown": "markdownlint --config ./.markdownlint.js *.{md,mdx} ./**/*.{md,mdx}",
     "lint:typeCheck": "tsc --pretty",
     "lint": "FORCE_COLOR=1 npm-run-all -p --print-label \"lint:**\"",
-    "clean": "rm -rf .next out .turbo"
+    "clean": "rm -rf .next out .turbo node_modules"
   },
   "dependencies": {
     "gray-matter": "4.0.3",

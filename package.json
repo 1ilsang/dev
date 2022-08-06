@@ -1,6 +1,6 @@
 {
   "name": "1ilsang.dev",
-  "packageManager": "yarn@1.22.10",
+  "packageManager": "yarn@1.22.19",
   "private": true,
   "version": "0.0.0",
   "author": "1ilsang <1ilsang@naver.com>",
