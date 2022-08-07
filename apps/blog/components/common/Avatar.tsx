@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import profile from "../../_data/1ilsang.json";
+import profile from "~data/1ilsang.json";
 
 export const AvatarImage = ({ nav = false }) => {
   return (

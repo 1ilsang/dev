@@ -1,5 +1,14 @@
 {
   "extends": "@1ilsang/tsconfig/nextjs.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~data/*": ["_data/*"],
+      "~components/*": ["components/*"],
+      "~helpers/*": ["helpers/*"],
+      "~types/*": ["types/*"]
+    }
+  },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }

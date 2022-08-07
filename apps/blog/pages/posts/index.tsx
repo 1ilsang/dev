@@ -1,13 +1,13 @@
 import { NextPage } from "next";
 import Link from "next/link";
 
-import DateFormatter from "../../components/common/DateFormatter";
-import Footer from "../../components/common/Footer";
-import MetaHeader from "../../components/common/MetaHeader";
-import Navbar from "../../components/common/Navbar";
-import { ImageUrl, MetaDescription, MetaTitle } from "../../helpers/constant";
-import { getAllPosts, getPostBySlug } from "../../helpers/post";
-import PostType from "../../types/posts";
+import DateFormatter from "~components/common/DateFormatter";
+import Footer from "~components/common/Footer";
+import MetaHeader from "~components/common/MetaHeader";
+import Navbar from "~components/common/Navbar";
+import { ImageUrl, MetaDescription, MetaTitle } from "~helpers/constant";
+import { getAllPosts, getPostBySlug } from "~helpers/post";
+import PostType from "~types/posts";
 
 interface PostHomeProps {
   posts: PostType[];
