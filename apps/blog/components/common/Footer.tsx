@@ -1,33 +1,36 @@
 import Link from "next/link";
-import { FunctionComponent } from "react";
+import React, { FunctionComponent } from "react";
 
-const Footer: FunctionComponent = () => {
+const Footer: FunctionComponent = React.memo(function Footer() {
   return (
     <footer className="footer">
       <ul>
         <li>
-          <Link href="/about">1ilsang</Link>
-        </li>
-        <li>
-          <Link href="https://github.com/1ilsang" passHref>
-            <a rel="noopener noreferrer" target="_blank">
-              GitHub
-            </a>
+          <Link href="/about">
+            <a>1ilsang</a>
           </Link>
         </li>
         <li>
-          <Link
-            href="https://www.linkedin.com/in/sang-chul-lee-91a32b154/"
-            passHref
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://github.com/1ilsang"
           >
-            <a rel="noopener noreferrer" target="_blank">
-              LinkedIn
-            </a>
-          </Link>
+            GitHub
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.linkedin.com/in/sang-chul-lee-91a32b154/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            LinkedIn
+          </a>
         </li>
       </ul>
     </footer>
   );
-};
+});
 
 export default Footer;
