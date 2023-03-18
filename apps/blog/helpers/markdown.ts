@@ -1,9 +1,15 @@
-import { remark } from "remark";
-import html from "remark-html";
+import rehypeHighlight from "rehype-highlight";
+import { unified } from "unified";
+import markdown from "remark-parse";
+import remark2rehype from "remark-rehype";
+import html from "rehype-stringify";
 
-export default async function markdownToHtml(markdown: string) {
-  const result = await remark()
-    .use(html, { sanitize: false })
-    .process(markdown);
-  return result.toString();
+export default async function markdownToHtml(mdText: string) {
+  const html_text = unified()
+    .use(markdown)
+    .use(remark2rehype)
+    .use(rehypeHighlight)
+    .use(html)
+    .processSync(mdText);
+  return html_text.toString();
 }
