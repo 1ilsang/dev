@@ -1,15 +1,17 @@
 import rehypeHighlight from "rehype-highlight";
 import { unified } from "unified";
-import markdown from "remark-parse";
-import remark2rehype from "remark-rehype";
-import html from "rehype-stringify";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import rehypeStringify from "rehype-stringify";
 
-export default async function markdownToHtml(mdText: string) {
-  const html_text = unified()
-    .use(markdown)
-    .use(remark2rehype)
+const markdownToHtml = async (mdText: string) => {
+  const htmlText = unified()
+    .use(remarkParse)
+    .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeHighlight)
-    .use(html)
+    .use(rehypeStringify, { allowDangerousHtml: true })
     .processSync(mdText);
-  return html_text.toString();
-}
+  return htmlText.toString();
+};
+
+export default markdownToHtml;
