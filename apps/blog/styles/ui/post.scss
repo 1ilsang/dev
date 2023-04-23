@@ -30,6 +30,13 @@
 	margin-top: 2vh;
 }
 
+@media (min-width: 1400px) {
+	.post-container {
+		margin: 0 22vw 0 22vw;
+		padding: 10vh 0 5vh 0;
+	}
+}
+
 /* MOBILE */
 @media (max-width: 700px) {
 	.post-nav-trans {
