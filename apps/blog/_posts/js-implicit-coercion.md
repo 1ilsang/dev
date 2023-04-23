@@ -2,10 +2,10 @@
 title: "알랑말랑 암묵적 형변환 말랑말랑 이해하기"
 description: "자바스크립트의 형변환은 어떻게 일어나는가?"
 tags: ["javascript", "type", "implicit-coercion"]
-coverImage: "https://user-images.githubusercontent.com/23524849/218299370-80d3a527-9c26-47f7-bd7e-22e8a9d19768.png"
+coverImage: "https://user-images.githubusercontent.com/23524849/233845072-aa409fb1-2182-47e7-92ea-94b740bde30c.png"
 date: "2023-04-22T08:02:20.684Z"
 ogImage:
-  url: "https://user-images.githubusercontent.com/23524849/218299370-80d3a527-9c26-47f7-bd7e-22e8a9d19768.png"
+  url: "https://user-images.githubusercontent.com/23524849/233845072-aa409fb1-2182-47e7-92ea-94b740bde30c.png"
 ---
 
 ```js
@@ -230,6 +230,7 @@ function OrdinaryToPrimitive (O, hint) {
 1. `hint` 는 언제 `default` 값을 벗어나게 될까?
    - `<`, `>` 혹은 `-`, `*` 와 같이 명확한 숫자 비교에선 `number` 가 된다.(`+` 는 문자열도 포함되므로 제외된다)
 2. `Date` 객체를 제외한 모든 내장 객체는 `default` 와 `number` 를 동일하게 처리하므로 `number` 로 이해하는게 편하다.
+   - 일반 객체는 [Symbol.prototype[@@toPrimitive]](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Symbol/@@toPrimitive)를 사용하는 반면 Date 객체는 [Date.prototype[@@toPrimitive]](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Date/@@toPrimitive)를 사용한다.
 3. `boolean` 타입의 `hint` 는 존재하지 않는다. 모든 객체는 `true` 로 평가되므로 `string`, `number` 만 처리하면 된다.
 4. `[Symbol.toPrimitive]` 를 커스텀 할 수 있는가?
    - 가능하다.
