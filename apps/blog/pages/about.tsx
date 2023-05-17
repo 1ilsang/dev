@@ -1,6 +1,6 @@
 import { NextPage } from "next";
-import Image from "next/image";
 
+import AboutContainer from "~/about/Container";
 import Footer from "~/shared/components/Footer";
 import MetaHeader from "~/shared/components/MetaHeader";
 import Navbar from "~/shared/components/Navbar";
@@ -21,14 +21,7 @@ const About: NextPage = () => {
       <div className="about-layout">
         <Navbar />
         <main>
-          <div className="about-container">
-            <Image
-              src="/assets/build.png"
-              layout="fill"
-              objectFit="contain"
-              alt={"공사중"}
-            />
-          </div>
+          <AboutContainer />
         </main>
         <Footer />
       </div>
