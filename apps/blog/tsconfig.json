@@ -4,9 +4,7 @@
     "baseUrl": ".",
     "paths": {
       "~data/*": ["_data/*"],
-      "~components/*": ["components/*"],
-      "~helpers/*": ["helpers/*"],
-      "~types/*": ["types/*"]
+      "~/*": ["features/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

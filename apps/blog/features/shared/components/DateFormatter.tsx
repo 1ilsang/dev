@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 
-import { parseISO } from "~helpers/date";
+import { parseISO } from "../helpers/date";
 
 interface DateFormatterProps {
   iso: string;

@@ -2,17 +2,17 @@ import { NextPage } from "next";
 import ErrorPage from "next/error";
 import { useRouter } from "next/router";
 
-import Footer from "~components/common/Footer";
-import HashTag from "~components/common/HashTag";
-import MetaHeader from "~components/common/MetaHeader";
-import Navbar from "~components/common/Navbar";
-import PublishedDate from "~components/common/PublishedDate";
-import PostBody from "~components/PostBody";
-import { MetaTitle } from "~helpers/constant";
-import markdownToHtml from "~helpers/markdown";
-import { getAllPosts, getPostBySlug } from "~helpers/post";
-import PostType from "~types/posts";
-import Avatar from "~components/common/Avatar";
+import { PostType } from "~/posts/models";
+import PostBody from "~/posts/PostBody";
+import Avatar from "~/shared/components/Avatar";
+import Footer from "~/shared/components/Footer";
+import HashTag from "~/shared/components/HashTag";
+import MetaHeader from "~/shared/components/MetaHeader";
+import Navbar from "~/shared/components/Navbar";
+import PublishedDate from "~/shared/components/PublishedDate";
+import { MetaTitle } from "~/shared/helpers/constant";
+import markdownToHtml from "~/shared/helpers/markdown";
+import { getAllPosts, getPostBySlug } from "~/shared/helpers/post";
 
 interface PostsProps {
   post: PostType;

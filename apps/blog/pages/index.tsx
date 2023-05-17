@@ -1,8 +1,12 @@
 import { NextPage } from "next";
 
-import MetaHeader from "~components/common/MetaHeader";
-import Navbar from "~components/common/Navbar";
-import { ImageUrl, MetaDescription, MetaTitle } from "~helpers/constant";
+import MetaHeader from "~/shared/components/MetaHeader";
+import Navbar from "~/shared/components/Navbar";
+import {
+  ImageUrl,
+  MetaDescription,
+  MetaTitle,
+} from "~/shared/helpers/constant";
 
 const Home: NextPage = () => {
   return (
