@@ -1,0 +1,229 @@
+---
+title: "useTransition 이해하기"
+description: "상태 업데이트의 우선 순위를 지정해보자"
+tags: ["react", "hooks", "useTransition"]
+coverImage: "https://github.com/1ilsang/dev/assets/23524849/4c83fd47-4f27-4cec-86bf-64ac64fa9795"
+date: "2023-06-04T11:38:16.720Z"
+ogImage:
+  url: "https://github.com/1ilsang/dev/assets/23524849/4c83fd47-4f27-4cec-86bf-64ac64fa9795"
+---
+
+![image](https://github.com/1ilsang/dev/assets/23524849/4c83fd47-4f27-4cec-86bf-64ac64fa9795)
+
+최근 리액트 공식 사이트가 [react.dev](https://react.dev/)로 이사하게 되었다. 이에 맞춰 [한국 번역 페이지](https://ko.react.dev/)도 새롭게 단장하게 되어 기여자를 모집하고 있었다.
+
+평소 리액트 커뮤니티에 기여할 방법을 찾던 중이었기에 useTransition 파트를 [지원했고](https://github.com/reactjs/ko.react.dev/issues/374#issuecomment-1523237065) 무사히 [번역 PR](https://github.com/reactjs/ko.react.dev/pull/609)을 올릴수 있었다.
+
+> [번역된 페이지 보기](https://ko.react.dev/reference/react/useTransition)
+
+번역을 하면서 useTransition에 대해 알게 된 것들을 정리해 보고자 한다.
+
+## TL;DR!
+
+useTransition은 컴포넌트 최상위 수준에서 호출되어 중단될 상태들을 `transition`이라고 표시해 리액트가 UI 렌더링시 우선순위에 따라 업데이트 할 수 있도록 한다.
+
+## 목차
+
+1. useTransition이란?
+   - isPending, startTransition 이해하기
+     - startTransition 유의 사항
+   - 전체 코드로 이해하기
+2. Suspense와 연계하기
+3. 그외 자잘한 팁들
+   - vs throttle, debounce
+   - startTransition에 전달된 함수는 즉시 실행된다
+   - useDeferredValue
+
+## useTransition이란?
+
+`useTransition`은 UI를 차단하지 않고 **상태를 업데이트** 할 수 있는 리액트 훅이다.
+
+React18의 많은 기능 추가중 concurrent rendering 기능을 적절하게 사용할 수 있게 해준다.
+
+```jsx
+const [isPending, startTransition] = useTransition();
+```
+
+여기서 _UI를 차단하지 않고_ 라는 문구를 유의하기 바란다. 일반적으로 오래 걸리는 상태 업데이트가 존재할 경우, 해당 업데이트가 완료된 이후에
+
+useTransition은 컴포넌트 최상위 수준에서 호출되어 중단될 상태들을 `transition`이라고 표시해 리액트가 UI 렌더링시 우선순위에 따라 업데이트 할 수 있도록 한다.
+
+`transition`으로 표시된 상태 업데이트(A라 호칭)는 다른 일반적인 상태 업데이트(B)가 호출될때 중단되고 B의 상태 업데이트가 완료된 다음 **다시** A를 렌더링 시작한다.
+
+이를 통해 특정 컴포넌트의 렌더링이 오래 걸리더라도 다른 우선순위 높은 상태의 변경을 통해 User Interaction을 블로킹하지 않고 자연스럽게 동작할 수 있도록 한다.
+
+### isPending, startTransition 이해하기
+
+```jsx
+const TabButton = ({ children, onClick }) => {
+  const [isPending, startTransition] = useTransition();
+  const [tab, setTab] = useState("about");
+
+  if (isPending) {
+    return <b className="pending">{children}</b>;
+  }
+  function selectTab(nextTab) {
+    startTransition(() => {
+      // NOTE: async 함수는 들어오면 안된다.
+      setTab(nextTab);
+    });
+  }
+  // ... (아래에서 풀 코드로 설명하겠습니다)
+};
+```
+
+useTransition은 두 개의 항목이 있는 배열을 반환한다.
+
+1. `isPending` 플래그는 대기 중인 transition이 있는지 알려준다.
+2. `startTransition` 함수는 상태 업데이트(setState)를 transition으로 표시해주는 함수다.
+
+#### startTransition 유의 사항
+
+1. 동기 함수여야 한다.
+2. `transition`으로 표시된 setState는 다른 setState 업데이트시 중단된다.
+   - 다른 우선순위가 높은 상태 업데이트가 있을 경우 그것을 먼저 처리한다는 뜻
+3. 텍스트 입력을 제어하는 데 사용할 수 없다.
+
+### 전체 코드로 이해하기
+
+전체 코드로 이해해 보자. 중간중간 주석을 통해 동작을 설명하고자 한다.
+
+[코드 샌드박스는 공식 문서](https://ko.react.dev/reference/react/useTransition#displaying-a-pending-visual-state-during-the-transition)에서 잘 제공해 주므로 직접 실행해 비교해 보면 좋다.
+
+```jsx
+const App = () => {
+  const [tab, setTab] = useState("about");
+
+  return (
+    <>
+      {/* 탭을 클릭하면 렌더링할 탭 컴포넌트가 설정된다 */}
+      <TabButton isActive={tab === "about"} onClick={() => setTab("about")}>
+        About
+      </TabButton>
+      <TabButton isActive={tab === "posts"} onClick={() => setTab("posts")}>
+        Posts (slow)
+      </TabButton>
+      <TabButton isActive={tab === "contact"} onClick={() => setTab("contact")}>
+        Contact
+      </TabButton>
+      <hr />
+      {/* 현재 탭에 따라 탭 컴포넌트가 렌더링 된다 */}
+      {tab === "about" && <AboutTab />}
+      {tab === "posts" && <PostsTab />}
+      {tab === "contact" && <ContactTab />}
+    </>
+  );
+};
+
+const TabButton = ({ children, isActive, onClick }) => {
+  const [isPending, startTransition] = useTransition();
+
+  // 현재 탭이 활성화 되면 isActive 상태가 된다.
+  if (isActive) {
+    return <b>{children}</b>;
+  }
+  // 대기 중인 transition이 있다면 isPending이 된다.
+  if (isPending) {
+    return <b className="pending">{children}</b>;
+  }
+  /**
+   * props로 받은 onClick 함수를 startTransition으로 감싸주기 때문에
+   * onClick 함수(setTab)은 transition으로 설정되어 렌더링시 우선순위에서 밀리게 된다.
+   * 그 결과 오랜시간이 걸리는 PostsTab 컴포넌트를 렌더링 하는 도중 다른 탭을 누르게 되면
+   * PostsTab 컴포넌트의 렌더링을 멈추고 다른 컴포넌트를 렌더링하게 된다.
+   **/
+  const handleButtonClick = () => {
+    startTransition(() => {
+      onClick();
+    });
+  };
+  return <button onClick={handleButtonClick}>{children}</button>;
+};
+
+const AboutTab = () => {
+  return <p>Welcome to my profile!</p>;
+};
+const PostsTab = () => {
+  const startTime = performance.now();
+  while (performance.now() - startTime < 1) {
+    // 1 ms 동안 아무것도 하지 않음으로써 매우 느린 코드를 실행한다.
+  }
+  return <p>PostsTab</p>;
+};
+const ContactTab = () => {
+  return <p>ContactTab</p>;
+};
+const ContactTab = () => {
+  return <p>ContactTab</p>;
+};
+```
+
+## Suspense와 연계하기
+
+```jsx
+const App = () => {
+  return (
+    <Suspense fallback={<Spinner />}>
+      {/*
+        위의 App 코드와 동일
+       */}
+    </Suspense>
+  );
+};
+```
+
+useTransition의 `isPending`을 `suspense`와 함께 사용할 경우 불필요한 로딩 인디케이터 노출을 막을수 있다.
+
+이는 아래와 같은 장점이 있다.
+
+1. transition은 중단할수 있으므로 리렌더링까지 기다릴 필요가 없다.
+   - Suspense의 경우 하위 컴포넌트가 모두 렌더링 될때까지 fallback을 노출시킨다.
+2. Suspense 이전에 isPending으로 처리할수 있기 때문에 갑작스러운 로딩 인디케이터 노출을 피할수 있다.
+
+## 그외 자잘한 팁들
+
+### vs throttle, debounce
+
+디바운싱과 스로틀로 이벤트의 지연 및 제한은 가능하지만 UI 블로킹의 근본적인 문제는 해결할 수 없다.
+
+### startTransition에 전달된 함수는 즉시 실행된다
+
+```jsx
+console.log(1);
+startTransition(() => {
+  console.log(2);
+  setPage("/about");
+});
+console.log(3);
+
+// 1, 2, 3
+```
+
+startTransition의 콜백 함수는 즉시 실행된다. 함수가 실행되는 동안 예약된 모든 상태 업데이트는 `transition`으로 표시된다.
+
+```jsx
+// React 작동 방식의 간소화된 버전
+let isInsideTransition = false;
+
+function startTransition(scope) {
+  isInsideTransition = true;
+  scope();
+  isInsideTransition = false;
+}
+
+function setState() {
+  if (isInsideTransition) {
+    // ... transition state 업데이트 예약 ...
+  } else {
+    // ... 긴급 state 업데이트 예약 ...
+  }
+}
+```
+
+transition으로 처리된 경우 transitionState로 예약(큐잉)되고 아닌 경우 일반적인 state 업데이트로 예약된다.
+
+예약된 작업들은 React18의 fiber 엔진(자체적인 스케줄러를 가지고 있다)이 적절하게 스케줄링 해준다.
+
+### useDeferredValue
+
+useDeferredValue도 useTransition과 유사하게 낮은 우선순위를 지정하기 위한 훅이다. useTransition은 함수 실행의 우선순위를 지정하는 반면, useDeferredValue는 값의 업데이트 우선순위를 지정한다.
