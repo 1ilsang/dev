@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import ErrorPage from "next/error";
 import { useRouter } from "next/router";
 
+import PostContainer from "~/posts/Container";
 import { PostType } from "~/posts/models";
 import PostBody from "~/posts/PostBody";
 import Avatar from "~/shared/components/Avatar";
@@ -14,7 +15,7 @@ import { MetaTitle } from "~/shared/helpers/constant";
 import markdownToHtml from "~/shared/helpers/markdown";
 import { getAllPosts, getPostBySlug } from "~/shared/helpers/post";
 
-interface PostsProps {
+export interface PostsProps {
   post: PostType;
   preview?: boolean;
 }
@@ -36,29 +37,10 @@ const Posts: NextPage<PostsProps> = ({ post }) => {
         ogImageUrl={post.ogImage.url}
         description={post.description}
       />
-      <main>
-        <div className="post-layout">
-          <Navbar />
-          <div className="post-container">
-            <h1 className="post-header">{post.title}</h1>
-            <div className="post-profile-container">
-              <Avatar />
-            </div>
-            <div className="flex mt-2 items-end">
-              {post.tags.map((tag) => (
-                <HashTag
-                  className="mr-2"
-                  key={tag}
-                  link={`/tags/${tag}`}
-                  content={tag}
-                />
-              ))}
-            </div>
-            <PublishedDate date={post.date} />
-            <PostBody post={post} />
-          </div>
-          <Footer />
-        </div>
+      <main className="post-layout">
+        <Navbar />
+        <PostContainer post={post} />
+        <Footer />
       </main>
     </>
   );

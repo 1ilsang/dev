@@ -1,8 +1,7 @@
 import { NextPage } from "next";
-import Link from "next/link";
 
+import PostListContainer from "~/posts/ListContainer";
 import { PostType } from "~/posts/models";
-import DateFormatter from "~/shared/components/DateFormatter";
 import Footer from "~/shared/components/Footer";
 import MetaHeader from "~/shared/components/MetaHeader";
 import Navbar from "~/shared/components/Navbar";
@@ -13,7 +12,7 @@ import {
 } from "~/shared/helpers/constant";
 import { getAllPosts, getPostBySlug } from "~/shared/helpers/post";
 
-interface PostHomeProps {
+export interface PostHomeProps {
   posts: PostType[];
   preview?: boolean;
 }
@@ -26,29 +25,11 @@ const PostHome: NextPage<PostHomeProps> = ({ posts }) => {
         ogImageUrl={ImageUrl.HOME}
         description={MetaDescription.HOME}
       />
-      <div className="post-layout">
-        <main>
-          <Navbar />
-          <div className="post-container">
-            <ul className="post-list">
-              {posts.map((post) => {
-                return (
-                  <li key={post.title}>
-                    <Link href={`/posts/${post.slug}`}>
-                      <a>
-                        <h1 className="text-xl mr-4">{post.title}</h1>
-                        <h1>{post.description}</h1>
-                        <DateFormatter iso={post.date} />
-                      </a>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        </main>
+      <main className="post-layout">
+        <Navbar />
+        <PostListContainer posts={posts} />
         <Footer />
-      </div>
+      </main>
     </>
   );
 };

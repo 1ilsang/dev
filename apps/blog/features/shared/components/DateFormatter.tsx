@@ -1,15 +1,26 @@
 import { FunctionComponent } from "react";
 
-import { parseISO } from "../helpers/date";
+import { formatDate, parseISO } from "../helpers/date";
+
+type DateType = "iso" | "default";
 
 interface DateFormatterProps {
-  iso: string;
+  date: Date | number | string;
+  type?: DateType;
+  format?: string;
 }
 
-const DateFormatter: FunctionComponent<DateFormatterProps> = ({ iso }) => {
+const DateFormatter: FunctionComponent<DateFormatterProps> = ({
+  date,
+  type = "default",
+  format,
+}) => {
+  const dateTime =
+    type === "iso" ? parseISO(String(date)) : formatDate(date, format);
+
   return (
-    <time className="date-format" dateTime={iso}>
-      {parseISO(iso)}
+    <time className="date-format" dateTime={dateTime}>
+      {dateTime}
     </time>
   );
 };

@@ -18,13 +18,11 @@ const About: NextPage = () => {
         ogImageUrl={ImageUrl.HOME}
         description={MetaDescription.HOME}
       />
-      <div className="about-layout">
+      <main className="about-layout">
         <Navbar />
-        <main>
-          <AboutContainer />
-        </main>
+        <AboutContainer />
         <Footer />
-      </div>
+      </main>
     </>
   );
 };

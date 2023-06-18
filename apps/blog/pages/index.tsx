@@ -16,12 +16,13 @@ const Home: NextPage = () => {
         ogImageUrl={ImageUrl.HOME}
         description={MetaDescription.HOME}
       />
-      <div className="home-container">
+      {/* TODO: home-layout 으로 변경 필요 */}
+      <main className="home-container">
         <Navbar />
         <section className="home-logo scroll-snap" />
         <section className="home-logo2 scroll-snap" />
         <section className="home-logo scroll-snap" />
-      </div>
+      </main>
     </>
   );
 };

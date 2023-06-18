@@ -9,7 +9,7 @@ interface PublishedDateProps {
 const PublishedDate: FunctionComponent<PublishedDateProps> = ({ date }) => {
   return (
     <div className="date-published">
-      <DateFormatter iso={date} /> published
+      <DateFormatter type="iso" date={date} /> published
     </div>
   );
 };

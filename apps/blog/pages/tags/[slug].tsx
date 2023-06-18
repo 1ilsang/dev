@@ -8,6 +8,7 @@ import {
   MetaDescription,
   MetaTitle,
 } from "~/shared/helpers/constant";
+import Footer from "~/shared/components/Footer";
 
 interface TagsProps {}
 
@@ -19,17 +20,18 @@ const Tags: NextPage<TagsProps> = () => {
         ogImageUrl={ImageUrl.HOME}
         description={MetaDescription.HOME}
       />
-      <div className="home-container">
+      <main className="tag-layout">
         <Navbar />
-        <main>
+        <div className="tag-container">
           <Image
             src="/assets/build.png"
             layout="fill"
             objectFit="contain"
             alt={"공사중"}
           />
-        </main>
-      </div>
+        </div>
+        <Footer />
+      </main>
     </>
   );
 };

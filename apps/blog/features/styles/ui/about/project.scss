@@ -1,0 +1,95 @@
+@mixin project {
+	border-left: 3px solid $minColor;
+	border-bottom: 1px dotted $minColor;
+	padding-left: 10px;
+	padding-bottom: 1rem;
+	margin-bottom: 1rem;
+
+	.border {
+		border: 1px solid $minColor;
+	}
+	
+	.headline {
+		display: flex;
+		align-items: flex-end;
+		
+		.title {
+			cursor: pointer;
+			font-size: 1.1rem;
+			font-weight: 500;
+		}
+
+		.date {
+			font-style: italic;
+			font-size: 0.9rem;
+		}
+	}
+
+	.tag {
+		display: flex;
+		flex-wrap: wrap;
+
+		.item {
+			font-size: 0.7rem;
+			background-color: $minColor;
+			color: $subColor;
+			padding: 3px;
+			margin: 5px 4px 5px 0px;
+			border-radius: 5px;
+		}
+	}
+
+	.description {
+		display: flex;
+		flex-wrap: wrap;
+		word-break: break-word;
+
+		.image {
+			width: 700px;
+		}
+
+		.text {
+			width: 100%;
+
+		.summary {
+			width: fit-content;
+			border-left: 0.25em solid #b2bec9;
+			background-color: #eef1f3;
+			border-radius: 4px;
+			padding: 15px;
+			padding-right: 22px;
+			color: black;
+			margin-bottom: 10px;
+		}
+		.main {
+			padding-top: 1rem;
+			padding-left: 0.2rem;
+			padding-bottom: 1rem;
+		}
+
+		.gap {
+			gap: 0.8rem;
+		}
+
+		ul {
+			padding-left: 1rem;
+			display: grid;
+
+			span {
+				padding-bottom: 0.8rem;
+			}
+			
+			li {
+				margin-top: 2px;
+				padding-left: 1rem;
+
+				&:before {
+					content: '▶';
+					margin-right: 0.5rem;
+					color: $baseColor;
+				}
+			}
+		}
+	}
+	}
+}

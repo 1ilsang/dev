@@ -1,0 +1,30 @@
+import { FunctionComponent, useState } from "react";
+
+import WorkCardContainer from "./card/Container";
+
+import { companyData } from "~data/company";
+
+const WorkContainer: FunctionComponent = () => {
+  const [toggleOpenAll, setToggleOpenAll] = useState(true);
+
+  const handleTitleClick = () => setToggleOpenAll(!toggleOpenAll);
+
+  return (
+    <div className="about-work">
+      <div className="label" onClick={handleTitleClick}>
+        WORK EXPERIENCE
+      </div>
+      <>
+        {companyData.map((data) => (
+          <WorkCardContainer
+            key={data.company}
+            {...data}
+            toggleOpenAll={toggleOpenAll}
+          />
+        ))}
+      </>
+    </div>
+  );
+};
+
+export default WorkContainer;

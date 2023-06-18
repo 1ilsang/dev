@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import './variables';
+@import './utils';
 @import './globals.scss';
 @import './common.scss';
 
@@ -12,6 +14,6 @@
 @import './ui/footer.scss';
 @import './ui/post.scss';
 @import './ui/home.scss';
-@import './ui/about.scss';
+@import './ui/about/index.scss';
 
 @import './markdown/index.scss';

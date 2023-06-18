@@ -1,0 +1,216 @@
+@import './project.scss';
+
+@mixin container {
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 30px;
+}
+
+@mixin label {
+	user-select: none;
+	border-bottom: 1px solid $baseColor;
+	color: $baseColor;
+	font-weight: bold;
+	font-size: 1.3rem;
+	margin-bottom: 4px;
+}
+
+.about {
+	&-layout {
+		height: 100vh;
+	}
+	&-container {
+		height : auto;
+		min-height: 100%;
+		margin: 0 10vw 0 10vw;
+		padding: 10vh 0 5vh 0;
+
+		@include largeDesktop {
+			margin: 0 22vw 0 22vw;
+			padding: 10vh 0 5vh 0;
+		}
+	}
+	&-profile {
+		&-container {
+			display: flex;
+			justify-content: space-between;
+
+			.image-section {
+				display: flex;
+				height: 100px;
+				align-items: center;
+
+				.image {
+					position: relative;
+					width: 75px;
+					height: 75px;
+					border: 1px solid $baseColor;
+					border-radius: 90px;
+
+					.circle {
+						border-radius: 90px;
+					}
+				}
+
+				.font-container {
+					margin-left: 20px;
+					height: 110px;
+					width: 117px;
+				}
+			}
+
+			.description {
+				padding: 10px 0px 20px 0px;
+			}
+		}
+
+		&-logo {
+			display: flex;
+			justify-content: flex-end;
+			padding-bottom: 3px;
+		
+			a {
+				display: flex;
+				align-items: center;
+			}
+			img {
+				padding-left: 5px;
+			}
+		}
+	}
+
+	&-skill {
+		padding-top: 10px;
+		@include container;
+
+		.label {
+			@include label;
+		}
+
+		.item-list {
+			display: flex;
+			flex-wrap: wrap;
+
+			.item {
+				padding: 5px 10px;
+				margin: 5px;
+				color: white;
+				background: $subColor;
+				border-radius: 8px;
+			}
+		}
+	}
+
+	&-work {
+		@include container;
+
+		.skeleton {
+			height: $max-height;
+		}
+
+		.label {
+			@include label;
+			cursor: pointer;
+
+			&:hover {
+				color: $subColor;
+			}
+		}
+		
+		&-card {
+			display: flex;
+			padding: 10px 0px;
+
+			@include mobile {
+				flex-direction: column;
+			}
+
+			.logo {
+				width: 6rem;
+				border-radius: 13px;
+				border: 1px solid $minColor;
+
+				&:hover {
+					filter: drop-shadow(2px 2px 4px lightgray) invert(2%);
+				}
+			}
+
+			.content {
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				margin-left: 22px;
+
+				@include mobile {
+					margin-left: 0px;
+				}
+
+				.headline {
+					display: flex;
+					align-items: baseline;
+
+					.title {
+						font-size: 1.5rem;
+						font-weight: 500;
+						cursor: pointer;
+						user-select: none;
+						
+						&:hover {
+							color: $baseColor;
+						}
+					}
+					
+					.date {
+						padding-left: 4px;
+						font-style: italic;
+					}
+
+					@include mobile {
+						flex-direction: column;
+						.date {
+							padding-left: 0px;
+						}
+					}
+				}
+
+				.position {
+					border-bottom: 1px dotted $minColor;
+					margin-bottom: 15px;
+				}
+
+				.project {
+					@include project;
+				}
+			}
+		}
+	}
+
+	&-activity {
+		@include container;
+
+		.label {
+			@include label;
+		}
+	}
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+  .about-profile-container {
+		flex-direction: column;
+		
+    .image-section {
+			flex-direction: column;
+			align-items: flex-start;
+			height: auto;
+
+			.font-container {
+				margin-left: 0;
+			}
+		}
+
+		.description {
+			padding: 0px 0px 30px 0px;
+		}
+  }
+}

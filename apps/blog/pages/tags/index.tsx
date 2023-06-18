@@ -20,20 +20,18 @@ const Tags: NextPage<TagsProps> = () => {
         ogImageUrl={ImageUrl.HOME}
         description={MetaDescription.HOME}
       />
-      <div className="tag-layout">
+      <main className="tag-layout">
         <Navbar />
-        <main>
-          <div className="tag-container">
-            <Image
-              src="/assets/build.png"
-              layout="fill"
-              objectFit="contain"
-              alt={"공사중"}
-            />
-          </div>
-        </main>
+        <div className="tag-container">
+          <Image
+            src="/assets/build.png"
+            layout="fill"
+            objectFit="contain"
+            alt={"공사중"}
+          />
+        </div>
         <Footer />
-      </div>
+      </main>
     </>
   );
 };
