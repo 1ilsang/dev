@@ -31,7 +31,7 @@ export const padToDigits = (num: number, digits = 2) => {
  */
 export const formatDate = (
   time: Date | number | string,
-  format: string = "yyyy.MM.dd HH:mm:ss",
+  format = "yyyy.MM.dd HH:mm:ss",
 ) => {
   let formattedTime = time;
   if (typeof time === "string") {

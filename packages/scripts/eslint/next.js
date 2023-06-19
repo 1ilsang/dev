@@ -1,11 +1,15 @@
 module.exports = {
   root: true,
-  extends: ["next", "prettier"],
   env: {
     browser: true,
+    node: true,
   },
+  parser: "@typescript-eslint/parser",
+  extends: ["plugin:@typescript-eslint/recommended", "prettier"],
+  plugins: ["import"],
   rules: {
-    "@next/next/no-html-link-for-pages": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-empty-interface": "off",
     "import/order": [
       "error",
       {
