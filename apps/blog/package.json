@@ -34,7 +34,7 @@
     "@1ilsang/eslint": "*",
     "@1ilsang/mdlint": "*",
     "@1ilsang/tsconfig": "*",
-    "@types/node": "18.11.9",
+    "@types/node": "18.16.18",
     "@types/react": "18.2.13",
     "@types/react-dom": "18.2.6",
     "autoprefixer": "10.4.14",
