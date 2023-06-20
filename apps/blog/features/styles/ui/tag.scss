@@ -1,12 +1,9 @@
 /* PC */
-.tag-container {
-	height : auto;
-  min-height: 100%;
-	margin: 0 10vw 0 10vw;
-	padding: 10vh 0 5vh 0;
-}
 .tag-layout {
-	height: 100%;
+	@include root-layout;
+}
+.tag-container {
+	@include root-container;
 }
 .hashtag {
 	color: rgb(59, 130, 246);

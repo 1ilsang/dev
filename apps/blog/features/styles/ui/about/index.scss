@@ -17,14 +17,10 @@
 
 .about {
 	&-layout {
-		height: 100vh;
+		@include root-layout;
 	}
 	&-container {
-		height : auto;
-		min-height: 100%;
-		margin: 0 10vw 0 10vw;
-		padding: 10vh 0 5vh 0;
-
+		@include root-container;
 		@include largeDesktop {
 			margin: 0 22vw 0 22vw;
 			padding: 10vh 0 5vh 0;

@@ -1,3 +1,13 @@
+@mixin root-layout {
+  height: 100vh;
+}
+@mixin root-container {
+	height : auto;
+	min-height: 100%;
+	margin: 0 10vw 0 10vw;
+	padding: 10vh 0 5vh 0;
+}
+
 @mixin mobile {
   @media (max-width: $mobile) {
     @content;
