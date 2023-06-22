@@ -2,15 +2,14 @@ import { FunctionComponent, useEffect, useMemo, useState } from "react";
 
 import { Company } from "../models";
 
-import CompanyLogo from "./Logo";
-import CompanyContentHeadline from "./content/Headline";
+import Logo from "./content/Logo";
+import ContentHeadline from "./content/Headline";
 import CompanyContentProject from "./content/Project";
 
 export type WorkCardContainerProps = Company & {
   toggleOpenAll: boolean;
+  format: string;
 };
-
-const DATE_FORMAT = "yyyy.MM";
 
 const WorkCardContainer: FunctionComponent<WorkCardContainerProps> = (
   props,
@@ -20,6 +19,10 @@ const WorkCardContainer: FunctionComponent<WorkCardContainerProps> = (
     workEndDate,
     projectList,
     toggleOpenAll,
+    companyHref,
+    companyLogoUrl,
+    company,
+    format,
     position = "Software Engineer",
   } = props;
 
@@ -48,11 +51,12 @@ const WorkCardContainer: FunctionComponent<WorkCardContainerProps> = (
 
   return (
     <div className="about-work-card">
-      <CompanyLogo {...props} />
+      <Logo href={companyHref} logoUrl={companyLogoUrl} alt={company} />
       <div className="content">
-        <CompanyContentHeadline
+        <ContentHeadline
           {...props}
-          format={DATE_FORMAT}
+          name={props.company}
+          format={format}
           onClick={handleHeadlineClick}
         />
         <div className="position">{position}</div>
@@ -61,7 +65,7 @@ const WorkCardContainer: FunctionComponent<WorkCardContainerProps> = (
             <CompanyContentProject
               key={project.name}
               {...project}
-              format={DATE_FORMAT}
+              format={format}
               totalPeriod={totalPeriod}
             />
           ))}

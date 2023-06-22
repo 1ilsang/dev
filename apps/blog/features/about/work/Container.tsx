@@ -4,7 +4,11 @@ import WorkCardContainer from "./card/Container";
 
 import { companyData } from "~data/company";
 
-const WorkContainer: FunctionComponent = () => {
+type WorkContainerProps = {
+  format: string;
+};
+
+const WorkContainer: FunctionComponent<WorkContainerProps> = ({ format }) => {
   const [toggleOpenAll, setToggleOpenAll] = useState(true);
 
   const handleTitleClick = () => setToggleOpenAll(!toggleOpenAll);
@@ -20,6 +24,7 @@ const WorkContainer: FunctionComponent = () => {
             key={data.company}
             {...data}
             toggleOpenAll={toggleOpenAll}
+            format={format}
           />
         ))}
       </>

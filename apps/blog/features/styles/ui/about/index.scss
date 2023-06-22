@@ -124,11 +124,13 @@
 			.logo {
 				width: 6rem;
 				border-radius: 13px;
-				border: 1px solid $minColor;
 
 				&:hover {
 					filter: drop-shadow(2px 2px 4px lightgray) invert(2%);
 				}
+			}
+			.border {
+				border: 1px solid $minColor;
 			}
 
 			.content {
@@ -148,9 +150,10 @@
 					.title {
 						font-size: 1.5rem;
 						font-weight: 500;
-						cursor: pointer;
 						user-select: none;
-						
+					}
+					.hover {
+						cursor: pointer;
 						&:hover {
 							color: $baseColor;
 						}
@@ -182,6 +185,43 @@
 	}
 
 	&-activity {
+		@include container;
+		padding-bottom: 50px;
+
+		.label {
+			@include label;
+		}
+
+		.year {
+			font-size: 1.3rem;
+		}
+
+		.left-line {
+			border-left: 3px solid $minColor;
+			padding-left: 1rem;
+
+			li {
+				display: flex;
+				
+				.category {
+					min-width: 120px;
+				}
+
+				.link-wrap {
+					width: 100%;
+				}
+				.link {
+					color: $subColor;
+
+					&:hover {
+						color: $baseColor;
+					}
+				}
+			}
+		}
+	}
+
+	&-education {
 		@include container;
 
 		.label {
