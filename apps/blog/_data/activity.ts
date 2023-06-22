@@ -116,20 +116,32 @@ const club: Activity[] = [
   {
     type: ActivityType.club,
     name: "삼성청년SW아카데미(SSAFY) 1기",
-    url: "https://blog.naver.com/1ilsang/221409756139",
+    url: "https://blog.naver.com/1ilsang/221546695268",
     startDate: 1544367600000,
     endDate: 1558796400000,
   },
   {
     type: ActivityType.club,
-    name: "넥스터즈",
+    name: "넥스터즈 20기",
     url: "https://teamnexters.com/",
     startDate: 1641394800000,
     endDate: 1683730800000,
   },
+  {
+    type: ActivityType.club,
+    name: "글또 5기",
+    url: "https://www.notion.so/ac5b18a482fb4df497d4e8257ad4d516",
+    startDate: 1604156400000,
+  },
 ];
 
 const openSource: Activity[] = [
+  {
+    type: ActivityType.openSource,
+    name: "땔감의 길을 걷는 자",
+    url: "https://github.com/Road-of-CODEr",
+    startDate: 1590937200000,
+  },
   {
     type: ActivityType.openSource,
     name: "[번역] Webpack.kr",
