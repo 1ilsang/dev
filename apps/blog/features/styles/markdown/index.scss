@@ -10,8 +10,8 @@
   }
 
   p {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 
   ul,ol {
@@ -56,29 +56,34 @@
     padding: 3px 4px;
     background-color: #171c24;
     color: #ffa657;
-    font-size: 0.8em;
+    font-family: 'D2Coding';
   }
 
   h1, h2, h3, h4 {
     border-bottom: 1px solid hsla(210,18%,87%,1);
-    padding-bottom: 0.3em;
+    font-weight: 600;
+    padding-bottom: 0.1rem;
+    padding-top: 1.5rem;
   }
   h1 {
-    @apply text-2xl mt-16 mb-4 leading-snug;
+    @apply text-2xl mt-16 leading-snug;
   }
   h2 {
-    @apply text-3xl mt-12 mb-4 leading-snug;
+    @apply text-3xl mt-12 leading-snug;
   }
   h3 {
-    @apply text-2xl mt-8 mb-4 leading-snug;
+    @apply text-2xl mt-8 leading-snug;
   }
   h4 {
-    @apply text-xl mt-6 mb-4 leading-snug;
+    @apply text-xl mt-6 leading-snug;
   }
 
   img {
     margin-top: 1%;
     margin-bottom: 1%;
+    min-height: 300px;
+    background-color: #656d76;
+    animation: skeleton-loading 1s linear infinite alternate;
   }
 }
 

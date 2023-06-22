@@ -14,6 +14,13 @@ export default class MyDocument extends Document {
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/github-dark.min.css"
           />
+          <link
+            rel="preload"
+            href="https://cdn.jsdelivr.net/gh/everydayminder/assets/subset-D2Coding.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
+          />
           <Favicon />
         </Head>
         <body>
