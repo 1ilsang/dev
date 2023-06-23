@@ -19,6 +19,21 @@
 			font-weight: 500;
 		}
 
+		.fold {
+			&:before {
+				content: '▶';
+				margin-right: 0.5rem;
+				color: $baseColor;
+			}
+		}
+		.unfold {
+			&:before {
+				content: '▼';
+				margin-right: 0.5rem;
+				color: $baseColor;
+			}
+		}
+
 		.date {
 			font-style: italic;
 			font-size: 0.9rem;

@@ -51,7 +51,10 @@ const CompanyContentProject: FunctionComponent<CompanyContentProjectProps> = ({
   return (
     <div className="project">
       <div className="headline">
-        <div className="title" onClick={handleDetailClick}>
+        <div
+          className={`title ${open ? "unfold" : "fold"}`}
+          onClick={handleDetailClick}
+        >
           {name}
         </div>
         {open && (
