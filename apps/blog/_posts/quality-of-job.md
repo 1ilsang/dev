@@ -2,13 +2,13 @@
 title: '"일의 격"을 읽고'
 description: "신수정님의 '일의 격' 책을 읽고 생각을 정리하게 되었다"
 tags: ["일의격", "book", "review"]
-coverImage: "https://github.com/1ilsang/dev/assets/23524849/707a5770-6d72-4738-a5f9-ff4f2ede2a4d"
+coverImage: "https://github.com/1ilsang/dev/assets/23524849/c72379b1-dde7-42ea-9168-863270b6a51f"
 date: "2023-06-22T11:36:39.984Z"
 ogImage:
-  url: "https://github.com/1ilsang/dev/assets/23524849/707a5770-6d72-4738-a5f9-ff4f2ede2a4d"
+  url: "https://github.com/1ilsang/dev/assets/23524849/c72379b1-dde7-42ea-9168-863270b6a51f"
 ---
 
-![image](https://github.com/1ilsang/dev/assets/23524849/707a5770-6d72-4738-a5f9-ff4f2ede2a4d)
+![image](https://github.com/1ilsang/dev/assets/23524849/c72379b1-dde7-42ea-9168-863270b6a51f)
 
 최근 일을 어떻게 마주해야할지, 지속 가능한 회사생활이 뭘까 고민하던 도중 이 책을 접하게 되었다.
 
