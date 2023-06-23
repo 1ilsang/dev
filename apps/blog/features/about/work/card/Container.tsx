@@ -50,7 +50,7 @@ const WorkCardContainer: FunctionComponent<WorkCardContainerProps> = (
   }
 
   return (
-    <div className="about-work-card">
+    <article className="about-work-card">
       <Logo href={companyHref} logoUrl={companyLogoUrl} alt={company} />
       <div className="content">
         <ContentHeadline
@@ -71,7 +71,7 @@ const WorkCardContainer: FunctionComponent<WorkCardContainerProps> = (
           ))}
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 

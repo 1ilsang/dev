@@ -22,7 +22,7 @@ const ActivityContainer: FunctionComponent = () => {
   }, [activityData]);
 
   return (
-    <div className="about-activity">
+    <section className="about-activity">
       <div className="label">ACTIVITY</div>
       {activityList.map((activity) => (
         <ActivityCardContainer
@@ -31,7 +31,7 @@ const ActivityContainer: FunctionComponent = () => {
           list={activity[1]}
         />
       ))}
-    </div>
+    </section>
   );
 };
 

@@ -13,7 +13,7 @@ const EducationContainer: FunctionComponent<EducationContainerProps> = ({
   format,
 }) => {
   return (
-    <div className="about-education">
+    <section className="about-education">
       <div className="label">EDUCATION</div>
       <div className="about-work-card">
         <Logo
@@ -33,7 +33,7 @@ const EducationContainer: FunctionComponent<EducationContainerProps> = ({
           <div className="position">{Catholic.major}</div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -10,13 +10,13 @@ const DATE_FORMAT = "yyyy.MM";
 
 const AboutContainer: FunctionComponent = () => {
   return (
-    <div className="about-container">
+    <section className="about-container">
       <HeadlineContainer />
       <SkillContainer />
       <WorkContainer format={DATE_FORMAT} />
       <ActivityContainer />
       <EducationContainer format={DATE_FORMAT} />
-    </div>
+    </section>
   );
 };
 

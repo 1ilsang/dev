@@ -14,7 +14,7 @@ const ActivityCardContainer: FunctionComponent<ActivityCardContainerProps> = ({
   list,
 }) => {
   return (
-    <div className="about-work-card">
+    <article className="about-work-card">
       <div className="logo year">
         <div>{year}</div>
       </div>
@@ -34,7 +34,7 @@ const ActivityCardContainer: FunctionComponent<ActivityCardContainerProps> = ({
           ))}
         </ul>
       </div>
-    </div>
+    </article>
   );
 };
 

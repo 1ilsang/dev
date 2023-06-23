@@ -4,9 +4,9 @@ import ProfileContainer from "./profile/Container";
 
 const HeadlineContainer: FunctionComponent = () => {
   return (
-    <div>
+    <header>
       <ProfileContainer />
-    </div>
+    </header>
   );
 };
 

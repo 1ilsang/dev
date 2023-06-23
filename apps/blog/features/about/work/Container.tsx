@@ -14,7 +14,7 @@ const WorkContainer: FunctionComponent<WorkContainerProps> = ({ format }) => {
   const handleTitleClick = () => setToggleOpenAll(!toggleOpenAll);
 
   return (
-    <div className="about-work">
+    <section className="about-work">
       <div className="label" onClick={handleTitleClick}>
         WORK EXPERIENCE
       </div>
@@ -28,7 +28,7 @@ const WorkContainer: FunctionComponent<WorkContainerProps> = ({ format }) => {
           />
         ))}
       </>
-    </div>
+    </section>
   );
 };
 
