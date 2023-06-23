@@ -6,6 +6,7 @@ export enum ActivityType {
   hackathon = "Hackathon",
   club = "Club",
   openSource = "Open Source",
+  sns = "SNS",
 }
 
 export type Activity = {
