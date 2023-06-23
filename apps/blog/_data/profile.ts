@@ -4,7 +4,7 @@ export const profileLinks: Profile[] = [
   {
     label: "1ilsang.dev",
     href: "https://1ilsang.dev",
-    imageSrc: "/favicon/favicon-32x32.png",
+    imageSrc: "/favicon/favicon-46x46.png",
     alt: "website",
   },
   {

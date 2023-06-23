@@ -5,7 +5,7 @@ export const Catholic: Education = {
   url: "https://catholic.ac.kr",
   major: "미디어공학, 컴퓨터정보공학 전공",
   logoUrl:
-    "https://github.com/1ilsang/dev/assets/23524849/7b55d1f6-80c2-4ae3-ad62-cd75d98927ff",
+    "https://github.com/1ilsang/dev/assets/23524849/7d5ea8da-c3e4-4c3f-8f24-4e909c2db71c",
   startDate: 1330527600000,
   endDate: 1534345200000,
 };

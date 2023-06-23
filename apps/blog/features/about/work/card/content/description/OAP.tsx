@@ -8,7 +8,7 @@ const OAP: FunctionComponent = () => {
       <DynamicImage
         className="image border"
         width={320}
-        src="https://github.com/1ilsang/dev/assets/23524849/011ab777-53cb-4dc6-9003-24f324a8fedb"
+        src="https://github.com/1ilsang/dev/assets/23524849/7c2ad355-607a-4692-9a95-be44e45f144d"
         alt="Official Account cover"
       />
       <div className="text">

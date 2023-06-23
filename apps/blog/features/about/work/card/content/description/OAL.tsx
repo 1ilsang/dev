@@ -7,7 +7,7 @@ const OAL: FunctionComponent = () => {
     <>
       <DynamicImage
         className="image"
-        src="https://github.com/1ilsang/dev/assets/23524849/03e7736c-50de-439a-8b81-66e8d97bd6b4"
+        src="https://github.com/1ilsang/dev/assets/23524849/117c8d4a-7d0e-4d22-a2b6-5d27844dbb1f"
         alt="OA Live CMS cover"
       />
       <div className="text">

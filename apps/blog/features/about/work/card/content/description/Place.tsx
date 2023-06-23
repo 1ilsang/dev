@@ -8,7 +8,7 @@ const Place: FunctionComponent = () => {
       <DynamicImage
         className="image border"
         width={320}
-        src="https://github.com/1ilsang/dev/assets/23524849/738786b2-a8f6-4b21-a211-17f05f81e68c"
+        src="https://github.com/1ilsang/dev/assets/23524849/ad5e8f2d-9226-4290-823c-1742521e0aa0"
         alt="LINE Place cover"
       />
       <div className="text">

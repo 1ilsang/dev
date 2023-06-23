@@ -5,7 +5,7 @@ import Favicon from "~/shared/components/Favicon";
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html>
+      <Html lang="ko">
         <Head>
           <meta charSet="utf-8" />
           <meta name="author" content="1ilsang" />

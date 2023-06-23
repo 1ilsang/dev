@@ -7,7 +7,7 @@ const Bleet: FunctionComponent = () => {
     <>
       <DynamicImage
         className="image"
-        src="https://github.com/1ilsang/dev/assets/23524849/9d62da34-fc6a-470a-a896-48fb804e1752"
+        src="https://github.com/1ilsang/dev/assets/23524849/bf6d917d-9d2a-4142-a0ee-4933cb321428"
         alt="Bleet cover"
       />
       <div className="text">

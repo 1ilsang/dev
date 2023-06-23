@@ -7,7 +7,7 @@ const LdsCalendar: FunctionComponent = () => {
     <>
       <DynamicImage
         className="image"
-        src="https://github.com/1ilsang/dev/assets/23524849/40ee9055-d82f-4b9b-9181-d25ff12c0ac7"
+        src="https://github.com/1ilsang/dev/assets/23524849/fe644134-f6a7-4029-8d6c-e1fa00ce327e"
         alt="LDS Calendar"
       />
       <div className="text">

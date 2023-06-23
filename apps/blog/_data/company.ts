@@ -4,7 +4,7 @@ const LINE: Company = {
   company: CompanyName.LINE,
   companyHref: "https://www.linkedin.com/company/line-messenger/",
   companyLogoUrl:
-    "https://github.com/1ilsang/dev/assets/23524849/7da90010-3572-4d3b-8897-827ffd4b2f73",
+    "https://github.com/1ilsang/dev/assets/23524849/815bfc87-2cec-43b1-b8c3-edb9db91b3b9",
   workStartDate: 1596985200000,
   projectList: [
     {
@@ -66,7 +66,7 @@ const BLIND: Company = {
   company: CompanyName.Blind,
   companyHref: "https://www.linkedin.com/company/teamblind/",
   companyLogoUrl:
-    "https://github.com/1ilsang/dev/assets/23524849/7bb2e2a2-091f-47ea-95c4-9fb10a18a05d",
+    "https://github.com/1ilsang/dev/assets/23524849/abdc15c8-571c-430c-a3c3-f2473aedd201",
   position: "Node.js Server Developer",
   workStartDate: 1564930800000,
   workEndDate: 1596726000000,
@@ -98,7 +98,7 @@ const SmileGate: Company = {
   company: CompanyName.Smilegate,
   companyHref: "https://www.linkedin.com/company/smilegate/",
   companyLogoUrl:
-    "https://github.com/1ilsang/dev/assets/23524849/4c5a6300-da28-4879-9dcf-20641af4511b",
+    "https://github.com/1ilsang/dev/assets/23524849/932fade0-e7bf-4fdc-b7a8-c346fedbb76d",
   workStartDate: 1520780400000,
   workEndDate: 1525791600000,
   position: "Frontend Developer(intern)",

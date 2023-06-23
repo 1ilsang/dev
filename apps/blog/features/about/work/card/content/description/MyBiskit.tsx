@@ -7,7 +7,7 @@ const MyBiskit: FunctionComponent = () => {
     <>
       <DynamicImage
         className="image"
-        src="https://github.com/1ilsang/dev/assets/23524849/18de0caa-38b1-48e9-bbc2-952cd7f85d43"
+        src="https://github.com/1ilsang/dev/assets/23524849/1d4a2e43-72ba-4b3e-b4c7-f236e8574c28"
         alt="Mybiskit cover"
       />
       <div className="text">

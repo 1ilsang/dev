@@ -11,7 +11,7 @@ const UVP: FunctionComponent = () => {
     <>
       <DynamicImage
         className="image"
-        src="https://github.com/1ilsang/dev/assets/23524849/a3490c0a-d036-4ac0-8f9d-a3062ab0b3ce"
+        src="https://github.com/1ilsang/dev/assets/23524849/3f7d451c-f3b9-4244-be36-b32d800512d2"
         height={backgroundHeight}
         alt="UVP cover"
       />

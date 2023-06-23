@@ -7,7 +7,7 @@ const Blind: FunctionComponent = () => {
     <>
       <DynamicImage
         className="image"
-        src="https://github.com/1ilsang/dev/assets/23524849/076e2a20-ed8d-4684-8382-2edc1c69d3a6"
+        src="https://github.com/1ilsang/dev/assets/23524849/bf1ace03-ab4a-48c5-9053-c1fe1dd6fc76"
         alt="Blind cover"
       />
       <div className="text">
