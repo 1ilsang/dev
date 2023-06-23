@@ -12,10 +12,9 @@ export default class MyDocument extends Document {
           <meta name="keyword" content="1ilsang,dev,front,frontend,react" />
           <link
             rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/github-dark.min.css"
+            href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/github-dark.min.css"
           />
           <link
-            rel="preload"
             href="https://cdn.jsdelivr.net/gh/everydayminder/assets/subset-D2Coding.woff2"
             as="font"
             type="font/woff2"
