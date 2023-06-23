@@ -16,7 +16,6 @@ const AboutContainer: FunctionComponent = () => {
       <WorkContainer format={DATE_FORMAT} />
       <ActivityContainer />
       <EducationContainer format={DATE_FORMAT} />
-      <div>Side Project</div>
     </div>
   );
 };
