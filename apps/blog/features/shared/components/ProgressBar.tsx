@@ -19,7 +19,7 @@ const ProgressBar: FunctionComponent<ProgressBarProps> = ({ value, total }) => {
       onMouseOver={handleMouseOver}
       onMouseLeave={handleMouseLeave}
     >
-      <progress max={total} value={value} />
+      <progress max={total} value={value} suppressHydrationWarning />
       {over && (
         <div className="tooltip small">
           프로젝트 기간 / 재직 기간({percent}%)
