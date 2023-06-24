@@ -23,12 +23,7 @@ const Tags: NextPage<TagsProps> = () => {
       <main className="tag-layout">
         <Navbar />
         <div className="tag-container">
-          <Image
-            src="/assets/build.png"
-            layout="fill"
-            objectFit="contain"
-            alt={"공사중"}
-          />
+          <img src="/assets/build.png" alt={"공사중"} />
         </div>
         <Footer />
       </main>

@@ -6,9 +6,7 @@ const Footer: FunctionComponent = React.memo(function Footer() {
     <footer className="footer">
       <ul>
         <li>
-          <Link href="/about">
-            <a>1ilsang</a>
-          </Link>
+          <Link href="/about">1ilsang</Link>
         </li>
         <li>
           <a

@@ -21,8 +21,8 @@ const NavText: FunctionComponent<NavTextProps> = ({
         logo ? "text-2xl font-bold mt-2 mb-2 ml-3.5" : "text-xl mt-2.5 mr-6"
       } tracking-tight focus:text-gray-700`}
     >
-      <Link href={`${link}`}>
-        <a className="hover-underline">{text}</a>
+      <Link className="hover-underline" href={`${link}`}>
+        {text}
       </Link>
     </h2>
   );

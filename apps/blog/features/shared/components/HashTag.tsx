@@ -15,8 +15,8 @@ const HashTag: FunctionComponent<HashTagProps> = ({
   target = "_self",
 }) => {
   return (
-    <Link href={link} target={target}>
-      <a className={`${className} hashtag`}>#{content}</a>
+    <Link className={`${className} hashtag`} href={link} target={target}>
+      #{content}
     </Link>
   );
 };

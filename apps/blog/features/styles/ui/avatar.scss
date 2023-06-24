@@ -2,6 +2,11 @@
 .avatar-image {
 	width: 3rem;
 	height: 3rem;
+
+	img {
+		border: 1px solid $subColor;
+		border-radius: 90px;
+	}
 }
 .avatar-name {
 	font-weight: 500;

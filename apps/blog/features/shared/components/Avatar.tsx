@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import profile from "~data/1ilsang.json";
@@ -11,15 +10,7 @@ export const AvatarImage = ({ nav = false }) => {
       } rounded-full mr-2 relative`}
     >
       <Link href="/about">
-        <a>
-          <Image
-            src={profile.profileImage}
-            layout="fill"
-            objectFit="cover"
-            priority
-            alt={profile.name}
-          />
-        </a>
+        <img src={profile.profileImage} alt={profile.name} />
       </Link>
     </div>
   );
@@ -30,8 +21,8 @@ const Avatar = () => {
     <div className="flex items-center">
       <AvatarImage />
       <div>
-        <Link href="/about">
-          <a className="avatar-name">{profile.name}</a>
+        <Link className="avatar-name" href="/about">
+          {profile.name}
         </Link>
         <div className="avatar-description">{profile.description}</div>
       </div>
