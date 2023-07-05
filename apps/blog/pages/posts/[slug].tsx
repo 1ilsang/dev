@@ -4,13 +4,9 @@ import { useRouter } from "next/router";
 
 import PostContainer from "~/posts/Container";
 import { PostType } from "~/posts/models";
-import PostBody from "~/posts/PostBody";
-import Avatar from "~/shared/components/Avatar";
 import Footer from "~/shared/components/Footer";
-import HashTag from "~/shared/components/HashTag";
 import MetaHeader from "~/shared/components/MetaHeader";
 import Navbar from "~/shared/components/Navbar";
-import PublishedDate from "~/shared/components/PublishedDate";
 import { MetaTitle } from "~/shared/helpers/constant";
 import markdownToHtml from "~/shared/helpers/markdown";
 import { getAllPosts, getPostBySlug } from "~/shared/helpers/post";
@@ -79,15 +75,16 @@ export async function getStaticProps({ params }: GetStaticPropsParams) {
 
 export async function getStaticPaths() {
   const posts = getAllPosts(["slug"]);
+  const paths = posts.map((post) => {
+    return {
+      params: {
+        slug: post.slug,
+      },
+    };
+  });
 
   return {
-    paths: posts.map((post) => {
-      return {
-        params: {
-          slug: post.slug,
-        },
-      };
-    }),
+    paths,
     fallback: false,
   };
 }

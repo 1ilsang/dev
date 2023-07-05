@@ -1,5 +1,4 @@
 import { NextPage } from "next";
-import Image from "next/image";
 
 import Footer from "~/shared/components/Footer";
 import MetaHeader from "~/shared/components/MetaHeader";
@@ -9,10 +8,14 @@ import {
   MetaDescription,
   MetaTitle,
 } from "~/shared/helpers/constant";
+import { getAllPosts, getPostBySlug } from "~/shared/helpers/post";
+import TagListContainer from "~/tags/tagList/Container";
 
-interface TagsProps {}
+interface TagsProps {
+  tags: string[];
+}
 
-const Tags: NextPage<TagsProps> = () => {
+const Tags: NextPage<TagsProps> = ({ tags }) => {
   return (
     <>
       <MetaHeader
@@ -22,9 +25,7 @@ const Tags: NextPage<TagsProps> = () => {
       />
       <main className="tag-layout">
         <Navbar />
-        <div className="tag-container">
-          <img src="/assets/build.png" alt={"공사중"} />
-        </div>
+        <TagListContainer tags={tags} />
         <Footer />
       </main>
     </>
@@ -33,4 +34,19 @@ const Tags: NextPage<TagsProps> = () => {
 
 export default Tags;
 
-// TODO: tags 뽑아내기
+export async function getStaticProps() {
+  const rawPosts = getAllPosts(["slug"]);
+  const allTags = rawPosts
+    .map((rawPost) => {
+      const data = getPostBySlug(rawPost.slug, ["tags"]);
+      return data.tags;
+    })
+    .flatMap((tagList) => tagList);
+  const tags = [...new Set(allTags)];
+
+  return {
+    props: {
+      tags,
+    },
+  };
+}
