@@ -1,0 +1,268 @@
+---
+title: "Prettier v3 변경사항 살펴보기"
+description: "린트없인 못살아"
+tags: ["prettier", "lint"]
+coverImage: "https://github.com/1ilsang/dev/assets/23524849/10b0b10c-f103-425d-aa86-e9d6deb36772"
+date: "2023-07-06T13:29:01.062Z"
+ogImage:
+  url: "https://github.com/1ilsang/dev/assets/23524849/10b0b10c-f103-425d-aa86-e9d6deb36772"
+---
+
+![image](https://github.com/1ilsang/dev/assets/23524849/10b0b10c-f103-425d-aa86-e9d6deb36772)
+
+Prettier v3.0이 어제, [7월 5일에 공개](https://prettier.io/blog/2023/07/05/3.0.0.html)되었습니다.
+
+내용은 읽으면서 흥미로운 부분들이 있어 주요 변경점들을 기준으로 간략하게 소개드려고 합니다.
+
+> Prettier 플러그인 개발쪽의 변경사항도 큰데요, 실제 사용성 위주로 정리를 했는 부분 참고 부탁드립니다.
+
+## TL;DR!
+
+1. `trailingComma` 옵션이 `all`으로 변경되었습니다.
+2. 주석 및 MD 문서의 린팅 편의성이 높아졌습니다(한국어 린트가 향상되었습니다!)
+3. 최소 요구사항 Node 버전이 14가 되었습니다.
+4. `.gitignore`가 드디어 기본적으로 무시됩니다(`.prettierignore`는 유지됩니다).
+5. 화살표 함수/타입의 린트가 코드 패턴을 지원합니다.
+
+## Markdown
+
+### 한국어 처리의 향상
+
+```md
+<!-- Input -->
+노래를 못해요.
+
+<!-- Prettier 2.8 with --prose-wrap always --print-width 9 -->
+노래를 못
+해요.
+
+<!-- Prettier 2.8, subsequent reformat with --prose-wrap always --print-width 80 -->
+노래를 못 해요.
+
+<!-- Prettier 3.0 with --prose-wrap always --print-width 9 -->
+노래를
+못해요.
+
+<!-- Prettier 3.0, subsequent reformat with --prose-wrap always --print-width 80 -->
+노래를 못해요.
+```
+
+한국어는 공백의 위치에 따라 문장의 의미가 변경되는 특성이 있습니다.
+
+- 노래를 못해요: 나는 노래를 잘 못한다.
+- 노래를 못 해요: 나는 (어떠한 이유로) 노래를 할 수 없다.
+
+v3에서는 위의 특성을 고려해 단어를 '분해하지' 않습니다. 영어와 동일하게 줄바꿈이 일어나게 됩니다.
+
+### 인라인 코드 여백 유지
+
+```md
+<!-- Input -->
+`   foo   bar   baz   `
+
+<!-- Prettier 2.8 -->
+` foo bar baz `
+
+<!-- Prettier 3.0 -->
+`   foo   bar   baz   `
+```
+
+다수의 여백이 하나로 줄여지던 문제가 해결되었습니다.
+
+## JavaScript / TypeScript
+
+### trailing-comma
+
+```tsx
+// Input
+type Foo =  [
+  {
+    from: string,
+    to: string,
+  }, // <- 1
+];
+type Foo = Promise<
+  | { ok: true, bar: string, baz: SomeOtherLongType }
+  | { ok: false, bar: SomeOtherLongType }, // <- 2
+>;
+
+// Prettier 2.8
+type Foo = [
+  {
+    from: string,
+    to: string,
+  } // <- 1
+];
+type Foo = Promise<
+  | { ok: true, bar: string, baz: SomeOtherLongType }
+  | { ok: false, bar: SomeOtherLongType } // <- 2
+>;
+
+// Prettier 3.0
+type Foo = [
+  {
+    from: string,
+    to: string,
+  }, // <- 1
+];
+type Foo = Promise<
+  | { ok: true, bar: string, baz: SomeOtherLongType }
+  | { ok: false, bar: SomeOtherLongType }, // <- 2
+>;
+```
+
+타입 매개변수 및 튜플에서도 쉼표가 추가됩니다.
+
+### Decorated function 패턴 지원
+
+```tsx
+// Prettier 2.8
+const Counter = decorator("my-counter")(
+  (props: { initialCount?: number; label?: string }) => {
+    // ...
+  }
+);
+
+// Prettier 3.0
+const Counter = decorator("my-counter")((props: {
+  initialCount?: number;
+  label?: string;
+}) => {
+  // ...
+});
+```
+
+데코레이터 패턴에서 들여쓰기를 줄이기 위해 화살표 함수의 가독성을 희생하도록 변경되었습니다.
+
+### 누락된 await 괄호 추가
+
+```tsx
+// Input
+async function request(url) {
+  return (
+    // prettier-ignore
+    await fetch(url)
+  ).json()
+}
+
+// Prettier 2.8
+async function request(url) {
+  return (
+    // prettier-ignore
+    await fetch(url).json()
+  );
+}
+
+// Prettier 3.0
+async function request(url) {
+  return (
+    // prettier-ignore
+    (await fetch(url)).json()
+  );
+}
+```
+
+### 커링과 화살표 함수간 괄호 일관성 개선
+
+```tsx
+// Input
+Y(() => a ? b : c);
+Y(() => () => a ? b : c);
+
+// Prettier 2.8
+Y(() => (a ? b : c));
+Y(() => () => a ? b : c);
+
+// Prettier 3.0
+Y(() => (a ? b : c));
+Y(() => () => (a ? b : c));
+```
+
+### [Import Attributes](https://github.com/tc39/proposal-import-attributes)를 지원합니다
+
+```tsx
+import json from "./foo.json" with { type: "json" };
+import("./foo.json", { with: { type: "json" } });
+```
+
+### 주석이 있는 경우 유니온 타입의 개행이 유지됩니다
+
+```ts
+// Input
+type FooBar = 
+  | Number // this documents the first option
+  | void // this documents the second option
+  ;
+
+// Prettier 2.8
+type FooBar = Number | void; // this documents the first option // this documents the second option
+
+// Prettier 3.0
+type FooBar =
+  | Number // this documents the first option
+  | void; // this documents the second option
+```
+
+### extends 줄바꿈이 개선되었습니다
+
+```tsx
+// Input
+export type OuterType2<
+  LongerLongerLongerLongerInnerType extends LongerLongerLongerLongerLongerLongerLongerLongerOtherType
+> = { a: 1 };
+
+// Prettier 2.8
+export type OuterType2<
+  LongerLongerLongerLongerInnerType extends LongerLongerLongerLongerLongerLongerLongerLongerOtherType
+> = { a: 1 };
+
+// Prettier 3.0
+export type OuterType2<
+  LongerLongerLongerLongerInnerType extends
+    LongerLongerLongerLongerLongerLongerLongerLongerOtherType,
+> = { a: 1 };
+```
+
+## HTML
+
+### SVG 내부 script 린트가 향상되었습니다
+
+```html
+<!-- Input -->
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<script>
+document.addEventListener(
+'DOMContentLoaded', () => {
+  const element = document.getElementById('foo')
+   if (element) {
+element.fillStyle = 'currentColor'
+}
+});
+</script>
+</svg>
+
+<!-- Prettier 2.8 -->
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <script>
+    document.addEventListener( 'DOMContentLoaded', () => { const element =
+    document.getElementById('foo') if (element) { element.fillStyle =
+    'currentColor' } });
+  </script>
+</svg>
+
+<!-- Prettier 3.0 -->
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const element = document.getElementById("foo");
+      if (element) {
+        element.fillStyle = "currentColor";
+      }
+    });
+  </script>
+</svg>
+```
+
+## Reference
+
+-[공식 블로그 글 보기](https://prettier.io/blog/2023/07/05/3.0.0.html)
