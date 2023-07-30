@@ -2,11 +2,7 @@ import { NextPage } from "next";
 
 import MetaHeader from "~/shared/components/MetaHeader";
 import Navbar from "~/shared/components/Navbar";
-import {
-  ImageUrl,
-  MetaDescription,
-  MetaTitle,
-} from "~/shared/helpers/constant";
+import { ImageUrl, MetaDescription, MetaTitle } from "~/shared/constants/blog";
 
 const Home: NextPage = () => {
   return (

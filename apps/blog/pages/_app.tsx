@@ -1,4 +1,6 @@
 import { AppProps } from "next/app";
+
+import { cliLogo } from "~/shared/constants/blog";
 import "~/styles/index.scss";
 
 let bannerOpened = false;
@@ -6,19 +8,9 @@ let bannerOpened = false;
 export default function MyApp({ Component, pageProps }: AppProps) {
   if (!bannerOpened) {
     bannerOpened = true;
-    console.info(
-      `
-			 
-	\u001b[33m██╗ ██╗ ██╗    ███████╗ █████╗ ███╗   ██╗ \u001b[32m███\u001b[33m███╗
-   ███║   ║ ██║    ██╔════╝██╔══██╗████╗  \u001b[32m██║██\u001b[33m╔════╝ 
-   ╚██║ ██║ ██║    ███████╗█\u001b[32m██████║██╔██╗\u001b[33m ██║██║  ███╗
-	██║ ██║ ██║    ╚═══\u001b[32m═██║██╔\u001b[33m══██║██║╚██╗██║██║   ██║
-	██║ ██║ ██████╗██\u001b[32m████\u001b[33m█║██║  ██║██║ ╚████║╚██████╔╝
-	╚═╝ ╚═╝ ╚═════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ 
-																										 
-								\u001b[31mThank you for visiting.\u001b[0m
-			`,
-    );
+    if (typeof window !== "undefined") {
+      console.info(cliLogo);
+    }
   }
   return <Component {...pageProps} />;
 }

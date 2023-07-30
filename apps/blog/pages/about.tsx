@@ -4,11 +4,7 @@ import AboutContainer from "~/about/Container";
 import Footer from "~/shared/components/Footer";
 import MetaHeader from "~/shared/components/MetaHeader";
 import Navbar from "~/shared/components/Navbar";
-import {
-  ImageUrl,
-  MetaDescription,
-  MetaTitle,
-} from "~/shared/helpers/constant";
+import { ImageUrl, MetaDescription, MetaTitle } from "~/shared/constants/blog";
 
 const About: NextPage = () => {
   return (

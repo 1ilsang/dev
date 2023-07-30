@@ -1,4 +1,4 @@
-import { DayList, MonthList } from "./constant";
+import { DayList, MonthList } from "../constants/date";
 
 const pad = (value: number) => (value < 10 ? `0${value}` : `${value}`);
 
