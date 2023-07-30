@@ -1,6 +1,7 @@
 {
   "name": "blog",
   "version": "1.0.0",
+  "private": true,
   "author": "1ilsang <1ilsang@naver.com>",
   "description": "https://1ilsang.dev",
   "license": "MIT",
