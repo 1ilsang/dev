@@ -7,15 +7,40 @@ import { join } from "path";
 
 import matter from "gray-matter";
 
-const postPath = join(process.cwd(), "_posts");
+const rootPostPath = join(process.cwd(), "_posts");
+const dirBoundaryChar = "+";
 
-export const getPostSlugs = () => {
-  return fs.readdirSync(postPath);
+export const getPostSlugs = (
+  dirPath: string = rootPostPath,
+  recursiveFiles: string[] = [],
+) => {
+  const files = fs.readdirSync(dirPath);
+
+  let mergedFiles = recursiveFiles;
+
+  files.forEach((file) => {
+    const curPath = `${dirPath}/${file}`;
+    if (fs.statSync(curPath).isDirectory()) {
+      mergedFiles = getPostSlugs(curPath, mergedFiles);
+    } else {
+      const _posts = "_posts/";
+      mergedFiles.push(
+        curPath
+          .substring(curPath.indexOf(_posts))
+          .replace(_posts, "")
+          .replaceAll("/", dirBoundaryChar),
+      );
+    }
+  });
+  return mergedFiles;
 };
 
 export const getPostBySlug = (slug: string, fields: string[] = []) => {
   const realSlug = slug.replace(/\.md$/, "");
-  const fullPath = join(postPath, `${realSlug}.md`);
+  const fullPath = join(
+    rootPostPath,
+    `${realSlug.replaceAll(dirBoundaryChar, "/")}.md`,
+  );
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
@@ -33,7 +58,6 @@ export const getPostBySlug = (slug: string, fields: string[] = []) => {
     if (field === "content") {
       items[field] = content;
     }
-
     if (typeof data[field] !== "undefined") {
       items[field] = data[field];
     }
