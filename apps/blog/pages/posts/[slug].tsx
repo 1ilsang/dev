@@ -7,7 +7,7 @@ import { PostType } from "~/posts/models";
 import Footer from "~/shared/components/Footer";
 import MetaHeader from "~/shared/components/MetaHeader";
 import Navbar from "~/shared/components/Navbar";
-import { MetaTitle } from "~/shared/helpers/constant";
+import { MetaTitle } from "~/shared/constants/blog";
 import markdownToHtml from "~/shared/helpers/markdown";
 import { getAllPosts, getPostBySlug } from "~/shared/helpers/post";
 

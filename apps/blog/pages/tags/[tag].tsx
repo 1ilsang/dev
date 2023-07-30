@@ -4,15 +4,11 @@ import ErrorPage from "next/error";
 
 import MetaHeader from "~/shared/components/MetaHeader";
 import Navbar from "~/shared/components/Navbar";
-import {
-  ImageUrl,
-  MetaDescription,
-  MetaTitle,
-} from "~/shared/helpers/constant";
 import Footer from "~/shared/components/Footer";
 import { getAllPosts } from "~/shared/helpers/post";
 import { PostType } from "~/posts/models";
 import TagDetailContainer from "~/tags/detail/Container";
+import { ImageUrl, MetaDescription, MetaTitle } from "~/shared/constants/blog";
 
 export interface TagsDetailProps {
   posts: Pick<
