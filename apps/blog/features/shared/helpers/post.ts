@@ -8,7 +8,6 @@ import { join } from "path";
 import matter from "gray-matter";
 
 const rootPostPath = join(process.cwd(), "_posts");
-const dirBoundaryChar = "+";
 
 export const getPostSlugs = (
   dirPath: string = rootPostPath,
@@ -25,10 +24,7 @@ export const getPostSlugs = (
     } else {
       const _posts = "_posts/";
       mergedFiles.push(
-        curPath
-          .substring(curPath.indexOf(_posts))
-          .replace(_posts, "")
-          .replaceAll("/", dirBoundaryChar),
+        curPath.substring(curPath.indexOf(_posts)).replace(_posts, ""),
       );
     }
   });
@@ -37,10 +33,7 @@ export const getPostSlugs = (
 
 export const getPostBySlug = (slug: string, fields: string[] = []) => {
   const realSlug = slug.replace(/\.md$/, "");
-  const fullPath = join(
-    rootPostPath,
-    `${realSlug.replaceAll(dirBoundaryChar, "/")}.md`,
-  );
+  const fullPath = join(rootPostPath, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 

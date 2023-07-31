@@ -46,12 +46,12 @@ export default Posts;
 
 interface GetStaticPropsParams {
   params: {
-    slug: string;
+    slug: string[];
   };
 }
 
 export async function getStaticProps({ params }: GetStaticPropsParams) {
-  const post = getPostBySlug(params.slug, [
+  const post = getPostBySlug(params.slug.join("/"), [
     "title",
     "date",
     "slug",
@@ -78,7 +78,7 @@ export async function getStaticPaths() {
   const paths = posts.map((post) => {
     return {
       params: {
-        slug: post.slug,
+        slug: post.slug.split("/"),
       },
     };
   });
