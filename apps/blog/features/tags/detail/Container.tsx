@@ -12,7 +12,7 @@ const TagDetailContainer: FunctionComponent<TagDetailContainerProps> = ({
   return (
     <div className="tag-container">
       {posts.map((item) => (
-        <div className="card">
+        <div className="card" key={item.slug}>
           <Link href={`/posts/${item.slug}`}>
             <div className="hashtag">{item.title}</div>
             <div>{item.description}</div>
