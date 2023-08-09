@@ -64,7 +64,11 @@
 		word-break: break-word;
 
 		.image {
-			width: 700px;
+			width: 100%;
+			
+			@include largeDesktop {
+				width: 700px;
+			}
 		}
 
 		.text {
