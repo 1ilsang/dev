@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useState } from "react";
 
 type DynamicImageProps = {
   src: string;
@@ -17,11 +17,17 @@ const DynamicImage: FunctionComponent<DynamicImageProps> = ({
   alt,
   loading = true,
 }) => {
+  const [min, setMin] = useState(true);
+  const handleMinClick = () => setMin(!min);
+
   return (
     <div
-      className={`${className} dynamic-image ${loading ? "loading" : ""}`}
+      className={`${className} dynamic-image ${loading ? "loading" : ""} ${
+        min ? "" : "min"
+      }`}
       style={{ width, height }}
     >
+      <button className={min ? "min" : "max"} onClick={handleMinClick} />
       <img src={src} alt={alt} width={width} height={height} />
     </div>
   );

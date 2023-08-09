@@ -77,7 +77,7 @@ const hackathon: Activity[] = [
   },
   {
     type: ActivityType.hackathon,
-    name: "AWS Amathon",
+    name: "AWS Amathon: 즐겜상",
     url: "https://blog.naver.com/1ilsang/221325485852",
     startDate: 1532012400000,
     endDate: 1532098800000,

@@ -140,8 +140,33 @@ $target: #e73c7e;
 }
 
 .dynamic-image {
+	position: relative;
 	margin: 10px 0px;
+	
+	.min {
+		position: absolute;
+		top: -1.5rem;
+
+		&:before {
+			content: '⎗';
+			opacity: 0.5;
+			font-size: 3rem;
+		}
+	}
+	.max {
+		position: absolute;
+		top: -1.5rem;
+
+		&:before {
+			content: '⎘';
+			font-size: 3rem;
+		}
+	}
 }
+.dynamic-image.min {
+		max-height: 1.5rem;
+		max-width: 1.5rem;
+	}
 
 .loading {
   animation: skeleton-loading 1s linear infinite alternate;
