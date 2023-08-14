@@ -6,7 +6,7 @@
   "description": "https://1ilsang.dev",
   "license": "MIT",
   "scripts": {
-    "dev": "next dev",
+    "dev": "yarn && next dev",
     "build": "next build",
     "start": "next start",
     "export": "next export",
