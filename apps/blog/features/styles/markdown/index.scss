@@ -64,6 +64,22 @@
     font-weight: 600;
     padding-bottom: 0.1rem;
     padding-top: 1.5rem;
+
+    &:hover {
+      a {
+        position: absolute;
+      }
+      .icon {
+        position: absolute;
+        width: 40px;
+        left: -25px;
+
+        &:before{
+          content: '⧉';
+          color: $subColor;
+        }
+      }
+    }
   }
   h1 {
     @apply text-2xl mt-16 leading-snug;

@@ -3,6 +3,8 @@ import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 const markdownToHtml = async (mdText: string) => {
   const htmlText = unified()
@@ -21,6 +23,8 @@ const markdownToHtml = async (mdText: string) => {
         },
       },
     })
+    .use(rehypeSlug)
+    .use(rehypeAutolinkHeadings)
     .use(rehypeHighlight)
     .use(rehypeStringify, { allowDangerousHtml: true })
     .processSync(mdText);
