@@ -7,7 +7,20 @@ import rehypeStringify from "rehype-stringify";
 const markdownToHtml = async (mdText: string) => {
   const htmlText = unified()
     .use(remarkParse)
-    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(remarkRehype, {
+      allowDangerousHtml: true,
+      handlers: {
+        link(h, node, parent) {
+          const parsedNode = h(
+            node,
+            "a",
+            { target: "_blank", href: node.url, rel: "noreferrer noopener" },
+            node.children,
+          );
+          return parsedNode;
+        },
+      },
+    })
     .use(rehypeHighlight)
     .use(rehypeStringify, { allowDangerousHtml: true })
     .processSync(mdText);
