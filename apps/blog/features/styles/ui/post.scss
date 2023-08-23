@@ -14,20 +14,33 @@
 .post-list {
 	padding-bottom: 200px;
 
+	li {
+		padding: 1vh 8vw 1vh;
+		margin-bottom: 15px;
+		border-radius: 40px 80px / 80px 40px;
+
+		&:hover {
+			color: white;
+			.post-description {
+				color: white;
+			}
+			background: linear-gradient(-45deg,  #ee7752, #1B1B1B, #23a6d5, #0ddbdb);
+			background-size: 400% 400%;
+			animation: water-rainbow 5s ease infinite;
+		}
+	}
+
+	.date-format {
+		color: $subColor;
+	}
+
+	.post-description {
+		color: $subColor;
+	}
+
 	@include mobile {
 		padding-bottom: 100px;
 	}
-}
-.post-list li {
-	padding: 1vh 8vw 1vh;
-	margin-bottom: 15px;
-	border-radius: 40px 80px / 80px 40px;
-}
-.post-list li:hover {
-	color: white;
-	background: linear-gradient(-45deg,  #ee7752, #1B1B1B, #23a6d5, #0ddbdb);
-	background-size: 400% 400%;
-	animation: water-rainbow 5s ease infinite;
 }
 .post-header {
 	font-size: 3.75rem;

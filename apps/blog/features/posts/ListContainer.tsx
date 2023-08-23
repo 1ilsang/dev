@@ -13,7 +13,7 @@ const PostListContainer: FunctionComponent<PostHomeProps> = ({ posts }) => {
             <li key={post.title}>
               <Link href={`/posts/${post.slug}`}>
                 <h1 className="text-xl mr-4">{post.title}</h1>
-                <h1>{post.description}</h1>
+                <h1 className="post-description">{post.description}</h1>
                 <DateFormatter type="iso" date={post.date} />
               </Link>
             </li>
