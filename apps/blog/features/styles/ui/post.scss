@@ -21,17 +21,46 @@
 
 		&:hover {
 			color: white;
-			.post-description {
-				color: white;
-			}
-			background: linear-gradient(-45deg,  #ee7752, #1B1B1B, #23a6d5, #0ddbdb);
+			text-shadow: -0.5px 0px $baseColor, 0px 0.5px $baseColor, 0.5px 0px $baseColor, 0px -0.5px $baseColor;
+			background: linear-gradient(-45deg,  #ee7752, #23a6d5,#c88484,  #2ddbdb, #1B1B1B);
 			background-size: 400% 400%;
 			animation: water-rainbow 5s ease infinite;
+
+			.post-description,.date-format {
+				color: white;
+			}
+		}
+
+		.link {
+			display: flex;
+
+			.cover {
+				border-radius: 4px;
+				border: 1px solid $minColor;
+				width: 200px;
+				height: 115px;
+				margin-right: 1.5rem;
+			}
+
+			.content {
+				margin-top: 0.5rem;
+
+				.title {
+					font-size: 1.25rem;
+					line-height: 1.75rem;
+					margin-right: 1rem;
+				}
+			}
+
+			@include mobile {
+				flex-direction: column;
+			}
 		}
 	}
 
 	.date-format {
 		color: $subColor;
+		margin-top: 0.5rem;
 	}
 
 	.post-description {

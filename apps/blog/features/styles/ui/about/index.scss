@@ -72,28 +72,6 @@
 		}
 	}
 
-	&-skill {
-		padding-top: 10px;
-		@include container;
-
-		.label {
-			@include label;
-		}
-
-		.item-list {
-			display: flex;
-			flex-wrap: wrap;
-
-			.item {
-				padding: 5px 10px;
-				margin: 5px;
-				color: white;
-				background: $subColor;
-				border-radius: 8px;
-			}
-		}
-	}
-
 	&-work {
 		@include container;
 
