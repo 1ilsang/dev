@@ -89,6 +89,13 @@ const hackathon: Activity[] = [
     startDate: 1558105200000,
     endDate: 1558191600000,
   },
+  {
+    type: ActivityType.hackathon,
+    name: "Junction Asia 2023",
+    url: "/posts/activity/junction2023",
+    startDate: 1692284400000,
+    endDate: 1692457200000,
+  },
 ];
 
 const club: Activity[] = [

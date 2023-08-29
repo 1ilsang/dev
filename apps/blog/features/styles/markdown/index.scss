@@ -15,7 +15,7 @@
   }
 
   ul,ol {
-    margin-left: 2.5em;
+    margin-left: 1.5em;
   }
   ol {
     @apply list-decimal;
@@ -64,6 +64,7 @@
     font-weight: 600;
     padding-bottom: 0.1rem;
     padding-top: 1.5rem;
+    margin-bottom: 0.5rem;
 
     &:hover {
       a {
