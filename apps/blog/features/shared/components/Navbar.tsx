@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 
 import { AvatarImage } from "./Avatar";
 
@@ -31,15 +31,26 @@ const NavText: FunctionComponent<NavTextProps> = ({
 const Navbar: FunctionComponent = () => {
   const router = useRouter();
   const [isHover, setIsHover] = useState(false);
+  const [isDown, setIsDown] = useState(false);
 
   const handleMouseEnter = () => setIsHover(true);
   const handleMouseLeave = () => setIsHover(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsDown(window.scrollY > 100);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <nav
       className={`${
         !isHover && router.pathname.includes("/posts/") ? "post-nav-trans" : ""
-      } flex-wrap shadow-lg water-rainbow nav`}
+      } flex-wrap ${isDown ? "" : "nav-shadow"} water-rainbow nav`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
