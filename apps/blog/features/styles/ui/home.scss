@@ -1,19 +1,11 @@
+.home-layout {
+	@include root-layout;
+}
 .home-container {
-	overflow: auto;
-	scroll-snap-type: y mandatory;
-	height: 100vh;
-}
-.home-logo {
-	height: 100vh;
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-image: url('/assets/background.png');	
-}
-.home-logo2 {
-	height: 100vh;
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-image: url('/assets/back2.png');	
+	.video {
+		object-fit: cover;
+		max-width: none;
+		height: 100vh;
+		width: 100%;
+	}
 }
