@@ -38,7 +38,7 @@ const Navbar: FunctionComponent = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsDown(window.scrollY > 100);
+      setIsDown(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
     return () => {
