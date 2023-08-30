@@ -1,11 +1,29 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useLayoutEffect, useState } from "react";
 
 import DynamicImage from "~/shared/components/DynamicImage";
 import ExternalLink from "~/shared/components/ExternalLink";
 
 const UVP: FunctionComponent = () => {
-  const backgroundHeight =
-    typeof window !== "undefined" && window.innerWidth < 1025 ? undefined : 400;
+  const MAX_DESKTOP = 1399;
+  const MAX_TABLET = 1023;
+  const MAX_MOBILE = 767;
+  const [backgroundHeight, setBackgroundHeight] = useState(400);
+
+  useLayoutEffect(() => {
+    const calcHeight = (() => {
+      if (typeof window === "undefined") return 400;
+      const { innerWidth } = window;
+
+      if (innerWidth <= MAX_MOBILE) return 185;
+      else if (innerWidth <= MAX_TABLET) return 385;
+      else if (innerWidth <= MAX_DESKTOP) return 425;
+      else return 400;
+    })();
+    setBackgroundHeight(calcHeight);
+    setTimeout(() => {
+      setBackgroundHeight(undefined);
+    }, 1000);
+  }, []);
 
   return (
     <>

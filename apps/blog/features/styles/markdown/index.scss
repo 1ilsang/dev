@@ -3,10 +3,10 @@
   word-wrap: break-word;
 
   a {
-    color: rgb(59, 130, 246);
+    color: $highlightColor;
   }
   a:hover {
-    color: rgb(59, 130, 246, 0.7);
+    text-decoration-line: underline;
   }
 
   p {
@@ -26,7 +26,7 @@
 
   blockquote {
     padding: 0 1em;
-    color: #656d76;
+    color: #8b949e;
     border-left: 0.25em solid #d0d7de;
   }
   pre {
@@ -38,7 +38,7 @@
     background-origin: content-box;
     line-height: 1.7em;
 
-    border-left: 12px solid rgb(165, 204, 160);
+    border-left: 8px solid rgb(165, 204, 160);
     border-radius: 4px;
     overflow: auto;
 
@@ -54,7 +54,8 @@
   code {
     border-radius: 4px;
     padding: 3px 4px;
-    background-color: #171c24;
+    background-color: #19263a;
+    border: 1px solid $baseColor;
     color: #ffa657;
     font-family: 'D2Coding';
   }

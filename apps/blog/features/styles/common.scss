@@ -1,7 +1,7 @@
 $target: #e73c7e;
 
 .date-published {
-	color: #6c6e6f
+	color: #6c6e6f;
 }
 .scroll-snap {
 	height: 100vh;
@@ -142,10 +142,12 @@ $target: #e73c7e;
 .dynamic-image {
 	position: relative;
 	margin: 10px 0px;
+	color: $highlightColor;
 	
 	.min {
 		position: absolute;
-		top: -1.5rem;
+		top: -2rem;
+		left: -0.5rem;
 
 		&:before {
 			content: '⎗';
@@ -155,7 +157,8 @@ $target: #e73c7e;
 	}
 	.max {
 		position: absolute;
-		top: -1.5rem;
+		top: -2rem;
+		left: -0.5rem;
 
 		&:before {
 			content: '⎘';

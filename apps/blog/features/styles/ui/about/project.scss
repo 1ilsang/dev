@@ -1,6 +1,6 @@
 @mixin project {
-	border-left: 3px solid $minColor;
-	border-bottom: 1px dotted $minColor;
+	border-left: 3px solid $darkColor;
+	border-bottom: 1px dotted $darkColor;
 	padding-left: 10px;
 	padding-bottom: 1rem;
 	margin-bottom: 1rem;
@@ -11,7 +11,12 @@
 	
 	.headline {
 		display: flex;
-		align-items: flex-end;
+		flex-direction: column;
+		
+		.title-wrap {
+			display: flex;
+			align-items: center;
+		}
 		
 		.title {
 			cursor: pointer;
@@ -27,14 +32,14 @@
 			&:before {
 				content: '▶';
 				margin-right: 0.5rem;
-				color: $baseColor;
+				color: $subColor;
 			}
 		}
 		.unfold {
 			&:before {
 				content: '▼';
 				margin-right: 0.5rem;
-				color: $baseColor;
+				color: $subColor;
 			}
 		}
 
@@ -49,11 +54,11 @@
 		flex-wrap: wrap;
 
 		.item {
-			font-size: 0.7rem;
-			background-color: $minColor;
-			color: $subColor;
-			padding: 3px;
-			margin: 5px 4px 5px 0px;
+			font-size: 0.75rem;
+			background-color: $baseColor;
+			color: $deepLightColor;
+			padding: 1px 5px;
+			margin: 2px 4px 5px 0px;
 			border-radius: 5px;
 		}
 	}
@@ -76,12 +81,12 @@
 
 		.summary {
 			width: fit-content;
-			border-left: 0.25em solid #b2bec9;
-			background-color: #eef1f3;
+			border-left: 0.25em solid $darkColor;
+			background-color: #132b3f;
 			border-radius: 4px;
 			padding: 15px;
 			padding-right: 22px;
-			color: black;
+			color: $deepLightColor;
 			margin-bottom: 10px;
 		}
 		.main {
@@ -109,7 +114,7 @@
 				&:before {
 					content: '❑';
 					margin-right: 0.5rem;
-					color: $baseColor;
+					color: $minColor;
 				}
 			}
 		}

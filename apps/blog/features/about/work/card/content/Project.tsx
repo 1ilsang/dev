@@ -51,22 +51,24 @@ const CompanyContentProject: FunctionComponent<CompanyContentProjectProps> = ({
   return (
     <div className="project">
       <div className="headline">
-        <div
-          className={`title ${open ? "unfold" : "fold"}`}
-          onClick={handleDetailClick}
-        >
-          {name}
+        <div className="title-wrap">
+          <div
+            className={`title ${open ? "unfold" : "fold"}`}
+            onClick={handleDetailClick}
+          >
+            {name}
+          </div>
+          {open && (
+            <ProjectDate
+              startDate={startDate}
+              endDate={endDate}
+              format={format}
+            />
+          )}
+          <ProgressBar value={value} total={totalPeriod} />
         </div>
-        {open && (
-          <ProjectDate
-            startDate={startDate}
-            endDate={endDate}
-            format={format}
-          />
-        )}
-        <ProgressBar value={value} total={totalPeriod} />
+        <Tags tags={tags} />
       </div>
-      <Tags show={openClassName} tags={tags} />
       <div className={`description ${openClassName}`}>
         {name === ProjectName.OAL && <OAL />}
         {name === ProjectName.LDS_CALENDAR && <LdsCalendar />}

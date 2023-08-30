@@ -34,7 +34,7 @@ const sideProject: Activity[] = [
   },
   {
     type: ActivityType.sideProject,
-    name: "Linkit - 링크 저장 앱",
+    name: "Linkit",
     url: "https://github.com/1ilsang/linkit",
     startDate: 1670166000000,
   },

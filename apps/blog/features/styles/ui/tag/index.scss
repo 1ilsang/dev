@@ -9,10 +9,10 @@
 	@include detail;
 }
 .hashtag {
-	color: rgb(59, 130, 246);
+	color: $highlightColor;
 }
 .hashtag:hover {
-	color: rgb(59, 130, 246, 0.7);
+	text-decoration-line: underline;
 }
 .tag-wrapper {
 	display: inline-block;
