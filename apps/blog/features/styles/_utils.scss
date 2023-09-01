@@ -31,3 +31,9 @@
     @content;
   }
 }
+
+@mixin iMac {
+  @media (min-width: $iMac) {
+    @content;
+  }
+}

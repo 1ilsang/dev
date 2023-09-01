@@ -103,6 +103,14 @@
     background-color: #656d76;
     animation: skeleton-loading 1s linear infinite alternate;
     object-fit: contain;
+
+    @include mobile {
+      min-height: 100px;
+    }
+
+    @include iMac {
+      max-width: 1200px;
+    }
   }
 }
 
@@ -112,15 +120,5 @@
     ul,ol {
       margin-left: 1.3em;
     }
-    img {
-      min-height: 100px;
-    }
-  }
-}
-
-/* LARGE */
-@media (min-width: 1400px) {
-  .markdown img {
-    max-width: 1200px;
   }
 }
