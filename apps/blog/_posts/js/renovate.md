@@ -1,11 +1,11 @@
 ---
-title: "Renovate 간단하게 살펴보기"
-description: "패키지 매니징을 자동화 해보자"
-tags: ["renovate", "packageManager", "bot", "dependency"]
-coverImage: "https://user-images.githubusercontent.com/23524849/178150130-709cea99-255c-45a9-8d55-15e8d8a54e87.png"
-date: "2022-07-02T05:01:36.129Z"
+title: 'Renovate 간단하게 살펴보기'
+description: '패키지 매니징을 자동화 해보자'
+tags: ['renovate', 'packageManager', 'bot', 'dependency']
+coverImage: 'https://user-images.githubusercontent.com/23524849/178150130-709cea99-255c-45a9-8d55-15e8d8a54e87.png'
+date: '2022-07-02T05:01:36.129Z'
 ogImage:
-  url: "https://user-images.githubusercontent.com/23524849/178150130-709cea99-255c-45a9-8d55-15e8d8a54e87.png"
+  url: 'https://user-images.githubusercontent.com/23524849/178150130-709cea99-255c-45a9-8d55-15e8d8a54e87.png'
 ---
 
 <img width="500" src="https://user-images.githubusercontent.com/23524849/178150130-709cea99-255c-45a9-8d55-15e8d8a54e87.png" alt="renovate">

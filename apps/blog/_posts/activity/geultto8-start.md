@@ -1,11 +1,11 @@
 ---
-title: "글또 8기를 시작하며"
-description: "이번에는 반드시 예치금을 사수하겠다"
-tags: ["geultto", "geultto8"]
-coverImage: "https://user-images.githubusercontent.com/23524849/218299370-80d3a527-9c26-47f7-bd7e-22e8a9d19768.png"
-date: "2023-02-12T07:56:17.736Z"
+title: '글또 8기를 시작하며'
+description: '이번에는 반드시 예치금을 사수하겠다'
+tags: ['geultto', 'geultto8']
+coverImage: 'https://user-images.githubusercontent.com/23524849/218299370-80d3a527-9c26-47f7-bd7e-22e8a9d19768.png'
+date: '2023-02-12T07:56:17.736Z'
 ogImage:
-  url: "https://user-images.githubusercontent.com/23524849/218299370-80d3a527-9c26-47f7-bd7e-22e8a9d19768.png"
+  url: 'https://user-images.githubusercontent.com/23524849/218299370-80d3a527-9c26-47f7-bd7e-22e8a9d19768.png'
 ---
 
 ![image](https://user-images.githubusercontent.com/23524849/218299741-67629307-cc01-4f67-834c-c8ae0b3ebad2.png)

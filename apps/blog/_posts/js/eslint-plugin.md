@@ -1,11 +1,11 @@
 ---
-title: "ESLint 플러그인 배포하기"
-description: "ESLint 플러그인 배포 방법 알아보기"
-tags: ["eslint", "plugin", "ast"]
-coverImage: "https://github.com/1ilsang/dev/assets/23524849/d3c160f4-daef-49e0-ab36-39009eb277bc"
-date: "2023-09-01T06:48:29.956Z"
+title: 'ESLint 플러그인 배포하기'
+description: 'ESLint 플러그인 배포 방법 알아보기'
+tags: ['eslint', 'plugin', 'ast']
+coverImage: 'https://github.com/1ilsang/dev/assets/23524849/d3c160f4-daef-49e0-ab36-39009eb277bc'
+date: '2023-09-01T06:48:29.956Z'
 ogImage:
-  url: "https://github.com/1ilsang/dev/assets/23524849/d3c160f4-daef-49e0-ab36-39009eb277bc"
+  url: 'https://github.com/1ilsang/dev/assets/23524849/d3c160f4-daef-49e0-ab36-39009eb277bc'
 ---
 
 <img src="https://github.com/1ilsang/dev/assets/23524849/485f661f-95f1-4ffe-81c9-651ea945f92e" alt="cover" width="500" />
@@ -111,12 +111,12 @@ CLI를 다 작성하면 위와 같이 rules 폴더 밑에 추가된 것을 확�
 // lib > rules > no-function-name-number.js
 module.exports = {
   meta: {
-    type: "problem", // 이 규칙에 위반되는 값은 코드에 없어야 하므로 problem으로 설정한다.
+    type: 'problem', // 이 규칙에 위반되는 값은 코드에 없어야 하므로 problem으로 설정한다.
     docs: {
       // 해당 규칙에 어긋날 경우 빨간줄 위에 뜨는 문구를 설정할 수 있다.
-      description: "The function name must not contain numbers.",
+      description: 'The function name must not contain numbers.',
       recommended: true,
-      url: "https://1ilsang.dev/posts/js/eslint-plugin",
+      url: 'https://1ilsang.dev/posts/js/eslint-plugin',
     },
     fixable: true, // 자동 수정을 추가할 예정으로 true로 한다.
     schema: [], // 규칙이 여러 옵션을 가지고 있다면 스키마로 분리해 표현할 수 있다.
@@ -137,7 +137,7 @@ module.exports = {
             message: `[{{wrongFunc}}()] 함수에 숫자..?`,
             // --fix 옵션으로 수정되게 할수있다. 숫자를 ''로 치환한다.
             fix: (fixer) =>
-              fixer.replaceText(callee, callee.name.replaceAll(/[0-9]/g, "")),
+              fixer.replaceText(callee, callee.name.replaceAll(/[0-9]/g, '')),
           });
         }
       },
@@ -154,18 +154,18 @@ module.exports = {
 
 ```js
 // tests > lib > rules > RULE_NAME.js
-ruleTester.run("RULE_NAME", rule, {
+ruleTester.run('RULE_NAME', rule, {
   // 테스트를 통과하는 함수.
-  valid: ["var data = getData();"],
+  valid: ['var data = getData();'],
 
   // 테스트를 통과하지 못하는 함수.
   invalid: [
     {
-      code: "var data = getData123();",
+      code: 'var data = getData123();',
       errors: [
         {
-          message: "[getData123()] 함수에 숫자..?",
-          type: "CallExpression",
+          message: '[getData123()] 함수에 숫자..?',
+          type: 'CallExpression',
         },
       ],
     },

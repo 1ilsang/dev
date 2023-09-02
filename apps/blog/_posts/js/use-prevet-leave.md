@@ -1,11 +1,11 @@
 ---
-title: "페이지 이탈시 확인 컨펌창 만들기"
-description: "usePreventLeave를 알아보자"
-tags: ["usePreventLeave", "beforeunload", "popstate", "popup"]
-coverImage: "https://user-images.githubusercontent.com/23524849/224527867-7128d0f0-04b6-4f6d-93db-4079af82d181.png"
-date: "2023-03-12T06:14:32.600Z"
+title: '페이지 이탈시 확인 컨펌창 만들기'
+description: 'usePreventLeave를 알아보자'
+tags: ['usePreventLeave', 'beforeunload', 'popstate', 'popup']
+coverImage: 'https://user-images.githubusercontent.com/23524849/224527867-7128d0f0-04b6-4f6d-93db-4079af82d181.png'
+date: '2023-03-12T06:14:32.600Z'
 ogImage:
-  url: "https://user-images.githubusercontent.com/23524849/224527867-7128d0f0-04b6-4f6d-93db-4079af82d181.png"
+  url: 'https://user-images.githubusercontent.com/23524849/224527867-7128d0f0-04b6-4f6d-93db-4079af82d181.png'
 ---
 
 유저가 페이지 이탈시 확인 컴펌을 받는 로직이 필요하게 되었고 이에 대한 고민을 공유해 보려고 한다.
@@ -51,7 +51,7 @@ const handleBeforeUnload = (event: Event) => {
   event.preventDefault();
   event.returnValue = false; // Chrome requires returnValue to be set.
 };
-window.addEventListener("beforeunload", handleBeforeUnload);
+window.addEventListener('beforeunload', handleBeforeUnload);
 ```
 
 코드로 작성하면 위와 같다. 이동을 막아줄 path에서 beforeunload 이벤트를 수신하고, `event.preventDefault()`를 통해 이벤트의 진행을 막아준다. 이를 통해 페이지를 떠나기전 이벤트가 멈추게 된다.
@@ -75,19 +75,19 @@ const usePreventLeave = (global = false) => {
     event.returnValue = false; // Chrome requires returnValue to be set.
   };
   const onPreventLeave = () => {
-    window.addEventListener("beforeunload", handleBeforeUnload);
+    window.addEventListener('beforeunload', handleBeforeUnload);
   };
   const offPreventLeave = () => {
-    window.removeEventListener("beforeunload", handleBeforeUnload);
+    window.removeEventListener('beforeunload', handleBeforeUnload);
   };
 
   // 만약 페이지 전체에 적용할 경우 global을 true로 입력해 window에 적용하면 된다.
   // 단일 요소(e.g., HTMLInputElement)에 별개로 적용할 경우 on/off PreventLeave 이벤트를 사용한다.
   useEffect(() => {
     if (!global) return;
-    window.addEventListener("beforeunload", handleBeforeUnload);
+    window.addEventListener('beforeunload', handleBeforeUnload);
     return () => {
-      window.removeEventListener("beforeunload", handleBeforeUnload);
+      window.removeEventListener('beforeunload', handleBeforeUnload);
     };
   }, [global]);
 
@@ -120,7 +120,7 @@ const MyApp: FunctionComponent = () => {
     <div>
       <input type="text" onChange={handleInputChange} />
       <button onClick={handleClearClick}>clear</button>
-      <h1>{changed ? "changed" : "none"}</h1>
+      <h1>{changed ? 'changed' : 'none'}</h1>
     </div>
   );
 };
@@ -227,10 +227,10 @@ const usePreventLeave = (global = false) => {
   useEffect(() => {
     if (!global) return;
 
-    window.history.pushState(null, "", window.location.href);
-    window.addEventListener("popstate", handlePopstate);
+    window.history.pushState(null, '', window.location.href);
+    window.addEventListener('popstate', handlePopstate);
     return () => {
-      window.removeEventListener("popstate", handlePopstate);
+      window.removeEventListener('popstate', handlePopstate);
     };
   }, [global]);
 
@@ -240,7 +240,7 @@ const usePreventLeave = (global = false) => {
   };
   const handlePopstate = () => setPrevent(true);
   const handlePopupClose = () => {
-    window.history.pushState(null, "", window.location.href);
+    window.history.pushState(null, '', window.location.href);
     setPrevent(false);
   };
   const handlePopupLeave = (onLeave: () => void) => {
@@ -252,13 +252,13 @@ const usePreventLeave = (global = false) => {
     setPrevent(true);
   };
   const onPreventLeave = () => {
-    window.history.pushState(null, "", window.location.href);
-    window.addEventListener("popstate", handlePopstate);
-    window.addEventListener("beforeunload", handleBeforeUnload);
+    window.history.pushState(null, '', window.location.href);
+    window.addEventListener('popstate', handlePopstate);
+    window.addEventListener('beforeunload', handleBeforeUnload);
   };
   const offPreventLeave = () => {
-    window.removeEventListener("popstate", handlePopstate);
-    window.removeEventListener("beforeunload", handleBeforeUnload);
+    window.removeEventListener('popstate', handlePopstate);
+    window.removeEventListener('beforeunload', handleBeforeUnload);
   };
 
   const PreventPopup: FunctionComponent<{ onLeave: () => void }> = ({

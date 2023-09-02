@@ -1,11 +1,11 @@
 ---
-title: "Storybook 7.0 살펴보기"
-description: "7버전은 무엇이 달라졌을까?"
-tags: ["storybook", "decorator", "const", "extends"]
-coverImage: "https://github.com/1ilsang/dev/assets/23524849/c251c31e-1775-4cf9-9131-7cab72cde00e"
-date: "2023-08-13T10:17:57.922Z"
+title: 'Storybook 7.0 살펴보기'
+description: '7버전은 무엇이 달라졌을까?'
+tags: ['storybook', 'decorator', 'const', 'extends']
+coverImage: 'https://github.com/1ilsang/dev/assets/23524849/c251c31e-1775-4cf9-9131-7cab72cde00e'
+date: '2023-08-13T10:17:57.922Z'
 ogImage:
-  url: "https://github.com/1ilsang/dev/assets/23524849/c251c31e-1775-4cf9-9131-7cab72cde00e"
+  url: 'https://github.com/1ilsang/dev/assets/23524849/c251c31e-1775-4cf9-9131-7cab72cde00e'
 ---
 
 <img width="1000" src="https://github.com/1ilsang/dev/assets/23524849/c251c31e-1775-4cf9-9131-7cab72cde00e" alt="typescript">
@@ -47,14 +47,14 @@ Component Story Format(CSF)도 상당부분 변경되었다. 컴포넌트 형식
 export const Pair = Template.bind({});
 Pair.argTypes = {
   type: {
-    options: ["mobile", "pc"],
-    control: { type: "radio" },
-    defaultValue: "mobile",
+    options: ['mobile', 'pc'],
+    control: { type: 'radio' },
+    defaultValue: 'mobile',
   },
   slot: {
-    options: ["header", "toolbar left", "toolbar right", "more"],
-    control: { type: "radio" },
-    defaultValue: "header",
+    options: ['header', 'toolbar left', 'toolbar right', 'more'],
+    control: { type: 'radio' },
+    defaultValue: 'header',
   },
 };
 Pair.args = {
@@ -63,29 +63,29 @@ Pair.args = {
 Pair.parameter = {
   /* ... */
 };
-Pair.action = clickPair("toolbar");
+Pair.action = clickPair('toolbar');
 
 // v7 {id}.stories.tsx
 export default {
-  title: "Buttons/color",
+  title: 'Buttons/color',
   argTypes: {
     type: {
-      options: ["mobile", "pc"],
-      control: { type: "radio" },
+      options: ['mobile', 'pc'],
+      control: { type: 'radio' },
     },
     slot: {
-      options: ["header", "toolbar left", "toolbar right", "more"],
-      control: { type: "radio" },
+      options: ['header', 'toolbar left', 'toolbar right', 'more'],
+      control: { type: 'radio' },
     },
   },
 };
 export const Pair = {
-  name: "Pair",
-  action: clickPair("toolbar"),
+  name: 'Pair',
+  action: clickPair('toolbar'),
   render: Template,
   args: {
-    type: "mobile",
-    slot: "header",
+    type: 'mobile',
+    slot: 'header',
   },
   parameter: {
     /* ... */
@@ -151,7 +151,7 @@ v7에는 코드 커버리지 기능이 추가되었다. 테스트 코드의 누�
 
 ```tsx
 const meta: Meta<typeof SignupForm> = {
-  title: "SignupForm",
+  title: 'SignupForm',
   component: SignupForm,
 };
 export default meta;
@@ -161,13 +161,13 @@ export const Submitted: Story = {
   play: async ({ args, canvasElement, step }) => {
     const canvas = within(canvasElement);
 
-    await step("Enter email and password", async () => {
-      await userEvent.type(canvas.getByTestId("email"), "hi@example.com");
-      await userEvent.type(canvas.getByTestId("password"), "supersecret");
+    await step('Enter email and password', async () => {
+      await userEvent.type(canvas.getByTestId('email'), 'hi@example.com');
+      await userEvent.type(canvas.getByTestId('password'), 'supersecret');
     });
 
-    await step("Submit form", async () => {
-      await userEvent.click(canvas.getByRole("button"));
+    await step('Submit form', async () => {
+      await userEvent.click(canvas.getByRole('button'));
     });
   },
 };

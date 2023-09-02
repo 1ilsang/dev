@@ -1,11 +1,11 @@
 ---
-title: "알랑말랑 암묵적 형변환 말랑말랑 이해하기"
-description: "자바스크립트의 형변환은 어떻게 일어나는가?"
-tags: ["javascript", "type", "implicit-coercion"]
-coverImage: "https://user-images.githubusercontent.com/23524849/233845072-aa409fb1-2182-47e7-92ea-94b740bde30c.png"
-date: "2023-04-22T08:02:20.684Z"
+title: '알랑말랑 암묵적 형변환 말랑말랑 이해하기'
+description: '자바스크립트의 형변환은 어떻게 일어나는가?'
+tags: ['javascript', 'type', 'implicit-coercion']
+coverImage: 'https://user-images.githubusercontent.com/23524849/233845072-aa409fb1-2182-47e7-92ea-94b740bde30c.png'
+date: '2023-04-22T08:02:20.684Z'
 ogImage:
-  url: "https://user-images.githubusercontent.com/23524849/233845072-aa409fb1-2182-47e7-92ea-94b740bde30c.png"
+  url: 'https://user-images.githubusercontent.com/23524849/233845072-aa409fb1-2182-47e7-92ea-94b740bde30c.png'
 ---
 
 ```js
@@ -50,11 +50,11 @@ undefined == null // true
 
 ```js
 // 표현식이 모두 문자열 타입이여야 하는 컨텍스트
-const a = "10" + 2; // "102"
+const a = '10' + 2; // "102"
 const b = `1 * 10 = ${1 * 10}`; // "1 * 10 = 10"
 
 // 표현식이 모두 숫자 타입이여야 하는 컨텍스트
-5 * "10"; // 50
+5 * '10'; // 50
 
 // 표현식이 불리언 타입이여야 하는 컨텍스트
 !0; // true
@@ -93,21 +93,21 @@ if (1) {
 ```js
 function toPrimitive(input, PreferredType) {
   // PreferredType은 호출자가 기대하는 타입
-  if (typeof input === "object" || typeof input === "function") {
+  if (typeof input === 'object' || typeof input === 'function') {
     let hint =
       PreferredType === undefined
-        ? "default"
-        : typeof PreferredType === "string"
-        ? "string"
-        : "number";
+        ? 'default'
+        : typeof PreferredType === 'string'
+        ? 'string'
+        : 'number';
     let exoticToPrim = input[Symbol.toPrimitive];
     if (exoticToPrim !== undefined) {
       let result = exoticToPrim.apply(input, [hint]);
-      if (!(typeof input === "object" || typeof input === "function"))
+      if (!(typeof input === 'object' || typeof input === 'function'))
         return result;
       throw new TypeError();
     }
-    if (hint === "default") hint = "number";
+    if (hint === 'default') hint = 'number';
     return OrdinaryToPrimitive(input, hint);
   }
   return input;
@@ -237,12 +237,12 @@ function OrdinaryToPrimitive (O, hint) {
 
 ```js
 const user = {
-  name: "1ilsang",
+  name: '1ilsang',
   money: 1000,
 
   [Symbol.toPrimitive](hint) {
     alert(`hint: ${hint}`);
-    return hint == "string" ? `{name: "${this.name}"}` : this.money;
+    return hint == 'string' ? `{name: "${this.name}"}` : this.money;
   },
 };
 
@@ -251,7 +251,7 @@ alert(user); // hint: string -> {name: "1ilsang"}
 alert([user] == '{name: "1ilsang"}'); // hint: string -> {name: "1ilsang"} == {name: "1ilsang"}; true;
 alert(+user); // hint: number -> 1000
 alert(user + 500); // hint: default -> default는 number가 기본타입이므로 1000 + 500 -> 1500
-alert("3" - user); // hint: number -> '3' - 1000 -> 3 - 1000 -> -997
+alert('3' - user); // hint: number -> '3' - 1000 -> 3 - 1000 -> -997
 alert(user > 10); // hint: number -> 1000 > 10; true
 alert(user + new Date()); // hint: default -> 1000 + 'Sat Apr 22 2023 17:02:00 GMT+0900 (한국 표준시)' -> '1000Sat Apr 22 2023 17:02:00 GMT+0900 (한국 표준시)'
 ```

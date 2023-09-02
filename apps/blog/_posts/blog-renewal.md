@@ -1,11 +1,11 @@
 ---
-title: "블로그 리뉴얼"
-description: "블로그를 리뉴얼하며 있었던 소소한 이야기들"
-tags: ["blog", "architecture", "goal", "daily"]
-coverImage: "https://user-images.githubusercontent.com/23524849/178150336-2453c93a-3de0-4117-b9fc-15c9b8699305.png"
-date: "2022-06-06T03:13:10.667Z"
+title: '블로그 리뉴얼'
+description: '블로그를 리뉴얼하며 있었던 소소한 이야기들'
+tags: ['blog', 'architecture', 'goal', 'daily']
+coverImage: 'https://user-images.githubusercontent.com/23524849/178150336-2453c93a-3de0-4117-b9fc-15c9b8699305.png'
+date: '2022-06-06T03:13:10.667Z'
 ogImage:
-  url: "https://user-images.githubusercontent.com/23524849/178150336-2453c93a-3de0-4117-b9fc-15c9b8699305.png"
+  url: 'https://user-images.githubusercontent.com/23524849/178150336-2453c93a-3de0-4117-b9fc-15c9b8699305.png'
 ---
 
 블로그를 리뉴얼하며 있었던 이야기들을 해보려고 한다.
@@ -29,7 +29,7 @@ FE개발을 하게된 이후부터 블로그를 직접 만들어야지 생각을
 가장 어려웠던 부분은 CSS였던거 같다. 반응형을 지원하면서 각종 컴포넌트들의 배치를 하는게 생각외로 시간이 많이 들었다. [Tailwind](https://tailwindcss.com/)를 처음 사용해봤는데 매우 신세계였다. 지금은 CSS 연습겸 한땀한땀 다 만들고 있는데 SCSS로 이전해야겠다.
 
 ```js
-const hello = () => console.log("world!");
+const hello = () => console.log('world!');
 console.log(hello());
 ```
 

@@ -1,6 +1,6 @@
 export enum ActivityType {
   award = 'Award',
-  sideProject = 'Side Project',
+  seminar = 'Seminar',
   conference = 'Conference',
   magazine = 'Magazine',
   hackathon = 'Hackathon',

@@ -1,11 +1,11 @@
 ---
-title: "TypeScript 5.0 살펴보기"
-description: "5버전은 무엇이 달라졌을까?"
-tags: ["typescript", "decorator", "const", "extends"]
-coverImage: "https://devblogs.microsoft.com/typescript/wp-content/uploads/sites/11/2023/03/5-0-feature-image-square-bounds-1.png"
-date: "2023-04-09T07:24:41.017Z"
+title: 'TypeScript 5.0 살펴보기'
+description: '5버전은 무엇이 달라졌을까?'
+tags: ['typescript', 'decorator', 'const', 'extends']
+coverImage: 'https://devblogs.microsoft.com/typescript/wp-content/uploads/sites/11/2023/03/5-0-feature-image-square-bounds-1.png'
+date: '2023-04-09T07:24:41.017Z'
 ogImage:
-  url: "https://devblogs.microsoft.com/typescript/wp-content/uploads/sites/11/2023/03/5-0-feature-image-square-bounds-1.png"
+  url: 'https://devblogs.microsoft.com/typescript/wp-content/uploads/sites/11/2023/03/5-0-feature-image-square-bounds-1.png'
 ---
 
 <img width="1000" src="https://devblogs.microsoft.com/typescript/wp-content/uploads/sites/11/2023/03/5-0-feature-image-square-bounds-1.png" alt="typescript">
@@ -48,14 +48,14 @@ class Person {
   }
 }
 
-const p = new Person("Ron");
+const p = new Person('Ron');
 p.greet(); // Hello, my name is Ron.
 ```
 
 위와 같은 간단한 Person 클래스의 greet 함수를 디버깅 하기 위해 함수 내부 시작과 끝에 `console.log`를 추가할 경우 데코레이터를 사용하면 편리하게 작업할수 있다.
 
 ```ts
-function loggedMethod(headMessage = "LOG:") {
+function loggedMethod(headMessage = 'LOG:') {
   return function actualDecorator(
     originalMethod: any, // 데코레이터를 사용한 함수
     context: ClassMethodDecoratorContext, // 데코레이터를 사용하는 컨텍스트 객체의 데이터 및 함수가 있다(private, static 여부, 메서드 이름 등).
@@ -75,13 +75,13 @@ function loggedMethod(headMessage = "LOG:") {
 
 class Person {
   // ...
-  @loggedMethod("[Name]")
+  @loggedMethod('[Name]')
   greet() {
     console.log(`Hello, my name is ${this.name}.`);
   }
 }
 
-const p = new Person("Ron");
+const p = new Person('Ron');
 p.greet();
 /**
  * [Name] Entering method 'greet'.
@@ -119,7 +119,7 @@ class Person {
   // }
 }
 
-const greet = new Person("Ron").greet;
+const greet = new Person('Ron').greet;
 greet(); // CASE 1,2 는 정상적으로 동작하지만 3은 this가 글로벌로 바뀌기 때문에 name이 undefined 에러가 발생한다.
 ```
 
@@ -148,12 +148,12 @@ class Person {
 
   // It Same: @bound @loggedMethod('[Name]') greet() { ... }
   @bound
-  @loggedMethod("[Name]")
+  @loggedMethod('[Name]')
   greet() {
     console.log(`Hello, my name is ${this.name}.`);
   }
 }
-const greet = new Person("Ron").greet;
+const greet = new Person('Ron').greet;
 greet(); // It works!
 /**
  * [Name] Entering method 'greet'.
@@ -172,17 +172,22 @@ greet(); // It works!
 
 ```ts
 // allowed
-@register export default class Foo {
+@register
+export default class Foo {
   // ...
 }
 
 // also allowed
-export default @register class Bar {
+export default
+@register
+class Bar {
   // ...
 }
 
 // error - before *and* after is not allowed
-@before export @after class Bar {
+@before
+@after
+export class Bar {
   // ...
 }
 ```
@@ -196,18 +201,18 @@ export default @register class Bar {
 ```ts
 type HasNames = { names: readonly string[] };
 // 우리는 아래 함수를 통해 불변 문자열 배열 타입을 얻고자 한다.
-function getNamesExactly<T extends HasNames>(arg: T): T["names"] {
+function getNamesExactly<T extends HasNames>(arg: T): T['names'] {
   return arg.names;
 }
 // The type we wanted:
 //    readonly ["Alice", "Bob", "Eve"]
 // The type we got:
 //    string[]
-const names1 = getNamesExactly({ names: ["Alice", "Bob", "Eve"] });
+const names1 = getNamesExactly({ names: ['Alice', 'Bob', 'Eve'] });
 
 // Correctly gets what we wanted:
 //    readonly ["Alice", "Bob", "Eve"]
-const names2 = getNamesExactly({ names: ["Alice", "Bob", "Eve"] } as const);
+const names2 = getNamesExactly({ names: ['Alice', 'Bob', 'Eve'] } as const);
 ```
 
 객체의 타입을 추론할때 타입스크립트는 일반적인 타입을 선택한다. 따라서 위의 예에서 `names`는 `string[]` 타입으로 추론된다.
@@ -215,19 +220,19 @@ const names2 = getNamesExactly({ names: ["Alice", "Bob", "Eve"] } as const);
 readonly 타입을 반환하게 할 경우 기존까지는 `as const` [타입 어설션](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions)으로 강제화 해주어야 했는데, 이는 상당히 번거롭다.
 
 ```ts
-function getNamesExactly<const T extends HasNames>(arg: T): T["names"] {
-//                       ^^^^^
+function getNamesExactly<const T extends HasNames>(arg: T): T['names'] {
+  //                       ^^^^^
   return arg.names;
 }
 // Inferred type: readonly ["Alice", "Bob", "Eve"]
 // Note: Didn't need to write 'as const' here
-const names = getNamesExactly({ names: ["Alice", "Bob", "Eve"] });
+const names = getNamesExactly({ names: ['Alice', 'Bob', 'Eve'] });
 ```
 
 이제 `const` 타입 파라미터를 사용해 `as const` 추론이 가능해졌다. 하지만 이는 함수 호출 내에 작성된 객체, 배열, 표현식에만 영향을 미치므로 주소값을 넘기는 인수로는 동작할수 없음을 알아두어야 한다.
 
 ```ts
-const inputNames = ["Alice", "Bob", "Eve"];
+const inputNames = ['Alice', 'Bob', 'Eve'];
 
 // Inferred type: ["Alice", "Bob", "Eve"]
 // readonly 내놔!!!
@@ -331,10 +336,10 @@ export class Spaceship {
 
 // It works!
 // models/index.ts
-export type * as vehicles from "./vehicles";
+export type * as vehicles from './vehicles';
 
 // main.ts
-import { vehicles } from "./models";
+import { vehicles } from './models';
 
 function takeASpaceship(s: vehicles.Spaceship) {
   //  ok - `vehicles` only used in a type position
@@ -444,7 +449,7 @@ let m: SomeEvenDigit = 1;
 
 // =====
 enum Letters {
-  A = "a",
+  A = 'a',
 }
 enum Numbers {
   one = 1,

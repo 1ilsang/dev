@@ -1,11 +1,11 @@
 ---
-title: "useTransition 이해하기"
-description: "상태 업데이트의 우선 순위를 지정해보자"
-tags: ["react", "hooks", "useTransition", "throttle", "debounce", "suspense"]
-coverImage: "https://github.com/1ilsang/dev/assets/23524849/4c83fd47-4f27-4cec-86bf-64ac64fa9795"
-date: "2023-06-04T11:38:16.720Z"
+title: 'useTransition 이해하기'
+description: '상태 업데이트의 우선 순위를 지정해보자'
+tags: ['react', 'hooks', 'useTransition', 'throttle', 'debounce', 'suspense']
+coverImage: 'https://github.com/1ilsang/dev/assets/23524849/4c83fd47-4f27-4cec-86bf-64ac64fa9795'
+date: '2023-06-04T11:38:16.720Z'
 ogImage:
-  url: "https://github.com/1ilsang/dev/assets/23524849/4c83fd47-4f27-4cec-86bf-64ac64fa9795"
+  url: 'https://github.com/1ilsang/dev/assets/23524849/4c83fd47-4f27-4cec-86bf-64ac64fa9795'
 ---
 
 ![image](https://github.com/1ilsang/dev/assets/23524849/4c83fd47-4f27-4cec-86bf-64ac64fa9795)
@@ -56,7 +56,7 @@ useTransition은 컴포넌트 최상위 수준에서 호출되어 `startTransiti
 ```jsx
 const TabButton = ({ children, onClick }) => {
   const [isPending, startTransition] = useTransition();
-  const [tab, setTab] = useState("about");
+  const [tab, setTab] = useState('about');
 
   if (isPending) {
     return <b className="pending">{children}</b>;
@@ -91,25 +91,25 @@ useTransition은 두 개의 항목이 있는 배열을 반환한다.
 
 ```jsx
 const App = () => {
-  const [tab, setTab] = useState("about");
+  const [tab, setTab] = useState('about');
 
   return (
     <>
       {/* 탭을 클릭하면 렌더링할 탭 컴포넌트가 설정된다 */}
-      <TabButton isActive={tab === "about"} onClick={() => setTab("about")}>
+      <TabButton isActive={tab === 'about'} onClick={() => setTab('about')}>
         About
       </TabButton>
-      <TabButton isActive={tab === "posts"} onClick={() => setTab("posts")}>
+      <TabButton isActive={tab === 'posts'} onClick={() => setTab('posts')}>
         Posts (slow)
       </TabButton>
-      <TabButton isActive={tab === "contact"} onClick={() => setTab("contact")}>
+      <TabButton isActive={tab === 'contact'} onClick={() => setTab('contact')}>
         Contact
       </TabButton>
       <hr />
       {/* 현재 탭에 따라 탭 컴포넌트가 렌더링 된다 */}
-      {tab === "about" && <AboutTab />}
-      {tab === "posts" && <PostsTab />}
-      {tab === "contact" && <ContactTab />}
+      {tab === 'about' && <AboutTab />}
+      {tab === 'posts' && <PostsTab />}
+      {tab === 'contact' && <ContactTab />}
     </>
   );
 };
@@ -199,7 +199,7 @@ useTransition의 `startTransition`을 `Suspense`와 함께 사용할 경우 불�
 console.log(1);
 startTransition(() => {
   console.log(2);
-  setPage("/about");
+  setPage('/about');
 });
 console.log(3);
 
