@@ -13,7 +13,7 @@
     "deploy": "next build && next export",
     "lint:prettier": "prettier --list-different \"./{pages,components}/**/*.{json,html,yml,tsx,ts,js,jsx}\"",
     "lint:eslint": "eslint --ext .ts,.tsx,.js,.jsx \"./**/*.{js,jsx,ts,tsx}\"",
-    "lint:markdown": "markdownlint --config ./.markdownlint.js *.{md,mdx} ./**/*.{md,mdx}",
+    "lint:markdown": "markdownlint --config ./.markdownlint.js ./**/*.{md,mdx}",
     "lint:typeCheck": "tsc --pretty",
     "lint": "FORCE_COLOR=1 npm-run-all -p --print-label \"lint:**\"",
     "clean": "rm -rf .next out .turbo node_modules"
