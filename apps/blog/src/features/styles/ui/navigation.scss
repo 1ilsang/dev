@@ -1,0 +1,37 @@
+/* PC */
+.nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+  position: fixed;
+  z-index: 300;
+}
+
+.nav-avatar {
+  width: 2rem;
+  height: 2rem;
+  margin-top: 0.5rem;
+
+  img {
+    border: 1px solid $min-color;
+    border-radius: 90px;
+  }
+}
+
+.nav-shadow {
+  --tw-shadow: 0 10px 15px -3px rgb(0 129 86 / 10%),
+    0 4px 6px -4px rgb(0 129 86 / 10%);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color),
+    0 4px 6px -4px var(--tw-shadow-color);
+
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #fff0),
+    var(--tw-ring-shadow, 0 0 #fff0), var(--tw-shadow);
+}
+
+/* MOBILE */
+@media (width <= 700px) {
+  .post-nav-trans {
+    opacity: 0.1;
+  }
+}

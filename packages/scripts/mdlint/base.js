@@ -2,7 +2,7 @@ module.exports = {
   default: true,
   MD001: false,
   MD002: false,
-  MD004: { style: "dash" },
+  MD004: { style: 'dash' },
   MD007: { indent: 2 },
   MD013: { line_length: 1300 },
   MD024: false,
@@ -12,6 +12,6 @@ module.exports = {
   MD034: false,
   MD036: false,
   MD041: false,
-  "no-hard-tabs": false,
+  'no-hard-tabs': false,
   whitespace: false,
 };

@@ -1,0 +1,125 @@
+@mixin project {
+  border-left: 3px solid $dark-color;
+  border-bottom: 1px dotted $dark-color;
+  padding-left: 10px;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+
+  .border {
+    border: 1px solid $min-color;
+  }
+
+  .headline {
+    display: flex;
+    flex-direction: column;
+
+    .title-wrap {
+      display: flex;
+      align-items: center;
+    }
+
+    .title {
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: 500;
+
+      &:hover {
+        color: $sub-color;
+      }
+    }
+
+    .fold {
+      &::before {
+        content: '▶';
+        margin-right: 0.5rem;
+        color: $sub-color;
+      }
+    }
+
+    .unfold {
+      &::before {
+        content: '▼';
+        margin-right: 0.5rem;
+        color: $sub-color;
+      }
+    }
+
+    .date {
+      font-style: italic;
+      font-size: 0.9rem;
+    }
+  }
+
+  .tag {
+    display: flex;
+    flex-wrap: wrap;
+
+    .item {
+      font-size: 0.75rem;
+      background-color: $base-color;
+      color: $deep-light-color;
+      padding: 1px 5px;
+      margin: 2px 4px 5px 0;
+      border-radius: 5px;
+    }
+  }
+
+  .description {
+    display: flex;
+    flex-wrap: wrap;
+    word-break: break-word;
+
+    .image {
+      width: 100%;
+
+      @include large-desktop {
+        width: 700px;
+      }
+    }
+
+    .text {
+      width: 100%;
+
+      .summary {
+        width: fit-content;
+        border-left: 0.25em solid $dark-color;
+        background-color: #132b3f;
+        border-radius: 4px;
+        padding: 15px;
+        padding-right: 22px;
+        color: $deep-light-color;
+        margin-bottom: 10px;
+      }
+
+      .main {
+        padding-top: 1rem;
+        padding-left: 0.2rem;
+        padding-bottom: 1rem;
+      }
+
+      .gap {
+        gap: 0.8rem;
+      }
+
+      ul {
+        padding-left: 1rem;
+        display: grid;
+
+        span {
+          padding-bottom: 0.8rem;
+        }
+
+        li {
+          margin-top: 2px;
+          padding-left: 1rem;
+
+          &::before {
+            content: '❑';
+            margin-right: 0.5rem;
+            color: $min-color;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+html,
+body {
+  height: 100%;
+  font-family: 'D2Coding', sans-serif;
+  background-color: $background-color;
+  color: $deep-light-color;
+}
+
+/* stylelint-disable */
+#__next {
+  height: 100%;
+}
+/* stylelint-enable */
+
+main {
+  height: 100vh;
+}

@@ -1,0 +1,24 @@
+@import './detail/index';
+
+/* PC */
+.tag-layout {
+  @include root-layout;
+}
+
+.tag-container {
+  @include root-container;
+  @include detail;
+}
+
+.hashtag {
+  color: $highlight-color;
+}
+
+.hashtag:hover {
+  text-decoration-line: underline;
+}
+
+.tag-wrapper {
+  display: inline-block;
+  margin: 0.5rem;
+}

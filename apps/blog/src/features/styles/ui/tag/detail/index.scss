@@ -1,0 +1,9 @@
+@mixin detail {
+  .card {
+    display: inline-block;
+    margin: 0.5rem;
+    padding: 1rem;
+    border: 1px solid $base-color;
+    border-radius: 24px;
+  }
+}

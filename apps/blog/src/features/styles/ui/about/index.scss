@@ -1,0 +1,244 @@
+@import './project';
+
+@mixin container {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 30px;
+}
+
+@mixin label {
+  user-select: none;
+  border-bottom: 1px solid $base-color;
+  color: $min-color;
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 4px;
+}
+
+.about {
+  &-layout {
+    @include root-layout;
+  }
+
+  &-container {
+    @include root-container;
+
+    @include large-desktop {
+      margin: 0 22vw;
+      padding: 10vh 0 5vh;
+    }
+  }
+
+  &-profile {
+    &-container {
+      display: flex;
+      justify-content: space-between;
+
+      .image-section {
+        display: flex;
+        height: 100px;
+        align-items: center;
+
+        .image {
+          position: relative;
+          width: 75px;
+          height: 75px;
+          border: 1px solid $base-color;
+          border-radius: 90px;
+        }
+
+        .font-container {
+          margin-left: 20px;
+          height: 110px;
+          width: 117px;
+        }
+      }
+
+      .description {
+        padding: 10px 0 20px;
+      }
+    }
+
+    &-logo {
+      display: flex;
+      justify-content: flex-end;
+      padding-bottom: 1px;
+
+      a {
+        display: flex;
+        align-items: center;
+      }
+
+      img {
+        padding-left: 5px;
+        padding-bottom: 4px;
+      }
+    }
+  }
+
+  &-work {
+    @include container;
+
+    .skeleton {
+      height: $max-height;
+    }
+
+    .label {
+      @include label;
+
+      cursor: pointer;
+
+      &:hover {
+        color: $sub-color;
+      }
+    }
+
+    &-card {
+      display: flex;
+      padding: 10px 0;
+
+      @include mobile {
+        flex-direction: column;
+      }
+
+      .logo {
+        width: 6rem;
+        border-radius: 13px;
+
+        &:hover {
+          filter: drop-shadow(2px 2px 4px lightgray) invert(2%);
+        }
+      }
+
+      .border {
+        border: 1px solid $background-color;
+      }
+
+      .content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-left: 22px;
+
+        @include mobile {
+          margin-left: 0;
+        }
+
+        .headline {
+          display: flex;
+          align-items: baseline;
+
+          .title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            user-select: none;
+          }
+
+          .hover {
+            cursor: pointer;
+
+            &:hover {
+              color: $base-color;
+            }
+          }
+
+          .date {
+            padding-left: 4px;
+            font-style: italic;
+          }
+
+          @include mobile {
+            flex-direction: column;
+
+            .date {
+              padding-left: 0;
+            }
+          }
+        }
+
+        .position {
+          border-bottom: 1px dotted $min-color;
+          margin-bottom: 15px;
+        }
+
+        .project {
+          @include project;
+        }
+      }
+    }
+  }
+
+  &-activity {
+    @include container;
+
+    padding-bottom: 50px;
+
+    /* stylelint-disable no-descending-specificity */
+    .label {
+      @include label;
+    }
+    /* stylelint-enable no-descending-specificity */
+
+    .year {
+      font-size: 1.3rem;
+    }
+
+    .left-line {
+      border-left: 3px solid $dark-color;
+      padding-left: 1rem;
+
+      li {
+        display: flex;
+
+        .category {
+          min-width: 120px;
+          color: $sub-color;
+        }
+
+        .link-wrap {
+          width: 100%;
+        }
+
+        .link {
+          color: #28b592;
+
+          &:hover {
+            color: $highlight-color;
+            text-decoration-line: underline;
+          }
+        }
+      }
+    }
+  }
+
+  &-education {
+    @include container;
+
+    /* stylelint-disable no-descending-specificity */
+    .label {
+      @include label;
+    }
+    /* stylelint-enable no-descending-specificity */
+  }
+}
+
+/* MOBILE */
+@media (width <= 700px) {
+  .about-profile-container {
+    flex-direction: column;
+
+    .image-section {
+      flex-direction: column;
+      align-items: flex-start;
+      height: auto;
+
+      .font-container {
+        margin-left: 0;
+      }
+    }
+
+    .description {
+      padding: 0 0 30px;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+.not-found {
+  &-layout {
+    @include root-layout;
+  }
+
+  &-container {
+    @include root-container;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

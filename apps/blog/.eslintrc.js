@@ -1,1 +1,1 @@
-module.exports = require("@1ilsang/eslint/next");
+module.exports = require('@1ilsang/eslint/next');
