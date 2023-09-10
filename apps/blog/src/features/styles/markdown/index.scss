@@ -12,6 +12,12 @@
     text-decoration-line: underline;
   }
 
+  u {
+    padding-bottom: 2px;
+    border-bottom: 3px dashed $sub-color;
+    text-decoration: none;
+  }
+
   p {
     margin-top: 1rem;
     margin-bottom: 1rem;
