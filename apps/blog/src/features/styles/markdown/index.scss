@@ -131,6 +131,14 @@
       max-width: 1200px;
     }
   }
+
+  .cover {
+    width: 100%;
+    height: 600px;
+    animation: none;
+    background-color: transparent;
+    object-fit: contain;
+  }
 }
 
 /* MOBILE */
@@ -139,6 +147,10 @@
     ul,
     ol {
       margin-left: 1.3em;
+    }
+
+    .cover {
+      height: 300px;
     }
   }
 }

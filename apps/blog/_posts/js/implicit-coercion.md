@@ -26,7 +26,7 @@ undefined == null // true
 
 ```
 
-<img width="766" alt="image" src="https://user-images.githubusercontent.com/23524849/233840877-eb7e5d64-4d5a-48b8-a960-6c16f99dff41.png">
+<img class="cover" alt="cover" src="https://user-images.githubusercontent.com/23524849/233840877-eb7e5d64-4d5a-48b8-a960-6c16f99dff41.png" />
 
 ### TL;DR!
 
@@ -38,7 +38,7 @@ undefined == null // true
 
 ### 들어가기 전에
 
-<img width="819" alt="primitive-type" src="https://user-images.githubusercontent.com/23524849/233840925-4bed99f9-37cb-48cf-af23-b5c00ffc31f1.png">
+<img width="819" alt="primitive-type" src="https://user-images.githubusercontent.com/23524849/233840925-4bed99f9-37cb-48cf-af23-b5c00ffc31f1.png" />
 
 > [이미지 주소](https://velog.io/@imjkim49/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%A0%95%EB%A6%AC)
 

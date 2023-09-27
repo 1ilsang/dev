@@ -8,7 +8,7 @@ ogImage:
   url: 'https://user-images.githubusercontent.com/23524849/178150130-709cea99-255c-45a9-8d55-15e8d8a54e87.png'
 ---
 
-<img width="500" src="https://user-images.githubusercontent.com/23524849/178150130-709cea99-255c-45a9-8d55-15e8d8a54e87.png" alt="renovate">
+<img class="cover" alt="cover" src="https://user-images.githubusercontent.com/23524849/178150130-709cea99-255c-45a9-8d55-15e8d8a54e87.png" />
 
 이번에는 디펜던시를 자동으로 최신화 해주는 [Renovate](https://www.mend.io/free-developer-tools/renovate/)를 소개해보고자 한다.
 
@@ -22,7 +22,7 @@ ogImage:
 
 ## INTRO
 
-<img width="1200" alt="image" src="https://user-images.githubusercontent.com/23524849/178150154-105e9a1f-c766-489f-9c54-895b3ffafa2e.png">
+<img width="1200" alt="image" src="https://user-images.githubusercontent.com/23524849/178150154-105e9a1f-c766-489f-9c54-895b3ffafa2e.png" />
 
 리포지터리에서 위와 같은 노티를 봤을수도 있다. 혹여나 **_critical severity_**가 존재한다면 마음 한켠이 굉장히 불안해지기 시작한다. "그날이 왔구나" 생각하며 일정을 산정해 버전업 계획을 세우게 된다.
 

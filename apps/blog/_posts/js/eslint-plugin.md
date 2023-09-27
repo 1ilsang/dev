@@ -8,7 +8,7 @@ ogImage:
   url: 'https://github.com/1ilsang/dev/assets/23524849/d3c160f4-daef-49e0-ab36-39009eb277bc'
 ---
 
-<img src="https://github.com/1ilsang/dev/assets/23524849/485f661f-95f1-4ffe-81c9-651ea945f92e" alt="cover" width="500" />
+<img class="cover" alt="cover" src="https://github.com/1ilsang/dev/assets/23524849/485f661f-95f1-4ffe-81c9-651ea945f92e" />
 
 ESLint 플러그인 구조를 간단하게 분석하고 커스텀 플러그인을 만들어 배포해보자.
 

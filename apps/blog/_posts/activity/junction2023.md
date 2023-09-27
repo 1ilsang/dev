@@ -8,7 +8,7 @@ ogImage:
   url: 'https://github.com/1ilsang/dev/assets/23524849/4797d67e-2599-42ec-b653-329a40cf81e6'
 ---
 
-![cover](https://github.com/1ilsang/dev/assets/23524849/44f4e6a0-d7d7-4ed9-9e0a-110caba63c9b)
+<img class="cover" src="https://github.com/1ilsang/dev/assets/23524849/44f4e6a0-d7d7-4ed9-9e0a-110caba63c9b" alt="cover" />
 
 작년 2022 정션에 참여했던 친구들의 피드백이 상당히 좋았기 때문에 올해는 꼭 참여해보고 싶었던 해커톤이다.
 

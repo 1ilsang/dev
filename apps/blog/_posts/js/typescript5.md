@@ -8,7 +8,7 @@ ogImage:
   url: 'https://devblogs.microsoft.com/typescript/wp-content/uploads/sites/11/2023/03/5-0-feature-image-square-bounds-1.png'
 ---
 
-<img width="1000" src="https://devblogs.microsoft.com/typescript/wp-content/uploads/sites/11/2023/03/5-0-feature-image-square-bounds-1.png" alt="typescript">
+<img class="cover" alt="cover" src="https://devblogs.microsoft.com/typescript/wp-content/uploads/sites/11/2023/03/5-0-feature-image-square-bounds-1.png" />
 
 3월 초 TypeScript v5가 공식 릴리즈 되었다. 이 포스트에서는 [MS 블로그에 작성된](https://devblogs.microsoft.com/typescript/announcing-typescript-5-0) 5버전의 기능들을 확인해보고 정리해 보고자 한다.
 

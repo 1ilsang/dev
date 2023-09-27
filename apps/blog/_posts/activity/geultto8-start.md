@@ -8,7 +8,7 @@ ogImage:
   url: 'https://user-images.githubusercontent.com/23524849/218299370-80d3a527-9c26-47f7-bd7e-22e8a9d19768.png'
 ---
 
-![image](https://user-images.githubusercontent.com/23524849/218299741-67629307-cc01-4f67-834c-c8ae0b3ebad2.png)
+<img class="cover" alt="cover" src="https://user-images.githubusercontent.com/23524849/218299741-67629307-cc01-4f67-834c-c8ae0b3ebad2.png" />
 
 글또를 5기부터 꾸준히 했었다. 어느덧 8기를 모집했고 이번에도 신청했다.
 

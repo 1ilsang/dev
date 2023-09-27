@@ -8,7 +8,7 @@ ogImage:
   url: 'https://github.com/1ilsang/dev/assets/23524849/c251c31e-1775-4cf9-9131-7cab72cde00e'
 ---
 
-<img width="1000" src="https://github.com/1ilsang/dev/assets/23524849/c251c31e-1775-4cf9-9131-7cab72cde00e" alt="typescript">
+<img class="cover" alt="cover" src="https://github.com/1ilsang/dev/assets/23524849/c251c31e-1775-4cf9-9131-7cab72cde00e" />
 
 4월 초 Storybook v7이 공식 릴리즈 되었다. 이 포스트에서는 [스토리북 블로그에 작성된](https://storybook.js.org/blog/storybook-7-0/) 7버전의 기능들을 확인해보고 정리해 보고자 한다.
 

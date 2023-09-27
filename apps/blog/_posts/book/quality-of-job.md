@@ -8,7 +8,7 @@ ogImage:
   url: 'https://github.com/1ilsang/dev/assets/23524849/c72379b1-dde7-42ea-9168-863270b6a51f'
 ---
 
-![image](https://github.com/1ilsang/dev/assets/23524849/c72379b1-dde7-42ea-9168-863270b6a51f)
+<img class="cover" alt="cover" src="https://github.com/1ilsang/dev/assets/23524849/c72379b1-dde7-42ea-9168-863270b6a51f" />
 
 최근 일을 어떻게 마주해야할지, 지속 가능한 회사생활이 뭘까 고민하던 도중 이 책을 접하게 되었다.
 

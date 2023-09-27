@@ -1,14 +1,14 @@
 ---
-title: "Prettier v3 변경사항 살펴보기"
-description: "린트없인 못살아"
-tags: ["prettier", "lint"]
-coverImage: "https://github.com/1ilsang/dev/assets/23524849/10b0b10c-f103-425d-aa86-e9d6deb36772"
-date: "2023-07-06T13:29:01.062Z"
+title: 'Prettier v3 변경사항 살펴보기'
+description: '린트없인 못살아'
+tags: ['prettier', 'lint']
+coverImage: 'https://github.com/1ilsang/dev/assets/23524849/10b0b10c-f103-425d-aa86-e9d6deb36772'
+date: '2023-07-06T13:29:01.062Z'
 ogImage:
-  url: "https://github.com/1ilsang/dev/assets/23524849/10b0b10c-f103-425d-aa86-e9d6deb36772"
+  url: 'https://github.com/1ilsang/dev/assets/23524849/10b0b10c-f103-425d-aa86-e9d6deb36772'
 ---
 
-![image](https://github.com/1ilsang/dev/assets/23524849/10b0b10c-f103-425d-aa86-e9d6deb36772)
+<img class="cover" alt="cover" src="https://github.com/1ilsang/dev/assets/23524849/10b0b10c-f103-425d-aa86-e9d6deb36772" />
 
 Prettier v3.0이 어제 [7월 5일에 공개](https://prettier.io/blog/2023/07/05/3.0.0.html)되었다.
 
@@ -30,20 +30,25 @@ Prettier v3.0이 어제 [7월 5일에 공개](https://prettier.io/blog/2023/07/0
 
 ```md
 <!-- Input -->
+
 노래를 못해요.
 
 <!-- Prettier 2.8 with --prose-wrap always --print-width 9 -->
+
 노래를 못
 해요.
 
 <!-- Prettier 2.8, subsequent reformat with --prose-wrap always --print-width 80 -->
+
 노래를 못 해요.
 
 <!-- Prettier 3.0 with --prose-wrap always --print-width 9 -->
+
 노래를
 못해요.
 
 <!-- Prettier 3.0, subsequent reformat with --prose-wrap always --print-width 80 -->
+
 노래를 못해요.
 ```
 
@@ -58,12 +63,15 @@ v3에서는 위의 특성을 고려해 단어를 '분해하지' 않는다. 영�
 
 ```md
 <!-- Input -->
+
 `   foo   bar   baz   `
 
 <!-- Prettier 2.8 -->
-` foo bar baz `
+
+`foo bar baz`
 
 <!-- Prettier 3.0 -->
+
 `   foo   bar   baz   `
 ```
 
@@ -75,39 +83,39 @@ v3에서는 위의 특성을 고려해 단어를 '분해하지' 않는다. 영�
 
 ```tsx
 // Input
-type Foo =  [
+type Foo = [
   {
-    from: string,
-    to: string,
+    from: string;
+    to: string;
   }, // <- 1
 ];
 type Foo = Promise<
-  | { ok: true, bar: string, baz: SomeOtherLongType }
-  | { ok: false, bar: SomeOtherLongType }, // <- 2
+  | { ok: true; bar: string; baz: SomeOtherLongType }
+  | { ok: false; bar: SomeOtherLongType } // <- 2
 >;
 
 // Prettier 2.8
 type Foo = [
   {
-    from: string,
-    to: string,
-  } // <- 1
+    from: string;
+    to: string;
+  }, // <- 1
 ];
 type Foo = Promise<
-  | { ok: true, bar: string, baz: SomeOtherLongType }
-  | { ok: false, bar: SomeOtherLongType } // <- 2
+  | { ok: true; bar: string; baz: SomeOtherLongType }
+  | { ok: false; bar: SomeOtherLongType } // <- 2
 >;
 
 // Prettier 3.0
 type Foo = [
   {
-    from: string,
-    to: string,
+    from: string;
+    to: string;
   }, // <- 1
 ];
 type Foo = Promise<
-  | { ok: true, bar: string, baz: SomeOtherLongType }
-  | { ok: false, bar: SomeOtherLongType }, // <- 2
+  | { ok: true; bar: string; baz: SomeOtherLongType }
+  | { ok: false; bar: SomeOtherLongType } // <- 2
 >;
 ```
 
@@ -117,14 +125,15 @@ type Foo = Promise<
 
 ```tsx
 // Prettier 2.8
-const Counter = decorator("my-counter")(
-  (props: { initialCount?: number; label?: string }) => {
-    // ...
-  }
-);
+const Counter = decorator('my-counter')((props: {
+  initialCount?: number;
+  label?: string;
+}) => {
+  // ...
+});
 
 // Prettier 3.0
-const Counter = decorator("my-counter")((props: {
+const Counter = decorator('my-counter')((props: {
   initialCount?: number;
   label?: string;
 }) => {
@@ -141,8 +150,8 @@ const Counter = decorator("my-counter")((props: {
 async function request(url) {
   return (
     // prettier-ignore
-    await fetch(url)
-  ).json()
+    (await fetch(url)).json()
+  );
 }
 
 // Prettier 2.8
@@ -166,12 +175,12 @@ async function request(url) {
 
 ```tsx
 // Input
-Y(() => a ? b : c);
-Y(() => () => a ? b : c);
+Y(() => (a ? b : c));
+Y(() => () => (a ? b : c));
 
 // Prettier 2.8
 Y(() => (a ? b : c));
-Y(() => () => a ? b : c);
+Y(() => () => (a ? b : c));
 
 // Prettier 3.0
 Y(() => (a ? b : c));
@@ -189,10 +198,9 @@ import("./foo.json", { with: { type: "json" } });
 
 ```ts
 // Input
-type FooBar = 
+type FooBar =
   | Number // this documents the first option
-  | void // this documents the second option
-  ;
+  | void; // this documents the second option
 
 // Prettier 2.8
 type FooBar = Number | void; // this documents the first option // this documents the second option
@@ -208,12 +216,14 @@ type FooBar =
 ```tsx
 // Input
 export type OuterType2<
-  LongerLongerLongerLongerInnerType extends LongerLongerLongerLongerLongerLongerLongerLongerOtherType
+  LongerLongerLongerLongerInnerType extends
+    LongerLongerLongerLongerLongerLongerLongerLongerOtherType,
 > = { a: 1 };
 
 // Prettier 2.8
 export type OuterType2<
-  LongerLongerLongerLongerInnerType extends LongerLongerLongerLongerLongerLongerLongerLongerOtherType
+  LongerLongerLongerLongerInnerType extends
+    LongerLongerLongerLongerLongerLongerLongerLongerOtherType,
 > = { a: 1 };
 
 // Prettier 3.0
@@ -230,15 +240,14 @@ export type OuterType2<
 ```html
 <!-- Input -->
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-<script>
-document.addEventListener(
-'DOMContentLoaded', () => {
-  const element = document.getElementById('foo')
-   if (element) {
-element.fillStyle = 'currentColor'
-}
-});
-</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const element = document.getElementById('foo');
+      if (element) {
+        element.fillStyle = 'currentColor';
+      }
+    });
+  </script>
 </svg>
 
 <!-- Prettier 2.8 -->
@@ -253,10 +262,10 @@ element.fillStyle = 'currentColor'
 <!-- Prettier 3.0 -->
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const element = document.getElementById("foo");
+    document.addEventListener('DOMContentLoaded', () => {
+      const element = document.getElementById('foo');
       if (element) {
-        element.fillStyle = "currentColor";
+        element.fillStyle = 'currentColor';
       }
     });
   </script>
