@@ -40,7 +40,7 @@ ogImage:
 
 의존성이 커지기 전에 조금씩 버전을 올렸다면 이런 문제는 없지 않았을까 생각하게 된다. Renovate를 통해 이 문제를 해결해 보자.
 
-> 깃헙의 공식 툴인 [dependabot 과의 차이점](https://www.libhunt.com/compare-renovate-vs-dependabot-core)도 향후 작성해볼 예정이다. [레딧에서 다양한 의견](https://www.reddit.com/r/reactjs/comments/us666i/how_do_you_keep_up_with_npm_package_updates/)을 볼 수 있다.
+> 깃헙의 공식 툴인 [dependabot 과의 차이점](https://www.libhunt.com/compare-renovate-vs-dependabot-core)도 향후 작성해 볼 예정이다. [레딧에서 다양한 의견](https://www.reddit.com/r/reactjs/comments/us666i/how_do_you_keep_up_with_npm_package_updates/)을 볼 수 있다.
 
 ## Renovate란?
 
@@ -109,7 +109,7 @@ PR을 확인해보면 아래와 같은 특징을 찾아볼 수 있다.
 
 ## 적용 방법
 
-적용방법은 상당히 간단하다. 봇을 설치해주면 사실상 끝이다.
+적용 방법은 상당히 간단하다. 봇을 설치해 주면 사실상 끝이다.
 
 1. Renovate app을 설치한다.
 
@@ -125,7 +125,7 @@ PR을 확인해보면 아래와 같은 특징을 찾아볼 수 있다.
 
 3. PR 확인 및 renovate.json 설정
 
-이제 앞에서 본것과 같이 업데이트가 필요한 라이브러리의 PR이 자동으로 생성된다. 기본 값은 10개이기 때문에 renovate.json 값을 수정해 원하는 방식으로 조정할 수 있다.
+이제 앞에서 본것과 같이 업데이트가 필요한 라이브러리의 PR이 자동으로 생성된다. 기본값은 10개이기 때문에 renovate.json 값을 수정해 원하는 방식으로 조정할 수 있다.
 
 ## 마무리
 

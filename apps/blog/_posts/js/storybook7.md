@@ -35,7 +35,7 @@ Storybook v7의 주요 기능중 가장 마음에 드는 부분은 사전 번들
 
 ## CSF v3
 
-Component Story Format(CSF)도 상당부분 변경되었다. 컴포넌트 형식에 맞춰 통일화된 규격을 제공한다.
+Component Story Format(CSF)도 상당 부분 변경되었다. 컴포넌트 형식에 맞춰 통일화된 규격을 제공한다.
 
 1. stories 파일의 `default export`가 변경되었다. 이제 스토리 메타데이터를 정의하는 객체를 리턴한다.
 2. stories 정의 방식이 변경되었다. 스토리는 스토리 메타데이터 객체 내부에 정의되어야 한다.
@@ -116,7 +116,7 @@ export default {
 
 v7이 되면서 MDX1에서 MDX2로 업데이트 되었다.
 
-기존에는 mdx 파일과 스토리 파일을 ID 스트링으로 연결했었다. v7 부터는 조금 더 코드 친화적으로 컴포넌트와 문서를 이어줄수 있게 되었다.
+기존에는 mdx 파일과 스토리 파일을 ID 스트링으로 연결했었다. v7 부터는 조금 더 코드 친화적으로 컴포넌트와 문서를 이어줄 수 있게 되었다.
 
 MDX2는 내장 jsx 및 플러그인을 지원하기 때문에 동적인 문서를 만들기에 더욱 좋아졌다.
 
@@ -129,7 +129,7 @@ MDX2는 내장 jsx 및 플러그인을 지원하기 때문에 동적인 문서�
 |  event   |    MouseEvent    | click event object |
 ```
 
-기본적으로 MDX는 [GitHub-flavored markdown(GFM)](https://github.github.com/gfm/)이 꺼져있으므로 위와 같은 테이블 마크다운이 깨질수 있다.
+기본적으로 MDX는 [GitHub-flavored markdown(GFM)](https://github.github.com/gfm/)이 꺼져있으므로 위와 같은 테이블 마크다운이 깨질 수 있다.
 
 이는 [remarkGfm을 설치하여 수정](https://storybook.js.org/docs/react/writing-docs/mdx#lack-of-github-flavored-markdown-gfm)하여야 한다.
 
