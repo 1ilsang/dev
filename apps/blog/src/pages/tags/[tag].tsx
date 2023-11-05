@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 
 import MetaHeader from '~/shared/components/MetaHeader';
-import Navbar from '~/shared/components/Navbar';
+import Navbar from '~/shared/components/nav/Navbar';
 import Footer from '~/shared/components/Footer';
 import { getAllPosts } from '~/shared/helpers/post';
 import { PostType } from '~/posts/models';

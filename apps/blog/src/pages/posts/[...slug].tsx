@@ -6,7 +6,8 @@ import PostContainer from '~/posts/Container';
 import { PostType } from '~/posts/models';
 import Footer from '~/shared/components/Footer';
 import MetaHeader from '~/shared/components/MetaHeader';
-import Navbar from '~/shared/components/Navbar';
+import Navbar from '~/shared/components/nav/Navbar';
+import NavProgress from '~/shared/components/nav/Progress';
 import { MetaTitle } from '~/shared/constants/blog';
 import markdownToHtml from '~/shared/helpers/markdown';
 import { getAllPosts, getPostBySlug } from '~/shared/helpers/post';
@@ -34,6 +35,7 @@ const Posts: NextPage<PostsProps> = ({ post }) => {
         description={post.description}
       />
       <main className="post-layout">
+        <NavProgress />
         <Navbar />
         <PostContainer post={post} />
         <Footer />

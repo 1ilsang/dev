@@ -2,7 +2,7 @@ import { NextPage } from 'next';
 
 import Footer from '~/shared/components/Footer';
 import MetaHeader from '~/shared/components/MetaHeader';
-import Navbar from '~/shared/components/Navbar';
+import Navbar from '~/shared/components/nav/Navbar';
 import { ImageUrl, MetaDescription, MetaTitle } from '~/shared/constants/blog';
 import { getAllPosts, getPostBySlug } from '~/shared/helpers/post';
 import TagListContainer from '~/tags/tagList/Container';

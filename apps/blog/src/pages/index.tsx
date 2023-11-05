@@ -2,7 +2,7 @@ import { NextPage } from 'next';
 
 import HomeContainer from '~/home/Container';
 import MetaHeader from '~/shared/components/MetaHeader';
-import Navbar from '~/shared/components/Navbar';
+import Navbar from '~/shared/components/nav/Navbar';
 import { ImageUrl, MetaDescription, MetaTitle } from '~/shared/constants/blog';
 
 const Home: NextPage = () => {
