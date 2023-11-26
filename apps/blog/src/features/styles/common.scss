@@ -149,6 +149,20 @@ $target: #e73c7e;
   }
 }
 
+@keyframes skeleton-gradient {
+  0% {
+    background-color: rgba(165, 165, 165, 10%);
+  }
+
+  50% {
+    background-color: rgba(165, 165, 165, 30%);
+  }
+
+  100% {
+    background-color: rgba(165, 165, 165, 10%);
+  }
+}
+
 .dynamic-image {
   position: relative;
   margin: 10px 0;
@@ -184,17 +198,7 @@ $target: #e73c7e;
 }
 
 .loading {
-  animation: skeleton-loading 1s linear infinite alternate;
-}
-
-@keyframes skeleton-loading {
-  0% {
-    background-color: hsl(100deg 0% 85%);
-  }
-
-  100% {
-    background-color: hsl(200deg 0% 95%);
-  }
+  animation: skeleton-gradient 1.8s infinite ease-in-out;
 }
 
 .small {

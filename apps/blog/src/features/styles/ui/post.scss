@@ -60,6 +60,7 @@
       display: flex;
 
       .cover {
+        animation: skeleton-gradient 1.8s infinite ease-in-out;
         border-radius: 4px;
         border: 1px solid $min-color;
         width: 200px;

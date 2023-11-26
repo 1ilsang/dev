@@ -22,7 +22,7 @@ const Logo: FunctionComponent<LogoProps> = ({
         href={href}
       >
         <img
-          className={`logo${border ? ' border' : ''}`}
+          className={`logo${border ? ' border' : ''} loading`}
           src={logoUrl}
           width="124"
           height="124"
