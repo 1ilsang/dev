@@ -12,12 +12,31 @@ const markdownToHtml = async (mdText: string) => {
     .use(remarkRehype, {
       allowDangerousHtml: true,
       handlers: {
+        // https://github.com/syntax-tree/mdast#nodes
         link(h, node, parent) {
           const parsedNode = h(
             node,
             'a',
             { target: '_blank', href: node.url, rel: 'noreferrer noopener' },
             node.children,
+          );
+          return parsedNode;
+        },
+        image(h, node, parent) {
+          const parsedNode = h(
+            node,
+            'div',
+            {
+              class: 'img-wrap',
+            },
+            [
+              {
+                type: 'element',
+                tagName: 'img',
+                properties: { src: node.url, alt: node.alt },
+                children: [],
+              },
+            ],
           );
           return parsedNode;
         },
