@@ -137,6 +137,7 @@
   img {
     width: 70%;
     object-fit: contain;
+    max-height: 550px;
 
     @include mobile {
       width: 100%;
