@@ -1,25 +1,13 @@
-import { FunctionComponent, useEffect, useState } from 'react';
+import classNames from 'classnames';
+import { FunctionComponent } from 'react';
+
+import useProgress from './useProgress';
 
 const NavProgress: FunctionComponent = () => {
-  const [progress, setProgress] = useState(0);
-  const [max, setMax] = useState(1);
-
-  useEffect(() => {
-    const { scrollHeight, clientHeight } = document.documentElement;
-    const documentMax = scrollHeight - clientHeight;
-    setMax(documentMax);
-
-    const handleScroll = () => {
-      setProgress(window.scrollY % documentMax);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  const { progress, max } = useProgress();
 
   return (
-    <div className="nav-progress">
+    <div className={classNames([max === 1 ? 'nav-loading' : 'nav-progress'])}>
       <progress value={progress} max={max}></progress>
     </div>
   );

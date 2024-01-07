@@ -1,7 +1,7 @@
 import { FunctionComponent, ReactNode, useState } from 'react';
 
 interface ImageModalProps {
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 const ImageModal: FunctionComponent<ImageModalProps> = ({ children }) => {
@@ -12,12 +12,14 @@ const ImageModal: FunctionComponent<ImageModalProps> = ({ children }) => {
   };
 
   return (
-    <div
-      className={`image-modal ${isOpen ? 'open' : ''}`}
-      onClick={handleModalClick}
-    >
-      {children}
-    </div>
+    // <div
+    //   className={`image-modal ${isOpen ? 'open' : ''}`}
+    //   onClick={handleModalClick}
+    // >
+    //   {children}
+    // </div>
+    // TODO: dialog > d.showModal(); 활용
+    <dialog id="d">hi</dialog>
   );
 };
 
