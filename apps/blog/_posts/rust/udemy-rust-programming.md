@@ -1,5 +1,5 @@
 ---
-title: '러스트 시작! - Udemy Rust Programming 수강 후기'
+title: '러스트 시작! - 유데미 Rust Programming를 수강하며'
 description: '가보자고'
 tags: ['udemy', 'rust']
 coverImage: 'https://github.com/1ilsang/dev/assets/23524849/847f2f42-7697-49ff-852d-cbdd7cd8cf50'
@@ -10,7 +10,7 @@ ogImage:
 
 <img class="cover" alt="cover" src="https://github.com/1ilsang/dev/assets/23524849/847f2f42-7697-49ff-852d-cbdd7cd8cf50" alt="cover" />
 
-[글또](https://zzsza.notion.site/zzsza/ac5b18a482fb4df497d4e8257ad4d516)에서 유데미를 수강할 수 있는 기회를 얻었다. 무엇을 선택할지 고민한다 [Rust Programming 핵심 강의](https://www.udemy.com/course/rust-programming-korean/)를 선택했다.
+[글또](https://zzsza.notion.site/zzsza/ac5b18a482fb4df497d4e8257ad4d516)에서 유데미를 수강할 수 있는 기회를 얻었다. 무엇을 선택할지 고민하다 [Rust Programming 핵심 강의](https://www.udemy.com/course/rust-programming-korean/)를 선택했다.
 
 ## 수강 이유
 
@@ -45,6 +45,8 @@ ogImage:
 
 강의 내용이 초심자에게 적절해서 재밌게 볼 수 있었다. 중간중간 내용을 쭉 정리하고 자바스크립트랑 비교도 해보면서 능동적으로 학습하려고 했다.
 
+예제가 많고 라인바이라인으로 설명해 줘서 잘 따라갈 수 있었다. 키워드 하나도 그냥 넘어가는 게 없었던 것이 좋은 포인트였다. 특정 패턴들은 자주 사용되는 코딩 패턴이라고 설명 및 소개해줘서 실제로 어떤 식으로 코딩을 이어나가야 할지 최소한의 길잡이는 해주었다고 생각한다.
+
 챕터별 학습 내용뿐만 아니라 중간중간 의문이 든 내용들은 [꽃게탕 레포](https://github.com/1ilsang/rust-practice)에 정리해 나갔고 `#러스또` 채널에도 공유하면서 선지자들의 피드백도 기대했다.
 
 ### 스터디
@@ -59,10 +61,14 @@ ogImage:
 
 ![certificate](https://github.com/1ilsang/dev/assets/23524849/406af542-bfdb-4e17-b088-c2c1fa6d72ab)
 
-위의 과정을 매주 반복한 덕인지는 모르겠지만 다행히 3주 완성으로 아주 기초는 넘어갔다.
+위의 과정을 매주 반복한 덕인지는 모르겠지만 다행히 3주 완성으로 아주 기초적인 문법은 배웠다.
 
-앞으로 일단 fhf 완성하기
+Rust 오픈소스에 기여해 보는 것을 목표로 하고 있기 때문에 토이 프로젝트를 만들면서 기본기를 다지고자 한다.
 
-러스트 오픈소스에 기여해보는 것을 목표로 하고자 한다.
+지금 생각하고 있는 프로젝트는 모노레포에서 각 디렉터리 구조를 분석해서 차이점이 있는 부분을 찾고 CLI로 수정하는 라이브러리이다.
+
+- [https://github.com/1ilsang/fhf](https://github.com/1ilsang/fhf)
+
+가보자고!
 
 > 해당 콘텐츠는 유데미로부터 강의 쿠폰을 제공받아 작성되었습니다.
