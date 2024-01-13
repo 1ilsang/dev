@@ -4,18 +4,7 @@ dist
 out
 .next/
 
-.turbo
 .DS_Store
 
 # TypeScript cache
 *.tsbuildinfo
-
-# For zero-install
-# https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
-.yarn/*
-!.yarn/cache
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions

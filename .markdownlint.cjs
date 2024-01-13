@@ -1,4 +1,4 @@
-module.exports = {
+module.exports =  {
   default: true,
   MD001: false,
   MD002: false,
@@ -15,3 +15,4 @@ module.exports = {
   'no-hard-tabs': false,
   whitespace: false,
 };
+
