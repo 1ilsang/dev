@@ -26,8 +26,10 @@
     color: $highlight-color;
   }
 
-  a:hover {
+  a:hover,
+  summary:hover {
     text-decoration-line: underline;
+    cursor: pointer;
   }
 
   u {
@@ -155,6 +157,7 @@
     @include image;
 
     flex-direction: column;
+    justify-content: center;
   }
 
   .img-horizon-wrap {
