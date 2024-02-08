@@ -23,6 +23,18 @@ const markdownToHtml = async (mdText: string) => {
           return parsedNode;
         },
         image(h, node, parent) {
+          const className = (() => {
+            switch (node.title) {
+              case 'l':
+                return `large`;
+              case 's':
+                return `small`;
+              case 'cover':
+                return 'cover';
+              default:
+                return undefined;
+            }
+          })();
           const parsedNode = h(
             node,
             'div',
@@ -33,7 +45,11 @@ const markdownToHtml = async (mdText: string) => {
               {
                 type: 'element',
                 tagName: 'img',
-                properties: { src: node.url, alt: node.alt },
+                properties: {
+                  src: node.url,
+                  alt: node.alt,
+                  class: className,
+                },
                 children: [],
               },
             ],

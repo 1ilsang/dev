@@ -4,6 +4,7 @@ body {
   font-family: 'D2Coding', sans-serif;
   font-size: 14px;
   background-color: $background-color;
+  -webkit-font-smoothing: antialiased;
   color: $deep-light-color;
 }
 

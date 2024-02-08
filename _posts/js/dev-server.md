@@ -8,13 +8,13 @@ ogImage:
   url: 'https://github.com/1ilsang/dev/assets/23524849/132b52c7-3c2b-4554-b0fb-8ec5f3193d7a'
 ---
 
-<img class="cover" alt="cover" src="https://github.com/1ilsang/dev/assets/23524849/132b52c7-3c2b-4554-b0fb-8ec5f3193d7a" />
+![cover](https://github.com/1ilsang/dev/assets/23524849/132b52c7-3c2b-4554-b0fb-8ec5f3193d7a 'cover')
 
-요즘 `vite`의 매력에 푹 빠져있다. 그러던 도중 "개발 서버는 어떻게 동작하는 걸까?" 의문을 가지게 되었다. 따라서 오늘은 <u>Vite Dev Server의 동작 방식을 이해하고 HMR 과정</u>을 파헤쳐 보려고 한다.
+요즘 [Vite](https://vitejs.dev/)의 매력에 푹 빠져있다. 그러던 도중 "개발 서버는 어떻게 동작하는 걸까?" 의문을 가지게 되었다. 따라서 오늘은 <u>Vite Dev Server의 동작 방식을 이해하고 HMR 과정</u>을 파헤쳐 보려고 한다.
 
 ## Index
 
-- [TR;DR!](#trdr)
+- [TL;DR!](#tldr)
 - [1. 개발 서버 실행(서버 초기화)](#1-개발-서버-실행서버-초기화)
 - [2. index.html 요청](#2-indexhtml-요청)
 - [3. index.html 렌더링과 자원 요청](#3-indexhtml-렌더링과-자원-요청)
@@ -23,9 +23,9 @@ ogImage:
 - [6. 브라우저 리렌더링](#6-브라우저-리렌더링)
 - [마무리](#마무리)
 
-## TR;DR!
+## TL;DR!
 
-![dev-server-logic-summary](https://github.com/1ilsang/dev/assets/23524849/03dab012-82a9-4649-8d80-15c0dfe0c129)
+![dev-server-logic-summary](https://github.com/1ilsang/dev/assets/23524849/03dab012-82a9-4649-8d80-15c0dfe0c129 'l')
 
 > 한 짤로 보는 Dev Server의 동작 방식
 
@@ -36,6 +36,12 @@ ogImage:
 Let's Dive!
 
 ## 1. 개발 서버 실행(서버 초기화)
+
+![init-server-phase](https://github.com/1ilsang/dev/assets/23524849/7d46712d-6118-4788-9c91-fa2d20f8c3c3)
+
+> 최초 서버 실행 이후의 상태
+
+<br />
 
 ```ts
 // https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/node/server/index.ts#L385
@@ -74,11 +80,15 @@ export async function _createServer(
    - 미들웨어는 Express에서 사용되는 [connect](https://www.npmjs.com/package/connect)로 연결된다.
 
 2. 파일 시스템 옵저버를 설정한다.
+
    - 파일 변경 감지를 위해 [chokidar](https://www.npmjs.com/package/chokidar)를 사용한다.
+
 3. 모듈 그래프를 생성한다.
+
    - 모듈(파일)의 의존성 관계를 추적한다.
      - [HMR(Hot Module Replacement)](https://webpack.kr/concepts/hot-module-replacement/) 및 [트리쉐이킹](https://webpack.kr/guides/tree-shaking/) 같은 최적화 작업을 위해 존재한다.
    - 현재(초기화 단계)는 비어있다.
+
 4. 플러그인 컨테이너를 생성한다.
    - Dev Server에 필요한 Built-in(내장된) 플러그인이 추가된다.
      - importAnalysis, css, optimizer, json 등이 있다.
@@ -86,13 +96,11 @@ export async function _createServer(
    - 플러그인은 이후 Dev Server의 특정 시점마다 훅을 실행시켜 미들웨어 역할을 하게 된다.
 5. 클라이언트의 요청을 기다린다.
 
-<br />
-
-![init-server-phase](https://github.com/1ilsang/dev/assets/23524849/7d46712d-6118-4788-9c91-fa2d20f8c3c3)
-
-> 최초 서버 실행 이후의 상태
-
 ## 2. index.html 요청
+
+![index.html-request-phase](https://github.com/1ilsang/dev/assets/23524849/ec8f01ad-b4a6-4da8-aaa6-0e5015438ba3 'l')
+
+<br />
 
 ```ts
 // server/index.ts
@@ -121,8 +129,6 @@ export function createDevHtmlTransformFn(...) {
 }
 ```
 
-![index.html-request-phase](https://github.com/1ilsang/dev/assets/23524849/ec8f01ad-b4a6-4da8-aaa6-0e5015438ba3)
-
 최초 유저의 요청(`GET /`)이 발생하면 `index.html`이 리턴된다. 이 과정에서 `transform`과 같은 [플러그인 훅](https://vitejs.dev/guide/api-plugin.html#universal-hooks)을 거치며 필요한 데이터들을 세팅한다.
 
 1. 미들웨어에서 `transform` 함수가 실행된다.
@@ -134,7 +140,7 @@ export function createDevHtmlTransformFn(...) {
    - `node_modules`에 있는 의존성은 [ESM](https://webpack.kr/guides/ecma-script-modules/)이 아닐 수 있다. Vite는 이들을 [사전 번들링](https://ko.vitejs.dev/guide/dep-pre-bundling.html)하여 브라우저가 이해할 수 있는 ESM 형태로 변환한다.
      - 이 과정은 esbuild로 실행되어 빠르게 처리된다.
 
-![transpile-ts-to-js](https://github.com/1ilsang/dev/assets/23524849/23f4b155-b5f5-487d-8500-b39796919829)
+![transpile-ts-to-js](https://github.com/1ilsang/dev/assets/23524849/23f4b155-b5f5-487d-8500-b39796919829 'l')
 
 > hmr.ts의 response에 타입이 사라진 모습.
 
@@ -186,9 +192,15 @@ ModuleNode {
 
 ## 3. index.html 렌더링과 자원 요청
 
+![index.html-rendering-phase](https://github.com/1ilsang/dev/assets/23524849/5321cc9c-f569-4653-8179-06669e82f630 'l')
+
+> 3 ~ 4. 브라우저 렌더링 및 정적 자원 요청 상황.
+
+<br />
+
 ![init-html](https://github.com/1ilsang/dev/assets/23524849/a5969d65-b177-4011-ab1b-d45129b9951e)
 
-![browser-initiator](https://github.com/1ilsang/dev/assets/23524849/3eacdd15-514a-43a9-a71c-cc8ba228d574)
+![browser-initiator](https://github.com/1ilsang/dev/assets/23524849/3eacdd15-514a-43a9-a71c-cc8ba228d574 'l')
 
 > 브라우저는 위에서부터 아래로 해석해 나가므로 @vite/client, global.css, hmr.ts가 순차적으로 요청되는 것을 볼 수 있다.
 
@@ -225,11 +237,11 @@ export function transformMiddleware(...) {
 
 3. transform 적용
 
-   - 각 요청에 대해 Dev Server는 [transformMiddleware](https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/node/server/middlewares/transform.ts#L175)에서 [2번 html 요청](#2-indexhtml-요청)과 비슷한 과정으로 응답한다.
-     - `public` 폴더 내의 요청인지 외부 자원 요청인지 등의 분류 작업을 [미들웨어에서 진행](https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/node/server/index.ts#L774)한다.
+   - 각 요청에 대해 Dev Server는 [transformMiddleware](https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/node/server/middlewares/transform.ts#L175)에서 [2번 html 요청](#2-indexhtml-요청)과 비슷한 과정으로 `transform` 이후 응답한다.
+     - 이때 `public` 폴더 내의 요청인지 외부 자원 요청인지 등의 분류 작업 또한 [미들웨어에서 진행](https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/node/server/index.ts#L774)한다.
      - `@fs` prefix는 vite 프로젝트의 루트(config 위치)를 벗어날 경우 설정된다(모노레포 혹은 파일 시스템 직접 접근 등의 경우).
    - HMR 코드 적용
-     - 이때 Dev Server에 내장된 [importAnalysis 플러그인](https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/node/plugins/importAnalysis.ts#L209)에서 <u>HMR이 설정된 파일(\*1)이라면 `import.meta.hot`을 파일 최상단에 [추가](https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/node/plugins/importAnalysis.ts#L715)</u>한다.
+     - Dev Server에 내장된 [importAnalysis 플러그인](https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/node/plugins/importAnalysis.ts#L209)에서 <u>HMR이 설정된 파일(\*1)이라면 `import.meta.hot`을 파일 최상단에 [추가](https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/node/plugins/importAnalysis.ts#L715)</u>한다.
 
 4. 변환된 자원을 브라우저에 응답(response)한다.
 
@@ -251,7 +263,7 @@ export function transformMiddleware(...) {
 </script>
 ```
 
-![inject-import-meta-hot](https://github.com/1ilsang/dev/assets/23524849/57326d8a-3c7a-41d4-ac7b-b202bc851bc8)
+![inject-import-meta-hot](https://github.com/1ilsang/dev/assets/23524849/57326d8a-3c7a-41d4-ac7b-b202bc851bc8 'l')
 
 > 일반 스크립트의 응답에 createHotContext 생성 및 import.meta.hot에 바인딩된 모습.
 
@@ -296,13 +308,13 @@ render(_jsxDEV(App, ...), document.getElementById('app'))
 
 이제 브라우저가 더 이상 요청할 것이 없을 때까지 3 ~ 4 과정을 반복하며 렌더링을 마무리한다.
 
-<br />
-
-![index.html-rendering-phase](https://github.com/1ilsang/dev/assets/23524849/5321cc9c-f569-4653-8179-06669e82f630)
-
-> 3 ~ 4. 브라우저 렌더링 및 정적 자원 요청 상황.
-
 ## 5. 코드 변경 감지
+
+![file-change-phase](https://github.com/1ilsang/dev/assets/23524849/51800d15-f916-4c25-bc1f-6a6bd2044d54 'l')
+
+> 코드가 변경되었을 때의 Dev Server 모습
+
+<br />
 
 ```ts
 watcher.on('change', async (file) => {
@@ -353,19 +365,16 @@ function updateModules(...) {
 - 관련된 모듈 그래프를 갱신한다.
 - 브라우저에게 파일이 변경되었음을 <u>WebSocket</u>으로 알린다(update 이벤트 전송).
 
-<br />
-
-![file-change-phase](https://github.com/1ilsang/dev/assets/23524849/51800d15-f916-4c25-bc1f-6a6bd2044d54)
-
-> 코드가 변경되었을 때의 Dev Server 모습
-
 ## 6. 브라우저 리렌더링
 
-![socket-update-event](https://github.com/1ilsang/dev/assets/23524849/23181d27-311e-4154-a04f-7efa2fb7cae9)
+![socket-update-event](https://github.com/1ilsang/dev/assets/23524849/23181d27-311e-4154-a04f-7efa2fb7cae9 'l')
 
 > 브라우저 소켓이 Dev Server의 update 소켓 데이터를 받은 모습.
 
+<br />
+
 ```ts
+// Step 1.
 // @vite/client.ts
 case 'update':
   notifyListeners('vite:beforeUpdate', payload);
@@ -378,12 +387,14 @@ case 'update':
   });
   notifyListeners('vite:afterUpdate', payload);
 
+// Step 2.
 // HMRClient > fetchUpdate
 fetchUpdate(...) {
   fetchedModule = await this.importUpdatedModule(update);
 
 // client/client.ts > importUpdatedModule
 async function importUpdatedModule(...) {
+  // Step 3.
   const importPromise = import(
     /* @vite-ignore */
     base +
@@ -402,49 +413,60 @@ async function importUpdatedModule(...) {
 
    - importUpdatedModule은 hmrClient가 [생성될 때 적용](https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/client/client.ts#L137)된다.
 
-![import response](https://github.com/1ilsang/dev/assets/23524849/d2d0de89-4eee-4496-9c51-d99d228eed0b)
+![import response](https://github.com/1ilsang/dev/assets/23524849/d2d0de89-4eee-4496-9c51-d99d228eed0b 'l')
+
+> Step 3 ~ 4.
 
 3. importUpdatedModule이 호출되면서 변경된 모듈이 `import` 되므로, Dev Server에 새로 요청하게 된다([3. 렌더링 자원 요청](#3-indexhtml-렌더링과-자원-요청)). 이때 `t` 값을 쿼리로 넣어(?t=123214123) <u>캐싱을 회피해 변경된 모듈의 코드를 응답으로 받을 수 있도록</u> 한다.
 
 4. import로 요청한 응답이 정상적으로 오면 리렌더링 되기 시작([4. 렌더링 진행](#4-렌더링-계속-진행with-websocket))된다.
 
-HMR이 가능한 파일은 `import.meta.hot.accept` 함수의 [콜백으로 실행](https://ko.vitejs.dev/guide/api-hmr.html#hot-accept-cb)된다. HMR이 불가능한 파일이라면 전체 페이지를 리로딩한다.
+5. HMR이 가능한 파일은 `import.meta.hot.accept` 함수의 [콜백으로 실행](https://ko.vitejs.dev/guide/api-hmr.html#hot-accept-cb)된다. HMR이 불가능한 파일이라면 전체 페이지를 리로딩한다.
 
 ```ts
 // vite.config.ts
 import preact from '@preact/preset-vite';
 
 export default defineConfig({
+  // Step 1. preact 플러그인 호출
   plugins: [preact()],
 });
 
-// preact 플러그인이 호출되면서 소스코드를 transform 한다.
-// prefresh
+// Step2 2. preact 플러그인에서 prefresh가 호출되면서 소스코드를 transform 한다.
 return {
   code: `${prelude}${result.code}
   if (import.meta.hot) {
     self.$RefreshReg$ = prevRefreshReg;
-    self.$RefreshSig$ = prevRefreshSig;
-    // 해당 코드 덕에 HMR로 인식, Dev Server에서 호출되며 flushUpdate 실행
-    import.meta.hot.accept((m) => {
+    self.$RefreshSig$ = prevRefreshSig;`
+    // 중요! Step 3. 해당 코드 덕에 HMR로 인식, Dev Server에서 호출되며 flushUpdate 실행
+    `import.meta.hot.accept((m) => {
       try {
         flushUpdates();`
 
-// flushUpdates
-self.__PREFRESH__.replaceComponent(prev, next, true);
+// Step 4. 실제 코드 변경 부분.
+function flushUpdates() {
+  self.__PREFRESH__.replaceComponent(prev, next, true);
 ```
 
-앞에서 잠깐 다뤘지만 `react`, `preact` 등 순수 자바스크립트가 아니라면 라이브러리 자체 HMR을 호출한다.
+앞에서 잠깐 다뤘지만 `react`, `preact` 등 순수 자바스크립트가 아니라면 라이브러리 자체 HMR을 호출한다. 이 HMR 코드는 [[3. 렌더링 자원 요청](#3-indexhtml-렌더링과-자원-요청)] 단계에서 추가된다.
 
-- [preact-vite 플러그인](https://github.com/preactjs/preset-vite)(`@preact/preset-vite`)은 내부적으로 [prefresh](https://github.com/preactjs/prefresh)라는 HMR 라이브러리를 사용한다.
-- preact 플러그인은 `prefreshEnabled` 여부에 따라 [prefresh를 호출](https://github.com/preactjs/preset-vite/blob/a325c1f3811900f70277424304c9eb42fc60f8a7/src/index.ts#L246)한다.
-- prefresh는 `import.meta.hot.accept` [코드를 주입](https://github.com/preactjs/prefresh/blob/main/packages/vite/src/index.js#L87)하고 `flushUpdates`로 [HMR을 수행](https://github.com/preactjs/prefresh/blob/018f5cc907629b82ffb201c32e948efe4b40098a/packages/utils/src/index.js#L11)(컴포넌트 변경)한다.
+1. [preact-vite 플러그인](https://github.com/preactjs/preset-vite)(`@preact/preset-vite`)은 내부적으로 [prefresh](https://github.com/preactjs/prefresh)라는 HMR 라이브러리를 사용한다.
+
+2. preact 플러그인은 `prefreshEnabled` 여부에 따라 [prefresh를 호출](https://github.com/preactjs/preset-vite/blob/a325c1f3811900f70277424304c9eb42fc60f8a7/src/index.ts#L246)한다.
+
+3. prefresh는 `transform` 단계에서 `import.meta.hot.accept` [코드를 주입](https://github.com/preactjs/prefresh/blob/main/packages/vite/src/index.js#L87)한다.
+
+4. [[6. 브라우저 리렌더링](#6-브라우저-리렌더링)] 발생시 3번 단계의 `importUpdatedModule`를 거쳐 `import.meta.hot.accept`의 콜백이 실행된다.
+
+5. perfresh에서 심어둔 `flushUpdates` 함수가 [HMR을 수행](https://github.com/preactjs/prefresh/blob/018f5cc907629b82ffb201c32e948efe4b40098a/packages/utils/src/index.js#L11)(컴포넌트 변경)된다.
 
 이로써 HMR이 완전히 마무리되면서 다시 개발자의 입력을 기다리게 된다.
 
 <br />
 
-![dev-server-logic-summary](https://github.com/1ilsang/dev/assets/23524849/03dab012-82a9-4649-8d80-15c0dfe0c129)
+![dev-server-logic-summary](https://github.com/1ilsang/dev/assets/23524849/03dab012-82a9-4649-8d80-15c0dfe0c129 'l')
+
+> Dev Server 초기화부터 HMR까지.
 
 ## 마무리
 
