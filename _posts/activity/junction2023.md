@@ -8,7 +8,7 @@ ogImage:
   url: 'https://github.com/1ilsang/dev/assets/23524849/4797d67e-2599-42ec-b653-329a40cf81e6'
 ---
 
-<img class="cover" src="https://github.com/1ilsang/dev/assets/23524849/44f4e6a0-d7d7-4ed9-9e0a-110caba63c9b" alt="cover" />
+![cover](https://github.com/1ilsang/dev/assets/23524849/44f4e6a0-d7d7-4ed9-9e0a-110caba63c9b 'cover')
 
 작년 2022 정션에 참여했던 친구들의 피드백이 상당히 좋았기 때문에 올해는 꼭 참여해 보고 싶었던 해커톤이다.
 
@@ -30,7 +30,7 @@ ogImage:
 
 ## 부산 도착
 
-![entry](https://github.com/1ilsang/dev/assets/23524849/e5d1cf04-7c2d-4729-a81d-969b5a2d95d7)
+![entry](https://github.com/1ilsang/dev/assets/23524849/e5d1cf04-7c2d-4729-a81d-969b5a2d95d7 'l')
 
 작년에는 숙소 제공도 있었는데 이번엔 없었다. 파트너사도 작년과는 많이 달라져서 조금 아쉬웠다.
 
@@ -42,7 +42,7 @@ ogImage:
 
 ## 첫날: 아이데이션
 
-![start](https://github.com/1ilsang/dev/assets/23524849/8a9fa7e1-e5af-4523-b45c-588ab03f0a38)
+![start](https://github.com/1ilsang/dev/assets/23524849/8a9fa7e1-e5af-4523-b45c-588ab03f0a38 'l')
 
 첫날에는 트랙 공개 및 첫 번쨰 미션이 주어졌다.
 
@@ -58,7 +58,9 @@ ogImage:
 
 우리는 3번 전자 라벨을 선택했고 상품에만 사용되는 전자 라벨을 사원증에도 사용할 수 있도록 하여 시장을 넓히는 것을 목표로 기획했다.
 
-![event](https://github.com/1ilsang/dev/assets/23524849/c2e87507-3ec1-4fdf-99e0-5c55a2dd2153)
+<br />
+
+![event](https://github.com/1ilsang/dev/assets/23524849/c2e87507-3ec1-4fdf-99e0-5c55a2dd2153 'l')
 
 해커톤의 또 다른 재미는 사이드부스인데 정션은 부스 컨셉들이 재밌었다. 빙고 채우는 재미가 있었음.
 
@@ -68,7 +70,7 @@ ogImage:
 
 ## 둘째 날: 개발
 
-![web](https://github.com/1ilsang/dev/assets/23524849/593eddcf-6435-4504-814c-290b1efbe95b)
+![web](https://github.com/1ilsang/dev/assets/23524849/593eddcf-6435-4504-814c-290b1efbe95b 'l')
 
 우리는 전자 라벨을 사원증으로 확장하는 것을 목표로 기획을 잡았기 때문에 전자 라벨에서 회사의 다양한 정보를 얻을 수 있도록 하고자 하였다.
 
@@ -86,7 +88,7 @@ ogImage:
 
 ## 셋째 날: 발표
 
-![production](https://github.com/1ilsang/dev/assets/23524849/72613a5d-883b-4438-836c-c1d65faf644f)
+![production](https://github.com/1ilsang/dev/assets/23524849/72613a5d-883b-4438-836c-c1d65faf644f 'l')
 
 위의 CMS 페이지에서 문구나 이미지 등을 설정해 저장하면 전자 라벨에 업데이트가 되게 개발했다. 찌그러지지 않고 잘 나와서 참 다행이었다.
 

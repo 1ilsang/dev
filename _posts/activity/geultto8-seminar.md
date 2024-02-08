@@ -8,7 +8,7 @@ ogImage:
   url: 'https://github.com/1ilsang/dev/assets/23524849/a6b9e96a-d651-4854-a1a4-a05370dba890'
 ---
 
-<img class="cover" alt="cover" src="https://github.com/1ilsang/dev/assets/23524849/7f688c0e-1e5b-4c97-bffc-312aa35e9d35" alt="cover" />
+![cover](https://github.com/1ilsang/dev/assets/23524849/7f688c0e-1e5b-4c97-bffc-312aa35e9d35 'cover')
 
 > [발표 자료 PDF 다운로드](https://github.com/1ilsang/dev/files/12504345/_1ilsang.pdf)
 
@@ -39,7 +39,7 @@ ogImage:
 
 기여 방식을 설명하는 자리인 만큼 초보 개발자를 위해 익숙하면서도 흥미를 불러올 만한 내용으로 AtZ 친절하게 설명하고자 했다.
 
-![open source list](https://github.com/1ilsang/dev/assets/23524849/cc1d815d-f8a0-44e2-ac8c-cdad3406b71d)
+![open source list](https://github.com/1ilsang/dev/assets/23524849/cc1d815d-f8a0-44e2-ac8c-cdad3406b71d 'l')
 
 수많은 오픈소스에서 어떤것을 목표로 할까 고민을했고 역시 내가 기여해 봤고 자주 사용하는 오픈소스 중에서 고르게 되었다.
 
@@ -63,9 +63,9 @@ ogImage:
 
 ## 발표 당일
 
-![timetable](https://github.com/1ilsang/dev/assets/23524849/50959cd4-cffb-4f46-ae2e-8ab76362202b)
+![timetable](https://github.com/1ilsang/dev/assets/23524849/50959cd4-cffb-4f46-ae2e-8ab76362202b 'l')
 
-![booth](https://github.com/1ilsang/dev/assets/23524849/fde40b79-9c4a-43ba-8c73-828023e3be15)
+![booth](https://github.com/1ilsang/dev/assets/23524849/fde40b79-9c4a-43ba-8c73-828023e3be15 'l')
 
 타임테이블이나 스티커의 디자인이 깔끔하게 잘 뽑혔다. 운영진분들의 노고가 느껴졌다.
 

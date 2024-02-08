@@ -8,7 +8,7 @@ ogImage:
   url: 'https://github.com/1ilsang/dev/assets/23524849/d3c160f4-daef-49e0-ab36-39009eb277bc'
 ---
 
-<img class="cover" alt="cover" src="https://github.com/1ilsang/dev/assets/23524849/485f661f-95f1-4ffe-81c9-651ea945f92e" />
+![cover](https://github.com/1ilsang/dev/assets/23524849/485f661f-95f1-4ffe-81c9-651ea945f92e 'cover')
 
 ESLint 플러그인 구조를 간단하게 분석하고 커스텀 플러그인을 만들어 배포해 보자.
 
@@ -85,7 +85,7 @@ yo eslint:rule
 No change to package.json was detected. No package manager install will be executed.
 ```
 
-<img src="https://github.com/1ilsang/dev/assets/23524849/0e38253f-1278-4aba-80ed-ff44b631b27f" alt="rule-architecture" width="350" />
+![rule-architecture](https://github.com/1ilsang/dev/assets/23524849/0e38253f-1278-4aba-80ed-ff44b631b27f 's')
 
 CLI를 다 작성하면 위와 같이 rules 폴더 밑에 추가된 것을 확인할 수 있다. 이제 우리는 해당 파일에서 규칙을 추가하면 된다.
 

@@ -8,7 +8,7 @@ ogImage:
   url: 'https://user-images.githubusercontent.com/23524849/178150130-709cea99-255c-45a9-8d55-15e8d8a54e87.png'
 ---
 
-<img class="cover" alt="cover" src="https://user-images.githubusercontent.com/23524849/178150130-709cea99-255c-45a9-8d55-15e8d8a54e87.png" />
+![cover](https://user-images.githubusercontent.com/23524849/178150130-709cea99-255c-45a9-8d55-15e8d8a54e87.png 'cover')
 
 이번에는 디펜던시를 자동으로 최신화 해주는 [Renovate](https://www.mend.io/free-developer-tools/renovate/)를 소개해보고자 한다.
 
@@ -22,7 +22,7 @@ ogImage:
 
 ## INTRO
 
-<img width="1200" alt="image" src="https://user-images.githubusercontent.com/23524849/178150154-105e9a1f-c766-489f-9c54-895b3ffafa2e.png" />
+![repo-alert](https://user-images.githubusercontent.com/23524849/178150154-105e9a1f-c766-489f-9c54-895b3ffafa2e.png 'l')
 
 리포지터리에서 위와 같은 노티를 봤을수도 있다. 혹여나 **_critical severity_**가 존재한다면 마음 한켠이 굉장히 불안해지기 시작한다. "그날이 왔구나" 생각하며 일정을 산정해 버전업 계획을 세우게 된다.
 
@@ -30,7 +30,7 @@ ogImage:
 
 노티로 알려주는 패키지에는 "종속성"에 포함되는 패키지도 있기 때문에 복잡하게 얽힌 의존 관계를 한땀한땀 쫓아가며 올려야 하는 패키지들을 수색하는 과정이 필요하다.
 
-<img width="542" alt="image" src="https://user-images.githubusercontent.com/23524849/178151026-e9899fcb-e86d-427d-82c7-1e73efcb56fa.png">
+![file-hierarchy](https://user-images.githubusercontent.com/23524849/178151026-e9899fcb-e86d-427d-82c7-1e73efcb56fa.png)
 
 만약 `minimist` 라는 라이브러리의 버전을 올려야 한다고 할 경우, 이 라이브러리를 종속성으로 가지고 있는 "실제로 설치된" 라이브러리를 `yarn.lock`과 같은 락파일에서 디펜던시 그래프를 찾아 올라가야 한다.
 
@@ -44,7 +44,7 @@ ogImage:
 
 ## Renovate란?
 
-<img width="853" alt="image" src="https://user-images.githubusercontent.com/23524849/178150238-904bb1aa-6afd-4001-b721-9e8fe79152e9.png ">
+![renovate-logo](https://user-images.githubusercontent.com/23524849/178150238-904bb1aa-6afd-4001-b721-9e8fe79152e9.png 'l')
 
 [Renovate](https://www.mend.io/free-developer-tools/renovate/)는 자동으로 디펜던시를 업데이트 해주는 봇이다.
 
@@ -59,7 +59,7 @@ ogImage:
 - PR 자동 생성 + 릴리즈 노트.
 - monorepo 지원.
 
-<img width="936" alt="image" src="https://user-images.githubusercontent.com/23524849/178150834-e7f7c450-8c20-40fa-b7d4-e6f95ba39e5b.png">
+![pr-example](https://user-images.githubusercontent.com/23524849/178150834-e7f7c450-8c20-40fa-b7d4-e6f95ba39e5b.png)
 
 Renovate를 적용하면 [PR](https://github.com/1ilsang/dev/pull/5)이 생성된다.
 
@@ -115,11 +115,11 @@ PR을 확인해보면 아래와 같은 특징을 찾아볼 수 있다.
 
 [Renovate app](https://github.com/apps/renovate) 봇을 설치한다.
 
-<img width="561" alt="image" src="https://user-images.githubusercontent.com/23524849/178151852-a2ff9737-7a8d-4b96-b3cb-2a78252183cf.png">
+![repo-bot](https://user-images.githubusercontent.com/23524849/178151852-a2ff9737-7a8d-4b96-b3cb-2a78252183cf.png)
 
 그후 설치 페이지로 진입해서 봇을 추가할 리포지터리를 선택한다.
 
-2. Renovate PR을 merge 한다.
+1. Renovate PR을 merge 한다.
 
 앱을 레포에 등록하면 [자동으로 PR이 생성](https://github.com/1ilsang/dev/pull/2)된다. 해당 PR을 머지한다.
 
@@ -129,7 +129,7 @@ PR을 확인해보면 아래와 같은 특징을 찾아볼 수 있다.
 
 ## 마무리
 
-<img width="516" alt="image" src="https://user-images.githubusercontent.com/23524849/178150102-0f406661-fc1e-44c5-9c20-532734d14f8a.png">
+![finish](https://user-images.githubusercontent.com/23524849/178150102-0f406661-fc1e-44c5-9c20-532734d14f8a.png 'l')
 
 그동안 디펜던시는 "기간 잡아서 한방에 처리하자"로 남겨두고 있었다.
 

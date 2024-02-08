@@ -8,7 +8,7 @@ ogImage:
   url: 'https://github.com/1ilsang/dev/assets/23524849/dbe32093-4f4b-4f4b-aa2c-a2b8574d85a0'
 ---
 
-<img class="cover" alt="cover" src="https://github.com/1ilsang/dev/assets/23524849/dbe32093-4f4b-4f4b-aa2c-a2b8574d85a0" />
+![cover](https://github.com/1ilsang/dev/assets/23524849/dbe32093-4f4b-4f4b-aa2c-a2b8574d85a0 'cover')
 
 최근 기기 변경을 하면서 맥 세팅을 처음부터 할 일이 있었다. 그때 꽤 고생한 기억이 있어 이번 기회에 유용했던 것들을 한번 정리해 보려고 한다.
 

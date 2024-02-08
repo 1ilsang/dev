@@ -8,7 +8,7 @@ ogImage:
   url: 'https://github.com/1ilsang/dev/assets/23524849/847f2f42-7697-49ff-852d-cbdd7cd8cf50'
 ---
 
-<img class="cover" alt="cover" src="https://github.com/1ilsang/dev/assets/23524849/847f2f42-7697-49ff-852d-cbdd7cd8cf50" alt="cover" />
+![cover](https://github.com/1ilsang/dev/assets/23524849/847f2f42-7697-49ff-852d-cbdd7cd8cf50 'cover')
 
 [글또](https://zzsza.notion.site/zzsza/ac5b18a482fb4df497d4e8257ad4d516)에서 유데미를 수강할 수 있는 기회를 얻었다. 무엇을 선택할지 고민하다 [Rust Programming 핵심 강의](https://www.udemy.com/course/rust-programming-korean/)를 선택했다.
 
@@ -41,7 +41,7 @@ ogImage:
 
 ### 정리 및 공유
 
-![udemy-summary](https://github.com/1ilsang/dev/assets/23524849/3ed8cd05-d2bb-4fa2-9e4f-ef29293821a7)
+![udemy-summary](https://github.com/1ilsang/dev/assets/23524849/3ed8cd05-d2bb-4fa2-9e4f-ef29293821a7 'l')
 
 강의 내용이 초심자에게 적절해서 재밌게 볼 수 있었다. 중간중간 내용을 쭉 정리하고 자바스크립트랑 비교도 해보면서 능동적으로 학습하려고 했다.
 
@@ -51,7 +51,7 @@ ogImage:
 
 ### 스터디
 
-![study](https://github.com/1ilsang/dev/assets/23524849/589b1d6b-3c8f-402a-818d-874474891bb7)
+![study](https://github.com/1ilsang/dev/assets/23524849/589b1d6b-3c8f-402a-818d-874474891bb7 'l')
 
 나는 스터디에서 시너지가 많이 나는 편인 듯하다. 다른 분들에게 더 도움이 되고 싶어 열심히 공부했고 정말 이해하고 있는 건지 알기 위해 설명해 보려고 노력했다.
 

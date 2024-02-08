@@ -22,7 +22,9 @@ ogImage:
 
 정확히는 **동일한 도메인에서 서브패스가 달라졌을때만 이벤트가 발생하지 않았다**(e.g., domain.com/dev -> domain.com/1ilsang). 작업하던 웹앱은 `react-router-dom`을 사용하는 SPA 였기에 해당 문제가 [History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API)와 연관되어 있다고 생각하고 서치를 시작했고, 예상대로 이벤트의 기대 동작과 실제 동작이 달라서 일어난 일이었다.
 
-<img width="100%" alt="image" src="https://wd.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/KCIeOsJ0lCWMthBSSBrn.svg">
+![flow-chart](https://github.com/1ilsang/dev/assets/23524849/3594b04d-a60f-4edb-9aad-1fbef82245b1 'l')
+
+> [자세히 보기](https://developer.chrome.com/docs/web-platform/page-lifecycle-api?hl=ko)
 
 `beforeunload` 이벤트는 '페이지'간 이동에서 발생하기 때문에 단일 페이지 환경인 SPA에서는 새로운 페이지를 로딩하지 않았기 때문에 당연하게도 이벤트가 발생하지 않는다.
 
@@ -42,7 +44,7 @@ ogImage:
 
 ## beforeunload로 페이지 이탈 방지하기
 
-<img width="253" alt="image" src="https://user-images.githubusercontent.com/23524849/224527867-7128d0f0-04b6-4f6d-93db-4079af82d181.png">
+![prevent](https://user-images.githubusercontent.com/23524849/224527867-7128d0f0-04b6-4f6d-93db-4079af82d181.png 's')
 
 beforeunload 이벤트를 통해 페이지 이동을 감지할 경우 브라우저에서 기본 컨펌창을 제공해 주는데, 크롬 기준 컨펌창은 위의 이미지와 같다.
 
@@ -62,7 +64,7 @@ window.addEventListener('beforeunload', handleBeforeUnload);
 
 위의 내용은 MDN [beforeunload_event#compatibility_notes](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event#compatibility_notes)에서 자세하게 확인할수 있다.
 
-<img width="716" alt="image" src="https://user-images.githubusercontent.com/23524849/226096035-6b2aa45b-d17d-4fc3-80fd-0d9e50a7b853.png">
+![error](https://user-images.githubusercontent.com/23524849/226096035-6b2aa45b-d17d-4fc3-80fd-0d9e50a7b853.png 'l')
 
 beforeunload 이벤트로 작업하다보면 위와같은 에러를 만날수 있는데, 이는 앞서 말한 유저의 명시적 액션(e.g, mousedown)이 없었기 때문에 발생하는 에러이다.
 

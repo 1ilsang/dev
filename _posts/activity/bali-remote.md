@@ -8,7 +8,7 @@ ogImage:
   url: 'https://github.com/1ilsang/dev/assets/23524849/b9834b4f-a495-43df-ace7-bc8784a6d6f9'
 ---
 
-<img class="cover" alt="cover" src="https://github.com/1ilsang/dev/assets/23524849/b9834b4f-a495-43df-ace7-bc8784a6d6f9" alt="cover" />
+![cover](https://github.com/1ilsang/dev/assets/23524849/b9834b4f-a495-43df-ace7-bc8784a6d6f9 'cover')
 
 ## 시작 계기
 
@@ -208,7 +208,7 @@ LTE가 느리다고 느꼈다. 나는 4G 유심을 샀는데 핫스팟 무지하
 
 ## 마무리
 
-![good-bye-airport](https://github.com/1ilsang/dev/assets/23524849/ffdaffea-4632-4270-a7ed-77bc2882b3a6)
+![good-bye-airport](https://github.com/1ilsang/dev/assets/23524849/ffdaffea-4632-4270-a7ed-77bc2882b3a6 'l')
 
 한 달간 해외 리모트 워크를 하면서 "영어"와 "기술"에 대한 갈망이 커졌다.
 

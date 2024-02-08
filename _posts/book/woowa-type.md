@@ -8,7 +8,7 @@ ogImage:
   url: 'https://github.com/1ilsang/dev/assets/23524849/3e0ae612-003f-43e9-a6b0-d481697fc280'
 ---
 
-<img class="cover" alt="cover" src="https://github.com/1ilsang/dev/assets/23524849/3e0ae612-003f-43e9-a6b0-d481697fc280" />
+![cover](https://github.com/1ilsang/dev/assets/23524849/3e0ae612-003f-43e9-a6b0-d481697fc280 'cover')
 
 "우아한 타입스크립트 with 리액트"의 리뷰를 해보려고 한다.
 

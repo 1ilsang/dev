@@ -8,7 +8,7 @@ ogImage:
   url: 'https://github.com/1ilsang/dev/assets/23524849/c251c31e-1775-4cf9-9131-7cab72cde00e'
 ---
 
-<img class="cover" alt="cover" src="https://github.com/1ilsang/dev/assets/23524849/c251c31e-1775-4cf9-9131-7cab72cde00e" />
+![cover](https://github.com/1ilsang/dev/assets/23524849/c251c31e-1775-4cf9-9131-7cab72cde00e 'cover')
 
 4월 초 Storybook v7이 공식 릴리즈 되었다. 이 포스트에서는 [스토리북 블로그에 작성된](https://storybook.js.org/blog/storybook-7-0/) 7버전의 기능들을 확인해보고 정리해 보고자 한다.
 
@@ -29,7 +29,7 @@ Storybook v7의 주요 기능중 가장 마음에 드는 부분은 사전 번들
 
 또한 Webpack또한 v4에서 v5로 업데이트 되었기 때문에 번들 속도는 더욱 빨라졌다.
 
-<img width="700" alt="compare-speed" src="https://github.com/1ilsang/dev/assets/23524849/260e2d5a-9a95-4334-a5fe-68885fc35df0" />
+![compare-speed](https://github.com/1ilsang/dev/assets/23524849/260e2d5a-9a95-4334-a5fe-68885fc35df0)
 
 > 20초 걸리던 매니저 빌드 타임이 사전 번들 덕분에 1초대로 줄었으며 프리뷰 영역도 2초 정도 단축되었다. wow
 
@@ -95,7 +95,7 @@ export const Pair = {
 
 ## MDX v2
 
-![MDX](https://storybookblog.ghost.io/content/images/size/w1600/2023/04/Tom-SB7-Docs.001.png)
+![MDX](https://storybookblog.ghost.io/content/images/size/w1600/2023/04/Tom-SB7-Docs.001.png 'l')
 
 ```jsx
 // v6 guide.stories.mdx
@@ -135,19 +135,19 @@ MDX2는 내장 jsx 및 플러그인을 지원하기 때문에 동적인 문서�
 
 ## 그 외
 
-![support](https://github.com/1ilsang/dev/assets/23524849/6c81a754-b986-439f-8e72-514c723c853d)
+![support](https://github.com/1ilsang/dev/assets/23524849/6c81a754-b986-439f-8e72-514c723c853d 'l')
 
 설정 수정 없이 Vite, NextJS, SvelteKit을 지원한다.
 
 본인은 Webpack에서 Vite로 마이그레이션을 고려하고 있었는데 이번 버전이 좋은 기회가 될꺼라 기대하고 있다.
 
-![test-coverage](https://storybookblog.ghost.io/content/images/2023/04/Untitled-copy.png)
+![test-coverage](https://storybookblog.ghost.io/content/images/2023/04/Untitled-copy.png 'l')
 
 스토리북은 이전부터 테스팅 도구로써의 포지션을 견고히 하고자 하는데, 이번 버전에서도 상당부분 업데이트가 되어 있다.
 
 v7에는 코드 커버리지 기능이 추가되었다. 테스트 코드의 누락을 조금 더 쉽게 찾을수 있게 되었다.
 
-![test](https://storybookblog.ghost.io/content/images/2023/04/Capture-2023-04-04-214354.png)
+![test](https://storybookblog.ghost.io/content/images/2023/04/Capture-2023-04-04-214354.png 'l')
 
 ```tsx
 const meta: Meta<typeof SignupForm> = {

@@ -8,7 +8,7 @@ ogImage:
   url: 'https://github.com/1ilsang/dev/assets/23524849/733573ae-f90e-4573-a7a2-41940c787da9'
 ---
 
-<img class="cover" src="https://github.com/1ilsang/dev/assets/23524849/bd5efca8-90f6-4dba-bdd9-914d4d7dc459" alt="cover" />
+![cover](https://github.com/1ilsang/dev/assets/23524849/bd5efca8-90f6-4dba-bdd9-914d4d7dc459 'cover')
 
 > 제주 섭지코지
 
@@ -26,7 +26,7 @@ ogImage:
 
 ## 첫 일주일
 
-![start](https://github.com/1ilsang/dev/assets/23524849/cc26351c-f65e-4d2d-a294-5599410e1e84)
+![start](https://github.com/1ilsang/dev/assets/23524849/cc26351c-f65e-4d2d-a294-5599410e1e84 'l')
 
 나는 사람이 많은 곳을 피하고 싶었다. 고민하던 도중 [성산일출봉](https://naver.me/GEAuu260) 근처에 관광할 곳이 하나도 없는 지역 근처의 숙소를 구했다.
 
@@ -52,9 +52,9 @@ ogImage:
 
 <br />
 
-![landscape](https://github.com/1ilsang/dev/assets/23524849/610f23eb-9380-4a90-877f-8b402d0691e5)
+![landscape](https://github.com/1ilsang/dev/assets/23524849/610f23eb-9380-4a90-877f-8b402d0691e5 'l')
 
-![green-tea-cave](https://github.com/1ilsang/dev/assets/23524849/5fe84b29-18bf-4852-8f16-2a256a2d5d5c)
+![green-tea-cave](https://github.com/1ilsang/dev/assets/23524849/5fe84b29-18bf-4852-8f16-2a256a2d5d5c 'l')
 
 하지만 퇴근 후 혹은 주말에 제주 여러 지역을 돌아다니며 주위를 환기하는 과정은 워케이션을 후회하지 않게 해주기에 충분했다.
 

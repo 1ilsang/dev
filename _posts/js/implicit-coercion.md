@@ -26,7 +26,7 @@ undefined == null // true
 
 ```
 
-<img class="cover" alt="cover" src="https://user-images.githubusercontent.com/23524849/233840877-eb7e5d64-4d5a-48b8-a960-6c16f99dff41.png" />
+![cover](https://user-images.githubusercontent.com/23524849/233840877-eb7e5d64-4d5a-48b8-a960-6c16f99dff41.png 'cover')
 
 ### TL;DR!
 
@@ -38,7 +38,7 @@ undefined == null // true
 
 ### 들어가기 전에
 
-<img width="819" alt="primitive-type" src="https://user-images.githubusercontent.com/23524849/233840925-4bed99f9-37cb-48cf-af23-b5c00ffc31f1.png" />
+![primitive-type](https://user-images.githubusercontent.com/23524849/233840925-4bed99f9-37cb-48cf-af23-b5c00ffc31f1.png 'l')
 
 > [이미지 주소](https://velog.io/@imjkim49/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%A0%95%EB%A6%AC)
 
@@ -74,7 +74,7 @@ if (1) {
 
 ### 동치연산자 한짤로 보기
 
-<img width="852" alt="image" src="https://user-images.githubusercontent.com/23524849/233842467-9581968c-00a0-47f4-a305-76b3bfdae97f.png">
+![example](https://user-images.githubusercontent.com/23524849/233842467-9581968c-00a0-47f4-a305-76b3bfdae97f.png 'l')
 
 > 출처: [MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Equality_comparisons_and_sameness)
 
@@ -84,7 +84,7 @@ if (1) {
 
 ## `ToPrimitive` 는 동치연산 뿐만 아니라 원시값과 비교가 필요한 모든 순간에 동작한다
 
-<img width="1066" alt="image" src="https://user-images.githubusercontent.com/23524849/233842491-1d19517e-6efc-4fc5-9efd-b55233a40929.png">
+![to-primitive](https://user-images.githubusercontent.com/23524849/233842491-1d19517e-6efc-4fc5-9efd-b55233a40929.png)
 
 `Symbol.toPrimitive`: A method that converts an object to a corresponding primitive value. Called by the ToPrimitive abstract operation.
 
@@ -100,8 +100,8 @@ function toPrimitive(input, PreferredType) {
       PreferredType === undefined
         ? 'default'
         : typeof PreferredType === 'string'
-        ? 'string'
-        : 'number';
+          ? 'string'
+          : 'number';
     let exoticToPrim = input[Symbol.toPrimitive];
     if (exoticToPrim !== undefined) {
       let result = exoticToPrim.apply(input, [hint]);

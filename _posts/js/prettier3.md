@@ -8,7 +8,7 @@ ogImage:
   url: 'https://github.com/1ilsang/dev/assets/23524849/10b0b10c-f103-425d-aa86-e9d6deb36772'
 ---
 
-<img class="cover" alt="cover" src="https://github.com/1ilsang/dev/assets/23524849/10b0b10c-f103-425d-aa86-e9d6deb36772" />
+![cover](https://github.com/1ilsang/dev/assets/23524849/10b0b10c-f103-425d-aa86-e9d6deb36772 'cover')
 
 Prettier v3.0이 어제 [7월 5일에 공개](https://prettier.io/blog/2023/07/05/3.0.0.html)되었다.
 
@@ -190,8 +190,8 @@ Y(() => () => (a ? b : c));
 ### [Import Attributes](https://github.com/tc39/proposal-import-attributes)를 지원
 
 ```tsx
-import json from "./foo.json" with { type: "json" };
-import("./foo.json", { with: { type: "json" } });
+import json from './foo.json' with { type: 'json' };
+import('./foo.json', { with: { type: 'json' } });
 ```
 
 ### 주석이 있는 경우 유니온 타입의 개행이 유지
