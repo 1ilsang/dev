@@ -205,6 +205,29 @@ $target: #e73c7e;
   font-size: small;
 }
 
+.highlighter {
+  display: inline-block;
+  color: $highlight-color;
+  line-height: 1.1;
+
+  &::after {
+    content: '';
+    display: block;
+    height: 1px;
+    background-color: $highlight-color;
+    transition: width 0.5s ease;
+    width: 0;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
 .progress {
   display: flex;
   flex-direction: column;

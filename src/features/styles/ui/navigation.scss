@@ -54,6 +54,7 @@
 
   ::-webkit-progress-value {
     background-color: #28bc97;
+    transition: width 0.3s ease-out;
   }
 }
 

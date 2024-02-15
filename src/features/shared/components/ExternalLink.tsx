@@ -14,7 +14,7 @@ const ExternalLink: FunctionComponent<ExternalLinkProps> = ({
 }) => {
   return (
     <a
-      className={`hashtag ${classNames}`}
+      className={`highlighter ${classNames}`}
       href={href}
       rel="noopener noreferrer"
       target="_blank"

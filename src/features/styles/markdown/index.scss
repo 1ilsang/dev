@@ -24,12 +24,11 @@
 
   a {
     color: $highlight-color;
-  }
 
-  a:hover,
-  summary:hover {
-    text-decoration-line: underline;
-    cursor: pointer;
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
   }
 
   u {
