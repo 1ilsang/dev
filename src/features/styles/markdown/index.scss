@@ -24,10 +24,12 @@
 
   a {
     color: $highlight-color;
+    text-decoration: underline 0.15em rgba(48, 255, 203, 0%);
+    transition: text-decoration-color 500ms;
 
     &:hover {
       cursor: pointer;
-      text-decoration: underline;
+      text-decoration-color: rgba(48, 255, 203, 100%);
     }
   }
 
