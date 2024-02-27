@@ -1,0 +1,363 @@
+---
+title: 'Array.prototype.sort() 이해하기'
+description: '정열적으로 정렬해 보기'
+tags: ['ECMAScript', 'array', 'sort']
+coverImage: 'https://github.com/1ilsang/dev/assets/23524849/47823496-4644-4e7b-9801-9d54273d200e'
+date: '2024-02-27T20:56:05.629Z'
+ogImage:
+  url: 'https://github.com/1ilsang/dev/assets/23524849/47823496-4644-4e7b-9801-9d54273d200e'
+---
+
+![cover](https://github.com/1ilsang/dev/assets/23524849/26fb163a-2663-4e47-ba32-583d5e2a3c73 'cover')
+
+```js
+[11, 8, 1, 2, 33, 3].sort(); // [1, 11, 2, 3, 33, 8]
+
+const arrayLike = { 0: 'c', 2: 'b', 123: '1ilsang', '1ilsang': 123, length: 3 };
+Array.prototype.sort.call(arrayLike); // { 0: 'b', 1: 'c', 123: '1ilsang', '1ilsang': 123, length: 3 };
+// ?????
+```
+
+JavaScript에서 sort는 어떻게 구현되어 있을까? stable 한가? 브라우저별 차이는 없을까? ECMA의 명세는 어떻게 되어있을까?
+
+## Index
+
+- [TL;DR!](#tldr)
+- [의문의 시작](#의문의-시작)
+- [Array.prototype.sort() 공식 명세](#arrayprototypesort-공식-명세)
+- [브라우저별 sort 구현체](#브라우저별-sort-구현체)
+- [마무리](#마무리)
+- [참고](#참고)
+
+## TL;DR!
+
+|    Engine    | Browser |     Algorithm     | Stable | In-place | ECMA Spec |
+| :----------: | :-----: | :---------------: | :----: | :------: | :-------: |
+|      V8      | Chrome  |     Tim sort      |   O    |    X     |     O     |
+|    Webkit    | Safari  |  Bucket / Merge   |   O    |    X     |     O     |
+| SpiderMonkey | Firefox | Merge + Insertion |   O    |    X     |     O     |
+
+1. sort 함수는 ECMA 2019부터 stable sort가 되었지만 in-place 하지 않을 수 있다.
+2. 유사 배열 객체를 정렬할 때는 length를 기준으로 프로퍼티 값을 비교한다.
+3. 브라우저별 sort 함수의 구현체가 다르지만 ECMAScript 명세를 지킨다.
+
+## 의문의 시작
+
+JavaScript의 `sort`는 [Tim sort](https://d2.naver.com/helloworld/0315536)로 구현되어 있다고 알고 있었다. 그런데 그 이상의 [감동](https://www.donga.com/news/Culture/article/all/20230203/117728020/1)이 나에게 있는지 의문이 들었고 스스로에게 아래와 같이 질문해 보았다.
+
+1. `Array.prototype.sort`의 명세는 어떻게 되어 있는가?
+2. 브라우저는 `Array.prototype.sort`의 명세대로 sort를 구현했는가?
+3. 모든 브라우저가 Tim sort로 구현되어 있는가?
+4. `compareFn`의 유무에 따른 sort 함수의 동작은 무엇이 달라지는가?
+5. sort 함수는 [in-place](https://en.wikipedia.org/wiki/In-place_algorithm)하고 [stable](https://en.wikipedia.org/wiki/Sorting_algorithm#Stability) 한가?
+6. 유사 배열 객체 또한 sort 함수로 정렬된다. 어떻게 동작하는가?
+
+![sad](https://github.com/1ilsang/dev/assets/23524849/35862db0-f699-4378-9ecc-ed9ff21c4699)
+
+자 이제 감동을 채워나가자.
+
+## Array.prototype.sort() 공식 명세
+
+[ECMAScript](https://tc39.es/ecma262)의 내용을 기준으로 설명하겠다.
+
+![ECMA2019 stable](https://github.com/1ilsang/dev/assets/23524849/814b4f37-a976-4d8c-8121-bb5aec2e143e 'l')
+
+ECMA2019의 업데이트로 `Array.prototype.sort` 함수는 stable 하도록 명시되었다.
+
+해당 명세는 [[Normative] Make Array.prototype.sort stable #1340 PR](https://github.com/tc39/ecma262/pull/1340)에서 최초 정의되었다.
+
+문서의 23.1.3.30에 `Array.prototype.sort`의 동작이 정의되어 있다. 공식 명세를 따라가며 동작을 확인해 보자.
+
+### 23.1.3.30 Array.prototype.sort (compareFn)
+
+![ecma official](https://github.com/1ilsang/dev/assets/23524849/f6e1df19-763e-4750-8909-01a2c5dcb102 'l')
+
+> [Array.prototype.sort](https://tc39.es/ecma262/#sec-array.prototype.sort)의 명세 내용
+
+한 줄씩 내용을 해석해 보자.
+
+#### 1. compareFn의 유효성을 검사한다.
+
+```js
+const list = [3, 4, 6, 1, 5, 3];
+list.sort(123); // TypeError!
+Array.prototype.sort.call(list, 123); // TypeError!
+```
+
+- `compareFn`은 비교 콜백 함수를 뜻한다.
+- compareFn이 `undefined`가 아니고 [IsCallable](https://tc39.es/ecma262/#sec-iscallable)(호출 가능)하지 않다면, TypeError를 발생시킨다.
+
+#### 2. 배열 객체로 변환한다.
+
+```js
+Object('123'); // String {'123'}
+Object([1, 2, 3]); // [1,2,3]
+Object({ 1: 'a', 2: 'b' }); // {1: 'a', 2: 'b'}
+```
+
+> 처음 공식 문서를 읽으면 여기서 막힌다. `?`와 같은 표현을 [ReturnIfAbrupt Shorthands](https://tc39.es/ecma262/#sec-returnifabrupt-shorthands)라고 한다. 에러가 발생하면 즉시 리턴하고 아니면 결과를 진행한다는 뜻이다. 자세한 내용은 [Completion Records](https://timothygu.me/es-howto/#completion-records-and-shorthands) 참고.
+
+- [ToObject](https://tc39.es/ecma262/#sec-toobject)를 호출하여 현재 배열(`this` 값)을 객체로 변환한다.
+  - 위 코드의 첫 번째 예시와 같이 원시 타입 문자열을 문자열 객체로 변환한다.
+  - 암묵적 형변환을 이해하고 싶다면 [이 포스트](/posts/js/implicit-coercion)를 읽어보길 추천한다.
+- 객체로 변환해 처리하므로, 이는 <u>sort 메서드가 배열이 아닌 객체에도 적용될 수 있음을 뜻</u>한다.
+- 설정된 객체를 `obj`라 명한다.
+
+#### 3. 객체의 길이를 계산한다.
+
+```js
+const arrayLike = { 0: 'c', 1: 'a', 2: 'b', length: 3 };
+console.log(arrayLike[1], arrayLike.length); // 'a', 3
+Array.isArray(arrayLike); // false
+arrayLike instanceof Array; // false
+```
+
+- [LengthOfArrayLike](https://tc39.es/ecma262/#sec-lengthofarraylike)를 호출하여 변환된 객체(obj)의 길이를 가져온다.
+  - LengthOfArrayLike 추상 연산은 유사 배열 객체의 `length` 프로퍼티를 반환한다.
+  - 해당 추상 연산에서 "유사 배열 객체"는 해당 연산이 정상으로 완료되는 객체를 뜻한다. 즉 `length` 프로퍼티(속성)가 있어야 유사 배열 객체로 성립한다.
+- 가져온 길이를 `len`이라 명한다.
+
+#### 4. 정렬 비교를 위한 추상 클로저를 생성한다.
+
+```js
+[11, 8, 1, 2, 33, 3].sort(); // [1, 11, 2, 3, 33, 8]
+```
+
+- 매개변수로 `x`, `y`가 있는 추상 클로저를 생성한다. 이 클로저는 compareFn을 캡쳐하고 다음 단계를 호출한다.
+- 클로저가 실행되면 [CompareArrayElements](https://tc39.es/ecma262/#sec-comparearrayelements)를 호출하여 `x`와 `y`를 비교(compareFn)하고 결과를 반환한다.
+  - 결과 값은 `-1,0,1` 혹은 에러를 반환한다.
+  - compareFn이 제공되지 않으면 각 인자를 [ToString](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-tostring)으로 변환 후 문자열 비교(유니코드 포인트 순서) 한다. 이 때문에 <u>위와 같이 기본 `sort` 함수의 동작이 처음에는 당혹스럽게 느껴진다</u>.
+- 생성된 추상 클로저를 `SortCompare`이라 명한다.
+
+#### 5. 새로운 배열에 프로퍼티를 정렬한다.
+
+- [SortIndexedProperties](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-sortindexedproperties)를 위에서 생성된 값들과 함께 호출한다.
+  - SortIndexedProperties는 객체(obj)의 인덱싱된 속성들을 SortCompare를 사용해 len 만큼 정렬하는 함수다.
+  - 여기서 `SKIP-HOLES`는 배열의 빈 요소를 정렬에서 제외하라는 뜻이다.
+- SortIndexedProperties의 동작은 대략 아래와 같다.
+  - 빈 리스트 items를 생성한다
+    - <u>메모리를 추가 사용한다. 명세는 in-place 하지 않다.</u>
+  - 숫자 0인 k를 정의한다.
+  - (반복) k < len 이라면 k를 문자열로 변환한 Pk를 생성한다.
+    - obj에 Pk 속성이 있는지 확인하고 있다면(SKIP-HOLES이므로) 가져온다(kValue).
+    - 가져온 값(kValue)을 items에 추가한다.
+    - k의 값을 1 증가시킨다.
+  - 값이 추가된 items에 SortCompare를 호출해 항목을 정렬한다.
+- 정렬된 리스트를 `sortedList`라 명한다.
+
+#### 6. 정렬된 요소의 개수를 계산한다.
+
+- sortedList에 있는 요소의 개수를 `itemCount`라 명한다.
+
+#### 7. j를 0으로 설정한다.
+
+#### 8. 정렬된 요소를 객체에 설정한다.
+
+- j가 itemCount보다 작을 동안 반복한다.
+- 객체(obj)의 j 번째 속성을 sortedList[j]로 설정한다.
+  - 원본 객체를 변경하고 있다. [mutable](https://developer.mozilla.org/en-US/docs/Glossary/Mutable) 하다.
+- j를 1 증가시킨다.
+
+#### 9 ~ 10. 빈 요소를 처리한다.
+
+```js
+[1, , 2].sort(); // [1, 2, empty]
+
+// 인덱스 1이 존재하지 않음.
+const arrayLike = { 0: 'c', 2: 'b', 123: '1ilsang', '1ilsang': 123, length: 3 };
+
+// 인덱스 2 가 삭제되고 1이 추가되었다.
+// 또한 length를 벗어나는(혹은 성립하지 않는) 인덱스는 무시(정렬 X)된다.
+Array.prototype.sort.call(arrayLike); // { 0: 'b', 1: 'c', 123: '1ilsang', '1ilsang': 123, length: 3 };
+```
+
+- SortedIndexedProperties 호출 때 SKIP-HOLES를 지정했으므로 빈 요소의 수를 유지하기 위해 [DeletePropertyOrThrow](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-deletepropertyorthrow)를 호출하여 나머지 인덱스를 삭제한다.
+
+#### 11. 객체를 반환한다.
+
+![ecma official](https://github.com/1ilsang/dev/assets/23524849/f6e1df19-763e-4750-8909-01a2c5dcb102 'l')
+
+![easy-right?](https://github.com/1ilsang/dev/assets/23524849/a636baec-8023-4017-bbc5-f41deab21f65 's')
+
+`Array.prototype.sort`의 명세를 보면서 기존의 의문점이 상당히 많이 풀리게 되었다.
+
+- Array.prototype.sort의 명세는 어떻게 되어 있는가?
+  - 위에서 다루었다.
+- compareFn의 유무에 따른 sort 함수의 동작은 무엇이 달라지는가?
+  - 비교 함수가 없으면 [[4. 정렬 비교를 위한 추상 클로저를 생성한다.]](#4-정렬-비교를-위한-추상-클로저를-생성한다)의 내용에서 각 인자를 [ToString](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-tostring)으로 변환 후 문자열 비교(유니코드 포인트 순서)한다고 했다.
+- sort 함수는 in-place 하고 stable 한가?
+  - 공식 문서에 따르면 stable 해야 한다.
+  - [SortIndexedProperties](/posts/js/sort#5-새로운-배열에-프로퍼티를-정렬한다)의 동작을 보면 빈 리스트 items를 생성 후 하나씩 원소를 추가하고 있으므로 <u>in-place 하지 않을 수 있다.</u>
+- 유사 배열 객체 또한 sort 함수로 정렬된다. 어떻게 동작하는가?
+  - 공식 스펙 자체가 ToObject로 객체화한 후 처리하고 있으므로 객체 비교를 전제로 동작한다.
+
+이로써 스펙상의 이야기는 되었다. 하지만, 실제로 브라우저에서 어떻게 구현되어 있는지에 따라 동작이 달라질 수 있으므로 남은 의문의 해결과 실제 `sort` 함수의 동작을 확인하기 위해 브라우저별 어떻게 구현해 놓았는지 확인해 보자.
+
+## 브라우저별 Sort 구현체
+
+- 브라우저는 `Array.prototype.sort`의 명세대로 sort를 구현했는가?
+- 모든 브라우저가 Tim sort로 구현되어 있는가?
+
+이제 위의 질문에 답을 해보자.
+
+### V8
+
+```js
+// https://github.com/v8/v8/blob/12.3.206.1/third_party/v8/builtins/array-sort.tq#L1419
+transitioning javascript builtin ArrayPrototypeSort(
+    js-implicit context: NativeContext, receiver: JSAny)(...arguments): JSAny {
+  // 1. If comparefn is not undefined and IsCallable(comparefn) is false,
+  //    throw a TypeError exception.
+  const comparefnObj: JSAny = arguments[0];
+  const comparefn = Cast<(Undefined | Callable)>(comparefnObj) otherwise
+  ThrowTypeError(MessageTemplate::kBadSortComparisonFunction, comparefnObj);
+
+  // 2. Let obj be ? ToObject(this value).
+  const obj: JSReceiver = ToObject(context, receiver);
+
+  // 3. Let len be ? ToLength(? Get(obj, "length")).
+  const len: Number = GetLengthProperty(obj);
+
+  if (len < 2) return obj;
+
+  const isToSorted: constexpr bool = false;
+  const sortState: SortState = NewSortState(obj, comparefn, len, isToSorted);
+  ArrayTimSort(context, sortState); // << Here!
+
+  return obj;
+}
+```
+
+V8의 builtin sort 함수인 [ArrayPrototypeSort](https://github.com/v8/v8/blob/12.3.206.1/third_party/v8/builtins/array-sort.tq#L1419)에는 Tim sort가 적용되어 있다. 또한 주석에서도 알 수 있듯 명세의 순서를 따르고 있다.
+
+[Tim sort](https://d2.naver.com/helloworld/0315536)는 stable 하지만 in-place하지는 않다([merge sort 보다는 적게 메모리를 사용한다](https://youtu.be/HHN1axRRKx8?si=9KLghQJ1OAYtATK2&t=892)).
+
+> [V8 블로그의 글](https://v8.dev/blog/array-sort)에 따르면 Chrome 70 전에는 퀵 정렬과 삽입 정렬을 혼합해서 사용하고 있었다.
+
+### Webkit
+
+```js
+// https://github.com/WebKit/WebKit/blob/wpewebkit-2.43.1/Source/JavaScriptCore/builtins/ArrayPrototype.js#L509
+function sort(comparator) {
+  "use strict";
+
+  var isStringSort = false;
+  if (comparator === @undefined)
+      isStringSort = true;
+  else if (!@isCallable(comparator))
+      @throwTypeError("Array.prototype.sort requires the comparator argument to be a function or undefined");
+
+  var receiver = @toObject(this, "Array.prototype.sort requires that |this| not be null or undefined");
+  var receiverLength = @toLength(receiver.length);
+
+  // For compatibility with Firefox and Chrome, do nothing observable
+  // to the target array if it has 0 or 1 sortable properties.
+  if (receiverLength < 2)
+      return receiver;
+
+  var compacted = [ ];
+  var sorted = null;
+  var undefinedCount = @sortCompact(receiver, receiverLength, compacted, isStringSort);
+
+  if (isStringSort) {
+      sorted = @newArrayWithSize(compacted.length);
+      @sortBucketSort(sorted, 0, compacted, 0);
+  } else
+      sorted = @sortMergeSort(compacted, comparator);
+
+  @sortCommit(receiver, receiverLength, sorted, undefinedCount);
+  return receiver;
+}
+```
+
+Webkit(Safari)의 [sort 함수](https://github.com/WebKit/WebKit/blob/wpewebkit-2.43.1/Source/JavaScriptCore/builtins/ArrayPrototype.js#L509)는 스트링일 경우 [버킷 정렬](https://ko.wikipedia.org/wiki/%EB%B2%84%ED%82%B7_%EC%A0%95%EB%A0%AC)을 사용하고 아니라면 [합병 정렬(merge sort)](https://en.wikipedia.org/wiki/Merge_sort)을 이용한다. 또한 명세의 순서를 따르고 있다.
+
+두 정렬 모두 stable 하다. 하지만 둘 다 in-place 하지 않다.
+
+### SpiderMonkey
+
+```js
+// https://github.com/mozilla/gecko-dev/blob/661a7d013f6b841e9fbbe56d307cb206f62963c3/js/src/builtin/Array.js#L104
+function ArraySort(comparefn) {
+  // Step 1.
+  if (comparefn !== undefined) {
+    if (!IsCallable(comparefn)) {
+      ThrowTypeError(JSMSG_BAD_SORT_ARG);
+    }
+  }
+  // Step 2.
+  var O = ToObject(this);
+  // First try to sort the array in native code, if that fails, indicated by
+  // returning |false| from ArrayNativeSort, sort it in self-hosted code.
+  if (callFunction(ArrayNativeSort, O, comparefn)) {
+    return O;
+  }
+  // Step 3.
+  var len = ToLength(O.length);
+  // Arrays with less than two elements remain unchanged when sorted.
+  if (len <= 1) {
+    return O;
+  }
+  // Step 4.
+  var wrappedCompareFn = ArraySortCompare(comparefn);
+  // Step 5.
+  // To save effort we will do all of our work on a dense list, then create holes at the end.
+  var denseList = [];
+  var denseLen = 0;
+  for (var i = 0; i < len; i++) {
+    if (i in O) {
+      DefineDataProperty(denseList, denseLen++, O[i]);
+    }
+  }
+  if (denseLen < 1) {
+    return O;
+  }
+  var sorted = MergeSort(denseList, denseLen, wrappedCompareFn);
+  MoveHoles(O, len, sorted, denseLen);
+  return O;
+}
+```
+
+SpiderMonkey(Firefox)는 [Gecko](https://github.com/mozilla/gecko-dev)에 속한 엔진으로, JavaScript 실행에 특화되어 있다. Gecko는 Firefox의 전반적인 렌더링 엔진이다.
+
+> Gecko 깃헙은 [mozilla-central](https://searchfox.org/mozilla-central/source/js/src/builtin/Sorting.js#78) 미러링 리포지터리로 Read-only다.
+
+SpiderMonkey는 합병 정렬을 사용하는데, [합병 정렬의 내부에 최적화 작업을 위해 삽입 정렬을 사용](https://github.com/mozilla/gecko-dev/blob/661a7d013f6b841e9fbbe56d307cb206f62963c3/js/src/builtin/Sorting.js#L86)하고 있으며 명세의 순서를 따르고 있다. Tim 정렬과 유사한 부분이 있다.
+
+합병 정렬과 삽입 정렬은 모두 stable 하지만 삽입 정렬만 in-place 하다.
+
+### 정리
+
+|    Engine    | Browser |     Algorithm     | Stable | In-place | ECMA Spec |
+| :----------: | :-----: | :---------------: | :----: | :------: | :-------: |
+|      V8      | Chrome  |     Tim sort      |   O    |    X     |     O     |
+|    Webkit    | Safari  |  Bucket / Merge   |   O    |    X     |     O     |
+| SpiderMonkey | Firefox | Merge + Insertion |   O    |    X     |     O     |
+
+- 브라우저는 `Array.prototype.sort`의 명세대로 sort를 구현했는가?
+  - YES
+- 모든 브라우저가 Tim sort로 구현되어 있는가?
+  - No
+
+## 마무리
+
+`sort` 함수를 이해하면서 공식 문서 및 브라우저들의 소스 코드를 살펴보게 되었다.
+
+가볍게 보았음에도 브라우저 코드 형태를 본다거나 ECMAScript를 읽을 수 있게 된 것은 뜻밖의 수확이었다. 가장 큰 수확은 sort뿐만 아니라 다른 명세(map, reduce,...)들에 대한 접근도 두려워하지 않게 되었다는 점이다.
+
+처음엔 막막하던 공식 문서도 차근차근 따라가다 보니 읽어 나갈 수 있었다. JavaScript의 [암묵적 형 변환](/posts/js/implicit-coercion)과 같은 유연함은 오히려 동작을 이해하기 어렵게 하는 요소가 된다. 공식 문서에서 이러한 동작을 간결하게 표현하기 위한 많은 노력들을 볼 수 있었기에 리스펙할 수 있었다.
+
+메서드 동작을 명확하게 설명하지 못하는 부분이 늘 존재했었기에 아쉬움이 있었는데 이번 기회로 자신감도 얻고 JavaScript 자체에 더 가까워진 느낌이 든다.
+
+재밌었다.
+
+## 참고
+
+- [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
+- [https://tc39.es/ecma262/#sec-array.prototype.sort](https://tc39.es/ecma262/#sec-array.prototype.sort)
+- [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toSorted](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toSorted)
+- [https://github.com/v8/v8/blob/12.3.206.1/third_party/v8/builtins/array-sort.tq#L1419](https://github.com/v8/v8/blob/12.3.206.1/third_party/v8/builtins/array-sort.tq#L1419)
+- [https://d2.naver.com/helloworld/0315536](https://d2.naver.com/helloworld/0315536)
+- [https://timothygu.me/es-howto](https://timothygu.me/es-howto)
+- [https://v8.dev/blog/array-sort](https://v8.dev/blog/array-sort)
+- [자료구조 Tim 정렬 알고리즘](https://www.youtube.com/watch?v=HHN1axRRKx8)

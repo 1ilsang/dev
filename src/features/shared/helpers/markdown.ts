@@ -5,10 +5,12 @@ import remarkRehype from 'remark-rehype';
 import rehypeStringify from 'rehype-stringify';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import remarkGfm from 'remark-gfm';
 
 const markdownToHtml = async (mdText: string) => {
   const htmlText = unified()
     .use(remarkParse)
+    .use(remarkGfm)
     .use(remarkRehype, {
       allowDangerousHtml: true,
       handlers: {
@@ -51,6 +53,7 @@ const markdownToHtml = async (mdText: string) => {
     .use(rehypeHighlight)
     .use(rehypeStringify, { allowDangerousHtml: true })
     .processSync(mdText);
+
   return htmlText.toString();
 };
 

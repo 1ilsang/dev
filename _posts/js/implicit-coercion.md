@@ -2,10 +2,10 @@
 title: '알랑말랑 암묵적 형변환 말랑말랑 이해하기'
 description: '자바스크립트의 형변환은 어떻게 일어나는가?'
 tags: ['javascript', 'type', 'implicit-coercion']
-coverImage: 'https://user-images.githubusercontent.com/23524849/233845072-aa409fb1-2182-47e7-92ea-94b740bde30c.png'
+coverImage: 'https://github.com/1ilsang/dev/assets/23524849/59c84bbf-9a64-4d93-b161-9c0fb22e21ce'
 date: '2023-04-22T08:02:20.684Z'
 ogImage:
-  url: 'https://user-images.githubusercontent.com/23524849/233845072-aa409fb1-2182-47e7-92ea-94b740bde30c.png'
+  url: 'https://github.com/1ilsang/dev/assets/23524849/59c84bbf-9a64-4d93-b161-9c0fb22e21ce'
 ---
 
 ```js

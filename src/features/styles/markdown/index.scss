@@ -147,6 +147,24 @@
     }
   }
 
+  table {
+    width: 100%;
+    table-layout: fixed;
+    color: $deep-light-color;
+    margin-bottom: 1rem;
+
+    th {
+      border: 1px solid $deep-light-color;
+      padding: 0 1rem;
+      background-color: $dark-color;
+    }
+
+    td {
+      padding: 0 1rem;
+      border: 1px solid $deep-light-color;
+    }
+  }
+
   .l {
     width: 100%;
   }
@@ -187,6 +205,13 @@
     ul,
     ol {
       margin-left: 1.3em;
+    }
+
+    table {
+      th,
+      td {
+        padding: 0;
+      }
     }
 
     .cover {
