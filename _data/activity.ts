@@ -125,6 +125,12 @@ const club: Activity[] = [
 const openSource: Activity[] = [
   {
     type: ActivityType.openSource,
+    name: 'Mozilla Developer Network(MDN) @mdn/yari-content-ko 팀 합류',
+    url: 'https://github.com/mdn/translated-content/issues/18056',
+    startDate: 1709113159904,
+  },
+  {
+    type: ActivityType.openSource,
     name: 'Road of CODEr - Maintainer',
     url: 'https://github.com/Road-of-CODEr',
     startDate: 1590937200000,
