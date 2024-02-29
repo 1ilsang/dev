@@ -16,7 +16,7 @@
     "lint:stylelint": "stylelint --config './.stylelintrc.cjs' './src/**/*.scss'",
     "lint:prettier": "prettier --list-different './{src,_data}/**/*.{json,html,yml,tsx,ts,js,jsx,scss}'",
     "lint:eslint": "eslint --ext .ts,.tsx,.js,.jsx './src/**/*.{js,jsx,ts,tsx}'",
-    "lint:markdown": "markdownlint --config './.markdownlint.cjs' './_posts/*.{md,mdx}'",
+    "lint:markdown": "markdownlint --config './.markdownlint.cjs' './_posts/**/*.{md,mdx}'",
     "lint:typeCheck": "tsc --pretty",
     "lint": "FORCE_COLOR=1 npm-run-all -p --print-label 'lint:**'",
     "clean": "rm -rf .next out node_modules",
