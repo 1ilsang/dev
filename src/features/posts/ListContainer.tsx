@@ -2,13 +2,28 @@ import { FunctionComponent } from 'react';
 import Link from 'next/link';
 import { PostHomeProps } from 'src/pages/posts';
 
+import CategoryContainer from './category/Container';
+import usePostListContainer from './hooks/usePostListContainer';
+
 import DateFormatter from '~/shared/components/DateFormatter';
 
 const PostListContainer: FunctionComponent<PostHomeProps> = ({ posts }) => {
+  const {
+    categoryFilter,
+    handleCategoryClick,
+    filteredList,
+    handleClearClick,
+  } = usePostListContainer({ posts });
+
   return (
     <div className="post-container">
+      <CategoryContainer
+        categoryFilter={categoryFilter}
+        onClearClick={handleClearClick}
+        onCategoryClick={handleCategoryClick}
+      />
       <ul className="post-list">
-        {posts.map((post) => {
+        {filteredList.map((post) => {
           return (
             <li key={post.title}>
               <Link className="link" href={`/posts/${post.slug}`}>

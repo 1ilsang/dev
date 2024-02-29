@@ -6,7 +6,7 @@ import Footer from '~/shared/components/Footer';
 import MetaHeader from '~/shared/components/MetaHeader';
 import Navbar from '~/shared/components/nav/Navbar';
 import { ImageUrl, MetaDescription, MetaTitle } from '~/shared/constants/blog';
-import { getAllPosts, getPostBySlug } from '~/shared/helpers/post';
+import { getAllPosts } from '~/shared/helpers/post';
 
 export interface PostHomeProps {
   posts: PostType[];
@@ -33,18 +33,15 @@ const PostHome: NextPage<PostHomeProps> = ({ posts }) => {
 export default PostHome;
 
 export async function getStaticProps() {
-  const rawPosts = getAllPosts(['slug']);
-  const posts = rawPosts.map((rawPost) => {
-    const data = getPostBySlug(rawPost.slug, [
-      'title',
-      'date',
-      'tags',
-      'slug',
-      'description',
-      'coverImage',
-    ]);
-    return data;
-  });
+  const posts = getAllPosts([
+    'slug',
+    'title',
+    'date',
+    'tags',
+    'category',
+    'description',
+    'coverImage',
+  ]);
 
   return {
     props: {

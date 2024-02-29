@@ -7,11 +7,11 @@ import { join } from 'path';
 
 import matter from 'gray-matter';
 
-import { PostType } from '~/posts/models';
+import { Category, FileCategory, PostType } from '~/posts/models';
 
 const rootPostPath = join(process.cwd(), '_posts');
 
-export const getPostSlugs = (
+const getPostSlugs = (
   dirPath: string = rootPostPath,
   recursiveFiles: string[] = [],
 ) => {
@@ -25,12 +25,35 @@ export const getPostSlugs = (
       mergedFiles = getPostSlugs(curPath, mergedFiles);
     } else {
       const _posts = '_posts/';
-      mergedFiles.push(
-        curPath.substring(curPath.indexOf(_posts)).replace(_posts, ''),
-      );
+      const subFullPath = curPath
+        .substring(curPath.indexOf(_posts))
+        .replace(_posts, '');
+      mergedFiles.push(subFullPath);
     }
   });
   return mergedFiles;
+};
+
+const parseCategory = (category: FileCategory): Category => {
+  switch (category) {
+    case 'js':
+      return 'JavaScript';
+    case 'retrospect':
+      return 'Retrospect';
+    case 'rust':
+      return 'Rust';
+    case 'activity':
+      return 'Activity';
+    case 'tool':
+      return 'Tool';
+    case 'book':
+      return 'Book';
+    case 'algorithm':
+      return 'Algorithm';
+    case 'etc':
+    default:
+      return 'Etc';
+  }
 };
 
 export const getPostBySlug = (
@@ -41,8 +64,12 @@ export const getPostBySlug = (
   const fullPath = join(rootPostPath, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
+  const originCategory = slug.slice(0, slug.indexOf('/')) as FileCategory;
+  const category = parseCategory(originCategory);
 
-  const items = {} as PostType;
+  const items = {
+    category,
+  } as PostType;
 
   // Ensure only the minimal needed data is exposed
   fields.forEach((field) => {
