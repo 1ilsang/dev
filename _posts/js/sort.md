@@ -202,7 +202,7 @@ Array.prototype.sort.call(arrayLike); // { 0: 'b', 1: 'c', 123: '1ilsang', '1ils
 
 ### V8
 
-```js
+```js title="v8/third_party/v8/builtins/array-sort.tq" showLineNumbers{1418} {20}
 // https://github.com/v8/v8/blob/12.3.206.1/third_party/v8/builtins/array-sort.tq#L1419
 transitioning javascript builtin ArrayPrototypeSort(
     js-implicit context: NativeContext, receiver: JSAny)(...arguments): JSAny {
@@ -222,7 +222,7 @@ transitioning javascript builtin ArrayPrototypeSort(
 
   const isToSorted: constexpr bool = false;
   const sortState: SortState = NewSortState(obj, comparefn, len, isToSorted);
-  ArrayTimSort(context, sortState); // << Here!
+  ArrayTimSort(context, sortState);
 
   return obj;
 }
@@ -236,8 +236,8 @@ V8의 builtin sort 함수인 [ArrayPrototypeSort](https://github.com/v8/v8/blob/
 
 ### Webkit
 
-```js
-// https://github.com/WebKit/WebKit/blob/wpewebkit-2.43.1/Source/JavaScriptCore/builtins/ArrayPrototype.js#L509
+```js title="Webkit/Source/JavaScriptCore/builtins/ArrayPrototype.js" showLineNumbers{508} {25,27}
+// https://github.com/WebKit/WebKit/blob/wpewebkit-2.43.1/Source/JavaScriptCore/builtins/ArrayPrototype.js#L509sadfaefafasdf
 function sort(comparator) {
   "use strict";
 
@@ -276,7 +276,7 @@ Webkit(Safari)의 [sort 함수](https://github.com/WebKit/WebKit/blob/wpewebkit-
 
 ### SpiderMonkey
 
-```js
+```js title="gecko-dev/js/src/builtin/Array.js" showLineNumbers{103} {36}
 // https://github.com/mozilla/gecko-dev/blob/661a7d013f6b841e9fbbe56d307cb206f62963c3/js/src/builtin/Array.js#L104
 function ArraySort(comparefn) {
   // Step 1.
