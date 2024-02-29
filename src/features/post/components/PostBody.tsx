@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
 
-import { PostType } from './models';
+import { PostType } from '../../posts/models';
 
 interface PostBodyProps {
   post: PostType;

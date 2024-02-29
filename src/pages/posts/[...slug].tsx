@@ -2,7 +2,7 @@ import { NextPage } from 'next';
 import ErrorPage from 'next/error';
 import { useRouter } from 'next/router';
 
-import PostContainer from '~/posts/Container';
+import PostContainer from '~/post/Container';
 import { PostType } from '~/posts/models';
 import Footer from '~/shared/components/Footer';
 import MetaHeader from '~/shared/components/MetaHeader';

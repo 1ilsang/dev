@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 
-import PostListContainer from '~/posts/ListContainer';
+import PostListContainer from '~/posts/Container';
 import { PostType } from '~/posts/models';
 import Footer from '~/shared/components/Footer';
 import MetaHeader from '~/shared/components/MetaHeader';
