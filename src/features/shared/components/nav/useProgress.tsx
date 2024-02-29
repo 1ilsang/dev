@@ -15,7 +15,7 @@ const useProgress = () => {
       );
 
   const handleLoadingProgress =
-    (intervalProgress: NodeJS.Timer) => async (): Promise<number> => {
+    (intervalProgress: NodeJS.Timeout) => async (): Promise<number> => {
       const { scrollHeight, clientHeight } = document.documentElement;
       const documentMax = scrollHeight - clientHeight;
       clearTimeout(intervalProgress);
