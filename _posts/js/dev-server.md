@@ -43,7 +43,7 @@ Let's Dive!
 
 <br />
 
-```ts
+```ts title="vite/packages/vite/src/node/server/index.ts"
 // https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/node/server/index.ts#L385
 // server/index.ts
 export async function _createServer(
@@ -102,7 +102,7 @@ export async function _createServer(
 
 <br />
 
-```ts
+```ts {11,14}
 // server/index.ts
 middlewares.use(indexHtmlMiddleware(root, server))
 
@@ -212,7 +212,7 @@ ModuleNode {
 
 <br />
 
-```ts
+```ts {13}
 // server/index.ts
 // main transform middleware
 middlewares.use(transformMiddleware(server))
@@ -249,7 +249,7 @@ export function transformMiddleware(...) {
 
 > (\*1): preact의 prefresh 같은 HMR 라이브러리를 적용했거나(후술) import.meta.hot.accept을 직접 코드에 추가한 경우에 해당(아래 코드)한다.
 
-```html
+```html {7}
 <!-- 
   import.meta.hot.accept가 코드에 있다면 HMR을 허용한 파일이라고 인식한다.
   importAnalysis 플러그인이 createHotContext를 추가한다. -->
@@ -271,8 +271,7 @@ export function transformMiddleware(...) {
 
 이제 index.html의 요청 파일을 가져왔으므로 브라우저 렌더링이 계속 진행된다.
 
-```ts
-// @vite/client.ts
+```ts title="@vite/client.ts"
 function setupWebSocket(...) {
   const socket = new WebSocket(`${protocol}://${hostAndPath}`, 'vite-hmr')
   socket.addEventListener('message', async ({ data }) => {
@@ -287,7 +286,7 @@ function setupWebSocket(...) {
 
 <br />
 
-```tsx
+```tsx {2,9,12}
 // AS-IS 원본 코드
 import { h, render } from 'preact';
 import App from './MyComponent';
@@ -338,7 +337,7 @@ watcher.on('change', async (file) => {
 
 <br />
 
-```ts
+```ts {7,18}
 function onHMRUpdate() {
   // 관련 플러그인 훅 실행
   for (const hook of config.getSortedPluginHooks('handleHotUpdate')) {
@@ -373,7 +372,7 @@ function updateModules(...) {
 
 <br />
 
-```ts
+```ts /hmrClient.fetchUpdate/ {22}
 // Step 1.
 // @vite/client.ts
 case 'update':
@@ -423,7 +422,7 @@ async function importUpdatedModule(...) {
 
 5. HMR이 가능한 파일은 `import.meta.hot.accept` 함수의 [콜백으로 실행](https://ko.vitejs.dev/guide/api-hmr.html#hot-accept-cb)된다. HMR이 불가능한 파일이라면 전체 페이지를 리로딩한다.
 
-```ts
+```ts {16}
 // vite.config.ts
 import preact from '@preact/preset-vite';
 

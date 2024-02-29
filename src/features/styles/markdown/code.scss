@@ -20,7 +20,7 @@
   figure {
     border: 0.1px solid #2e3844;
     border-left: 6px solid #2e3844;
-    margin-bottom: 1rem;
+    margin: 1rem 0;
 
     figcaption {
       border-bottom: 0.1px dotted #2e3844;
@@ -89,6 +89,11 @@
     code > [data-highlighted-line] {
       background-color: rgb(53, 63, 76);
       border-left: 2px solid rgb(73, 107, 161);
+    }
+
+    [data-line] > [data-highlighted-chars-mark] {
+      background-color: rgb(53, 63, 76);
+      padding: 0.1rem;
     }
   }
 }
