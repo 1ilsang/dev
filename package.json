@@ -11,7 +11,6 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next export",
     "deploy-blog": "next build && next export",
     "lint:stylelint": "stylelint --config './.stylelintrc.cjs' './src/**/*.scss'",
     "lint:prettier": "prettier --list-different './{src,_data}/**/*.{json,html,yml,tsx,ts,js,jsx,scss}'",
