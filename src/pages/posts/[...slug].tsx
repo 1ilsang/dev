@@ -8,7 +8,6 @@ import Footer from '~/shared/components/Footer';
 import MetaHeader from '~/shared/components/MetaHeader';
 import Navbar from '~/shared/components/nav/Navbar';
 import NavProgress from '~/shared/components/nav/Progress';
-import { MetaTitle } from '~/shared/constants/blog';
 import markdownToHtml from '~/shared/helpers/markdown';
 import { getAllPosts, getPostBySlug } from '~/shared/helpers/post';
 
@@ -30,7 +29,7 @@ const Posts: NextPage<PostsProps> = ({ post }) => {
   return (
     <>
       <MetaHeader
-        title={`${post.title} - ${MetaTitle.HOME}`}
+        title={post.title}
         ogImageUrl={post.ogImage.url}
         description={post.description}
       />
