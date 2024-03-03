@@ -1,20 +1,24 @@
 import Link from 'next/link';
+import { FunctionComponent, memo } from 'react';
 
 import profile from '~data/1ilsang.json';
 
-export const AvatarImage = ({ nav = false }) => {
-  return (
-    <div
-      className={`${
-        nav ? 'nav-avatar' : 'avatar-image'
-      } rounded-full mr-2 relative`}
-    >
-      <Link href="/about">
-        <img src={profile.profileImage} alt={profile.name} />
-      </Link>
-    </div>
-  );
-};
+export const AvatarImage: FunctionComponent<{ nav?: boolean }> = memo(
+  ({ nav = false }) => {
+    return (
+      <div
+        className={`${
+          nav ? 'nav-avatar' : 'avatar-image'
+        } rounded-full mr-2 relative`}
+      >
+        <Link href="/about">
+          <img src={profile.profileImage} alt={profile.name} />
+        </Link>
+      </div>
+    );
+  },
+);
+AvatarImage.displayName = 'AvatarImage';
 
 const Avatar = () => {
   return (
