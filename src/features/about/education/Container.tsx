@@ -30,7 +30,7 @@ const EducationContainer: FunctionComponent<EducationContainerProps> = ({
             workEndDate={Catholic.endDate}
             format={format}
           />
-          <div className="position">{Catholic.major}</div>
+          <div className="education-position">{Catholic.major}</div>
         </div>
       </div>
     </section>

@@ -218,6 +218,10 @@
       @include label;
     }
     /* stylelint-enable no-descending-specificity */
+
+    &-position {
+      border-bottom: none;
+    }
   }
 }
 

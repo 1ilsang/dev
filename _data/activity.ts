@@ -95,7 +95,7 @@ const club: Activity[] = [
   },
   {
     type: ActivityType.club,
-    name: 'Server Dev Camp 2nd',
+    name: 'Server Dev Camp 3rd',
     url: 'https://blog.naver.com/1ilsang/221226071204',
     startDate: 1514818800000,
     endDate: 1519138800000,
