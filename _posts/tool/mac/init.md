@@ -38,7 +38,7 @@ ogImage:
 - [Quick Notes](#quick-notes)
 - [Calculator Pro](#calculator-pro)
 - [올ㅋ사전](#올ㅋ사전)
-- [Fig](#fig)
+- [CodeWhisperer](#codewhisperer)
 - [Flycut](#flycut)
 - [ScreenBrush](#screenbrush)
 - [Keycastr](#keycastr)
@@ -259,19 +259,21 @@ $ nvm use 20.10.0
 
 > [다운로드 링크](https://apps.apple.com/kr/app/%EC%98%AC%E3%85%8B%EC%82%AC%EC%A0%84-%EB%A7%A5%EC%97%90%EC%84%9C-%EB%8B%A8%EC%B6%95%ED%82%A4%EB%A5%BC-%EB%88%84%EB%A5%B4%EB%A9%B4-%EC%98%81%EC%96%B4%EC%82%AC%EC%A0%84%EC%9D%B4-%EB%99%87/id1033453958?mt=12)
 
-## Fig
+## CodeWhisperer
 
-![fig example](https://github.com/1ilsang/dev/assets/23524849/c6ad644a-c2c9-4315-b335-ba7a484bf595)
+![CodeWhisperer example](https://github.com/1ilsang/dev/assets/23524849/c6ad644a-c2c9-4315-b335-ba7a484bf595)
+
+[Fig가 공식적으로 AWS에 흡수](https://fig.io/blog/post/fig-is-sunsetting)되면서 출시된 제품이다. 개인 개발에는 무료로 사용할 수 있다.
 
 CLI를 자주 사용한다면 정말 유용한 앱이다. 다음 명령어에 대한 힌트뿐만 아니라 해당 명령어의 기대 효과도 같이 알려준다.
 
 터미널의 효자 그 자체다.
 
 ```sh
-$ brew install fig
+$ brew install --cask codewhisperer
 ```
 
-> [다운로드 링크](https://fig.io/download)
+> [다운로드 링크](https://aws.amazon.com/ko/codewhisperer/resources/?refid=d66b5e73-988d-4ff9-aa68-e067ce087ab)
 
 ## Flycut
 
