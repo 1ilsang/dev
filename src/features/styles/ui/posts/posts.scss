@@ -12,6 +12,17 @@
     &::after {
       content: '𒅄';
     }
+
+    &:hover {
+      @keyframes spin {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      animation: spin 2s linear infinite;
+      transform-origin: 50% 50%;
+    }
   }
 
   .selected {
