@@ -1,21 +1,4 @@
 /* PC */
-.post-layout {
-  @include root-layout;
-}
-
-.post-container {
-  @include root-container;
-
-  @include large-desktop {
-    margin: auto;
-    max-width: 750px;
-  }
-}
-
-.post-nav-trans {
-  opacity: 1;
-}
-
 .category-bar {
   margin-bottom: 2rem;
   display: flex;
@@ -126,42 +109,5 @@
 
   @include mobile {
     padding-bottom: 100px;
-  }
-}
-
-.post-header {
-  font-size: 3.75rem;
-  line-height: 1;
-  word-wrap: break-word;
-}
-
-.post-profile-container {
-  margin-top: 2vh;
-}
-
-.issue-post {
-  margin: 5rem 0 10rem;
-  color: transparent;
-  background: linear-gradient(
-    -45deg,
-    #ee7752,
-    #23a6d5,
-    #ff9393,
-    #2ddbdb,
-    #2389ff
-  );
-  background-size: 400% 400%;
-  background-clip: text;
-  animation: water-rainbow 5s ease infinite;
-}
-
-@include mobile {
-  .post-nav-trans {
-    opacity: 0.1;
-  }
-
-  .post-header {
-    font-size: 2.3rem;
-    line-height: 1;
   }
 }

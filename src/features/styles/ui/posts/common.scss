@@ -1,0 +1,24 @@
+/* PC */
+.post-layout {
+  @include root-layout;
+}
+
+.post-container {
+  @include root-container;
+
+  @include large-desktop {
+    margin: auto;
+    max-width: 750px;
+  }
+}
+
+.post-nav-trans {
+  opacity: 1;
+}
+
+/* Mobile */
+@include mobile {
+  .post-nav-trans {
+    opacity: 0.1;
+  }
+}
