@@ -2,6 +2,7 @@ import { FunctionComponent } from 'react';
 import { PostsProps } from 'src/pages/posts/[...slug]';
 
 import PostBody from './components/PostBody';
+import IssuePost from './components/IssuePost';
 
 import Avatar from '~/shared/components/Avatar';
 import HashTag from '~/shared/components/HashTag';
@@ -26,6 +27,7 @@ const PostContainer: FunctionComponent<PostsProps> = ({ post }) => {
       </div>
       <PublishedDate date={post.date} />
       <PostBody post={post} />
+      <IssuePost title={post.title} />
     </div>
   );
 };
