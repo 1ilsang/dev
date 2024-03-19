@@ -55,7 +55,7 @@
   }
 
   .post-description {
-    color: $sub-color;
+    color: $min-color;
   }
 
   li {
@@ -106,9 +106,8 @@
         margin-top: 0.5rem;
 
         .title {
-          font-size: 1.25rem;
-          line-height: 1.75rem;
-          margin-right: 1rem;
+          font-size: 1.4rem;
+          margin: 0 1rem 0.3rem 0;
         }
       }
 
