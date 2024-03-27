@@ -117,18 +117,27 @@
 
     &-card {
       display: flex;
+      margin-top: 1rem;
       padding: 10px 0;
 
       @include mobile {
         flex-direction: column;
       }
 
-      .logo {
-        width: 6rem;
-        border-radius: 13px;
+      .left-side {
+        width: 13rem;
 
-        &:hover {
-          filter: drop-shadow(2px 2px 4px lightgray) invert(2%);
+        .logo {
+          width: 4rem;
+          height: 4rem;
+
+          &:hover {
+            filter: drop-shadow(2px 2px 4px lightgray) invert(2%);
+          }
+        }
+
+        .date {
+          margin-top: 0.3rem;
         }
       }
 
@@ -152,7 +161,7 @@
 
           .title {
             font-size: 1.5rem;
-            font-weight: 500;
+            font-weight: bold;
             user-select: none;
           }
 

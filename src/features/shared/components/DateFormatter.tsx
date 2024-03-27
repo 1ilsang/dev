@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect, useState } from 'react';
+import { FunctionComponent, useLayoutEffect, useState } from 'react';
 
 import { formatDate, parseISO } from '../helpers/date';
 
@@ -17,7 +17,7 @@ const DateFormatter: FunctionComponent<DateFormatterProps> = ({
 }) => {
   const [dateTime, setDateTime] = useState(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const time =
       type === 'iso' ? parseISO(String(date)) : formatDate(date, format);
     setDateTime(time);

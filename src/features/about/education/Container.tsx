@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
 
-import Logo from '../work/card/content/Logo';
+import LeftSide from '../work/card/content/LeftSide';
 import ContentHeadline from '../work/card/content/Headline';
 
 import { Catholic } from '~data/education';
@@ -16,20 +16,16 @@ const EducationContainer: FunctionComponent<EducationContainerProps> = ({
     <section className="about-education">
       <div className="label">EDUCATION</div>
       <div className="about-work-card">
-        <Logo
+        <LeftSide
           href={Catholic.url}
           logoUrl={Catholic.logoUrl}
           alt={Catholic.name}
-          border={false}
+          workStartDate={Catholic.startDate}
+          workEndDate={Catholic.endDate}
+          format={format}
         />
         <div className="content">
-          <ContentHeadline
-            hover={false}
-            name={Catholic.name}
-            workStartDate={Catholic.startDate}
-            workEndDate={Catholic.endDate}
-            format={format}
-          />
+          <ContentHeadline hover={false} name={Catholic.name} />
           <div className="education-position">{Catholic.major}</div>
         </div>
       </div>

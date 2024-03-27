@@ -18,19 +18,16 @@ const Place: FunctionComponent = () => {
         </p>
         <ul className="main">
           <li>
-            Home 화면을 개발하였습니다.
+            Home 화면 개발
             <ul>
-              <li>위치 기반 API Flow를 정리하였습니다.</li>
+              <li>위치 기반 API Flow 정리</li>
             </ul>
           </li>
-          <li>Profile/Settings 개발 하였습니다.</li>
+          <li>Profile/Settings 개발</li>
           <li>
-            Koa 커스텀 서버 개발을 진행하였습니다.
+            Koa 커스텀 서버 개발
             <ul>
-              <li>
-                nGrinder를 활용해 Stress test를 통해 서버 가용량 산출 작업을
-                하였습니다.
-              </li>
+              <li>nGrinder를 활용 Stress test 진행후 서버 가용량 산출</li>
             </ul>
           </li>
         </ul>

@@ -14,8 +14,10 @@
     flex-direction: column;
 
     .title-wrap {
+      width: 100%;
       display: flex;
       align-items: center;
+      justify-content: space-between;
     }
 
     .title {
@@ -45,8 +47,9 @@
     }
 
     .date {
+      color: $sub-color;
       font-style: italic;
-      font-size: 0.9rem;
+      margin-right: 1rem;
     }
   }
 

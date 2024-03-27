@@ -17,17 +17,14 @@ const Bleet: FunctionComponent = () => {
         </p>
         <ul className="main">
           <span>
-            메인 서버 개발자로 Node.js를 활용해 API를 개발하였습니다. Beta
-            오픈까지 작업하였습니다.
+            메인 서버 개발자로 Node.js를 활용해 API를 개발. Beta 오픈까지 작업
           </span>
           <li>
-            블라인드 인증을 통한 가입 및 포인트 처리 등 전반적인 API 작업을
-            주도적으로 진행하였습니다.
+            블라인드 인증을 통한 가입 및 포인트 처리 등 전반적인 API 작업
+            주도적으로 진행
           </li>
-          <li>Firebase를 통한 채팅 기능을 개발하였습니다.</li>
-          <li>
-            Swagger 및 문서화를 통해 클라이언트 호출이 용이하도록 하였습니다.
-          </li>
+          <li>Firebase를 통한 채팅 기능 개발</li>
+          <li>Swagger 및 문서화를 통해 클라이언트 호출이 용이하도록 함</li>
         </ul>
       </div>
     </>

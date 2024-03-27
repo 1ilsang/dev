@@ -13,7 +13,9 @@ export enum CompanyName {
   Blind = 'TeamBlind',
   Smilegate = 'Smilegate',
 }
+
 export enum ProjectName {
+  LPC = 'LandPress Content',
   OAL = 'Official Account LIVE CMS',
   VLC = 'VOOM LIVE CMS',
   LDS_CALENDAR = 'LINE Design System - Calendar',
@@ -26,10 +28,45 @@ export enum ProjectName {
   Stove = 'Stove',
 }
 
+export enum JobPosition {
+  FE = 'Frontend Engineer',
+  FULL_STACK = 'Fullstack Engineer',
+}
+
+export type Technique =
+  | 'Vite'
+  | 'pnpm'
+  | 'React-Query'
+  | 'HTMLVideo'
+  | 'Preact10'
+  | 'Zustand'
+  | 'Turborepo'
+  | 'Storybook'
+  | 'Cypress'
+  | 'Webpack'
+  | 'React18'
+  | 'React-Testing-Library'
+  | 'WebSocket'
+  | 'MSW'
+  | 'Chart.js'
+  | 'Next12'
+  | 'Redux'
+  | 'Redux-Saga'
+  | 'Swiper'
+  | 'Node.js'
+  | 'MySQL'
+  | 'Swagger'
+  | 'Firebase'
+  | 'Nuxt2'
+  | 'PHP'
+  | 'Docker'
+  | 'Redis'
+  | 'Vue2';
+
 export type Project = {
   name: ProjectName;
   url?: string;
   startDate: number;
-  tags: string[];
+  tags: Technique[];
   endDate?: number;
 };

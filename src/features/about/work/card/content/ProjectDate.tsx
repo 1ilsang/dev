@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, memo } from 'react';
 
 import { CompanyContentProjectProps } from './Project';
 
@@ -9,18 +9,15 @@ type ProjectDateProps = Pick<
   'startDate' | 'endDate' | 'format'
 >;
 
-const ProjectDate: FunctionComponent<ProjectDateProps> = ({
-  format,
-  startDate,
-  endDate,
-}) => {
-  return (
-    <div className="date">
-      (
-      <DateFormatter date={startDate} format={format} /> ~{' '}
-      {endDate ? <DateFormatter date={endDate} format={format} /> : 'Present'})
-    </div>
-  );
-};
+const ProjectDate: FunctionComponent<ProjectDateProps> = memo(
+  ({ format, startDate, endDate }) => {
+    return (
+      <div className="date">
+        <DateFormatter date={startDate} format={format} /> -{' '}
+        {endDate ? <DateFormatter date={endDate} format={format} /> : 'Present'}
+      </div>
+    );
+  },
+);
 
 export default ProjectDate;

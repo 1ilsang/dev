@@ -28,17 +28,13 @@ const CompanyContentProject: FunctionComponent<CompanyContentProjectProps> = ({
   endDate,
   format = 'yyyy.MM',
 }) => {
-  const [open, setOpen] = useState(name === ProjectName.UVP);
+  const [open, setOpen] = useState(false);
 
   const handleDetailClick: MouseEventHandler<HTMLDivElement> = () => {
     setOpen(!open);
   };
 
   const openClassName = open ? 'show' : 'hide';
-  const privateProject = [ProjectName.VLC];
-  if (privateProject.includes(name)) {
-    return null;
-  }
 
   return (
     <div className="project">
@@ -50,13 +46,11 @@ const CompanyContentProject: FunctionComponent<CompanyContentProjectProps> = ({
           >
             {name}
           </div>
-          {open && (
-            <ProjectDate
-              startDate={startDate}
-              endDate={endDate}
-              format={format}
-            />
-          )}
+          <ProjectDate
+            startDate={startDate}
+            endDate={endDate}
+            format={format}
+          />
         </div>
         <Tags tags={tags} />
       </div>

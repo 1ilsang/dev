@@ -16,17 +16,16 @@ const OAL: FunctionComponent = () => {
           있는 CMS 페이지입니다.
         </p>
         <ul className="main">
-          <li>방송에 관련된 CRUD 페이지들을 개발하였습니다.</li>
           <li>
-            방송 디테일 페이지를 개발하였습니다.
+            방송 디테일 페이지 개발
             <ul>
-              <li>실시간 채팅을 위한 WebSocket 개발을 하였습니다.</li>
+              <li>실시간 채팅을 위한 WebSocket 개발</li>
             </ul>
           </li>
           <li>
-            시각화 페이지를 개발하였습니다.
+            시각화 페이지 개발
             <ul>
-              <li>차트 및 테이블 영역을 개발하였습니다.</li>
+              <li>Chart.js를 활용해 통계 차트 및 테이블 영역 개발</li>
             </ul>
           </li>
         </ul>

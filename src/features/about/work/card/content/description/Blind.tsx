@@ -16,9 +16,9 @@ const Blind: FunctionComponent = () => {
           <b>직장인 익명 플랫폼</b>입니다.
         </p>
         <ul className="main">
-          <span>블라인드 어드민 및 서버 API를 개발하였습니다.</span>
-          <li>어드민 페이지 개선 작업을 진행했습니다.</li>
-          <li>신고하기 및 패널티 등의 API를 개선하였습니다.</li>
+          <span>블라인드 어드민 및 서버 API를 개발</span>
+          <li>어드민 페이지 개선 작업 진행</li>
+          <li>신고하기 및 패널티 등의 API를 개선</li>
         </ul>
       </div>
     </>

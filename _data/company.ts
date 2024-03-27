@@ -1,12 +1,23 @@
-import { Company, CompanyName, ProjectName } from '~/about/work/models';
+import {
+  Company,
+  CompanyName,
+  JobPosition,
+  ProjectName,
+} from '~/about/work/models';
 
 const LINE: Company = {
   company: CompanyName.LINE,
   companyHref: 'https://www.linkedin.com/company/line-messenger/',
   companyLogoUrl:
-    'https://github.com/1ilsang/dev/assets/23524849/815bfc87-2cec-43b1-b8c3-edb9db91b3b9',
+    'https://github.com/1ilsang/dev/assets/23524849/81800e67-b54f-41e8-a232-520c99f465c8',
+  position: JobPosition.FE,
   workStartDate: 1596985200000,
   projectList: [
+    {
+      name: ProjectName.LPC,
+      tags: ['Vite', 'pnpm', 'React-Query'],
+      startDate: 1709218800000,
+    },
     {
       name: ProjectName.UVP,
       tags: [
@@ -19,6 +30,14 @@ const LINE: Company = {
         'Webpack',
       ],
       startDate: 1604156400000,
+      endDate: 1709218800000,
+    },
+    {
+      name: ProjectName.VLC,
+      tags: ['React18', 'React-Testing-Library', 'React-Query', 'WebSocket'],
+      url: 'https://oa-live.line.biz/',
+      startDate: 1686495600000,
+      endDate: 1709218800000,
     },
     {
       name: ProjectName.OAL,
@@ -32,19 +51,15 @@ const LINE: Company = {
       ],
       url: 'https://oa-live.line.biz/',
       startDate: 1659279600000,
-    },
-    {
-      name: ProjectName.VLC,
-      tags: ['React18', 'React-Testing-Library', 'React-Query'],
-      url: 'https://oa-live.line.biz/',
-      startDate: 1686495600000,
-    },
-    {
-      name: ProjectName.LDS_CALENDAR,
-      tags: ['React18', 'vite'],
-      startDate: 1680274800000,
+      endDate: 1709218800000,
     },
 
+    {
+      name: ProjectName.LDS_CALENDAR,
+      tags: ['React18', 'Vite'],
+      startDate: 1680274800000,
+      endDate: 1688137200000,
+    },
     {
       name: ProjectName.PLACE,
       tags: ['Next12', 'Redux', 'Redux-Saga', 'Swiper'],
@@ -67,7 +82,7 @@ const BLIND: Company = {
   companyHref: 'https://www.linkedin.com/company/teamblind/',
   companyLogoUrl:
     'https://github.com/1ilsang/dev/assets/23524849/abdc15c8-571c-430c-a3c3-f2473aedd201',
-  position: 'Node.js Server Developer',
+  position: JobPosition.FULL_STACK,
   workStartDate: 1564930800000,
   workEndDate: 1596726000000,
   projectList: [
@@ -101,7 +116,7 @@ const SmileGate: Company = {
     'https://github.com/1ilsang/dev/assets/23524849/932fade0-e7bf-4fdc-b7a8-c346fedbb76d',
   workStartDate: 1520780400000,
   workEndDate: 1525791600000,
-  position: 'Frontend Developer(intern)',
+  position: `${JobPosition.FE}(intern)`,
   projectList: [
     {
       name: ProjectName.Stove,

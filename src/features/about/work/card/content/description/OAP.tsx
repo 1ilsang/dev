@@ -19,19 +19,18 @@ const OAP: FunctionComponent = () => {
         </p>
         <ul className="main">
           <li>
-            Traffic, Nearby, Takeout 등의 플러그인을 개발하였습니다.
+            Traffic, Nearby, Takeout 등의 플러그인 개발
             <ul>
-              <li>플러그인의 중복된 코드를 개선하였습니다.</li>
+              <li>플러그인의 중복된 코드를 개선</li>
               <li>
-                데이터 이관 작업을 통해 서로 다른 페이지의 싱크를 맞추는 작업을
-                하였습니다.
+                데이터 이관 작업을 통해 서로 다른 페이지의 싱크 맞추는 작업 진행
               </li>
             </ul>
           </li>
           <li>
-            React 프로젝트를 Next.js로 리팩터링하였습니다.
+            React {'->'} Next.js 리팩터링 진행
             <ul>
-              <li>커스텀 서버를 개발하였습니다.</li>
+              <li>커스텀 서버 개발</li>
             </ul>
           </li>
         </ul>

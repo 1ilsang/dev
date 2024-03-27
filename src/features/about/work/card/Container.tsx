@@ -2,7 +2,7 @@ import { FunctionComponent, useEffect, useState } from 'react';
 
 import { Company } from '../models';
 
-import Logo from './content/Logo';
+import LeftSide from './content/LeftSide';
 import ContentHeadline from './content/Headline';
 import CompanyContentProject from './content/Project';
 
@@ -20,11 +20,10 @@ const WorkCardContainer: FunctionComponent<WorkCardContainerProps> = (
     companyHref,
     companyLogoUrl,
     company,
-    format,
     position = 'Software Engineer',
   } = props;
 
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const handleHeadlineClick = () => setOpen(!open);
 
   const [hydrated, setHydrated] = useState(false);
@@ -44,22 +43,22 @@ const WorkCardContainer: FunctionComponent<WorkCardContainerProps> = (
 
   return (
     <article className="about-work-card">
-      <Logo href={companyHref} logoUrl={companyLogoUrl} alt={company} />
+      <LeftSide
+        {...props}
+        href={companyHref}
+        logoUrl={companyLogoUrl}
+        alt={company}
+      />
       <div className="content">
         <ContentHeadline
           {...props}
           name={props.company}
-          format={format}
           onClick={handleHeadlineClick}
         />
         <div className="position">{position}</div>
         <div className={`${open ? `show` : `hide`}`}>
           {projectList.map((project) => (
-            <CompanyContentProject
-              key={project.name}
-              {...project}
-              format={format}
-            />
+            <CompanyContentProject key={project.name} {...project} />
           ))}
         </div>
       </div>
