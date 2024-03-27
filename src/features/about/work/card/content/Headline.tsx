@@ -24,7 +24,11 @@ const ContentHeadline: FunctionComponent<ContentHeadlineProps> = ({
 }) => {
   return (
     <div className="headline">
-      <div className={`title${hover ? ' hover' : ''}`} onClick={onClick}>
+      <div
+        id={name}
+        onClick={onClick}
+        className={`title${hover ? ' hover' : ''}`}
+      >
         {name}
       </div>
       <div className="date">

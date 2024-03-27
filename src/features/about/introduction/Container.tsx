@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { FunctionComponent } from 'react';
 
+import { CompanyName } from '../work/models';
+
 import ExternalLink from '~/shared/components/ExternalLink';
 
 const IntroductionContainer: FunctionComponent = () => {
@@ -22,15 +24,26 @@ const IntroductionContainer: FunctionComponent = () => {
         </ul>
         <p>
           웃으면서 일하고 싶습니다. 농담을 즐기고 어떻게 하면 동료를 웃길 수
-          있을지 늘 탐구합니다. 또한 영향력 있는 동료가 되고 싶습니다. 성장
-          자극을 줄 수 있는 동료이고 싶습니다. 맡은 부분에 대한 기술적 책임을
-          지려고 노력합니다. 기술에 대한 탐구욕이 강하며 공유할 거리가 생기면
-          어떤 웃긴 제목으로 발표할지 고민하며 입꼬리가 절로 올라갑니다.
+          있을지 늘 탐구합니다.
+          <br />
+          영향력 있는 동료가 되고 싶습니다. 성장 자극을 줄 수 있는 동료이고
+          싶습니다. 맡은 부분에 대한 기술적 책임을 지려고 노력합니다. 기술에
+          대한 탐구욕이 강하며 공유할 거리가 생기면 어떤 웃긴 제목으로 발표할지
+          고민하며 입꼬리가 절로 올라갑니다.
         </p>
         <p>
-          Smilegate에서 프런트엔드 인턴을 시작으로 TeamBlind에서 풀스택으로
-          일했으며 현재 LINE+에서 4년 가까이 프런트엔드 개발자로 즐겁게 일하고
-          있습니다. 퇴근 후에는{' '}
+          <b>
+            <a href={`#${CompanyName.Smilegate}`}>Smilegate</a>
+          </b>
+          에서 프런트엔드 인턴을 시작으로{' '}
+          <b>
+            <a href={`#${CompanyName.Blind}`}>TeamBlind</a>
+          </b>
+          에서 풀스택으로 일했으며 현재{' '}
+          <b>
+            <a href={`#${CompanyName.LINE}`}>LINE+</a>
+          </b>
+          에서 4년 가까이 프런트엔드 개발자로 즐겁게 일하고 있습니다. 또한{' '}
           <ExternalLink label="MDN" href="https://github.com/mdn" /> 한국팀의
           Organizer로 활동하고 있습니다.
         </p>
