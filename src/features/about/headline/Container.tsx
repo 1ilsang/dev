@@ -4,7 +4,7 @@ import ProfileContainer from './profile/Container';
 
 const HeadlineContainer: FunctionComponent = () => {
   return (
-    <header>
+    <header className="about-profile-container">
       <ProfileContainer />
     </header>
   );

@@ -22,51 +22,60 @@
 
   &-container {
     @include root-container;
+
+    @include mobile {
+      margin: 0 1rem;
+    }
   }
 
   &-profile {
     &-container {
       display: flex;
       justify-content: space-between;
+      align-items: flex-end;
 
-      .image-section {
+      @include mobile {
+        flex-direction: column;
+        align-items: normal;
+      }
+
+      .jumbotron {
         display: flex;
-        height: 100px;
-        align-items: center;
+        justify-content: start;
+        background: linear-gradient(-90deg, #ee7752, #e73c7e, #23a6d5, #e73c7e);
+        background-clip: text;
+        color: transparent;
+        font-size: 8rem;
+        line-height: 8.5rem;
+        letter-spacing: 0.2rem;
+        font-weight: bold;
+        filter: drop-shadow(2px 4px 4px black);
 
-        .image {
-          position: relative;
-          width: 75px;
-          height: 75px;
-          border: 1px solid $base-color;
-          border-radius: 90px;
-        }
-
-        .font-container {
-          margin-left: 20px;
-          height: 110px;
-          width: 117px;
+        @include mobile {
+          font-size: 6rem;
+          letter-spacing: 1px;
         }
       }
 
-      .description {
-        padding: 10px 0 20px;
-      }
-    }
-
-    &-logo {
-      display: flex;
-      justify-content: flex-end;
-      padding-bottom: 1px;
-
-      a {
+      .logo-container {
         display: flex;
-        align-items: center;
-      }
+        flex-direction: column;
 
-      img {
-        padding-left: 5px;
-        padding-bottom: 4px;
+        .about-profile-logo {
+          display: flex;
+          justify-content: flex-end;
+          padding-bottom: 1px;
+
+          a {
+            display: flex;
+            align-items: center;
+          }
+
+          img {
+            padding-left: 5px;
+            padding-bottom: 4px;
+          }
+        }
       }
     }
   }
@@ -216,27 +225,6 @@
 
     &-position {
       border-bottom: none;
-    }
-  }
-}
-
-/* MOBILE */
-@media (width <= 700px) {
-  .about-profile-container {
-    flex-direction: column;
-
-    .image-section {
-      flex-direction: column;
-      align-items: flex-start;
-      height: auto;
-
-      .font-container {
-        margin-left: 0;
-      }
-    }
-
-    .description {
-      padding: 0 0 30px;
     }
   }
 }
