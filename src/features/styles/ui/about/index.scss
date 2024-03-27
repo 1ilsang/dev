@@ -49,7 +49,7 @@
         line-height: 8.5rem;
         letter-spacing: 0.2rem;
         font-weight: bold;
-        filter: drop-shadow(2px 4px 4px black);
+        filter: drop-shadow(2px 4px 1px black);
 
         @include mobile {
           font-size: 6rem;
@@ -76,6 +76,24 @@
             padding-bottom: 4px;
           }
         }
+      }
+    }
+  }
+
+  &-introduction {
+    @include container;
+
+    .description {
+      margin: 3rem 0 1rem;
+      line-height: 2rem;
+
+      p {
+        margin: 2rem 0;
+      }
+
+      li::before {
+        content: '❑';
+        margin-right: 0.5rem;
       }
     }
   }
@@ -196,7 +214,7 @@
 
         .category {
           min-width: 120px;
-          color: $sub-color;
+          color: $min-color;
         }
 
         .link-wrap {
