@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect, useMemo, useState } from 'react';
+import { FunctionComponent, useEffect, useState } from 'react';
 
 import { Company } from '../models';
 
@@ -15,8 +15,6 @@ const WorkCardContainer: FunctionComponent<WorkCardContainerProps> = (
   props,
 ) => {
   const {
-    workStartDate,
-    workEndDate,
     projectList,
     toggleOpenAll,
     companyHref,
@@ -28,11 +26,6 @@ const WorkCardContainer: FunctionComponent<WorkCardContainerProps> = (
 
   const [open, setOpen] = useState(true);
   const handleHeadlineClick = () => setOpen(!open);
-
-  const totalPeriod = useMemo(() => {
-    const end = workEndDate ?? Number(new Date());
-    return end - workStartDate;
-  }, [workStartDate, workEndDate]);
 
   const [hydrated, setHydrated] = useState(false);
 
@@ -66,7 +59,6 @@ const WorkCardContainer: FunctionComponent<WorkCardContainerProps> = (
               key={project.name}
               {...project}
               format={format}
-              totalPeriod={totalPeriod}
             />
           ))}
         </div>

@@ -1,7 +1,6 @@
 import { FunctionComponent, MouseEventHandler, useMemo, useState } from 'react';
 
 import { Project, ProjectName } from '../../models';
-import ProgressBar from '../../../../shared/components/ProgressBar';
 
 import UVP from './description/UVP';
 import OAL from './description/OAL';
@@ -18,7 +17,6 @@ import ProjectDate from './ProjectDate';
 import ExternalLink from '~/shared/components/ExternalLink';
 
 export type CompanyContentProjectProps = Project & {
-  totalPeriod: number;
   format?: string;
 };
 
@@ -28,15 +26,9 @@ const CompanyContentProject: FunctionComponent<CompanyContentProjectProps> = ({
   tags,
   startDate,
   endDate,
-  totalPeriod,
   format = 'yyyy.MM',
 }) => {
   const [open, setOpen] = useState(name === ProjectName.UVP);
-
-  const value = useMemo(
-    () => (endDate ?? Number(new Date())) - startDate,
-    [startDate, endDate],
-  );
 
   const handleDetailClick: MouseEventHandler<HTMLDivElement> = () => {
     setOpen(!open);
@@ -65,7 +57,6 @@ const CompanyContentProject: FunctionComponent<CompanyContentProjectProps> = ({
               format={format}
             />
           )}
-          <ProgressBar value={value} total={totalPeriod} />
         </div>
         <Tags tags={tags} />
       </div>
