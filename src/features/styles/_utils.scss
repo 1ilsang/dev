@@ -5,7 +5,8 @@
 @mixin root-container {
   height: auto;
   min-height: 100%;
-  margin: 0 10vw;
+  margin: auto;
+  max-width: 750px;
   padding: 10vh 0;
 }
 
@@ -23,12 +24,6 @@
 
 @mixin desktop {
   @media (min-width: $min-desktop) and (max-width: $desktop) {
-    @content;
-  }
-}
-
-@mixin large-desktop {
-  @media (min-width: $large-desktop) {
     @content;
   }
 }

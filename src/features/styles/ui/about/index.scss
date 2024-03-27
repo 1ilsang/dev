@@ -22,11 +22,6 @@
 
   &-container {
     @include root-container;
-
-    @include large-desktop {
-      margin: 0 22vw;
-      padding: 10vh 0 5vh;
-    }
   }
 
   &-profile {
