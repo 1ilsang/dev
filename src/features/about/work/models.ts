@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export type Company = {
   company: CompanyName;
   companyHref: string;
@@ -66,6 +68,13 @@ export type Technique =
 export type Project = {
   name: ProjectName;
   url?: string;
+  img?: {
+    url: string;
+    alt: string;
+    width?: number;
+  };
+  summary: string;
+  body: ReactNode;
   startDate: number;
   tags: Technique[];
   endDate?: number;

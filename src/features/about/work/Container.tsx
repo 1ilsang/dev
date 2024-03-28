@@ -2,7 +2,7 @@ import { FunctionComponent, useState } from 'react';
 
 import WorkCardContainer from './card/Container';
 
-import { companyData } from '~data/company';
+import { companyData } from '~/about/work/data/company';
 
 type WorkContainerProps = {
   format: string;
