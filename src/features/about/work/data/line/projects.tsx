@@ -7,7 +7,7 @@ export const LPC: Project = {
   tags: ['Vite', 'pnpm', 'React-Query'],
   startDate: 1709218800000,
   summary: 'LandPress Content 개발',
-  body: <></>,
+  body: <>TBD</>,
 };
 
 export const UVP: Project = {
