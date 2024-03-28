@@ -165,14 +165,6 @@
             user-select: none;
           }
 
-          .hover {
-            cursor: pointer;
-
-            &:hover {
-              color: $base-color;
-            }
-          }
-
           .date {
             padding-left: 4px;
             font-style: italic;
@@ -184,6 +176,14 @@
             .date {
               padding-left: 0;
             }
+          }
+        }
+
+        .hover {
+          cursor: pointer;
+
+          &:hover {
+            color: $highlight-color;
           }
         }
 

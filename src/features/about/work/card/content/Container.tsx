@@ -34,14 +34,9 @@ const CompanyContentProject: FunctionComponent<CompanyContentProjectProps> = (
 
   return (
     <div className="project">
-      <div className="headline">
+      <div className="headline" onClick={handleDetailClick}>
         <div className="title-wrap">
-          <div
-            className={`title ${open ? 'unfold' : 'fold'}`}
-            onClick={handleDetailClick}
-          >
-            {name}
-          </div>
+          <div className={`title ${open ? 'unfold' : 'fold'}`}>{name}</div>
           <ProjectDate
             startDate={startDate}
             endDate={endDate}

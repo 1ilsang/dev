@@ -12,6 +12,11 @@
   .headline {
     display: flex;
     flex-direction: column;
+    cursor: pointer;
+
+    &:hover {
+      color: $highlight-color;
+    }
 
     .title-wrap {
       width: 100%;
@@ -21,13 +26,8 @@
     }
 
     .title {
-      cursor: pointer;
       font-size: 1.15rem;
       font-weight: 500;
-
-      &:hover {
-        color: $sub-color;
-      }
     }
 
     .fold {

@@ -56,6 +56,10 @@ $target: #e73c7e;
   margin: 10px 0;
   color: $target;
 
+  :hover {
+    color: #e66295;
+  }
+
   .min {
     position: absolute;
     top: -3rem;
