@@ -1,5 +1,5 @@
 @mixin project {
-  border-left: 3px solid $dark-color;
+  border-left: 0.24rem solid $dark-color;
   border-bottom: 1px dotted $dark-color;
   padding-left: 10px;
   padding-bottom: 1rem;
@@ -22,7 +22,7 @@
 
     .title {
       cursor: pointer;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 500;
 
       &:hover {
@@ -58,7 +58,6 @@
     flex-wrap: wrap;
 
     .item {
-      font-size: 0.75rem;
       background-color: $base-color;
       color: $deep-light-color;
       padding: 1px 5px;
@@ -96,8 +95,8 @@
         padding-bottom: 1rem;
       }
 
-      .gap {
-        gap: 0.8rem;
+      .section {
+        margin: 2rem 0 0;
       }
 
       ul {
@@ -109,7 +108,7 @@
         }
 
         li {
-          margin-top: 2px;
+          margin-top: 0.3rem;
           padding-left: 1rem;
 
           &::before {

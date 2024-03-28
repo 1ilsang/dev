@@ -1,10 +1,10 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, memo } from 'react';
 
 import { Project } from '../../models';
 
 type TagsProps = Pick<Project, 'tags'>;
 
-const Tags: FunctionComponent<TagsProps> = ({ tags }) => {
+const Tags: FunctionComponent<TagsProps> = memo(({ tags }) => {
   return (
     <div className={`tag`}>
       {tags.map((tag) => (
@@ -14,6 +14,7 @@ const Tags: FunctionComponent<TagsProps> = ({ tags }) => {
       ))}
     </div>
   );
-};
+});
+Tags.displayName = 'Tags';
 
 export default Tags;

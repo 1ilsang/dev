@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, memo } from 'react';
 
 import { WorkCardContainerProps } from '../Container';
 
@@ -14,31 +14,27 @@ type LeftSideProps = Pick<
   format?: string;
 };
 
-const LeftSide: FunctionComponent<LeftSideProps> = ({
-  href,
-  logoUrl,
-  alt,
-  workStartDate,
-  workEndDate,
-  format = 'yyyy.MM',
-}) => {
-  return (
-    <div className="left-side">
-      <a
-        className="hashtag"
-        rel="noopener noreferrer"
-        target="_blank"
-        href={href}
-      >
-        <img className="logo" src={logoUrl} alt={alt} />
-      </a>
-      <ProjectDate
-        startDate={workStartDate}
-        endDate={workEndDate}
-        format={format}
-      />
-    </div>
-  );
-};
+const LeftSide: FunctionComponent<LeftSideProps> = memo(
+  ({ href, logoUrl, alt, workStartDate, workEndDate, format = 'yyyy.MM' }) => {
+    return (
+      <div className="left-side">
+        <a
+          className="hashtag"
+          rel="noopener noreferrer"
+          target="_blank"
+          href={href}
+        >
+          <img className="logo loading" src={logoUrl} alt={alt} />
+        </a>
+        <ProjectDate
+          startDate={workStartDate}
+          endDate={workEndDate}
+          format={format}
+        />
+      </div>
+    );
+  },
+);
+LeftSide.displayName = 'LeftSide';
 
 export default LeftSide;

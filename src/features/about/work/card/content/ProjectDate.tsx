@@ -1,6 +1,6 @@
 import { FunctionComponent, memo } from 'react';
 
-import { CompanyContentProjectProps } from './Project';
+import { CompanyContentProjectProps } from './Container';
 
 import DateFormatter from '~/shared/components/DateFormatter';
 
@@ -19,5 +19,6 @@ const ProjectDate: FunctionComponent<ProjectDateProps> = memo(
     );
   },
 );
+ProjectDate.displayName = 'ProjectDate';
 
 export default ProjectDate;

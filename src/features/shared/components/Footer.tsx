@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import React, { FunctionComponent } from 'react';
+import { FunctionComponent, memo } from 'react';
 
-const Footer: FunctionComponent = React.memo(function Footer() {
+const Footer: FunctionComponent = memo(() => {
   return (
     <footer className="footer">
       <ul>
@@ -30,5 +30,6 @@ const Footer: FunctionComponent = React.memo(function Footer() {
     </footer>
   );
 });
+Footer.displayName = 'Footer';
 
 export default Footer;

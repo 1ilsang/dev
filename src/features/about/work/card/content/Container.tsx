@@ -1,18 +1,10 @@
-import { FunctionComponent, MouseEventHandler, useMemo, useState } from 'react';
+import { FunctionComponent, MouseEventHandler, useState } from 'react';
 
-import { Project, ProjectName } from '../../models';
+import { Project } from '../../models';
 
-import UVP from './description/UVP';
-import OAL from './description/OAL';
-import LdsCalendar from './description/LdsCalendar';
-import Place from './description/Place';
-import OAP from './description/OAP';
-import Bleet from './description/Bleet';
-import MyBiskit from './description/MyBiskit';
-import Blind from './description/Blind';
-import Stove from './description/Stove';
 import Tags from './Tags';
 import ProjectDate from './ProjectDate';
+import ProjectDetail from './ProjectDetail';
 
 import ExternalLink from '~/shared/components/ExternalLink';
 
@@ -20,14 +12,18 @@ export type CompanyContentProjectProps = Project & {
   format?: string;
 };
 
-const CompanyContentProject: FunctionComponent<CompanyContentProjectProps> = ({
-  name,
-  url,
-  tags,
-  startDate,
-  endDate,
-  format = 'yyyy.MM',
-}) => {
+const CompanyContentProject: FunctionComponent<CompanyContentProjectProps> = (
+  props,
+) => {
+  const {
+    name,
+    url,
+    tags,
+    startDate,
+    endDate,
+    summary,
+    format = 'yyyy.MM',
+  } = props;
   const [open, setOpen] = useState(false);
 
   const handleDetailClick: MouseEventHandler<HTMLDivElement> = () => {
@@ -55,15 +51,7 @@ const CompanyContentProject: FunctionComponent<CompanyContentProjectProps> = ({
         <Tags tags={tags} />
       </div>
       <div className={`description ${openClassName}`}>
-        {name === ProjectName.OAL && <OAL />}
-        {name === ProjectName.LDS_CALENDAR && <LdsCalendar />}
-        {name === ProjectName.UVP && <UVP />}
-        {name === ProjectName.PLACE && <Place />}
-        {name === ProjectName.OAP && <OAP />}
-        {name === ProjectName.Bleet && <Bleet />}
-        {name === ProjectName.MyBiskit && <MyBiskit />}
-        {name === ProjectName.Blind && <Blind />}
-        {name === ProjectName.Stove && <Stove />}
+        <ProjectDetail {...props} />
       </div>
       {url && openClassName !== 'hide' && (
         <ExternalLink

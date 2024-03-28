@@ -11,7 +11,7 @@
   border-bottom: 1px solid $base-color;
   color: $min-color;
   font-weight: bold;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   margin-bottom: 4px;
 }
 
@@ -125,7 +125,7 @@
       }
 
       .left-side {
-        width: 13rem;
+        width: 12rem;
 
         .logo {
           width: 4rem;
@@ -210,31 +210,51 @@
     }
     /* stylelint-enable no-descending-specificity */
 
-    .year {
-      font-size: 1.3rem;
-    }
+    &-card {
+      display: flex;
+      margin-top: 1rem;
+      line-height: 1.72rem;
 
-    .left-line {
-      border-left: 3px solid $dark-color;
-      padding-left: 1rem;
+      @include mobile {
+        flex-direction: column;
+      }
 
-      li {
-        display: flex;
+      .year {
+        min-width: 5rem;
+        font-size: 1.3rem;
+        width: 11rem;
 
-        .category {
-          min-width: 120px;
-          color: $min-color;
+        &:hover {
+          filter: drop-shadow(2px 2px 4px lightgray) invert(2%);
         }
 
-        .link-wrap {
-          width: 100%;
+        @include mobile {
+          margin: 1rem 0 0.2rem;
         }
+      }
 
-        .link {
-          color: #2dd0a8;
+      .left-line {
+        border-left: 0.24rem solid $dark-color;
+        padding-left: 1rem;
 
-          &:hover {
-            color: $highlight-color;
+        li {
+          display: flex;
+
+          .category {
+            min-width: 120px;
+            color: $min-color;
+          }
+
+          .link-wrap {
+            width: 100%;
+          }
+
+          .link {
+            color: #2dd0a8;
+
+            &:hover {
+              color: $highlight-color;
+            }
           }
         }
       }

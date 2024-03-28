@@ -4,7 +4,7 @@ import { Company } from '../models';
 
 import LeftSide from './content/LeftSide';
 import ContentHeadline from './content/Headline';
-import CompanyContentProject from './content/Project';
+import CompanyContentProject from './content/Container';
 
 export type WorkCardContainerProps = Company & {
   toggleOpenAll: boolean;
