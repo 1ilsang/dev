@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { FunctionComponent, useState } from 'react';
 
 type DynamicImageProps = {
@@ -22,9 +23,10 @@ const DynamicImage: FunctionComponent<DynamicImageProps> = ({
 
   return (
     <div
-      className={`${className} dynamic-image ${loading ? 'loading' : ''} ${
-        min ? '' : 'min'
-      }`}
+      className={classNames('dynamic-image', [className], {
+        loading,
+        min: !min,
+      })}
       style={{ width, height }}
     >
       <button className={min ? 'min' : 'max'} onClick={handleMinClick} />

@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { FunctionComponent, MouseEventHandler } from 'react';
 
 type ContentHeadlineProps = {
@@ -12,7 +13,7 @@ const ContentHeadline: FunctionComponent<ContentHeadlineProps> = ({
   hover = true,
 }) => {
   return (
-    <div className={`headline${hover ? ' hover' : ''}`} onClick={onClick}>
+    <div className={classNames(`headline`, { hover })} onClick={onClick}>
       <div id={name} className="title">
         {name}
       </div>

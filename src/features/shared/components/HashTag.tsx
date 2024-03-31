@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import Link from 'next/link';
 import { FunctionComponent } from 'react';
 
@@ -15,7 +16,11 @@ const HashTag: FunctionComponent<HashTagProps> = ({
   target = '_self',
 }) => {
   return (
-    <Link className={`${className} hashtag`} href={link} target={target}>
+    <Link
+      className={classNames('hashtag', [className])}
+      href={link}
+      target={target}
+    >
       #{content}
     </Link>
   );

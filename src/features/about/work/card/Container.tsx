@@ -7,7 +7,7 @@ import ContentHeadline from './content/Headline';
 import CompanyContentProject from './content/Container';
 
 export type WorkCardContainerProps = Company & {
-  toggleOpenAll: boolean;
+  toggleOpenAll?: boolean;
   format: string;
 };
 
@@ -23,23 +23,16 @@ const WorkCardContainer: FunctionComponent<WorkCardContainerProps> = (
     position = 'Software Engineer',
   } = props;
 
-  const [open, setOpen] = useState(false);
-  const handleHeadlineClick = () => setOpen(!open);
-
-  const [hydrated, setHydrated] = useState(false);
+  const [open, setOpen] = useState<boolean>(undefined);
+  const handleHeadlineClick = () => setOpen(open === undefined ? false : !open);
 
   useEffect(() => {
-    setHydrated(true);
-  }, []);
-
-  useEffect(() => {
+    if (toggleOpenAll === undefined) return;
     setOpen(toggleOpenAll);
   }, [toggleOpenAll]);
 
-  if (!hydrated) {
-    // Returns null on first render, so the client and server match
-    return <div className="about-work-card skeleton" />;
-  }
+  const openClassName =
+    open === undefined ? 'mh-100vh' : open ? 'show' : 'hide';
 
   return (
     <article className="about-work-card">
@@ -56,7 +49,7 @@ const WorkCardContainer: FunctionComponent<WorkCardContainerProps> = (
           onClick={handleHeadlineClick}
         />
         <div className="position">{position}</div>
-        <div className={`${open ? `show` : `hide`}`}>
+        <div className={openClassName}>
           {projectList.map((project) => (
             <CompanyContentProject key={project.name} {...project} />
           ))}

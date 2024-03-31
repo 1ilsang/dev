@@ -4,14 +4,6 @@ $target: #e73c7e;
   color: #6c6e6f;
 }
 
-.scroll-snap {
-  height: 100vh;
-  scroll-snap-align: start;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
 @keyframes water-rainbow {
   0% {
     background-position: 0% 50%;
@@ -152,4 +144,14 @@ $target: #e73c7e;
   }
 
   animation: fade-out 0.25s forwards;
+}
+
+.mh-zero {
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.mh-100vh {
+  max-height: 100vh;
 }

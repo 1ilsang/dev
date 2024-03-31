@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import Link from 'next/link';
 import { FunctionComponent, memo } from 'react';
 
@@ -7,9 +8,9 @@ export const AvatarImage: FunctionComponent<{ nav?: boolean }> = memo(
   ({ nav = false }) => {
     return (
       <div
-        className={`${
-          nav ? 'nav-avatar' : 'avatar-image'
-        } rounded-full mr-2 relative`}
+        className={classNames('rounded-full mr-2 relative', [
+          nav ? 'nav-avatar' : 'avatar-image',
+        ])}
       >
         <Link href="/about">
           <img src={profile.profileImage} alt={profile.name} />

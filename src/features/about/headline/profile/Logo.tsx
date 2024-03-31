@@ -1,4 +1,7 @@
 import { FunctionComponent } from 'react';
+import classNames from 'classnames';
+
+import { ProfileLabel } from '../models';
 
 type ProfileLogoProps = {
   href: string;
@@ -22,7 +25,11 @@ const ProfileLogo: FunctionComponent<ProfileLogoProps> = ({
         href={href}
       >
         {label}
-        <img src={imageSrc} width="28" height="28" alt={alt} />
+        <img
+          className={classNames({ gmail: label === ProfileLabel.gmail })}
+          src={imageSrc}
+          alt={alt}
+        />
       </a>
     </div>
   );

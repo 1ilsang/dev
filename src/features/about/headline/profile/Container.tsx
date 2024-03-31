@@ -2,7 +2,7 @@ import { FunctionComponent } from 'react';
 
 import ProfileLogo from './Logo';
 
-import { profileLinks } from '~data/profile';
+import { profileLinks } from '~/about/headline/data/profile';
 
 const ProfileContainer: FunctionComponent = () => {
   return (

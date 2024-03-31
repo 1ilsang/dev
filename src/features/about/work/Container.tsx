@@ -9,9 +9,10 @@ type WorkContainerProps = {
 };
 
 const WorkContainer: FunctionComponent<WorkContainerProps> = ({ format }) => {
-  const [toggleOpenAll, setToggleOpenAll] = useState(true);
+  const [toggleOpenAll, setToggleOpenAll] = useState<boolean>(undefined);
 
-  const handleTitleClick = () => setToggleOpenAll(!toggleOpenAll);
+  const handleTitleClick = () =>
+    setToggleOpenAll(toggleOpenAll === undefined ? false : !toggleOpenAll);
 
   return (
     <section className="about-work">

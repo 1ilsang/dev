@@ -1,4 +1,5 @@
 import { FunctionComponent, MouseEventHandler, useState } from 'react';
+import classNames from 'classnames';
 
 import { Project } from '../../models';
 
@@ -15,28 +16,21 @@ export type CompanyContentProjectProps = Project & {
 const CompanyContentProject: FunctionComponent<CompanyContentProjectProps> = (
   props,
 ) => {
-  const {
-    name,
-    url,
-    tags,
-    startDate,
-    endDate,
-    summary,
-    format = 'yyyy.MM',
-  } = props;
-  const [open, setOpen] = useState(false);
+  const { name, url, tags, startDate, endDate, format = 'yyyy.MM' } = props;
+  const [open, setOpen] = useState<boolean>(undefined);
 
   const handleDetailClick: MouseEventHandler<HTMLDivElement> = () => {
     setOpen(!open);
   };
 
-  const openClassName = open ? 'show' : 'hide';
+  const openClassName = open === undefined ? 'mh-zero' : open ? 'show' : 'hide';
+  const foldState = open ? 'unfold' : 'fold';
 
   return (
     <div className="project">
       <div className="headline" onClick={handleDetailClick}>
         <div className="title-wrap">
-          <div className={`title ${open ? 'unfold' : 'fold'}`}>{name}</div>
+          <div className={classNames('title', [foldState])}>{name}</div>
           <ProjectDate
             startDate={startDate}
             endDate={endDate}
@@ -45,7 +39,7 @@ const CompanyContentProject: FunctionComponent<CompanyContentProjectProps> = (
         </div>
         <Tags tags={tags} />
       </div>
-      <div className={`description ${openClassName}`}>
+      <div className={classNames(`description`, [openClassName])}>
         <ProjectDetail {...props} />
       </div>
       {url && openClassName !== 'hide' && (

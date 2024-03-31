@@ -41,7 +41,7 @@
 
       .jumbotron {
         display: flex;
-        justify-content: start;
+        justify-content: flex-start;
         background: linear-gradient(-90deg, #ee7752, #e73c7e, #23a6d5, #e73c7e);
         background-clip: text;
         color: transparent;
@@ -65,6 +65,7 @@
           display: flex;
           justify-content: flex-end;
           padding-bottom: 1px;
+          height: 1.7rem;
 
           a {
             display: flex;
@@ -72,8 +73,13 @@
           }
 
           img {
-            padding-left: 5px;
-            padding-bottom: 4px;
+            padding: 2px 0 2px 5px;
+            height: 1.7rem;
+            width: 1.7rem;
+          }
+
+          .gmail {
+            height: 1.4rem;
           }
         }
       }
@@ -190,6 +196,7 @@
         .position {
           border-bottom: 1px dotted $min-color;
           margin-bottom: 15px;
+          user-select: none;
         }
 
         .project {

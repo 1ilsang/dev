@@ -1,4 +1,4 @@
-import { FunctionComponent, useLayoutEffect, useState } from 'react';
+import { FunctionComponent, memo, useState } from 'react';
 
 import { formatDate, parseISO } from '../helpers/date';
 
@@ -10,24 +10,18 @@ interface DateFormatterProps {
   format?: string;
 }
 
-const DateFormatter: FunctionComponent<DateFormatterProps> = ({
-  date,
-  type = 'default',
-  format,
-}) => {
-  const [dateTime, setDateTime] = useState(null);
-
-  useLayoutEffect(() => {
-    const time =
+const DateFormatter: FunctionComponent<DateFormatterProps> = memo(
+  ({ date, type = 'default', format }) => {
+    const dateTime =
       type === 'iso' ? parseISO(String(date)) : formatDate(date, format);
-    setDateTime(time);
-  }, []);
 
-  return (
-    <time className="date-format" dateTime={dateTime}>
-      {dateTime}
-    </time>
-  );
-};
+    return (
+      <time className="date-format" dateTime={dateTime}>
+        {dateTime}
+      </time>
+    );
+  },
+);
+DateFormatter.displayName = 'DateFormatter';
 
 export default DateFormatter;

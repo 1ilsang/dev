@@ -6,7 +6,7 @@ type TagsProps = Pick<Project, 'tags'>;
 
 const Tags: FunctionComponent<TagsProps> = memo(({ tags }) => {
   return (
-    <div className={`tag`}>
+    <div className="tag">
       {tags.map((tag) => (
         <div className="item" key={tag}>
           {tag}
