@@ -1,4 +1,4 @@
-export type MonthType =
+type MonthType =
   | 'January'
   | 'February'
   | 'March'
@@ -11,7 +11,7 @@ export type MonthType =
   | 'October'
   | 'November'
   | 'December';
-export type DayType =
+type DayType =
   | 'Sunday'
   | 'Monday'
   | 'Tuesday'

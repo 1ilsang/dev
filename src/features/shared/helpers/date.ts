@@ -9,7 +9,7 @@ export const parseISO = (isoDate: string) => {
   )} ${pad(date.getHours())}:${pad(date.getMinutes())}`;
 };
 
-export const padToDigits = (num: number, digits = 2) => {
+const padToDigits = (num: number, digits = 2) => {
   return num.toString().padStart(digits, '0');
 };
 

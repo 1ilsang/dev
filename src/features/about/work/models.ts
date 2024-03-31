@@ -35,7 +35,7 @@ export enum JobPosition {
   FULL_STACK = 'Fullstack Engineer',
 }
 
-export type Technique =
+type Technique =
   | 'Vite'
   | 'pnpm'
   | 'React-Query'
