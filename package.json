@@ -18,7 +18,7 @@
     "lint:eslint": "eslint --ext .ts,.tsx,.js,.jsx './src/**/*.{js,jsx,ts,tsx}'",
     "lint:markdown": "markdownlint --config './.markdownlint.cjs' './_posts/**/*.{md,mdx}'",
     "lint:typeCheck": "tsc --pretty",
-    "lint": "pnpm run --parallel '/^lint:.*/'",
+    "lint": "pnpm run '/^lint:.*/'",
     "clean": "rm -rf .next out node_modules",
     "knip": "knip",
     "prepare": "husky",

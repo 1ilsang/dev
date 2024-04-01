@@ -25,6 +25,7 @@ const CompanyContentProject: FunctionComponent<CompanyContentProjectProps> = (
 
   const openClassName = open === undefined ? 'mh-zero' : open ? 'show' : 'hide';
   const foldState = open ? 'unfold' : 'fold';
+  const externalLink = open !== undefined && url && openClassName !== 'hide';
 
   return (
     <div className="project">
@@ -42,7 +43,7 @@ const CompanyContentProject: FunctionComponent<CompanyContentProjectProps> = (
       <div className={classNames(`description`, [openClassName])}>
         <ProjectDetail {...props} />
       </div>
-      {url && openClassName !== 'hide' && (
+      {externalLink && (
         <ExternalLink
           classNames={openClassName}
           href={url}
