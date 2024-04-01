@@ -3,7 +3,7 @@ import { FunctionComponent } from 'react';
 import LeftSide from '../work/card/content/LeftSide';
 import ContentHeadline from '../work/card/content/Headline';
 
-import { Catholic } from '~data/education';
+import { Catholic } from '~/about/education/data/education';
 
 type EducationContainerProps = {
   format: string;

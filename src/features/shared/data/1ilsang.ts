@@ -1,0 +1,5 @@
+export enum MyInfo {
+  'name' = '1ilsang',
+  'profileImage' = '/assets/chul.png',
+  'description' = '클라이밍 하실래염?',
+}

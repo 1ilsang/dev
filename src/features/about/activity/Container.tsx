@@ -3,7 +3,7 @@ import { FunctionComponent, useMemo } from 'react';
 import ActivityCardContainer from './Card';
 import { Activity } from './models';
 
-import { activityData } from '~data/activity';
+import { activityData } from '~/about/activity/data/activity';
 
 const ActivityContainer: FunctionComponent = () => {
   const activityList = useMemo(() => {

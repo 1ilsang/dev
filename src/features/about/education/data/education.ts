@@ -1,7 +1,7 @@
-import { Education } from '~/about/education/models';
+import { Education, UniversityName } from '~/about/education/models';
 
 export const Catholic: Education = {
-  name: '가톨릭대학교',
+  name: UniversityName.catholic,
   url: 'https://catholic.ac.kr',
   major: '미디어공학, 컴퓨터정보공학 전공',
   logoUrl:

@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import { FunctionComponent, memo } from 'react';
 
-import profile from '~data/1ilsang.json';
+import { MyInfo } from '../data/1ilsang';
 
 export const AvatarImage: FunctionComponent<{ nav?: boolean }> = memo(
   ({ nav = false }) => {
@@ -13,7 +13,7 @@ export const AvatarImage: FunctionComponent<{ nav?: boolean }> = memo(
         ])}
       >
         <Link href="/about">
-          <img src={profile.profileImage} alt={profile.name} />
+          <img src={MyInfo.profileImage} alt={MyInfo.name} />
         </Link>
       </div>
     );
@@ -27,9 +27,9 @@ const Avatar = () => {
       <AvatarImage />
       <div>
         <Link className="avatar-name" href="/about">
-          {profile.name}
+          {MyInfo.name}
         </Link>
-        <div className="avatar-description">{profile.description}</div>
+        <div className="avatar-description">{MyInfo.description}</div>
       </div>
     </div>
   );

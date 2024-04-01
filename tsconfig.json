@@ -17,7 +17,6 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "~data/*": ["_data/*"],
       "~/*": ["src/features/*"]
     }
   },
