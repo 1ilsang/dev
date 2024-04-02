@@ -18,8 +18,10 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = memo(
           />
         )}
         <div className="text">
-          <p className="summary">{summary}</p>
-          <ul className="main">{body}</ul>
+          <ul className="main">
+            <span className="summary">{summary}</span>
+            {body}
+          </ul>
         </div>
       </>
     );

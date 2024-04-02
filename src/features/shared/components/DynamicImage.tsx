@@ -16,7 +16,7 @@ const DynamicImage: FunctionComponent<DynamicImageProps> = ({
   className,
   src,
   alt,
-  loading = true,
+  loading = false,
 }) => {
   const [min, setMin] = useState(true);
   const handleMinClick = () => setMin(!min);

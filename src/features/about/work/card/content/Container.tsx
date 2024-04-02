@@ -45,9 +45,9 @@ const CompanyContentProject: FunctionComponent<CompanyContentProjectProps> = (
       </div>
       {externalLink && (
         <ExternalLink
-          classNames={openClassName}
+          classNames={classNames(['pt', openClassName])}
           href={url}
-          label={`> 서비스 구경하기`}
+          label={`> 서비스 링크`}
         />
       )}
     </div>

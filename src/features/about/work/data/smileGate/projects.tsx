@@ -7,10 +7,9 @@ export const Stove: Project = {
   tags: ['Vue2'],
   startDate: 1520780400000,
   endDate: 1525791600000,
-  summary: `유저 타임라인 개발`,
+  summary: `모바일 게임 유저 타임라인 개발`,
   body: (
     <>
-      <span>출시 예정 게임 유저 타임라인 개발</span>
       <li>방명록 CRUD 기능 개발</li>
       <li>댓글 / 신고하기 기능 개발</li>
       <li>

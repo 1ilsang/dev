@@ -10,12 +10,12 @@ export const Bleet: Project = {
     url: 'https://github.com/1ilsang/dev/assets/23524849/bf6d917d-9d2a-4142-a0ee-4933cb321428',
     alt: 'Bleet cover',
   },
-  summary: `Bleet은 블라인드 기반 회사인증을 통한 직장인 소개팅 어플입니다.`,
+  summary: `블라인드 기반 직장인 소개팅 어플 API 개발`,
   body: (
     <>
-      <span>
+      <li>
         메인 서버 개발자로 Node.js를 활용해 API를 개발. Beta 오픈까지 작업
-      </span>
+      </li>
       <li>
         블라인드 인증을 통한 가입 및 포인트 처리 등 전반적인 API 작업 주도적으로
         진행
@@ -35,7 +35,7 @@ export const MyBiskit: Project = {
     url: 'https://github.com/1ilsang/dev/assets/23524849/1d4a2e43-72ba-4b3e-b4c7-f236e8574c28',
     alt: 'Mybiskit cover',
   },
-  summary: `마이비스킷은 직장인을 위한 온라인 취미클래스 플랫폼입니다. 정규 및 원데이 클래스를 다양한 쿠폰과 정기 결제로 수강할 수 있습니다.`,
+  summary: `직장인을 위한 온라인 취미클래스 서비스 개발`,
   body: (
     <>
       <span>Nuxt.js로 페이지 및 서버 개발</span>
@@ -77,10 +77,10 @@ export const Blind: Project = {
     url: 'https://github.com/1ilsang/dev/assets/23524849/bf1ace03-ab4a-48c5-9053-c1fe1dd6fc76',
     alt: 'Blind cover',
   },
-  summary: `Blind는 전 세계 기업의 지속 가능한 기업 문화를 위한 직장인 익명 플랫폼입니다.`,
+  summary: `직장인 익명 앱 API 및 어드민 페이지 개발`,
   body: (
     <>
-      <span>블라인드 어드민 및 서버 API를 개발</span>
+      <li>블라인드 어드민 및 서버 API를 개발</li>
       <li>어드민 페이지 개선 작업 진행</li>
       <li>신고하기 및 패널티 등의 API를 개선</li>
     </>

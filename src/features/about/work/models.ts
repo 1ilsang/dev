@@ -47,7 +47,7 @@ type Technique =
   | 'Cypress'
   | 'Webpack'
   | 'React18'
-  | 'React-Testing-Library'
+  | 'RTL'
   | 'WebSocket'
   | 'MSW'
   | 'Chart.js'
@@ -63,7 +63,8 @@ type Technique =
   | 'PHP'
   | 'Docker'
   | 'Redis'
-  | 'Vue2';
+  | 'Vue2'
+  | 'Jotai';
 
 export type Project = {
   name: ProjectName;

@@ -67,6 +67,10 @@
     }
   }
 
+  .pt {
+    margin-top: 1rem;
+  }
+
   .description {
     display: flex;
     flex-wrap: wrap;
@@ -77,23 +81,18 @@
     }
 
     .text {
+      margin-top: 1rem;
       width: 100%;
 
       .summary {
-        width: fit-content;
-        border-left: 0.25em solid $dark-color;
-        background-color: #132b3f;
-        border-radius: 4px;
-        padding: 15px;
-        padding-right: 22px;
-        color: $deep-light-color;
-        margin-bottom: 10px;
+        padding-bottom: 1.3rem;
       }
 
       .main {
         padding-top: 1rem;
         padding-left: 0.2rem;
         padding-bottom: 1rem;
+        line-height: 1.6rem;
       }
 
       .section {
