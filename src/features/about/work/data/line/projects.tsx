@@ -44,7 +44,7 @@ export const UVP: Project = {
       <li>
         v1: 런타임 {'->'} 컴파일 타임 코드 리팩터링
         <ul>
-          <li>레거시 프로젝트 최신화 작업 주도적으로 진행</li>
+          <li>레거시 프로젝트 최신화 작업 주도적 진행</li>
           <li>
             TypeScript 및 선언적 컴포넌트 적용
             <ul>
@@ -95,7 +95,7 @@ export const UVP: Project = {
             플러그인 구조 개발
             <ul>
               <li>플러그인 템플릿 및 라이프사이클 설계</li>
-              <li>서로 다른 서비스 니즈를 만족시킬 수 있게 됨</li>
+              <li>서로 다른 서비스 니즈를 만족시킬 수 있는 유연한 개발 달성</li>
             </ul>
           </li>
           <li>
@@ -195,7 +195,7 @@ export const LDS_CALENDAR: Project = {
   body: (
     <>
       <li>
-        사내 공용 캘린더 라이브러리의 부재로 자발적으로 개발
+        사내 공용 캘린더 라이브러리의 부재로 자발적 개발
         <ul>
           <li>배포 이후 긍정적인 평가를 받으며 6개 이상의 서비스에서 사용</li>
         </ul>
@@ -228,14 +228,15 @@ export const PLACE: Project = {
       <li>
         Home 화면 개발
         <ul>
-          <li>위치 기반 API Flow 정리</li>
+          <li>위치 기반 API Flow 정리 및 개발</li>
+          <li>Swiper 버벅임 성능 개선</li>
         </ul>
       </li>
-      <li>Profile/Settings 개발</li>
-      <li>
+      <li className="section">
         Koa 커스텀 서버 개발
         <ul>
-          <li>nGrinder를 활용 Stress test 진행후 서버 가용량 산출</li>
+          <li>nGrinder 활용, Stress test 진행 후 서버 가용량 산출</li>
+          <li>빌드/배포 개발 환경 세팅</li>
         </ul>
       </li>
     </>
@@ -250,13 +251,19 @@ export const OAP: Project = {
   endDate: 1625929200000,
   img: {
     url: 'https://github.com/1ilsang/dev/assets/23524849/7c2ad355-607a-4692-9a95-be44e45f144d',
-    alt: '"Official Account cover"',
+    alt: 'Official Account cover',
     width: 250,
   },
   summary: `라인 공식 계정 페이지 개발`,
   body: (
     <>
-      <li>플러그인 중복된 코드 개선</li>
+      <li>
+        플러그인 공통화 작업 진행
+        <ul>
+          <li>중복 코드 개선</li>
+          <li>일관된 타입 모델 적용</li>
+        </ul>
+      </li>
       <li>데이터 이관 작업을 통해 서로 다른 페이지의 싱크 맞추는 작업 진행</li>
       <li>
         React {'->'} Next.js 리팩터링 진행

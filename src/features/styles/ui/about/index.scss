@@ -22,10 +22,6 @@
 
   &-container {
     @include root-container;
-
-    @include mobile {
-      margin: 0 1rem;
-    }
   }
 
   &-profile {

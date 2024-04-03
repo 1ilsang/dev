@@ -8,6 +8,10 @@
   margin: auto;
   max-width: 750px;
   padding: 10vh 0;
+
+  @include mobile {
+    margin: 0 1rem;
+  }
 }
 
 @mixin mobile {

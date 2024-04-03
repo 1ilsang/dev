@@ -32,7 +32,7 @@ export enum ProjectName {
 
 export enum JobPosition {
   FE = 'Frontend Engineer',
-  FULL_STACK = 'Fullstack Engineer',
+  FULL_STACK = 'Full Stack Engineer',
 }
 
 type Technique =
@@ -64,7 +64,9 @@ type Technique =
   | 'Docker'
   | 'Redis'
   | 'Vue2'
-  | 'Jotai';
+  | 'Jotai'
+  | 'AWS'
+  | 'Puppeteer';
 
 export type Project = {
   name: ProjectName;
