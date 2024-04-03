@@ -21,7 +21,7 @@ export const profileLinks: Profile[] = [
   },
   {
     label: ProfileLabel.linkedin,
-    href: 'https://www.linkedin.com/in/sang-chul-lee-91a32b154',
+    href: 'https://www.linkedin.com/in/sangchul-lee-91a32b154',
     imageSrc: '/assets/logo/linkedin.webp',
     alt: 'linked-in',
   },
