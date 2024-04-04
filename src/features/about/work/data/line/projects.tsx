@@ -129,18 +129,9 @@ export const VLC: Project = {
   summary: `VOOM Live 방송 CMS 페이지 개발`,
   body: (
     <>
-      <li>
-        방송 디테일 페이지 개발
-        <ul>
-          <li>실시간 채팅을 위한 WebSocket 개발</li>
-        </ul>
-      </li>
-      <li>
-        시각화 페이지 개발
-        <ul>
-          <li>Chart.js를 활용해 통계 차트 및 테이블 영역 개발</li>
-        </ul>
-      </li>
+      <li>아래 Official Account Live CMS와 동일. 호스트 유저만 다른 서비스</li>
+      <li>서비스 아키텍처 설계 및 일정 산출</li>
+      <li>조금씩 미묘하게 다른 스펙을 위한 컴포넌트 추상화 작업 진행</li>
     </>
   ),
 };
@@ -167,17 +158,17 @@ export const OAL: Project = {
   body: (
     <>
       <li>
-        방송 디테일 페이지 개발
-        <ul>
-          <li>실시간 채팅을 위한 WebSocket 개발</li>
-        </ul>
+        초기 설계부터 릴리즈까지 진행. 컴포넌트 아키텍처 설계 및 라이브러리 선정
       </li>
-      <li className="section">
-        시각화 페이지 개발
-        <ul>
-          <li>Chart.js를 활용해 통계 차트 및 테이블 영역 개발</li>
-        </ul>
+      <li>
+        라인 패밀리 서비스에서 사용될 수 있도록 확장성있는 컴포넌트 모듈 개발
       </li>
+      <li>
+        MSW 적용. 방송 상태에 따른 다양한 시나리오 테스트 할 수 있도록 개발
+      </li>
+      <li>React-Query v4 {'->'} v5 작업 진행</li>
+      <li>방송 페이지 실시간 채팅 WebSocket 개발</li>
+      <li>시각화 페이지 개발. 데이터 가공 최적화 작업 진행</li>
     </>
   ),
 };
@@ -205,6 +196,7 @@ export const LDS_CALENDAR: Project = {
         <ul>
           <li>다국어 및 Timezone 설정 가능</li>
           <li>모달, 멀티 캘린더, 범위, 시간 등 다양한 옵션 제공</li>
+          <li>웹 접근성 적용</li>
         </ul>
       </li>
     </>
@@ -226,7 +218,7 @@ export const PLACE: Project = {
   body: (
     <>
       <li>
-        Home 화면 개발
+        Home, Profile 페이지 개발
         <ul>
           <li>위치 기반 API Flow 정리 및 개발</li>
           <li>Swiper 버벅임 성능 개선</li>
@@ -264,13 +256,9 @@ export const OAP: Project = {
           <li>일관된 타입 모델 적용</li>
         </ul>
       </li>
-      <li>데이터 이관 작업을 통해 서로 다른 페이지의 싱크 맞추는 작업 진행</li>
-      <li>
-        React {'->'} Next.js 리팩터링 진행
-        <ul>
-          <li>커스텀 서버 개발</li>
-        </ul>
-      </li>
+      <li>React {'->'} Next.js 리팩터링 진행</li>
+      <li>커스텀 서버 개발</li>
+      <li>데이터 이관 작업 진행</li>
     </>
   ),
 };

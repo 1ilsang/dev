@@ -18,8 +18,8 @@ export enum CompanyName {
 
 export enum ProjectName {
   LPC = 'LandPress Content',
-  OAL = 'Official Account LIVE CMS',
-  VLC = 'VOOM LIVE CMS',
+  OAL = 'Official Account Live CMS',
+  VLC = 'VOOM Live CMS',
   LDS_CALENDAR = 'LINE Design System - Calendar',
   UVP = 'Universal Video Player',
   PLACE = 'LINE Place',
