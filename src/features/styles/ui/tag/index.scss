@@ -12,6 +12,10 @@
 
 .hashtag {
   color: $highlight-color;
+
+  @media print {
+    color: $black;
+  }
 }
 
 .hashtag:hover {

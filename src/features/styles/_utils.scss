@@ -15,8 +15,10 @@
 }
 
 @mixin mobile {
-  @media (max-width: $mobile) {
-    @content;
+  @media not print {
+    @media (max-width: $mobile) {
+      @content;
+    }
   }
 }
 

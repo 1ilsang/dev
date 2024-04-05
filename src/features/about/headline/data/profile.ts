@@ -11,6 +11,7 @@ export const profileLinks: Profile[] = [
     label: ProfileLabel.github,
     href: 'https://github.com/1ilsang',
     imageSrc: '/assets/logo/github.webp',
+    imageSrcBlack: 'https://cdn-icons-png.flaticon.com/512/25/25231.png',
     alt: 'github',
   },
   {

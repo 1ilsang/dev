@@ -95,6 +95,11 @@ $target: #e73c7e;
   color: $highlight-color;
   line-height: 1.1;
 
+  @media print {
+    color: $black;
+    text-decoration: underline;
+  }
+
   &::after {
     content: '';
     display: block;
@@ -127,6 +132,10 @@ $target: #e73c7e;
   }
 
   animation: fade 0.5s forwards;
+
+  @media print {
+    animation: none;
+  }
 }
 
 .hide {
@@ -144,6 +153,10 @@ $target: #e73c7e;
   }
 
   animation: fade-out 0.25s forwards;
+
+  @media print {
+    animation: none;
+  }
 }
 
 .mh-zero {

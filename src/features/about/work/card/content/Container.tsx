@@ -8,6 +8,7 @@ import ProjectDate from './ProjectDate';
 import ProjectDetail from './ProjectDetail';
 
 import ExternalLink from '~/shared/components/ExternalLink';
+import usePrint from '~/shared/hooks/usePrint';
 
 export type CompanyContentProjectProps = Project & {
   format?: string;
@@ -18,14 +19,25 @@ const CompanyContentProject: FunctionComponent<CompanyContentProjectProps> = (
 ) => {
   const { name, url, tags, startDate, endDate, format = 'yyyy.MM' } = props;
   const [open, setOpen] = useState<boolean>(undefined);
+  const { print } = usePrint();
 
   const handleDetailClick: MouseEventHandler<HTMLDivElement> = () => {
     setOpen(!open);
   };
 
-  const openClassName = open === undefined ? 'mh-zero' : open ? 'show' : 'hide';
-  const foldState = open ? 'unfold' : 'fold';
-  const externalLink = open !== undefined && url && openClassName !== 'hide';
+  const openClassName = (() => {
+    if (print) return 'show';
+    if (open === undefined) return 'mh-zero';
+    return open ? 'show' : 'hide';
+  })();
+  const foldState = (() => {
+    if (print) return 'unfold';
+    return open ? 'unfold' : 'fold';
+  })();
+  const externalLink = (() => {
+    if (print) return undefined;
+    return open !== undefined && url && openClassName !== 'hide';
+  })();
 
   return (
     <div className="project">

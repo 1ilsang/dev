@@ -5,8 +5,10 @@ import Footer from '~/shared/components/Footer';
 import MetaHeader from '~/shared/components/MetaHeader';
 import Navbar from '~/shared/components/nav/Navbar';
 import { ImageUrl, MetaDescription, MetaTitle } from '~/shared/constants/blog';
+import usePrint from '~/shared/hooks/usePrint';
 
 const About: NextPage = () => {
+  const { print } = usePrint();
   return (
     <>
       <MetaHeader
@@ -15,9 +17,9 @@ const About: NextPage = () => {
         description={MetaDescription.HOME}
       />
       <main className="about-layout">
-        <Navbar />
+        {!print && <Navbar />}
         <AboutContainer />
-        <Footer />
+        {!print && <Footer />}
       </main>
     </>
   );

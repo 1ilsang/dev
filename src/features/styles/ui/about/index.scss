@@ -13,6 +13,10 @@
   font-weight: bold;
   font-size: 1.5rem;
   margin-bottom: 4px;
+
+  @media print {
+    color: #101010;
+  }
 }
 
 .about {
@@ -22,6 +26,10 @@
 
   &-container {
     @include root-container;
+
+    @media print {
+      padding: 5vh 0;
+    }
   }
 
   &-profile {
@@ -50,6 +58,13 @@
         @include mobile {
           font-size: 6rem;
           letter-spacing: 1px;
+        }
+
+        @media print {
+          color: #101010;
+          font-weight: normal;
+          background: none;
+          filter: none;
         }
       }
 
@@ -193,6 +208,10 @@
           border-bottom: 1px dotted $min-color;
           margin-bottom: 15px;
           user-select: none;
+
+          @media print {
+            border-bottom: 1px dotted $black;
+          }
         }
 
         .project {
@@ -246,6 +265,10 @@
           .category {
             min-width: 120px;
             color: $min-color;
+
+            @media print {
+              color: #101010;
+            }
           }
 
           .link-wrap {
@@ -254,6 +277,10 @@
 
           .link {
             color: #2dd0a8;
+
+            @media print {
+              color: #101010;
+            }
 
             &:hover {
               color: $highlight-color;
