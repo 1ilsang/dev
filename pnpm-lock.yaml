@@ -13,7 +13,7 @@ dependencies:
     version: 4.0.3
   next:
     specifier: 13.5.6
-    version: 13.5.6(react-dom@18.2.0)(react@18.2.0)(sass@1.72.0)
+    version: 13.5.6(react-dom@18.2.0)(react@18.2.0)(sass@1.74.1)
   react:
     specifier: 18.2.0
     version: 18.2.0
@@ -45,8 +45,8 @@ dependencies:
     specifier: ^11.1.0
     version: 11.1.0
   sass:
-    specifier: 1.72.0
-    version: 1.72.0
+    specifier: 1.74.1
+    version: 1.74.1
   unified:
     specifier: ^11.0.4
     version: 11.0.4
@@ -3582,7 +3582,7 @@ packages:
       through2: 4.0.2
     dev: true
 
-  /next@13.5.6(react-dom@18.2.0)(react@18.2.0)(sass@1.72.0):
+  /next@13.5.6(react-dom@18.2.0)(react@18.2.0)(sass@1.74.1):
     resolution: {integrity: sha512-Y2wTcTbO4WwEsVb4A8VSnOsG1I9ok+h74q0ZdxkwM3EODqrs4pasq7O0iUxbcS9VtWMicG7f3+HAj0r1+NtKSw==}
     engines: {node: '>=16.14.0'}
     hasBin: true
@@ -3604,7 +3604,7 @@ packages:
       postcss: 8.4.31
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      sass: 1.72.0
+      sass: 1.74.1
       styled-jsx: 5.1.1(react@18.2.0)
       watchpack: 2.4.0
     optionalDependencies:
@@ -4382,14 +4382,14 @@ packages:
       is-regex: 1.1.4
     dev: true
 
-  /sass@1.72.0:
-    resolution: {integrity: sha512-Gpczt3WA56Ly0Mn8Sl21Vj94s1axi9hDIzDFn9Ph9x3C3p4nNyvsqJoQyVXKou6cBlfFWEgRW4rT8Tb4i3XnVA==}
+  /sass@1.74.1:
+    resolution: {integrity: sha512-w0Z9p/rWZWelb88ISOLyvqTWGmtmu2QJICqDBGyNnfG4OUnPX9BBjjYIXUpXCMOOg5MQWNpqzt876la1fsTvUA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
       chokidar: 3.5.3
       immutable: 4.3.4
-      source-map-js: 1.0.2
+      source-map-js: 1.2.0
     dev: false
 
   /scheduler@0.23.0:
@@ -4506,11 +4506,6 @@ packages:
     resolution: {integrity: sha512-Y0OT8HezWsTNeEOSVxDnKOW/AyNXHQ4BwJNbAXlLTF5wWsBvrcHhIkE5Rf8kQMLmgf7nDX3PVOlgC6/Aiggu3Q==}
     engines: {node: '>= 18', pnpm: '>= 8'}
     dev: true
-
-  /source-map-js@1.0.2:
-    resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
-    engines: {node: '>=0.10.0'}
-    dev: false
 
   /source-map-js@1.2.0:
     resolution: {integrity: sha512-itJW8lvSA0TXEphiRoawsCksnlf8SyvmFzIhltqAHluXd88pkCd+cXJVHTDwdCr0IzwptSm035IHQktUu1QUMg==}
