@@ -12,6 +12,6 @@ export default [
     // https://github.com/import-js/eslint-plugin-import/pull/2996
     // plugins: eslint-plugin-import
   },
-  { ignores: ['.next', '*.cjs'] },
+  { ignores: ['.next', 'out', '*.cjs'] },
   eslintConfigPrettier,
 ];
