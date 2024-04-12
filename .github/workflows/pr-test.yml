@@ -26,3 +26,4 @@ jobs:
           version: 8
           run_install: true
       - run: pnpm lint
+      - run: pnpm deploy-blog
