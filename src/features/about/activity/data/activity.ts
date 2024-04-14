@@ -126,7 +126,7 @@ const openSource: Activity[] = [
   {
     type: ActivityType.openSource,
     name: 'Mozilla Developer Network(MDN) @mdn/yari-content-ko 팀 합류',
-    url: 'https://github.com/mdn/translated-content/issues/18056',
+    url: '/posts/js/mdn-ko-reviewer',
     startDate: 1709113159904,
   },
   {
