@@ -7,6 +7,7 @@ const HomeContainer: FunctionComponent = () => {
   const handleContainerClick = () => {
     router.push('/posts');
   };
+
   return (
     <div className="home-container" onClick={handleContainerClick}>
       <video

@@ -12,7 +12,9 @@ const useNotFound = () => {
 
     if (redirectUrlMapper[pathname]) {
       setRedirect(redirectUrlMapper[pathname]);
-      push(`${redirectUrlMapper[pathname]}${hash}`);
+      push(`${redirectUrlMapper[pathname]}${hash}`, undefined, {
+        shallow: true,
+      });
     } else {
       setRedirect('');
     }
