@@ -10,7 +10,7 @@ const MemoedPostItem: FunctionComponent<{ post: PostType }> = memo<{
 }>(({ post }) => {
   return (
     <li key={post.title}>
-      <Link className="link" href={`/posts/${post.slug}`}>
+      <Link className="link" href={`/posts/${post.url}`}>
         <img className="cover" src={post.coverImage} alt="cover" />
         <div className="content">
           <h1 className="title">{post.title}</h1>

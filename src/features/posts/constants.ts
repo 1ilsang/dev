@@ -6,5 +6,4 @@ export const CATEGORY_LIST = [
   'Retrospect',
   'Tool',
   'Algorithm',
-  'Etc',
 ] as const;

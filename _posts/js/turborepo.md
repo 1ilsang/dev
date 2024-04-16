@@ -1,6 +1,7 @@
 ---
 title: 'Turborepo로 모노레포 개발 경험 향상하기'
 description: '모노레포와 터보레포를 간략히 알아보자'
+url: 'turborepo'
 tags: ['monorepo', 'turborepo', 'packageManager']
 coverImage: 'https://github.com/1ilsang/dev/assets/23524849/2db5a04f-e83c-4bc4-ba59-685d3bb0e5dd'
 date: '2022-04-14T15:00:00.000Z'

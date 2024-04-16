@@ -1,6 +1,7 @@
 ---
 title: '발리 한 달 리모트 워크 후기'
 description: '발리 한 달 살기 얼마나 낭만 있을까?'
+url: 'bali-remote-work'
 tags: ['activity', 'bali', 'remote-work']
 coverImage: 'https://github.com/1ilsang/dev/assets/23524849/b9834b4f-a495-43df-ace7-bc8784a6d6f9'
 date: '2023-12-30T08:21:16.971Z'
@@ -12,7 +13,7 @@ ogImage:
 
 ## 시작 계기
 
-작년 [제주 한 달 리모트 워크 후기](https://1ilsang.dev/posts/activity/jeju-remote)가 좋았어서 해외에서 한 달 리모트를 해보자고 결심했다.
+작년 [제주 한 달 리모트 워크 후기](/posts/jeju-remote-work)가 좋았어서 해외에서 한 달 리모트를 해보자고 결심했다.
 
 마침 회사에서 해외 리모트를 허용했기 때문에 또 언제 경험해 볼까 싶어 신청하게 되었다.
 

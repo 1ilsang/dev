@@ -1,6 +1,7 @@
 ---
 title: '[글또 세미나] 모여봐요 오픈소스의 숲 발표 후기'
 description: '번역 기여 방법과 코어 코드에 접근하는 방법'
+url: 'geultto8-open-source-seminar'
 tags: ['geultto', 'geultto8', 'seminar', 'open-source', 'eslint', 'translate']
 coverImage: 'https://github.com/1ilsang/dev/assets/23524849/a6b9e96a-d651-4854-a1a4-a05370dba890'
 date: '2023-09-01T11:30:00.000Z'

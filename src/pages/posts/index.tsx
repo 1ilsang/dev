@@ -35,6 +35,7 @@ export default PostHome;
 export async function getStaticProps() {
   const posts = getAllPosts([
     'slug',
+    'url',
     'title',
     'date',
     'tags',

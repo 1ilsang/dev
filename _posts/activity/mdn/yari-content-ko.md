@@ -1,6 +1,7 @@
 ---
 title: '@mdn/yari-content-ko Organizer 합류 여정'
 description: 'Mozilla Developer Network는 어떤 곳일까?'
+url: 'mdn-ko-organizer'
 tags: ['mdn', 'mozilla', 'open-source']
 coverImage: 'https://github.com/1ilsang/dev/assets/23524849/13851fba-2198-4113-aae2-8e6aedc05e2e'
 date: '2024-04-13T08:21:06.718Z'

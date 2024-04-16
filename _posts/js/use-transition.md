@@ -1,6 +1,7 @@
 ---
 title: 'useTransition 이해하기'
 description: '상태 업데이트의 우선 순위를 지정해보자'
+url: 'use-transition'
 tags: ['react', 'hooks', 'useTransition', 'throttle', 'debounce', 'suspense']
 coverImage: 'https://github.com/1ilsang/dev/assets/23524849/4c83fd47-4f27-4cec-86bf-64ac64fa9795'
 date: '2023-06-04T11:38:16.720Z'

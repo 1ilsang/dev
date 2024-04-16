@@ -1,6 +1,7 @@
 ---
 title: '"일의 격"을 읽고'
 description: "신수정님의 '일의 격' 책을 읽고 생각을 정리하게 되었다"
+url: 'quality-of-job-review'
 tags: ['일의격', 'book', 'review']
 coverImage: 'https://github.com/1ilsang/dev/assets/23524849/828d3793-5021-498a-9f8a-c1990d361ae5'
 date: '2023-06-22T11:36:39.984Z'

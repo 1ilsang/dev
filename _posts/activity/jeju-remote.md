@@ -1,6 +1,7 @@
 ---
 title: '제주 한 달 리모트 워크 후기'
 description: '제주 한 달 살기 얼마나 낭만 있을까?'
+url: 'jeju-remote-work'
 tags: ['activity', 'jeju', 'remote-work']
 coverImage: 'https://github.com/1ilsang/dev/assets/23524849/733573ae-f90e-4573-a7a2-41940c787da9'
 date: '2023-09-16T03:19:48.222Z'

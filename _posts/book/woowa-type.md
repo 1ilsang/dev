@@ -1,6 +1,7 @@
 ---
 title: '우아한 타입스크립트 with 리액트 리뷰'
 description: '주니어 FE를 위한 온보딩 책'
+url: 'woowa-type-review'
 tags: ['book', 'review', 'typescript', 'react']
 coverImage: 'https://github.com/1ilsang/dev/assets/23524849/3e0ae612-003f-43e9-a6b0-d481697fc280'
 date: '2023-11-24T12:37:42.554Z'

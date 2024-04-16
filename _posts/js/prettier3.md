@@ -1,6 +1,7 @@
 ---
 title: 'Prettier v3 변경사항 살펴보기'
 description: '린트없인 못살아'
+url: 'prettier3'
 tags: ['prettier', 'lint']
 coverImage: 'https://github.com/1ilsang/dev/assets/23524849/10b0b10c-f103-425d-aa86-e9d6deb36772'
 date: '2023-07-06T13:29:01.062Z'

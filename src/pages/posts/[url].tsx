@@ -9,7 +9,11 @@ import MetaHeader from '~/shared/components/MetaHeader';
 import Navbar from '~/shared/components/nav/Navbar';
 import NavProgress from '~/shared/components/nav/Progress';
 import markdownToHtml from '~/shared/helpers/markdown';
-import { getAllPosts, getPostBySlug } from '~/shared/helpers/post';
+import {
+  getAllPosts,
+  getPostBySlug,
+  urlToSlugMap,
+} from '~/shared/helpers/post';
 
 export interface PostsProps {
   post: PostType;
@@ -47,12 +51,18 @@ export default Posts;
 
 interface GetStaticPropsParams {
   params: {
-    slug: string[];
+    url: PostType['url'];
   };
 }
 
-export async function getStaticProps({ params }: GetStaticPropsParams) {
-  const post = getPostBySlug(params.slug.join('/'), [
+export async function getStaticProps({
+  params: { url },
+}: GetStaticPropsParams) {
+  if (!urlToSlugMap[url]) {
+    // NOTE: It will set urlToSlugMap
+    getAllPosts();
+  }
+  const post = getPostBySlug(urlToSlugMap[url], [
     'title',
     'date',
     'slug',
@@ -75,11 +85,11 @@ export async function getStaticProps({ params }: GetStaticPropsParams) {
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts(['slug']);
+  const posts = getAllPosts(['url', 'slug']);
   const paths = posts.map((post) => {
     return {
       params: {
-        slug: post.slug.split('/'),
+        url: post.url ?? post.slug,
       },
     };
   });

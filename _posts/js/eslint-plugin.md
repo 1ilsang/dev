@@ -1,6 +1,7 @@
 ---
 title: 'ESLint 플러그인 배포하기'
 description: 'ESLint 플러그인 배포 방법 알아보기'
+url: 'deploy-eslint-plugin'
 tags: ['eslint', 'plugin', 'ast']
 coverImage: 'https://github.com/1ilsang/dev/assets/23524849/d3c160f4-daef-49e0-ab36-39009eb277bc'
 date: '2023-09-01T06:48:29.956Z'
@@ -116,7 +117,7 @@ module.exports = {
       // 해당 규칙에 어긋날 경우 빨간줄 위에 뜨는 문구를 설정할 수 있다.
       description: 'The function name must not contain numbers.',
       recommended: true,
-      url: 'https://1ilsang.dev/posts/js/eslint-plugin',
+      url: 'https://1ilsang.dev/posts/deploy-eslint-plugin',
     },
     fixable: true, // 자동 수정을 추가할 예정으로 true로 한다.
     schema: [], // 규칙이 여러 옵션을 가지고 있다면 스키마로 분리해 표현할 수 있다.

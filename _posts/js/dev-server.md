@@ -1,6 +1,7 @@
 ---
 title: 'Vite Dev Server 이해하기 (feat. HMR)'
 description: 'Dev 서버의 동작 방식은 어떻게 될까?'
+url: 'vite-dev-server'
 tags: ['vite', 'dev-server', 'hmr', 'preact', 'prefresh']
 coverImage: 'https://github.com/1ilsang/dev/assets/23524849/132b52c7-3c2b-4554-b0fb-8ec5f3193d7a'
 date: '2024-02-04T13:50:51.772Z'

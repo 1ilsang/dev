@@ -1,6 +1,7 @@
 ---
 title: 'Micro State Management with React Hooks 리뷰'
 description: '상태 관리의 종류와 기술들에 대한 이해'
+url: 'micro-state-management-review'
 tags:
   ['book', 'review', 'react', 'hooks', 'context', 'zustand', 'jotai', 'valtio']
 coverImage: 'https://github.com/1ilsang/dev/assets/23524849/3a57dcf8-43b1-4e95-ae8d-2b5194c83122'

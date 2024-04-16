@@ -12,8 +12,8 @@ const TagDetailContainer: FunctionComponent<TagDetailContainerProps> = ({
   return (
     <div className="tag-container">
       {posts.map((item) => (
-        <div className="card" key={item.slug}>
-          <Link href={`/posts/${item.slug}`}>
+        <div className="card" key={item.title}>
+          <Link href={`/posts/${item.url}`}>
             <div className="hashtag">{item.title}</div>
             <div>{item.description}</div>
             <div>{formatDate(new Date(item.date), 'yy.MM.dd')}</div>

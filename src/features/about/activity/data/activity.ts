@@ -24,7 +24,7 @@ const seminar: Activity[] = [
   {
     type: ActivityType.seminar,
     name: '모여봐요 오픈소스의 숲',
-    url: '/posts/activity/geultto8-seminar',
+    url: '/posts/geultto8-open-source-seminar',
     startDate: 1693567800000,
     endDate: 1693567800000,
   },
@@ -72,7 +72,7 @@ const hackathon: Activity[] = [
   {
     type: ActivityType.hackathon,
     name: 'Junction Asia 2023',
-    url: '/posts/activity/junction2023',
+    url: '/posts/junction2023',
     startDate: 1692284400000,
     endDate: 1692457200000,
   },
@@ -117,7 +117,7 @@ const club: Activity[] = [
   {
     type: ActivityType.club,
     name: 'Geultto 5th',
-    url: 'https://www.notion.so/ac5b18a482fb4df497d4e8257ad4d516',
+    url: 'https://geultto.github.io/docs/intro',
     startDate: 1604156400000,
   },
 ];
@@ -126,7 +126,7 @@ const openSource: Activity[] = [
   {
     type: ActivityType.openSource,
     name: 'Mozilla Developer Network(MDN) @mdn/yari-content-ko 팀 합류',
-    url: '/posts/js/mdn-ko-reviewer',
+    url: '/posts/mdn-ko-organizer',
     startDate: 1709113159904,
   },
   {

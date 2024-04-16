@@ -50,14 +50,11 @@ const parseCategory = (category: FileCategory): Category => {
       return 'Book';
     case 'algorithm':
       return 'Algorithm';
-    case 'etc':
-    default:
-      return 'Etc';
   }
 };
 
 export const getPostBySlug = (
-  slug: string,
+  slug: PostType['slug'],
   fields: (keyof PostType)[] = [],
 ) => {
   const realSlug = slug.replace(/\.md$/, '');
@@ -87,10 +84,18 @@ export const getPostBySlug = (
   return items;
 };
 
+export const urlToSlugMap: Record<PostType['url'], PostType['slug']> = {};
+
 export const getAllPosts = (fields: (keyof PostType)[] = []) => {
   const slugs = getPostSlugs();
   const posts = slugs
-    .map((slug) => getPostBySlug(slug, [...fields, 'date']))
+    .map((slug) => {
+      const post = getPostBySlug(slug, [...fields, 'url', 'date']);
+      if (post.url && !urlToSlugMap[post.url]) {
+        urlToSlugMap[post.url] = slug;
+      }
+      return post;
+    })
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
   return posts;
 };

@@ -1,6 +1,7 @@
 ---
 title: 'Array.prototype.sort() 이해하기'
 description: '정열적으로 정렬해 보기'
+url: 'array-prototype-sort'
 tags: ['ECMAScript', 'array', 'sort']
 coverImage: 'https://github.com/1ilsang/dev/assets/23524849/47823496-4644-4e7b-9801-9d54273d200e'
 date: '2024-02-27T20:56:05.629Z'
@@ -99,7 +100,7 @@ Object({ 1: 'a', 2: 'b' }); // {1: 'a', 2: 'b'}
 
 - [ToObject](https://tc39.es/ecma262/#sec-toobject)를 호출하여 현재 배열(`this` 값)을 객체로 변환한다.
   - 위 코드의 첫 번째 예시와 같이 원시 타입 문자열을 문자열 객체로 변환한다.
-  - 암묵적 형변환을 이해하고 싶다면 [이 포스트](/posts/js/implicit-coercion)를 읽어보길 추천한다.
+  - 암묵적 형변환을 이해하고 싶다면 [이 포스트](/posts/implicit-coercion)를 읽어보길 추천한다.
 - 객체로 변환해 처리하므로, 이는 <u>sort 메서드가 배열이 아닌 객체에도 적용될 수 있음을 뜻</u>한다.
 - 설정된 객체를 `obj`라 명한다.
 
@@ -187,7 +188,7 @@ Array.prototype.sort.call(arrayLike); // { 0: 'b', 1: 'c', 123: '1ilsang', '1ils
   - 비교 함수가 없으면 [[4. 정렬 비교를 위한 추상 클로저를 생성한다.]](#4-정렬-비교를-위한-추상-클로저를-생성한다)의 내용에서 각 인자를 [ToString](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-tostring)으로 변환 후 문자열 비교(유니코드 포인트 순서)한다고 했다.
 - sort 함수는 in-place 하고 stable 한가?
   - 공식 문서에 따르면 stable 해야 한다.
-  - [SortIndexedProperties](/posts/js/sort#5-새로운-배열에-프로퍼티를-정렬한다)의 동작을 보면 빈 리스트 items를 생성 후 하나씩 원소를 추가하고 있으므로 <u>in-place 하지 않을 수 있다.</u>
+  - [SortIndexedProperties](/posts/array-prototype-sort#5-새로운-배열에-프로퍼티를-정렬한다)의 동작을 보면 빈 리스트 items를 생성 후 하나씩 원소를 추가하고 있으므로 <u>in-place 하지 않을 수 있다.</u>
 - 유사 배열 객체 또한 sort 함수로 정렬된다. 어떻게 동작하는가?
   - 공식 스펙 자체가 ToObject로 객체화한 후 처리하고 있으므로 객체 비교를 전제로 동작한다.
 
@@ -345,7 +346,7 @@ SpiderMonkey는 합병 정렬을 사용하는데, [합병 정렬의 내부에 �
 
 가볍게 보았음에도 브라우저 코드 형태를 본다거나 ECMAScript를 읽을 수 있게 된 것은 뜻밖의 수확이었다. 가장 큰 수확은 sort뿐만 아니라 다른 명세(map, reduce,...)들에 대한 접근도 두려워하지 않게 되었다는 점이다.
 
-처음엔 막막하던 공식 문서도 차근차근 따라가다 보니 읽어 나갈 수 있었다. JavaScript의 [암묵적 형 변환](/posts/js/implicit-coercion)과 같은 유연함은 오히려 동작을 이해하기 어렵게 하는 요소가 된다. 공식 문서에서 이러한 동작을 간결하게 표현하기 위한 많은 노력들을 볼 수 있었기에 감동 할 수 있었다.
+처음엔 막막하던 공식 문서도 차근차근 따라가다 보니 읽어 나갈 수 있었다. JavaScript의 [암묵적 형 변환](/posts/implicit-coercion)과 같은 유연함은 오히려 동작을 이해하기 어렵게 하는 요소가 된다. 공식 문서에서 이러한 동작을 간결하게 표현하기 위한 많은 노력들을 볼 수 있었기에 감동 할 수 있었다.
 
 메서드 동작을 명확하게 설명하지 못하는 부분이 늘 존재했었기에 아쉬움이 있었는데 이번 기회로 자신감도 얻고 JavaScript 자체에 더 가까워진 느낌이 든다.
 

@@ -1,6 +1,7 @@
 ---
 title: '페이지 이탈시 확인 컨펌창 만들기'
 description: 'usePreventLeave를 알아보자'
+url: 'use-prevent-leave'
 tags: ['usePreventLeave', 'beforeunload', 'popstate', 'popup']
 coverImage: 'https://user-images.githubusercontent.com/23524849/224527867-7128d0f0-04b6-4f6d-93db-4079af82d181.png'
 date: '2023-03-12T06:14:32.600Z'

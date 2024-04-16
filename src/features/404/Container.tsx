@@ -4,10 +4,9 @@ import ExternalLink from '~/shared/components/ExternalLink';
 
 const description = `
 
-     404 ERROR
+      404 ERROR
 
-Do you enjoy surfing?
-
+ Do you enjoy surfing?
 
 `;
 
@@ -27,6 +26,7 @@ const NotFoundContainer: FunctionComponent = () => {
       <pre>
         <code>{description}</code>
         <div className="small">
+          {' '}
           Image Copyright:&nbsp;
           <ExternalLink
             label="Freepik"

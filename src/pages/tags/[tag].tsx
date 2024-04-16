@@ -13,7 +13,7 @@ import { ImageUrl, MetaDescription, MetaTitle } from '~/shared/constants/blog';
 export interface TagsDetailProps {
   posts: Pick<
     PostType,
-    'tags' | 'title' | 'slug' | 'coverImage' | 'description' | 'date'
+    'tags' | 'title' | 'slug' | 'coverImage' | 'description' | 'date' | 'url'
   >[];
 }
 
@@ -57,6 +57,7 @@ export async function getStaticProps({
   const posts = getAllPosts([
     'tags',
     'title',
+    'url',
     'slug',
     'coverImage',
     'description',

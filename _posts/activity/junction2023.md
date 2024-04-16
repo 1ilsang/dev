@@ -1,6 +1,7 @@
 ---
 title: 'Junction Asia 2023 참여 후기'
 description: '부산 벡스코에서 2박 3일간 정션 해커톤에 참여했다'
+url: 'junction2023'
 tags: ['activity', 'hackathon', 'junction2023', 'busan']
 coverImage: 'https://github.com/1ilsang/dev/assets/23524849/4797d67e-2599-42ec-b653-329a40cf81e6'
 date: '2023-08-23T10:58:06.952Z'

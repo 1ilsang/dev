@@ -1,6 +1,7 @@
 ---
 title: 'TypeScript 5.0 살펴보기'
 description: '5버전은 무엇이 달라졌을까?'
+url: 'typescript5'
 tags: ['typescript', 'decorator', 'const', 'extends']
 coverImage: 'https://devblogs.microsoft.com/typescript/wp-content/uploads/sites/11/2023/03/5-0-feature-image-square-bounds-1.png'
 date: '2023-04-09T07:24:41.017Z'

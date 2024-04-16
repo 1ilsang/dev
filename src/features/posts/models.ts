@@ -4,7 +4,6 @@ export type FileCategory =
   | 'activity'
   | 'algorithm'
   | 'book'
-  | 'etc'
   | 'js'
   | 'retrospect'
   | 'rust'
@@ -12,6 +11,7 @@ export type FileCategory =
 export type Category = (typeof CATEGORY_LIST)[number];
 export interface PostType {
   slug: string;
+  url: string;
   title: string;
   date: string;
   category: Category;

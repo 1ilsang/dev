@@ -1,6 +1,7 @@
 ---
 title: '"사라진 개발자들" 리뷰'
 description: '악삭박박과 최초의 개발자들'
+url: 'proving-ground-review'
 tags: ['book', 'review', '사라진개발자들', 'eniac']
 coverImage: 'https://github.com/1ilsang/dev/assets/23524849/7da7662a-9991-467b-b7bc-cfd8819da792'
 date: '2023-09-24T04:24:40.856Z'

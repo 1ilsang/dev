@@ -1,6 +1,7 @@
 ---
 title: 'Storybook 7.0 살펴보기'
 description: '7버전은 무엇이 달라졌을까?'
+url: 'storybook7'
 tags: ['storybook', 'decorator', 'const', 'extends']
 coverImage: 'https://github.com/1ilsang/dev/assets/23524849/c251c31e-1775-4cf9-9131-7cab72cde00e'
 date: '2023-08-13T10:17:57.922Z'

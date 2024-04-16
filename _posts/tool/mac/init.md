@@ -1,6 +1,7 @@
 ---
 title: '웹 개발자를 위한 도구 추천 - 유용한 Mac 앱들'
 description: '생산성을 올려줄 유용한 맥 앱을 알아보자'
+url: 'mac-init-apps'
 tags: ['mac', 'settings']
 coverImage: 'https://github.com/1ilsang/dev/assets/23524849/dbe32093-4f4b-4f4b-aa2c-a2b8574d85a0'
 date: '2023-12-24T03:54:08.256Z'

@@ -1,6 +1,7 @@
 ---
 title: '러스트 시작! - 유데미 Rust Programming를 수강하며'
 description: '가보자고'
+url: 'udemy-rust-programming'
 tags: ['udemy', 'rust']
 coverImage: 'https://github.com/1ilsang/dev/assets/23524849/847f2f42-7697-49ff-852d-cbdd7cd8cf50'
 date: '2024-01-13T07:47:05.243Z'

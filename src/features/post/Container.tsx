@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react';
-import { PostsProps } from 'src/pages/posts/[...slug]';
+import { PostsProps } from 'src/pages/posts/[url]';
 
 import PostBody from './components/PostBody';
 import IssuePost from './components/IssuePost';

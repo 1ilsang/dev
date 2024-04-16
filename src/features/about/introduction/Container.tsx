@@ -12,7 +12,7 @@ const IntroductionContainer: FunctionComponent = () => {
         <p>
           어느덧 5년 차 프런트엔드 개발자가 되었습니다.
           <br />
-          <Link className="highlighter" href={'/posts/book/quality-of-job'}>
+          <Link className="highlighter" href={'/posts/quality-of-job-review'}>
             "일의 격"
           </Link>
           을 읽고 저는 일을 어떻게 대하는 사람인지, 어떠한 동료가 되고 싶은지
