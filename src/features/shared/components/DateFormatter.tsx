@@ -16,7 +16,11 @@ const DateFormatter: FunctionComponent<DateFormatterProps> = memo(
       type === 'iso' ? parseISO(String(date)) : formatDate(date, format);
 
     return (
-      <time className="date-format" dateTime={dateTime}>
+      <time
+        className="date-format"
+        dateTime={dateTime}
+        suppressHydrationWarning
+      >
         {dateTime}
       </time>
     );
