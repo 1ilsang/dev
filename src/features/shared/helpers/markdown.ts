@@ -55,7 +55,10 @@ const markdownToHtml = async (mdText: string) => {
       handlers: rehypeHandlers,
     })
     .use(rehypeSlug)
-    .use(rehypeAutolinkHeadings)
+    .use(rehypeAutolinkHeadings, {
+      headingProperties: { 'data-heading': 'true' },
+      properties: { 'data-heading': 'true' },
+    })
     .use(rehypePrettyCode, {
       theme: 'material-theme-palenight',
       keepBackground: false,

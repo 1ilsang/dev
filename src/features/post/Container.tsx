@@ -7,6 +7,7 @@ import IssuePost from './components/IssuePost';
 import Avatar from '~/shared/components/Avatar';
 import HashTag from '~/shared/components/HashTag';
 import PublishedDate from '~/shared/components/PublishedDate';
+import FloatingIndex from './floatingIndex/Container';
 
 const PostContainer: FunctionComponent<PostsProps> = ({ post }) => {
   return (
@@ -26,7 +27,10 @@ const PostContainer: FunctionComponent<PostsProps> = ({ post }) => {
         ))}
       </div>
       <PublishedDate date={post.date} />
-      <PostBody post={post} />
+      <div className="post-body-container">
+        <PostBody post={post} />
+        <FloatingIndex post={post} />
+      </div>
       <IssuePost title={post.title} />
     </div>
   );

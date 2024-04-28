@@ -6,6 +6,7 @@ body {
   background-color: $background-color;
   -webkit-font-smoothing: antialiased;
   color: $deep-light-color;
+  scroll-behavior: smooth;
 
   @media print {
     print-color-adjust: exact;
