@@ -12,8 +12,9 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './e2e',
 
-  /* For snapshot */
-  snapshotPathTemplate: '{testDir}/__snapshots__/{testFilePath}/{arg}{ext}',
+  /* https://playwright.dev/docs/api/class-testconfig#test-config-snapshot-path-template */
+  snapshotPathTemplate:
+    '{testDir}/__snapshots__/{testFilePath}/{projectName}/{arg}{ext}',
 
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -37,7 +38,7 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
+      name: 'desktop',
       use: { ...devices['Desktop Chrome'] },
     },
     // {
@@ -47,7 +48,7 @@ export default defineConfig({
 
     /* Test against mobile viewports. */
     {
-      name: 'Mobile Chrome',
+      name: 'mobile',
       testIgnore: /dom.spec.ts/,
       use: { ...devices['Pixel 5'] },
     },

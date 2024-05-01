@@ -1,0 +1,207 @@
+<main class="post-layout"><div class="nav-loading"><progress value="11051" max="1"></progress></div><nav class="nav flex-wrap water-rainbow post-nav-trans nav-shadow"><h2 class="tracking-tight focus:text-gray-700 text-2xl font-bold mt-2 mb-2 ml-3.5"><a class="hover-underline" href="/">1ilsang</a></h2><div class="flex"><h2 class="tracking-tight focus:text-gray-700 text-xl mt-2.5 mr-6"><a class="hover-underline" href="/posts">posts</a></h2><h2 class="tracking-tight focus:text-gray-700 text-xl mt-2.5 mr-6"><a class="hover-underline" href="/tags">tags</a></h2><div class="rounded-full mr-2 relative nav-avatar"><a href="/about"><img src="/assets/chul.png" alt="1ilsang"></a></div></div></nav><div class="post-container"><h1 class="post-header">발리 한 달 리모트 워크 후기</h1><div class="post-profile-container"><div class="flex items-center"><div class="rounded-full mr-2 relative avatar-image"><a href="/about"><img src="/assets/chul.png" alt="1ilsang"></a></div><div><a class="avatar-name" href="/about">1ilsang</a><div class="avatar-description">클라이밍 하실래염?</div></div></div></div><div class="flex flex-wrap mt-2 items-end"><a class="hashtag mr-2" target="_self" href="/tags/activity">#<!-- -->activity</a><a class="hashtag mr-2" target="_self" href="/tags/bali">#<!-- -->bali</a><a class="hashtag mr-2" target="_self" href="/tags/remote-work">#<!-- -->remote-work</a></div><div class="date-published"><time class="date-format" datetime="2023-12-30 17:21">2023-12-30 17:21</time> published</div><div class="post-body-container"><div class="markdown"><p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/b9834b4f-a495-43df-ace7-bc8784a6d6f9" alt="cover" class="cover"></div><p></p>
+<h2 id="시작-계기" data-heading="true"><a data-heading="true" href="#시작-계기"><span class="icon icon-link"></span></a>시작 계기</h2>
+<p>작년 <a target="_blank" href="/posts/jeju-remote-work" rel="noreferrer noopener">제주 한 달 리모트 워크 후기</a>가 좋았어서 해외에서 한 달 리모트를 해보자고 결심했다.</p>
+<p>마침 회사에서 해외 리모트를 허용했기 때문에 또 언제 경험해 볼까 싶어 신청하게 되었다.</p>
+<p>다양한 선택지가 있었는데, 나는 발리를 선택하게 되었다.</p>
+<p>사실 <u>그냥 서핑이 하고 싶었다.</u></p>
+<h2 id="알아보기" data-heading="true"><a data-heading="true" href="#알아보기"><span class="icon icon-link"></span></a>알아보기</h2>
+<h3 id="면적" data-heading="true"><a data-heading="true" href="#면적"><span class="icon icon-link"></span></a>면적</h3>
+<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/e2bffe3f-5ed6-4a0c-9703-a2602cd50258" alt="map"></div><p></p>
+<p>발리는 인도네시아에 있는 섬으로, 제주도의 약 3배에 해당한다.</p>
+<p>또한 <a target="_blank" href="https://www.chosun.com/culture-life/culture_general/2023/02/01/VPMDDNIARRGQ3DLNFD7QLDW6HI/" rel="noreferrer noopener">세계 1위의 허니문 여행지</a>이기도 하다.</p>
+<h3 id="시차" data-heading="true"><a data-heading="true" href="#시차"><span class="icon icon-link"></span></a>시차</h3>
+<p>발리는 서울보다 한 시간 느리다. 서울에서 오후 3시라면 발리에서는 오후 2시이다.</p>
+<h3 id="날씨" data-heading="true"><a data-heading="true" href="#날씨"><span class="icon icon-link"></span></a>날씨</h3>
+<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/a0dcf98f-d504-478a-840c-21ede6bca068" alt="강수량"></div><p></p>
+<p>4월에서 10월이 비가 적게 오는 건기로 보고있다. 대부분의 여행자 사이트에서는 6월에서 9월을 여행 일자로 추천하고 있다.</p>
+<p>따라서 나는 <u>2023.07.03 ~ 2023.07.30</u> 7월 한 달간 다녀오기로 했다.</p>
+<p>서울과 비교해 보면 온도 자체는 더 더운 편이었지만 습하지 않아 상당히 쾌적했다.</p>
+<h3 id="종교" data-heading="true"><a data-heading="true" href="#종교"><span class="icon icon-link"></span></a>종교</h3>
+<p>인도네시아 인구의 90%는 이슬람을 믿지만 발리는 90%가 힌두교를 믿는다.</p>
+<p>발리는 신들의 섬이라 불릴 만큼 다양한 사원이 마을 곳곳에 있어 거리 어디에나 <a target="_blank" href="https://brunch.co.kr/@clearncool/137" rel="noreferrer noopener">차낭 사리(Canang Sari)</a>라는 제물을 바친다.</p>
+<p>관광객임을 감안해도 한 달간 종교 문제로 갈등이 있지는 않았다.</p>
+<h3 id="물가" data-heading="true"><a data-heading="true" href="#물가"><span class="icon icon-link"></span></a>물가</h3>
+<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/9af593bd-4754-4743-b39d-0930b4154f19" alt="example"></div><p></p>
+<p>18,000루피아가 한화로 1,500원 정도인데, 이 돈이면 나시고랭 하나를 먹을 수 있다(ㄷㄷ).</p>
+<h3 id="항공편" data-heading="true"><a data-heading="true" href="#항공편"><span class="icon icon-link"></span></a>항공편</h3>
+<p>인천 -&gt; 방콕 -&gt; 발리 -&gt; 코타키나발루 -&gt; 인천으로 총 <code>54만원</code>이었다.</p>
+<h3 id="숙소" data-heading="true"><a data-heading="true" href="#숙소"><span class="icon icon-link"></span></a>숙소</h3>
+<p>짐바란에서 한 달 1층 독채 에어비엔비 <code>60만원</code>에 지냈다.</p>
+<h3 id="전기-및-통신" data-heading="true"><a data-heading="true" href="#전기-및-통신"><span class="icon icon-link"></span></a>전기 및 통신</h3>
+<p>카페뿐만 아니라 관광지의 와이파이는 한국과 비교해도 잘되는 편이다. 다만 전기가 잘나간다(인도네시아는 전력 부족 국가다). 이와 관련된 에피소드는 아래에서 풀겠다.</p>
+<p>LTE가 느리다고 느꼈다. 나는 4G 유심을 샀는데 핫스팟 무지하게 느렸다.</p>
+<h3 id="교통" data-heading="true"><a data-heading="true" href="#교통"><span class="icon icon-link"></span></a>교통</h3>
+<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/03253b0b-736e-4080-94ad-9a8601da7e9a" alt="traffic"></div><p></p>
+<p>발리에서 자동차 렌트는 도심 외곽이 아니면 비추다. 오토바이가 훨씬 빠르고 잘 되어있다.</p>
+<p>고잭/그랩 굿</p>
+<h2 id="한-달간의-여정" data-heading="true"><a data-heading="true" href="#한-달간의-여정"><span class="icon icon-link"></span></a>한 달간의 여정</h2>
+<div class="img-horizon-wrap">
+  <img src="https://github.com/1ilsang/dev/assets/23524849/2b95e94b-68cc-4e3f-bfc1-4b302bd69a67" alt="surf-interior">
+  <img src="https://github.com/1ilsang/dev/assets/23524849/ea7ce0b1-b0a4-4d8e-95a1-f3605bbc1b20" alt="delivery-food">
+  <img src="https://github.com/1ilsang/dev/assets/23524849/3ee99e54-ac9a-47e2-b070-7db38c416f79" alt="bibycle">
+</div>
+<p>도착 당일</p>
+<ul>
+<li>늦은 저녁, 공항에 도착했다.</li>
+<li>공항 입구에서부터 서핑보드가 서 있는데(사진 1) 엄청나게 기대됐다.</li>
+<li>입국 심사가 정말 느리다. 너무 배고팠다.</li>
+<li>그랩 정말 저렴했다. 기사님이 친절하셔서 첫인상이 좋았다.</li>
+<li>숙소에 도착하니 Airbnb 호스트가 마중 나오셨다.</li>
+<li>호스트는 일본인 부부셨는데 진짜 말도 안 되게 친절하셨다. 완전 호감이었다.</li>
+<li>따라서 <u>호감작 하기로 마음먹었다.</u> 이 내용은 이후에 나온다.</li>
+<li>너무 배고파서 숙소 도착하자마자 그랩 푸드로 배달했다(사진 2).</li>
+<li>물고기가 상당히 맛있었다.</li>
+</ul>
+<p>2일 차</p>
+<ul>
+<li>여기는 오토바이가 불법이기 때문에 전기 자전거를 한 달간 타고 다니기로 했다(사진 3).</li>
+<li>이 돈이면 오토바이 타는 게 훨씬 저렴한데 아쉬운 감이 없지 않았다.</li>
+<li>전기 자전거 힘이 엄청 좋다. 최고 속력 40까지 봤다(oh...).</li>
+<li>ATM에서 백만 루피아씩밖에 안 뽑혀서 킹받았다.</li>
+<li>배달이 싸다. 생선요리가 그나마 비싼 축인 데 저렴하고 맛있음.</li>
+<li>길에 개가 풀려있다. 처음에 당황.</li>
+<li>숙소는 <u>전기를 충전해서 사용해야 한다.</u> 에어컨에 맥북 풀세팅하니 하루에 8씩 나가는 듯하다.</li>
+</ul>
+<p>1주일 차</p>
+<ul>
+<li>나는 관광지보다는 로컬이 많은 곳에 있었다(짐바란).</li>
+<li>그래서인지? <u>사람들이 다들 친절했다. 많이 웃는다.</u></li>
+<li>도마뱀이 엄청 많다.</li>
+<li>비가 생각보다 많이 왔다(이때가 우기의 끝자락이었다. 2주 차부터는 한 방울도 안 왔다).</li>
+<li><u>회사 일하기 바빴다.</u> 아쉬운 부분. 로컬 지역이다 보니 저녁에는 할 게 없었다.</li>
+<li>길의 고저가 크다. 낭떠러지 같은데 도로인 곳이 꽤 있다.</li>
+<li>자전거 타이어 터져서 언덕 밀고 왔는데 진짜 레전드.</li>
+</ul>
+<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/90aa4718-e9f7-463d-bc4c-28b0d0c5cc23" alt="busy"></div><p></p>
+<blockquote>
+<p>내 거친 코드와 그걸 지켜보는 불안한 눈빛</p>
+</blockquote>
+<div class="img-horizon-wrap">
+  <img src="https://github.com/1ilsang/dev/assets/23524849/f178e386-13d6-4b4c-85e8-1d87fa004974" alt="bird">
+  <img src="https://github.com/1ilsang/dev/assets/23524849/609142eb-7080-4778-8112-7e7eaae8e288" alt="lizard">
+  <img src="https://github.com/1ilsang/dev/assets/23524849/b0e09e11-5835-424b-aa5c-79bce21cbfba" alt="monkey">
+  <img src="https://github.com/1ilsang/dev/assets/23524849/9bc7b80a-cced-48d6-bc6b-0a6baa07cd86" alt="kecak-fire-dance">
+  <img src="https://github.com/1ilsang/dev/assets/23524849/1f1da4e2-3d3e-4b88-a592-0223fa2a7237" alt="surf">
+  <img src="https://github.com/1ilsang/dev/assets/23524849/bfe812e5-c122-41d6-bbc4-281a1833d9fe" alt="walk">
+  <img src="https://github.com/1ilsang/dev/assets/23524849/3b95d38e-b741-4e1e-9e96-cf4b21510ef8" alt="turtle">
+  <img src="https://github.com/1ilsang/dev/assets/23524849/88af44d6-82ba-42d3-837e-ef54fa58e392" alt="medicine">
+  <img src="https://github.com/1ilsang/dev/assets/23524849/23815020-c325-4100-a49d-27d46c4f4a04" alt="climbing">
+</div>
+<p>10일 차</p>
+<ul>
+<li>자전거 타다가 황천길 갈뻔했다. 낙엽 밟고 미끄러졌는데 바로 옆에서 차가 지나다녔다.</li>
+<li><a target="_blank" href="https://maps.app.goo.gl/ugQ2tnBDRyESwMuR7" rel="noreferrer noopener">울루와투 사원</a> 갔는데 <a target="_blank" href="https://www.kkday.com/ko/product/129108-uluwatu-kecak-fire-dance-ticket-bali-indonesia" rel="noreferrer noopener">케착 파이어 댄스</a>(사진 3) 볼만했다.</li>
+<li>줄 서는데 <u>누가 순수한 선의로 사진 찍고 오라고 줄을 대신 기다려줬다.</u> 인류애는 있었다..!</li>
+<li>원숭이가 아무렇지 않게 물건을 훔쳐 간다.</li>
+<li>저녁을 실외에서 먹는 건 비추다. 벌레가 많다.</li>
+<li>카페에 코딩하는 외국인이 꽤 있다. 말 걸고 싶은데 오지랖인 것 같아 극한으로 참았다.</li>
+</ul>
+<p>2주 차</p>
+<ul>
+<li>갑자기 자주 전기가 끊어졌다. 회의가 많았는데 정말 곤란했다.</li>
+<li>믿었던 LTE 유심마저 잘 안 터졌다. 진짜 곤란했다. <u>숙소에 발전기 있는지 꼭 확인하자.</u></li>
+<li>모든 음료에 종이 빨대가 기본인데 너무 빨리 흐물해져서 열받는다.</li>
+<li>현지에 조금 익숙해져서 <u>바로 호감작 시작했다.</u></li>
+<li>호스트 일본인 부부랑 저녁을 먹었다. 두 분은 발리에서 만났다고 하셨는데 전체 스토리가 로맨틱 그 자체였다. 즐거운 자리여서 또 저녁 먹기로 했다.</li>
+<li>집 앞 카페 알바생과 꽤 친해졌다. 블랙핑크 후광 엄청났다.</li>
+<li><u>서핑을 시작했다</u>(사진 4). 물 많이 먹긴 했는데 클라이밍 다음으로 재밌다고 느낀 스포츠였다. 바로 다음 스케줄 잡음.</li>
+</ul>
+<p>3주 차</p>
+<ul>
+<li>동네에서 걷기대회?를 주최했다(사진 5). 참여했는데 골목골목마다 사원이 참 많다고 느꼈다.</li>
+<li><a target="_blank" href="https://maps.app.goo.gl/mW6SAG3UJJqtunj26" rel="noreferrer noopener">거북이 방생하는 캠페인</a>(사진 6)에 참여했다. 인류애 +1 했다.</li>
+<li>배가 너무 아파서 정신 잃을뻔했다. <a target="_blank" href="https://news.nate.com/view/20231116n29387" rel="noreferrer noopener">발리벨리</a>에 걸린 것 같았다. GOAT 약(사진 7) 덕분에 겨우 버텼다.</li>
+<li>발리에서도 클라이밍은 하고 싶었기 때문에 굳이 돈내고 관광지까지 올라가서 탔다(사진 8).</li>
+<li>길을 걷는데 어떤 외국인이랑 우연히 잡담하게 됐다.</li>
+<li>한국 돈을 보여달라고 했는데 현금이 없어서(의심도 됐고) 못 보여줬는데 자신이 사우디에서 왔고 부자라고 어필했다.</li>
+<li>??? 뭐지 하는 데 맥도날드 어디냐고 물어보더라. 희한한 친구였다.</li>
+</ul>
+<h2 id="벌써-마지막-주" data-heading="true"><a data-heading="true" href="#벌써-마지막-주"><span class="icon icon-link"></span></a>벌써 마지막 주</h2>
+<div class="img-horizon-wrap">
+  <img src="https://github.com/1ilsang/dev/assets/23524849/a45e3b40-e592-415c-9062-2eb46b091a8e" alt="canang-sari">
+  <img src="https://github.com/1ilsang/dev/assets/23524849/2115128a-f41b-4a32-a871-a048098385b6" alt="la-brisa">
+  <img src="https://github.com/1ilsang/dev/assets/23524849/36b6bc33-07f4-4cce-ae04-c86db237be5b" alt="la-brisa-pad">
+  <img src="https://github.com/1ilsang/dev/assets/23524849/bf3e0478-e3b2-4525-ba0f-abf456016662" alt="motocycle">
+  <img src="https://github.com/1ilsang/dev/assets/23524849/517617d4-e2e6-47b8-b1c5-2106dc876ad3" alt="jungle-water">
+  <img src="https://github.com/1ilsang/dev/assets/23524849/500313af-ae00-4037-a233-bdd517d7fb28" alt="scuba-diving">
+  <img src="https://github.com/1ilsang/dev/assets/23524849/ce4b0910-7fc3-479d-bfe2-15c5b51380cc" alt="merry-go-round">
+  <img src="https://github.com/1ilsang/dev/assets/23524849/6ba44662-6493-4a08-a071-3354ce18bc93" alt="cliff">
+  <img src="https://github.com/1ilsang/dev/assets/23524849/ead2084c-67b9-40e9-bbdc-41c1ebe32088" alt="duck">
+  <img src="https://github.com/1ilsang/dev/assets/23524849/395dafa6-593d-4be8-be31-b32d875d4678" alt="shop">
+</div>
+<blockquote>
+<p>마지막 한 주를 무사히 보내길 염원하며 나도 차낭사리를 켰다.</p>
+</blockquote>
+<p>일만 하다 돌아가기는 아쉬워서 마지막 주에는 휴가를 냈다. 서핑도 하고 스쿠버다이빙에 클라이밍도 하러 가고 요가도 했다.</p>
+<p>클라이밍은 가족 단위가 많았는데 꼬맹이들 정신없이 올라가더라...</p>
+<p>요가가 좀 힙했다. 향 피우고 몽환적인 노래에 축 늘어져 있는데 감성적이었다.</p>
+<p>워케이션으로 지내던 발리와는 느낌이 너무 달랐다. <u>휴양지의 발리는 생각보다 비싸고 화려했다.</u></p>
+<p>공항에 가기전 친해진 카페 알바나 일본인 호스트랑 이런저런 이야기를 많이 했는데 타지에서 이어진 인연이 신기하고 아쉬웠다.</p>
+<p>내가 언제 다시 발리를 올지는 모르겠지만 그들이 한국에 온다면 극진히 대접하고 싶다.</p>
+<div class="img-horizon-wrap">
+  <img src="https://github.com/1ilsang/dev/assets/23524849/e5b351d5-fa12-4306-84ce-4b249e828b16" alt="stake">
+  <img src="https://github.com/1ilsang/dev/assets/23524849/19ef9926-4e1a-43ad-8dd9-147e8abea2dd" alt="banana-soup">
+  <img src="https://github.com/1ilsang/dev/assets/23524849/14db1dec-d55e-4e79-b709-9f1da8108c77" alt="russian">
+  <img src="https://github.com/1ilsang/dev/assets/23524849/f79efa5f-4cd9-45e2-a63f-5f833571f925" alt="fan-cake">
+  <img src="https://github.com/1ilsang/dev/assets/23524849/dd5070b2-f489-41e5-a352-510224a69e0c" alt="fish">
+  <img src="https://github.com/1ilsang/dev/assets/23524849/d1315647-ba69-4cc0-b0a6-8da0cc9a338e" alt="scrumble">
+  <img src="https://github.com/1ilsang/dev/assets/23524849/ead2084c-67b9-40e9-bbdc-41c1ebe32088" alt="duck">
+</div>
+<p>음식 이야기가 없으면 안된다고해서;; 음식 사진을 끝으로 마무리 하겠다.</p>
+<h2 id="마무리" data-heading="true"><a data-heading="true" href="#마무리"><span class="icon icon-link"></span></a>마무리</h2>
+<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/ffdaffea-4632-4270-a7ed-77bc2882b3a6" alt="good-bye-airport" class="l"></div><p></p>
+<p>한 달간 해외 리모트 워크를 하면서 "영어"와 "기술"에 대한 갈망이 커졌다.</p>
+<ul>
+<li>워케이션온 다른 사람들과 가볍게 대화하다 보면 의외의 기회를 잡을 수 있다.</li>
+<li>영어와 기술을 조금 더 준비한다면 <u>내 무대의 제한이 없겠구나 확신했다.</u></li>
+<li>모든 순간에서 언어가 아쉬웠다. 내 생각을 더 잘 전달하고 싶었다.</li>
+<li>기술을 더 연마해야겠다고 생각했다. 더 빠르게 작업하고 여가를 즐긴 순 없을까?</li>
+<li>기술을 더욱 연마해야겠다고 생각했다. 작은 기술이라도 있었으니 이런 기회가 있지 않았을까?</li>
+<li>기술을 더더욱 연마해야겠다고 생각했다. 팀원들에게 임팩트 있는 사람이 되고 싶다.</li>
+</ul>
+<p>나는 무던한 사람인 듯하다.</p>
+<ul>
+<li>문화 충돌에 큰 거부감이 없었다. 다른 문화에 대한 흥미가 더 컸다.</li>
+<li>다행히도 김치가 그립진 않았다. 현지 음식에 그대로 적응했다.</li>
+<li>타인과 말하는 게 즐거웠다. 상대방에 대한 호기심이 많았다.</li>
+</ul>
+<p>내년에는 어디에서 또 어떤 인연을 만날까 두근두근하다.</p>
+<p>즐거운 한 달이었다.</p>
+<h2 id="추천하는-장소" data-heading="true"><a data-heading="true" href="#추천하는-장소"><span class="icon icon-link"></span></a>추천하는 장소</h2>
+<p>짐바란</p>
+<ul>
+<li><a target="_blank" href="https://maps.app.goo.gl/UNX3z29YeU1sFoD48" rel="noreferrer noopener">HoCiak Restoran (청경채, 마라두부 +1)</a></li>
+<li><a target="_blank" href="https://maps.app.goo.gl/mY6me9gwRRJ8nHdt8" rel="noreferrer noopener">JinjeRoot Coffee</a></li>
+<li><a target="_blank" href="https://maps.app.goo.gl/isJd2xyHrgSPEZBA9" rel="noreferrer noopener">Snowcat Bali (Russian Food)</a></li>
+<li><a target="_blank" href="https://maps.app.goo.gl/FPcwQkvbY9PPW9Q37" rel="noreferrer noopener">Noka gril &amp; steak</a></li>
+<li><a target="_blank" href="https://maps.app.goo.gl/nc3ZfTvj41scEW6K6" rel="noreferrer noopener">BGS Surf Shop &amp; Coffee Bar</a></li>
+<li><a target="_blank" href="https://maps.app.goo.gl/1xqWHas8FKaVU1Aw6" rel="noreferrer noopener">Sandara Gelato</a></li>
+<li><a target="_blank" href="https://maps.app.goo.gl/kQ2CZvaWxwJcmSm6A" rel="noreferrer noopener">Tori Boy (이자카야)</a></li>
+<li><a target="_blank" href="https://maps.app.goo.gl/eKbeU4AcR77Y8LcN8" rel="noreferrer noopener">Mr. Wok Waroeng Chinese</a>
+<ul>
+<li>여기 사장님이 중국계 분이신데 부산 자주 가신듯 하다. 엄청 재밌고 친절하시다.</li>
+</ul>
+</li>
+<li><a target="_blank" href="https://maps.app.goo.gl/8p1Anj22F5Vi4MQu8" rel="noreferrer noopener">ANDE Cafe &amp; More</a></li>
+<li><a target="_blank" href="https://maps.app.goo.gl/5Pu5nFhmLn9TkjgHA" rel="noreferrer noopener">Padang Padang Beach</a></li>
+<li><a target="_blank" href="https://maps.app.goo.gl/C5UciebnrBQaE11s7" rel="noreferrer noopener">Uluwatu Temple</a></li>
+<li><a target="_blank" href="https://maps.app.goo.gl/gmmiPtc6XpXLHCYx7" rel="noreferrer noopener">Pantai Batu Barak</a></li>
+</ul>
+<p>꾸따</p>
+<ul>
+<li><a target="_blank" href="https://maps.app.goo.gl/6LdzPfsHSBXsD5CR9" rel="noreferrer noopener">La Brisa Bali</a></li>
+<li><a target="_blank" href="https://maps.app.goo.gl/FwDBjxW5c6ujkGpGA" rel="noreferrer noopener">서핑 입문지는 역시 꾸따비치</a></li>
+<li><a target="_blank" href="https://maps.app.goo.gl/TqQoMfRkVRfaeuGE7" rel="noreferrer noopener">Sea Turtle Society</a></li>
+<li><a target="_blank" href="https://maps.app.goo.gl/pHV3kvv53A6FvT356" rel="noreferrer noopener">Discovery Mall</a></li>
+</ul>
+<p>우붓</p>
+<ul>
+<li><a target="_blank" href="https://maps.app.goo.gl/ZfMM1JXeexPu8b8q8" rel="noreferrer noopener">Cretya Ubud</a></li>
+<li><a target="_blank" href="https://maps.app.goo.gl/71vMNVGMTwn6oobg7" rel="noreferrer noopener">BALI TEAKY 3</a></li>
+<li><a target="_blank" href="https://maps.app.goo.gl/vtisJiQYeuCHcq3D8" rel="noreferrer noopener">Laughing Buddha Bar</a></li>
+<li><a target="_blank" href="https://maps.app.goo.gl/4SS8od43WKkpcHudA" rel="noreferrer noopener">Starbucks Ubud</a></li>
+</ul>
+<p>ETC</p>
+<ul>
+<li><a target="_blank" href="https://maps.app.goo.gl/nKpy2WibQLfbKvgU8" rel="noreferrer noopener">USAT Liberty Shipwreck</a></li>
+</ul></div><aside class="floating-container"><ul class="list"><li data-id="시작-계기" class="item">시작 계기</li><li data-id="알아보기" class="item">알아보기</li><li><ul class="depth-ul"><li data-id="면적" class="item depth">면적</li><li data-id="시차" class="item depth">시차</li><li data-id="날씨" class="item depth">날씨</li><li data-id="종교" class="item depth">종교</li><li data-id="물가" class="item depth">물가</li><li data-id="항공편" class="item depth">항공편</li><li data-id="숙소" class="item depth">숙소</li><li data-id="전기-및-통신" class="item depth">전기 및 통신</li><li data-id="교통" class="item depth">교통</li></ul></li><li data-id="한-달간의-여정" class="item">한 달간의 여정</li><li data-id="벌써-마지막-주" class="item">벌써 마지막 주</li><li data-id="마무리" class="item">마무리</li><li data-id="추천하는-장소" class="item">추천하는 장소</li></ul></aside></div><a class="highlighter issue-post" href="https://github.com/1ilsang/dev/issues/new?labels=\uD83E\uDDCA comment&amp;assignees=1ilsang&amp;title=[🧊] %EB%B0%9C%EB%A6%AC%20%ED%95%9C%20%EB%8B%AC%20%EB%A6%AC%EB%AA%A8%ED%8A%B8%20%EC%9B%8C%ED%81%AC%20%ED%9B%84%EA%B8%B0&amp;body=<!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 -->" rel="noopener noreferrer" target="_blank">📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍</a></div><footer class="footer"><ul><li><a href="/about">1ilsang</a></li><li><a rel="noopener noreferrer" target="_blank" href="https://github.com/1ilsang">GitHub</a></li><li><a href="https://www.linkedin.com/in/sang-chul-lee-91a32b154/" rel="noopener noreferrer" target="_blank">LinkedIn</a></li></ul></footer></main>
