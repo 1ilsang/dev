@@ -6,7 +6,7 @@ import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import remarkGfm from 'remark-gfm';
 import rehypePrettyCode from 'rehype-pretty-code';
-import { Handlers } from 'remark-html/lib';
+import { type Handlers } from 'remark-html/lib';
 
 // https://github.com/syntax-tree/mdast-util-to-hast?tab=readme-ov-file#example-supporting-custom-nodes
 const rehypeHandlers: Handlers = {

@@ -1,0 +1,105 @@
+<main class="post-layout"><div class="nav-loading"><progress value="4168" max="1"></progress></div><nav class="nav flex-wrap water-rainbow post-nav-trans nav-shadow"><h2 class="tracking-tight focus:text-gray-700 text-2xl font-bold mt-2 mb-2 ml-3.5"><a class="hover-underline" href="/">1ilsang</a></h2><div class="flex"><h2 class="tracking-tight focus:text-gray-700 text-xl mt-2.5 mr-6"><a class="hover-underline" href="/posts">posts</a></h2><h2 class="tracking-tight focus:text-gray-700 text-xl mt-2.5 mr-6"><a class="hover-underline" href="/tags">tags</a></h2><div class="rounded-full mr-2 relative nav-avatar"><a href="/about"><img src="/assets/chul.png" alt="1ilsang"></a></div></div></nav><div class="post-container"><h1 class="post-header">[LeetCode] 238. Product of Array Except Self</h1><div class="post-profile-container"><div class="flex items-center"><div class="rounded-full mr-2 relative avatar-image"><a href="/about"><img src="/assets/chul.png" alt="1ilsang"></a></div><div><a class="avatar-name" href="/about">1ilsang</a><div class="avatar-description">클라이밍 하실래염?</div></div></div></div><div class="flex flex-wrap mt-2 items-end"><a class="hashtag mr-2" target="_self" href="/tags/algorithm">#<!-- -->algorithm</a><a class="hashtag mr-2" target="_self" href="/tags/leetcode">#<!-- -->leetcode</a><a class="hashtag mr-2" target="_self" href="/tags/medium">#<!-- -->medium</a><a class="hashtag mr-2" target="_self" href="/tags/product">#<!-- -->product</a></div><div class="date-published"><time class="date-format" datetime="2023-08-13 22:31">2023-08-13 22:31</time> published</div><div class="post-body-container"><div class="markdown"><p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/29e0b7b7-8be2-4ad6-8289-d94681c21c1c" alt="cover" class="cover"></div><p></p>
+<blockquote>
+<p><a target="_blank" href="https://leetcode.com/problems/product-of-array-except-self/" rel="noreferrer noopener">문제 링크</a></p>
+</blockquote>
+<p><code>nums</code> 배열 원소의 모두 곱한 값에서 해당 원소를 나눈 값을 출력하는 문제이다. 문제에서는 나눗셈하면 안 된다고 명시하고 있으므로 나눗셈하지 않고 풀어야 하는 게 포인트이다.</p>
+<ol>
+<li>나눗셈을 하지 않아야 함.</li>
+<li>T=O(n), S=O(1)으로 풀어본다.</li>
+</ol>
+<p>따라서 위의 두 가지를 목표로 이 문제를 해결해 보려고 한다.</p>
+<h2 id="ideation" data-heading="true"><a data-heading="true" href="#ideation"><span class="icon icon-link"></span></a>Ideation</h2>
+<p><code>nums = [1, 2, 3, 4]</code>의 경우를 살펴보자.</p>
+<p>기대하는 정답은 <code>[24, 12, 8, 6]</code>이다. 해당 배열이 나오기 위해서는 전체 값의 곱(<code>1*2*3*4 = 24</code>)에 각자의 원소를 나누면 된다.</p>
+<p>전체 곱에서 <strong>자신을 나누어 나오는 값</strong>은 자신을 제외한 모든 값의 곱과 동일하다.</p>
+<blockquote>
+<p>e.g. 원소 3을 기준으로 한다면 <code>1*2*3*4 / 3</code> === <code>1*2*4</code>이다.</p>
+</blockquote>
+<p>따라서 우리는 <strong>자신을 제외한 곱들의 왼쪽과 오른쪽을 곱해주면 정답이 된다</strong>는 것을 알 수 있다.</p>
+<blockquote>
+<p>e.g. 원소 3을 기준으로 3의 좌/우의 곱은 <code>1*2</code> * <code>4</code> = <code>8</code>이다.</p>
+</blockquote>
+<p>그러므로 왼쪽의 곱들과 오른쪽의 곱들을 기억해 두고 각 원소별 값을 출력해 주면 해결할 수 있다.</p>
+<p>해당 원소까지의 왼쪽, 오른쪽 곱셈 값은 누적 배열을 활용하면 된다.</p>
+<blockquote>
+<p>e.g. 원소 n 기준 왼쪽 <code>[n-2, n-2 * n-1]</code> * <code>[n+1, n+1 * n+2]</code> 오른쪽</p>
+</blockquote>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="js" data-theme="material-theme-palenight"><code data-language="js" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> nums </span><span style="color:#89DDFF">=</span><span style="color:#BABED8"> [</span><span style="color:#F78C6C">1</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 2</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 3</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 4</span><span style="color:#BABED8">]</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#676E95;font-style:italic">// @NOTE: 요소의 왼쪽까지의 곱을 기준으로 하기 때문에 첫 번째는 1으로하고 마지막 원소까지 곱할 필요는 없다.</span></span>
+<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> leftArr </span><span style="color:#89DDFF">=</span><span style="color:#BABED8"> [</span></span>
+<span data-line=""><span style="color:#F78C6C">  1</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#F78C6C">  1</span><span style="color:#89DDFF"> *</span><span style="color:#BABED8"> nums[</span><span style="color:#F78C6C">0</span><span style="color:#BABED8">]</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#F78C6C">  1</span><span style="color:#89DDFF"> *</span><span style="color:#BABED8"> nums[</span><span style="color:#F78C6C">0</span><span style="color:#BABED8">] </span><span style="color:#89DDFF">*</span><span style="color:#BABED8"> nums[</span><span style="color:#F78C6C">1</span><span style="color:#BABED8">]</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#F78C6C">  1</span><span style="color:#89DDFF"> *</span><span style="color:#BABED8"> nums[</span><span style="color:#F78C6C">0</span><span style="color:#BABED8">] </span><span style="color:#89DDFF">*</span><span style="color:#BABED8"> nums[</span><span style="color:#F78C6C">1</span><span style="color:#BABED8">] </span><span style="color:#89DDFF">*</span><span style="color:#BABED8"> nums[</span><span style="color:#F78C6C">2</span><span style="color:#BABED8">]</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#BABED8">]</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // [1, 1, 2, 6];</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#676E95;font-style:italic">// @NOTE: 요소의 오른쪽까지의 곱을 기준으로 하기 때문에 직관적으로 역순으로 한다.</span></span>
+<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> rightArr </span><span style="color:#89DDFF">=</span><span style="color:#BABED8"> [</span></span>
+<span data-line=""><span style="color:#F78C6C">  1</span><span style="color:#89DDFF"> *</span><span style="color:#BABED8"> nums[</span><span style="color:#F78C6C">2</span><span style="color:#BABED8">] </span><span style="color:#89DDFF">*</span><span style="color:#BABED8"> nums[</span><span style="color:#F78C6C">1</span><span style="color:#BABED8">] </span><span style="color:#89DDFF">*</span><span style="color:#BABED8"> nums[</span><span style="color:#F78C6C">0</span><span style="color:#BABED8">]</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#F78C6C">  1</span><span style="color:#89DDFF"> *</span><span style="color:#BABED8"> nums[</span><span style="color:#F78C6C">2</span><span style="color:#BABED8">] </span><span style="color:#89DDFF">*</span><span style="color:#BABED8"> nums[</span><span style="color:#F78C6C">1</span><span style="color:#BABED8">]</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#F78C6C">  1</span><span style="color:#89DDFF"> *</span><span style="color:#BABED8"> nums[</span><span style="color:#F78C6C">2</span><span style="color:#BABED8">]</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#F78C6C">  1</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#BABED8">]</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // [24, 12, 4, 1];</span></span></code></pre></figure>
+<h2 id="implementationton-son" data-heading="true"><a data-heading="true" href="#implementationton-son"><span class="icon icon-link"></span></a>Implementation(T=O(n), S=O(n))</h2>
+<p>위의 정리를 토대로 구현을 해보자.</p>
+<ol>
+<li>n 번째 원소의 왼쪽 곱의 값들을 저장한다.</li>
+<li>n 번째 원소의 오른쪽 곱의 값들을 저장한다.</li>
+<li>전체 원소를 순회하며 n 번째 원소의 좌우 값의 곱을 저장한다.</li>
+<li>리턴한다.</li>
+</ol>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="js" data-theme="material-theme-palenight"><code data-language="js" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#676E95;font-style:italic">// Left Arr</span></span>
+<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> l </span><span style="color:#89DDFF">=</span><span style="color:#BABED8"> nums</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">reduce</span><span style="color:#BABED8">(</span></span>
+<span data-line=""><span style="color:#89DDFF">  (</span><span style="color:#BABED8;font-style:italic">acc</span><span style="color:#89DDFF">,</span><span style="color:#BABED8;font-style:italic"> cur</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#C792EA">    const</span><span style="color:#BABED8"> last</span><span style="color:#89DDFF"> =</span><span style="color:#BABED8"> acc</span><span style="color:#F07178">[</span><span style="color:#BABED8">acc</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">length</span><span style="color:#89DDFF"> -</span><span style="color:#F78C6C"> 1</span><span style="color:#F07178">]</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // 누적값</span></span>
+<span data-line=""><span style="color:#BABED8">    acc</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">push</span><span style="color:#F07178">(</span><span style="color:#BABED8">cur</span><span style="color:#89DDFF"> *</span><span style="color:#BABED8"> last</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // 이전의 누적값 * 현재 원소를 통해 누적값을 채운다.</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">    return</span><span style="color:#BABED8"> acc</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#89DDFF">  },</span></span>
+<span data-line=""><span style="color:#BABED8">  [</span><span style="color:#F78C6C">1</span><span style="color:#BABED8">]</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#BABED8">l</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">pop</span><span style="color:#BABED8">()</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // 마지막 원소는 필요 없으므로 빼준다.</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#676E95;font-style:italic">// Right Arr</span></span>
+<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> r </span><span style="color:#89DDFF">=</span><span style="color:#BABED8"> nums</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">reduce</span><span style="color:#BABED8">(</span></span>
+<span data-line=""><span style="color:#89DDFF">  (</span><span style="color:#BABED8;font-style:italic">acc</span><span style="color:#89DDFF">,</span><span style="color:#BABED8;font-style:italic"> _</span><span style="color:#89DDFF">,</span><span style="color:#BABED8;font-style:italic"> index</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#C792EA">    const</span><span style="color:#BABED8"> last</span><span style="color:#89DDFF"> =</span><span style="color:#BABED8"> acc</span><span style="color:#F07178">[</span><span style="color:#F78C6C">0</span><span style="color:#F07178">]</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#C792EA">    const</span><span style="color:#BABED8"> cur</span><span style="color:#89DDFF"> =</span><span style="color:#BABED8"> nums</span><span style="color:#F07178">[</span><span style="color:#BABED8">nums</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">length</span><span style="color:#89DDFF"> -</span><span style="color:#BABED8"> index</span><span style="color:#89DDFF"> -</span><span style="color:#F78C6C"> 1</span><span style="color:#F07178">]</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#BABED8">    acc</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">unshift</span><span style="color:#F07178">(</span><span style="color:#BABED8">cur</span><span style="color:#89DDFF"> *</span><span style="color:#BABED8"> last</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">    return</span><span style="color:#BABED8"> acc</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#89DDFF">  },</span></span>
+<span data-line=""><span style="color:#BABED8">  [</span><span style="color:#F78C6C">1</span><span style="color:#BABED8">]</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#BABED8">r</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">shift</span><span style="color:#BABED8">()</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#676E95;font-style:italic">// Left * Right Arr</span></span>
+<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> answers </span><span style="color:#89DDFF">=</span><span style="color:#BABED8"> nums</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">map</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">(</span><span style="color:#BABED8;font-style:italic">_</span><span style="color:#89DDFF">,</span><span style="color:#BABED8;font-style:italic"> index</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#BABED8"> l[index] </span><span style="color:#89DDFF">*</span><span style="color:#BABED8"> r[index])</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">return</span><span style="color:#BABED8"> answers</span><span style="color:#89DDFF">;</span></span></code></pre></figure>
+<p>위의 구현으로 문제를 해결할 수 있지만 공간 복잡도가 <code>O(n)</code>이기 때문에 더 최적화가 가능하다.</p>
+<h2 id="implementationton-so1" data-heading="true"><a data-heading="true" href="#implementationton-so1"><span class="icon icon-link"></span></a>Implementation(T=O(n), S=O(1))</h2>
+<p><strong>좌우 배열은 결국 마지막에 곱하기 위해서만 존재</strong>한다.</p>
+<p>따라서 굳이 저장하지 않고 바로바로 곱해나가면 공간복잡도를 <code>O(1)</code>으로 줄일 수 있다.</p>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="js" data-theme="material-theme-palenight"><code data-language="js" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> answers </span><span style="color:#89DDFF">=</span><span style="color:#BABED8"> []</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#C792EA">let</span><span style="color:#BABED8"> last </span><span style="color:#89DDFF">=</span><span style="color:#F78C6C"> 1</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">// @NOTE: Step1. Answers 배열에 미리 왼쪽 곱 배열을 세팅</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">for</span><span style="color:#BABED8"> (</span><span style="color:#C792EA">let</span><span style="color:#BABED8"> i </span><span style="color:#89DDFF">=</span><span style="color:#F78C6C"> 0</span><span style="color:#89DDFF">;</span><span style="color:#BABED8"> i </span><span style="color:#89DDFF">&lt;</span><span style="color:#BABED8"> nums</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">length</span><span style="color:#89DDFF">;</span><span style="color:#BABED8"> i</span><span style="color:#89DDFF">++</span><span style="color:#BABED8">) </span><span style="color:#89DDFF">{</span></span>
+<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> cur</span><span style="color:#89DDFF"> =</span><span style="color:#BABED8"> nums</span><span style="color:#F07178">[</span><span style="color:#BABED8">i</span><span style="color:#F07178">]</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#BABED8">  answers</span><span style="color:#F07178">[</span><span style="color:#BABED8">i</span><span style="color:#F07178">] </span><span style="color:#89DDFF">=</span><span style="color:#BABED8"> last</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#BABED8">  last</span><span style="color:#89DDFF"> *=</span><span style="color:#BABED8"> cur</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // 누적값 갱신</span></span>
+<span data-line=""><span style="color:#89DDFF">}</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#BABED8">last </span><span style="color:#89DDFF">=</span><span style="color:#F78C6C"> 1</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">// @NOTE: Step2. Answers가 이미 좌측 곱 배열이므로 우측 값을 그대로 곱해주면 정답이 된다.</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">for</span><span style="color:#BABED8"> (</span><span style="color:#C792EA">let</span><span style="color:#BABED8"> i </span><span style="color:#89DDFF">=</span><span style="color:#BABED8"> nums</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">length </span><span style="color:#89DDFF">-</span><span style="color:#F78C6C"> 1</span><span style="color:#89DDFF">;</span><span style="color:#BABED8"> i </span><span style="color:#89DDFF">&gt;=</span><span style="color:#F78C6C"> 0</span><span style="color:#89DDFF">;</span><span style="color:#BABED8"> i</span><span style="color:#89DDFF">--</span><span style="color:#BABED8">) </span><span style="color:#89DDFF">{</span></span>
+<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> cur</span><span style="color:#89DDFF"> =</span><span style="color:#BABED8"> nums</span><span style="color:#F07178">[</span><span style="color:#BABED8">i</span><span style="color:#F07178">]</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#BABED8">  answers</span><span style="color:#F07178">[</span><span style="color:#BABED8">i</span><span style="color:#F07178">] </span><span style="color:#89DDFF">*=</span><span style="color:#BABED8"> last</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#BABED8">  last</span><span style="color:#89DDFF"> *=</span><span style="color:#BABED8"> cur</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#89DDFF">}</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">return</span><span style="color:#BABED8"> answers</span><span style="color:#89DDFF">;</span></span></code></pre></figure>
+<blockquote>
+<p>NOTE: 어쨌든 answers 배열을 사용하므로 정확히는 O(n)이지만</p>
+<p>LeetCode에서 return 배열(answers)이 아닌 추가 배열을 사용하지 않는다는 것으로 O(1)으로 취급하고 있다.</p>
+</blockquote>
+<p>연속되는 곱셈의 합을 이용한 재밌는 문제였다.</p>
+<p>그럼 이만~</p></div><aside class="floating-container"><ul class="list"><li data-id="ideation" class="item">Ideation</li><li data-id="implementationton-son" class="item">Implementation(T=O(n), S=O(n))</li><li data-id="implementationton-so1" class="item">Implementation(T=O(n), S=O(1))</li></ul></aside></div><a class="highlighter issue-post" href="https://github.com/1ilsang/dev/issues/new?labels=\uD83E\uDDCA comment&amp;assignees=1ilsang&amp;title=[🧊] %5BLeetCode%5D%20238.%20Product%20of%20Array%20Except%20Self&amp;body=<!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 -->" rel="noopener noreferrer" target="_blank">📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍</a></div><footer class="footer"><ul><li><a href="/about">1ilsang</a></li><li><a rel="noopener noreferrer" target="_blank" href="https://github.com/1ilsang">GitHub</a></li><li><a href="https://www.linkedin.com/in/sang-chul-lee-91a32b154/" rel="noopener noreferrer" target="_blank">LinkedIn</a></li></ul></footer></main>

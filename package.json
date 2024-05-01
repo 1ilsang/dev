@@ -21,6 +21,7 @@
     "lint": "pnpm run '/^lint:.*/'",
     "e2e:update": "pnpm playwright test --update-snapshots",
     "e2e:report": "pnpm exec playwright show-report",
+    "e2e:install": "pnpm exec playwright install",
     "e2e": "pnpm playwright test",
     "clean": "rm -rf .next out node_modules",
     "knip": "knip",

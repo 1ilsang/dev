@@ -6,8 +6,14 @@ test.describe('404', () => {
     await expect(page.getByText(/404 ERROR/)).toBeVisible();
   });
 
-  test(`snapshot: 404`, async ({ page }) => {
+  test(`screen`, async ({ page }) => {
     await page.goto(`/404`);
-    await expect(page).toHaveScreenshot({ fullPage: true });
+    await expect(page).toHaveScreenshot([`404.png`], { fullPage: true });
+  });
+
+  test(`dom`, async ({ page }) => {
+    await page.goto(`/404`);
+    const body = await page.locator('#__next').innerHTML();
+    expect(body).toMatchSnapshot([`404.txt`]);
   });
 });

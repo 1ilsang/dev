@@ -5,11 +5,11 @@ on:
   pull_request:
     branches: [main]
 jobs:
-  test:
+  e2e:
     timeout-minutes: 60
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     container:
-      image: mcr.microsoft.com/playwright:v1.43.0-jammy
+      image: mcr.microsoft.com/playwright:v1.43.1-jammy
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
