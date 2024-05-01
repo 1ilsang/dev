@@ -11,7 +11,7 @@ on:
         default: false
 
 jobs:
-  reused:
+  r:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,7 +23,7 @@ jobs:
           node-version-file: '.nvmrc'
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v3
         with:
           version: 8
           run_install: false
@@ -48,6 +48,6 @@ jobs:
         if: inputs.lint
         run: pnpm lint
 
-      - name: build-export
+      - name: Build-export
         if: inputs.build-export
         run: pnpm deploy-blog
