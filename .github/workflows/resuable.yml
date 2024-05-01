@@ -3,12 +3,15 @@ name: reusable
 on:
   workflow_call:
     inputs:
-      notify:
+      lint:
+        type: boolean
+        default: false
+      build-export:
         type: boolean
         default: false
 
 jobs:
-  install:
+  reused:
     runs-on: ubuntu-latest
 
     steps:
@@ -41,6 +44,10 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: notify
-        if: inputs.notify
-        run: echo 'Completed'
+      - name: Lint
+        if: inputs.lint
+        run: pnpm lint
+
+      - name: build-export
+        if: inputs.build-export
+        run: pnpm deploy-blog

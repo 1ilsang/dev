@@ -12,16 +12,12 @@ jobs:
 
   lint:
     needs: install
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: './.github/workflows/resuable.yml'
-      - run: pnpm lint
+    uses: './.github/workflows/resuable.yml'
+    with:
+      lint: true
 
   build-export:
     needs: install
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: './.github/workflows/resuable.yml'
-      - run: pnpm deploy-blog
+    uses: './.github/workflows/resuable.yml'
+    with:
+      build-export: true
