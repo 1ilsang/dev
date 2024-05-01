@@ -8,3 +8,9 @@ out
 
 # TypeScript cache
 *.tsbuildinfo
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
