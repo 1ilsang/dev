@@ -16,6 +16,7 @@ const rehypeHandlers: Handlers = {
       type: 'element',
       tagName: 'a',
       properties: {
+        class: 'underline-highlight-fade',
         target: '_blank',
         href: node.url,
         rel: 'noreferrer noopener',

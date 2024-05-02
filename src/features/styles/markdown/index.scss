@@ -24,17 +24,6 @@
 
   word-wrap: break-word;
 
-  a {
-    color: $highlight-color;
-    text-decoration: underline 0.15em rgba(48, 255, 203, 0%);
-    transition: text-decoration-color 500ms;
-
-    &:hover {
-      cursor: pointer;
-      text-decoration-color: rgba(48, 255, 203, 100%);
-    }
-  }
-
   u {
     padding-bottom: 2px;
     border-bottom: 3px dashed $sub-color;

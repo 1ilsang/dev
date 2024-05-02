@@ -106,6 +106,13 @@
 
       .p {
         margin: 2rem 0;
+
+        .underline-highlight-fade {
+          @media print {
+            color: $black;
+            text-decoration: underline 0.15em $black;
+          }
+        }
       }
 
       li::before {
@@ -147,6 +154,7 @@
         .logo {
           width: 4rem;
           height: 4rem;
+          transition: filter 350ms ease-in-out;
 
           &:hover {
             filter: drop-shadow(2px 2px 4px lightgray) invert(2%);
@@ -198,6 +206,7 @@
 
         .hover {
           cursor: pointer;
+          transition: color 350ms;
 
           &:hover {
             color: $highlight-color;

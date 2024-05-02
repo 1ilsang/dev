@@ -1,9 +1,11 @@
 import { FunctionComponent, PropsWithChildren } from 'react';
+import { default as cn } from 'classnames';
 
 type ExternalLinkProps = PropsWithChildren & {
   href: string;
   classNames?: string;
   label?: string;
+  disableDefaultCSSTransition?: boolean;
 };
 
 const ExternalLink: FunctionComponent<ExternalLinkProps> = ({
@@ -11,10 +13,14 @@ const ExternalLink: FunctionComponent<ExternalLinkProps> = ({
   label,
   classNames = '',
   children,
+  disableDefaultCSSTransition = false,
 }) => {
   return (
     <a
-      className={`highlighter ${classNames}`}
+      className={cn([
+        { highlighter: !disableDefaultCSSTransition },
+        classNames,
+      ])}
       href={href}
       rel="noopener noreferrer"
       target="_blank"

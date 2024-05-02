@@ -12,9 +12,12 @@ const IntroductionContainer: FunctionComponent = () => {
         <div className="p">
           어느덧 5년 차 프런트엔드 개발자가 되었습니다.
           <br />
-          <Link className="highlighter" href={'/posts/quality-of-job-review'}>
-            "일의 격"
-          </Link>
+          <ExternalLink
+            classNames="underline-highlight-fade"
+            href="/posts/quality-of-job-review"
+            label={'"일의 격"'}
+            disableDefaultCSSTransition
+          />
           을 읽고 저는 일을 어떻게 대하는 사람인지, 어떠한 동료가 되고 싶은지
           고민해 봤습니다.
         </div>
@@ -44,8 +47,13 @@ const IntroductionContainer: FunctionComponent = () => {
             <a href={`#${CompanyName.LINE}`}>LINE+</a>
           </b>
           에서 4년 가까이 프런트엔드 개발자로 즐겁게 일하고 있습니다. 또한{' '}
-          <ExternalLink label="MDN" href="https://github.com/mdn" /> 한국팀의
-          Organizer로 활동하고 있습니다.
+          <ExternalLink
+            classNames="underline-highlight-fade"
+            label="MDN"
+            href="posts/mdn-ko-organizer"
+            disableDefaultCSSTransition
+          />{' '}
+          한국팀의 Organizer로 활동하고 있습니다.
         </div>
       </div>
     </section>
