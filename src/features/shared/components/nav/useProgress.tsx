@@ -39,6 +39,9 @@ const useProgress = () => {
   };
 
   useEffect(() => {
+    // NOTE: For visual testing
+    if (process.env.NEXT_PUBLIC_CI) return;
+
     let handleScroll: () => void;
     const intervalProgress = setInterval(handleInterval, 45);
     Promise.all(checkImages())

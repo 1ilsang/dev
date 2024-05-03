@@ -7,17 +7,12 @@ on:
     branches: [main]
 
 jobs:
-  install:
-    uses: './.github/workflows/resuable.yml'
-
   lint:
-    needs: install
     uses: './.github/workflows/resuable.yml'
     with:
       lint: true
 
   build-export:
-    needs: install
     uses: './.github/workflows/resuable.yml'
     with:
       build-export: true

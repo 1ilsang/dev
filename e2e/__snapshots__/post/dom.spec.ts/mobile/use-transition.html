@@ -1,0 +1,203 @@
+<main class="post-layout"><div class="nav-loading"><progress value="0" max="1"></progress></div><nav class="nav flex-wrap water-rainbow post-nav-trans nav-shadow"><h2 class="tracking-tight focus:text-gray-700 text-2xl font-bold mt-2 mb-2 ml-3.5"><a class="hover-underline" href="/">1ilsang</a></h2><div class="flex"><h2 class="tracking-tight focus:text-gray-700 text-xl mt-2.5 mr-6"><a class="hover-underline" href="/posts">posts</a></h2><h2 class="tracking-tight focus:text-gray-700 text-xl mt-2.5 mr-6"><a class="hover-underline" href="/tags">tags</a></h2><div class="rounded-full mr-2 relative nav-avatar"><a href="/about"><img src="/assets/chul.png" alt="1ilsang"></a></div></div></nav><div class="post-container"><h1 class="post-header">useTransition 이해하기</h1><div class="post-profile-container"><div class="flex items-center"><div class="rounded-full mr-2 relative avatar-image"><a href="/about"><img src="/assets/chul.png" alt="1ilsang"></a></div><div><a class="avatar-name" href="/about">1ilsang</a><div class="avatar-description">클라이밍 하실래염?</div></div></div></div><div class="flex flex-wrap mt-2 items-end"><a class="hashtag mr-2" target="_self" href="/tags/react">#<!-- -->react</a><a class="hashtag mr-2" target="_self" href="/tags/hooks">#<!-- -->hooks</a><a class="hashtag mr-2" target="_self" href="/tags/useTransition">#<!-- -->useTransition</a><a class="hashtag mr-2" target="_self" href="/tags/throttle">#<!-- -->throttle</a><a class="hashtag mr-2" target="_self" href="/tags/debounce">#<!-- -->debounce</a><a class="hashtag mr-2" target="_self" href="/tags/suspense">#<!-- -->suspense</a></div><div class="date-published"><time class="date-format" datetime="2023-06-04 20:38">2023-06-04 20:38</time> published</div><div class="post-body-container"><div class="markdown"><p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/4c83fd47-4f27-4cec-86bf-64ac64fa9795" alt="image"></div><p></p>
+<p>최근 리액트 공식 사이트가 <a class="underline-highlight-fade" target="_blank" href="https://react.dev/" rel="noreferrer noopener">react.dev</a>로 이사하게 되었다. 이에 맞춰 <a class="underline-highlight-fade" target="_blank" href="https://ko.react.dev/" rel="noreferrer noopener">한국 번역 페이지</a>도 새롭게 단장하게 되어 기여자를 모집하고 있었다.</p>
+<p>평소 리액트 커뮤니티에 기여할 방법을 찾던 중이었기에 useTransition 파트를 <a class="underline-highlight-fade" target="_blank" href="https://github.com/reactjs/ko.react.dev/issues/374#issuecomment-1523237065" rel="noreferrer noopener">지원했고</a> 무사히 <a class="underline-highlight-fade" target="_blank" href="https://github.com/reactjs/ko.react.dev/pull/609" rel="noreferrer noopener">번역 PR</a>을 올릴수 있었다.</p>
+<blockquote>
+<p><a class="underline-highlight-fade" target="_blank" href="https://ko.react.dev/reference/react/useTransition" rel="noreferrer noopener">번역된 페이지 보기</a></p>
+</blockquote>
+<p>번역을 하면서 useTransition에 대해 알게 된 것들을 정리해 보고자 한다.</p>
+<h2 id="tldr" data-heading="true"><a data-heading="true" href="#tldr"><span class="icon icon-link"></span></a>TL;DR!</h2>
+<p>useTransition은 컴포넌트 최상위 수준에서 호출되어 <code>startTransition</code>을 통해 <strong>우선순위가 낮은</strong> 상태 업데이트(setState)들을 <code>transition</code>이라고 표시한다. 리액트는 UI 렌더링시 우선순위에 따라 업데이트 할 수 있게 된다.</p>
+<h2 id="목차" data-heading="true"><a data-heading="true" href="#목차"><span class="icon icon-link"></span></a>목차</h2>
+<ol>
+<li>useTransition이란?
+<ul>
+<li>isPending, startTransition 이해하기
+<ul>
+<li>startTransition 유의 사항</li>
+</ul>
+</li>
+<li>전체 코드로 이해하기</li>
+</ul>
+</li>
+<li>Suspense와 연계하기</li>
+<li>그외 자잘한 팁들
+<ul>
+<li>vs throttle, debounce</li>
+<li>startTransition에 전달된 함수는 즉시 실행된다</li>
+<li>useDeferredValue</li>
+</ul>
+</li>
+<li>마무리</li>
+</ol>
+<h2 id="usetransition이란" data-heading="true"><a data-heading="true" href="#usetransition이란"><span class="icon icon-link"></span></a>useTransition이란?</h2>
+<p><code>useTransition</code>은 <strong>UI를 차단하지 않고 상태를 업데이트</strong> 할 수 있는 리액트 훅이다.</p>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="jsx" data-theme="material-theme-palenight"><code data-language="jsx" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#89DDFF"> [</span><span style="color:#BABED8">isPending</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> startTransition</span><span style="color:#89DDFF">]</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> useTransition</span><span style="color:#BABED8">()</span><span style="color:#89DDFF">;</span></span></code></pre></figure>
+<p>여기서 <em>UI를 차단하지 않고</em> 라는 문구를 유의하기 바란다. useTransition을 통해 React18에 추가된 많은 기능중 하나인 <a class="underline-highlight-fade" target="_blank" href="https://www.freecodecamp.org/korean/news/riaegteu-18yi-singineung-dongsiseong-rendeoring-concurrent-rendering-jadong-ilgwal-ceori-automatic-batching-deung/" rel="noreferrer noopener">Concurrent rendering</a>(동시성 렌더링)을 적절하게 사용할 수 있다.</p>
+<p>일반적으로 오래 걸리는 상태 업데이트(setState)가 존재할 경우, 해당 업데이트가 완료된 이후에 렌더링이 일어나기 때문에 그 시간만큼 렌더 트리가 '블락(Block)'된다. 이 때문에 유저는 아무런 동작을 할 수 없는 상태에 빠지게 되므로 UX에 좋지 않은 영향을 준다.</p>
+<p>useTransition은 컴포넌트 최상위 수준에서 호출되어 <code>startTransition</code>을 통해 <strong>우선순위가 낮은 상태 업데이트</strong>들을 <code>transition</code>이라고 표시해 리액트가 UI 렌더링시 우선순위에 따라 업데이트 할 수 있도록 한다. 이로써 렌더링이 오래 걸리는 컴포넌트의 블락을 피할수 있게 된다.</p>
+<p><code>transition</code>으로 표시된 상태 업데이트(A라 호칭)는 다른 일반적인 상태 업데이트(B)가 호출될때 중단되고 B의 상태 업데이트가 완료된 다음 <strong>다시</strong> A를 렌더링 시작한다. 이를 통해 특정 컴포넌트의 렌더링이 오래 걸리더라도 다른 우선순위 높은 상태의 변경을 통해 User Interaction을 블로킹하지 않고 자연스럽게 동작할 수 있도록 한다.</p>
+<h3 id="ispending-starttransition-이해하기" data-heading="true"><a data-heading="true" href="#ispending-starttransition-이해하기"><span class="icon icon-link"></span></a>isPending, startTransition 이해하기</h3>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="jsx" data-theme="material-theme-palenight"><code data-language="jsx" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> TabButton </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> ({</span><span style="color:#BABED8;font-style:italic"> children</span><span style="color:#89DDFF">,</span><span style="color:#BABED8;font-style:italic"> onClick</span><span style="color:#89DDFF"> })</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#89DDFF"> [</span><span style="color:#BABED8">isPending</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> startTransition</span><span style="color:#89DDFF">]</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> useTransition</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#89DDFF"> [</span><span style="color:#BABED8">tab</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> setTab</span><span style="color:#89DDFF">]</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> useState</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">about</span><span style="color:#89DDFF">'</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">  if</span><span style="color:#F07178"> (</span><span style="color:#BABED8">isPending</span><span style="color:#F07178">) </span><span style="color:#89DDFF">{</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">    return</span><span style="color:#89DDFF"> &lt;</span><span style="color:#F07178">b</span><span style="color:#C792EA"> className</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">pending</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">&gt;{</span><span style="color:#BABED8">children</span><span style="color:#89DDFF">}&lt;/</span><span style="color:#F07178">b</span><span style="color:#89DDFF">&gt;;</span></span>
+<span data-line=""><span style="color:#89DDFF">  }</span></span>
+<span data-line=""><span style="color:#C792EA">  function</span><span style="color:#82AAFF"> selectTab</span><span style="color:#89DDFF">(</span><span style="color:#BABED8;font-style:italic">nextTab</span><span style="color:#89DDFF">)</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#82AAFF">    startTransition</span><span style="color:#F07178">(</span><span style="color:#89DDFF">()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">      // NOTE: async 함수는 들어오면 안된다.</span></span>
+<span data-line=""><span style="color:#82AAFF">      setTab</span><span style="color:#F07178">(</span><span style="color:#BABED8">nextTab</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#89DDFF">    }</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#89DDFF">  }</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">  // ...아래에서 풀 코드로 설명</span></span>
+<span data-line=""><span style="color:#89DDFF">};</span></span></code></pre></figure>
+<p>useTransition은 두 개의 항목이 있는 배열을 반환한다.</p>
+<ol>
+<li><code>isPending</code> 플래그는 대기 중인 transition이 있는지 알려준다.</li>
+<li><code>startTransition</code> 함수는 상태 업데이트(setState)를 transition으로 표시 해주는 함수다.</li>
+</ol>
+<h4 id="starttransition-유의-사항" data-heading="true"><a data-heading="true" href="#starttransition-유의-사항"><span class="icon icon-link"></span></a>startTransition 유의 사항</h4>
+<ol>
+<li>동기 함수여야 한다.</li>
+<li><code>transition</code>으로 표시된 setState는 다른 setState 업데이트시 중단된다.
+<ul>
+<li>다른 상태 업데이트가 있을 경우 그것을 먼저 처리한다는 뜻</li>
+</ul>
+</li>
+<li>텍스트 입력을 제어하는 데 사용할 수 없다.</li>
+</ol>
+<h3 id="전체-코드로-이해하기" data-heading="true"><a data-heading="true" href="#전체-코드로-이해하기"><span class="icon icon-link"></span></a>전체 코드로 이해하기</h3>
+<p>전체 코드로 이해해 보자. 중간중간 주석을 통해 동작을 설명하고자 한다.</p>
+<p><a class="underline-highlight-fade" target="_blank" href="https://ko.react.dev/reference/react/useTransition#displaying-a-pending-visual-state-during-the-transition" rel="noreferrer noopener">코드 샌드박스는 공식 문서</a>에서 잘 제공해 주므로 직접 실행해 비교해 보면 좋다.</p>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="jsx" data-theme="material-theme-palenight"><code data-language="jsx" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> App </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#89DDFF"> [</span><span style="color:#BABED8">tab</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> setTab</span><span style="color:#89DDFF">]</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> useState</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">about</span><span style="color:#89DDFF">'</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#F07178"> (</span></span>
+<span data-line=""><span style="color:#89DDFF">    &lt;&gt;</span></span>
+<span data-line=""><span style="color:#89DDFF">      {</span><span style="color:#676E95;font-style:italic">/* 탭을 클릭하면 렌더링할 탭 컴포넌트가 설정된다 */</span><span style="color:#89DDFF">}</span></span>
+<span data-line=""><span style="color:#89DDFF">      &lt;</span><span style="color:#FFCB6B">TabButton</span><span style="color:#C792EA"> isActive</span><span style="color:#89DDFF">={</span><span style="color:#BABED8">tab </span><span style="color:#89DDFF">===</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">about</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">} </span><span style="color:#C792EA">onClick</span><span style="color:#89DDFF">={()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#82AAFF"> setTab</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">about</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">}&gt;</span></span>
+<span data-line=""><span style="color:#BABED8">        About</span></span>
+<span data-line=""><span style="color:#89DDFF">      &lt;/</span><span style="color:#FFCB6B">TabButton</span><span style="color:#89DDFF">&gt;</span></span>
+<span data-line=""><span style="color:#89DDFF">      &lt;</span><span style="color:#FFCB6B">TabButton</span><span style="color:#C792EA"> isActive</span><span style="color:#89DDFF">={</span><span style="color:#BABED8">tab </span><span style="color:#89DDFF">===</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">posts</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">} </span><span style="color:#C792EA">onClick</span><span style="color:#89DDFF">={()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#82AAFF"> setTab</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">posts</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">}&gt;</span></span>
+<span data-line=""><span style="color:#BABED8">        Posts (slow)</span></span>
+<span data-line=""><span style="color:#89DDFF">      &lt;/</span><span style="color:#FFCB6B">TabButton</span><span style="color:#89DDFF">&gt;</span></span>
+<span data-line=""><span style="color:#89DDFF">      &lt;</span><span style="color:#FFCB6B">TabButton</span><span style="color:#C792EA"> isActive</span><span style="color:#89DDFF">={</span><span style="color:#BABED8">tab </span><span style="color:#89DDFF">===</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">contact</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">} </span><span style="color:#C792EA">onClick</span><span style="color:#89DDFF">={()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#82AAFF"> setTab</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">contact</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">}&gt;</span></span>
+<span data-line=""><span style="color:#BABED8">        Contact</span></span>
+<span data-line=""><span style="color:#89DDFF">      &lt;/</span><span style="color:#FFCB6B">TabButton</span><span style="color:#89DDFF">&gt;</span></span>
+<span data-line=""><span style="color:#89DDFF">      &lt;</span><span style="color:#F07178">hr</span><span style="color:#89DDFF"> /&gt;</span></span>
+<span data-line=""><span style="color:#89DDFF">      {</span><span style="color:#676E95;font-style:italic">/* 현재 탭에 따라 탭 컴포넌트가 렌더링 된다 */</span><span style="color:#89DDFF">}</span></span>
+<span data-line=""><span style="color:#89DDFF">      {</span><span style="color:#BABED8">tab </span><span style="color:#89DDFF">===</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">about</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> &amp;&amp;</span><span style="color:#89DDFF"> &lt;</span><span style="color:#FFCB6B">AboutTab</span><span style="color:#89DDFF"> /&gt;}</span></span>
+<span data-line=""><span style="color:#89DDFF">      {</span><span style="color:#BABED8">tab </span><span style="color:#89DDFF">===</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">posts</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> &amp;&amp;</span><span style="color:#89DDFF"> &lt;</span><span style="color:#FFCB6B">PostsTab</span><span style="color:#89DDFF"> /&gt;}</span></span>
+<span data-line=""><span style="color:#89DDFF">      {</span><span style="color:#BABED8">tab </span><span style="color:#89DDFF">===</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">contact</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> &amp;&amp;</span><span style="color:#89DDFF"> &lt;</span><span style="color:#FFCB6B">ContactTab</span><span style="color:#89DDFF"> /&gt;}</span></span>
+<span data-line=""><span style="color:#89DDFF">    &lt;/&gt;</span></span>
+<span data-line=""><span style="color:#F07178">  )</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#89DDFF">};</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> TabButton </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> ({</span><span style="color:#BABED8;font-style:italic"> children</span><span style="color:#89DDFF">,</span><span style="color:#BABED8;font-style:italic"> isActive</span><span style="color:#89DDFF">,</span><span style="color:#BABED8;font-style:italic"> onClick</span><span style="color:#89DDFF"> })</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#89DDFF"> [</span><span style="color:#BABED8">isPending</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> startTransition</span><span style="color:#89DDFF">]</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> useTransition</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#676E95;font-style:italic">  // 현재 탭이 활성화 되면 isActive 상태가 된다.</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">  if</span><span style="color:#F07178"> (</span><span style="color:#BABED8">isActive</span><span style="color:#F07178">) </span><span style="color:#89DDFF">{</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">    return</span><span style="color:#89DDFF"> &lt;</span><span style="color:#F07178">b</span><span style="color:#89DDFF">&gt;{</span><span style="color:#BABED8">children</span><span style="color:#89DDFF">}&lt;/</span><span style="color:#F07178">b</span><span style="color:#89DDFF">&gt;;</span></span>
+<span data-line=""><span style="color:#89DDFF">  }</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">  // 대기 중인 transition이 있다면 isPending이 된다.</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">  if</span><span style="color:#F07178"> (</span><span style="color:#BABED8">isPending</span><span style="color:#F07178">) </span><span style="color:#89DDFF">{</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">    return</span><span style="color:#89DDFF"> &lt;</span><span style="color:#F07178">b</span><span style="color:#C792EA"> className</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">pending</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">&gt;{</span><span style="color:#BABED8">children</span><span style="color:#89DDFF">}&lt;/</span><span style="color:#F07178">b</span><span style="color:#89DDFF">&gt;;</span></span>
+<span data-line=""><span style="color:#89DDFF">  }</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">  /**</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">   * props로 받은 onClick 함수를 startTransition으로 감싸주기 때문에</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">   * onClick 함수(setTab)은 transition으로 설정되어 렌더링시 우선순위에서 밀리게 된다.</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">   * 그 결과 오랜시간이 걸리는 PostsTab 컴포넌트를 렌더링 하는 도중 다른 탭을 누르게 되면</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">   * PostsTab 컴포넌트의 렌더링을 멈추고 다른 컴포넌트를 렌더링하게 된다.</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">   **/</span></span>
+<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> handleButtonClick</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#82AAFF">    startTransition</span><span style="color:#F07178">(</span><span style="color:#89DDFF">()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#82AAFF">      onClick</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#89DDFF">    }</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#89DDFF">  };</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#89DDFF"> &lt;</span><span style="color:#F07178">button</span><span style="color:#C792EA"> onClick</span><span style="color:#89DDFF">={</span><span style="color:#BABED8">handleButtonClick</span><span style="color:#89DDFF">}&gt;{</span><span style="color:#BABED8">children</span><span style="color:#89DDFF">}&lt;/</span><span style="color:#F07178">button</span><span style="color:#89DDFF">&gt;;</span></span>
+<span data-line=""><span style="color:#89DDFF">};</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> AboutTab </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#89DDFF"> &lt;</span><span style="color:#F07178">p</span><span style="color:#89DDFF">&gt;</span><span style="color:#BABED8">Welcome to my profile!</span><span style="color:#89DDFF">&lt;/</span><span style="color:#F07178">p</span><span style="color:#89DDFF">&gt;;</span></span>
+<span data-line=""><span style="color:#89DDFF">};</span></span>
+<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> PostsTab </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> startTime</span><span style="color:#89DDFF"> =</span><span style="color:#BABED8"> performance</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">now</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">  while</span><span style="color:#F07178"> (</span><span style="color:#BABED8">performance</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">now</span><span style="color:#F07178">() </span><span style="color:#89DDFF">-</span><span style="color:#BABED8"> startTime</span><span style="color:#89DDFF"> &lt;</span><span style="color:#F78C6C"> 1</span><span style="color:#F07178">) </span><span style="color:#89DDFF">{</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">    // 1 ms 동안 아무것도 하지 않음으로써 매우 느린 코드를 실행한다.</span></span>
+<span data-line=""><span style="color:#89DDFF">  }</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#89DDFF"> &lt;</span><span style="color:#F07178">p</span><span style="color:#89DDFF">&gt;</span><span style="color:#BABED8">PostsTab</span><span style="color:#89DDFF">&lt;/</span><span style="color:#F07178">p</span><span style="color:#89DDFF">&gt;;</span></span>
+<span data-line=""><span style="color:#89DDFF">};</span></span>
+<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> ContactTab </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#89DDFF"> &lt;</span><span style="color:#F07178">p</span><span style="color:#89DDFF">&gt;</span><span style="color:#BABED8">ContactTab</span><span style="color:#89DDFF">&lt;/</span><span style="color:#F07178">p</span><span style="color:#89DDFF">&gt;;</span></span>
+<span data-line=""><span style="color:#89DDFF">};</span></span>
+<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> ContactTab </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#89DDFF"> &lt;</span><span style="color:#F07178">p</span><span style="color:#89DDFF">&gt;</span><span style="color:#BABED8">ContactTab</span><span style="color:#89DDFF">&lt;/</span><span style="color:#F07178">p</span><span style="color:#89DDFF">&gt;;</span></span>
+<span data-line=""><span style="color:#89DDFF">};</span></span></code></pre></figure>
+<h2 id="suspense와-연계하기" data-heading="true"><a data-heading="true" href="#suspense와-연계하기"><span class="icon icon-link"></span></a>Suspense와 연계하기</h2>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="jsx" data-theme="material-theme-palenight"><code data-language="jsx" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> App </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#F07178"> (</span></span>
+<span data-line=""><span style="color:#89DDFF">    &lt;</span><span style="color:#FFCB6B">Suspense</span><span style="color:#C792EA"> fallback</span><span style="color:#89DDFF">={&lt;</span><span style="color:#FFCB6B">Spinner</span><span style="color:#89DDFF"> /&gt;}&gt;</span></span>
+<span data-line=""><span style="color:#89DDFF">      {</span><span style="color:#676E95;font-style:italic">/*</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">        위의 App 코드와 동일</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">       */</span><span style="color:#89DDFF">}</span></span>
+<span data-line=""><span style="color:#89DDFF">    &lt;/</span><span style="color:#FFCB6B">Suspense</span><span style="color:#89DDFF">&gt;</span></span>
+<span data-line=""><span style="color:#F07178">  )</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#89DDFF">};</span></span></code></pre></figure>
+<p>useTransition의 <code>startTransition</code>을 <code>Suspense</code>와 함께 사용할 경우 불필요한 로딩 인디케이터 노출을 막을수 있다.</p>
+<p>일반적으로 렌더링이 오래 걸리는 컴포넌트를 Suspense로 감쌀 경우 해당 컴포넌트가 렌더링 될때마다 Suspense의 fallback 컴포넌트를 만나게 된다. 해당 서스펜스 트리 하위의 렌더링을 중단할 수 없기 때문에 오래 걸리는 렌더링을 막을 방법이 없다. 해당 렌더링이 종료될 때까지 폴백 컴포넌트를 마주해야만 한다.</p>
+<p>이때 오래 걸리는 상태 업데이트를 startTransition로 감싸게 될 경우 <code>transition</code> 표시가 되면서 "긴급하지 않은" 상태 업데이트로 간주된다. 이로 인해 리액트는 Suspense를 통해 컨텐츠를 숨기지 않고 이전 컨텐츠를 계속 표시하게 된다.</p>
+<p>이는 아래와 같은 장점이 있다.</p>
+<ol>
+<li>transition은 중단할 수 있으므로 리렌더링까지 기다릴 필요가 없다.
+<ul>
+<li>Suspense의 경우 하위 컴포넌트가 모두 렌더링 될때까지 fallback을 노출시킨다.</li>
+</ul>
+</li>
+<li>transition은 서스펜스 폴백을 방지(대기하지 않으므로)하므로 갑작스러운 로딩 인디케이터 노출을 피할수 있다.</li>
+</ol>
+<h2 id="그외-자잘한-팁들" data-heading="true"><a data-heading="true" href="#그외-자잘한-팁들"><span class="icon icon-link"></span></a>그외 자잘한 팁들</h2>
+<h3 id="vs-throttle-debounce" data-heading="true"><a data-heading="true" href="#vs-throttle-debounce"><span class="icon icon-link"></span></a>vs throttle, debounce</h3>
+<p>디바운싱과 스로틀로 이벤트의 지연 및 제한은 가능하지만 UI 블로킹의 근본적인 문제는 해결할 수 없다.</p>
+<p>아무리 이벤트 실행 시점/횟수를 줄인다 하여도 한번 실행이 되는 순간 블로킹이 되는건 여전하기 때문이다.</p>
+<p>근본적인 원인을 해결하기 위해선 이벤트의 우선순위를 나누어 유저 인터렉션이 일어났을 때 해당 이벤트를 우선적으로 처리해 화면이 멈춘것 처럼 보이지 않게 해야한다.</p>
+<h3 id="starttransition에-전달된-함수는-즉시-실행된다" data-heading="true"><a data-heading="true" href="#starttransition에-전달된-함수는-즉시-실행된다"><span class="icon icon-link"></span></a>startTransition에 전달된 함수는 즉시 실행된다</h3>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="jsx" data-theme="material-theme-palenight"><code data-language="jsx" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#BABED8">console</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">log</span><span style="color:#BABED8">(</span><span style="color:#F78C6C">1</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#82AAFF">startTransition</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#BABED8">  console</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">log</span><span style="color:#F07178">(</span><span style="color:#F78C6C">2</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#82AAFF">  setPage</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">/about</span><span style="color:#89DDFF">'</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#BABED8">console</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">log</span><span style="color:#BABED8">(</span><span style="color:#F78C6C">3</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#676E95;font-style:italic">// 1, 2, 3</span></span></code></pre></figure>
+<p>startTransition의 콜백 함수는 즉시 실행된다. 함수가 실행되는 동안 예약된 모든 상태 업데이트는 <code>transition</code>으로 표시된다.</p>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="jsx" data-theme="material-theme-palenight"><code data-language="jsx" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#676E95;font-style:italic">// React 작동 방식의 간소화된 버전</span></span>
+<span data-line=""><span style="color:#C792EA">let</span><span style="color:#BABED8"> isInsideTransition </span><span style="color:#89DDFF">=</span><span style="color:#FF9CAC"> false</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#C792EA">function</span><span style="color:#82AAFF"> startTransition</span><span style="color:#89DDFF">(</span><span style="color:#BABED8;font-style:italic">scope</span><span style="color:#89DDFF">)</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#BABED8">  isInsideTransition</span><span style="color:#89DDFF"> =</span><span style="color:#FF9CAC"> true</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#82AAFF">  scope</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#BABED8">  isInsideTransition</span><span style="color:#89DDFF"> =</span><span style="color:#FF9CAC"> false</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#89DDFF">}</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#C792EA">function</span><span style="color:#82AAFF"> setState</span><span style="color:#89DDFF">()</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">  if</span><span style="color:#F07178"> (</span><span style="color:#BABED8">isInsideTransition</span><span style="color:#F07178">) </span><span style="color:#89DDFF">{</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">    // ... transition state 업데이트 예약 ...</span></span>
+<span data-line=""><span style="color:#89DDFF">  }</span><span style="color:#89DDFF;font-style:italic"> else</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">    // ... 긴급 state 업데이트 예약 ...</span></span>
+<span data-line=""><span style="color:#89DDFF">  }</span></span>
+<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre></figure>
+<p>transition으로 처리된 경우 transitionState로 예약(큐잉)되고 아닌 경우 일반적인 state 업데이트로 예약된다.</p>
+<p>예약된 작업들은 React18의 fiber 엔진(자체적인 스케줄러를 가지고 있다)이 적절하게 스케줄링 해준다.</p>
+<h3 id="usedeferredvalue" data-heading="true"><a data-heading="true" href="#usedeferredvalue"><span class="icon icon-link"></span></a>useDeferredValue</h3>
+<p>useDeferredValue도 useTransition과 유사하게 낮은 우선순위를 지정하기 위한 훅이다. useTransition은 함수 실행의 우선순위를 지정하는 반면, useDeferredValue는 값의 업데이트 우선순위를 지정한다.</p>
+<h2 id="마무리" data-heading="true"><a data-heading="true" href="#마무리"><span class="icon icon-link"></span></a>마무리</h2>
+<p>위의 내용을 한번더 정리하며 글을 마무리 하려고 한다.</p>
+<ol>
+<li>useTransition은 컴포넌트 최상위 수준에서 호출되어 <code>startTransition</code>을 통해 <strong>우선순위가 낮은</strong> 상태 업데이트(setState)들을 <code>transition</code>이라고 표시한다. 리액트는 UI 렌더링시 우선순위에 따라 업데이트 할 수 있게 된다.</li>
+<li><code>startTransition</code> 함수는 동기 함수여야 한다.</li>
+<li><code>transition</code> 표시된 setState는 다른 setState 업데이트시 중단된다.</li>
+<li><code>transition</code> 표시된 상태 업데이트는 <code>Suspense</code>로 컨텐츠를 숨기지 않고 이전 컨텐츠를 계속 표시한다.</li>
+<li>fiber 엔진을 통해 <code>transition</code>된 상태와 다른 상태의 스케줄링이 가능해졌다.</li>
+</ol></div><aside class="floating-container"><ul class="list"><li data-id="tldr" class="item">TL;DR!</li><li data-id="목차" class="item">목차</li><li data-id="usetransition이란" class="item">useTransition이란?</li><li><ul class="depth-ul"><li data-id="ispending-starttransition-이해하기" class="item depth">isPending, startTransition 이해하기</li><li data-id="전체-코드로-이해하기" class="item depth">전체 코드로 이해하기</li></ul></li><li data-id="suspense와-연계하기" class="item">Suspense와 연계하기</li><li data-id="그외-자잘한-팁들" class="item">그외 자잘한 팁들</li><li><ul class="depth-ul"><li data-id="vs-throttle-debounce" class="item depth">vs throttle, debounce</li><li data-id="starttransition에-전달된-함수는-즉시-실행된다" class="item depth">startTransition에 전달된 함수는 즉시 실행된다</li><li data-id="usedeferredvalue" class="item depth">useDeferredValue</li></ul></li><li data-id="마무리" class="item">마무리</li></ul></aside></div><a class="highlighter issue-post" href="https://github.com/1ilsang/dev/issues/new?labels=\uD83E\uDDCA comment&amp;assignees=1ilsang&amp;title=[🧊] useTransition%20%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0&amp;body=<!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 -->" rel="noopener noreferrer" target="_blank">📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍</a></div><footer class="footer"><ul><li><a href="/about">1ilsang</a></li><li><a rel="noopener noreferrer" target="_blank" href="https://github.com/1ilsang">GitHub</a></li><li><a href="https://www.linkedin.com/in/sang-chul-lee-91a32b154/" rel="noopener noreferrer" target="_blank">LinkedIn</a></li></ul></footer></main>

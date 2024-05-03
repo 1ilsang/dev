@@ -11,9 +11,10 @@ export default class MyDocument extends Document {
           <meta name="author" content="1ilsang" />
           <meta name="keyword" content="1ilsang,dev,front,frontend,react" />
           <link
-            href="https://cdn.jsdelivr.net/gh/everydayminder/assets/subset-D2Coding.woff2"
+            href="/assets/D2Coding.woff2"
             as="font"
             type="font/woff2"
+            rel="preload"
             crossOrigin="anonymous"
           />
           <Favicon />
