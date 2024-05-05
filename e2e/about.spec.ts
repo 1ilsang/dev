@@ -1,14 +1,14 @@
 import { expect, test } from '@playwright/test';
+import { screenshotFullPage } from './utils';
 
 test.describe('about', () => {
   test(`screen`, async ({ page }) => {
-    await page.goto(`/about`);
-    await expect(page).toHaveScreenshot([`about.png`], { fullPage: true });
+    await screenshotFullPage({ page, url: `/about`, arg: [`about.png`] });
   });
 
   test(`dom`, async ({ page }) => {
     await page.goto(`/about`);
     const body = await page.locator('#__next').innerHTML();
-    expect(body).toMatchSnapshot([`about.txt`]);
+    expect(body).toMatchSnapshot([`about.html`]);
   });
 });
