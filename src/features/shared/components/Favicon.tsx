@@ -17,8 +17,8 @@ const Favicon: FunctionComponent = () => {
       />
       <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       <meta name="apple-mobile-web-app-title" content="1ilsang.dev" />
-      <meta name="theme-color" content="#f6fc43" />
-      <meta name="apple-mobile-web-app-status-bar-style" content="#f6fc43" />
+      <meta name="theme-color" content="#141621" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="#141621" />
     </>
   );
 };
