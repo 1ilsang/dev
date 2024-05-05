@@ -86,7 +86,7 @@ importers:
         version: 9.0.11
       knip:
         specifier: ^5.9.4
-        version: 5.11.0(@types/node@20.12.8)(typescript@5.4.5)
+        version: 5.12.2(@types/node@20.12.8)(typescript@5.4.5)
       markdownlint:
         specifier: 0.34.0
         version: 0.34.0
@@ -1379,8 +1379,8 @@ packages:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
     engines: {node: '>=0.10.0'}
 
-  knip@5.11.0:
-    resolution: {integrity: sha512-7TBBpLYYAqZI+FM+qHsmT0jfYNOwwZAMBvuJXq3gFJCCpDvGrYcLMu2j6yvURJNh1UlpQ4jaNgPoHw7ylGDWMA==}
+  knip@5.12.2:
+    resolution: {integrity: sha512-js9PY49o3xEkheceQqwVGSE2xJb4HAwOSDNk51aBSZFQch6tkT2P1aipT2VnsyvOD25eBo1SXvJdSQhOBTUYsA==}
     engines: {node: '>=18.6.0'}
     hasBin: true
     peerDependencies:
@@ -2397,8 +2397,8 @@ packages:
     peerDependencies:
       zod: ^3.18.0
 
-  zod@3.23.4:
-    resolution: {integrity: sha512-/AtWOKbBgjzEYYQRNfoGKHObgfAZag6qUJX1VbHo2PRBgS+wfWagEY2mizjfyAPcGesrJOcx/wcl0L9WnVrHFw==}
+  zod@3.23.6:
+    resolution: {integrity: sha512-RTHJlZhsRbuA8Hmp/iNL7jnfc4nZishjsanDAfEY1QpDQZCahUp3xDzl+zfweE9BklxMUcgBgS1b7Lvie/ZVwA==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -3783,7 +3783,7 @@ snapshots:
 
   kind-of@6.0.3: {}
 
-  knip@5.11.0(@types/node@20.12.8)(typescript@5.4.5):
+  knip@5.12.2(@types/node@20.12.8)(typescript@5.4.5):
     dependencies:
       '@ericcornelissen/bash-parser': 0.5.2
       '@nodelib/fs.walk': 2.0.0
@@ -3803,8 +3803,8 @@ snapshots:
       strip-json-comments: 5.0.1
       summary: 2.1.0
       typescript: 5.4.5
-      zod: 3.23.4
-      zod-validation-error: 3.2.0(zod@3.23.4)
+      zod: 3.23.6
+      zod-validation-error: 3.2.0(zod@3.23.6)
 
   known-css-properties@0.29.0: {}
 
@@ -5120,10 +5120,10 @@ snapshots:
 
   yocto-queue@0.1.0: {}
 
-  zod-validation-error@3.2.0(zod@3.23.4):
+  zod-validation-error@3.2.0(zod@3.23.6):
     dependencies:
-      zod: 3.23.4
+      zod: 3.23.6
 
-  zod@3.23.4: {}
+  zod@3.23.6: {}
 
   zwitch@2.0.4: {}
