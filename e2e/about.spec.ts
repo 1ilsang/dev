@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { screenshotFullPage } from './shared/utils';
+import { gotoUrl, screenshotFullPage } from './shared/utils';
 import { MACRO_SUITE } from './shared/constants';
 
 test.describe('about', () => {
@@ -8,7 +8,7 @@ test.describe('about', () => {
   });
 
   test(MACRO_SUITE.DOM_SNAPSHOT, async ({ page }) => {
-    await page.goto(`/about`);
+    await gotoUrl({ page, url: '/about' });
     const body = await page.locator('#__next').innerHTML();
     expect(body).toMatchSnapshot([`about.html`]);
   });

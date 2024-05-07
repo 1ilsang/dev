@@ -6,6 +6,11 @@ type ScreenshotOptions = {
   clip?: { x: number; y: number; width: number; height: number };
 };
 
+export const gotoUrl = async ({ page, url }: { page: Page; url: string }) => {
+  // https://stackoverflow.com/a/78183950
+  await page.goto(url, { waitUntil: 'domcontentloaded' });
+};
+
 export const waitImages = async ({ page }: { page: Page }) => {
   // https://stackoverflow.com/questions/77287441/how-to-wait-for-full-rendered-image-in-playwright
   const locators = page.locator('//img');
@@ -31,7 +36,7 @@ export const screenshotFullPage = async ({
   arg: string[];
   timeout?: number;
 }) => {
-  await page.goto(url);
+  await gotoUrl({ page, url });
   await page.evaluate(() => document.fonts.ready);
 
   await waitImages({ page });

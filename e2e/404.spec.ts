@@ -1,11 +1,10 @@
 import { expect, test } from '@playwright/test';
-import { screenshotFullPage, waitImages } from './shared/utils';
+import { gotoUrl, screenshotFullPage, waitImages } from './shared/utils';
 import { MACRO_SUITE } from './shared/constants';
 
 test.describe('404', () => {
   test('should redirect 404', async ({ page }) => {
-    // https://stackoverflow.com/a/78183950
-    await page.goto('/something_wrong_path', { waitUntil: 'domcontentloaded' });
+    await gotoUrl({ page, url: '/something_wrong_path' });
     await expect(page.getByText(/404 ERROR/)).toBeVisible();
   });
 
@@ -14,7 +13,7 @@ test.describe('404', () => {
   });
 
   test(MACRO_SUITE.DOM_SNAPSHOT, async ({ page }) => {
-    await page.goto(`/404`, { waitUntil: 'domcontentloaded' });
+    await gotoUrl({ page, url: '/404' });
     await waitImages({ page });
     const body = await page.locator('#__next').innerHTML();
     expect(body).toMatchSnapshot([`404.html`]);
