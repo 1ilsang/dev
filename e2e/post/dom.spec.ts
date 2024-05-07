@@ -1,14 +1,14 @@
 import { expect, test } from '@playwright/test';
 import { urls } from './utils';
+import { MACRO_SUITE } from 'e2e/shared/constants';
 
-test.describe('dom', () => {
+test.describe(MACRO_SUITE.DOM_SNAPSHOT, () => {
   for (let i = 0; i < urls.length; i++) {
     const url = urls[i];
 
     test(`${url}`, async ({ page }) => {
       await page.goto(`/posts/${url}`);
-      // TODO: floating이 깜빡이는 문제가 존재함.
-      await page.waitForTimeout(1000);
+      await page.evaluate(() => document.fonts.ready);
       const body = await page.locator('#__next').innerHTML();
       expect(body).toMatchSnapshot([`${url}.html`]);
     });

@@ -19,6 +19,7 @@ const NotFoundContainer: FunctionComponent = () => {
       <audio
         className="mt-4"
         src="/assets/jackpot.mp4"
+        muted
         controls
         autoPlay
         loop

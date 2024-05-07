@@ -1,0 +1,23 @@
+name: e2e
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  others:
+    uses: './.github/workflows/e2e/reusable.yml'
+    with:
+      others: true
+
+  dom-snapshot:
+    uses: './.github/workflows/e2e/reusable.yml'
+    with:
+      dom-snapshot: true
+
+  screen-snapshot:
+    uses: './.github/workflows/e2e/reusable.yml'
+    with:
+      screen-snapshot: true

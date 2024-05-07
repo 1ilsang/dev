@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
-import { screenshotFullPage } from './utils';
+import { screenshotFullPage } from './shared/utils';
+import { MACRO_SUITE } from './shared/constants';
 
 test.describe('404', () => {
   test('should redirect 404', async ({ page }) => {
@@ -7,13 +8,13 @@ test.describe('404', () => {
     await expect(page.getByText(/404 ERROR/)).toBeVisible();
   });
 
-  test(`screen`, async ({ page }) => {
+  test(MACRO_SUITE.SCREEN_SNAPSHOT, async ({ page }) => {
     await screenshotFullPage({ page, url: `/404`, arg: [`404.png`] });
   });
 
-  test(`dom`, async ({ page }) => {
+  test(MACRO_SUITE.DOM_SNAPSHOT, async ({ page }) => {
     await page.goto(`/404`);
-    await page.waitForTimeout(2000);
+    await page.evaluate(() => document.fonts.ready);
     const body = await page.locator('#__next').innerHTML();
     expect(body).toMatchSnapshot([`404.html`]);
   });
