@@ -35,32 +35,9 @@ export const screenshotFullPage = async ({
   await page.evaluate(() => document.fonts.ready);
 
   await waitImages({ page });
-  // await Promise.all(
-  //   Array.from(document.images)
-  //     .filter((img) => !img.complete)
-  //     .map(
-  //       (img) =>
-  //         new Promise((resolve) => {
-  //           img.onload = img.onerror = resolve;
-  //         }),
-  //     ),
-  // );
-
-  // // https://github.com/microsoft/playwright/issues/18827#issuecomment-2031261562
-  // await page.locator('#__next').scrollIntoViewIfNeeded();
-
-  // Trigger loading of all images
-  // let locators = page.locator('//img');
-  // await locators.evaluateAll((e) => e.scrollInfoView());
-
-  // const { width } = page.viewportSize();
-  // const height = await page.evaluate(
-  //   () => document.scrollingElement.scrollHeight,
-  // );
 
   const options: ScreenshotOptions = {
     fullPage: true,
-    // clip: { x: 0, y: 0, width, height },
   };
   if (timeout >= 0) {
     options.timeout = timeout;

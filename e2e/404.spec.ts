@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { screenshotFullPage } from './shared/utils';
+import { screenshotFullPage, waitImages } from './shared/utils';
 import { MACRO_SUITE } from './shared/constants';
 
 test.describe('404', () => {
@@ -14,7 +14,7 @@ test.describe('404', () => {
 
   test(MACRO_SUITE.DOM_SNAPSHOT, async ({ page }) => {
     await page.goto(`/404`);
-    await page.evaluate(() => document.fonts.ready);
+    await waitImages({ page });
     const body = await page.locator('#__next').innerHTML();
     expect(body).toMatchSnapshot([`404.html`]);
   });

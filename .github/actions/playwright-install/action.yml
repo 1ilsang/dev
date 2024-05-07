@@ -24,14 +24,13 @@ runs:
       if: steps.cache-playwright-browsers.outputs.cache-hit != 'true'
       run: pnpm e2e:install
 
-    # TODO: build cache 잘 되는지 확인 필요
     - name: Restore Next.js related caches
       uses: actions/cache@v4
       with:
         path: ${{ github.workspace }}/.next/cache
-        key: ${{ runner.os }}-nextjs-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+        key: ${{ runner.os }}-nextjs-store-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
         restore-keys: |
-          ${{ runner.os }}-nextjs-store-
+          ${{ runner.os }}-nextjs-store-${{ hashFiles('**/pnpm-lock.yaml') }}-
       id: cache-nextjs-build
 
     - name: Build post
