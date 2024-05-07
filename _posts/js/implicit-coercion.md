@@ -27,7 +27,7 @@ undefined == null // true
 
 ```
 
-![cover](https://user-images.githubusercontent.com/23524849/233840877-eb7e5d64-4d5a-48b8-a960-6c16f99dff41.png 'cover')
+![cover](https://github.com/1ilsang/dev/assets/23524849/eb6ea24b-99e3-4ee0-b97e-ff2c6c78786e 'cover')
 
 ### TL;DR!
 
@@ -39,7 +39,7 @@ undefined == null // true
 
 ### 들어가기 전에
 
-![primitive-type](https://user-images.githubusercontent.com/23524849/233840925-4bed99f9-37cb-48cf-af23-b5c00ffc31f1.png 'l')
+![primitive-type](https://github.com/1ilsang/dev/assets/23524849/a00bf58f-aeb8-4a67-b3fd-bf4236d53011 'l')
 
 > [이미지 주소](https://velog.io/@imjkim49/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%A0%95%EB%A6%AC)
 
@@ -75,7 +75,7 @@ if (1) {
 
 ### 동치연산자 한짤로 보기
 
-![example](https://user-images.githubusercontent.com/23524849/233842467-9581968c-00a0-47f4-a305-76b3bfdae97f.png 'l')
+![example](https://github.com/1ilsang/dev/assets/23524849/a3895658-4ac2-4e4c-99b7-c88bb15c9474 'l')
 
 > 출처: [MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Equality_comparisons_and_sameness)
 
@@ -85,7 +85,7 @@ if (1) {
 
 ## `ToPrimitive` 는 동치연산 뿐만 아니라 원시값과 비교가 필요한 모든 순간에 동작한다
 
-![to-primitive](https://user-images.githubusercontent.com/23524849/233842491-1d19517e-6efc-4fc5-9efd-b55233a40929.png)
+![to-primitive](https://github.com/1ilsang/dev/assets/23524849/0475aed2-ae11-4056-a3d4-5b567a2518ba)
 
 `Symbol.toPrimitive`: A method that converts an object to a corresponding primitive value. Called by the ToPrimitive abstract operation.
 

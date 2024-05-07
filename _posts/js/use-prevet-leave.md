@@ -3,10 +3,10 @@ title: '페이지 이탈시 확인 컨펌창 만들기'
 description: 'usePreventLeave를 알아보자'
 url: 'use-prevent-leave'
 tags: ['usePreventLeave', 'beforeunload', 'popstate', 'popup']
-coverImage: 'https://user-images.githubusercontent.com/23524849/224527867-7128d0f0-04b6-4f6d-93db-4079af82d181.png'
+coverImage: 'https://github.com/1ilsang/dev/assets/23524849/bf2cd78f-1d32-4d08-9fc7-1eb326a35288'
 date: '2023-03-12T06:14:32.600Z'
 ogImage:
-  url: 'https://user-images.githubusercontent.com/23524849/224527867-7128d0f0-04b6-4f6d-93db-4079af82d181.png'
+  url: 'https://github.com/1ilsang/dev/assets/23524849/bf2cd78f-1d32-4d08-9fc7-1eb326a35288'
 ---
 
 유저가 페이지 이탈시 확인 컴펌을 받는 로직이 필요하게 되었고 이에 대한 고민을 공유해 보려고 한다.
@@ -45,7 +45,7 @@ ogImage:
 
 ## beforeunload로 페이지 이탈 방지하기
 
-![prevent](https://user-images.githubusercontent.com/23524849/224527867-7128d0f0-04b6-4f6d-93db-4079af82d181.png 's')
+![prevent](https://github.com/1ilsang/dev/assets/23524849/bf2cd78f-1d32-4d08-9fc7-1eb326a35288 's')
 
 beforeunload 이벤트를 통해 페이지 이동을 감지할 경우 브라우저에서 기본 컨펌창을 제공해 주는데, 크롬 기준 컨펌창은 위의 이미지와 같다.
 
@@ -65,7 +65,7 @@ window.addEventListener('beforeunload', handleBeforeUnload);
 
 위의 내용은 MDN [beforeunload_event#compatibility_notes](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event#compatibility_notes)에서 자세하게 확인할수 있다.
 
-![error](https://user-images.githubusercontent.com/23524849/226096035-6b2aa45b-d17d-4fc3-80fd-0d9e50a7b853.png 'l')
+![error](https://github.com/1ilsang/dev/assets/23524849/b95db747-a90d-4542-b2af-6a075fdd348a 'l')
 
 beforeunload 이벤트로 작업하다보면 위와같은 에러를 만날수 있는데, 이는 앞서 말한 유저의 명시적 액션(e.g, mousedown)이 없었기 때문에 발생하는 에러이다.
 

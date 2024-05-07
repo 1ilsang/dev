@@ -9,7 +9,7 @@ ogImage:
   url: 'https://github.com/1ilsang/dev/assets/23524849/2db5a04f-e83c-4bc4-ba59-685d3bb0e5dd'
 ---
 
-![cover](https://user-images.githubusercontent.com/23524849/178152297-6995c412-1f3d-4e28-b17b-b3294a41cc8c.png 'cover')
+![cover](https://github.com/1ilsang/dev/assets/23524849/b6999846-c0a3-4889-a4b6-6cf9bc21fa94 'cover')
 
 라인 엔지니어링 블로그에 [작성한 글](https://engineering.linecorp.com/ko/blog/monorepo-with-turborepo/)이다.
 

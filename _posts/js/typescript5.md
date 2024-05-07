@@ -3,13 +3,13 @@ title: 'TypeScript 5.0 살펴보기'
 description: '5버전은 무엇이 달라졌을까?'
 url: 'typescript5'
 tags: ['typescript', 'decorator', 'const', 'extends']
-coverImage: 'https://devblogs.microsoft.com/typescript/wp-content/uploads/sites/11/2023/03/5-0-feature-image-square-bounds-1.png'
+coverImage: 'https://github.com/1ilsang/dev/assets/23524849/a05f9167-23d8-4756-bd67-9381ff38cbb7'
 date: '2023-04-09T07:24:41.017Z'
 ogImage:
-  url: 'https://devblogs.microsoft.com/typescript/wp-content/uploads/sites/11/2023/03/5-0-feature-image-square-bounds-1.png'
+  url: 'https://github.com/1ilsang/dev/assets/23524849/a05f9167-23d8-4756-bd67-9381ff38cbb7'
 ---
 
-![cover](https://devblogs.microsoft.com/typescript/wp-content/uploads/sites/11/2023/03/5-0-feature-image-square-bounds-1.png 'cover')
+![cover](https://github.com/1ilsang/dev/assets/23524849/a05f9167-23d8-4756-bd67-9381ff38cbb7 'cover')
 
 3월 초 TypeScript v5가 공식 릴리즈 되었다. 이 포스트에서는 [MS 블로그에 작성된](https://devblogs.microsoft.com/typescript/announcing-typescript-5-0) 5버전의 기능들을 확인해보고 정리해 보고자 한다.
 
@@ -393,11 +393,11 @@ printValue("hello!", 123); // error!
 
 ## <a name="speed-memory-and-package-size-optimizations"></a>Speed, Memory, and Package Size Optimizations
 
-![size](https://user-images.githubusercontent.com/23524849/231056743-21f6a556-ffc8-4ac8-8449-8036153b34c7.png)
+![size](https://github.com/1ilsang/dev/assets/23524849/fa74be28-12b4-4d85-bd7d-d9cbb3379029)
 
-![compare v5 to v4.9](https://devblogs.microsoft.com/typescript/wp-content/uploads/sites/11/2023/03/speed-5.0-stable-2.png)
+![compare v5 to v4.9](https://github.com/1ilsang/dev/assets/23524849/a6f4acaf-fa7f-4464-adab-7615b3ed0e77)
 
-![typescript npm package size](https://devblogs.microsoft.com/typescript/wp-content/uploads/sites/11/2023/03/size-5.0-stable-1.png)
+![typescript npm package size](https://github.com/1ilsang/dev/assets/23524849/2571eada-3035-42a1-9e35-1458c0b1d271)
 
 지표에서도 눈에 띄일만큼 변경사항이 있으며 원문 블로그 자체에서도 대부분의 코드베이스에서 10~20% 정도 속도 향상을 느낄 수 있다고 자신하고 있기 때문에 모노레포에서 타입 참조 시간을 많이 줄일수 있을 것이라 기대하고 있다.
 

@@ -96,7 +96,7 @@ export const Pair = {
 
 ## MDX v2
 
-![MDX](https://storybookblog.ghost.io/content/images/size/w1600/2023/04/Tom-SB7-Docs.001.png 'l')
+![MDX](https://github.com/1ilsang/dev/assets/23524849/cce48ea1-146f-47fb-a6a9-52d5eea4dc1b 'l')
 
 ```jsx
 // v6 guide.stories.mdx
@@ -142,13 +142,13 @@ MDX2는 내장 jsx 및 플러그인을 지원하기 때문에 동적인 문서�
 
 본인은 Webpack에서 Vite로 마이그레이션을 고려하고 있었는데 이번 버전이 좋은 기회가 될꺼라 기대하고 있다.
 
-![test-coverage](https://storybookblog.ghost.io/content/images/2023/04/Untitled-copy.png 'l')
+![test-coverage](https://github.com/1ilsang/dev/assets/23524849/72e2d169-6801-4270-9447-2984b292ec57 'l')
 
 스토리북은 이전부터 테스팅 도구로써의 포지션을 견고히 하고자 하는데, 이번 버전에서도 상당부분 업데이트가 되어 있다.
 
 v7에는 코드 커버리지 기능이 추가되었다. 테스트 코드의 누락을 조금 더 쉽게 찾을수 있게 되었다.
 
-![test](https://storybookblog.ghost.io/content/images/2023/04/Capture-2023-04-04-214354.png 'l')
+![test](https://github.com/1ilsang/dev/assets/23524849/74ab1c8c-e5f9-4926-bbf7-56c4e676323a 'l')
 
 ```tsx
 const meta: Meta<typeof SignupForm> = {

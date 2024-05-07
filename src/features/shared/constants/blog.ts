@@ -11,7 +11,7 @@ export const cliLogo = `
 		
 `;
 export enum ImageUrl {
-  HOME = 'https://user-images.githubusercontent.com/23524849/178150336-2453c93a-3de0-4117-b9fc-15c9b8699305.png',
+  HOME = 'https://github.com/1ilsang/dev/assets/23524849/fc95aac8-dc78-4dff-8af4-3f2212a78656',
 }
 export enum MetaTitle {
   HOME = '1ilsang.dev',

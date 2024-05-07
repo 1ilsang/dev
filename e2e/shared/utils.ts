@@ -20,6 +20,7 @@ export const gotoUrl = async ({
 };
 
 export const waitImages = async ({ page }: { page: Page }) => {
+  // Step 1. 모든 이미지 로딩을 기다림
   // https://stackoverflow.com/questions/77287441/how-to-wait-for-full-rendered-image-in-playwright
   const locators = page.locator('//img');
   await locators.evaluateAll((e) => e.map((i) => i.scrollIntoView()));
@@ -31,6 +32,11 @@ export const waitImages = async ({ page }: { page: Page }) => {
   );
   // Wait for all once
   await Promise.all(promises);
+
+  // Step 2. 최상단으로 스크롤 이동
+  // https://github.com/microsoft/playwright/issues/18827#issuecomment-2015560128
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.waitForFunction('window.scrollY === 0');
 };
 
 export const screenshotFullPage = async ({
@@ -45,7 +51,6 @@ export const screenshotFullPage = async ({
   timeout?: number;
 }) => {
   await gotoUrl({ page, url });
-
   await waitImages({ page });
 
   const options: ScreenshotOptions = {
