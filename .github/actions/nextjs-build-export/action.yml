@@ -1,0 +1,32 @@
+# https://docs.github.com/en/actions/creating-actions/creating-a-composite-action?platform=mac#creating-an-action-metadata-file
+name: nextjs-build-export
+
+inputs:
+  e2e:
+    required: false
+    default: 'false'
+
+runs:
+  using: composite
+
+  steps:
+    - name: Restore Next.js related caches
+      uses: actions/cache@v4
+      with:
+        path: |
+          ${{ github.workspace }}/.next
+          ${{ github.workspace }}/out
+        key: ${{ runner.os }}-nextjs-store-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}-${{ inputs.e2e == 'true' && 'e2e' || 'default' }}
+        restore-keys: |
+          ${{ runner.os }}-nextjs-store-${{ hashFiles('**/pnpm-lock.yaml') }}-
+      id: cache-nextjs-build
+
+    - name: Build and Export [default]
+      shell: bash
+      if: steps.cache-nextjs-build.outputs.cache-hit != 'true' && inputs.e2e == 'false'
+      run: pnpm deploy-blog
+
+    - name: Build and Export [e2e]
+      shell: bash
+      if: steps.cache-nextjs-build.outputs.cache-hit != 'true' && inputs.e2e == 'true'
+      run: pnpm e2e:build

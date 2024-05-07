@@ -1,8 +1,9 @@
 import { test } from '@playwright/test';
 import { urls } from './utils';
-import { screenshotFullPage } from 'e2e/utils';
+import { screenshotFullPage } from 'e2e/shared/utils';
+import { MACRO_SUITE } from 'e2e/shared/constants';
 
-test.describe(`screen`, () => {
+test.describe(MACRO_SUITE.SCREEN_SNAPSHOT, () => {
   for (let i = 0; i < urls.length; i++) {
     const url = urls[i];
 

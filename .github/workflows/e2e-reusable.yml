@@ -1,0 +1,55 @@
+# https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
+name: e2e-reusable
+
+on:
+  workflow_call:
+    inputs:
+      others:
+        type: boolean
+        default: false
+      dom-snapshot:
+        type: boolean
+        default: false
+      screen-snapshot:
+        type: boolean
+        default: false
+
+jobs:
+  i:
+    timeout-minutes: 60
+    runs-on: macos-latest
+    env:
+      TZ: Asia/Seoul
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 🌱 Install pnpm
+        uses: ./.github/actions/pnpm-install
+
+      - name: 🥦 Install playwright
+        uses: ./.github/actions/playwright-install
+
+      - name: 🏗 Build and Export
+        uses: ./.github/actions/nextjs-build-export
+        with:
+          e2e: 'true'
+
+      - name: 🍄 Run Playwright [others]
+        if: inputs.others
+        run: pnpm e2e:others
+
+      - name: 🧊 Run Playwright [dom-snapshot]
+        if: inputs.dom-snapshot
+        run: pnpm e2e:dom
+
+      - name: 🩸 Run Playwright [screen-snapshot]
+        if: inputs.screen-snapshot
+        run: pnpm e2e:screen
+
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-report-$${{ inputs.others && 'others' || inputs.dom-snapshot && 'dom-snapshot' || inputs.screen-snapshot && 'screen-snapshot' || 'no-input-name' }}
+          path: playwright-report/
+          retention-days: 10
