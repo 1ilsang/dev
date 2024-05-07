@@ -9,7 +9,6 @@ test.describe(MACRO_SUITE.DOM_SNAPSHOT, () => {
 
     test(`${url}`, async ({ page }) => {
       await gotoUrl({ page, url: `/posts/${url}` });
-      await page.evaluate(() => document.fonts.ready);
       const body = await page.locator('#__next').innerHTML();
       expect(body).toMatchSnapshot([`${url}.html`]);
     });

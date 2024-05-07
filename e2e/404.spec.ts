@@ -4,7 +4,7 @@ import { MACRO_SUITE } from './shared/constants';
 
 test.describe('404', () => {
   test('should redirect 404', async ({ page }) => {
-    await gotoUrl({ page, url: '/something_wrong_path' });
+    await gotoUrl({ page, url: '/something_wrong_path', timeout: 60_000 });
     await expect(page.getByText(/404 ERROR/)).toBeVisible();
   });
 
@@ -13,7 +13,7 @@ test.describe('404', () => {
   });
 
   test(MACRO_SUITE.DOM_SNAPSHOT, async ({ page }) => {
-    await gotoUrl({ page, url: '/404' });
+    await gotoUrl({ page, url: '/404', timeout: 60_000 });
     await waitImages({ page });
     const body = await page.locator('#__next').innerHTML();
     expect(body).toMatchSnapshot([`404.html`]);

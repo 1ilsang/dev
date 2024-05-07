@@ -6,9 +6,17 @@ type ScreenshotOptions = {
   clip?: { x: number; y: number; width: number; height: number };
 };
 
-export const gotoUrl = async ({ page, url }: { page: Page; url: string }) => {
-  // https://stackoverflow.com/a/78183950
-  await page.goto(url, { waitUntil: 'domcontentloaded' });
+export const gotoUrl = async ({
+  page,
+  url,
+  timeout = 30_000,
+}: {
+  page: Page;
+  url: string;
+  timeout?: number;
+}) => {
+  await page.goto(url, { timeout });
+  await page.evaluate(() => document.fonts.ready);
 };
 
 export const waitImages = async ({ page }: { page: Page }) => {
@@ -37,7 +45,6 @@ export const screenshotFullPage = async ({
   timeout?: number;
 }) => {
   await gotoUrl({ page, url });
-  await page.evaluate(() => document.fonts.ready);
 
   await waitImages({ page });
 
