@@ -8,7 +8,7 @@ on:
 
 jobs:
   lint:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
 
@@ -19,12 +19,12 @@ jobs:
         run: pnpm lint
 
   build-export:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
 
       - name: 🌱 Install pnpm
         uses: ./.github/actions/pnpm-install
 
-      - name: 🏗 Build-export
-        run: pnpm deploy-blog
+      - name: 🏗 Build and Export
+        uses: ./.github/actions/nextjs-build-export

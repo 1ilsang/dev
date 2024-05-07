@@ -23,19 +23,3 @@ runs:
       shell: bash
       if: steps.cache-playwright-browsers.outputs.cache-hit != 'true'
       run: pnpm e2e:install
-
-    - name: Restore Next.js related caches
-      uses: actions/cache@v4
-      with:
-        path: |
-          ${{ github.workspace }}/.next
-          ${{ github.workspace }}/out
-        key: ${{ runner.os }}-nextjs-store-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
-        restore-keys: |
-          ${{ runner.os }}-nextjs-store-${{ hashFiles('**/pnpm-lock.yaml') }}-
-      id: cache-nextjs-build
-
-    - name: Build post
-      shell: bash
-      if: steps.cache-nextjs-build.outputs.cache-hit != 'true'
-      run: pnpm e2e:build

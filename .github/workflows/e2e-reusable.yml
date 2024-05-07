@@ -1,3 +1,4 @@
+# https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
 name: e2e-reusable
 
 on:
@@ -28,6 +29,11 @@ jobs:
 
       - name: 🥦 Install playwright
         uses: ./.github/actions/playwright-install
+
+      - name: 🏗 Build and Export
+        uses: ./.github/actions/nextjs-build-export
+        with:
+          e2e: 'true'
 
       - name: 🍄 Run Playwright [others]
         if: inputs.others
