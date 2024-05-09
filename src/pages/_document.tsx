@@ -17,6 +17,13 @@ export default class MyDocument extends Document {
             rel="preload"
             crossOrigin="anonymous"
           />
+          <link
+            href="/assets/D2CodingBold.woff2"
+            as="font"
+            type="font/woff2"
+            rel="preload"
+            crossOrigin="anonymous"
+          />
           <Favicon />
         </Head>
         <body>

@@ -62,15 +62,10 @@
     padding: 1vh 2vw;
     content-visibility: auto;
     margin-bottom: 15px;
-    border-radius: 40px 80px / 80px 40px;
 
     &:hover {
-      color: white;
-      text-shadow:
-        -0.5px 0 $base-color,
-        0 0.5px $base-color,
-        0.5px 0 $base-color,
-        0 -0.5px $base-color;
+      color: $background-color;
+      border-radius: 40px 80px / 80px 40px;
       background: linear-gradient(
         -45deg,
         #ee7752,
@@ -106,8 +101,14 @@
         margin-top: 0.5rem;
 
         .title {
-          font-size: 1.4rem;
-          margin: 0 1rem 0.3rem 0;
+          font-size: 1.5rem;
+          text-shadow:
+            -0.5px 0 $base-color,
+            0 0.5px $base-color,
+            0.5px 0 $base-color,
+            0 -0.5px $base-color;
+          text-decoration: underline 0.15em #42506117;
+          margin-bottom: 0.3rem;
         }
       }
 
