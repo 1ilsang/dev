@@ -11,14 +11,14 @@ export default class MyDocument extends Document {
           <meta name="author" content="1ilsang" />
           <meta name="keyword" content="1ilsang,dev,front,frontend,react" />
           <link
-            href="/assets/D2Coding.woff2"
+            href="/assets/D2Coding-subset.woff2"
             as="font"
             type="font/woff2"
             rel="preload"
             crossOrigin="anonymous"
           />
           <link
-            href="/assets/D2CodingBold.woff2"
+            href="/assets/D2CodingBold-subset.woff2"
             as="font"
             type="font/woff2"
             rel="preload"
