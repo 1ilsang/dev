@@ -9,14 +9,13 @@ const useNotFound = () => {
   useEffect(() => {
     const url = new URL(window.location.href);
     const { pathname, hash } = url;
+    const redirectUrl = redirectUrlMapper[pathname];
 
-    if (redirectUrlMapper[pathname]) {
-      setRedirect(redirectUrlMapper[pathname]);
-      push(`${redirectUrlMapper[pathname]}${hash}`, undefined, {
+    setRedirect(redirectUrl ?? '');
+    if (redirectUrl) {
+      push(`${redirectUrl}${hash}`, undefined, {
         shallow: true,
       });
-    } else {
-      setRedirect('');
     }
   });
 

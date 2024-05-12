@@ -9,11 +9,15 @@ test.describe('404', () => {
   });
 
   test(MACRO_SUITE.SCREEN_SNAPSHOT, async ({ page }) => {
-    await screenshotFullPage({ page, url: `/404`, arg: [`404.png`] });
+    await screenshotFullPage({
+      page,
+      url: `/something_wrong_path`,
+      arg: [`404.png`],
+    });
   });
 
   test(MACRO_SUITE.DOM_SNAPSHOT, async ({ page }) => {
-    await gotoUrl({ page, url: '/404', timeout: 60_000 });
+    await gotoUrl({ page, url: '/something_wrong_path', timeout: 60_000 });
     await waitImages({ page });
     const body = await page.locator('#__next').innerHTML();
     expect(body).toMatchSnapshot([`404.html`]);

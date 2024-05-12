@@ -24,17 +24,19 @@ export const waitImages = async ({ page }: { page: Page }) => {
   // https://stackoverflow.com/questions/77287441/how-to-wait-for-full-rendered-image-in-playwright
   const locators = page.locator('img');
   const scrollPromises = (await locators.all()).map(async (locator) => {
+    // https://playwright.dev/docs/api/class-locator#locator-scroll-into-view-if-needed
+    // 이미지 요소가 준비되었는지 확인
     return await locator.scrollIntoViewIfNeeded();
   });
   await Promise.all(scrollPromises);
   // Set up listeners concurrently
-  const promises = (await locators.all()).map((locator) =>
+  const imgLoadingPromises = (await locators.all()).map((locator) =>
     locator.evaluate<any, HTMLImageElement>(
       (image) => image.complete || new Promise((f) => (image.onload = f)),
     ),
   );
   // Wait for all once
-  await Promise.all(promises);
+  await Promise.all(imgLoadingPromises);
 
   // Step 2. 최상단으로 스크롤 이동
   // https://github.com/microsoft/playwright/issues/18827#issuecomment-2015560128

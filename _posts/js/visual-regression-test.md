@@ -274,14 +274,20 @@ test.describe(MACRO_SUITE.SCREEN_SNAPSHOT, () => {
 
 ```ts
 // Image 로딩 wait
-const locators = page.locator('//img');
-await locators.evaluateAll((e) => e.map((i) => i.scrollIntoView()));
-const promises = (await locators.all()).map((locator) =>
+const locators = page.locator('img');
+const scrollPromises = (await locators.all()).map(async (locator) => {
+  // https://playwright.dev/docs/api/class-locator#locator-scroll-into-view-if-needed
+  // 이미지 요소가 준비되었는지 확인
+  return await locator.scrollIntoViewIfNeeded();
+});
+await Promise.all(scrollPromises);
+const imgLoadingPromises = (await locators.all()).map((locator) =>
   locator.evaluate<any, HTMLImageElement>(
+    // 이미지 요소의 로딩 상태 확인
     (image) => image.complete || new Promise((f) => (image.onload = f)),
   ),
 );
-await Promise.all(promises);
+await Promise.all(imgLoadingPromises);
 
 // Font wait
 await page.evaluate(() => document.fonts.ready);
