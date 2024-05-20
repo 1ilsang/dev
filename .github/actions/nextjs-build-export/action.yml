@@ -24,7 +24,7 @@ runs:
     - name: Build and Export [default]
       shell: bash
       if: steps.cache-nextjs-build.outputs.cache-hit != 'true' && inputs.e2e == 'false'
-      run: pnpm deploy-blog
+      run: pnpm build
 
     - name: Build and Export [e2e]
       shell: bash

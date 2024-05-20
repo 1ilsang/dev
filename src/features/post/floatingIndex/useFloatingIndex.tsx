@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { type MouseEventHandler, useEffect, useState } from 'react';
 import { type PostType } from '~/posts/models';
 

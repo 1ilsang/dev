@@ -1,5 +1,7 @@
+'use client';
+
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import { FunctionComponent, memo, useEffect, useMemo, useState } from 'react';
 import classNames from 'classnames';
 
@@ -36,14 +38,13 @@ const NavText: FunctionComponent<NavTextProps> = memo(
 NavText.displayName = 'NavText';
 
 const Navbar: FunctionComponent = () => {
-  const router = useRouter();
+  const pathname = usePathname();
   const [hover, setHover] = useState(false);
   const [scrollDown, setScrollDown] = useState(false);
 
   const [notHome, postPage] = useMemo(() => {
-    const { pathname } = router;
     return [pathname !== '/', pathname.includes('/posts')];
-  }, [router.pathname]);
+  }, [pathname]);
 
   const handleMouseEnter = () => setHover(true);
   const handleMouseLeave = () => setHover(false);
@@ -67,7 +68,7 @@ const Navbar: FunctionComponent = () => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <NavText logo text="1ilsang" link="/" path={router.pathname} />
+      <NavText logo text="1ilsang" link="/" path={pathname} />
       <div className="flex">
         <NavText text="posts" link="/posts" />
         <NavText text="tags" link="/tags" />
