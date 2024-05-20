@@ -9,7 +9,7 @@ test.describe('about', () => {
 
   test(MACRO_SUITE.DOM_SNAPSHOT, async ({ page }) => {
     await gotoUrl({ page, url: '/about' });
-    const body = await page.locator('#__next').innerHTML();
+    const body = await page.locator('main').innerHTML();
     expect(body).toMatchSnapshot([`about.html`]);
   });
 });
