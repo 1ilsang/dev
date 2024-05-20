@@ -1,3 +1,5 @@
+'use client';
+
 import { type FunctionComponent } from 'react';
 import { type PostType } from '~/posts/models';
 import useFloatingIndex from './useFloatingIndex';

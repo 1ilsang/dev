@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { redirectUrlMapper } from '../constants';
 import { useEffect, useState } from 'react';
 
@@ -13,9 +13,7 @@ const useNotFound = () => {
 
     setRedirect(redirectUrl ?? '');
     if (redirectUrl) {
-      push(`${redirectUrl}${hash}`, undefined, {
-        shallow: true,
-      });
+      push(`${redirectUrl}${hash}`);
     }
   });
 

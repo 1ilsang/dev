@@ -1,10 +1,12 @@
 import Link from 'next/link';
-import { TagsDetailProps } from 'src/pages/tags/[tag]';
-import { FunctionComponent } from 'react';
+import { type FunctionComponent } from 'react';
+import { type PostType } from '~/posts/models';
 
 import { formatDate } from '~/shared/helpers/date';
 
-type TagDetailContainerProps = TagsDetailProps;
+type TagDetailContainerProps = {
+  posts: PostType[];
+};
 
 const TagDetailContainer: FunctionComponent<TagDetailContainerProps> = ({
   posts,

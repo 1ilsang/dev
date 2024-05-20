@@ -1,17 +1,25 @@
+'use client';
+
 import { FunctionComponent } from 'react';
-import { PostHomeProps } from 'src/pages/posts';
 
 import CategoryContainer from './category/Container';
 import usePostListContainer from './hooks/usePostListContainer';
 import MemoedPostItem from './components/Item';
+import { type PostType } from './models';
 
-const PostListContainer: FunctionComponent<PostHomeProps> = ({ posts }) => {
+type PostListContainerProps = {
+  posts: PostType[];
+};
+
+const PostListContainer: FunctionComponent<PostListContainerProps> = ({
+  posts,
+}) => {
   const {
     categoryFilter,
     handleCategoryClick,
     filteredList,
     handleClearClick,
-  } = usePostListContainer({ posts });
+  } = usePostListContainer(posts);
 
   return (
     <div className="post-container">

@@ -19,7 +19,7 @@ test.describe('404', () => {
   test(MACRO_SUITE.DOM_SNAPSHOT, async ({ page }) => {
     await gotoUrl({ page, url: '/something_wrong_path', timeout: 60_000 });
     await waitImages({ page });
-    const body = await page.locator('#__next').innerHTML();
+    const body = await page.locator('main').innerHTML();
     expect(body).toMatchSnapshot([`404.html`]);
   });
 });

@@ -1,16 +1,17 @@
-import { AppProps } from 'next/app';
+'use client';
+
+import { type FunctionComponent } from 'react';
 
 import { cliLogo } from '~/shared/constants/blog';
-import '~/styles/index.scss';
 
 let bannerOpened = false;
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+export const BannerWrapper: FunctionComponent = ({}) => {
   if (!bannerOpened) {
     bannerOpened = true;
     if (typeof window !== 'undefined') {
       console.info(cliLogo);
     }
   }
-  return <Component {...pageProps} />;
-}
+  return <></>;
+};

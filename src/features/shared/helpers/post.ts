@@ -8,6 +8,7 @@ import { join } from 'path';
 import matter from 'gray-matter';
 
 import { Category, FileCategory, PostType } from '~/posts/models';
+import markdownToHtml from './markdown';
 
 const rootPostPath = join(process.cwd(), '_posts');
 
@@ -98,4 +99,28 @@ export const getAllPosts = (fields: (keyof PostType)[] = []) => {
     })
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
   return posts;
+};
+
+export const getPost = async (url: PostType['url']): Promise<PostType> => {
+  if (!urlToSlugMap[url]) {
+    // NOTE: It will set urlToSlugMap
+    getAllPosts();
+  }
+
+  const post = getPostBySlug(urlToSlugMap[url], [
+    'title',
+    'date',
+    'slug',
+    'content',
+    'description',
+    'tags',
+    'ogImage',
+    'coverImage',
+  ]);
+  const content = await markdownToHtml(post.content || '');
+
+  return {
+    ...post,
+    content,
+  };
 };

@@ -1,5 +1,4 @@
 import { FunctionComponent } from 'react';
-import { PostsProps } from 'src/pages/posts/[url]';
 
 import PostBody from './components/PostBody';
 import IssuePost from './components/IssuePost';
@@ -8,8 +7,9 @@ import Avatar from '~/shared/components/Avatar';
 import HashTag from '~/shared/components/HashTag';
 import PublishedDate from '~/shared/components/PublishedDate';
 import FloatingIndex from './floatingIndex/Container';
+import { type PostType } from '~/posts/models';
 
-const PostContainer: FunctionComponent<PostsProps> = ({ post }) => {
+const PostContainer: FunctionComponent<{ post: PostType }> = ({ post }) => {
   return (
     <div className="post-container">
       <h1 className="post-header">{post.title}</h1>
