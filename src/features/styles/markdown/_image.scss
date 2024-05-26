@@ -18,6 +18,8 @@
 
 @mixin image {
   img {
+    width: 100%;
+    height: 100%;
     cursor: pointer;
     object-fit: contain;
     max-height: 550px;
