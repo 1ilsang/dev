@@ -1,11 +1,13 @@
 import { useAtom } from 'jotai';
 import { useEffect, useState } from 'react';
 import { imageSrcAtom } from '../modal/atoms';
+import { usePathname } from 'next/navigation';
 
 const useProgress = () => {
   const [progress, setProgress] = useState(0);
   const [max, setMax] = useState(1);
   const [, setImageSrc] = useAtom(imageSrcAtom);
+  const pathname = usePathname();
 
   const checkImages = () =>
     Array.from(document.images)
@@ -24,7 +26,7 @@ const useProgress = () => {
       clearTimeout(intervalProgress);
       setProgress(documentMax);
       return new Promise((resolve) => {
-        setTimeout(() => resolve(documentMax), 2000);
+        setTimeout(() => resolve(documentMax), 1300);
       });
     };
 
@@ -41,7 +43,11 @@ const useProgress = () => {
     setProgress((prev) => (prev + 0.02) % max);
   };
   const bindImageClickEvent = () => {
-    Array.from(document.images).map((img) => {
+    if (!pathname.startsWith('/posts')) return;
+    const postBodyImages = document
+      .querySelector('.post-body-container')
+      .querySelectorAll('img');
+    Array.from(postBodyImages).map((img) => {
       img.addEventListener('click', (event) => {
         if (!(event.target instanceof HTMLImageElement)) return;
         setImageSrc(event.target.src);
@@ -57,11 +63,12 @@ const useProgress = () => {
     const intervalProgress = setInterval(handleInterval, 45);
 
     Promise.all(checkImages())
+      .then(bindImageClickEvent)
       .then(handleLoadingProgress(intervalProgress))
-      .then(handleProgress(handleScroll))
-      .then(bindImageClickEvent);
+      .then(handleProgress(handleScroll));
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      clearTimeout(intervalProgress);
     };
   }, []);
 
