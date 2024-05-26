@@ -1,4 +1,4 @@
-<div class="nav-loading"><progress value="0" max="1"></progress></div><nav class="nav flex-wrap water-rainbow post-nav-trans nav-shadow"><h2 class="tracking-tight focus:text-gray-700 text-2xl font-bold mt-2 mb-2 ml-3.5"><a class="hover-underline" href="/">1ilsang</a></h2><div class="flex"><h2 class="tracking-tight focus:text-gray-700 text-xl mt-2.5 mr-6"><a class="hover-underline" href="/posts">posts</a></h2><h2 class="tracking-tight focus:text-gray-700 text-xl mt-2.5 mr-6"><a class="hover-underline" href="/tags">tags</a></h2><div class="rounded-full mr-2 relative nav-avatar"><a href="/about"><img src="/assets/chul.png" alt="1ilsang"></a></div></div></nav><div class="post-container"><h1 class="post-header">Renovate 간단하게 살펴보기</h1><div class="post-profile-container"><div class="flex items-center"><div class="rounded-full mr-2 relative avatar-image"><a href="/about"><img src="/assets/chul.png" alt="1ilsang"></a></div><div><a class="avatar-name" href="/about">1ilsang</a><div class="avatar-description">클라이밍 하실래염?</div></div></div></div><div class="flex flex-wrap mt-2 items-end"><a class="hashtag mr-2" target="_self" href="/tags/renovate">#<!-- -->renovate</a><a class="hashtag mr-2" target="_self" href="/tags/packageManager">#<!-- -->packageManager</a><a class="hashtag mr-2" target="_self" href="/tags/bot">#<!-- -->bot</a><a class="hashtag mr-2" target="_self" href="/tags/dependency">#<!-- -->dependency</a></div><div class="date-published"><time class="date-format" datetime="2022-07-02 14:01">2022-07-02 14:01</time> published</div><div class="post-body-container"><div class="markdown"><p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/e3637b13-b6b4-4bda-b3bb-7cd9f15928e3" alt="cover" class="cover"></div><p></p>
+<div class="nav-loading"><progress value="0" max="1"></progress></div><nav class="nav flex-wrap water-rainbow post-nav-trans nav-shadow"><h2 class="tracking-tight focus:text-gray-700 text-2xl font-bold mt-2 mb-2 ml-3.5"><a class="hover-underline" href="/">1ilsang</a></h2><div class="flex"><h2 class="tracking-tight focus:text-gray-700 text-xl mt-2.5 mr-6"><a class="hover-underline" href="/posts">posts</a></h2><h2 class="tracking-tight focus:text-gray-700 text-xl mt-2.5 mr-6"><a class="hover-underline" href="/tags">tags</a></h2><div class="rounded-full mr-2 relative nav-avatar"><a href="/about"><img src="/assets/chul.png" alt="1ilsang"></a></div></div></nav><div class="post-container"><h1 class="post-header">Renovate 간단하게 살펴보기</h1><div class="post-profile-container"><div class="flex items-center"><div class="rounded-full mr-2 relative avatar-image"><a href="/about"><img src="/assets/chul.png" alt="1ilsang"></a></div><div><a class="avatar-name" href="/about">1ilsang</a><div class="avatar-description">클라이밍 하실래염?</div></div></div></div><div class="flex flex-wrap mt-2 items-end"><a class="hashtag mr-2" target="_self" href="/tags/renovate">#<!-- -->renovate</a><a class="hashtag mr-2" target="_self" href="/tags/packageManager">#<!-- -->packageManager</a><a class="hashtag mr-2" target="_self" href="/tags/bot">#<!-- -->bot</a><a class="hashtag mr-2" target="_self" href="/tags/dependency">#<!-- -->dependency</a></div><div class="date-published"><time class="date-format" datetime="2022-07-02 14:01">2022-07-02 14:01</time> published</div><div class="post-body-container"><div class="markdown"><p></p><div class="img-container"><div class="img-wrap cover"><img src="https://github.com/1ilsang/dev/assets/23524849/e3637b13-b6b4-4bda-b3bb-7cd9f15928e3" alt="cover"></div></div><p></p>
 <p>이번에는 디펜던시를 자동으로 최신화 해주는 <a class="underline-highlight-fade" target="_blank" href="https://www.mend.io/free-developer-tools/renovate/" rel="noreferrer noopener">Renovate</a>를 소개해보고자 한다.</p>
 <h2 id="index" data-heading="true"><a data-heading="true" href="#index"><span class="icon icon-link"></span></a>Index</h2>
 <ul>
@@ -9,11 +9,11 @@
 <li>마무리</li>
 </ul>
 <h2 id="intro" data-heading="true"><a data-heading="true" href="#intro"><span class="icon icon-link"></span></a>INTRO</h2>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/45e6a922-03f6-42a2-af73-4f9439e9d88c" alt="repo-alert" class="l"></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/45e6a922-03f6-42a2-af73-4f9439e9d88c" alt="repo-alert"></div></div><p></p>
 <p>리포지터리에서 위와 같은 노티를 봤을수도 있다. 혹여나 <strong><em>critical severity</em></strong>가 존재한다면 마음 한켠이 굉장히 불안해지기 시작한다. "그날이 왔구나" 생각하며 일정을 산정해 버전업 계획을 세우게 된다.</p>
 <p>오래된 버전을 올리는것은 굉장히 고통스러운 작업을 동반한다.</p>
 <p>노티로 알려주는 패키지에는 "종속성"에 포함되는 패키지도 있기 때문에 복잡하게 얽힌 의존 관계를 한땀한땀 쫓아가며 올려야 하는 패키지들을 수색하는 과정이 필요하다.</p>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/0b908c8e-276f-4a62-9b68-a278822b6635" alt="file-hierarchy"></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/0b908c8e-276f-4a62-9b68-a278822b6635" alt="file-hierarchy"></div></div><p></p>
 <p>만약 <code>minimist</code> 라는 라이브러리의 버전을 올려야 한다고 할 경우, 이 라이브러리를 종속성으로 가지고 있는 "실제로 설치된" 라이브러리를 <code>yarn.lock</code>과 같은 락파일에서 디펜던시 그래프를 찾아 올라가야 한다.</p>
 <p>위의 예에서는 <code>detective</code> 패키지가 종속성을 가지고 있다. 하지만 <code>detective는</code> 설치한 적이 없기 때문에 <code>package.json</code>에 없다. 따라서 <code>detective</code> 라이브러리를 종속하고 있는 또 다른 라이브러리를 찾아 올라가야 한다.</p>
 <p>이는 굉장히 고통스러운 과정이다.</p>
@@ -22,7 +22,7 @@
 <p>깃헙의 공식 툴인 <a class="underline-highlight-fade" target="_blank" href="https://www.libhunt.com/compare-renovate-vs-dependabot-core" rel="noreferrer noopener">dependabot 과의 차이점</a>도 향후 작성해 볼 예정이다. <a class="underline-highlight-fade" target="_blank" href="https://www.reddit.com/r/reactjs/comments/us666i/how_do_you_keep_up_with_npm_package_updates/" rel="noreferrer noopener">레딧에서 다양한 의견</a>을 볼 수 있다.</p>
 </blockquote>
 <h2 id="renovate란" data-heading="true"><a data-heading="true" href="#renovate란"><span class="icon icon-link"></span></a>Renovate란?</h2>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/7931049f-5714-4944-9348-fe12d56c1521" alt="renovate-logo" class="l"></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/7931049f-5714-4944-9348-fe12d56c1521" alt="renovate-logo"></div></div><p></p>
 <p><a class="underline-highlight-fade" target="_blank" href="https://www.mend.io/free-developer-tools/renovate/" rel="noreferrer noopener">Renovate</a>는 자동으로 디펜던시를 업데이트 해주는 봇이다.</p>
 <p>리포지터리의 패키지 관리자 파일을 확인하고 업데이트가 필요한 종속성을 발견하면 Pull Request 를 자동으로 해준다.</p>
 <h2 id="renovate의-장점" data-heading="true"><a data-heading="true" href="#renovate의-장점"><span class="icon icon-link"></span></a>Renovate의 장점</h2>
@@ -37,7 +37,7 @@
 <li>PR 자동 생성 + 릴리즈 노트.</li>
 <li>monorepo 지원.</li>
 </ul>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/75ce7f26-d82c-4b7b-a589-cfe684307e0f" alt="pr-example"></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/75ce7f26-d82c-4b7b-a589-cfe684307e0f" alt="pr-example"></div></div><p></p>
 <p>Renovate를 적용하면 <a class="underline-highlight-fade" target="_blank" href="https://github.com/1ilsang/dev/pull/5" rel="noreferrer noopener">PR</a>이 생성된다.</p>
 <p>PR을 확인해보면 아래와 같은 특징을 찾아볼 수 있다.</p>
 <ol>
@@ -94,7 +94,7 @@
 <li>Renovate app을 설치한다.</li>
 </ol>
 <p><a class="underline-highlight-fade" target="_blank" href="https://github.com/apps/renovate" rel="noreferrer noopener">Renovate app</a> 봇을 설치한다.</p>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/d47b19d3-694c-4a10-aa7f-abfef7e21f77" alt="repo-bot"></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/d47b19d3-694c-4a10-aa7f-abfef7e21f77" alt="repo-bot"></div></div><p></p>
 <p>그후 설치 페이지로 진입해서 봇을 추가할 리포지터리를 선택한다.</p>
 <ol>
 <li>Renovate PR을 merge 한다.</li>
@@ -105,7 +105,7 @@
 </ol>
 <p>이제 앞에서 본것과 같이 업데이트가 필요한 라이브러리의 PR이 자동으로 생성된다. 기본값은 10개이기 때문에 renovate.json 값을 수정해 원하는 방식으로 조정할 수 있다.</p>
 <h2 id="마무리" data-heading="true"><a data-heading="true" href="#마무리"><span class="icon icon-link"></span></a>마무리</h2>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/62000c48-245d-4913-8678-dd590eba170a" alt="finish" class="l"></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/62000c48-245d-4913-8678-dd590eba170a" alt="finish"></div></div><p></p>
 <p>그동안 디펜던시는 "기간 잡아서 한방에 처리하자"로 남겨두고 있었다.</p>
 <p>그렇기 때문에 정말 특정한 이슈가 없는 이상 버전 올릴 생각을 잘 하지 않게 되었고, 그 결과 수많은 Breaking change를 만나며 고생했던 기억이 있다.</p>
 <p>무엇보다 "<strong>사용하고 있는 라이브러리의 최신 근황</strong>"에 대해 궁금해 하지 않았던 점도 한몫 했다.</p>

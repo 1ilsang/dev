@@ -8,7 +8,7 @@
 <p>나는 위의 세 가지 경우 모두를 확인하는 컨펌창을 만들어야 했다.</p>
 <p>모든 경우 <code>beforeunload</code> 이벤트를 통해 막아줄수 있기 때문에 간편하게 작업할수 있을것이라 예상했으나, 실제로 작업해보니 3번 페이지 이동간에 이벤트가 발생하지 않아 애를 먹었다.</p>
 <p>정확히는 <strong>동일한 도메인에서 서브패스가 달라졌을때만 이벤트가 발생하지 않았다</strong>(e.g., domain.com/dev -&gt; domain.com/1ilsang). 작업하던 웹앱은 <code>react-router-dom</code>을 사용하는 SPA 였기에 해당 문제가 <a class="underline-highlight-fade" target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/History_API" rel="noreferrer noopener">History API</a>와 연관되어 있다고 생각하고 서치를 시작했고, 예상대로 이벤트의 기대 동작과 실제 동작이 달라서 일어난 일이었다.</p>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/3594b04d-a60f-4edb-9aad-1fbef82245b1" alt="flow-chart" class="l"></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/3594b04d-a60f-4edb-9aad-1fbef82245b1" alt="flow-chart"></div></div><p></p>
 <blockquote>
 <p><a class="underline-highlight-fade" target="_blank" href="https://developer.chrome.com/docs/web-platform/page-lifecycle-api?hl=ko" rel="noreferrer noopener">자세히 보기</a></p>
 </blockquote>
@@ -24,7 +24,7 @@
 <p>이 경우 때문에 SPA 환경에서 3번 페이지 이동을 막아주기 위해서는 History API를 직접 수정해 <code>popstate</code> 이벤트로 막아줄수 있다.</p>
 <p>따라서 먼저 beforeunload 이벤트로 처리하는 방식을 작성한 다음, SPA 환경을 위한 popstate 처리를 써보려고 한다.</p>
 <h2 id="beforeunload로-페이지-이탈-방지하기" data-heading="true"><a data-heading="true" href="#beforeunload로-페이지-이탈-방지하기"><span class="icon icon-link"></span></a>beforeunload로 페이지 이탈 방지하기</h2>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/bf2cd78f-1d32-4d08-9fc7-1eb326a35288" alt="prevent" class="s"></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap s"><img src="https://github.com/1ilsang/dev/assets/23524849/bf2cd78f-1d32-4d08-9fc7-1eb326a35288" alt="prevent"></div></div><p></p>
 <p>beforeunload 이벤트를 통해 페이지 이동을 감지할 경우 브라우저에서 기본 컨펌창을 제공해 주는데, 크롬 기준 컨펌창은 위의 이미지와 같다.</p>
 <figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="tsx" data-theme="material-theme-palenight"><code data-language="tsx" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> handleBeforeUnload </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">event</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> Event</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#BABED8">  event</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">preventDefault</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
@@ -35,7 +35,7 @@
 <p>이전에는 <code>returnValue</code>로 설정해준 값이 컨펌창에 노출되었지만, 노이즈가 너무 강해(님 진짜 진자 나갈거임? 아 나가지마셈..!! 등의 텍스트) 현재는 브라우저에서 기본 텍스트만 노출하도록 변경되었다.</p>
 <p>크롬의 경우 <code>returnValue</code> 값이 필요하므로 추가해주어야 브라우저 컨펌창이 노출된다. 또한 크롬의 경우 <a class="underline-highlight-fade" target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/Security/User_activation" rel="noreferrer noopener">유저의 명시적 액션</a>이 있어야만 이벤트가 정상적으로 발생한다.</p>
 <p>위의 내용은 MDN <a class="underline-highlight-fade" target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event#compatibility_notes" rel="noreferrer noopener">beforeunload_event#compatibility_notes</a>에서 자세하게 확인할수 있다.</p>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/b95db747-a90d-4542-b2af-6a075fdd348a" alt="error" class="l"></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/b95db747-a90d-4542-b2af-6a075fdd348a" alt="error"></div></div><p></p>
 <p>beforeunload 이벤트로 작업하다보면 위와같은 에러를 만날수 있는데, 이는 앞서 말한 유저의 명시적 액션(e.g, mousedown)이 없었기 때문에 발생하는 에러이다.</p>
 <p>이제 이 코드를 리액트로 옮겨보자.</p>
 <figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="tsx" data-theme="material-theme-palenight"><code data-language="tsx" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> usePreventLeave </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">global</span><span style="color:#89DDFF"> =</span><span style="color:#FF9CAC"> false</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>

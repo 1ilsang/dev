@@ -1,4 +1,4 @@
-<div class="nav-loading"><progress value="0" max="1"></progress></div><nav class="nav flex-wrap water-rainbow post-nav-trans nav-shadow"><h2 class="tracking-tight focus:text-gray-700 text-2xl font-bold mt-2 mb-2 ml-3.5"><a class="hover-underline" href="/">1ilsang</a></h2><div class="flex"><h2 class="tracking-tight focus:text-gray-700 text-xl mt-2.5 mr-6"><a class="hover-underline" href="/posts">posts</a></h2><h2 class="tracking-tight focus:text-gray-700 text-xl mt-2.5 mr-6"><a class="hover-underline" href="/tags">tags</a></h2><div class="rounded-full mr-2 relative nav-avatar"><a href="/about"><img src="/assets/chul.png" alt="1ilsang"></a></div></div></nav><div class="post-container"><h1 class="post-header">시각적 회귀 테스트 도입기</h1><div class="post-profile-container"><div class="flex items-center"><div class="rounded-full mr-2 relative avatar-image"><a href="/about"><img src="/assets/chul.png" alt="1ilsang"></a></div><div><a class="avatar-name" href="/about">1ilsang</a><div class="avatar-description">클라이밍 하실래염?</div></div></div></div><div class="flex flex-wrap mt-2 items-end"><a class="hashtag mr-2" target="_self" href="/tags/test">#<!-- -->test</a><a class="hashtag mr-2" target="_self" href="/tags/visual-regression-test">#<!-- -->visual-regression-test</a><a class="hashtag mr-2" target="_self" href="/tags/playwright">#<!-- -->playwright</a><a class="hashtag mr-2" target="_self" href="/tags/snapshot">#<!-- -->snapshot</a></div><div class="date-published"><time class="date-format" datetime="2024-05-06 14:34">2024-05-06 14:34</time> published</div><div class="post-body-container"><div class="markdown"><p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/aa46489d-c054-41f4-bdc2-fe11c8bab49f" alt="cover" class="cover"></div><p></p>
+<div class="nav-loading"><progress value="0" max="1"></progress></div><nav class="nav flex-wrap water-rainbow post-nav-trans nav-shadow"><h2 class="tracking-tight focus:text-gray-700 text-2xl font-bold mt-2 mb-2 ml-3.5"><a class="hover-underline" href="/">1ilsang</a></h2><div class="flex"><h2 class="tracking-tight focus:text-gray-700 text-xl mt-2.5 mr-6"><a class="hover-underline" href="/posts">posts</a></h2><h2 class="tracking-tight focus:text-gray-700 text-xl mt-2.5 mr-6"><a class="hover-underline" href="/tags">tags</a></h2><div class="rounded-full mr-2 relative nav-avatar"><a href="/about"><img src="/assets/chul.png" alt="1ilsang"></a></div></div></nav><div class="post-container"><h1 class="post-header">시각적 회귀 테스트 도입기</h1><div class="post-profile-container"><div class="flex items-center"><div class="rounded-full mr-2 relative avatar-image"><a href="/about"><img src="/assets/chul.png" alt="1ilsang"></a></div><div><a class="avatar-name" href="/about">1ilsang</a><div class="avatar-description">클라이밍 하실래염?</div></div></div></div><div class="flex flex-wrap mt-2 items-end"><a class="hashtag mr-2" target="_self" href="/tags/test">#<!-- -->test</a><a class="hashtag mr-2" target="_self" href="/tags/visual-regression-test">#<!-- -->visual-regression-test</a><a class="hashtag mr-2" target="_self" href="/tags/playwright">#<!-- -->playwright</a><a class="hashtag mr-2" target="_self" href="/tags/snapshot">#<!-- -->snapshot</a></div><div class="date-published"><time class="date-format" datetime="2024-05-06 14:34">2024-05-06 14:34</time> published</div><div class="post-body-container"><div class="markdown"><p></p><div class="img-container"><div class="img-wrap cover"><img src="https://github.com/1ilsang/dev/assets/23524849/aa46489d-c054-41f4-bdc2-fe11c8bab49f" alt="cover"></div></div><p></p>
 <blockquote>
 <p>Image Source: <a class="underline-highlight-fade" target="_blank" href="https://commerce.nearform.com/blog/2022/react-native-owl/" rel="noreferrer noopener">We're Building a Visual Regression Testing Library for React Native</a></p>
 </blockquote>
@@ -41,7 +41,7 @@
 <li>로컬 테스트와 CI Test의 통합은 어렵다</li>
 </ol>
 <h2 id="도입-배경" data-heading="true"><a data-heading="true" href="#도입-배경"><span class="icon icon-link"></span></a>도입 배경</h2>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/7b69e87b-280f-4b86-8a3c-bf7b76dfc1e8" alt="test pyramid"></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/7b69e87b-280f-4b86-8a3c-bf7b76dfc1e8" alt="test pyramid"></div></div><p></p>
 <blockquote>
 <p>Image Source: <a class="underline-highlight-fade" target="_blank" href="https://kr.freepik.com/premium-vector/test-pyramid-with-user-interface-tests-integration-tests-and-unit-tests_50393283.htm" rel="noreferrer noopener">사용자 인터페이스 테스트 통합 테스트 및 단위 테스트로 테스트 피라미드</a></p>
 </blockquote>
@@ -55,7 +55,7 @@
 <p>먼저 DOM 스냅샷 비교를 통해 이후 작업에서 기존 DOM 구조를 변경하는지 확인한다. 하지만 DOM 스냅샷은 CSS의 변경 여부를 알아차리기 어렵다는 단점이 있다.</p>
 <p>따라서 시각적 회귀 테스트인 Screen 스냅샷 비교로 정상적인 렌더링이 되었는지 확인한다.</p>
 <h2 id="시각적-회귀-테스트란" data-heading="true"><a data-heading="true" href="#시각적-회귀-테스트란"><span class="icon icon-link"></span></a>시각적 회귀 테스트란</h2>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/b7a57bd0-6059-4c87-87b2-bd78d0ff01d7" alt="failed visual regression test" class="l"></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/b7a57bd0-6059-4c87-87b2-bd78d0ff01d7" alt="failed visual regression test"></div></div><p></p>
 <blockquote>
 <p>(좌) 차이가 생긴 렌더링 결과물. (우) 차이가 생긴 부분 히트맵</p>
 </blockquote>
@@ -64,7 +64,7 @@
 <p>우측 이미지는 Diff 이미지로, 차이가 생긴 영역에 붉게 표시를 해놓았다.</p>
 <p>이로써 우리는 컴포넌트가 실제로 어떻게 렌더링 되었는지 정확하게 알 수 있게 된다.</p>
 <h2 id="playwright" data-heading="true"><a data-heading="true" href="#playwright"><span class="icon icon-link"></span></a>Playwright</h2>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/006e72b3-5f73-4938-af76-3a4d9f39840c" alt="playwright"></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/006e72b3-5f73-4938-af76-3a4d9f39840c" alt="playwright"></div></div><p></p>
 <p>어떤 방식의 테스트를 할지 결정되었으니 자연스럽게 어떤 도구로 테스트를 작성할지 고민하게 되었다.</p>
 <table>
 <thead>
@@ -102,7 +102,7 @@
 </blockquote>
 <p>꾸준히 <a class="underline-highlight-fade" target="_blank" href="https://www.cypress.io/" rel="noreferrer noopener">Cypress</a>를 사용해 왔지만 병렬 처리에 상당히 답답함을 느끼고 있었기 때문에 이번 기회에 <a class="underline-highlight-fade" target="_blank" href="https://playwright.dev/" rel="noreferrer noopener">Playwright</a>에 도전하고자 결정했다.</p>
 <p>물론 <a class="underline-highlight-fade" target="_blank" href="https://sorry-cypress.dev/" rel="noreferrer noopener">Sorry-Cypress</a>로 병렬처리를 할 수 있지만 셀프 호스팅부터 신경 써야 하는 부분이 하나 더 생기기 때문에 기술부채가 싫은 나로서는 선택지에 해당되지 않았다.</p>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/32d1be8f-db0f-441b-af8d-bb79975ecdd1" alt="image (6)"></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/32d1be8f-db0f-441b-af8d-bb79975ecdd1" alt="image (6)"></div></div><p></p>
 <p>무엇보다 성능 부분에 차이가 있다. 테스트 결과를 하루종일 기다렸는데 심지어 실패했다? 한 줄 고치고 다시 하루종일 기다려야 한다.</p>
 <p>정말 하기 싫어진다.</p>
 <p>Playwright는 브라우저와 HTTP request 통신 대신 WebSocket으로 Dev tools에 바로 연결한다. 따라서 브라우저의 큰 메모리나 부가적인 리소스가 필요하지 않기 때문에 실제 브라우저와 통신하는 Cypress에 비해 가볍고 빠르다.</p>
@@ -139,7 +139,7 @@
 <p>이처럼 다양한 사이드 이펙트가 존재하기 때문에 동적인 컴포넌트가 많거나 화면이 자주 바뀐다면 도입 전에 <a class="underline-highlight-fade" target="_blank" href="https://ko.wikipedia.org/wiki/%ED%88%AC%EC%9E%90%EC%9E%90%EB%B3%B8%EC%88%98%EC%9D%B5%EB%A5%A0" rel="noreferrer noopener">ROI</a>를 따져보는 것이 좋다.</p>
 <p>기본적인 설정은 되었으므로 CI/CD를 구축하자.</p>
 <h2 id="github-actions" data-heading="true"><a data-heading="true" href="#github-actions"><span class="icon icon-link"></span></a>Github Actions</h2>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/a4a8ede8-b9ed-448a-9ed0-ec805ffe74de" alt="github actions" class="l"></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/a4a8ede8-b9ed-448a-9ed0-ec805ffe74de" alt="github actions"></div></div><p></p>
 <blockquote>
 <p>Image Source: <a class="underline-highlight-fade" target="_blank" href="https://www.linkedin.com/pulse/cicd-github-actions-step-by-step-workflow-mysoly-v-o-f-vngqf/" rel="noreferrer noopener">CI/CD with GitHub Actions: Step-by-Step Workflow</a></p>
 </blockquote>
@@ -172,7 +172,7 @@
 <span data-line=""><span style="color:#F07178">          name</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> playwright-report</span></span>
 <span data-line=""><span style="color:#F07178">          path</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> playwright-report/</span></span>
 <span data-line=""><span style="color:#F07178">          retention-days</span><span style="color:#89DDFF">:</span><span style="color:#F78C6C"> 30</span></span></code></pre></figure>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/215c1354-03af-4b70-aadb-df71b92013ac" alt="Actions result" class="l"></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/215c1354-03af-4b70-aadb-df71b92013ac" alt="Actions result"></div></div><p></p>
 <h2 id="성능-개선" data-heading="true"><a data-heading="true" href="#성능-개선"><span class="icon icon-link"></span></a>성능 개선</h2>
 <p>위의 CI/CD는 3가지 문제가 있다.</p>
 <ol>
@@ -182,7 +182,7 @@
 </ol>
 <p>이것을 개선해보고자 한다.</p>
 <h3 id="테스트-방식" data-heading="true"><a data-heading="true" href="#테스트-방식"><span class="icon icon-link"></span></a>테스트 방식</h3>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/ea06df55-1950-47ac-9a1a-841dd2b6abc2" alt="action log"></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/ea06df55-1950-47ac-9a1a-841dd2b6abc2" alt="action log"></div></div><p></p>
 <p>테스트의 어디까지 성공했는지, 어떤 테스트를 실행 중인지 등의 작업 상황을 보기 위해선 현재는 로그를 확인해야 한다.</p>
 <p>이러한 <u>문제의 근본적인 이유는 특정 기능 단위의 테스트만 실행시키는 방법이 존재하지 않기 때문</u>이다.</p>
 <figure data-rehype-pretty-code-figure=""><figcaption data-rehype-pretty-code-title="" data-language="json" data-theme="material-theme-palenight">package.json</figcaption><pre tabindex="0" data-language="json" data-theme="material-theme-palenight"><code data-language="json" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#89DDFF">{</span></span>
@@ -272,9 +272,9 @@
 <span data-line=""><span style="color:#F07178">    uses</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">./.github/workflows/e2e-reusable.yml</span><span style="color:#89DDFF">'</span></span>
 <span data-line=""><span style="color:#F07178">    with</span><span style="color:#89DDFF">:</span></span>
 <span data-line=""><span style="color:#F07178">      screen-snapshot</span><span style="color:#89DDFF">:</span><span style="color:#FF9CAC"> true</span></span></code></pre></figure>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/e4efbba0-43ea-4cd1-84cb-704f86c81fac" alt="workflow job"></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/e4efbba0-43ea-4cd1-84cb-704f86c81fac" alt="workflow job"></div></div><p></p>
 <p>앞에서 나눈 테스트 피처 단위로 workflows의 job을 나눠주고 <a class="underline-highlight-fade" target="_blank" href="https://github.com/1ilsang/dev/blob/23af6919397a28a6a69881d4b376f4c77d0b3584/.github/workflows/e2e-reusable.yml#L5" rel="noreferrer noopener">workflow_call</a>을 적절하게 사용한다면 편리하고 가독성 좋은 Flow를 만들 수 있다.</p>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/8c2b620f-515a-42a5-8d64-340675f3b879" alt="failed flow" class="l"></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/8c2b620f-515a-42a5-8d64-340675f3b879" alt="failed flow"></div></div><p></p>
 <p>무엇보다 job을 나누게 되면 실패한 부분만 재실행할 수 있기 때문에 더욱 유연한 테스트를 할 수 있게 된다.</p>
 <figure data-rehype-pretty-code-figure=""><figcaption data-rehype-pretty-code-title="" data-language="yml" data-theme="material-theme-palenight">actions</figcaption><pre tabindex="0" data-language="yml" data-theme="material-theme-palenight"><code data-language="yml" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#676E95;font-style:italic"># playwright 설치 캐시</span></span>
 <span data-line=""><span style="color:#89DDFF">-</span><span style="color:#F07178"> name</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> Cache Playwright Browsers for Playwright's Version</span></span>
@@ -317,7 +317,7 @@
 <span data-line=""><span style="color:#F07178">  run</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> pnpm e2e:build</span></span></code></pre></figure>
 <p>Job을 분리하면 불필요한 반복 빌드 작업이 발생하게 되는데 이를 캐싱을 통해 시간을 단축시킬 수 있다.</p>
 <p>특히 잘 변경되지 않는 정적 블로그의 경우 <code>pnpm</code>, <code>.next</code>, <code>out</code>, <code>playwright</code>를 캐싱해 두면 전체 테스트 시간을 아낄 수 있게 된다.</p>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/971e8417-96cc-492b-b429-c991989b2198" alt="compare time" class="s"></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap s"><img src="https://github.com/1ilsang/dev/assets/23524849/971e8417-96cc-492b-b429-c991989b2198" alt="compare time"></div></div><p></p>
 <p>이로써 절반이상 시간을 줄이고 실패에 더 유연한 CI 테스트를 할 수 있게 되었다.</p>
 <p><a class="underline-highlight-fade" target="_blank" href="https://github.com/1ilsang/dev/tree/23af6919397a28a6a69881d4b376f4c77d0b3584" rel="noreferrer noopener">완성된 전체 코드</a>는 깃헙에서 확인할 수 있다. <code>.github</code> 및 <code>e2e</code>를 확인하면 된다.</p>
 <h2 id="트러블-슈팅" data-heading="true"><a data-heading="true" href="#트러블-슈팅"><span class="icon icon-link"></span></a>트러블 슈팅</h2>
@@ -325,7 +325,7 @@
 <p>팀 단위의 협업에선 로컬 머신 버전을 강제하기 어렵기 때문에 로컬 테스트와 CI 테스트의 동기화가 어렵다.</p>
 <p>따라서 도커를 활용하든가 CI 테스트만 사용하든가 양자택일로 흐르게 된다.</p>
 <p>하지만 지금 나의 플로우와 같이 1인 개발이라면 로컬과 CI 테스트를 어느 정도 맞춰줄 수 있다.</p>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/cd3eb08d-4dda-4f2a-992d-bdb6a552df27" alt="Macos runner version" class="l"></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/cd3eb08d-4dda-4f2a-992d-bdb6a552df27" alt="Macos runner version"></div></div><p></p>
 <blockquote>
 <p>Runner <a class="underline-highlight-fade" target="_blank" href="https://github.com/actions/runner-images/tree/main?tab=readme-ov-file#available-images" rel="noreferrer noopener">전체 목록 확인</a></p>
 </blockquote>
@@ -365,7 +365,7 @@
 <figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="tsx" data-theme="material-theme-palenight"><code data-language="tsx" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#82AAFF">useEffect</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">  if</span><span style="color:#F07178"> (</span><span style="color:#BABED8">process</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">env</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">NEXT_PUBLIC_CI</span><span style="color:#F07178">) </span><span style="color:#89DDFF;font-style:italic">return</span><span style="color:#89DDFF">;</span></span></code></pre></figure>
 <h3 id="1px" data-heading="true"><a data-heading="true" href="#1px"><span class="icon icon-link"></span></a>1px</h3>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/1a0e4366-15f4-418c-bf83-6851ce1ad507" alt="1px bug" class="l"></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/1a0e4366-15f4-418c-bf83-6851ce1ad507" alt="1px bug"></div></div><p></p>
 <p>크롬에서는 스크린샷이 1px 다른 경우가 있다(<a class="underline-highlight-fade" target="_blank" href="https://github.com/microsoft/playwright/issues/18827" rel="noreferrer noopener">#18827</a>).</p>
 <p>이때는 clip으로 고정하거나 height를 강제하는 방법으로 처리할 수 있다.</p>
 <h3 id="image-load" data-heading="true"><a data-heading="true" href="#image-load"><span class="icon icon-link"></span></a>Image load</h3>

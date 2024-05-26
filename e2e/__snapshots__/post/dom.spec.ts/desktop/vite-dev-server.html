@@ -1,4 +1,4 @@
-<div class="nav-loading"><progress value="0" max="1"></progress></div><nav class="nav flex-wrap water-rainbow post-nav-trans nav-shadow"><h2 class="tracking-tight focus:text-gray-700 text-2xl font-bold mt-2 mb-2 ml-3.5"><a class="hover-underline" href="/">1ilsang</a></h2><div class="flex"><h2 class="tracking-tight focus:text-gray-700 text-xl mt-2.5 mr-6"><a class="hover-underline" href="/posts">posts</a></h2><h2 class="tracking-tight focus:text-gray-700 text-xl mt-2.5 mr-6"><a class="hover-underline" href="/tags">tags</a></h2><div class="rounded-full mr-2 relative nav-avatar"><a href="/about"><img src="/assets/chul.png" alt="1ilsang"></a></div></div></nav><div class="post-container"><h1 class="post-header">Vite Dev Server 이해하기 (feat. HMR)</h1><div class="post-profile-container"><div class="flex items-center"><div class="rounded-full mr-2 relative avatar-image"><a href="/about"><img src="/assets/chul.png" alt="1ilsang"></a></div><div><a class="avatar-name" href="/about">1ilsang</a><div class="avatar-description">클라이밍 하실래염?</div></div></div></div><div class="flex flex-wrap mt-2 items-end"><a class="hashtag mr-2" target="_self" href="/tags/vite">#<!-- -->vite</a><a class="hashtag mr-2" target="_self" href="/tags/dev-server">#<!-- -->dev-server</a><a class="hashtag mr-2" target="_self" href="/tags/hmr">#<!-- -->hmr</a><a class="hashtag mr-2" target="_self" href="/tags/preact">#<!-- -->preact</a><a class="hashtag mr-2" target="_self" href="/tags/prefresh">#<!-- -->prefresh</a></div><div class="date-published"><time class="date-format" datetime="2024-02-04 22:50">2024-02-04 22:50</time> published</div><div class="post-body-container"><div class="markdown"><p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/132b52c7-3c2b-4554-b0fb-8ec5f3193d7a" alt="cover" class="cover"></div><p></p>
+<div class="nav-loading"><progress value="0" max="1"></progress></div><nav class="nav flex-wrap water-rainbow post-nav-trans nav-shadow"><h2 class="tracking-tight focus:text-gray-700 text-2xl font-bold mt-2 mb-2 ml-3.5"><a class="hover-underline" href="/">1ilsang</a></h2><div class="flex"><h2 class="tracking-tight focus:text-gray-700 text-xl mt-2.5 mr-6"><a class="hover-underline" href="/posts">posts</a></h2><h2 class="tracking-tight focus:text-gray-700 text-xl mt-2.5 mr-6"><a class="hover-underline" href="/tags">tags</a></h2><div class="rounded-full mr-2 relative nav-avatar"><a href="/about"><img src="/assets/chul.png" alt="1ilsang"></a></div></div></nav><div class="post-container"><h1 class="post-header">Vite Dev Server 이해하기 (feat. HMR)</h1><div class="post-profile-container"><div class="flex items-center"><div class="rounded-full mr-2 relative avatar-image"><a href="/about"><img src="/assets/chul.png" alt="1ilsang"></a></div><div><a class="avatar-name" href="/about">1ilsang</a><div class="avatar-description">클라이밍 하실래염?</div></div></div></div><div class="flex flex-wrap mt-2 items-end"><a class="hashtag mr-2" target="_self" href="/tags/vite">#<!-- -->vite</a><a class="hashtag mr-2" target="_self" href="/tags/dev-server">#<!-- -->dev-server</a><a class="hashtag mr-2" target="_self" href="/tags/hmr">#<!-- -->hmr</a><a class="hashtag mr-2" target="_self" href="/tags/preact">#<!-- -->preact</a><a class="hashtag mr-2" target="_self" href="/tags/prefresh">#<!-- -->prefresh</a></div><div class="date-published"><time class="date-format" datetime="2024-02-04 22:50">2024-02-04 22:50</time> published</div><div class="post-body-container"><div class="markdown"><p></p><div class="img-container"><div class="img-wrap cover"><img src="https://github.com/1ilsang/dev/assets/23524849/132b52c7-3c2b-4554-b0fb-8ec5f3193d7a" alt="cover"></div></div><p></p>
 <p>요즘 <a class="underline-highlight-fade" target="_blank" href="https://vitejs.dev/" rel="noreferrer noopener">Vite</a>의 매력에 푹 빠져있다. 그러던 도중 "개발 서버는 어떻게 동작하는 걸까?" 의문을 가지게 되었다. 따라서 오늘은 <u>Vite Dev Server의 동작 방식을 이해하고 HMR 과정</u>을 파헤쳐 보려고 한다.</p>
 <h2 id="index" data-heading="true"><a data-heading="true" href="#index"><span class="icon icon-link"></span></a>Index</h2>
 <ul>
@@ -12,7 +12,7 @@
 <li><a class="underline-highlight-fade" target="_blank" href="#마무리" rel="noreferrer noopener">마무리</a></li>
 </ul>
 <h2 id="tldr" data-heading="true"><a data-heading="true" href="#tldr"><span class="icon icon-link"></span></a>TL;DR!</h2>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/03dab012-82a9-4649-8d80-15c0dfe0c129" alt="dev-server-logic-summary" class="l"></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/03dab012-82a9-4649-8d80-15c0dfe0c129" alt="dev-server-logic-summary"></div></div><p></p>
 <blockquote>
 <p>한 짤로 보는 Dev Server의 동작 방식</p>
 </blockquote>
@@ -20,7 +20,7 @@
 <p>이 글은 Vite <code>v5.0.12</code> <a class="underline-highlight-fade" target="_blank" href="https://github.com/vitejs/vite/tree/v5.0.12" rel="noreferrer noopener">버전을 기준</a>으로 작성되었다.</p>
 <p>Let's Dive!</p>
 <h2 id="1-개발-서버-실행서버-초기화" data-heading="true"><a data-heading="true" href="#1-개발-서버-실행서버-초기화"><span class="icon icon-link"></span></a>1. 개발 서버 실행(서버 초기화)</h2>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/7d46712d-6118-4788-9c91-fa2d20f8c3c3" alt="init-server-phase"></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/7d46712d-6118-4788-9c91-fa2d20f8c3c3" alt="init-server-phase"></div></div><p></p>
 <blockquote>
 <p>최초 서버 실행 이후의 상태</p>
 </blockquote>
@@ -93,7 +93,7 @@
 </li>
 </ol>
 <h2 id="2-indexhtml-요청" data-heading="true"><a data-heading="true" href="#2-indexhtml-요청"><span class="icon icon-link"></span></a>2. index.html 요청</h2>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/ec8f01ad-b4a6-4da8-aaa6-0e5015438ba3" alt="index.html-request-phase" class="l"></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/ec8f01ad-b4a6-4da8-aaa6-0e5015438ba3" alt="index.html-request-phase"></div></div><p></p>
 <br>
 <figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#676E95;font-style:italic">// server/index.ts</span></span>
 <span data-line=""><span style="color:#BABED8">middlewares</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">use</span><span style="color:#BABED8">(</span><span style="color:#82AAFF">indexHtmlMiddleware</span><span style="color:#BABED8">(root</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> server))</span></span>
@@ -142,7 +142,7 @@
 </ul>
 </li>
 </ol>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/23f4b155-b5f5-487d-8500-b39796919829" alt="transpile-ts-to-js" class="l"></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/23f4b155-b5f5-487d-8500-b39796919829" alt="transpile-ts-to-js"></div></div><p></p>
 <blockquote>
 <p>hmr.ts의 response에 타입이 사라진 모습.</p>
 </blockquote>
@@ -202,13 +202,13 @@
 </li>
 </ol>
 <h2 id="3-indexhtml-렌더링과-자원-요청" data-heading="true"><a data-heading="true" href="#3-indexhtml-렌더링과-자원-요청"><span class="icon icon-link"></span></a>3. index.html 렌더링과 자원 요청</h2>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/5321cc9c-f569-4653-8179-06669e82f630" alt="index.html-rendering-phase" class="l"></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/5321cc9c-f569-4653-8179-06669e82f630" alt="index.html-rendering-phase"></div></div><p></p>
 <blockquote>
 <p>3 ~ 4. 브라우저 렌더링 및 정적 자원 요청 상황.</p>
 </blockquote>
 <br>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/a5969d65-b177-4011-ab1b-d45129b9951e" alt="init-html"></div><p></p>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/3eacdd15-514a-43a9-a71c-cc8ba228d574" alt="browser-initiator" class="l"></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/a5969d65-b177-4011-ab1b-d45129b9951e" alt="init-html"></div></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/3eacdd15-514a-43a9-a71c-cc8ba228d574" alt="browser-initiator"></div></div><p></p>
 <blockquote>
 <p>브라우저는 위에서부터 아래로 해석해 나가므로 @vite/client, global.css, hmr.ts가 순차적으로 요청되는 것을 볼 수 있다.</p>
 </blockquote>
@@ -280,7 +280,7 @@
 <span data-line=""><span style="color:#89DDFF">    }</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#89DDFF">  }</span></span>
 <span data-line=""><span style="color:#89DDFF">&lt;/</span><span style="color:#F07178">script</span><span style="color:#89DDFF">&gt;</span></span></code></pre></figure>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/57326d8a-3c7a-41d4-ac7b-b202bc851bc8" alt="inject-import-meta-hot" class="l"></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/57326d8a-3c7a-41d4-ac7b-b202bc851bc8" alt="inject-import-meta-hot"></div></div><p></p>
 <blockquote>
 <p>일반 스크립트의 응답에 createHotContext 생성 및 import.meta.hot에 바인딩된 모습.</p>
 </blockquote>
@@ -317,7 +317,7 @@
 <p><code>jsxDEV</code>로 감싸진 하위 컴포넌트들은 HMR이 적용된다. 자세한 내용은 <a class="underline-highlight-fade" target="_blank" href="#6-브라우저-리렌더링" rel="noreferrer noopener">6. 브라우저 리렌더링</a>에서 다루겠다.</p>
 <p>이제 브라우저가 더 이상 요청할 것이 없을 때까지 3 ~ 4 과정을 반복하며 렌더링을 마무리한다.</p>
 <h2 id="5-코드-변경-감지" data-heading="true"><a data-heading="true" href="#5-코드-변경-감지"><span class="icon icon-link"></span></a>5. 코드 변경 감지</h2>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/51800d15-f916-4c25-bc1f-6a6bd2044d54" alt="file-change-phase" class="l"></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/51800d15-f916-4c25-bc1f-6a6bd2044d54" alt="file-change-phase"></div></div><p></p>
 <blockquote>
 <p>코드가 변경되었을 때의 Dev Server 모습</p>
 </blockquote>
@@ -371,7 +371,7 @@
 <li>브라우저에게 파일이 변경되었음을 <u>WebSocket</u>으로 알린다(update 이벤트 전송).</li>
 </ul>
 <h2 id="6-브라우저-리렌더링" data-heading="true"><a data-heading="true" href="#6-브라우저-리렌더링"><span class="icon icon-link"></span></a>6. 브라우저 리렌더링</h2>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/23181d27-311e-4154-a04f-7efa2fb7cae9" alt="socket-update-event" class="l"></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/23181d27-311e-4154-a04f-7efa2fb7cae9" alt="socket-update-event"></div></div><p></p>
 <blockquote>
 <p>브라우저 소켓이 Dev Server의 update 소켓 데이터를 받은 모습.</p>
 </blockquote>
@@ -418,7 +418,7 @@
 </ul>
 </li>
 </ol>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/d2d0de89-4eee-4496-9c51-d99d228eed0b" alt="import response" class="l"></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/d2d0de89-4eee-4496-9c51-d99d228eed0b" alt="import response"></div></div><p></p>
 <blockquote>
 <p>Step 3 ~ 4.</p>
 </blockquote>
@@ -475,7 +475,7 @@
 </ol>
 <p>이로써 HMR이 완전히 마무리되면서 다시 개발자의 입력을 기다리게 된다.</p>
 <br>
-<p></p><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/03dab012-82a9-4649-8d80-15c0dfe0c129" alt="dev-server-logic-summary" class="l"></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/03dab012-82a9-4649-8d80-15c0dfe0c129" alt="dev-server-logic-summary"></div></div><p></p>
 <blockquote>
 <p>Dev Server 초기화부터 HMR까지.</p>
 </blockquote>
