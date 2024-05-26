@@ -1,8 +1,11 @@
+import { useAtom } from 'jotai';
 import { useEffect, useState } from 'react';
+import { imageSrcAtom } from '../modal/atoms';
 
 const useProgress = () => {
   const [progress, setProgress] = useState(0);
   const [max, setMax] = useState(1);
+  const [, setImageSrc] = useAtom(imageSrcAtom);
 
   const checkImages = () =>
     Array.from(document.images)
@@ -37,6 +40,14 @@ const useProgress = () => {
   const handleInterval = () => {
     setProgress((prev) => (prev + 0.02) % max);
   };
+  const bindImageClickEvent = () => {
+    Array.from(document.images).map((img) => {
+      img.addEventListener('click', (event) => {
+        if (!(event.target instanceof HTMLImageElement)) return;
+        setImageSrc(event.target.src);
+      });
+    });
+  };
 
   useEffect(() => {
     // NOTE: For visual testing
@@ -44,9 +55,11 @@ const useProgress = () => {
 
     let handleScroll: () => void;
     const intervalProgress = setInterval(handleInterval, 45);
+
     Promise.all(checkImages())
       .then(handleLoadingProgress(intervalProgress))
-      .then(handleProgress(handleScroll));
+      .then(handleProgress(handleScroll))
+      .then(bindImageClickEvent);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };

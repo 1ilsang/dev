@@ -22,6 +22,7 @@ export default function RootLayout({
       <body>
         <BannerWrapper />
         {children}
+        <div id="portal" />
       </body>
     </html>
   );

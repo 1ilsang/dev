@@ -3,9 +3,11 @@ import { type Metadata, type NextPage } from 'next';
 import PostContainer from '~/post/Container';
 import { PostType } from '~/posts/models';
 import Footer from '~/shared/components/Footer';
+import ImageModal from '~/shared/components/modal/ImageModal';
 import Navbar from '~/shared/components/nav/Navbar';
 import NavProgress from '~/shared/components/nav/Progress';
 import { getAllPosts, getPost } from '~/shared/helpers/post';
+import { Portal } from '~/shared/portal/Container';
 
 interface PostsProps {
   params: {
@@ -21,6 +23,9 @@ const Posts: NextPage<PostsProps> = async ({ params }) => {
       <Navbar />
       <PostContainer post={post} />
       <Footer />
+      <Portal>
+        <ImageModal />
+      </Portal>
     </main>
   );
 };

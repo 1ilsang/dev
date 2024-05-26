@@ -25,22 +25,38 @@ const rehypeHandlers: Handlers = {
     };
   },
   image(state, node) {
+    const className = (() => {
+      let name = 'img-wrap';
+      if (node.title) {
+        name += ` ${node.title}`;
+      }
+      return name;
+    })();
+
     return {
       type: 'element',
       tagName: 'div',
       properties: {
-        class: 'img-wrap',
+        class: 'img-container',
       },
       children: [
         {
           type: 'element',
-          tagName: 'img',
+          tagName: 'div',
           properties: {
-            src: node.url,
-            alt: node.alt,
-            class: node.title,
+            class: className,
           },
-          children: [],
+          children: [
+            {
+              type: 'element',
+              tagName: 'img',
+              properties: {
+                src: node.url,
+                alt: node.alt,
+              },
+              children: [],
+            },
+          ],
         },
       ],
     };

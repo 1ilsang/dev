@@ -1,22 +1,5 @@
-/* stylelint-disable no-descending-specificity */
 @import './code';
-
-@mixin image {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  margin-top: 1%;
-  margin-bottom: 1%;
-  min-height: 200px;
-
-  @include mobile {
-    min-height: 100px;
-  }
-
-  @include i-mac {
-    max-width: 1200px;
-  }
-}
+@import './image';
 
 .markdown {
   @include code;
@@ -95,16 +78,6 @@
     @apply text-xl mt-6 leading-snug;
   }
 
-  img {
-    width: 70%;
-    object-fit: contain;
-    max-height: 550px;
-
-    @include mobile {
-      width: 100%;
-    }
-  }
-
   table {
     width: 100%;
     table-layout: fixed;
@@ -123,38 +96,7 @@
     }
   }
 
-  .l {
-    width: 100%;
-  }
-
-  .s {
-    width: 40%;
-  }
-
-  .h-s {
-    height: 200px;
-  }
-
-  .cover {
-    width: 100%;
-    height: 600px;
-    background-color: transparent;
-    object-fit: contain;
-  }
-
-  .img-wrap {
-    @include image;
-
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .img-horizon-wrap {
-    @include image;
-
-    overflow-x: scroll;
-    gap: 0.3rem;
-  }
+  @include image;
 }
 
 /* MOBILE */
@@ -174,10 +116,6 @@
 
     u {
       padding-bottom: 0;
-    }
-
-    .cover {
-      height: 300px;
     }
   }
 }
