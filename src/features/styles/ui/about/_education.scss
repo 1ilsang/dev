@@ -1,0 +1,11 @@
+@mixin education {
+  @include container;
+
+  .label {
+    @include label;
+  }
+
+  &-position {
+    border-bottom: none;
+  }
+}
