@@ -2,7 +2,11 @@
   "display": "blog",
   "compilerOptions": {
     "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": false,
     "skipLibCheck": true,
     "strict": false,
@@ -17,8 +21,12 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "~/*": ["src/features/*"],
-      "~/app/*": ["src/app/*"]
+      "~/*": [
+        "src/features/*"
+      ],
+      "~/app/*": [
+        "src/app/*"
+      ]
     },
     "plugins": [
       {
@@ -33,5 +41,7 @@
     "e2e/**/*.ts",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

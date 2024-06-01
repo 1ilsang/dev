@@ -1,5 +1,9 @@
 import classNames from 'classnames';
-import { FunctionComponent, useState } from 'react';
+import {
+  type FunctionComponent,
+  type MouseEventHandler,
+  useState,
+} from 'react';
 
 type DynamicImageProps = {
   src: string;
@@ -8,6 +12,7 @@ type DynamicImageProps = {
   loading?: boolean;
   width?: number;
   height?: number;
+  onClick?: MouseEventHandler<HTMLImageElement>;
 };
 
 const DynamicImage: FunctionComponent<DynamicImageProps> = ({
@@ -17,6 +22,7 @@ const DynamicImage: FunctionComponent<DynamicImageProps> = ({
   src,
   alt,
   loading = false,
+  onClick,
 }) => {
   const [min, setMin] = useState(true);
   const handleMinClick = () => setMin(!min);
@@ -30,7 +36,14 @@ const DynamicImage: FunctionComponent<DynamicImageProps> = ({
       style={{ width, height }}
     >
       <button className={min ? 'min' : 'max'} onClick={handleMinClick} />
-      <img src={src} alt={alt} width={width} height={height} />
+      <img
+        className={onClick ? 'zoom' : undefined}
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        onClick={onClick}
+      />
     </div>
   );
 };
