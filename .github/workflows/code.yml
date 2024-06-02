@@ -5,6 +5,8 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+permissions:
+  pull-requests: write
 
 jobs:
   lint:
@@ -28,3 +30,22 @@ jobs:
 
       - name: 🏗 Build and Export
         uses: ./.github/actions/nextjs-build-export
+
+  preview:
+    runs-on: macos-latest
+    needs: build-export
+    steps:
+      - uses: actions/checkout@v4
+
+      # 캐싱 된 값을 사용
+      - name: 🌱 Install pnpm
+        uses: ./.github/actions/pnpm-install
+      - name: 🏗 Build and Export
+        uses: ./.github/actions/nextjs-build-export
+
+      - name: 🌈 Netlify preview
+        uses: ./.github/actions/netlify-preview
+        with:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_API_TOKEN: ${{ secrets.NETLIFY_API_TOKEN }}
+          HEAD_COMMIT: ${{ github.event.pull_request.head.sha }}

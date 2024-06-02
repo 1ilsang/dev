@@ -1,0 +1,63 @@
+name: netlify-preview
+
+inputs:
+  NETLIFY_SITE_ID:
+    required: true
+  NETLIFY_API_TOKEN:
+    required: true
+  HEAD_COMMIT:
+    required: true
+
+runs:
+  using: composite
+
+  steps:
+    # https://cli.netlify.com/
+    - name: Netlify deploy
+      id: netlify-deploy
+      shell: bash
+      run: |
+        pnpm nf deploy \
+          --dir out \
+          --site ${{ inputs.NETLIFY_SITE_ID }} \
+          --auth ${{ inputs.NETLIFY_API_TOKEN }} \
+          --json \
+          > deploy_output.json
+
+    - name: Generate URL Preview
+      id: url-preview
+      shell: bash
+      # pnpm 샌드박스 로그가 json 파일에 상단에 추가되는 버그가 있음.
+      # 로그 삭제후 5번째 라인부터 JSON 파일 재생성
+      run: |
+        tail -n +5 deploy_output.json > parsed_output.json
+        echo $(cat parsed_output.json)
+        NETLIFY_PREVIEW_URL=$(jq -r '.deploy_url' parsed_output.json)
+        echo "NETLIFY_PREVIEW_URL=$NETLIFY_PREVIEW_URL" >> "$GITHUB_OUTPUT"
+
+    - name: Comment URL Preview on PR
+      uses: actions/github-script@v7
+      env:
+        NETLIFY_PREVIEW_URL: ${{ steps.url-preview.outputs.NETLIFY_PREVIEW_URL }}
+        HEAD_COMMIT: ${{ inputs.HEAD_COMMIT }}
+      with:
+        script: |
+          async function comment(){
+            const result = await github.rest.repos.listPullRequestsAssociatedWithCommit({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              commit_sha: process.env.HEAD_COMMIT,
+            });
+            const issueNumber = result.data[0]?.number;
+            if (issueNumber) {
+              await github.rest.issues.createComment({
+                issue_number: issueNumber,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: `Preview URL: ${process.env.NETLIFY_PREVIEW_URL}`
+              });
+            } else {
+              console.log('No PR found for commit ' + process.env.HEAD_COMMIT);
+            }
+          }
+          comment();
