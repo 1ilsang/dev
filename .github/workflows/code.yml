@@ -5,6 +5,8 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+permissions:
+  pull-requests: write
 
 jobs:
   lint:
@@ -28,3 +30,12 @@ jobs:
 
       - name: 🏗 Build and Export
         uses: ./.github/actions/nextjs-build-export
+
+  preview:
+    runs-on: macos-latest
+    needs: build-export
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 🌈 Netlify preview
+        uses: ./.github/actions/netlify-preview

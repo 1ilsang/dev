@@ -27,6 +27,7 @@
     "e2e": "pnpm playwright test",
     "clean": "rm -rf .next out node_modules",
     "knip": "knip",
+    "nf": "netlify",
     "prepare": "husky",
     "preinstall": "npx only-allow pnpm"
   },
@@ -62,6 +63,7 @@
     "knip": "^5.9.4",
     "markdownlint": "0.34.0",
     "markdownlint-cli": "0.41.0",
+    "netlify-cli": "^17.25.0",
     "postcss": "^8.4.38",
     "prettier": "^3.2.5",
     "stylelint": "^16.3.1",
