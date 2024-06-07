@@ -1,6 +1,38 @@
 import { Profile, ProfileLabel } from '~/about/headline/models';
 
-export const profileLinks: Profile[] = [
+export const MyProfile: Record<
+  'blog' | 'github' | 'gmail' | 'linkedin',
+  Profile
+> = {
+  blog: {
+    label: ProfileLabel.blog,
+    href: 'https://1ilsang.dev',
+    imageSrc: '/favicon/favicon-46x46.png',
+    alt: 'website',
+  },
+  github: {
+    label: ProfileLabel.github,
+    href: 'https://github.com/1ilsang',
+    imageSrc: '/assets/logo/github.webp',
+    imageSrcBlack: 'https://cdn-icons-png.flaticon.com/512/25/25231.png',
+    alt: 'github',
+  },
+  gmail: {
+    label: ProfileLabel.gmail,
+    href: 'mailto:1ilsangc@gmail.com',
+    imageSrc: '/assets/logo/gmail.webp',
+    alt: 'gmail',
+  },
+  linkedin: {
+    label: ProfileLabel.linkedin,
+    href: 'https://www.linkedin.com/in/1ilsang',
+    imageSrc: '/assets/logo/linkedin.webp',
+    alt: 'linked-in',
+  },
+  // TODO: Readonly object 처리
+} as const;
+
+export const profileLinks: readonly Profile[] = [
   {
     label: ProfileLabel.blog,
     href: 'https://1ilsang.dev',

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { FunctionComponent, memo } from 'react';
+import { MyProfile } from '~/about/headline/data/profile';
 
 const Footer: FunctionComponent = memo(() => {
   return (
@@ -12,14 +13,14 @@ const Footer: FunctionComponent = memo(() => {
           <a
             rel="noopener noreferrer"
             target="_blank"
-            href="https://github.com/1ilsang"
+            href={MyProfile.github.href}
           >
             GitHub
           </a>
         </li>
         <li>
           <a
-            href="https://www.linkedin.com/in/sang-chul-lee-91a32b154/"
+            href={MyProfile.linkedin.href}
             rel="noopener noreferrer"
             target="_blank"
           >
