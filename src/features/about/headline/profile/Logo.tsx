@@ -1,9 +1,10 @@
 import { FunctionComponent } from 'react';
 import classNames from 'classnames';
 
-import { Profile, ProfileLabel } from '../models';
+import { Profile } from '../models';
 
 import usePrint from '~/shared/hooks/usePrint';
+import { MyProfile } from '../data/profile';
 
 type ProfileLogoProps = Profile;
 
@@ -25,7 +26,7 @@ const ProfileLogo: FunctionComponent<ProfileLogoProps> = ({
       >
         {label}
         <img
-          className={classNames({ gmail: label === ProfileLabel.gmail })}
+          className={classNames({ gmail: label === MyProfile.gmail.label })}
           src={print ? imageSrcBlack ?? imageSrc : imageSrc}
           alt={alt}
         />
