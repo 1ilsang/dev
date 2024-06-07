@@ -43,35 +43,45 @@ runs:
         HEAD_COMMIT: ${{ inputs.HEAD_COMMIT }}
       with:
         script: |
+          const owner = context.repo.owner;
+          const repo = context.repo.repo;
+
+          async function getExistPrevActionBot(issueNumber) {
+            const commentListResult = await github.rest.issues.listComments({
+              owner,
+              repo,
+              issue_number: issueNumber
+            });
+            const existPrevAction = result.data.find(comment => comment.user.login === 'github-actions[bot]');
+            return existPrevAction;
+          }
+
           async function comment(){
             const result = await github.rest.repos.listPullRequestsAssociatedWithCommit({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
+              owner,
+              repo,
               commit_sha: process.env.HEAD_COMMIT,
             });
             const issueNumber = result.data[0]?.number;
-            const commentId = false;
-
-            console.log(result.data[0]);
-
-            if (issueNumber) {
-              if (commentId) {
-                await github.rest.issues.updateComment({
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  comment_id: commentId,
-                  body: `Preview URL: ${process.env.NETLIFY_PREVIEW_URL}`
-                });
-              } else {
-                await github.rest.issues.createComment({
-                  issue_number: issueNumber,
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  body: `Preview URL: ${process.env.NETLIFY_PREVIEW_URL}`
-                });
-              }
-            } else {
+            if (!issueNumber) {
               console.log('No PR found for commit ' + process.env.HEAD_COMMIT);
+              return;
+            }
+            const prevActionBot = await getExistPrevActionBot(issueNumber);
+            if (prevActionBot.id) {
+              await github.rest.issues.updateComment({
+                owner,
+                repo,
+                comment_id: prevActionBot.id,
+                body: `Preview URL: ${process.env.NETLIFY_PREVIEW_URL}`
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number: issueNumber,
+                body: `Preview URL: ${process.env.NETLIFY_PREVIEW_URL}`
+              });
             }
           }
           comment();
