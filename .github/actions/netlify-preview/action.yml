@@ -46,8 +46,18 @@ runs:
           const owner = context.repo.owner;
           const repo = context.repo.repo;
 
+          async function getIssueNumber() {
+            const result = await github.rest.repos.listPullRequestsAssociatedWithCommit({
+              owner,
+              repo,
+              commit_sha: process.env.HEAD_COMMIT,
+            });
+            const issueNumber = result.data[0]?.number;
+            return issueNumber;
+          }
+
           async function getExistPrevActionBot(issueNumber) {
-            const commentListResult = await github.rest.issues.listComments({
+            const result = await github.rest.issues.listComments({
               owner,
               repo,
               issue_number: issueNumber
@@ -57,12 +67,7 @@ runs:
           }
 
           async function comment(){
-            const result = await github.rest.repos.listPullRequestsAssociatedWithCommit({
-              owner,
-              repo,
-              commit_sha: process.env.HEAD_COMMIT,
-            });
-            const issueNumber = result.data[0]?.number;
+            const issueNumber = await getIssueNumber();
             if (!issueNumber) {
               console.log('No PR found for commit ' + process.env.HEAD_COMMIT);
               return;
