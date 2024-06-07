@@ -18,6 +18,7 @@
     "lint:typeCheck": "tsc --pretty",
     "lint": "pnpm run '/^lint:.*/'",
     "e2e:build": "NEXT_PUBLIC_CI=true next build",
+    "e2e:update:dom": "pnpm e2e:dom --update-snapshots",
     "e2e:update": "pnpm playwright test --update-snapshots",
     "e2e:report": "pnpm exec playwright show-report",
     "e2e:install": "pnpm exec playwright install --with-deps",
