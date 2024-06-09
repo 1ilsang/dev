@@ -73,7 +73,7 @@ runs:
               return;
             }
             const prevActionBot = await getExistPrevActionBot(issueNumber);
-            if (prevActionBot.id) {
+            if (prevActionBot?.id) {
               await github.rest.issues.updateComment({
                 owner,
                 repo,
