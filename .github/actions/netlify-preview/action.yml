@@ -73,19 +73,20 @@ runs:
               return;
             }
             const prevActionBot = await getExistPrevActionBot(issueNumber);
+            const body = `Preview URL: ${process.env.NETLIFY_PREVIEW_URL}`;
             if (prevActionBot?.id) {
               await github.rest.issues.updateComment({
                 owner,
                 repo,
                 comment_id: prevActionBot.id,
-                body: `Preview URL: ${process.env.NETLIFY_PREVIEW_URL}`
+                body
               });
             } else {
               await github.rest.issues.createComment({
                 owner,
                 repo,
                 issue_number: issueNumber,
-                body: `Preview URL: ${process.env.NETLIFY_PREVIEW_URL}`
+                body
               });
             }
           }
