@@ -32,7 +32,13 @@ export const waitImages = async ({ page }: { page: Page }) => {
   // Set up listeners concurrently
   const imgLoadingPromises = (await locators.all()).map((locator) =>
     locator.evaluate<any, HTMLImageElement>(
-      (image) => image.complete || new Promise((f) => (image.onload = f)),
+      (image) =>
+        // TODO: 터지는 것 확인했음. inflearn만 테스트 하도록하고 에러로그 향상 필요
+        (image.complete && image.naturalWidth !== 0) ||
+        new Promise((resolve, reject) => {
+          image.onload = resolve;
+          image.onerror = reject;
+        }),
     ),
   );
   // Wait for all once

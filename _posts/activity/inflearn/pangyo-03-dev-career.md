@@ -19,6 +19,8 @@ ogImage:
 
 ![intro](https://github.com/1ilsang/dev/assets/23524849/bc2b8220-c393-4e71-b704-7301296f8397 'l')
 
+<!-- <img id="error" src="https://asdf" /> -->
+
 > [인프런 공식 행사 소개](https://www.inflearn.com/course/%ED%8C%90%EA%B5%90-%ED%87%B4%EA%B7%BC%EA%B8%B8%EB%B0%8B%EC%97%85-%EC%9D%B8%ED%94%84%EB%9F%B0-%EA%B0%9C%EB%B0%9C%EC%9E%90%EC%BB%A4%EB%A6%AC%EC%96%B4)
 
 행사는 판교 퇴근길 밋업의 세 번째 주제로 <u>개발자 커리어</u>를 다뤘다.
