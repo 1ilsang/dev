@@ -30,11 +30,17 @@ export const waitImages = async ({ page }: { page: Page }) => {
   });
   await Promise.all(scrollPromises);
   // Set up listeners concurrently
-  const imgLoadingPromises = (await locators.all()).map((locator) =>
-    locator.evaluate<any, HTMLImageElement>(
-      (image) => image.complete || new Promise((f) => (image.onload = f)),
-    ),
-  );
+  const imgLoadingPromises = (await locators.all()).map((locator) => {
+    return locator.evaluate<any, HTMLImageElement>((image) => {
+      // 로드는 성공했으나 이미지 크기가 0이므로 정상적인 이미지 로딩에 실패
+      if (image.complete && image.naturalWidth === 0) {
+        throw new Error(`\nImage Load failure: [${image.src}]`);
+      }
+      return (
+        image.complete || new Promise((resolve) => (image.onload = resolve))
+      );
+    });
+  });
   // Wait for all once
   await Promise.all(imgLoadingPromises);
 
