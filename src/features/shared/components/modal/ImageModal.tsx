@@ -22,7 +22,7 @@ const ImageModal: FunctionComponent<ImageModalProps> = () => {
           </div>
         )}
         <img
-          className={classNames({ hidden: loading })}
+          className={classNames({ hidden: loading, 'fade-in': !loading })}
           src={imageSrc}
           ref={imageRef}
         />

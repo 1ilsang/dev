@@ -18,7 +18,7 @@ export const useImageModal = () => {
     }).then(() => {
       setTimeout(() => {
         setLoading(false);
-      }, 700);
+      }, 150);
     });
   };
 

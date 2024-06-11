@@ -50,7 +50,7 @@
         height: 30%;
         animation:
           skeleton-gradient 1.8s infinite ease-in-out,
-          spin 1.8s infinite ease-in-out;
+          spin 1s infinite ease-in-out;
       }
     }
 
@@ -62,6 +62,20 @@
 
     .hidden {
       visibility: hidden;
+    }
+
+    .fade-in {
+      @keyframes fade-in {
+        0% {
+          opacity: 0;
+        }
+
+        100% {
+          opacity: 1;
+        }
+      }
+
+      animation: fade-in 0.4s;
     }
   }
 }
