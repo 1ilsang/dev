@@ -9,13 +9,16 @@ export const useImageModal = () => {
 
   const handleDialogClick = () => {
     setImageSrc('');
+    setLoading(true);
   };
 
   const load = async () => {
     new Promise((resolve) => {
       imageRef.current.onload = resolve;
     }).then(() => {
-      setLoading(false);
+      setTimeout(() => {
+        setLoading(false);
+      }, 700);
     });
   };
 
