@@ -98,7 +98,7 @@ importers:
         version: 0.41.0
       netlify-cli:
         specifier: ^17.25.0
-        version: 17.26.2(@types/node@20.14.2)
+        version: 17.26.3(@types/node@20.14.2)
       postcss:
         specifier: ^8.4.38
         version: 8.4.38
@@ -624,8 +624,8 @@ packages:
     engines: {node: ^14.16.0 || >=16.0.0}
     hasBin: true
 
-  '@netlify/build@29.47.1':
-    resolution: {integrity: sha512-11OKuvYzrchJF7kmFSspjIKfomHBMkmOrVEphHGt5wFa7l3WgxUabsv5AMgOLfIS3TAtWJnpOoRBtfsPzsQdfQ==}
+  '@netlify/build@29.47.2':
+    resolution: {integrity: sha512-k72FGXoCdeVybvqoZSYPjU0PX0P05isHGKGnvvbrqY7jCKhzHdqt8ePOs20uCmK5k9AcNqbnbg/oNY/OO+LYwQ==}
     engines: {node: ^14.16.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -639,8 +639,8 @@ packages:
     resolution: {integrity: sha512-lMNdFmy2Yu3oVquSPooRDLxJ8QOsIX6X6vzA2pKz/9V2LQFJiqBukggXM+Rnqzk1regPpdJ0jK3dPGvOKaRQgg==}
     engines: {node: ^14.16.0 || >=16.0.0}
 
-  '@netlify/config@20.15.1':
-    resolution: {integrity: sha512-xz8wN8rXLpEGtGQI4zfg3SvTUjvLaMJtLxFYqg7kgfYOPuGKUh06gEEXgChg6n32TJsIoHqwsYaKJBaFS+Z2YA==}
+  '@netlify/config@20.15.2':
+    resolution: {integrity: sha512-nPakZuXLiQ6b5OshwB7Jmbjirj15E3/yMlBqx6VUrSln8cE/aohtmH157ZZdw9RKqk5Fd71kDFZmhAhmarhvmg==}
     engines: {node: ^14.16.0 || >=16.0.0}
     hasBin: true
 
@@ -1740,8 +1740,8 @@ packages:
   balanced-match@2.0.0:
     resolution: {integrity: sha512-1ugUSr8BHXRnK23KfuYS+gVMC3LB8QGH9W1iGtDPsNWoQbgtXSExkBu2aDR4epiGWZOjZsj6lDl/N/AqqTC3UA==}
 
-  bare-events@2.3.1:
-    resolution: {integrity: sha512-sJnSOTVESURZ61XgEleqmP255T6zTYwHPwE4r6SssIh0U9/uDvfpdoJYpVUerJJZH2fueO+CdT8ZT+OC/7aZDA==}
+  bare-events@2.4.2:
+    resolution: {integrity: sha512-qMKFd2qG/36aA4GwvKq8MxnPgCQAmBWmSyLWsJcbn8v03wvIPQ/hG1Ms8bPzndZxMDoHpxez5VOS+gC9Yi24/Q==}
 
   bare-fs@2.3.1:
     resolution: {integrity: sha512-W/Hfxc/6VehXlsgFtbB5B4xFcsCl+pAh30cYhoFyXErf6oGrwjh8SwiPAdHgpmWonKuYpZgGywN0SXt7dgsADA==}
@@ -4234,8 +4234,8 @@ packages:
   mz@2.7.0:
     resolution: {integrity: sha512-z81GNO7nnYMEhrGh9LeymoE4+Yr0Wn5McHIZMK5cfQCl+NDX08sCZgUc9/6MHni9IWuFLm1Z3HTCXu2z9fN62Q==}
 
-  nan@2.19.0:
-    resolution: {integrity: sha512-nO1xXxfh/RWNxfd/XPfbIfFk5vgLsAxUR9y5O0cHMJu/AW9U95JLXqthYHjEp+8gQ5p96K9jUp8nbVOxCdRbtw==}
+  nan@2.20.0:
+    resolution: {integrity: sha512-bk3gXBZDGILuuo/6sKtr0DQmSThYHLtNCdSdXk9YkxD/jK6X2vmCyyXBBxyqZ4XcnzTyYEAThfX3DCEnLf6igw==}
 
   nanoid@3.3.7:
     resolution: {integrity: sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==}
@@ -4255,8 +4255,8 @@ packages:
   nested-error-stacks@2.1.1:
     resolution: {integrity: sha512-9iN1ka/9zmX1ZvLV9ewJYEk9h7RyRRtqdK0woXcqohu8EWIerfPUjYJPg0ULy0UqP7cslmdGc8xKDJcojlKiaw==}
 
-  netlify-cli@17.26.2:
-    resolution: {integrity: sha512-J0JkuHGywW9GDtk8EtV7ceS9Pv2ctivSIKOGwXu4K3IMm3I1puBFN38TyFMhmYvT0F8XOH6tdMgfMtMjnXUjcw==}
+  netlify-cli@17.26.3:
+    resolution: {integrity: sha512-PjwXnhSicE7+Qij5PgvPx7lwBwn/i7iJCnbKn4G0FAH1MxAwg4coo7IxcP6R+2UnZQ9rT7e1BdlxjvyO6nuYpw==}
     engines: {node: '>=18.14.0'}
     hasBin: true
 
@@ -4702,8 +4702,8 @@ packages:
   pino-std-serializers@7.0.0:
     resolution: {integrity: sha512-e906FRY0+tV27iq4juKzSYPbUj2do2X2JX4EzSca1631EB2QJQUqGbDuERal7LCtOpxl6x3+nvo9NPZcmjkiFA==}
 
-  pino@9.1.0:
-    resolution: {integrity: sha512-qUcgfrlyOtjwhNLdbhoL7NR4NkHjzykAPw0V2QLFbvu/zss29h4NkRnibyFzBrNCbzCOY3WZ9hhKSwfOkNggYA==}
+  pino@9.2.0:
+    resolution: {integrity: sha512-g3/hpwfujK5a4oVbaefoJxezLzsDgLcNJeITvC6yrfwYeT9la+edCK42j5QpEQSQCZgTKapXvnQIdgZwvRaZug==}
     hasBin: true
 
   pirates@4.0.6:
@@ -4855,8 +4855,8 @@ packages:
   proto-list@1.2.4:
     resolution: {integrity: sha512-vtK/94akxsTMhe0/cbfpR+syPuszcuwhqVjJq26CuNDgFGj682oRBXOP5MJpv2r7JtE8MsiepGIqvvOTBwn2vA==}
 
-  protobufjs@7.3.0:
-    resolution: {integrity: sha512-YWD03n3shzV9ImZRX3ccbjqLxj7NokGN0V/ESiBV5xWqrommYHYiihuIyavq03pWSGqlyvYUFmfoMKd+1rPA/g==}
+  protobufjs@7.3.2:
+    resolution: {integrity: sha512-RXyHaACeqXeqAKGLDl68rQKbmObRsTIn4TYVUUug1KfS47YWCo5MacGITEryugIgZqORCvJWEk4l449POg5Txg==}
     engines: {node: '>=12.0.0'}
 
   proxy-addr@2.0.7:
@@ -5101,8 +5101,8 @@ packages:
   reverse-arguments@1.0.0:
     resolution: {integrity: sha512-/x8uIPdTafBqakK0TmPNJzgkLP+3H+yxpUJhCQHsLBg1rYEVNR2D8BRYNWQhVBjyOd7oo1dZRVzIkwMY2oqfYQ==}
 
-  rfdc@1.3.1:
-    resolution: {integrity: sha512-r5a3l5HzYlIC68TpmYKlxWjmOP6wiPJ1vWv2HeLhNsRZMrCkxeqxiHlQ21oXmQ4F3SiryXBHhAD7JZqvOJjFmg==}
+  rfdc@1.4.1:
+    resolution: {integrity: sha512-q1b3N5QkRUWUl7iyylaaj3kOpIT0N2i9MqIEQXP73GVsN9cw3fdx8X63cEmWhJGi2PPCF23Ijp7ktmd39rawIA==}
 
   rimraf@3.0.2:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
@@ -6488,7 +6488,7 @@ snapshots:
     dependencies:
       lodash.camelcase: 4.3.0
       long: 5.2.3
-      protobufjs: 7.3.0
+      protobufjs: 7.3.2
       yargs: 17.7.2
 
   '@humanwhocodes/module-importer@1.0.1': {}
@@ -6573,12 +6573,12 @@ snapshots:
       yaml: 2.4.5
       yargs: 17.7.2
 
-  '@netlify/build@29.47.1(@opentelemetry/api@1.8.0)(@types/node@20.14.2)':
+  '@netlify/build@29.47.2(@opentelemetry/api@1.8.0)(@types/node@20.14.2)':
     dependencies:
       '@bugsnag/js': 7.23.0
       '@netlify/blobs': 7.3.0
       '@netlify/cache-utils': 5.1.5
-      '@netlify/config': 20.15.1
+      '@netlify/config': 20.15.2
       '@netlify/edge-bundler': 12.0.1(supports-color@9.4.0)
       '@netlify/framework-info': 9.8.13
       '@netlify/functions-utils': 5.2.63(@opentelemetry/api@1.8.0)(supports-color@9.4.0)
@@ -6623,7 +6623,7 @@ snapshots:
       read-package-up: 11.0.0
       readdirp: 3.6.0
       resolve: 2.0.0-next.5
-      rfdc: 1.3.1
+      rfdc: 1.4.1
       safe-json-stringify: 1.2.0
       semver: 7.6.2
       string-width: 5.1.2
@@ -6652,7 +6652,7 @@ snapshots:
       path-exists: 5.0.0
       readdirp: 3.6.0
 
-  '@netlify/config@20.15.1':
+  '@netlify/config@20.15.2':
     dependencies:
       '@iarna/toml': 2.2.5
       chalk: 5.3.0
@@ -7059,14 +7059,14 @@ snapshots:
       '@opentelemetry/api': 1.8.0
       '@opentelemetry/core': 1.24.1(@opentelemetry/api@1.8.0)
       '@opentelemetry/otlp-exporter-base': 0.51.1(@opentelemetry/api@1.8.0)
-      protobufjs: 7.3.0
+      protobufjs: 7.3.2
 
   '@opentelemetry/otlp-proto-exporter-base@0.51.1(@opentelemetry/api@1.8.0)':
     dependencies:
       '@opentelemetry/api': 1.8.0
       '@opentelemetry/core': 1.24.1(@opentelemetry/api@1.8.0)
       '@opentelemetry/otlp-exporter-base': 0.51.1(@opentelemetry/api@1.8.0)
-      protobufjs: 7.3.0
+      protobufjs: 7.3.2
 
   '@opentelemetry/otlp-transformer@0.51.1(@opentelemetry/api@1.8.0)':
     dependencies:
@@ -7889,12 +7889,12 @@ snapshots:
 
   balanced-match@2.0.0: {}
 
-  bare-events@2.3.1:
+  bare-events@2.4.2:
     optional: true
 
   bare-fs@2.3.1:
     dependencies:
-      bare-events: 2.3.1
+      bare-events: 2.4.2
       bare-path: 2.1.3
       bare-stream: 2.1.2
     optional: true
@@ -9049,7 +9049,7 @@ snapshots:
       fast-deep-equal: 3.1.3
       fast-uri: 2.4.0
       json-schema-ref-resolver: 1.0.1
-      rfdc: 1.3.1
+      rfdc: 1.4.1
 
   fast-levenshtein@2.0.6: {}
 
@@ -9078,10 +9078,10 @@ snapshots:
       fast-json-stringify: 5.16.0
       find-my-way: 8.2.0
       light-my-request: 5.13.0
-      pino: 9.1.0
+      pino: 9.2.0
       process-warning: 3.0.0
       proxy-addr: 2.0.7
-      rfdc: 1.3.1
+      rfdc: 1.4.1
       secure-json-parse: 2.7.0
       semver: 7.6.2
       toad-cache: 3.7.0
@@ -10180,7 +10180,7 @@ snapshots:
       colorette: 2.0.20
       eventemitter3: 5.0.1
       log-update: 6.0.0
-      rfdc: 1.3.1
+      rfdc: 1.4.1
       wrap-ansi: 9.0.0
 
   locate-path@6.0.0:
@@ -10777,7 +10777,7 @@ snapshots:
       object-assign: 4.1.1
       thenify-all: 1.6.0
 
-  nan@2.19.0:
+  nan@2.20.0:
     optional: true
 
   nanoid@3.3.7: {}
@@ -10790,14 +10790,14 @@ snapshots:
 
   nested-error-stacks@2.1.1: {}
 
-  netlify-cli@17.26.2(@types/node@20.14.2):
+  netlify-cli@17.26.3(@types/node@20.14.2):
     dependencies:
       '@bugsnag/js': 7.23.0
       '@fastify/static': 7.0.4
       '@netlify/blobs': 7.3.0
-      '@netlify/build': 29.47.1(@opentelemetry/api@1.8.0)(@types/node@20.14.2)
+      '@netlify/build': 29.47.2(@opentelemetry/api@1.8.0)(@types/node@20.14.2)
       '@netlify/build-info': 7.13.2
-      '@netlify/config': 20.15.1
+      '@netlify/config': 20.15.2
       '@netlify/edge-bundler': 12.0.1(supports-color@9.4.0)
       '@netlify/edge-functions': 2.8.1
       '@netlify/local-functions-proxy': 1.1.1
@@ -11363,7 +11363,7 @@ snapshots:
 
   pino-std-serializers@7.0.0: {}
 
-  pino@9.1.0:
+  pino@9.2.0:
     dependencies:
       atomic-sleep: 1.0.0
       fast-redact: 3.5.0
@@ -11529,7 +11529,7 @@ snapshots:
 
   proto-list@1.2.4: {}
 
-  protobufjs@7.3.0:
+  protobufjs@7.3.2:
     dependencies:
       '@protobufjs/aspromise': 1.1.2
       '@protobufjs/base64': 1.1.2
@@ -11844,7 +11844,7 @@ snapshots:
 
   reverse-arguments@1.0.0: {}
 
-  rfdc@1.3.1: {}
+  rfdc@1.4.1: {}
 
   rimraf@3.0.2:
     dependencies:
@@ -12113,7 +12113,7 @@ snapshots:
       queue-tick: 1.0.1
       text-decoder: 1.1.0
     optionalDependencies:
-      bare-events: 2.3.1
+      bare-events: 2.4.2
 
   string-width@2.1.1:
     dependencies:
@@ -12724,7 +12724,7 @@ snapshots:
   unix-dgram@2.0.6:
     dependencies:
       bindings: 1.5.0
-      nan: 2.19.0
+      nan: 2.20.0
     optional: true
 
   unixify@1.0.0:
