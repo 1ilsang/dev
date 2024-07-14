@@ -27,7 +27,7 @@ const ProfileLogo: FunctionComponent<ProfileLogoProps> = ({
         {label}
         <img
           className={classNames({ gmail: label === MyProfile.gmail.label })}
-          src={print ? imageSrcBlack ?? imageSrc : imageSrc}
+          src={print ? (imageSrcBlack ?? imageSrc) : imageSrc}
           alt={alt}
         />
       </a>
