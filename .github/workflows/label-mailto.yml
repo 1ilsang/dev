@@ -10,7 +10,6 @@ jobs:
 
     steps:
       - name: Trim issue body to 3 lines
-        if: github.event.label.name == 'l10n-ko'
         run: |
           echo "${{ github.event.issue.body }}" | head -n 3 > trimmed_body.txt
           echo "TRIMMED_BODY<<EOF" >> $GITHUB_ENV
@@ -20,7 +19,6 @@ jobs:
           echo "EOF" >> $GITHUB_ENV
 
       - name: Send Email Notification
-        if: github.event.label.name == 'l10n-ko'
         uses: dawidd6/action-send-mail@v3
         env:
           TRIMMED_BODY: ${{ env.TRIMMED_BODY }}
@@ -35,4 +33,4 @@ jobs:
           subject: '[l10n-ko] ${{ github.event.issue.title }}'
           body: "Issue URL: ${{ github.event.issue.html_url }}\n\nBody:\n${{env.TRIMMED_BODY}}"
           to: 1ilsangc@gmail.com
-          from: yari-content-ko
+          from: 1ilsang
