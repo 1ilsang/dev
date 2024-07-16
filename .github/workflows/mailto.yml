@@ -18,6 +18,7 @@ jobs:
             echo "$line" >> $GITHUB_ENV
           done < trimmed_body.txt
           echo "EOF" >> $GITHUB_ENV
+
       - name: Send Email Notification
         env:
           TRIMMED_BODY: ${{ env.TRIMMED_BODY }}
@@ -26,6 +27,8 @@ jobs:
           trimmed_body=$(cat trimmed_body.txt)
           echo -e "To: 1ilsangc@gmail.com\nFrom: no-reply@example.com\nSubject: KO ISSUE NOTIFICATION: ${{ github.event.issue.title }}\n\nIssue URL: ${{ github.event.issue.html_url }}\n\nDescription:\n$trimmed_body" > email.txt
           cat email.txt | mail -s "KO ISSUE NOTIFICATION: ${{ github.event.issue.title }}" 1ilsangc@gmail.com -aFrom:no-reply@example.com
+          mail -v
+
       - name: Send Email Notification TEST
         run: |
           echo "This is the message body" | mail -s "KO ISSUE NOTIFICATION: ${{ github.event.issue.title }}" 1ilsangc@gmail.com -aFrom:no-reply@example.com
