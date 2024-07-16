@@ -1,0 +1,45 @@
+name: label-mailto
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  send_notification:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trim issue body to 3 lines
+        id: trim_body
+        run: |
+          echo "${{ github.event.issue.body }}" | head -n 3 > trimmed_body.txt
+          echo "TRIMMED_BODY<<EOF" >> $GITHUB_ENV
+          while IFS= read -r line; do
+            echo "$line" >> $GITHUB_ENV
+          done < trimmed_body.txt
+          echo "EOF" >> $GITHUB_ENV
+
+      - name: Send Email Notification
+        uses: dawidd6/action-send-mail@v3
+        env:
+          TRIMMED_BODY: ${{ env.TRIMMED_BODY }}
+        with:
+          secure: true
+          server_address: smtp.gmail.com
+          server_port: 465
+          # user credentials
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          # Mail
+          subject: '[l10n-ko]: ${{ github.event.issue.title }}'
+          body: "Issue URL:\n${{ github.event.issue.html_url }}\n\nIssue Body:\n\n${{env.TRIMMED_BODY}}"
+          to: 1ilsangc@gmail.com,1ilsang@naver.com,${{secrets.EMAIL_USERNAME}}
+          from: yari-content-ko
+
+        # run: |
+        #   sudo apt-get install -y mailutils
+        #   trimmed_body=$(cat trimmed_body.txt)
+        #   echo -e "Subject:\"[l10n-ko]: ${{ github.event.issue.title }}\"\nIssue URL:\n${{ github.event.issue.html_url }}\n\nIssue Body:\n\n$trimmed_body" > email.txt
+        #   mail -s "[l10n-ko] ${{ github.event.issue.title }}" 1ilsangc@gmail.com < email.txt
+        #   mail -s "[l10n-ko] ${{ github.event.issue.title }}" yari-content-ko@googlegroups.com < email.txt
+        #   mail -s "[l10n-ko] ${{ github.event.issue.title }}" 1ilsang@naver.com < email.txt
