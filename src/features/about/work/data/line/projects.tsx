@@ -6,7 +6,8 @@ export const LPC: Project = {
   name: ProjectName.LPC,
   tags: ['Vite', 'pnpm', 'React-Query'],
   startDate: 1709218800000,
-  summary: '사내 headless CMS 개발',
+  endDate: 1721638800000,
+  summary: '사내 Headless CMS 개발',
   body: (
     <>
       <li>Webpack {'->'} Vite 마이그레이션 진행</li>

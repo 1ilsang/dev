@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { FunctionComponent } from 'react';
 
 import { CompanyName } from '../work/models';
@@ -30,9 +29,7 @@ const IntroductionContainer: FunctionComponent = () => {
           있을지 늘 탐구하고 있습니다.
           <br />
           영향력 있는 동료가 되고 싶습니다. 성장 자극을 줄 수 있는 동료이고
-          싶습니다. 맡은 부분에 대한 기술적 책임을 지려고 노력합니다. 기술에
-          대한 탐구욕이 강하며 공유할 거리가 생기면 어떤 웃긴 제목으로 발표할지
-          고민하며 입꼬리가 절로 올라갑니다.
+          싶습니다. 맡은 부분에 대한 기술적 책임을 지려고 노력합니다.
         </div>
         <div className="p">
           <b>
@@ -42,11 +39,15 @@ const IntroductionContainer: FunctionComponent = () => {
           <b>
             <a href={`#${CompanyName.Blind}`}>TeamBlind</a>
           </b>
-          에서 풀스택으로 일했으며 현재{' '}
+          에서 풀스택으로 일했으며 이후{' '}
           <b>
             <a href={`#${CompanyName.LINE}`}>LINE+</a>
           </b>
-          에서 4년 가까이 프런트엔드 개발자로 즐겁게 일하고 있습니다. 또한{' '}
+          에서 4년간 프런트엔드 개발자로 전문성을 쌓았습니다. 이제{' '}
+          <b>
+            <a href={`#${CompanyName.WoowaBros}`}>우아한형제들</a>
+          </b>
+          에서 또 다른 커리어를 쌓고자 하고 있습니다. 또한{' '}
           <ExternalLink
             classNames="underline-highlight-fade"
             label="MDN"

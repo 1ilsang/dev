@@ -14,6 +14,7 @@ export enum CompanyName {
   LINE = 'LINE Plus Corp',
   Blind = 'TeamBlind',
   Smilegate = 'Smilegate',
+  WoowaBros = 'Woowa Bros',
 }
 
 export enum ProjectName {
@@ -28,6 +29,7 @@ export enum ProjectName {
   MyBiskit = 'Mybiskit',
   Blind = 'Blind',
   Stove = 'Stove',
+  TBD = 'Coming Soon',
 }
 
 export enum JobPosition {
