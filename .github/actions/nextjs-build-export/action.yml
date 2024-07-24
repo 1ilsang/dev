@@ -16,7 +16,7 @@ runs:
         path: |
           ${{ github.workspace }}/.next
           ${{ github.workspace }}/out
-        key: ${{ runner.os }}-nextjs-store-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx', '**.md') }}-${{ inputs.e2e == 'true' && 'e2e' || 'default' }}
+        key: ${{ runner.os }}-nextjs-store-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx', '**.md', '**.html', '**.png') }}-${{ inputs.e2e == 'true' && 'e2e' || 'default' }}
         restore-keys: |
           ${{ runner.os }}-nextjs-store-${{ hashFiles('**/pnpm-lock.yaml') }}-
       id: cache-nextjs-build
