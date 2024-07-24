@@ -10,14 +10,31 @@ export const LPC: Project = {
   summary: '사내 Headless CMS 개발',
   body: (
     <>
-      <li>Webpack {'->'} Vite 마이그레이션 진행</li>
       <li>
+        전체 페이지 성능 개선
+        <ul>
+          <li>
+            API 로직 개선, Lazy Loading, Suspense, preload 등 최적화 작업 진행
+          </li>
+          <li>Speed Index 약 14% 단축</li>
+          <li>Total Blocking Time 약 72% 단축</li>
+          <li>Cumulative Layout Shift 약 95% 감소</li>
+        </ul>
+      </li>
+      <li className="section">
+        Webpack {'->'} Vite 마이그레이션 진행
+        <ul>
+          <li>빌드 성능 향상</li>
+          <li>HMR 개선</li>
+          <li>모노레포 워크스페이스 import 개선</li>
+        </ul>
+      </li>
+      <li className="section">
         CircleCi 적용 및 Cypress Task 분할 작업 진행
         <ul>
           <li>테스트 시간 16분 {'->'} 5분 단축 성공</li>
         </ul>
       </li>
-      <li>모노레포 워크스페이스 import 개선</li>
     </>
   ),
 };
