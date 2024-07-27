@@ -61,8 +61,8 @@ importers:
         specifier: ^1.45.1
         version: 1.45.2
       '@types/node':
-        specifier: 20.14.11
-        version: 20.14.11
+        specifier: 20.14.12
+        version: 20.14.12
       '@types/react':
         specifier: 18.3.3
         version: 18.3.3
@@ -89,7 +89,7 @@ importers:
         version: 9.1.1
       knip:
         specifier: ^5.26.0
-        version: 5.26.0(@types/node@20.14.11)(typescript@5.5.3)
+        version: 5.26.0(@types/node@20.14.12)(typescript@5.5.3)
       markdownlint:
         specifier: 0.34.0
         version: 0.34.0
@@ -98,7 +98,7 @@ importers:
         version: 0.41.0
       netlify-cli:
         specifier: ^17.33.3
-        version: 17.33.4(@types/node@20.14.11)
+        version: 17.33.4(@types/node@20.14.12)
       postcss:
         specifier: ^8.4.39
         version: 8.4.39
@@ -113,7 +113,7 @@ importers:
         version: 13.1.0(postcss@8.4.39)(stylelint@16.7.0(typescript@5.5.3))
       tailwindcss:
         specifier: 3.4.6
-        version: 3.4.6(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.3))
+        version: 3.4.6(ts-node@10.9.2(@types/node@20.14.12)(typescript@5.5.3))
       typescript:
         specifier: 5.5.3
         version: 5.5.3
@@ -1055,8 +1055,8 @@ packages:
   '@types/ms@0.7.34':
     resolution: {integrity: sha512-nG96G3Wp6acyAgJqGasjODb+acrI7KltPiRxzHPXnP3NgI28bpQDRv53olbqGXbfcgF5aiiHmO3xpwEpS5Ld9g==}
 
-  '@types/node@20.14.11':
-    resolution: {integrity: sha512-kprQpL8MMeszbz6ojB5/tU8PLN4kesnN8Gjzw349rDlNgsSzg90lAVj3llK99Dh7JON+t9AuscPPFW6mPbTnSA==}
+  '@types/node@20.14.12':
+    resolution: {integrity: sha512-r7wNXakLeSsGT0H1AU863vS2wa5wBOK4bWMjZz2wj+8nBx+m5PeIn0k8AloSLpRuiwdRQZwarZqHE4FNArPuJQ==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -6099,7 +6099,7 @@ snapshots:
     dependencies:
       '@types/istanbul-lib-coverage': 2.0.6
       '@types/istanbul-reports': 3.0.4
-      '@types/node': 20.14.11
+      '@types/node': 20.14.12
       '@types/yargs': 16.0.9
       chalk: 4.1.2
 
@@ -6158,7 +6158,7 @@ snapshots:
       yaml: 2.4.5
       yargs: 17.7.2
 
-  '@netlify/build@29.51.3(@opentelemetry/api@1.8.0)(@types/node@20.14.11)':
+  '@netlify/build@29.51.3(@opentelemetry/api@1.8.0)(@types/node@20.14.12)':
     dependencies:
       '@bugsnag/js': 7.25.0
       '@netlify/blobs': 7.4.0
@@ -6215,7 +6215,7 @@ snapshots:
       strip-ansi: 7.1.0
       supports-color: 9.4.0
       terminal-link: 3.0.0
-      ts-node: 10.9.2(@types/node@20.14.11)(typescript@5.5.3)
+      ts-node: 10.9.2(@types/node@20.14.12)(typescript@5.5.3)
       typescript: 5.5.3
       uuid: 9.0.1
       yargs: 17.7.2
@@ -6680,7 +6680,7 @@ snapshots:
 
   '@types/http-proxy@1.17.14':
     dependencies:
-      '@types/node': 20.14.11
+      '@types/node': 20.14.12
 
   '@types/istanbul-lib-coverage@2.0.6': {}
 
@@ -6700,7 +6700,7 @@ snapshots:
 
   '@types/ms@0.7.34': {}
 
-  '@types/node@20.14.11':
+  '@types/node@20.14.12':
     dependencies:
       undici-types: 5.26.5
 
@@ -6731,7 +6731,7 @@ snapshots:
 
   '@types/yauzl@2.10.3':
     dependencies:
-      '@types/node': 20.14.11
+      '@types/node': 20.14.12
     optional: true
 
   '@typescript-eslint/eslint-plugin@7.16.1(@typescript-eslint/parser@7.7.0(eslint@9.7.0)(typescript@5.5.3))(eslint@9.7.0)(typescript@5.5.3)':
@@ -9380,11 +9380,11 @@ snapshots:
 
   kind-of@6.0.3: {}
 
-  knip@5.26.0(@types/node@20.14.11)(typescript@5.5.3):
+  knip@5.26.0(@types/node@20.14.12)(typescript@5.5.3):
     dependencies:
       '@nodelib/fs.walk': 1.2.8
       '@snyk/github-codeowners': 1.1.0
-      '@types/node': 20.14.11
+      '@types/node': 20.14.12
       easy-table: 1.2.0
       fast-glob: 3.3.2
       jiti: 1.21.6
@@ -10067,12 +10067,12 @@ snapshots:
 
   nested-error-stacks@2.1.1: {}
 
-  netlify-cli@17.33.4(@types/node@20.14.11):
+  netlify-cli@17.33.4(@types/node@20.14.12):
     dependencies:
       '@bugsnag/js': 7.25.0
       '@fastify/static': 7.0.4
       '@netlify/blobs': 7.4.0
-      '@netlify/build': 29.51.3(@opentelemetry/api@1.8.0)(@types/node@20.14.11)
+      '@netlify/build': 29.51.3(@opentelemetry/api@1.8.0)(@types/node@20.14.12)
       '@netlify/build-info': 7.14.1
       '@netlify/config': 20.17.1
       '@netlify/edge-bundler': 12.2.2(supports-color@9.4.0)
@@ -10682,13 +10682,13 @@ snapshots:
       camelcase-css: 2.0.1
       postcss: 8.4.39
 
-  postcss-load-config@4.0.2(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.3)):
+  postcss-load-config@4.0.2(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.12)(typescript@5.5.3)):
     dependencies:
       lilconfig: 3.1.2
       yaml: 2.4.5
     optionalDependencies:
       postcss: 8.4.39
-      ts-node: 10.9.2(@types/node@20.14.11)(typescript@5.5.3)
+      ts-node: 10.9.2(@types/node@20.14.12)(typescript@5.5.3)
 
   postcss-media-query-parser@0.2.3: {}
 
@@ -11608,7 +11608,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  tailwindcss@3.4.6(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.3)):
+  tailwindcss@3.4.6(ts-node@10.9.2(@types/node@20.14.12)(typescript@5.5.3)):
     dependencies:
       '@alloc/quick-lru': 5.2.0
       arg: 5.0.2
@@ -11627,7 +11627,7 @@ snapshots:
       postcss: 8.4.39
       postcss-import: 15.1.0(postcss@8.4.39)
       postcss-js: 4.0.1(postcss@8.4.39)
-      postcss-load-config: 4.0.2(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.3))
+      postcss-load-config: 4.0.2(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.12)(typescript@5.5.3))
       postcss-nested: 6.0.1(postcss@8.4.39)
       postcss-selector-parser: 6.1.1
       resolve: 1.22.8
@@ -11775,14 +11775,14 @@ snapshots:
 
   ts-interface-checker@0.1.13: {}
 
-  ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.3):
+  ts-node@10.9.2(@types/node@20.14.12)(typescript@5.5.3):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.11
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 20.14.11
+      '@types/node': 20.14.12
       acorn: 8.12.1
       acorn-walk: 8.3.3
       arg: 4.1.3
