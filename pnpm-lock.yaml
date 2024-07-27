@@ -112,8 +112,8 @@ importers:
         specifier: ^13.1.0
         version: 13.1.0(postcss@8.4.39)(stylelint@16.7.0(typescript@5.5.3))
       tailwindcss:
-        specifier: 3.4.6
-        version: 3.4.6(ts-node@10.9.2(@types/node@20.14.12)(typescript@5.5.3))
+        specifier: 3.4.7
+        version: 3.4.7(ts-node@10.9.2(@types/node@20.14.12)(typescript@5.5.3))
       typescript:
         specifier: 5.5.3
         version: 5.5.3
@@ -5214,8 +5214,8 @@ packages:
   tabtab@3.0.2:
     resolution: {integrity: sha512-jANKmUe0sIQc/zTALTBy186PoM/k6aPrh3A7p6AaAfF6WPSbTx1JYeGIGH162btpH+mmVEXln+UxwViZHO2Jhg==}
 
-  tailwindcss@3.4.6:
-    resolution: {integrity: sha512-1uRHzPB+Vzu57ocybfZ4jh5Q3SdlH7XW23J5sQoM9LhE9eIOlzxer/3XPSsycvih3rboRsvt0QCmzSrqyOYUIA==}
+  tailwindcss@3.4.7:
+    resolution: {integrity: sha512-rxWZbe87YJb4OcSopb7up2Ba4U82BoiSGUdoDr3Ydrg9ckxFS/YWsvhN323GMcddgU65QRy7JndC7ahhInhvlQ==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -11608,7 +11608,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  tailwindcss@3.4.6(ts-node@10.9.2(@types/node@20.14.12)(typescript@5.5.3)):
+  tailwindcss@3.4.7(ts-node@10.9.2(@types/node@20.14.12)(typescript@5.5.3)):
     dependencies:
       '@alloc/quick-lru': 5.2.0
       arg: 5.0.2
