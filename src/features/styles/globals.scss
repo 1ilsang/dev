@@ -1,21 +1,21 @@
 @font-face {
+  font-family: RIDIBatang-subset;
+  src: url('/assets/RIDIBatang-subset.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'D2Coding';
   font-style: normal;
   font-weight: 400;
   src: url('/assets/D2Coding-subset.woff2') format('woff2');
 }
 
-@font-face {
-  font-family: 'D2Coding';
-  font-style: normal;
-  font-weight: 700;
-  src: url('/assets/D2CodingBold-subset.woff2') format('woff2');
-}
-
 html,
 body {
   height: 100%;
-  font-family: 'D2Coding', sans-serif;
+  font-family: RIDIBatang-subset, sans-serif;
   font-size: 14px;
   background-color: $background-color;
   -webkit-font-smoothing: antialiased;

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Head from 'next/head';
 import { BannerWrapper } from '~/shared/components/Banner';
 import Favicon from '~/shared/components/head/Favicon';
 import { Font } from '~/shared/components/head/Font';
@@ -14,11 +15,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <head>
+      <Head>
         <Font />
         <WebApp />
         <Favicon />
-      </head>
+      </Head>
       <body>
         <BannerWrapper />
         {children}
