@@ -42,8 +42,8 @@ const Navbar: FunctionComponent = () => {
   const [hover, setHover] = useState(false);
   const [scrollDown, setScrollDown] = useState(false);
 
-  const [notHome, postPage] = useMemo(() => {
-    return [pathname !== '/', pathname.includes('/posts')];
+  const [navShadow, postPage] = useMemo(() => {
+    return [!['/', '/about'].includes(pathname), pathname === '/posts'];
   }, [pathname]);
 
   const handleMouseEnter = () => setHover(true);
@@ -63,7 +63,7 @@ const Navbar: FunctionComponent = () => {
     <nav
       className={classNames('nav flex-wrap water-rainbow', {
         'post-nav-trans': !hover && postPage,
-        'nav-shadow': notHome && !scrollDown,
+        'nav-shadow': navShadow && !scrollDown,
       })}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
