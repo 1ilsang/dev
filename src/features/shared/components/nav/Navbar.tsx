@@ -43,7 +43,7 @@ const Navbar: FunctionComponent = () => {
   const [scrollDown, setScrollDown] = useState(false);
 
   const [navShadow, postPage] = useMemo(() => {
-    return [!['/', '/about'].includes(pathname), pathname === '/posts'];
+    return [!['/', '/about'].includes(pathname), pathname.startsWith('/posts')];
   }, [pathname]);
 
   const handleMouseEnter = () => setHover(true);
