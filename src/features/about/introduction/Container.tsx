@@ -50,11 +50,11 @@ const IntroductionContainer: FunctionComponent = () => {
           에서 또 다른 커리어를 쌓고자 하고 있습니다. 또한{' '}
           <ExternalLink
             classNames="underline-highlight-fade"
-            label="MDN"
+            label="MDN 한국팀의 Organizer로 활동"
             href="posts/mdn-ko-organizer"
             disableDefaultCSSTransition
-          />{' '}
-          한국팀의 Organizer로 활동하고 있습니다.
+          />
+          하고 있습니다.
         </div>
       </div>
     </section>
