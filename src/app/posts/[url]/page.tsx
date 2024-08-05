@@ -18,7 +18,7 @@ interface PostsProps {
 const Posts: NextPage<PostsProps> = async ({ params }) => {
   const post = await getPost(params.url);
   return (
-    <main className="post-layout">
+    <>
       <NavProgress />
       <Navbar />
       <PostContainer post={post} />
@@ -26,7 +26,7 @@ const Posts: NextPage<PostsProps> = async ({ params }) => {
       <Portal>
         <ImageModal />
       </Portal>
-    </main>
+    </>
   );
 };
 

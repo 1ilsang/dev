@@ -1,9 +1,6 @@
 import type { Metadata } from 'next';
-import Head from 'next/head';
+import localFont from 'next/font/local';
 import { BannerWrapper } from '~/shared/components/Banner';
-import Favicon from '~/shared/components/head/Favicon';
-import { Font } from '~/shared/components/head/Font';
-import { WebApp } from '~/shared/components/head/WebApp';
 import { ImageUrl, MetaDescription, MetaTitle } from '~/shared/constants/blog';
 
 import '~/styles/index.scss';
@@ -14,12 +11,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko">
-      <Head>
-        <Font />
-        <WebApp />
-        <Favicon />
-      </Head>
+    <html lang="ko" className={ridi.variable}>
       <body>
         <BannerWrapper />
         {children}
@@ -34,12 +26,35 @@ export const metadata: Metadata = {
   keywords: ['1ilsang', 'dev', 'front', 'frontend', 'react'],
   title: MetaTitle.HOME,
   description: MetaDescription.HOME,
+  icons: {
+    icon: '/favicon/favicon-32x32.png',
+    apple: '/favicon/favicon-180x180.png',
+    other: [
+      {
+        rel: 'icon',
+        url: '/favicon/favicon-16x16.png',
+        sizes: '16x16',
+      },
+    ],
+  },
   openGraph: {
     siteName: MetaTitle.HOME,
     title: MetaTitle.HOME,
     description: MetaDescription.HOME,
     images: [{ url: ImageUrl.HOME }],
   },
+  appleWebApp: {
+    title: '1ilsang.dev',
+    capable: true,
+    statusBarStyle: 'black-translucent',
+  },
 };
+
+const ridi = localFont({
+  src: '../assets/RIDIBatang-subset.woff2',
+  variable: '--ridi-batang',
+  display: 'block',
+  preload: true,
+});
 
 export const dynamic = 'error';

@@ -13,7 +13,7 @@
     border: 1px solid $base-color;
     border-radius: 3px;
     color: #ffa657;
-    font-family: 'D2Coding', sans-serif;
+    font-family: var(--d2coding), sans-serif;
   }
 
   // 코드부 ```js...```
