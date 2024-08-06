@@ -1,0 +1,19 @@
+.sponsor {
+  margin: 0.3rem 0 14rem;
+  display: flex;
+  align-items: center;
+
+  .pay-icon {
+    cursor: pointer;
+    width: 80px;
+    object-fit: contain;
+
+    &:hover {
+      animation: bounce 0.3s infinite alternate;
+    }
+  }
+
+  .small {
+    width: 50px;
+  }
+}

@@ -1,15 +1,17 @@
 import { useAtom } from 'jotai';
-import { imageSrcAtom } from './atoms';
+import { imageSizeAtom, imageSrcAtom } from './atoms';
 import { useEffect, useRef, useState } from 'react';
 
 export const useImageModal = () => {
   const [imageSrc, setImageSrc] = useAtom(imageSrcAtom);
+  const [imageSize, setImageSize] = useAtom(imageSizeAtom);
   const imageRef = useRef<HTMLImageElement>(null);
   const [loading, setLoading] = useState(true);
 
   const handleDialogClick = () => {
     setImageSrc('');
     setLoading(true);
+    setImageSize('');
   };
 
   const load = async () => {
@@ -24,20 +26,27 @@ export const useImageModal = () => {
 
   useEffect(() => {
     return () => {
-      setImageSrc('');
+      handleDialogClick();
     };
   }, []);
 
   useEffect(() => {
     document.body.style.overflow = imageSrc ? 'hidden' : 'auto';
 
-    if (imageSrc) {
-      setLoading(true);
-      load();
-    }
+    const handleESC = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape') return;
+      handleDialogClick();
+    };
+
+    if (!imageSrc) return;
+
+    setLoading(true);
+    load();
+    window.addEventListener('keydown', handleESC);
 
     return () => {
       document.body.style.overflow = 'auto';
+      window.removeEventListener('keydown', handleESC);
     };
   }, [imageSrc]);
 
@@ -46,5 +55,6 @@ export const useImageModal = () => {
     handleDialogClick,
     imageSrc,
     imageRef,
+    imageSize,
   };
 };

@@ -8,6 +8,7 @@ import HashTag from '~/shared/components/HashTag';
 import PublishedDate from '~/shared/components/PublishedDate';
 import FloatingIndex from './floatingIndex/Container';
 import { type PostType } from '~/posts/models';
+import { SponsorContainer } from './sponsor/Container';
 
 const PostContainer: FunctionComponent<{ post: PostType }> = ({ post }) => {
   return (
@@ -32,6 +33,7 @@ const PostContainer: FunctionComponent<{ post: PostType }> = ({ post }) => {
         <FloatingIndex post={post} />
       </div>
       <IssuePost title={post.title} />
+      <SponsorContainer />
     </div>
   );
 };

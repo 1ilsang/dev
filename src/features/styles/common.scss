@@ -18,6 +18,16 @@ $target: #e73c7e;
   }
 }
 
+@keyframes bounce {
+  100% {
+    transform: translateY(-5px);
+  }
+}
+
+.bounce {
+  animation: bounce 0.3s infinite alternate;
+}
+
 .water-rainbow:hover {
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   background-size: 400% 400%;

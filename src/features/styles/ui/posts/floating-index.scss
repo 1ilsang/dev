@@ -6,7 +6,7 @@
   left: 100%;
   overflow-wrap: break-word;
 
-  @media (width <= 1320px) {
+  @media (width < 1280px) {
     display: none;
   }
 
@@ -28,6 +28,11 @@
     position: sticky;
     padding-left: 1rem;
     top: 12rem;
+
+    @media (width < 1320px) {
+      margin-left: 2.3rem;
+      top: 7rem;
+    }
 
     .item {
       padding-top: 0.1rem;

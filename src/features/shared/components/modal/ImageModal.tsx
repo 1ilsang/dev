@@ -9,7 +9,8 @@ interface ImageModalProps {
 }
 
 const ImageModal: FunctionComponent<ImageModalProps> = () => {
-  const { loading, handleDialogClick, imageSrc, imageRef } = useImageModal();
+  const { loading, handleDialogClick, imageSrc, imageRef, imageSize } =
+    useImageModal();
 
   if (!imageSrc) return null;
   return (
@@ -22,7 +23,13 @@ const ImageModal: FunctionComponent<ImageModalProps> = () => {
           </div>
         )}
         <img
-          className={classNames({ hidden: loading, 'fade-in': !loading })}
+          className={classNames(
+            {
+              hidden: loading,
+              'fade-in': !loading,
+            },
+            [imageSize],
+          )}
           src={imageSrc}
           ref={imageRef}
         />
