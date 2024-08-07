@@ -18,7 +18,7 @@
 
     &:hover {
       color: $background-color;
-      border-radius: 40px 80px / 80px 40px;
+      border-radius: 35px 60px / 80px 25px;
       background: linear-gradient(
         -45deg,
         #ee7752,
@@ -31,7 +31,7 @@
       animation: water-rainbow 5s ease infinite;
 
       @include mobile {
-        border-radius: 40px 80px / 80px 15px;
+        border-radius: 5px;
       }
 
       .post-description,
