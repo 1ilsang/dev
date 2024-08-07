@@ -16,7 +16,7 @@ importers:
         version: 4.0.3
       jotai:
         specifier: ^2.9.0
-        version: 2.9.1(@types/react@18.3.3)(react@18.3.1)
+        version: 2.9.2(@types/react@18.3.3)(react@18.3.1)
       next:
         specifier: 14.2.5
         version: 14.2.5(@opentelemetry/api@1.8.0)(@playwright/test@1.46.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)
@@ -3367,8 +3367,8 @@ packages:
     resolution: {integrity: sha512-2yTgeWTWzMWkHu6Jp9NKgePDaYHbntiwvYuuJLbbN9vl7DC9DvXKOB2BC3ZZ92D3cvV/aflH0osDfwpHepQ53w==}
     hasBin: true
 
-  jotai@2.9.1:
-    resolution: {integrity: sha512-t4Q7FIqQB3N/1art4OcqdlEtPmQ2h4DNIzTFhvt06WE0kCpQ1QoG+1A1IGTaQBi2KdDRsnywj+ojmHHKgw6PDA==}
+  jotai@2.9.2:
+    resolution: {integrity: sha512-jIBXEadOHCziOuMY6HAy2KQcHipGhnsbF+twqh8Lcmcz/Yei0gdBtW5mOYdKmbQxGqkvfvXM3w/oHtJ2WNGSFg==}
     engines: {node: '>=12.20.0'}
     peerDependencies:
       '@types/react': '>=17.0.0'
@@ -9368,7 +9368,7 @@ snapshots:
 
   jiti@1.21.6: {}
 
-  jotai@2.9.1(@types/react@18.3.3)(react@18.3.1):
+  jotai@2.9.2(@types/react@18.3.3)(react@18.3.1):
     optionalDependencies:
       '@types/react': 18.3.3
       react: 18.3.1
