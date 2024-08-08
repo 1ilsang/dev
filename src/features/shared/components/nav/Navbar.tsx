@@ -4,8 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FunctionComponent, memo, useEffect, useMemo, useState } from 'react';
 import classNames from 'classnames';
-
-import { AvatarImage } from '../Avatar';
+import { Avatar } from '../Avatar';
 
 interface NavTextProps {
   text: string;
@@ -18,15 +17,10 @@ const NavText: FunctionComponent<NavTextProps> = memo(
   ({ text, link, logo = false, path }) => {
     return (
       <h2
-        className={classNames(
-          `tracking-tight focus:text-gray-700`,
-          [
-            logo
-              ? 'text-2xl font-bold mt-2 mb-2 ml-3.5'
-              : 'text-xl mt-2.5 mr-6',
-          ],
-          { 'background-color': path === '/' },
-        )}
+        className={classNames(`nav-text`, {
+          'nav-home': path === '/',
+          'nav-logo': logo,
+        })}
       >
         <Link className="hover-underline" href={`${link}`}>
           {text}
@@ -61,7 +55,7 @@ const Navbar: FunctionComponent = () => {
 
   return (
     <nav
-      className={classNames('nav flex-wrap water-rainbow', {
+      className={classNames('nav water-rainbow', {
         'post-nav-trans': !hover && postPage,
         'nav-shadow': navShadow && !scrollDown,
       })}
@@ -72,7 +66,7 @@ const Navbar: FunctionComponent = () => {
       <div className="flex">
         <NavText text="posts" link="/posts" />
         <NavText text="tags" link="/tags" />
-        <AvatarImage nav />
+        <Avatar nav />
       </div>
     </nav>
   );

@@ -1,23 +1,19 @@
-import { FunctionComponent } from 'react';
-
+import type { FunctionComponent } from 'react';
 import PostBody from './components/PostBody';
 import IssuePost from './components/IssuePost';
-
-import Avatar from '~/shared/components/Avatar';
 import HashTag from '~/shared/components/HashTag';
 import PublishedDate from '~/shared/components/PublishedDate';
 import FloatingIndex from './floatingIndex/Container';
 import { type PostType } from '~/posts/models';
 import { SponsorContainer } from './sponsor/Container';
+import { ProfileSection } from './components/ProfileSection';
 
 const PostContainer: FunctionComponent<{ post: PostType }> = ({ post }) => {
   return (
     <div className="post-container">
       <h1 className="post-header">{post.title}</h1>
-      <div className="post-profile-container">
-        <Avatar />
-      </div>
-      <div className="flex flex-wrap mt-2 items-end">
+      <ProfileSection />
+      <section className="flex flex-wrap mt-2 items-end">
         {post.tags.map((tag) => (
           <HashTag
             className="mr-2"
@@ -26,12 +22,12 @@ const PostContainer: FunctionComponent<{ post: PostType }> = ({ post }) => {
             content={tag}
           />
         ))}
-      </div>
+      </section>
       <PublishedDate date={post.date} />
-      <div className="post-body-container">
+      <section id="post-body-container" className="relative">
         <PostBody post={post} />
         <FloatingIndex post={post} />
-      </div>
+      </section>
       <IssuePost title={post.title} />
       <SponsorContainer />
     </div>

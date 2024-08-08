@@ -1,4 +1,3 @@
-/* PC */
 .post-layout {
   @include root-layout;
 }
@@ -9,11 +8,8 @@
 
 .post-nav-trans {
   opacity: 1;
-}
 
-/* Mobile */
-@include mobile {
-  .post-nav-trans {
+  @include mobile {
     opacity: 0.1;
   }
 }

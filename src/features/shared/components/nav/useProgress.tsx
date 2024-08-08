@@ -44,7 +44,7 @@ const useProgress = () => {
   };
   const bindImageClickEvent = () => {
     if (!pathname.startsWith('/posts')) return;
-    const postBodyContainer = document.querySelector('.post-body-container');
+    const postBodyContainer = document.querySelector('#post-body-container');
     if (!postBodyContainer) return;
 
     const postBodyImages = postBodyContainer.querySelectorAll('img');

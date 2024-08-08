@@ -7,10 +7,31 @@
 
 .post-profile-container {
   margin-top: 2vh;
-}
+  display: flex;
+  align-items: center;
 
-.post-body-container {
-  position: relative;
+  .name {
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  .description {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: $dark-color;
+  }
+
+  @include mobile {
+    .name {
+      font-size: 1rem;
+      line-height: 1rem;
+    }
+
+    .description {
+      line-height: 1rem;
+    }
+  }
 }
 
 .issue-post {

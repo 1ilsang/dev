@@ -1,25 +1,28 @@
-/* PC */
 .nav {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   justify-items: center;
   position: fixed;
   z-index: 300;
 
-  .background-color {
+  &-home {
     color: #0b1d2d;
   }
-}
 
-.nav-avatar {
-  width: 2rem;
-  height: 2rem;
-  margin-top: 0.5rem;
+  &-text {
+    letter-spacing: -0.025em;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    margin: 0.625rem 1.5rem 0 0;
+  }
 
-  img {
-    border: 1px solid $min-color;
-    border-radius: 90px;
+  &-logo {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+    margin: 0.5rem 0 0.5rem 0.857rem;
   }
 }
 
@@ -72,12 +75,5 @@
 
   ::-webkit-progress-value {
     background-color: #ee7752;
-  }
-}
-
-/* MOBILE */
-@media (width <= 700px) {
-  .post-nav-trans {
-    opacity: 0.1;
   }
 }
