@@ -4,7 +4,7 @@ import { FunctionComponent } from 'react';
 
 import CategoryContainer from './category/Container';
 import usePostListContainer from './hooks/usePostListContainer';
-import MemoedPostItem from './components/Item';
+import { MemoedPostItem } from './components/Item';
 import { type PostType } from './models';
 
 type PostListContainerProps = {

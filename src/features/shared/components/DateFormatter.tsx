@@ -8,19 +8,16 @@ interface DateFormatterProps {
   date: Date | number | string;
   type?: DateType;
   format?: string;
+  className?: string;
 }
 
 const DateFormatter: FunctionComponent<DateFormatterProps> = memo(
-  ({ date, type = 'default', format }) => {
+  ({ date, type = 'default', format, className }) => {
     const dateTime =
       type === 'iso' ? parseISO(String(date)) : formatDate(date, format);
 
     return (
-      <time
-        className="date-format"
-        dateTime={dateTime}
-        suppressHydrationWarning
-      >
+      <time className={className} dateTime={dateTime} suppressHydrationWarning>
         {dateTime}
       </time>
     );

@@ -116,6 +116,7 @@ export const getPost = async (url: PostType['url']): Promise<PostType> => {
     'tags',
     'ogImage',
     'coverImage',
+    'updatedAt',
   ]);
   const content = await markdownToHtml(post.content || '');
 

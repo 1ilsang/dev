@@ -1,9 +1,5 @@
 $target: #e73c7e;
 
-.date-published {
-  color: #6c6e6f;
-}
-
 @keyframes water-rainbow {
   0% {
     background-position: 0% 50%;
@@ -16,16 +12,6 @@ $target: #e73c7e;
   100% {
     background-position: 0% 50%;
   }
-}
-
-@keyframes bounce {
-  100% {
-    transform: translateY(-5px);
-  }
-}
-
-.bounce {
-  animation: bounce 0.3s infinite alternate;
 }
 
 .water-rainbow:hover {

@@ -14,6 +14,7 @@ export interface PostType {
   url: string;
   title: string;
   date: string;
+  updatedAt?: string;
   category: Category;
   tags: string[];
   coverImage: string;

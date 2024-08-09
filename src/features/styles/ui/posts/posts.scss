@@ -2,15 +2,6 @@
 .post-list {
   padding-bottom: 14rem;
 
-  .date-format {
-    color: $sub-color;
-    margin-top: 0.5rem;
-  }
-
-  .post-description {
-    color: $min-color;
-  }
-
   li {
     padding: 1vh 2vw;
     content-visibility: auto;
@@ -32,11 +23,6 @@
 
       @include mobile {
         border-radius: 5px;
-      }
-
-      .post-description,
-      .date-format {
-        color: white;
       }
     }
 
