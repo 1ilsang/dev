@@ -9,7 +9,7 @@ export default function PostsLayout({
 }
 
 const d2coding = localFont({
-  src: '../../../assets/D2Coding-subset.woff2',
+  src: '../../../../public/fonts/D2Coding-subset.woff2',
   variable: '--d2coding',
   display: 'block',
 });

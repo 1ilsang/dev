@@ -60,7 +60,7 @@ export const metadata: Metadata = {
 };
 
 const ridi = localFont({
-  src: '../assets/RIDIBatang-subset.woff2',
+  src: '../../public/fonts/RIDIBatang-subset.woff2',
   variable: '--ridi-batang',
   display: 'block',
   preload: true,
