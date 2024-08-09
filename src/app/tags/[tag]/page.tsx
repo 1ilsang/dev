@@ -1,4 +1,4 @@
-import { NextPage } from 'next';
+import type { NextPage } from 'next';
 
 import Navbar from '~/shared/components/nav/Navbar';
 import Footer from '~/shared/components/Footer';

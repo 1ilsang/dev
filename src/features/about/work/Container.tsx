@@ -1,6 +1,7 @@
 'use client';
 
-import { FunctionComponent, useState } from 'react';
+import type { FunctionComponent } from 'react';
+import { useState } from 'react';
 
 import WorkCardContainer from './card/Container';
 

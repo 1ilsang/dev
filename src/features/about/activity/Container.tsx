@@ -1,7 +1,8 @@
-import { FunctionComponent, useMemo } from 'react';
+import type { FunctionComponent } from 'react';
+import { useMemo } from 'react';
 
 import ActivityCardContainer from './Card';
-import { Activity } from './models';
+import type { Activity } from './models';
 
 import { activityData } from '~/about/activity/data/activity';
 

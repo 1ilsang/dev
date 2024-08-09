@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { FunctionComponent, memo } from 'react';
+import type { FunctionComponent } from 'react';
+import { memo } from 'react';
 import { MyProfile } from '~/about/headline/data/profile';
 
 const Footer: FunctionComponent = memo(() => {

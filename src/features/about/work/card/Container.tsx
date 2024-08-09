@@ -1,6 +1,7 @@
-import { FunctionComponent, useEffect, useState } from 'react';
+import type { FunctionComponent } from 'react';
+import { useEffect, useState } from 'react';
 
-import { Company } from '../models';
+import type { Company } from '../models';
 
 import LeftSide from './content/LeftSide';
 import ContentHeadline from './content/Headline';

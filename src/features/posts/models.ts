@@ -1,4 +1,4 @@
-import { CATEGORY_LIST } from './constants';
+import type { CATEGORY_LIST } from './constants';
 
 export type FileCategory =
   | 'activity'

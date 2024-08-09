@@ -2,7 +2,8 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { FunctionComponent, memo, useEffect, useMemo, useState } from 'react';
+import type { FunctionComponent } from 'react';
+import { memo, useEffect, useMemo, useState } from 'react';
 import classNames from 'classnames';
 import { Avatar } from '../Avatar';
 

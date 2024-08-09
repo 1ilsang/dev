@@ -1,6 +1,6 @@
 'use client';
 
-import { FunctionComponent, ReactNode } from 'react';
+import type { FunctionComponent, ReactNode } from 'react';
 import { useImageModal } from './useImageModal';
 import classNames from 'classnames';
 

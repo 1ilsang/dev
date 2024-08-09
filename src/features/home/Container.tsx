@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { FunctionComponent } from 'react';
+import type { FunctionComponent } from 'react';
 
 const HomeContainer: FunctionComponent = () => {
   const router = useRouter();

@@ -1,4 +1,5 @@
-import { Activity, ActivityType } from '~/about/activity/models';
+import type { Activity } from '~/about/activity/models';
+import { ActivityType } from '~/about/activity/models';
 
 const award: Activity[] = [
   {

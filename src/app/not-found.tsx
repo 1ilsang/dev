@@ -1,7 +1,6 @@
 'use client';
 
-import { FunctionComponent } from 'react';
-
+import type { FunctionComponent } from 'react';
 import NotFoundContainer from '~/404/Container';
 import EmptyContainer from '~/404/Empty';
 import useNotFound from '~/404/hooks/useNotFound';

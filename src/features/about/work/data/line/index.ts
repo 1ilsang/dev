@@ -1,4 +1,5 @@
-import { Company, CompanyName, JobPosition } from '../../models';
+import type { Company } from '../../models';
+import { CompanyName, JobPosition } from '../../models';
 
 import { LDS_CALENDAR, LPC, OAL, OAP, PLACE, UVP, VLC } from './projects';
 

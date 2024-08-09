@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import type { FunctionComponent } from 'react';
 
 const EmptyContainer: FunctionComponent = () => {
   return <div className="not-found-container" />;

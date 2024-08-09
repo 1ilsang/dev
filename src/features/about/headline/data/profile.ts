@@ -1,4 +1,4 @@
-import { Profile } from '~/about/headline/models';
+import type { Profile } from '~/about/headline/models';
 
 type AboutProfileKeys = 'blog' | 'github' | 'gmail' | 'linkedin';
 type ProfileKeys = AboutProfileKeys | 'personal';

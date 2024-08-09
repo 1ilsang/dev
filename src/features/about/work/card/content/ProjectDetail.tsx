@@ -1,7 +1,7 @@
 import { useAtom } from 'jotai';
 import { type FunctionComponent, type MouseEventHandler, memo } from 'react';
 
-import { Project } from '~/about/work/models';
+import type { Project } from '~/about/work/models';
 import DynamicImage from '~/shared/components/DynamicImage';
 import { imageSrcAtom } from '~/shared/components/modal/atoms';
 import usePrint from '~/shared/hooks/usePrint';

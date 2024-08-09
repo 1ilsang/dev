@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import type { FunctionComponent } from 'react';
 
 import LeftSide from '../work/card/content/LeftSide';
 import ContentHeadline from '../work/card/content/Headline';

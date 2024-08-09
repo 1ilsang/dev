@@ -1,6 +1,6 @@
 'use client';
 
-import { FunctionComponent } from 'react';
+import type { FunctionComponent } from 'react';
 
 import CategoryContainer from './category/Container';
 import usePostListContainer from './hooks/usePostListContainer';

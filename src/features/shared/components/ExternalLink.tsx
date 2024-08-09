@@ -1,4 +1,4 @@
-import { FunctionComponent, PropsWithChildren } from 'react';
+import type { FunctionComponent, PropsWithChildren } from 'react';
 import { default as cn } from 'classnames';
 
 type ExternalLinkProps = PropsWithChildren & {

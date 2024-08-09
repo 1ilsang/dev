@@ -1,6 +1,7 @@
-import { FunctionComponent, memo } from 'react';
+import type { FunctionComponent } from 'react';
+import { memo } from 'react';
 
-import { WorkCardContainerProps } from '../Container';
+import type { WorkCardContainerProps } from '../Container';
 
 import ProjectDate from './ProjectDate';
 

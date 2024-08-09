@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { FunctionComponent, MouseEventHandler } from 'react';
+import type { FunctionComponent, MouseEventHandler } from 'react';
 
 import { CATEGORY_LIST } from '../constants';
 

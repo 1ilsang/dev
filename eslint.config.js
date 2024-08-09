@@ -1,17 +1,17 @@
-import js from '@eslint/js';
-import typescriptEslint from '@typescript-eslint/eslint-plugin';
-import eslintConfigPrettier from 'eslint-config-prettier';
+// @ts-check
 
-export default [
-  js.configs.recommended,
-  {
-    plugins: typescriptEslint,
-  },
-  {
-    // TODO: 아직 v9 지원 하지 않음.
-    // https://github.com/import-js/eslint-plugin-import/pull/2996
-    // plugins: eslint-plugin-import
-  },
-  { ignores: ['.next', 'playwright-report', 'out', '*.cjs'] },
+import eslintConfigPrettier from 'eslint-config-prettier';
+import eslint from '@eslint/js';
+import tseslint from 'typescript-eslint';
+
+export default tseslint.config(
+  eslint.configs.recommended,
   eslintConfigPrettier,
-];
+  { ignores: ['.next', 'playwright-report', 'out', '*.cjs', 'test-results'] },
+  {
+    rules: {
+      '@typescript-eslint/consistent-type-imports': 'error',
+    },
+  },
+  ...tseslint.configs.recommended,
+);

@@ -1,7 +1,7 @@
 import { type Metadata, type NextPage } from 'next';
 
 import PostContainer from '~/post/Container';
-import { PostType } from '~/posts/models';
+import type { PostType } from '~/posts/models';
 import Footer from '~/shared/components/Footer';
 import ImageModal from '~/shared/components/modal/ImageModal';
 import Navbar from '~/shared/components/nav/Navbar';

@@ -1,6 +1,7 @@
-import { FunctionComponent, memo } from 'react';
+import type { FunctionComponent } from 'react';
+import { memo } from 'react';
 
-import { Project } from '../../models';
+import type { Project } from '../../models';
 
 type TagsProps = Pick<Project, 'tags'>;
 

@@ -1,4 +1,5 @@
-import { Project, ProjectName } from '../../models';
+import type { Project } from '../../models';
+import { ProjectName } from '../../models';
 
 export const TBD: Project = {
   name: ProjectName.TBD,

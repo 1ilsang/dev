@@ -1,4 +1,4 @@
-import { Company } from '../models';
+import type { Company } from '../models';
 
 import LINE from './line';
 import BLIND from './blind';

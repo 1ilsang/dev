@@ -1,6 +1,6 @@
-import { FunctionComponent } from 'react';
+import type { FunctionComponent } from 'react';
 
-import { Activity } from './models';
+import type { Activity } from './models';
 
 import ExternalLink from '~/shared/components/ExternalLink';
 

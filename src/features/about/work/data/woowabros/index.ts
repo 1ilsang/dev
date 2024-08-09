@@ -1,4 +1,5 @@
-import { Company, CompanyName, JobPosition } from '../../models';
+import type { Company } from '../../models';
+import { CompanyName, JobPosition } from '../../models';
 
 import { TBD } from './projects';
 

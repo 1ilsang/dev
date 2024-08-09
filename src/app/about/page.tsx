@@ -1,7 +1,6 @@
 'use client';
 
-import { NextPage } from 'next';
-
+import type { NextPage } from 'next';
 import AboutContainer from '~/about/Container';
 import Footer from '~/shared/components/Footer';
 import ImageModal from '~/shared/components/modal/ImageModal';

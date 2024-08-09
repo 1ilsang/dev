@@ -1,7 +1,7 @@
-import { FunctionComponent } from 'react';
+import type { FunctionComponent } from 'react';
 import classNames from 'classnames';
 
-import { Profile } from '../models';
+import type { Profile } from '../models';
 
 import usePrint from '~/shared/hooks/usePrint';
 import { MyProfile } from '../data/profile';

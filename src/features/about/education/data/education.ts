@@ -1,4 +1,5 @@
-import { Education, UniversityName } from '~/about/education/models';
+import type { Education } from '~/about/education/models';
+import { UniversityName } from '~/about/education/models';
 
 export const Catholic: Education = {
   name: UniversityName.catholic,

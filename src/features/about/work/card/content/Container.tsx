@@ -1,7 +1,8 @@
-import { FunctionComponent, MouseEventHandler, useState } from 'react';
+import type { FunctionComponent, MouseEventHandler } from 'react';
+import { useState } from 'react';
 import classNames from 'classnames';
 
-import { Project } from '../../models';
+import type { Project } from '../../models';
 
 import Tags from './Tags';
 import ProjectDate from './ProjectDate';

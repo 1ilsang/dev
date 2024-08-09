@@ -7,7 +7,7 @@ import { join } from 'path';
 
 import matter from 'gray-matter';
 
-import { Category, FileCategory, PostType } from '~/posts/models';
+import type { Category, FileCategory, PostType } from '~/posts/models';
 import markdownToHtml from './markdown';
 
 const rootPostPath = join(process.cwd(), '_posts');

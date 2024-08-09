@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import Link from 'next/link';
-import { FunctionComponent } from 'react';
+import type { FunctionComponent } from 'react';
 
 interface HashTagProps {
   className?: string;

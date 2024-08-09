@@ -1,4 +1,4 @@
-import { NextPage } from 'next';
+import type { NextPage } from 'next';
 
 import PostListContainer from '~/posts/Container';
 import { type PostType } from '~/posts/models';
