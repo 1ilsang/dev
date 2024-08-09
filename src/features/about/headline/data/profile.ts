@@ -14,14 +14,14 @@ export const MyProfile: Readonly<Record<ProfileKeys, Readonly<Profile>>> = {
   blog: {
     label: `1ilsang.dev`,
     href: 'https://1ilsang.dev',
-    imageSrc: '/favicon/favicon-32x32.png',
+    imageSrc: '/favicon/favicon-46x46.png',
     alt: 'website',
   },
   github: {
     label: 'github.com/1ilsang',
     href: 'https://github.com/1ilsang',
-    imageSrc: '/images/logo/github.webp',
-    imageSrcBlack: 'https://cdn-icons-png.flaticon.com/512/25/25231.png',
+    imageSrc: '/images/logo/github-white.webp',
+    imageSrcBlack: '/images/logo/github-black.webp',
     alt: 'github',
   },
   gmail: {
