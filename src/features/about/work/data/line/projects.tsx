@@ -54,7 +54,7 @@ export const UVP: Project = {
   startDate: 1604156400000,
   endDate: 1709218800000,
   img: {
-    url: '/assets/about/uvp.webp',
+    url: '/images/about/uvp.webp',
     alt: 'UVP cover',
   },
   summary: '사내 다양한 서비스에서 사용되는 웹 동영상 라이브러리 메인테이닝',
@@ -142,7 +142,7 @@ export const VLC: Project = {
   startDate: 1686495600000,
   endDate: 1709218800000,
   img: {
-    url: '/assets/about/voom-live-cms.webp',
+    url: '/images/about/voom-live-cms.webp',
     alt: 'VOOM Live CMS cover',
   },
   summary: `VOOM Live 방송 CMS 페이지 개발`,
@@ -170,7 +170,7 @@ export const OAL: Project = {
   startDate: 1659279600000,
   endDate: 1709218800000,
   img: {
-    url: '/assets/about/oa-live-cms.webp',
+    url: '/images/about/oa-live-cms.webp',
     alt: 'OA Live CMS cover',
   },
   summary: 'LINE Official Account Live 방송 CMS 페이지 개발',
@@ -198,7 +198,7 @@ export const LDS_CALENDAR: Project = {
   startDate: 1680274800000,
   endDate: 1688137200000,
   img: {
-    url: '/assets/about/lds-calendar.webp',
+    url: '/images/about/lds-calendar.webp',
     alt: 'LDS Calendar',
   },
   summary: `LINE 디자인 시스템이 적용된 React 캘린더 컴포넌트 라이브러리 개발`,
@@ -229,7 +229,7 @@ export const PLACE: Project = {
   startDate: 1601478000000,
   endDate: 1617980400000,
   img: {
-    url: '/assets/about/line-place.webp',
+    url: '/images/about/line-place.webp',
     alt: 'LINE Place cover',
     width: 250,
   },
@@ -261,7 +261,7 @@ export const OAP: Project = {
   startDate: 1597071600000,
   endDate: 1625929200000,
   img: {
-    url: '/assets/about/line-account.webp',
+    url: '/images/about/line-account.webp',
     alt: 'Official Account cover',
     width: 250,
   },

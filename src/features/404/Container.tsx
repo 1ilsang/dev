@@ -14,7 +14,7 @@ const NotFoundContainer: FunctionComponent = () => {
   return (
     <div className="not-found-container">
       <div>
-        <img src="/assets/404.webp" alt="surfing" width={720} height={580} />
+        <img src="/images/404.webp" alt="surfing" width={720} height={580} />
       </div>
       <pre>
         <code>{description}</code>

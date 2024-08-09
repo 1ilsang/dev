@@ -7,7 +7,7 @@ export const MyProfile: Readonly<Record<ProfileKeys, Readonly<Profile>>> = {
   personal: {
     label: '1ilsang',
     href: '/about',
-    imageSrc: '/assets/chul.png',
+    imageSrc: '/images/chul.webp',
     description: '클라이밍 하실래염?',
     alt: '1ilsang',
   },
@@ -20,20 +20,20 @@ export const MyProfile: Readonly<Record<ProfileKeys, Readonly<Profile>>> = {
   github: {
     label: 'github.com/1ilsang',
     href: 'https://github.com/1ilsang',
-    imageSrc: '/assets/logo/github.webp',
+    imageSrc: '/images/logo/github.webp',
     imageSrcBlack: 'https://cdn-icons-png.flaticon.com/512/25/25231.png',
     alt: 'github',
   },
   gmail: {
     label: '1ilsangc@gmail.com',
     href: 'mailto:1ilsangc@gmail.com',
-    imageSrc: '/assets/logo/gmail.webp',
+    imageSrc: '/images/logo/gmail.webp',
     alt: 'gmail',
   },
   linkedin: {
     label: 'linkedin',
     href: 'https://www.linkedin.com/in/1ilsang',
-    imageSrc: '/assets/logo/linkedin.webp',
+    imageSrc: '/images/logo/linkedin.webp',
     alt: 'linked-in',
   },
 };

@@ -14,7 +14,7 @@ const HomeContainer: FunctionComponent = () => {
     <div className="home-container" onClick={handleContainerClick}>
       <video
         className="video"
-        src="/assets/open.mp4"
+        src="/open.mp4"
         autoPlay
         loop
         muted
