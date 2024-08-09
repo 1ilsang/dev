@@ -25,7 +25,7 @@ const LeftSide: FunctionComponent<LeftSideProps> = memo(
           target="_blank"
           href={href}
         >
-          <img className="logo loading" src={logoUrl} alt={alt} />
+          <img className="logo" src={logoUrl} alt={alt} />
         </a>
         <ProjectDate
           startDate={workStartDate}

@@ -6,8 +6,7 @@ import { Stove } from './projects';
 const SmileGate: Company = {
   company: CompanyName.Smilegate,
   companyHref: 'https://www.linkedin.com/company/smilegate/',
-  companyLogoUrl:
-    'https://github.com/1ilsang/dev/assets/23524849/932fade0-e7bf-4fdc-b7a8-c346fedbb76d',
+  companyLogoUrl: '/assets/logo/smilegate.webp',
   workStartDate: 1520780400000, // 2018.03.12
   workEndDate: 1530230400000, // 2018.06.29
   position: `${JobPosition.FE}(intern)`,

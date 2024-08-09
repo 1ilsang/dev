@@ -8,7 +8,7 @@ export const Bleet: Project = {
   startDate: 1588258800000,
   endDate: 1596726000000,
   img: {
-    url: 'https://github.com/1ilsang/dev/assets/23524849/bf6d917d-9d2a-4142-a0ee-4933cb321428',
+    url: '/assets/about/bleet.webp',
     alt: 'Bleet cover',
   },
   summary: `직장인 소개팅 어플 서버 개발`,
@@ -33,7 +33,7 @@ export const MyBiskit: Project = {
   startDate: 1572534000000,
   endDate: 1588172400000,
   img: {
-    url: 'https://github.com/1ilsang/dev/assets/23524849/1d4a2e43-72ba-4b3e-b4c7-f236e8574c28',
+    url: '/assets/about/mybiskit.webp',
     alt: 'Mybiskit cover',
   },
   summary: `직장인 온라인 취미클래스 서비스 개발`,
@@ -70,7 +70,7 @@ export const Blind: Project = {
   endDate: 1577631600000,
   url: 'https://www.teamblind.com/',
   img: {
-    url: 'https://github.com/1ilsang/dev/assets/23524849/bf1ace03-ab4a-48c5-9053-c1fe1dd6fc76',
+    url: '/assets/about/blind.webp',
     alt: 'Blind cover',
   },
   summary: `직장인 익명 앱 API 및 어드민 페이지 개발`,

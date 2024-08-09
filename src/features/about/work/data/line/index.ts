@@ -6,8 +6,7 @@ import { LDS_CALENDAR, LPC, OAL, OAP, PLACE, UVP, VLC } from './projects';
 const LINE: Company = {
   company: CompanyName.LINE,
   companyHref: 'https://www.linkedin.com/company/line-messenger/',
-  companyLogoUrl:
-    'https://github.com/1ilsang/dev/assets/23524849/81800e67-b54f-41e8-a232-520c99f465c8',
+  companyLogoUrl: '/assets/logo/line.webp',
   position: JobPosition.FE,
   workStartDate: 1596985200000, // 2020.08.10
   workEndDate: 1721638800000, // 2024.07.22

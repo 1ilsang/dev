@@ -54,7 +54,7 @@ export const UVP: Project = {
   startDate: 1604156400000,
   endDate: 1709218800000,
   img: {
-    url: 'https://github.com/1ilsang/dev/assets/23524849/d81a09d9-20d7-41ab-ae19-86e5812cfd1a',
+    url: '/assets/about/uvp.webp',
     alt: 'UVP cover',
   },
   summary: '사내 다양한 서비스에서 사용되는 웹 동영상 라이브러리 메인테이닝',
@@ -142,7 +142,7 @@ export const VLC: Project = {
   startDate: 1686495600000,
   endDate: 1709218800000,
   img: {
-    url: 'https://github.com/1ilsang/dev/assets/23524849/6163e57c-ed7f-4dea-ac0f-0c8303c83454',
+    url: '/assets/about/voom-live-cms.webp',
     alt: 'VOOM Live CMS cover',
   },
   summary: `VOOM Live 방송 CMS 페이지 개발`,
@@ -170,7 +170,7 @@ export const OAL: Project = {
   startDate: 1659279600000,
   endDate: 1709218800000,
   img: {
-    url: 'https://github.com/1ilsang/dev/assets/23524849/5c98930a-5501-432e-8d2e-e1c6ee1743f6',
+    url: '/assets/about/oa-live-cms.webp',
     alt: 'OA Live CMS cover',
   },
   summary: 'LINE Official Account Live 방송 CMS 페이지 개발',
@@ -198,7 +198,7 @@ export const LDS_CALENDAR: Project = {
   startDate: 1680274800000,
   endDate: 1688137200000,
   img: {
-    url: 'https://github.com/1ilsang/dev/assets/23524849/fe644134-f6a7-4029-8d6c-e1fa00ce327e',
+    url: '/assets/about/lds-calendar.webp',
     alt: 'LDS Calendar',
   },
   summary: `LINE 디자인 시스템이 적용된 React 캘린더 컴포넌트 라이브러리 개발`,
@@ -229,7 +229,7 @@ export const PLACE: Project = {
   startDate: 1601478000000,
   endDate: 1617980400000,
   img: {
-    url: 'https://github.com/1ilsang/dev/assets/23524849/ad5e8f2d-9226-4290-823c-1742521e0aa0',
+    url: '/assets/about/line-place.webp',
     alt: 'LINE Place cover',
     width: 250,
   },
@@ -261,7 +261,7 @@ export const OAP: Project = {
   startDate: 1597071600000,
   endDate: 1625929200000,
   img: {
-    url: 'https://github.com/1ilsang/dev/assets/23524849/7c2ad355-607a-4692-9a95-be44e45f144d',
+    url: '/assets/about/line-account.webp',
     alt: 'Official Account cover',
     width: 250,
   },

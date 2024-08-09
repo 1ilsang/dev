@@ -14,7 +14,7 @@ export const MyProfile: Readonly<Record<ProfileKeys, Readonly<Profile>>> = {
   blog: {
     label: `1ilsang.dev`,
     href: 'https://1ilsang.dev',
-    imageSrc: '/favicon/favicon-46x46.png',
+    imageSrc: '/favicon/favicon-32x32.png',
     alt: 'website',
   },
   github: {
