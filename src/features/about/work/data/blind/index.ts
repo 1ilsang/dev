@@ -9,8 +9,8 @@ const BLIND: Company = {
   companyLogoUrl:
     'https://github.com/1ilsang/dev/assets/23524849/abdc15c8-571c-430c-a3c3-f2473aedd201',
   position: JobPosition.FULL_STACK,
-  workStartDate: 1564930800000,
-  workEndDate: 1596726000000,
+  workStartDate: 1564930800000, // 2019.08.05
+  workEndDate: 1596726000000, // 2020.08.07
   projectList: [Bleet, MyBiskit, Blind],
 };
 

@@ -9,8 +9,8 @@ const LINE: Company = {
   companyLogoUrl:
     'https://github.com/1ilsang/dev/assets/23524849/81800e67-b54f-41e8-a232-520c99f465c8',
   position: JobPosition.FE,
-  workStartDate: 1596985200000,
-  workEndDate: 1721638800000,
+  workStartDate: 1596985200000, // 2020.08.10
+  workEndDate: 1721638800000, // 2024.07.22
   projectList: [LPC, UVP, VLC, OAL, LDS_CALENDAR, PLACE, OAP],
 };
 
