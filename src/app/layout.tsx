@@ -23,7 +23,16 @@ export default function RootLayout({
 
 export const metadata: Metadata = {
   authors: [{ name: '1ilsang' }],
-  keywords: ['1ilsang', 'dev', 'front', 'frontend', 'react'],
+  keywords: [
+    '1ilsang',
+    'dev',
+    'front',
+    'frontend',
+    'react',
+    'software',
+    'developer',
+    'engineer',
+  ],
   title: MetaTitle.HOME,
   description: MetaDescription.HOME,
   icons: {

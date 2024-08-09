@@ -17,5 +17,5 @@ export enum MetaTitle {
   HOME = '1ilsang.dev',
 }
 export enum MetaDescription {
-  HOME = 'Frontend developer',
+  HOME = 'Software Engineer',
 }
