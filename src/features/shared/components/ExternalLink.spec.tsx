@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import ExternalLink from './ExternalLink';
 
 describe('rendering', () => {
-  it('label이 없을 경우 href가 노출되어야 함', async () => {
+  it('should href expose when label is empty', async () => {
     const href = '1ilsang.dev';
     render(<ExternalLink href={href} />);
 
@@ -10,7 +10,7 @@ describe('rendering', () => {
     expect(screen.getByRole('link')).toHaveTextContent(href);
   });
 
-  it('label이 있을 경우 라벨이 노출되어야 함', async () => {
+  it('should label expose when label is exist', async () => {
     const href = '1ilsang.dev';
     const label = 'chul';
     render(<ExternalLink href={href} label="chul" />);
@@ -19,7 +19,7 @@ describe('rendering', () => {
     expect(screen.getByRole('link')).toHaveTextContent(label);
   });
 
-  it('children이 있을 경우 해당 컴포넌트가 노출되어야 함', async () => {
+  it('should have children', async () => {
     const href = '1ilsang.dev';
     const text = 'Hello, world';
     render(<ExternalLink href={href}>{text}</ExternalLink>);
@@ -28,7 +28,7 @@ describe('rendering', () => {
     expect(screen.getByRole('link')).toHaveTextContent(text);
   });
 
-  it('기본 클래스명으로 highlighter가 있어야 함', async () => {
+  it('should have default class', async () => {
     const href = '1ilsang.dev';
     const defaultClass = 'highlighter';
     render(<ExternalLink href={href} />);
@@ -37,7 +37,7 @@ describe('rendering', () => {
     expect(screen.getByRole('link')).toHaveClass(defaultClass);
   });
 
-  it('클래스를 추가할 수 있어야 함', async () => {
+  it('should be able to add classes', async () => {
     const href = '1ilsang.dev';
     const propClass = 'chul';
     const defaultClass = 'highlighter';
@@ -50,14 +50,14 @@ describe('rendering', () => {
 });
 
 describe('attr', () => {
-  it('클릭시 새창으로 떠야한다', async () => {
+  it('should target has _blank', async () => {
     const href = '1ilsang.dev';
     render(<ExternalLink href={href} />);
     await screen.findByRole('link', { name: href });
     expect(screen.getByRole('link').getAttribute('target')).toBe('_blank');
   });
 
-  it('클릭시 rel이 적용되어야 한다', async () => {
+  it('should rel be secure', async () => {
     const href = '1ilsang.dev';
     render(<ExternalLink href={href} />);
     await screen.findByRole('link', { name: href });
