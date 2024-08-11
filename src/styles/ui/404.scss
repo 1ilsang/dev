@@ -1,8 +1,4 @@
 .not-found {
-  &-layout {
-    @include root-layout;
-  }
-
   &-container {
     @include root-container;
 

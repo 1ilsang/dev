@@ -99,6 +99,7 @@ const config: Config = {
   moduleNameMapper: {
     '^~/(.*)$': ['<rootDir>/src/features/*'],
     '^~/app/(.*)$': ['<rootDir>/src/app/*'],
+    '^~/styles/(.*)$': ['<rootDir>/src/styles/*'],
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader

@@ -18,7 +18,8 @@
     "baseUrl": ".",
     "paths": {
       "~/*": ["src/features/*"],
-      "~/app/*": ["src/app/*"]
+      "~/app/*": ["src/app/*"],
+      "~/styles/*": ["src/styles/*"]
     },
     "plugins": [
       {
