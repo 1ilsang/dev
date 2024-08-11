@@ -5,18 +5,19 @@ import HeadlineContainer from './headline/Container';
 import ActivityContainer from './activity/Container';
 import EducationContainer from './education/Container';
 import IntroductionContainer from './introduction/Container';
+import { MainContainer } from '~/shared/components/MainContainer';
 
 const DATE_FORMAT = 'yyyy.MM';
 
 const AboutContainer: FunctionComponent = () => {
   return (
-    <section className="about-container">
+    <MainContainer>
       <HeadlineContainer />
       <IntroductionContainer />
       <WorkContainer format={DATE_FORMAT} />
       <ActivityContainer />
       <EducationContainer format={DATE_FORMAT} />
-    </section>
+    </MainContainer>
   );
 };
 

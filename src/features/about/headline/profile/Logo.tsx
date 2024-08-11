@@ -19,7 +19,7 @@ const ProfileLogo: FunctionComponent<ProfileLogoProps> = ({
   return (
     <div className="about-profile-logo">
       <a
-        className="hashtag"
+        className="text-highlight print:text-black hover:underline"
         rel="noopener noreferrer"
         target="_blank"
         href={href}

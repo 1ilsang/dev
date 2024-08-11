@@ -5,13 +5,14 @@ import NotFoundContainer from '~/404/Container';
 import EmptyContainer from '~/404/Empty';
 import useNotFound from '~/404/hooks/useNotFound';
 import Footer from '~/shared/components/Footer';
+import { MainLayout } from '~/shared/components/MainLayout';
 import Navbar from '~/shared/components/nav/Navbar';
 
 const NotFound: FunctionComponent = () => {
   const { redirect } = useNotFound();
 
   return (
-    <main className="not-found-layout">
+    <MainLayout>
       <Navbar />
       {redirect === null && <EmptyContainer />}
       {redirect === '' && <NotFoundContainer />}
@@ -19,7 +20,7 @@ const NotFound: FunctionComponent = () => {
         <EmptyContainer />
       )}
       <Footer />
-    </main>
+    </MainLayout>
   );
 };
 

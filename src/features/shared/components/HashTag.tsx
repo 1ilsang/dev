@@ -17,7 +17,9 @@ const HashTag: FunctionComponent<HashTagProps> = ({
 }) => {
   return (
     <Link
-      className={classNames('hashtag', [className])}
+      className={classNames('text-highlight print:text-black hover:underline', [
+        className,
+      ])}
       href={link}
       target={target}
     >

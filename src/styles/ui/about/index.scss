@@ -7,18 +7,6 @@
 @import './education';
 
 .about {
-  &-layout {
-    @include root-layout;
-  }
-
-  &-container {
-    @include root-container;
-
-    @media print {
-      padding: 5vh 0;
-    }
-  }
-
   &-profile {
     @include profile;
   }

@@ -1,0 +1,7 @@
+.post-nav-trans {
+  opacity: 1;
+
+  @include mobile {
+    opacity: 0.1;
+  }
+}
