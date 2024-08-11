@@ -1,0 +1,19 @@
+name: jest
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  jest:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 🌱 Install pnpm
+        uses: ./.github/actions/pnpm-install
+
+      - name: 🪤 Jest
+        run: pnpm jest
