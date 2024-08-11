@@ -19,11 +19,11 @@ const PostHome: NextPage = () => {
   ]);
 
   return (
-    <main className="post-layout">
+    <>
       <Navbar />
       <PostListContainer posts={posts} />
       <Footer />
-    </main>
+    </>
   );
 };
 

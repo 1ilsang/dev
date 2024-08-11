@@ -1,11 +1,12 @@
 import localFont from 'next/font/local';
+import { MainLayout } from '~/shared/components/MainLayout';
 
 export default function PostsLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <main className={`post-layout ${d2coding.variable}`}>{children}</main>;
+  return <MainLayout className={d2coding.variable}>{children}</MainLayout>;
 }
 
 const d2coding = localFont({

@@ -7,10 +7,6 @@
 @import './education';
 
 .about {
-  &-layout {
-    @include root-layout;
-  }
-
   &-container {
     @include root-container;
 

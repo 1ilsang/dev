@@ -4,6 +4,7 @@ import Navbar from '~/shared/components/nav/Navbar';
 import Footer from '~/shared/components/Footer';
 import { getAllPosts } from '~/shared/helpers/post';
 import TagDetailContainer from '~/tags/detail/Container';
+import { MainLayout } from '~/shared/components/MainLayout';
 
 interface TagsDetailProps {
   params: {
@@ -22,11 +23,11 @@ const Tags: NextPage<TagsDetailProps> = ({ params: { tag } }) => {
   ]).filter((item) => item.tags.includes(decodeURIComponent(tag)));
 
   return (
-    <main className="tag-layout">
+    <MainLayout>
       <Navbar />
       <TagDetailContainer posts={posts} />
       <Footer />
-    </main>
+    </MainLayout>
   );
 };
 
