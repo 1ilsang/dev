@@ -5,8 +5,10 @@ module.exports = {
     extend: {
       colors: {
         'date-gray': '#6c6e6f',
+        base: '#425061',
         'sub-blue': '#61768f',
         'white-blue': '#d9dee5',
+        highlight: '#30ffcb',
       },
       keyframes: {
         bouncing: {

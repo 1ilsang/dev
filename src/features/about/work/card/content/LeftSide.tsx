@@ -19,12 +19,7 @@ const LeftSide: FunctionComponent<LeftSideProps> = memo(
   ({ href, logoUrl, alt, workStartDate, workEndDate, format = 'yyyy.MM' }) => {
     return (
       <div className="left-side">
-        <a
-          className="hashtag"
-          rel="noopener noreferrer"
-          target="_blank"
-          href={href}
-        >
+        <a rel="noopener noreferrer" target="_blank" href={href}>
           <img className="logo" src={logoUrl} alt={alt} />
         </a>
         <ProjectDate

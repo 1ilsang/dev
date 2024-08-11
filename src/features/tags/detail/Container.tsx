@@ -15,9 +15,14 @@ const TagDetailContainer: FunctionComponent<TagDetailContainerProps> = ({
   return (
     <MainContainer>
       {posts.map((item) => (
-        <div className="tag-card" key={item.title}>
+        <div
+          className="inline-block m-2 p-4 border-solid border-2 border-base rounded-3xl"
+          key={item.title}
+        >
           <Link href={`/posts/${item.url}`}>
-            <div className="hashtag">{item.title}</div>
+            <div className="text-highlight print:text-black hover:underline">
+              {item.title}
+            </div>
             <div>{item.description}</div>
             <div>{formatDate(new Date(item.date), 'yy.MM.dd')}</div>
             <div>
