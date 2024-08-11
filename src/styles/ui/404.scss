@@ -1,9 +1,0 @@
-.not-found {
-  &-container {
-    @include root-container;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-}

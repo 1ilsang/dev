@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { type FunctionComponent } from 'react';
 import { type PostType } from '~/posts/models';
+import { MainContainer } from '~/shared/components/MainContainer';
 
 import { formatDate } from '~/shared/helpers/date';
 
@@ -12,9 +13,9 @@ const TagDetailContainer: FunctionComponent<TagDetailContainerProps> = ({
   posts,
 }) => {
   return (
-    <div className="tag-container">
+    <MainContainer>
       {posts.map((item) => (
-        <div className="card" key={item.title}>
+        <div className="tag-card" key={item.title}>
           <Link href={`/posts/${item.url}`}>
             <div className="hashtag">{item.title}</div>
             <div>{item.description}</div>
@@ -25,7 +26,7 @@ const TagDetailContainer: FunctionComponent<TagDetailContainerProps> = ({
           </Link>
         </div>
       ))}
-    </div>
+    </MainContainer>
   );
 };
 

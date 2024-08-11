@@ -1,7 +1,8 @@
 import type { FunctionComponent } from 'react';
+import { MainContainer } from '~/shared/components/MainContainer';
 
 const EmptyContainer: FunctionComponent = () => {
-  return <div className="not-found-container" />;
+  return <MainContainer className="flex flex-col items-center" />;
 };
 
 export default EmptyContainer;

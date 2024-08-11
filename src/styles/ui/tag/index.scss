@@ -1,9 +1,10 @@
-@import './detail/index';
-
 /* PC */
-.tag-container {
-  @include root-container;
-  @include detail;
+.tag-card {
+  display: inline-block;
+  margin: 0.5rem;
+  padding: 1rem;
+  border: 1px solid $base-color;
+  border-radius: 24px;
 }
 
 .hashtag {

@@ -6,6 +6,7 @@ import CategoryContainer from './category/Container';
 import usePostListContainer from './hooks/usePostListContainer';
 import { MemoedPostItem } from './components/Item';
 import { type PostType } from './models';
+import { MainContainer } from '~/shared/components/MainContainer';
 
 type PostListContainerProps = {
   posts: PostType[];
@@ -22,7 +23,7 @@ const PostListContainer: FunctionComponent<PostListContainerProps> = ({
   } = usePostListContainer(posts);
 
   return (
-    <div className="post-container">
+    <MainContainer>
       <CategoryContainer
         categoryFilter={categoryFilter}
         onClearClick={handleClearClick}
@@ -33,7 +34,7 @@ const PostListContainer: FunctionComponent<PostListContainerProps> = ({
           <MemoedPostItem key={post.title} post={post} />
         ))}
       </ul>
-    </div>
+    </MainContainer>
   );
 };
 

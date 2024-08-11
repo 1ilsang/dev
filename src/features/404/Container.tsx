@@ -1,6 +1,7 @@
 import type { FunctionComponent } from 'react';
 
 import ExternalLink from '~/shared/components/ExternalLink';
+import { MainContainer } from '~/shared/components/MainContainer';
 
 const description = `
 
@@ -12,7 +13,7 @@ const description = `
 
 const NotFoundContainer: FunctionComponent = () => {
   return (
-    <div className="not-found-container">
+    <MainContainer className="flex flex-col items-center">
       <div>
         <img src="/images/404.webp" alt="surfing" width={720} height={580} />
       </div>
@@ -26,7 +27,7 @@ const NotFoundContainer: FunctionComponent = () => {
           />
         </div>
       </pre>
-    </div>
+    </MainContainer>
   );
 };
 

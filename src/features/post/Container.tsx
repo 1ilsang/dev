@@ -5,10 +5,11 @@ import FloatingIndex from './floatingIndex/Container';
 import { type PostType } from '~/posts/models';
 import { SponsorContainer } from './sponsor/Container';
 import { InformationContainer } from './information/InformationContainer';
+import { MainContainer } from '~/shared/components/MainContainer';
 
 const PostContainer: FunctionComponent<{ post: PostType }> = ({ post }) => {
   return (
-    <div className="post-container">
+    <MainContainer>
       <h1 className="post-header">{post.title}</h1>
       <InformationContainer post={post} />
       <section id="post-body-container" className="relative">
@@ -17,7 +18,7 @@ const PostContainer: FunctionComponent<{ post: PostType }> = ({ post }) => {
       </section>
       <IssuePost title={post.title} />
       <SponsorContainer />
-    </div>
+    </MainContainer>
   );
 };
 

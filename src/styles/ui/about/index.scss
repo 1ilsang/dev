@@ -7,14 +7,6 @@
 @import './education';
 
 .about {
-  &-container {
-    @include root-container;
-
-    @media print {
-      padding: 5vh 0;
-    }
-  }
-
   &-profile {
     @include profile;
   }
