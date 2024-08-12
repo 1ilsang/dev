@@ -11,16 +11,16 @@ const HomeContainer: FunctionComponent = () => {
   };
 
   return (
-    <div className="home-container" onClick={handleContainerClick}>
+    <div className="cursor-pointer" onClick={handleContainerClick}>
       <video
-        className="video"
+        className="object-cover w-full h-screen max-w-none"
         src="/open.mp4"
         autoPlay
         loop
         muted
         playsInline
       />
-      <div className="wrap" />
+      <div className="bg-home fixed top-0 w-full h-full contrast-200 mix-blend-overlay" />
     </div>
   );
 };

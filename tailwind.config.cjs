@@ -19,6 +19,7 @@ module.exports = {
         bouncing: 'bouncing 0.3s infinite alternate',
       },
       backgroundImage: {
+        home: 'linear-gradient(to left,rgb(148, 148, 255),rgb(182, 182, 255))',
         footer:
           'linear-gradient(-45deg,#ee7752,#e73c7e,#23a6d5,#e73c7e,transparent)',
       },
