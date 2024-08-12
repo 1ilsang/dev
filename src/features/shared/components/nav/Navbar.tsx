@@ -57,7 +57,7 @@ const Navbar: FunctionComponent = () => {
   return (
     <nav
       className={classNames('nav water-rainbow', {
-        'post-nav-trans': !hover && postPage,
+        'opacity-10	md:opacity-100': !hover && postPage,
         'nav-shadow': navShadow && !scrollDown,
       })}
       onMouseEnter={handleMouseEnter}
