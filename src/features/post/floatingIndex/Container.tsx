@@ -17,8 +17,8 @@ const FloatingIndex: FunctionComponent<FloatingIndexProps> = ({ post }) => {
     return null;
   }
   return (
-    <aside className="floating-container">
-      <ul className="list">
+    <aside className="absolute inline-block h-full top-0 left-full break-words max-xl:hidden">
+      <ul className="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48">
         {list.map((item, index) => {
           return Array.isArray(item) ? (
             <FloatingDepthUL key={index} itemList={item} {...rest} />

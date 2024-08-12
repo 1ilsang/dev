@@ -16,10 +16,10 @@ const FloatingItem: FunctionComponent<FloatingItemProps> = ({
     <li
       data-id={item.id}
       className={classNames([
-        'item',
+        'pt-0.5 text-base select-none	cursor-pointer hover:text-sub-blue',
         {
-          active,
-          depth: item.tagName === 'H3',
+          'animate-floating-index': active,
+          "before:content-['-'] before:mr-1": item.tagName === 'H3',
         },
       ])}
       onClick={handleIndexClick}

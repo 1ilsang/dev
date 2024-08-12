@@ -8,7 +8,7 @@ const FloatingDepthUL: FunctionComponent<{
 }> = ({ itemList, activeId, handleIndexClick }) => {
   return (
     <li>
-      <ul className="depth-ul">
+      <ul className="ml-2.5 last:mb-2">
         {itemList.map((item) => {
           return (
             <FloatingItem
