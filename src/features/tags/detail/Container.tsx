@@ -16,7 +16,7 @@ const TagDetailContainer: FunctionComponent<TagDetailContainerProps> = ({
     <MainContainer>
       {posts.map((item) => (
         <div
-          className="inline-block m-2 p-4 border-solid border-2 border-base rounded-3xl"
+          className="inline-block m-2 p-4 border-solid border border-base rounded-3xl"
           key={item.title}
         >
           <Link href={`/posts/${item.url}`}>

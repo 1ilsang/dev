@@ -7,9 +7,19 @@ import { MyProfile } from '~/about/headline/data/profile';
 export const Avatar: FunctionComponent<{ nav?: boolean }> = memo(
   ({ nav = false }) => {
     return (
-      <div className={classNames('avatar', [nav ? 'on-nav' : 'on-post'])}>
+      <div
+        className={classNames('mr-2', [
+          nav ? 'w-8 h-8 mt-2' : 'w-9	h-9 md:w-12 md:h-12',
+        ])}
+      >
         <Link href="/about">
-          <img src={MyProfile.personal.imageSrc} alt={MyProfile.personal.alt} />
+          <img
+            className={classNames('border border-solid rounded-full', [
+              nav ? 'border-white-blue' : 'border-sub-blue',
+            ])}
+            src={MyProfile.personal.imageSrc}
+            alt={MyProfile.personal.alt}
+          />
         </Link>
       </div>
     );
