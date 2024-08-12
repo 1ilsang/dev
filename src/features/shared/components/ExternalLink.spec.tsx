@@ -2,66 +2,59 @@ import { render, screen } from '@testing-library/react';
 import ExternalLink from './ExternalLink';
 
 describe('rendering', () => {
+  it('should visible', async () => {
+    render(<ExternalLink href="1ilsang.dev" />);
+    expect(screen.getByRole('link')).toBeVisible();
+  });
+
   it('should href expose when label is empty', async () => {
     const href = '1ilsang.dev';
     render(<ExternalLink href={href} />);
-
-    await screen.findByRole('link');
     expect(screen.getByRole('link')).toHaveTextContent(href);
   });
 
   it('should label expose when label is exist', async () => {
-    const href = '1ilsang.dev';
     const label = 'chul';
-    render(<ExternalLink href={href} label="chul" />);
-
-    await screen.findByRole('link');
+    render(<ExternalLink href="1ilsang.dev" label={label} />);
     expect(screen.getByRole('link')).toHaveTextContent(label);
   });
 
   it('should have children', async () => {
-    const href = '1ilsang.dev';
     const text = 'Hello, world';
-    render(<ExternalLink href={href}>{text}</ExternalLink>);
-
-    await screen.findByRole('link');
+    render(<ExternalLink href="1ilsang.dev">{text}</ExternalLink>);
     expect(screen.getByRole('link')).toHaveTextContent(text);
   });
 
   it('should have default class', async () => {
-    const href = '1ilsang.dev';
     const defaultClass = 'highlighter';
-    render(<ExternalLink href={href} />);
-
-    await screen.findByRole('link');
+    render(<ExternalLink href="1ilsang.dev" />);
     expect(screen.getByRole('link')).toHaveClass(defaultClass);
   });
 
   it('should be able to add classes', async () => {
-    const href = '1ilsang.dev';
     const propClass = 'chul';
     const defaultClass = 'highlighter';
-    render(<ExternalLink classNames={propClass} href={href} />);
-
-    await screen.findByRole('link');
-
+    render(<ExternalLink classNames={propClass} href="1ilsang.dev" />);
     expect(screen.getByRole('link')).toHaveClass(...[defaultClass, propClass]);
   });
 });
 
 describe('attr', () => {
-  it('should target has _blank', async () => {
+  it('should href be propValue', () => {
     const href = '1ilsang.dev';
     render(<ExternalLink href={href} />);
-    await screen.findByRole('link', { name: href });
-    expect(screen.getByRole('link').getAttribute('target')).toBe('_blank');
+    expect(screen.getByRole('link')).toHaveAttribute('href', href);
+  });
+
+  it('should target has _blank', async () => {
+    render(<ExternalLink href="1ilsang.dev" />);
+    expect(screen.getByRole('link')).toHaveAttribute('target', '_blank');
   });
 
   it('should rel be secure', async () => {
-    const href = '1ilsang.dev';
-    render(<ExternalLink href={href} />);
-    await screen.findByRole('link', { name: href });
-    expect(screen.getByRole('link').getAttribute('rel')).toBe(
+    render(<ExternalLink href="1ilsang.dev" />);
+    expect(screen.getByRole('link')).toHaveAttribute(
+      'rel',
       'noopener noreferrer',
     );
   });

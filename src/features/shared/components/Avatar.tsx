@@ -11,6 +11,8 @@ export const Avatar: FunctionComponent<{ nav?: boolean }> = memo(
         className={classNames('mr-2', [
           nav ? 'w-8 h-8 mt-2' : 'w-9	h-9 md:w-12 md:h-12',
         ])}
+        role="img"
+        aria-label="1ilsang character"
       >
         <Link href="/about">
           <img
