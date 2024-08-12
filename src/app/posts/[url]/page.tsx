@@ -2,7 +2,7 @@ import { type Metadata, type NextPage } from 'next';
 
 import PostContainer from '~/post/Container';
 import type { PostType } from '~/posts/models';
-import Footer from '~/shared/components/Footer';
+import { Footer } from '~/shared/components/Footer';
 import ImageModal from '~/shared/components/modal/ImageModal';
 import Navbar from '~/shared/components/nav/Navbar';
 import NavProgress from '~/shared/components/nav/Progress';

@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 
 import Navbar from '~/shared/components/nav/Navbar';
-import Footer from '~/shared/components/Footer';
+import { Footer } from '~/shared/components/Footer';
 import { getAllPosts } from '~/shared/helpers/post';
 import TagDetailContainer from '~/tags/detail/Container';
 import { MainLayout } from '~/shared/components/MainLayout';

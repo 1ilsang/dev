@@ -1,6 +1,6 @@
 import { type NextPage } from 'next';
 
-import Footer from '~/shared/components/Footer';
+import { Footer } from '~/shared/components/Footer';
 import { MainLayout } from '~/shared/components/MainLayout';
 import Navbar from '~/shared/components/nav/Navbar';
 import { getAllPosts, getPostBySlug } from '~/shared/helpers/post';

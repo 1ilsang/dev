@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 
 import PostListContainer from '~/posts/Container';
 import { type PostType } from '~/posts/models';
-import Footer from '~/shared/components/Footer';
+import { Footer } from '~/shared/components/Footer';
 import { MainLayout } from '~/shared/components/MainLayout';
 import Navbar from '~/shared/components/nav/Navbar';
 import { getAllPosts } from '~/shared/helpers/post';
