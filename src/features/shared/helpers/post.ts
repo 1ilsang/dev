@@ -114,6 +114,7 @@ export const getPost = async (url: PostType['url']): Promise<PostType> => {
     'content',
     'description',
     'tags',
+    'url',
     'ogImage',
     'coverImage',
     'updatedAt',

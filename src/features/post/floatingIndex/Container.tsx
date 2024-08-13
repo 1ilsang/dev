@@ -10,14 +10,19 @@ type FloatingIndexProps = {
   post: PostType;
 };
 
-const FloatingIndex: FunctionComponent<FloatingIndexProps> = ({ post }) => {
+export const FloatingIndexContainer: FunctionComponent<FloatingIndexProps> = ({
+  post,
+}) => {
   const { list, ...rest } = useFloatingIndex({ post });
 
   if (list.length === 0) {
     return null;
   }
   return (
-    <aside className="absolute inline-block h-full top-0 left-full break-words max-xl:hidden">
+    <aside
+      className="absolute inline-block h-full top-0 left-full break-words max-xl:hidden"
+      aria-label="index"
+    >
       <ul className="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48">
         {list.map((item, index) => {
           return Array.isArray(item) ? (
@@ -35,5 +40,3 @@ const FloatingIndex: FunctionComponent<FloatingIndexProps> = ({ post }) => {
     </aside>
   );
 };
-
-export default FloatingIndex;

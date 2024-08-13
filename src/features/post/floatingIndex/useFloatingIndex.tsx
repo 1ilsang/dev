@@ -13,19 +13,42 @@ const useFloatingIndex = ({ post }: Props) => {
   const [activeId, setActiveId] = useState<string>();
   const router = useRouter();
 
-  useEffect(() => {
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          setActiveId(entry.target.id);
-        });
-      },
-      { rootMargin: '0px 0px -75% 0px', threshold: 1 },
-    );
+  useEffect(
+    function setAsideText() {
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = post.content;
+      const indexItems = getHeadingItems(tempDiv);
+      tempDiv.innerHTML = '';
 
-    const indexItems = Array.from(
-      document.querySelectorAll('h2[data-heading], h3[data-heading]'),
+      setList(indexItems);
+    },
+    [post.title],
+  );
+
+  useEffect(
+    function setDocumentObserver() {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            setActiveId(entry.target.id);
+          });
+        },
+        { rootMargin: '0px 0px -75% 0px', threshold: 1 },
+      );
+      const indexItems = getHeadingItems(document);
+      indexItems.flat(1).forEach((el) => io.observe(el));
+
+      return () => {
+        io.disconnect();
+      };
+    },
+    [post.title],
+  );
+
+  const getHeadingItems = (target: Document | HTMLDivElement) => {
+    return Array.from(
+      target.querySelectorAll('h2[data-heading], h3[data-heading]'),
     ).reduce((acc, cur) => {
       const lastElement = acc[acc.length - 1];
       if (acc.length === 0 || cur.tagName === 'H2') {
@@ -40,17 +63,11 @@ const useFloatingIndex = ({ post }: Props) => {
       }
       return acc;
     }, [] as FloatingIndexType[]);
-    setList(indexItems);
-    indexItems.flat(1).forEach((el) => io.observe(el));
-
-    return () => {
-      io.disconnect();
-    };
-  }, [post.title]);
+  };
 
   const handleIndexClick: MouseEventHandler<HTMLLIElement> = (event) => {
-    setActiveId(undefined);
     router.replace(`#${event.currentTarget.getAttribute('data-id')}`);
+    setActiveId(undefined);
   };
 
   return { list, activeId, handleIndexClick };
