@@ -11,8 +11,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko" className={ridi.variable}>
-      <body>
+    <html lang="ko" className={`${ridi.variable} text-[14px] scroll-smooth`}>
+      <body className="h-full text-white bg-snazzy-bg antialiased font-ridi print:text-black print:bg-white print:w-[210mm] print:h-[297mm] print:print-color-exact">
         <BannerWrapper />
         {children}
         <div id="portal" />
