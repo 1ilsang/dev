@@ -9,9 +9,18 @@ const NavProgress: FunctionComponent = () => {
   const { progress, max } = useProgress();
 
   return (
-    <div className={classNames([max === 1 ? 'nav-loading' : 'nav-progress'])}>
-      <progress value={progress} max={max}></progress>
-    </div>
+    <progress
+      className={classNames(
+        '[&::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px]',
+        [
+          max === 1
+            ? '[&::-webkit-progress-value]:bg-base-og'
+            : '[&::-webkit-progress-value]:progress-wheel',
+        ],
+      )}
+      value={progress}
+      max={max}
+    />
   );
 };
 

@@ -3,9 +3,11 @@ const colors = {
   black: '#101010',
   'date-gray': '#6c6e6f',
   base: '#425061',
+  'base-og': '#ee7752',
   'sub-blue': '#61768f',
   'white-blue': '#d9dee5',
   highlight: '#30ffcb',
+  progress: '#28bc97',
   'light-blue': '#6e94d8',
   'snazzy-bg': 'rgb(20 22 33)',
 };
@@ -46,6 +48,9 @@ module.exports = {
       printColorAdjust: {
         exact: 'print-color-adjust: exact',
       },
+      boxShadowColor: {
+        nav: 'rgb(0 129 86 / 10%)',
+      },
     },
   },
   plugins: [
@@ -53,6 +58,10 @@ module.exports = {
       addUtilities({
         '.print-color-exact': {
           printColorAdjust: 'exact',
+        },
+        '.progress-wheel': {
+          backgroundColor: colors.progress,
+          transition: 'width 0.3s ease-out',
         },
       });
     },
