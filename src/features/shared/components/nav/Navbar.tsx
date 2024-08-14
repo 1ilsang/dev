@@ -6,6 +6,7 @@ import type { FunctionComponent } from 'react';
 import { memo, useEffect, useMemo, useState } from 'react';
 import classNames from 'classnames';
 import { Avatar } from '../Avatar';
+import usePrint from '~/shared/hooks/usePrint';
 
 interface NavTextProps {
   text: string;
@@ -32,10 +33,12 @@ const NavText: FunctionComponent<NavTextProps> = memo(
 );
 NavText.displayName = 'NavText';
 
-const Navbar: FunctionComponent = () => {
+type Props = { showPrint?: boolean };
+const Navbar: FunctionComponent<Props> = ({ showPrint = false }) => {
   const pathname = usePathname();
   const [hover, setHover] = useState(false);
   const [scrollDown, setScrollDown] = useState(false);
+  const { print } = usePrint({ disable: showPrint });
 
   const [navShadow, postPage] = useMemo(() => {
     return [!['/', '/about'].includes(pathname), pathname.startsWith('/posts')];
@@ -54,6 +57,7 @@ const Navbar: FunctionComponent = () => {
     };
   }, []);
 
+  if (print) return null;
   return (
     <nav
       className={classNames('nav water-rainbow', {

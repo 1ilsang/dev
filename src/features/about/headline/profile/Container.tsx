@@ -1,3 +1,5 @@
+'use client';
+
 import type { FunctionComponent } from 'react';
 
 import ProfileLogo from './Logo';

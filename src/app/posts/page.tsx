@@ -21,9 +21,9 @@ const PostHome: NextPage = () => {
 
   return (
     <MainLayout>
-      <Navbar />
+      <Navbar showPrint />
       <PostListContainer posts={posts} />
-      <Footer />
+      <Footer showPrint />
     </MainLayout>
   );
 };
