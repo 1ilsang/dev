@@ -35,13 +35,28 @@ module.exports = {
             transform: `scale(1.02)`,
           },
         },
+        'rainbow-water': {
+          '0%': {
+            'background-position': '0% 50%',
+          },
+          '50%': {
+            'background-position': '100% 50%',
+          },
+          '100%': {
+            'background-position': '0% 50%',
+          },
+        },
       },
       animation: {
         bouncing: 'bouncing 0.3s infinite alternate',
         'floating-index': 'floating-index 0.3s forwards',
+        'rainbow-water': 'rainbow-water 5s ease infinite',
+        'slow-spin': 'spin 2s linear infinite',
       },
       backgroundImage: {
         home: 'linear-gradient(to left,rgb(148, 148, 255),rgb(182, 182, 255))',
+        'rainbow-water':
+          'linear-gradient(-45deg,#ee7752,#23a6d5,#ff9393,#2ddbdb,#2389ff)',
         footer:
           'linear-gradient(-45deg,#ee7752,#e73c7e,#23a6d5,#e73c7e,transparent)',
       },
@@ -62,6 +77,15 @@ module.exports = {
         '.progress-wheel': {
           backgroundColor: colors.progress,
           transition: 'width 0.3s ease-out',
+        },
+        '.title-underline': {
+          textShadow: `-0.5px 0 ${colors.base}, 0 0.5px ${colors.base}, 0.5px 0 ${colors.base}, 0 -0.5px ${colors.base}`,
+          textDecoration: 'underline',
+          textDecorationThickness: '0.15em',
+          textDecorationColor: '#42506117',
+        },
+        '.category-shadow': {
+          textShadow: `-0.5px 0 ${colors.highlight}, 0 0.5px ${colors.highlight}, 0.5px 0 ${colors.highlight}, 0 -0.5px ${colors.highlight}`,
         },
       });
     },

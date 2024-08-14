@@ -5,13 +5,15 @@ import { Avatar } from '~/shared/components/Avatar';
 
 export const ProfileSection: FunctionComponent = () => {
   return (
-    <section className="post-profile-container">
+    <section className="flex items-center mt-4">
       <Avatar />
       <div>
-        <Link className="name" href="/about">
+        <Link className="text-lg" href="/about">
           {MyProfile.personal.label}
         </Link>
-        <div className="description">{MyProfile.personal.description}</div>
+        <div className="text-sub-blue text-sm">
+          {MyProfile.personal.description}
+        </div>
       </div>
     </section>
   );

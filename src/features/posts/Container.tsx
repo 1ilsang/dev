@@ -23,13 +23,13 @@ const PostListContainer: FunctionComponent<PostListContainerProps> = ({
   } = usePostListContainer(posts);
 
   return (
-    <MainContainer>
+    <MainContainer className="md:py-[4.8rem]">
       <CategoryContainer
         categoryFilter={categoryFilter}
         onClearClick={handleClearClick}
         onCategoryClick={handleCategoryClick}
       />
-      <ul className="post-list">
+      <ul className="pb-24 md:pb-56">
         {filteredList.map((post) => (
           <MemoedPostItem key={post.title} post={post} />
         ))}

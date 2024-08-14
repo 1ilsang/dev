@@ -12,7 +12,7 @@ export const MainContainer: FunctionComponent<Props> = ({
   return (
     <section
       className={classNames(
-        'h-auto min-h-full max-w-screen-md py-20 mx-4 min-[790px]:m-auto',
+        'h-auto min-h-full max-w-screen-md py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0',
         className,
       )}
     >

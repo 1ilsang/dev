@@ -28,7 +28,7 @@ const CompanyContentProject: FunctionComponent<CompanyContentProjectProps> = (
 
   const openClassName = (() => {
     if (print) return 'show';
-    if (open === undefined) return 'mh-zero';
+    if (open === undefined) return 'invisible opacity-0	max-h-0';
     return open ? 'show' : 'hide';
   })();
   const foldState = (() => {

@@ -169,13 +169,3 @@ $target: #e73c7e;
     animation: none;
   }
 }
-
-.mh-zero {
-  max-height: 0;
-  opacity: 0;
-  visibility: hidden;
-}
-
-.mh-100vh {
-  max-height: $max-height;
-}

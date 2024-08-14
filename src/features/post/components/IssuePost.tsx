@@ -17,7 +17,7 @@ const IssuePost: FunctionComponent<IssuePostProps> = ({ title }) => {
 
   return (
     <ExternalLink
-      classNames="issue-post"
+      classNames="mt-24 [&&]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water"
       href={`${NEW_ISSUE_URL}?${queries}`}
       label="📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍"
     />

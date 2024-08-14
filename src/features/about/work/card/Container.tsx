@@ -33,7 +33,7 @@ const WorkCardContainer: FunctionComponent<WorkCardContainerProps> = (
   }, [toggleOpenAll]);
 
   const openClassName =
-    open === undefined ? 'mh-100vh' : open ? 'show' : 'hide';
+    open === undefined ? 'max-h-[8000px]' : open ? 'show' : 'hide';
 
   return (
     <article className="about-work-card">
