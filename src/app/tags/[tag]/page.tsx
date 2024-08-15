@@ -44,3 +44,5 @@ export async function generateStaticParams(): Promise<{ tag: string }[]> {
 
   return paths;
 }
+
+export const dynamicParams = false;
