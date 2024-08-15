@@ -11,7 +11,11 @@ const HomeContainer: FunctionComponent = () => {
   };
 
   return (
-    <div className="cursor-pointer" onClick={handleContainerClick}>
+    <div
+      className="cursor-pointer"
+      title="Click to read the article!"
+      onClick={handleContainerClick}
+    >
       <video
         className="object-cover w-full h-screen max-w-none"
         src="/open.mp4"
