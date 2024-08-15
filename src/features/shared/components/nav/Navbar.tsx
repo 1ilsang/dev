@@ -25,7 +25,7 @@ const NavText: FunctionComponent<NavTextProps> = memo(
           'text-2xl	font-bold	my-2 ml-3.5': logo,
         })}
       >
-        <Link className="hover-underline" href={`${link}`}>
+        <Link className="hover:underline" href={`${link}`}>
           {text}
         </Link>
       </h2>
@@ -62,7 +62,7 @@ const Navbar: FunctionComponent<Props> = ({ showPrint = false }) => {
   return (
     <nav
       className={classNames(
-        'fixed z-40 flex flex-wrap w-full justify-between justify-items-center water-rainbow',
+        'fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%]',
         {
           'opacity-10	md:opacity-100': !hover && postPage,
           'shadow-nav shadow-lg': navShadow && !scrollDown,

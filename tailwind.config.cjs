@@ -80,6 +80,7 @@ module.exports = {
       },
       backgroundImage: {
         home: 'linear-gradient(to left,rgb(148, 148, 255),rgb(182, 182, 255))',
+        nav: 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)',
         'rainbow-water':
           'linear-gradient(-45deg,#ee7752,#23a6d5,#ff9393,#2ddbdb,#2389ff)',
         footer:

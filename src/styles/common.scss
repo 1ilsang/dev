@@ -1,30 +1,5 @@
 $target: #e73c7e;
 
-@keyframes water-rainbow {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.water-rainbow:hover {
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
-  animation: water-rainbow 5s ease infinite;
-  z-index: 40;
-}
-
-.hover-underline:hover {
-  text-decoration: underline;
-}
-
 .dynamic-image {
   position: relative;
   margin: 1rem 0 0;
@@ -66,10 +41,6 @@ $target: #e73c7e;
 .dynamic-image.min {
   max-height: 1.5rem;
   max-width: 1.5rem;
-}
-
-.small {
-  font-size: small;
 }
 
 .highlighter {

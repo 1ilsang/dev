@@ -19,7 +19,7 @@ const NotFoundContainer: FunctionComponent = () => {
       </div>
       <pre>
         <code>{description}</code>
-        <div className="small">
+        <div>
           Image Copyright:&nbsp;
           <ExternalLink
             label="Freepik"
