@@ -12,6 +12,51 @@ const colors = {
   'snazzy-bg': 'rgb(20 22 33)',
 };
 
+const keyframes = {
+  bouncing: {
+    '100%': { transform: 'translateY(-5px)' },
+  },
+  'floating-index': {
+    '0%': {
+      color: colors.base,
+    },
+    '100%': {
+      color: colors['light-blue'],
+      transform: `scale(1.02)`,
+    },
+  },
+  'rainbow-water': {
+    '0%': {
+      'background-position': '0% 50%',
+    },
+    '50%': {
+      'background-position': '100% 50%',
+    },
+    '100%': {
+      'background-position': '0% 50%',
+    },
+  },
+  'fade-in': {
+    '0%': {
+      opacity: 0,
+    },
+    '100%': {
+      opacity: 1,
+    },
+  },
+  skeleton: {
+    '0%': {
+      'background-color': 'rgba(165, 165, 165, 10%)',
+    },
+    '50%': {
+      'background-color': 'rgba(165, 165, 165, 30%)',
+    },
+    '100%': {
+      'background-color': 'rgba(165, 165, 165, 10%)',
+    },
+  },
+};
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.tsx'],
@@ -22,36 +67,16 @@ module.exports = {
         ridi: ['var(--ridi-batang)'],
         d2: ['var(--d2coding)'],
       },
-      keyframes: {
-        bouncing: {
-          '100%': { transform: 'translateY(-5px)' },
-        },
-        'floating-index': {
-          '0%': {
-            color: colors.base,
-          },
-          '100%': {
-            color: colors['light-blue'],
-            transform: `scale(1.02)`,
-          },
-        },
-        'rainbow-water': {
-          '0%': {
-            'background-position': '0% 50%',
-          },
-          '50%': {
-            'background-position': '100% 50%',
-          },
-          '100%': {
-            'background-position': '0% 50%',
-          },
-        },
-      },
+      keyframes,
       animation: {
         bouncing: 'bouncing 0.3s infinite alternate',
         'floating-index': 'floating-index 0.3s forwards',
         'rainbow-water': 'rainbow-water 5s ease infinite',
         'slow-spin': 'spin 2s linear infinite',
+        'fade-in': 'fade-in 0.2s',
+        skeleton: 'skeleton 1.8s infinite ease-in-out',
+        loading:
+          'skeleton 1.8s infinite ease-in-out, spin 1s infinite ease-in-out',
       },
       backgroundImage: {
         home: 'linear-gradient(to left,rgb(148, 148, 255),rgb(182, 182, 255))',

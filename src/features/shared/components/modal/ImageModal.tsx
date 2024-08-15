@@ -14,22 +14,23 @@ const ImageModal: FunctionComponent<ImageModalProps> = () => {
 
   if (!imageSrc) return null;
   return (
-    <div className="image-modal" onClick={handleDialogClick}>
-      <div className="background" />
-      <div className="image-section">
+    <div
+      className="fixed top-0 left-0 z-50 w-screen h-screen flex items-center flex-col justify-center cursor-zoom-out"
+      onClick={handleDialogClick}
+    >
+      <div className="w-full h-full bg-snazzy-bg opacity-90" />
+      <div className="absolute w-[95vw] h-[90vh] max-w-[95vw] max-h-[90vh] md:max-w-screen-md md:max-h-screen-md md:w-[85vw] md:h-[85vh]">
         {loading && (
-          <div className="loading-section">
-            <div className="loading-bar loading" />
+          <div className="flex justify-center items-center w-full h-full">
+            <div className="w-2/6 h-2/6 animate-loading" />
           </div>
         )}
         <img
-          className={classNames(
-            {
-              hidden: loading,
-              'fade-in': !loading,
-            },
-            [imageSize],
-          )}
+          className={classNames('m-auto	w-full h-full object-contain', {
+            invisible: loading,
+            'animate-fade-in': !loading,
+            '[&]:w-2/6': imageSize === 'small',
+          })}
           src={imageSrc}
           ref={imageRef}
         />

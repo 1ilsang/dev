@@ -25,20 +25,6 @@ $target: #e73c7e;
   text-decoration: underline;
 }
 
-@keyframes skeleton-gradient {
-  0% {
-    background-color: rgba(165, 165, 165, 10%);
-  }
-
-  50% {
-    background-color: rgba(165, 165, 165, 30%);
-  }
-
-  100% {
-    background-color: rgba(165, 165, 165, 10%);
-  }
-}
-
 .dynamic-image {
   position: relative;
   margin: 1rem 0 0;
@@ -80,10 +66,6 @@ $target: #e73c7e;
 .dynamic-image.min {
   max-height: 1.5rem;
   max-width: 1.5rem;
-}
-
-.loading {
-  animation: skeleton-gradient 1.8s infinite ease-in-out;
 }
 
 .small {

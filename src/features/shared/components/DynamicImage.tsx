@@ -30,7 +30,7 @@ const DynamicImage: FunctionComponent<DynamicImageProps> = ({
   return (
     <div
       className={classNames('dynamic-image', [className], {
-        loading,
+        'animate-skeleton': loading,
         min: !min,
       })}
       style={{ width, height }}
