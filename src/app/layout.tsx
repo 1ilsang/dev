@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { BannerWrapper } from '~/shared/components/Banner';
-import GoogleADSense from '~/shared/components/GoogleADSense';
 import { ImageUrl, MetaDescription, MetaTitle } from '~/shared/constants/blog';
 
 import '~/styles/index.scss';
@@ -18,7 +17,6 @@ export default function RootLayout({
         {children}
         <div id="portal" />
       </body>
-      <GoogleADSense pId="1434955055285571" />
     </html>
   );
 }
