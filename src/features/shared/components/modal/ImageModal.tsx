@@ -19,7 +19,7 @@ const ImageModal: FunctionComponent<ImageModalProps> = () => {
       onClick={handleDialogClick}
     >
       <div className="w-full h-full bg-snazzy-bg opacity-90" />
-      <div className="absolute w-[95vw] h-[90vh] max-w-[95vw] max-h-[90vh] md:max-w-screen-md md:max-h-screen-md md:w-[85vw] md:h-[85vh]">
+      <div className="absolute w-[95vw] h-[90vh] max-w-[95vw] max-h-[90vh] md:w-[85vw] md:h-[85vh]">
         {loading && (
           <div className="flex justify-center items-center w-full h-full">
             <div className="w-2/6 h-2/6 animate-loading" />
