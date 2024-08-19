@@ -42,8 +42,6 @@ Let's Dive!
 
 > 최초 서버 실행 이후의 상태
 
-<br />
-
 ```ts title="vite/packages/vite/src/node/server/index.ts"
 // https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/node/server/index.ts#L385
 // server/index.ts
@@ -101,8 +99,6 @@ export async function _createServer(
 
 ![index.html-request-phase](https://github.com/1ilsang/dev/assets/23524849/ec8f01ad-b4a6-4da8-aaa6-0e5015438ba3 'l')
 
-<br />
-
 ```ts {11,14}
 // server/index.ts
 middlewares.use(indexHtmlMiddleware(root, server))
@@ -150,8 +146,6 @@ export function createDevHtmlTransformFn(...) {
    - TS 혹은 JSX 파일의 경우 JS로 변환된다.
      - 위의 그림과 같이 파일명 자체는 변경되지 않지만, 코드는 js로 변경된다.
 
-<br />
-
 ```ts
 // 만약 index.html에서 해당 파일을 import 한다고 가정해 보자.
 // playground/hmr/hmr.ts
@@ -197,8 +191,6 @@ ModuleNode {
 
 > 3 ~ 4. 브라우저 렌더링 및 정적 자원 요청 상황.
 
-<br />
-
 ![init-html](https://github.com/1ilsang/dev/assets/23524849/a5969d65-b177-4011-ab1b-d45129b9951e)
 
 ![browser-initiator](https://github.com/1ilsang/dev/assets/23524849/3eacdd15-514a-43a9-a71c-cc8ba228d574 'l')
@@ -210,8 +202,6 @@ ModuleNode {
 2. 렌더링에 필요한 자원(js, css 등)을 다시 Dev Server에 요청한다.
 
    - html의 최상단 `/@vite/client`을 시작점으로 `global.css`, `hmr.ts` 등이 요청된다.
-
-<br />
 
 ```ts {13}
 // server/index.ts
@@ -245,8 +235,6 @@ export function transformMiddleware(...) {
      - Dev Server에 내장된 [importAnalysis 플러그인](https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/node/plugins/importAnalysis.ts#L209)에서 <u>HMR이 설정된 파일(\*1)이라면 `import.meta.hot`을 파일 최상단에 [추가](https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/node/plugins/importAnalysis.ts#L715)</u>한다.
 
 4. 변환된 자원을 브라우저에 응답(response)한다.
-
-<br />
 
 > (\*1): preact의 prefresh 같은 HMR 라이브러리를 적용했거나(후술) import.meta.hot.accept을 직접 코드에 추가한 경우에 해당(아래 코드)한다.
 
@@ -285,8 +273,6 @@ function setupWebSocket(...) {
   - Dev Server와의 통신 및 [HMR에 필요한 코드들](https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/client/client.ts#L137)이 작성되어 있다.
   - [WebSocket 연결](https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/client/client.ts#L68) 및 `update` 이벤트를 기다린다.
 
-<br />
-
 ```tsx {2,9,12}
 // AS-IS 원본 코드
 import { h, render } from 'preact';
@@ -314,8 +300,6 @@ render(_jsxDEV(App, ...), document.getElementById('app'))
 
 > 코드가 변경되었을 때의 Dev Server 모습
 
-<br />
-
 ```ts
 watcher.on('change', async (file) => {
   file = normalizePath(file);
@@ -335,8 +319,6 @@ watcher.on('change', async (file) => {
 - 의존성 그래프에 변경사항을 적용한다.
   - 모듈 캐싱을 무효화해 refresh 되도록 함.
 - `onHMRUpdate` 함수를 호출해 hot-reloading을 준비한다.
-
-<br />
 
 ```ts {7,18}
 function onHMRUpdate() {
@@ -370,8 +352,6 @@ function updateModules(...) {
 ![socket-update-event](https://github.com/1ilsang/dev/assets/23524849/23181d27-311e-4154-a04f-7efa2fb7cae9 'l')
 
 > 브라우저 소켓이 Dev Server의 update 소켓 데이터를 받은 모습.
-
-<br />
 
 ```ts /hmrClient.fetchUpdate/ {22}
 // Step 1.
@@ -461,8 +441,6 @@ function flushUpdates() {
 5. perfresh에서 심어둔 `flushUpdates` 함수가 [HMR을 수행](https://github.com/preactjs/prefresh/blob/018f5cc907629b82ffb201c32e948efe4b40098a/packages/utils/src/index.js#L11)(컴포넌트 변경)된다.
 
 이로써 HMR이 완전히 마무리되면서 다시 개발자의 입력을 기다리게 된다.
-
-<br />
 
 ![dev-server-logic-summary](https://github.com/1ilsang/dev/assets/23524849/03dab012-82a9-4649-8d80-15c0dfe0c129 'l')
 

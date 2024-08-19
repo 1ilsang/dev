@@ -54,8 +54,6 @@ const parseMyObject = (object: MyObject) => {
 
 개발을 하다 보면 자연스럽게 객체를 많이 사용하게 된다. 이때 [Object.keys](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/keys) 메서드를 사용하면 항상 `key` 값이 `string`으로 추론되는 것을 확인할 수 있다.
 
-<br />
-
 ```ts
 const keyList = Object.keys(obj) as Array<keyof typeof obj>;
 ```
@@ -63,8 +61,6 @@ const keyList = Object.keys(obj) as Array<keyof typeof obj>;
 `string`으로 [타입 추론(Type Inference)](https://www.typescriptlang.org/docs/handbook/type-inference.html) 되었기 때문에 이후 코딩의 편의성을 위해 다시 [타입 단언(Type Assertion)](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions)을 하게 된다.
 
 단언을 통한 타입 제어가 마음을 불편하게 하기 때문에 [제너릭 타입](https://www.typescriptlang.org/ko/docs/handbook/2/generics.html)으로라도 추론하고 싶어 진다.
-
-<br />
 
 ```ts title="TypeScript/src/lib/es2015.core.d.ts"
 interface ObjectConstructor {
@@ -74,14 +70,10 @@ interface ObjectConstructor {
 
 하지만 타입스크립트는 [Object.keys\<T\>() 제너릭 타입을 제공하지 않는다](https://github.com/microsoft/TypeScript/blob/36ac4eb700ce596033762b821545753753d13444/src/lib/es2015.core.d.ts#L301-L305).
 
-<br />
-
 여기서 의문이 생긴다.
 
 - 기존의 key 타입을 왜 추론하지 못할까?
 - 제너릭 타입은 왜 제공하지 않았을까?
-
-<br />
 
 오늘은 타입스크립트를 사용하면서 만나는 미묘한 당혹스러움에 대해 파헤쳐 보고자 한다.
 
@@ -99,8 +91,6 @@ interface ObjectConstructor {
 
 따라서 타입스크립트는 자바스크립트의 특성(유연한 동적 타입)을 해치지 않으면서 타입을 강제([정적 타이핑](https://developer.mozilla.org/ko/docs/Glossary/Static_typing))하기 위한 고민을 하게 된다.
 
-<br />
-
 ```ts
 type Book = {
   name: string;
@@ -108,8 +98,6 @@ type Book = {
 ```
 
 위와 같은 객체 타입 `Book`을 선언하게 되면 일반적인 [명목적 타입 시스템](https://ko.wikipedia.org/wiki/%EB%AA%85%EB%AA%A9%EC%A0%81_%EC%9E%90%EB%A3%8C%ED%98%95_%EC%B2%B4%EA%B3%84)에서는 반드시 `Book { name: string }` 형태의 타입만 와야 한다.
-
-<br />
 
 ```ts
 const getName = (book: Book) => {
@@ -132,8 +120,6 @@ getName(book3); // OK
 따라서 구조적 타입 시스템에서 타입은 <u>값의 집합</u>으로 생각하면 된다.
 
 그렇다면 구조적 서브 타이핑과 `Object.keys`의 반환 타입에는 어떤 연관이 있는 것일까?
-
-<br />
 
 ```ts
 class MyObject {
@@ -227,15 +213,11 @@ type AandB = A & B; // never
 
 반대로 교차 타입은 `BookAndCar`에서는 모든 값을 가지지만 `AandB`에서는 `never` 타입이 추론된다.
 
-<br />
-
 ![what](https://github.com/1ilsang/dev/assets/23524849/eb6ea24b-99e3-4ee0-b97e-ff2c6c78786e 's')
 
 앞에서 "구조적 타입 시스템에서의 타입은 <u>값의 집합</u>으로 생각하면 된다"고 했다.
 
 각 타입을 값의 집합으로 나열해 보자.
-
-<br />
 
 ```json title="Book 타입에 충족되는 값의 집합"
 { name: "123" };
@@ -263,8 +245,6 @@ type AandB = A & B; // never
 ```
 
 `Book | Car`의 경우에 Book 혹은 Car 중 <u>"항상 존재하는 값"이 없는 것</u>을 확인(`name` 혹은 `model`이 반드시 있어야 하는 경우가 없음) 할 수 있다.
-
-<br />
 
 ```json title="Book & Car 타입의 모든 값의 집합"
 { name: "123", model: "wow" };
