@@ -25,7 +25,7 @@ const ActivityCardContainer: FunctionComponent<ActivityCardContainerProps> = ({
               <span className="category">{activity.type}</span>
               <div className="link-wrap">
                 <ExternalLink
-                  classNames="link"
+                  className="link"
                   href={activity.url}
                   label={activity.name}
                 />

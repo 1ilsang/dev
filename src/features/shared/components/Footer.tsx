@@ -21,19 +21,20 @@ type Props = {
 export const Footer: FunctionComponent<Props> = memo(
   ({ showPrint = false }) => {
     const { print } = usePrint({ disable: showPrint });
+    const hoverHighlight = 'hover:text-highlight';
 
     if (print) return null;
     return (
       <footer className="w-full	h-screen pt-[50vh] bg-footer">
         <ul className="text-center">
           <Item>
-            <Link className="hover:text-black" href="/about">
+            <Link className={hoverHighlight} href="/about">
               1ilsang
             </Link>
           </Item>
           <Item>
             <ExternalLink
-              classNames="hover:text-black"
+              className={hoverHighlight}
               href={MyProfile.github.href}
               label="GitHub"
               disableDefaultCSSTransition
@@ -41,7 +42,7 @@ export const Footer: FunctionComponent<Props> = memo(
           </Item>
           <Item>
             <ExternalLink
-              classNames="hover:text-black"
+              className={hoverHighlight}
               href={MyProfile.linkedin.href}
               label="LinkedIn"
               disableDefaultCSSTransition

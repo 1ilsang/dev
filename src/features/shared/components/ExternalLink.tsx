@@ -1,9 +1,9 @@
 import type { FunctionComponent, PropsWithChildren } from 'react';
-import { default as cn } from 'classnames';
+import classNames from 'classnames';
 
 type ExternalLinkProps = PropsWithChildren & {
   href: string;
-  classNames?: string;
+  className?: string;
   label?: string;
   disableDefaultCSSTransition?: boolean;
 };
@@ -11,15 +11,15 @@ type ExternalLinkProps = PropsWithChildren & {
 const ExternalLink: FunctionComponent<ExternalLinkProps> = ({
   href,
   label,
-  classNames = '',
+  className = '',
   children,
   disableDefaultCSSTransition = false,
 }) => {
   return (
     <a
-      className={cn([
+      className={classNames([
         { highlighter: !disableDefaultCSSTransition },
-        classNames,
+        className,
       ])}
       href={href}
       rel="noopener noreferrer"

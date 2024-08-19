@@ -12,7 +12,7 @@ const IntroductionContainer: FunctionComponent = () => {
           어느덧 5년 차 프런트엔드 개발자가 되었습니다.
           <br />
           <ExternalLink
-            classNames="underline-highlight-fade"
+            className="underline-highlight-fade"
             href="/posts/quality-of-job-review"
             label={'"일의 격"'}
             disableDefaultCSSTransition
@@ -49,7 +49,7 @@ const IntroductionContainer: FunctionComponent = () => {
           </b>
           에서 또 다른 커리어를 쌓고자 하고 있습니다. 또한{' '}
           <ExternalLink
-            classNames="underline-highlight-fade"
+            className="underline-highlight-fade"
             label="MDN 한국팀의 Organizer로 활동"
             href="posts/mdn-ko-organizer"
             disableDefaultCSSTransition

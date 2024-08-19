@@ -34,7 +34,7 @@ describe('rendering', () => {
   it('should be able to add classes', async () => {
     const propClass = 'chul';
     const defaultClass = 'highlighter';
-    render(<ExternalLink classNames={propClass} href="1ilsang.dev" />);
+    render(<ExternalLink className={propClass} href="1ilsang.dev" />);
     expect(screen.getByRole('link')).toHaveClass(...[defaultClass, propClass]);
   });
 });
