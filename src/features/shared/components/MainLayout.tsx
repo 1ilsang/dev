@@ -9,5 +9,5 @@ export const MainLayout: FunctionComponent<Props> = ({
   children,
   className,
 }) => {
-  return <main className={classNames('h-lvh', className)}>{children}</main>;
+  return <main className={classNames('h-auto', className)}>{children}</main>;
 };

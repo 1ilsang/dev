@@ -34,7 +34,7 @@ const useFloatingIndex = ({ post }: Props) => {
             setActiveId(entry.target.id);
           });
         },
-        { rootMargin: '0px 0px -75% 0px', threshold: 1 },
+        { rootMargin: '0px 0px -95% 0px', threshold: 0.3 },
       );
       const indexItems = getHeadingItems(document);
       indexItems.flat(1).forEach((el) => io.observe(el));

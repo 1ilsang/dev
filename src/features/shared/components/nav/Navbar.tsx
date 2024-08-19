@@ -38,7 +38,9 @@ type Props = { showPrint?: boolean };
 const Navbar: FunctionComponent<Props> = ({ showPrint = false }) => {
   const pathname = usePathname();
   const [hover, setHover] = useState(false);
-  const [scrollDown, setScrollDown] = useState(false);
+  const [scrollDown, setScrollDown] = useState(
+    typeof document !== 'undefined' && document.body.scrollTop > 50,
+  );
   const { print } = usePrint({ disable: showPrint });
 
   const [navShadow, postPage] = useMemo(() => {
@@ -50,11 +52,12 @@ const Navbar: FunctionComponent<Props> = ({ showPrint = false }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollDown(window.scrollY > 50);
+      if (document.body.scrollTop > document.body.clientHeight) return;
+      setScrollDown(document.body.scrollTop > 50);
     };
-    window.addEventListener('scroll', handleScroll);
+    document.body.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      document.body.removeEventListener('scroll', handleScroll);
     };
   }, []);
 

@@ -3,9 +3,11 @@ import { useEffect, useState } from 'react';
 import { imageSrcAtom } from '../modal/atoms';
 import { usePathname } from 'next/navigation';
 
+export const INIT_MAX = 1;
+
 const useProgress = () => {
   const [progress, setProgress] = useState(0);
-  const [max, setMax] = useState(1);
+  const [max, setMax] = useState(INIT_MAX);
   const [, setImageSrc] = useAtom(imageSrcAtom);
   const pathname = usePathname();
 
@@ -21,24 +23,21 @@ const useProgress = () => {
 
   const handleLoadingProgress =
     (intervalProgress: NodeJS.Timeout) => async (): Promise<number> => {
-      const { scrollHeight, clientHeight } = document.documentElement;
-      const documentMax = scrollHeight - clientHeight;
       clearTimeout(intervalProgress);
-      setProgress(documentMax);
+      setProgress(INIT_MAX);
       return new Promise((resolve) => {
-        setTimeout(() => resolve(documentMax), 1300);
+        setTimeout(() => resolve(1), 1300);
       });
     };
 
-  const handleProgress =
-    (handleScroll: () => void) => (documentMax: number) => {
-      setMax(documentMax);
-      setProgress(window.scrollY);
-      handleScroll = () => {
-        setProgress(window.scrollY);
-      };
-      window.addEventListener('scroll', handleScroll);
+  const handleProgress = (handleScroll: () => void) => () => {
+    setMax(document.body.scrollHeight - document.body.clientHeight);
+    setProgress(0);
+    handleScroll = () => {
+      setProgress(document.body.scrollTop);
     };
+    document.body.addEventListener('scroll', handleScroll);
+  };
   const handleInterval = () => {
     setProgress((prev) => (prev + 0.02) % max);
   };
@@ -68,7 +67,7 @@ const useProgress = () => {
       .then(handleLoadingProgress(intervalProgress))
       .then(handleProgress(handleScroll));
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      document.body.removeEventListener('scroll', handleScroll);
       clearTimeout(intervalProgress);
     };
   }, []);

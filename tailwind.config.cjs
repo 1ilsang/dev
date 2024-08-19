@@ -67,6 +67,9 @@ module.exports = {
         ridi: ['var(--ridi-batang)'],
         d2: ['var(--d2coding)'],
       },
+      padding: {
+        'scroll-lock': 'var(--scroll-lock)',
+      },
       keyframes,
       animation: {
         bouncing: 'bouncing 0.3s infinite alternate',
@@ -112,6 +115,20 @@ module.exports = {
         },
         '.category-shadow': {
           textShadow: `-0.5px 0 ${colors.highlight}, 0 0.5px ${colors.highlight}, 0.5px 0 ${colors.highlight}, 0 -0.5px ${colors.highlight}`,
+        },
+        '.custom-scrollbar': {
+          '&::-webkit-scrollbar': {
+            width: '10px',
+            height: '10px',
+          },
+          '&::-webkit-scrollbar-thumb': {
+            backgroundColor: '#6b6b6b',
+            borderRadius: '10px',
+            border: '2px solid rgb(20 22 33)',
+          },
+          '&::-webkit-scrollbar-track': {
+            background: 'transparent',
+          },
         },
       });
     },

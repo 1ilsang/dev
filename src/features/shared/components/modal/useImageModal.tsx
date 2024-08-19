@@ -31,14 +31,15 @@ export const useImageModal = () => {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = imageSrc ? 'hidden' : 'auto';
+    if (!imageSrc) return;
+
+    document.documentElement.style.setProperty('--scroll-lock', `10px`);
+    document.body.style.overflow = 'hidden';
 
     const handleESC = (e: KeyboardEvent) => {
       if (e.key !== 'Escape') return;
       handleDialogClick();
     };
-
-    if (!imageSrc) return;
 
     setLoading(true);
     load();
@@ -46,6 +47,7 @@ export const useImageModal = () => {
 
     return () => {
       document.body.style.overflow = 'auto';
+      document.documentElement.style.setProperty('--scroll-lock', '');
       window.removeEventListener('keydown', handleESC);
     };
   }, [imageSrc]);

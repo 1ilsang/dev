@@ -15,6 +15,28 @@ const Item: FunctionComponent<PropsWithChildren> = ({ children }) => {
   );
 };
 
+const Frame: FunctionComponent<{ idx: number }> = ({ idx }) => {
+  const rotate = [
+    `rotate-[40deg]`,
+    `rotate-[30deg]`,
+    `rotate-[0deg]`,
+    `rotate-[20deg]`,
+    `-rotate-[50deg]`,
+    `-rotate-[110deg]`,
+    `rotate-[20deg]`,
+    `-rotate-[90deg]`,
+    `-rotate-[60deg]`,
+    `rotate-[10deg]`,
+    `-rotate-[70deg]`,
+    `-rotate-[80deg]`,
+  ];
+  return (
+    <div className={`flex ${rotate[idx]}`}>
+      <div className="w-10 h-full bg-highlight brightness-125" />
+      <div className="w-10 h-full bg-snazzy-bg" />
+    </div>
+  );
+};
 type Props = {
   showPrint?: boolean;
 };
@@ -25,8 +47,13 @@ export const Footer: FunctionComponent<Props> = memo(
 
     if (print) return null;
     return (
-      <footer className="w-full	h-screen pt-[50vh] bg-footer">
-        <ul className="text-center">
+      <footer className="w-full	h-screen flex">
+        <div className="flex w-2/3 overflow-hidden">
+          {Array.from({ length: 12 }, (_, idx) => (
+            <Frame key={idx} idx={idx} />
+          ))}
+        </div>
+        <ul className="w-1/3 text-center pt-[50vh]">
           <Item>
             <Link className={hoverHighlight} href="/about">
               1ilsang
