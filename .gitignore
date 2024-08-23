@@ -1,0 +1,19 @@
+node_modules
+build
+dist
+out
+.next/
+
+.DS_Store
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
+# Jest
+/coverage/

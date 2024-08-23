@@ -1,0 +1,401 @@
+<progress class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og" value="0" max="1"></progress><nav class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10	md:opacity-100 shadow-nav shadow-lg"><h2 class="tracking-tight mr-6 text-2xl	font-bold	my-2 ml-3.5"><a class="hover:underline" href="/">1ilsang</a></h2><div class="flex"><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/posts">posts</a></h2><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/tags">tags</a></h2><div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-white-blue" src="/images/chul.webp" alt="1ilsang"></a></div></div></nav><section class="h-auto min-h-full max-w-screen-md py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"><h1 class="text-4xl md:text-6xl break-words">Array.prototype.sort() 이해하기</h1><section class="flex items-center mt-4"><div class="mr-2 w-9	h-9 md:w-12 md:h-12" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-sub-blue" src="/images/chul.webp" alt="1ilsang"></a></div><div><a class="text-lg" href="/about">1ilsang</a><div class="text-sub-blue text-sm">클라이밍 하실래염?</div></div></section><section class="flex flex-wrap mt-2 items-end"><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/ECMAScript">#<!-- -->ECMAScript</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/array">#<!-- -->array</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/sort">#<!-- -->sort</a></section><section><div class="text-date-gray inline">Published <time datetime="2024-02-28 05:56">2024-02-28 05:56</time></div></section><section id="post-body-container" class="relative"><div class="markdown"><p></p><div class="img-container"><div class="img-wrap cover"><img src="https://github.com/1ilsang/dev/assets/23524849/26fb163a-2663-4e47-ba32-583d5e2a3c73" alt="cover"></div></div><p></p>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="js" data-theme="material-theme-palenight"><code data-language="js" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#BABED8">[</span><span style="color:#F78C6C">11</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 8</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 1</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 2</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 33</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 3</span><span style="color:#BABED8">]</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">sort</span><span style="color:#BABED8">()</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // [1, 11, 2, 3, 33, 8]</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> arrayLike </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> {</span><span style="color:#F78C6C"> 0</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">c</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 2</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">b</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 123</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">1ilsang</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> '</span><span style="color:#F07178">1ilsang</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">:</span><span style="color:#F78C6C"> 123</span><span style="color:#89DDFF">,</span><span style="color:#F07178"> length</span><span style="color:#89DDFF">:</span><span style="color:#F78C6C"> 3</span><span style="color:#89DDFF"> };</span></span>
+<span data-line=""><span style="color:#FFCB6B">Array</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">prototype</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">sort</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">call</span><span style="color:#BABED8">(arrayLike)</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // { 0: 'b', 1: 'c', 123: '1ilsang', '1ilsang': 123, length: 3 };</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">// ?????</span></span></code></pre></figure>
+<p>JavaScript에서 sort는 어떻게 구현되어 있을까? stable 한가? 브라우저별 차이는 없을까? ECMA의 명세는 어떻게 되어있을까?</p>
+<h2 id="index" data-heading="true"><a data-heading="true" href="#index"><span class="icon icon-link"></span></a>Index</h2>
+<ul>
+<li><a class="underline-highlight-fade" target="_blank" href="#tldr" rel="noreferrer noopener">TL;DR!</a></li>
+<li><a class="underline-highlight-fade" target="_blank" href="#의문의-시작" rel="noreferrer noopener">의문의 시작</a></li>
+<li><a class="underline-highlight-fade" target="_blank" href="#arrayprototypesort-공식-명세" rel="noreferrer noopener">Array.prototype.sort() 공식 명세</a></li>
+<li><a class="underline-highlight-fade" target="_blank" href="#브라우저별-sort-구현체" rel="noreferrer noopener">브라우저별 sort 구현체</a></li>
+<li><a class="underline-highlight-fade" target="_blank" href="#마무리" rel="noreferrer noopener">마무리</a></li>
+<li><a class="underline-highlight-fade" target="_blank" href="#참고" rel="noreferrer noopener">참고</a></li>
+</ul>
+<h2 id="tldr" data-heading="true"><a data-heading="true" href="#tldr"><span class="icon icon-link"></span></a>TL;DR!</h2>
+<table>
+<thead>
+<tr>
+<th align="center">Engine</th>
+<th align="center">Browser</th>
+<th align="center">Algorithm</th>
+<th align="center">Stable</th>
+<th align="center">In-place</th>
+<th align="center">ECMA Spec</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">V8</td>
+<td align="center">Chrome</td>
+<td align="center">Tim sort</td>
+<td align="center">O</td>
+<td align="center">X</td>
+<td align="center">O</td>
+</tr>
+<tr>
+<td align="center">Webkit</td>
+<td align="center">Safari</td>
+<td align="center">Bucket / Merge</td>
+<td align="center">O</td>
+<td align="center">X</td>
+<td align="center">O</td>
+</tr>
+<tr>
+<td align="center">SpiderMonkey</td>
+<td align="center">Firefox</td>
+<td align="center">Merge + Insertion</td>
+<td align="center">O</td>
+<td align="center">X</td>
+<td align="center">O</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>sort 함수는 ECMA 2019부터 stable sort가 되었지만 in-place 하지 않을 수 있다.</li>
+<li>유사 배열 객체를 정렬할 때는 length를 기준으로 프로퍼티 값을 비교한다.</li>
+<li>브라우저별 sort 함수의 구현체가 다르지만 ECMAScript 명세를 지킨다.</li>
+</ol>
+<h2 id="의문의-시작" data-heading="true"><a data-heading="true" href="#의문의-시작"><span class="icon icon-link"></span></a>의문의 시작</h2>
+<p>JavaScript의 <code>sort</code>는 <a class="underline-highlight-fade" target="_blank" href="https://d2.naver.com/helloworld/0315536" rel="noreferrer noopener">Tim sort</a>로 구현되어 있다고 알고 있었다. 그런데 그 이상의 <a class="underline-highlight-fade" target="_blank" href="https://www.donga.com/news/Culture/article/all/20230203/117728020/1" rel="noreferrer noopener">감동</a>이 나에게 있는지 의문이 들었고 스스로에게 아래와 같이 질문해 보았다.</p>
+<ol>
+<li><code>Array.prototype.sort</code>의 명세는 어떻게 되어 있는가?</li>
+<li>브라우저는 <code>Array.prototype.sort</code>의 명세대로 sort를 구현했는가?</li>
+<li>모든 브라우저가 Tim sort로 구현되어 있는가?</li>
+<li><code>compareFn</code>의 유무에 따른 sort 함수의 동작은 무엇이 달라지는가?</li>
+<li>sort 함수는 <a class="underline-highlight-fade" target="_blank" href="https://en.wikipedia.org/wiki/In-place_algorithm" rel="noreferrer noopener">in-place</a>하고 <a class="underline-highlight-fade" target="_blank" href="https://en.wikipedia.org/wiki/Sorting_algorithm#Stability" rel="noreferrer noopener">stable</a> 한가?</li>
+<li>유사 배열 객체 또한 sort 함수로 정렬된다. 어떻게 동작하는가?</li>
+</ol>
+<p></p><div class="img-container"><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/35862db0-f699-4378-9ecc-ed9ff21c4699" alt="sad"></div></div><p></p>
+<p>자 이제 감동을 채워나가자.</p>
+<h2 id="arrayprototypesort-공식-명세" data-heading="true"><a data-heading="true" href="#arrayprototypesort-공식-명세"><span class="icon icon-link"></span></a>Array.prototype.sort() 공식 명세</h2>
+<p><a class="underline-highlight-fade" target="_blank" href="https://tc39.es/ecma262" rel="noreferrer noopener">ECMAScript</a>의 내용을 기준으로 설명하겠다.</p>
+<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/814b4f37-a976-4d8c-8121-bb5aec2e143e" alt="ECMA2019 stable"></div></div><p></p>
+<p>ECMA2019의 업데이트로 <code>Array.prototype.sort</code> 함수는 stable 하도록 명시되었다.</p>
+<p>해당 명세는 <a class="underline-highlight-fade" target="_blank" href="https://github.com/tc39/ecma262/pull/1340" rel="noreferrer noopener">[Normative] Make Array.prototype.sort stable #1340 PR</a>에서 최초 정의되었다.</p>
+<p>문서의 23.1.3.30에 <code>Array.prototype.sort</code>의 동작이 정의되어 있다. 공식 명세를 따라가며 동작을 확인해 보자.</p>
+<h3 id="231330-arrayprototypesort-comparefn" data-heading="true"><a data-heading="true" href="#231330-arrayprototypesort-comparefn"><span class="icon icon-link"></span></a>23.1.3.30 Array.prototype.sort (compareFn)</h3>
+<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/f6e1df19-763e-4750-8909-01a2c5dcb102" alt="ecma official"></div></div><p></p>
+<blockquote>
+<p><a class="underline-highlight-fade" target="_blank" href="https://tc39.es/ecma262/#sec-array.prototype.sort" rel="noreferrer noopener">Array.prototype.sort</a>의 명세 내용</p>
+</blockquote>
+<p>한 줄씩 내용을 해석해 보자.</p>
+<h4 id="1-comparefn의-유효성을-검사한다" data-heading="true"><a data-heading="true" href="#1-comparefn의-유효성을-검사한다"><span class="icon icon-link"></span></a>1. compareFn의 유효성을 검사한다.</h4>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="js" data-theme="material-theme-palenight"><code data-language="js" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> list </span><span style="color:#89DDFF">=</span><span style="color:#BABED8"> [</span><span style="color:#F78C6C">3</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 4</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 6</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 1</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 5</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 3</span><span style="color:#BABED8">]</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#BABED8">list</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">sort</span><span style="color:#BABED8">(</span><span style="color:#F78C6C">123</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // TypeError!</span></span>
+<span data-line=""><span style="color:#FFCB6B">Array</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">prototype</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">sort</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">call</span><span style="color:#BABED8">(list</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 123</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // TypeError!</span></span></code></pre></figure>
+<ul>
+<li><code>compareFn</code>은 비교 콜백 함수를 뜻한다.</li>
+<li>compareFn이 <code>undefined</code>가 아니고 <a class="underline-highlight-fade" target="_blank" href="https://tc39.es/ecma262/#sec-iscallable" rel="noreferrer noopener">IsCallable</a>(호출 가능)하지 않다면, TypeError를 발생시킨다.</li>
+</ul>
+<h4 id="2-배열-객체로-변환한다" data-heading="true"><a data-heading="true" href="#2-배열-객체로-변환한다"><span class="icon icon-link"></span></a>2. 배열 객체로 변환한다.</h4>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="js" data-theme="material-theme-palenight"><code data-language="js" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#82AAFF">Object</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">123</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // String {'123'}</span></span>
+<span data-line=""><span style="color:#82AAFF">Object</span><span style="color:#BABED8">([</span><span style="color:#F78C6C">1</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 2</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 3</span><span style="color:#BABED8">])</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // [1,2,3]</span></span>
+<span data-line=""><span style="color:#82AAFF">Object</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">{</span><span style="color:#F78C6C"> 1</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">a</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 2</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">b</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> }</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // {1: 'a', 2: 'b'}</span></span></code></pre></figure>
+<blockquote>
+<p>처음 공식 문서를 읽으면 여기서 막힌다. <code>?</code>와 같은 표현을 <a class="underline-highlight-fade" target="_blank" href="https://tc39.es/ecma262/#sec-returnifabrupt-shorthands" rel="noreferrer noopener">ReturnIfAbrupt Shorthands</a>라고 한다. 에러가 발생하면 즉시 리턴하고 아니면 결과를 진행한다는 뜻이다. 자세한 내용은 <a class="underline-highlight-fade" target="_blank" href="https://timothygu.me/es-howto/#completion-records-and-shorthands" rel="noreferrer noopener">Completion Records</a> 참고.</p>
+</blockquote>
+<ul>
+<li><a class="underline-highlight-fade" target="_blank" href="https://tc39.es/ecma262/#sec-toobject" rel="noreferrer noopener">ToObject</a>를 호출하여 현재 배열(<code>this</code> 값)을 객체로 변환한다.
+<ul>
+<li>위 코드의 첫 번째 예시와 같이 원시 타입 문자열을 문자열 객체로 변환한다.</li>
+<li>암묵적 형변환을 이해하고 싶다면 <a class="underline-highlight-fade" target="_blank" href="/posts/implicit-coercion" rel="noreferrer noopener">이 포스트</a>를 읽어보길 추천한다.</li>
+</ul>
+</li>
+<li>객체로 변환해 처리하므로, 이는 <u>sort 메서드가 배열이 아닌 객체에도 적용될 수 있음을 뜻</u>한다.</li>
+<li>설정된 객체를 <code>obj</code>라 명한다.</li>
+</ul>
+<h4 id="3-객체의-길이를-계산한다" data-heading="true"><a data-heading="true" href="#3-객체의-길이를-계산한다"><span class="icon icon-link"></span></a>3. 객체의 길이를 계산한다.</h4>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="js" data-theme="material-theme-palenight"><code data-language="js" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> arrayLike </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> {</span><span style="color:#F78C6C"> 0</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">c</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 1</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">a</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 2</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">b</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#F07178"> length</span><span style="color:#89DDFF">:</span><span style="color:#F78C6C"> 3</span><span style="color:#89DDFF"> };</span></span>
+<span data-line=""><span style="color:#BABED8">console</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">log</span><span style="color:#BABED8">(arrayLike[</span><span style="color:#F78C6C">1</span><span style="color:#BABED8">]</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> arrayLike</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">length)</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // 'a', 3</span></span>
+<span data-line=""><span style="color:#BABED8">Array</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">isArray</span><span style="color:#BABED8">(arrayLike)</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // false</span></span>
+<span data-line=""><span style="color:#BABED8">arrayLike </span><span style="color:#89DDFF">instanceof</span><span style="color:#FFCB6B"> Array</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // false</span></span></code></pre></figure>
+<ul>
+<li><a class="underline-highlight-fade" target="_blank" href="https://tc39.es/ecma262/#sec-lengthofarraylike" rel="noreferrer noopener">LengthOfArrayLike</a>를 호출하여 변환된 객체(obj)의 길이를 가져온다.
+<ul>
+<li>LengthOfArrayLike 추상 연산은 유사 배열 객체의 <code>length</code> 프로퍼티를 반환한다.</li>
+<li>해당 추상 연산에서 "유사 배열 객체"는 해당 연산이 정상으로 완료되는 객체를 뜻한다. 즉 <code>length</code> 프로퍼티(속성)가 있어야 유사 배열 객체로 성립한다.</li>
+</ul>
+</li>
+<li>가져온 길이를 <code>len</code>이라 명한다.</li>
+</ul>
+<h4 id="4-정렬-비교를-위한-추상-클로저를-생성한다" data-heading="true"><a data-heading="true" href="#4-정렬-비교를-위한-추상-클로저를-생성한다"><span class="icon icon-link"></span></a>4. 정렬 비교를 위한 추상 클로저를 생성한다.</h4>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="js" data-theme="material-theme-palenight"><code data-language="js" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#BABED8">[</span><span style="color:#F78C6C">11</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 8</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 1</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 2</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 33</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 3</span><span style="color:#BABED8">]</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">sort</span><span style="color:#BABED8">()</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // [1, 11, 2, 3, 33, 8]</span></span></code></pre></figure>
+<ul>
+<li>매개변수로 <code>x</code>, <code>y</code>가 있는 추상 클로저를 생성한다. 이 클로저는 compareFn을 캡쳐하고 다음 단계를 호출한다.</li>
+<li>클로저가 실행되면 <a class="underline-highlight-fade" target="_blank" href="https://tc39.es/ecma262/#sec-comparearrayelements" rel="noreferrer noopener">CompareArrayElements</a>를 호출하여 <code>x</code>와 <code>y</code>를 비교(compareFn)하고 결과를 반환한다.
+<ul>
+<li>결과 값은 <code>-1,0,1</code> 혹은 에러를 반환한다.</li>
+<li>compareFn이 제공되지 않으면 각 인자를 <a class="underline-highlight-fade" target="_blank" href="https://tc39.es/ecma262/multipage/abstract-operations.html#sec-tostring" rel="noreferrer noopener">ToString</a>으로 변환 후 문자열 비교(유니코드 포인트 순서) 한다. 이 때문에 <u>위와 같이 기본 <code>sort</code> 함수의 동작이 처음에는 당혹스럽게 느껴진다</u>.</li>
+</ul>
+</li>
+<li>생성된 추상 클로저를 <code>SortCompare</code>이라 명한다.</li>
+</ul>
+<h4 id="5-새로운-배열에-프로퍼티를-정렬한다" data-heading="true"><a data-heading="true" href="#5-새로운-배열에-프로퍼티를-정렬한다"><span class="icon icon-link"></span></a>5. 새로운 배열에 프로퍼티를 정렬한다.</h4>
+<ul>
+<li><a class="underline-highlight-fade" target="_blank" href="https://tc39.es/ecma262/multipage/indexed-collections.html#sec-sortindexedproperties" rel="noreferrer noopener">SortIndexedProperties</a>를 위에서 생성된 값들과 함께 호출한다.
+<ul>
+<li>SortIndexedProperties는 객체(obj)의 인덱싱된 속성들을 SortCompare를 사용해 len 만큼 정렬하는 함수다.</li>
+<li>여기서 <code>SKIP-HOLES</code>는 배열의 빈 요소를 정렬에서 제외하라는 뜻이다.</li>
+</ul>
+</li>
+<li>SortIndexedProperties의 동작은 대략 아래와 같다.
+<ul>
+<li>빈 리스트 items를 생성한다
+<ul>
+<li><u>메모리를 추가 사용한다. 명세는 in-place 하지 않다.</u></li>
+</ul>
+</li>
+<li>숫자 0인 k를 정의한다.</li>
+<li>(반복) k &lt; len 이라면 k를 문자열로 변환한 Pk를 생성한다.
+<ul>
+<li>obj에 Pk 속성이 있는지 확인하고 있다면(SKIP-HOLES이므로) 가져온다(kValue).</li>
+<li>가져온 값(kValue)을 items에 추가한다.</li>
+<li>k의 값을 1 증가시킨다.</li>
+</ul>
+</li>
+<li>값이 추가된 items에 SortCompare를 호출해 항목을 정렬한다.</li>
+</ul>
+</li>
+<li>정렬된 리스트를 <code>sortedList</code>라 명한다.</li>
+</ul>
+<h4 id="6-정렬된-요소의-개수를-계산한다" data-heading="true"><a data-heading="true" href="#6-정렬된-요소의-개수를-계산한다"><span class="icon icon-link"></span></a>6. 정렬된 요소의 개수를 계산한다.</h4>
+<ul>
+<li>sortedList에 있는 요소의 개수를 <code>itemCount</code>라 명한다.</li>
+</ul>
+<h4 id="7-j를-0으로-설정한다" data-heading="true"><a data-heading="true" href="#7-j를-0으로-설정한다"><span class="icon icon-link"></span></a>7. j를 0으로 설정한다.</h4>
+<h4 id="8-정렬된-요소를-객체에-설정한다" data-heading="true"><a data-heading="true" href="#8-정렬된-요소를-객체에-설정한다"><span class="icon icon-link"></span></a>8. 정렬된 요소를 객체에 설정한다.</h4>
+<ul>
+<li>j가 itemCount보다 작을 동안 반복한다.</li>
+<li>객체(obj)의 j 번째 속성을 sortedList[j]로 설정한다.
+<ul>
+<li>원본 객체를 변경하고 있다. <a class="underline-highlight-fade" target="_blank" href="https://developer.mozilla.org/en-US/docs/Glossary/Mutable" rel="noreferrer noopener">mutable</a> 하다.</li>
+</ul>
+</li>
+<li>j를 1 증가시킨다.</li>
+</ul>
+<h4 id="9--10-빈-요소를-처리한다" data-heading="true"><a data-heading="true" href="#9--10-빈-요소를-처리한다"><span class="icon icon-link"></span></a>9 ~ 10. 빈 요소를 처리한다.</h4>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="js" data-theme="material-theme-palenight"><code data-language="js" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#BABED8">[</span><span style="color:#F78C6C">1</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> ,</span><span style="color:#F78C6C"> 2</span><span style="color:#BABED8">]</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">sort</span><span style="color:#BABED8">()</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // [1, 2, empty]</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#676E95;font-style:italic">// 인덱스 1이 존재하지 않음.</span></span>
+<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> arrayLike </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> {</span><span style="color:#F78C6C"> 0</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">c</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 2</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">b</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 123</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">1ilsang</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> '</span><span style="color:#F07178">1ilsang</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">:</span><span style="color:#F78C6C"> 123</span><span style="color:#89DDFF">,</span><span style="color:#F07178"> length</span><span style="color:#89DDFF">:</span><span style="color:#F78C6C"> 3</span><span style="color:#89DDFF"> };</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#676E95;font-style:italic">// 인덱스 2 가 삭제되고 1이 추가되었다.</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">// 또한 length를 벗어나는(혹은 성립하지 않는) 인덱스는 무시(정렬 X)된다.</span></span>
+<span data-line=""><span style="color:#FFCB6B">Array</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">prototype</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">sort</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">call</span><span style="color:#BABED8">(arrayLike)</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // { 0: 'b', 1: 'c', 123: '1ilsang', '1ilsang': 123, length: 3 };</span></span></code></pre></figure>
+<ul>
+<li>SortedIndexedProperties 호출 때 SKIP-HOLES를 지정했으므로 빈 요소의 수를 유지하기 위해 <a class="underline-highlight-fade" target="_blank" href="https://tc39.es/ecma262/multipage/abstract-operations.html#sec-deletepropertyorthrow" rel="noreferrer noopener">DeletePropertyOrThrow</a>를 호출하여 나머지 인덱스를 삭제한다.</li>
+</ul>
+<h4 id="11-객체를-반환한다" data-heading="true"><a data-heading="true" href="#11-객체를-반환한다"><span class="icon icon-link"></span></a>11. 객체를 반환한다.</h4>
+<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/f6e1df19-763e-4750-8909-01a2c5dcb102" alt="ecma official"></div></div><p></p>
+<p></p><div class="img-container"><div class="img-wrap s"><img src="https://github.com/1ilsang/dev/assets/23524849/a636baec-8023-4017-bbc5-f41deab21f65" alt="easy-right?"></div></div><p></p>
+<p><code>Array.prototype.sort</code>의 명세를 보면서 기존의 의문점이 상당히 많이 풀리게 되었다.</p>
+<ul>
+<li>Array.prototype.sort의 명세는 어떻게 되어 있는가?
+<ul>
+<li>위에서 다루었다.</li>
+</ul>
+</li>
+<li>compareFn의 유무에 따른 sort 함수의 동작은 무엇이 달라지는가?
+<ul>
+<li>비교 함수가 없으면 <a class="underline-highlight-fade" target="_blank" href="#4-정렬-비교를-위한-추상-클로저를-생성한다" rel="noreferrer noopener">[4. 정렬 비교를 위한 추상 클로저를 생성한다.]</a>의 내용에서 각 인자를 <a class="underline-highlight-fade" target="_blank" href="https://tc39.es/ecma262/multipage/abstract-operations.html#sec-tostring" rel="noreferrer noopener">ToString</a>으로 변환 후 문자열 비교(유니코드 포인트 순서)한다고 했다.</li>
+</ul>
+</li>
+<li>sort 함수는 in-place 하고 stable 한가?
+<ul>
+<li>공식 문서에 따르면 stable 해야 한다.</li>
+<li><a class="underline-highlight-fade" target="_blank" href="/posts/array-prototype-sort#5-새로운-배열에-프로퍼티를-정렬한다" rel="noreferrer noopener">SortIndexedProperties</a>의 동작을 보면 빈 리스트 items를 생성 후 하나씩 원소를 추가하고 있으므로 <u>in-place 하지 않을 수 있다.</u></li>
+</ul>
+</li>
+<li>유사 배열 객체 또한 sort 함수로 정렬된다. 어떻게 동작하는가?
+<ul>
+<li>공식 스펙 자체가 ToObject로 객체화한 후 처리하고 있으므로 객체 비교를 전제로 동작한다.</li>
+</ul>
+</li>
+</ul>
+<p>이로써 스펙상의 이야기는 되었다. 하지만, 실제로 브라우저에서 어떻게 구현되어 있는지에 따라 동작이 달라질 수 있으므로 남은 의문의 해결과 실제 <code>sort</code> 함수의 동작을 확인하기 위해 브라우저별 어떻게 구현해 놓았는지 확인해 보자.</p>
+<h2 id="브라우저별-sort-구현체" data-heading="true"><a data-heading="true" href="#브라우저별-sort-구현체"><span class="icon icon-link"></span></a>브라우저별 Sort 구현체</h2>
+<ul>
+<li>브라우저는 <code>Array.prototype.sort</code>의 명세대로 sort를 구현했는가?</li>
+<li>모든 브라우저가 Tim sort로 구현되어 있는가?</li>
+</ul>
+<p>이제 위의 질문에 답을 해보자.</p>
+<h3 id="v8" data-heading="true"><a data-heading="true" href="#v8"><span class="icon icon-link"></span></a>V8</h3>
+<figure data-rehype-pretty-code-figure=""><figcaption data-rehype-pretty-code-title="" data-language="js" data-theme="material-theme-palenight">v8/third_party/v8/builtins/array-sort.tq</figcaption><pre tabindex="0" data-language="js" data-theme="material-theme-palenight"><code data-line-numbers="" style="counter-set: line 1417;display: grid;" data-language="js" data-theme="material-theme-palenight" data-line-numbers-max-digits="4"><span data-line=""><span style="color:#676E95;font-style:italic">// https://github.com/v8/v8/blob/12.3.206.1/third_party/v8/builtins/array-sort.tq#L1419</span></span>
+<span data-line=""><span style="color:#BABED8">transitioning javascript builtin </span><span style="color:#82AAFF">ArrayPrototypeSort</span><span style="color:#BABED8">(</span></span>
+<span data-line=""><span style="color:#BABED8">    js</span><span style="color:#89DDFF">-</span><span style="color:#BABED8">implicit context: NativeContext</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> receiver: JSAny)(</span><span style="color:#89DDFF">...</span><span style="color:#BABED8">arguments): JSAny </span><span style="color:#89DDFF">{</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">  // 1. If comparefn is not undefined and IsCallable(comparefn) is false,</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">  //    throw a TypeError exception.</span></span>
+<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> comparefnObj</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> JSAny</span><span style="color:#89DDFF"> =</span><span style="color:#BABED8"> arguments</span><span style="color:#F07178">[</span><span style="color:#F78C6C">0</span><span style="color:#F07178">]</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> comparefn</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> Cast</span><span style="color:#89DDFF">&lt;</span><span style="color:#F07178">(</span><span style="color:#FFCB6B">Undefined</span><span style="color:#89DDFF"> |</span><span style="color:#FFCB6B"> Callable</span><span style="color:#F07178">)</span><span style="color:#89DDFF">&gt;</span><span style="color:#F07178">(</span><span style="color:#BABED8">comparefnObj</span><span style="color:#F07178">) </span><span style="color:#BABED8">otherwise</span></span>
+<span data-line=""><span style="color:#82AAFF">  ThrowTypeError</span><span style="color:#F07178">(</span><span style="color:#BABED8">MessageTemplate</span><span style="color:#F07178">::</span><span style="color:#BABED8">kBadSortComparisonFunction</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> comparefnObj</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#676E95;font-style:italic">  // 2. Let obj be ? ToObject(this value).</span></span>
+<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> obj</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> JSReceiver</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> ToObject</span><span style="color:#F07178">(</span><span style="color:#BABED8">context</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> receiver</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#676E95;font-style:italic">  // 3. Let len be ? ToLength(? Get(obj, "length")).</span></span>
+<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> len</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> Number</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> GetLengthProperty</span><span style="color:#F07178">(</span><span style="color:#BABED8">obj</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">  if</span><span style="color:#F07178"> (</span><span style="color:#BABED8">len</span><span style="color:#89DDFF"> &lt;</span><span style="color:#F78C6C"> 2</span><span style="color:#F07178">) </span><span style="color:#89DDFF;font-style:italic">return</span><span style="color:#BABED8"> obj</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> isToSorted</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> constexpr</span><span style="color:#FFCB6B"> bool</span><span style="color:#89DDFF"> =</span><span style="color:#FF9CAC"> false</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> sortState</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> SortState</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> NewSortState</span><span style="color:#F07178">(</span><span style="color:#BABED8">obj</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> comparefn</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> len</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> isToSorted</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line="" data-highlighted-line=""><span style="color:#82AAFF">  ArrayTimSort</span><span style="color:#F07178">(</span><span style="color:#BABED8">context</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> sortState</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#BABED8"> obj</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre></figure>
+<p>V8의 builtin sort 함수인 <a class="underline-highlight-fade" target="_blank" href="https://github.com/v8/v8/blob/12.3.206.1/third_party/v8/builtins/array-sort.tq#L1419" rel="noreferrer noopener">ArrayPrototypeSort</a>에는 Tim sort가 적용되어 있다. 또한 주석에서도 알 수 있듯 명세의 순서를 따르고 있다.</p>
+<p><a class="underline-highlight-fade" target="_blank" href="https://d2.naver.com/helloworld/0315536" rel="noreferrer noopener">Tim sort</a>는 stable 하지만 in-place하지는 않다(<a class="underline-highlight-fade" target="_blank" href="https://youtu.be/HHN1axRRKx8?si=9KLghQJ1OAYtATK2&amp;t=892" rel="noreferrer noopener">merge sort 보다는 적게 메모리를 사용한다</a>).</p>
+<blockquote>
+<p><a class="underline-highlight-fade" target="_blank" href="https://v8.dev/blog/array-sort" rel="noreferrer noopener">V8 블로그의 글</a>에 따르면 Chrome 70 전에는 퀵 정렬과 삽입 정렬을 혼합해서 사용하고 있었다.</p>
+</blockquote>
+<h3 id="webkit" data-heading="true"><a data-heading="true" href="#webkit"><span class="icon icon-link"></span></a>Webkit</h3>
+<figure data-rehype-pretty-code-figure=""><figcaption data-rehype-pretty-code-title="" data-language="js" data-theme="material-theme-palenight">Webkit/Source/JavaScriptCore/builtins/ArrayPrototype.js</figcaption><pre tabindex="0" data-language="js" data-theme="material-theme-palenight"><code data-line-numbers="" style="counter-set: line 507;display: grid;" data-language="js" data-theme="material-theme-palenight" data-line-numbers-max-digits="3"><span data-line=""><span style="color:#676E95;font-style:italic">// https://github.com/WebKit/WebKit/blob/wpewebkit-2.43.1/Source/JavaScriptCore/builtins/ArrayPrototype.js#L509sadfaefafasdf</span></span>
+<span data-line=""><span style="color:#C792EA">function</span><span style="color:#82AAFF"> sort</span><span style="color:#89DDFF">(</span><span style="color:#BABED8;font-style:italic">comparator</span><span style="color:#89DDFF">)</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#89DDFF">  "</span><span style="color:#C3E88D">use strict</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#C792EA">  var</span><span style="color:#BABED8"> isStringSort</span><span style="color:#89DDFF"> =</span><span style="color:#FF9CAC"> false</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">  if</span><span style="color:#F07178"> (</span><span style="color:#BABED8">comparator</span><span style="color:#89DDFF"> ===</span><span style="color:#F07178"> @</span><span style="color:#89DDFF">undefined</span><span style="color:#F07178">)</span></span>
+<span data-line=""><span style="color:#BABED8">      isStringSort</span><span style="color:#89DDFF"> =</span><span style="color:#FF9CAC"> true</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">  else</span><span style="color:#89DDFF;font-style:italic"> if</span><span style="color:#F07178"> (</span><span style="color:#89DDFF">!</span><span style="color:#F07178">@</span><span style="color:#82AAFF">isCallable</span><span style="color:#F07178">(</span><span style="color:#BABED8">comparator</span><span style="color:#F07178">))</span></span>
+<span data-line=""><span style="color:#89DDFF">      @</span><span style="color:#82AAFF">throwTypeError</span><span style="color:#F07178">(</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">Array.prototype.sort requires the comparator argument to be a function or undefined</span><span style="color:#89DDFF">"</span><span style="color:#F07178">);</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#C792EA">  var</span><span style="color:#BABED8"> receiver</span><span style="color:#89DDFF"> =</span><span style="color:#F07178"> @</span><span style="color:#82AAFF">toObject</span><span style="color:#F07178">(</span><span style="color:#89DDFF">this,</span><span style="color:#89DDFF"> "</span><span style="color:#C3E88D">Array.prototype.sort requires that |this| not be null or undefined</span><span style="color:#89DDFF">"</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#C792EA">  var</span><span style="color:#BABED8"> receiverLength</span><span style="color:#89DDFF"> =</span><span style="color:#F07178"> @</span><span style="color:#82AAFF">toLength</span><span style="color:#F07178">(</span><span style="color:#BABED8">receiver</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">length</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#676E95;font-style:italic">  // For compatibility with Firefox and Chrome, do nothing observable</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">  // to the target array if it has 0 or 1 sortable properties.</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">  if</span><span style="color:#F07178"> (</span><span style="color:#BABED8">receiverLength</span><span style="color:#89DDFF"> &lt;</span><span style="color:#F78C6C"> 2</span><span style="color:#F07178">)</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">      return</span><span style="color:#BABED8"> receiver</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#C792EA">  var</span><span style="color:#BABED8"> compacted</span><span style="color:#89DDFF"> =</span><span style="color:#F07178"> [ ]</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#C792EA">  var</span><span style="color:#BABED8"> sorted</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> null;</span></span>
+<span data-line=""><span style="color:#C792EA">  var</span><span style="color:#BABED8"> undefinedCount</span><span style="color:#89DDFF"> =</span><span style="color:#F07178"> @</span><span style="color:#82AAFF">sortCompact</span><span style="color:#F07178">(</span><span style="color:#BABED8">receiver</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> receiverLength</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> compacted</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> isStringSort</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">  if</span><span style="color:#F07178"> (</span><span style="color:#BABED8">isStringSort</span><span style="color:#F07178">) </span><span style="color:#89DDFF">{</span></span>
+<span data-line=""><span style="color:#BABED8">      sorted</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> @</span><span style="color:#82AAFF">newArrayWithSize</span><span style="color:#F07178">(</span><span style="color:#BABED8">compacted</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">length</span><span style="color:#F07178">);</span></span>
+<span data-line="" data-highlighted-line=""><span style="color:#89DDFF">      @</span><span style="color:#82AAFF">sortBucketSort</span><span style="color:#F07178">(</span><span style="color:#BABED8">sorted</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 0</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> compacted</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 0</span><span style="color:#F07178">);</span></span>
+<span data-line=""><span style="color:#89DDFF">  }</span><span style="color:#89DDFF;font-style:italic"> else</span></span>
+<span data-line="" data-highlighted-line=""><span style="color:#BABED8">      sorted</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> @</span><span style="color:#82AAFF">sortMergeSort</span><span style="color:#F07178">(</span><span style="color:#BABED8">compacted</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> comparator</span><span style="color:#F07178">);</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#89DDFF">  @</span><span style="color:#82AAFF">sortCommit</span><span style="color:#F07178">(</span><span style="color:#BABED8">receiver</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> receiverLength</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> sorted</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> undefinedCount</span><span style="color:#F07178">);</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#BABED8"> receiver</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre></figure>
+<p>Webkit(Safari)의 <a class="underline-highlight-fade" target="_blank" href="https://github.com/WebKit/WebKit/blob/wpewebkit-2.43.1/Source/JavaScriptCore/builtins/ArrayPrototype.js#L509" rel="noreferrer noopener">sort 함수</a>는 스트링일 경우 <a class="underline-highlight-fade" target="_blank" href="https://ko.wikipedia.org/wiki/%EB%B2%84%ED%82%B7_%EC%A0%95%EB%A0%AC" rel="noreferrer noopener">버킷 정렬</a>을 사용하고 아니라면 <a class="underline-highlight-fade" target="_blank" href="https://en.wikipedia.org/wiki/Merge_sort" rel="noreferrer noopener">합병 정렬(merge sort)</a>을 이용한다. 또한 명세의 순서를 따르고 있다.</p>
+<p>두 정렬 모두 stable 하다. 하지만 둘 다 in-place 하지 않다.</p>
+<h3 id="spidermonkey" data-heading="true"><a data-heading="true" href="#spidermonkey"><span class="icon icon-link"></span></a>SpiderMonkey</h3>
+<figure data-rehype-pretty-code-figure=""><figcaption data-rehype-pretty-code-title="" data-language="js" data-theme="material-theme-palenight">gecko-dev/js/src/builtin/Array.js</figcaption><pre tabindex="0" data-language="js" data-theme="material-theme-palenight"><code data-line-numbers="" style="counter-set: line 102;display: grid;" data-language="js" data-theme="material-theme-palenight" data-line-numbers-max-digits="3"><span data-line=""><span style="color:#676E95;font-style:italic">// https://github.com/mozilla/gecko-dev/blob/661a7d013f6b841e9fbbe56d307cb206f62963c3/js/src/builtin/Array.js#L104</span></span>
+<span data-line=""><span style="color:#C792EA">function</span><span style="color:#82AAFF"> ArraySort</span><span style="color:#89DDFF">(</span><span style="color:#BABED8;font-style:italic">comparefn</span><span style="color:#89DDFF">)</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">  // Step 1.</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">  if</span><span style="color:#F07178"> (</span><span style="color:#BABED8">comparefn</span><span style="color:#89DDFF"> !==</span><span style="color:#89DDFF"> undefined</span><span style="color:#F07178">) </span><span style="color:#89DDFF">{</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">    if</span><span style="color:#F07178"> (</span><span style="color:#89DDFF">!</span><span style="color:#82AAFF">IsCallable</span><span style="color:#F07178">(</span><span style="color:#BABED8">comparefn</span><span style="color:#F07178">)) </span><span style="color:#89DDFF">{</span></span>
+<span data-line=""><span style="color:#82AAFF">      ThrowTypeError</span><span style="color:#F07178">(</span><span style="color:#BABED8">JSMSG_BAD_SORT_ARG</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#89DDFF">    }</span></span>
+<span data-line=""><span style="color:#89DDFF">  }</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">  // Step 2.</span></span>
+<span data-line=""><span style="color:#C792EA">  var</span><span style="color:#BABED8"> O</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> ToObject</span><span style="color:#F07178">(</span><span style="color:#89DDFF">this</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">  // First try to sort the array in native code, if that fails, indicated by</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">  // returning |false| from ArrayNativeSort, sort it in self-hosted code.</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">  if</span><span style="color:#F07178"> (</span><span style="color:#82AAFF">callFunction</span><span style="color:#F07178">(</span><span style="color:#BABED8">ArrayNativeSort</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> O</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> comparefn</span><span style="color:#F07178">)) </span><span style="color:#89DDFF">{</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">    return</span><span style="color:#BABED8"> O</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#89DDFF">  }</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">  // Step 3.</span></span>
+<span data-line=""><span style="color:#C792EA">  var</span><span style="color:#BABED8"> len</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> ToLength</span><span style="color:#F07178">(</span><span style="color:#BABED8">O</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">length</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">  // Arrays with less than two elements remain unchanged when sorted.</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">  if</span><span style="color:#F07178"> (</span><span style="color:#BABED8">len</span><span style="color:#89DDFF"> &lt;=</span><span style="color:#F78C6C"> 1</span><span style="color:#F07178">) </span><span style="color:#89DDFF">{</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">    return</span><span style="color:#BABED8"> O</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#89DDFF">  }</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">  // Step 4.</span></span>
+<span data-line=""><span style="color:#C792EA">  var</span><span style="color:#BABED8"> wrappedCompareFn</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> ArraySortCompare</span><span style="color:#F07178">(</span><span style="color:#BABED8">comparefn</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">  // Step 5.</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">  // To save effort we will do all of our work on a dense list, then create holes at the end.</span></span>
+<span data-line=""><span style="color:#C792EA">  var</span><span style="color:#BABED8"> denseList</span><span style="color:#89DDFF"> =</span><span style="color:#F07178"> []</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#C792EA">  var</span><span style="color:#BABED8"> denseLen</span><span style="color:#89DDFF"> =</span><span style="color:#F78C6C"> 0</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">  for</span><span style="color:#F07178"> (</span><span style="color:#C792EA">var</span><span style="color:#BABED8"> i</span><span style="color:#89DDFF"> =</span><span style="color:#F78C6C"> 0</span><span style="color:#89DDFF">;</span><span style="color:#BABED8"> i</span><span style="color:#89DDFF"> &lt;</span><span style="color:#BABED8"> len</span><span style="color:#89DDFF">;</span><span style="color:#BABED8"> i</span><span style="color:#89DDFF">++</span><span style="color:#F07178">) </span><span style="color:#89DDFF">{</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">    if</span><span style="color:#F07178"> (</span><span style="color:#BABED8">i</span><span style="color:#89DDFF"> in</span><span style="color:#BABED8"> O</span><span style="color:#F07178">) </span><span style="color:#89DDFF">{</span></span>
+<span data-line=""><span style="color:#82AAFF">      DefineDataProperty</span><span style="color:#F07178">(</span><span style="color:#BABED8">denseList</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> denseLen</span><span style="color:#89DDFF">++,</span><span style="color:#BABED8"> O</span><span style="color:#F07178">[</span><span style="color:#BABED8">i</span><span style="color:#F07178">])</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#89DDFF">    }</span></span>
+<span data-line=""><span style="color:#89DDFF">  }</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">  if</span><span style="color:#F07178"> (</span><span style="color:#BABED8">denseLen</span><span style="color:#89DDFF"> &lt;</span><span style="color:#F78C6C"> 1</span><span style="color:#F07178">) </span><span style="color:#89DDFF">{</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">    return</span><span style="color:#BABED8"> O</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#89DDFF">  }</span></span>
+<span data-line="" data-highlighted-line=""><span style="color:#C792EA">  var</span><span style="color:#BABED8"> sorted</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> MergeSort</span><span style="color:#F07178">(</span><span style="color:#BABED8">denseList</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> denseLen</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> wrappedCompareFn</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#82AAFF">  MoveHoles</span><span style="color:#F07178">(</span><span style="color:#BABED8">O</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> len</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> sorted</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> denseLen</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#BABED8"> O</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre></figure>
+<p>SpiderMonkey(Firefox)는 <a class="underline-highlight-fade" target="_blank" href="https://github.com/mozilla/gecko-dev" rel="noreferrer noopener">Gecko</a>에 속한 엔진으로, JavaScript 실행에 특화되어 있다. Gecko는 Firefox의 전반적인 렌더링 엔진이다.</p>
+<blockquote>
+<p>Gecko 깃헙은 <a class="underline-highlight-fade" target="_blank" href="https://searchfox.org/mozilla-central/source/js/src/builtin/Sorting.js#78" rel="noreferrer noopener">mozilla-central</a> 미러링 리포지터리로 Read-only다.</p>
+</blockquote>
+<p>SpiderMonkey는 합병 정렬을 사용하는데, <a class="underline-highlight-fade" target="_blank" href="https://github.com/mozilla/gecko-dev/blob/661a7d013f6b841e9fbbe56d307cb206f62963c3/js/src/builtin/Sorting.js#L86" rel="noreferrer noopener">합병 정렬의 내부에 최적화 작업을 위해 삽입 정렬을 사용</a>하고 있으며 명세의 순서를 따르고 있다. Tim 정렬과 유사한 부분이 있다.</p>
+<p>합병 정렬과 삽입 정렬은 모두 stable 하지만 삽입 정렬만 in-place 하다.</p>
+<h3 id="정리" data-heading="true"><a data-heading="true" href="#정리"><span class="icon icon-link"></span></a>정리</h3>
+<table>
+<thead>
+<tr>
+<th align="center">Engine</th>
+<th align="center">Browser</th>
+<th align="center">Algorithm</th>
+<th align="center">Stable</th>
+<th align="center">In-place</th>
+<th align="center">ECMA Spec</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">V8</td>
+<td align="center">Chrome</td>
+<td align="center">Tim sort</td>
+<td align="center">O</td>
+<td align="center">X</td>
+<td align="center">O</td>
+</tr>
+<tr>
+<td align="center">Webkit</td>
+<td align="center">Safari</td>
+<td align="center">Bucket / Merge</td>
+<td align="center">O</td>
+<td align="center">X</td>
+<td align="center">O</td>
+</tr>
+<tr>
+<td align="center">SpiderMonkey</td>
+<td align="center">Firefox</td>
+<td align="center">Merge + Insertion</td>
+<td align="center">O</td>
+<td align="center">X</td>
+<td align="center">O</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>브라우저는 <code>Array.prototype.sort</code>의 명세대로 sort를 구현했는가?
+<ul>
+<li>YES</li>
+</ul>
+</li>
+<li>모든 브라우저가 Tim sort로 구현되어 있는가?
+<ul>
+<li>No</li>
+</ul>
+</li>
+</ul>
+<h2 id="마무리" data-heading="true"><a data-heading="true" href="#마무리"><span class="icon icon-link"></span></a>마무리</h2>
+<p><code>sort</code> 함수를 이해하면서 공식 문서 및 브라우저들의 소스 코드를 살펴보게 되었다.</p>
+<p>가볍게 보았음에도 브라우저 코드 형태를 본다거나 ECMAScript를 읽을 수 있게 된 것은 뜻밖의 수확이었다. 가장 큰 수확은 sort뿐만 아니라 다른 명세(map, reduce,...)들에 대한 접근도 두려워하지 않게 되었다는 점이다.</p>
+<p>처음엔 막막하던 공식 문서도 차근차근 따라가다 보니 읽어 나갈 수 있었다. JavaScript의 <a class="underline-highlight-fade" target="_blank" href="/posts/implicit-coercion" rel="noreferrer noopener">암묵적 형 변환</a>과 같은 유연함은 오히려 동작을 이해하기 어렵게 하는 요소가 된다. 공식 문서에서 이러한 동작을 간결하게 표현하기 위한 많은 노력들을 볼 수 있었기에 감동 할 수 있었다.</p>
+<p>메서드 동작을 명확하게 설명하지 못하는 부분이 늘 존재했었기에 아쉬움이 있었는데 이번 기회로 자신감도 얻고 JavaScript 자체에 더 가까워진 느낌이 든다.</p>
+<p>재밌었다.</p>
+<h2 id="참고" data-heading="true"><a data-heading="true" href="#참고"><span class="icon icon-link"></span></a>참고</h2>
+<ul>
+<li><a class="underline-highlight-fade" target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort" rel="noreferrer noopener">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort</a></li>
+<li><a class="underline-highlight-fade" target="_blank" href="https://tc39.es/ecma262/#sec-array.prototype.sort" rel="noreferrer noopener">https://tc39.es/ecma262/#sec-array.prototype.sort</a></li>
+<li><a class="underline-highlight-fade" target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toSorted" rel="noreferrer noopener">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toSorted</a></li>
+<li><a class="underline-highlight-fade" target="_blank" href="https://github.com/v8/v8/blob/12.3.206.1/third_party/v8/builtins/array-sort.tq#L1419" rel="noreferrer noopener">https://github.com/v8/v8/blob/12.3.206.1/third_party/v8/builtins/array-sort.tq#L1419</a></li>
+<li><a class="underline-highlight-fade" target="_blank" href="https://d2.naver.com/helloworld/0315536" rel="noreferrer noopener">https://d2.naver.com/helloworld/0315536</a></li>
+<li><a class="underline-highlight-fade" target="_blank" href="https://timothygu.me/es-howto" rel="noreferrer noopener">https://timothygu.me/es-howto</a></li>
+<li><a class="underline-highlight-fade" target="_blank" href="https://v8.dev/blog/array-sort" rel="noreferrer noopener">https://v8.dev/blog/array-sort</a></li>
+<li><a class="underline-highlight-fade" target="_blank" href="https://www.youtube.com/watch?v=HHN1axRRKx8" rel="noreferrer noopener">자료구조 Tim 정렬 알고리즘</a></li>
+</ul></div><aside class="absolute inline-block h-full top-0 left-full break-words max-xl:hidden" aria-label="index"><ul class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"><li data-id="index" class="pt-0.5 text-base select-none	cursor-pointer hover:text-sub-blue">Index</li><li data-id="tldr" class="pt-0.5 text-base select-none	cursor-pointer hover:text-sub-blue">TL;DR!</li><li data-id="의문의-시작" class="pt-0.5 text-base select-none	cursor-pointer hover:text-sub-blue">의문의 시작</li><li data-id="arrayprototypesort-공식-명세" class="pt-0.5 text-base select-none	cursor-pointer hover:text-sub-blue">Array.prototype.sort() 공식 명세</li><li><ul class="ml-2.5 last:mb-2"><li data-id="231330-arrayprototypesort-comparefn" class="pt-0.5 text-base select-none	cursor-pointer hover:text-sub-blue before:content-['-'] before:mr-1">23.1.3.30 Array.prototype.sort (compareFn)</li></ul></li><li data-id="브라우저별-sort-구현체" class="pt-0.5 text-base select-none	cursor-pointer hover:text-sub-blue">브라우저별 Sort 구현체</li><li><ul class="ml-2.5 last:mb-2"><li data-id="v8" class="pt-0.5 text-base select-none	cursor-pointer hover:text-sub-blue before:content-['-'] before:mr-1">V8</li><li data-id="webkit" class="pt-0.5 text-base select-none	cursor-pointer hover:text-sub-blue before:content-['-'] before:mr-1">Webkit</li><li data-id="spidermonkey" class="pt-0.5 text-base select-none	cursor-pointer hover:text-sub-blue before:content-['-'] before:mr-1">SpiderMonkey</li><li data-id="정리" class="pt-0.5 text-base select-none	cursor-pointer hover:text-sub-blue before:content-['-'] before:mr-1">정리</li></ul></li><li data-id="마무리" class="pt-0.5 text-base select-none	cursor-pointer hover:text-sub-blue">마무리</li><li data-id="참고" class="pt-0.5 text-base select-none	cursor-pointer hover:text-sub-blue">참고</li></ul></aside></section><a class="highlighter mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water" href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] Array.prototype.sort()%20%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0&amp;body=<!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 -->" rel="noopener noreferrer" target="_blank">📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍</a><div class="flex items-center mt-1.5 mb-56"><div>☕ 소주 한 잔 후원하기</div><sub>(예금주: 이상철)</sub><img class="w-20 cursor-pointer object-contain hover:animate-bouncing" src="/images/logo/toss-pay.webp" alt="toss"><img class="w-12 cursor-pointer object-contain hover:animate-bouncing" src="/images/logo/kakao-pay.webp" alt="kakao"></div></section><footer class="w-full h-screen flex"><div class="flex w-2/3 overflow-hidden"><div class="flex rotate-[40deg]"><div class="w-10 h-full bg-highlight brightness-125"></div><div class="w-10 h-full bg-snazzy-bg"></div></div><div class="flex rotate-[30deg]"><div class="w-10 h-full bg-highlight brightness-125"></div><div class="w-10 h-full bg-snazzy-bg"></div></div><div class="flex rotate-[0deg]"><div class="w-10 h-full bg-highlight brightness-125"></div><div class="w-10 h-full bg-snazzy-bg"></div></div><div class="flex rotate-[20deg]"><div class="w-10 h-full bg-highlight brightness-125"></div><div class="w-10 h-full bg-snazzy-bg"></div></div><div class="flex -rotate-[50deg]"><div class="w-10 h-full bg-highlight brightness-125"></div><div class="w-10 h-full bg-snazzy-bg"></div></div><div class="flex -rotate-[110deg]"><div class="w-10 h-full bg-highlight brightness-125"></div><div class="w-10 h-full bg-snazzy-bg"></div></div><div class="flex rotate-[20deg]"><div class="w-10 h-full bg-highlight brightness-125"></div><div class="w-10 h-full bg-snazzy-bg"></div></div><div class="flex -rotate-[90deg]"><div class="w-10 h-full bg-highlight brightness-125"></div><div class="w-10 h-full bg-snazzy-bg"></div></div><div class="flex -rotate-[60deg]"><div class="w-10 h-full bg-highlight brightness-125"></div><div class="w-10 h-full bg-snazzy-bg"></div></div><div class="flex rotate-[10deg]"><div class="w-10 h-full bg-highlight brightness-125"></div><div class="w-10 h-full bg-snazzy-bg"></div></div><div class="flex -rotate-[70deg]"><div class="w-10 h-full bg-highlight brightness-125"></div><div class="w-10 h-full bg-snazzy-bg"></div></div><div class="flex -rotate-[80deg]"><div class="w-10 h-full bg-highlight brightness-125"></div><div class="w-10 h-full bg-snazzy-bg"></div></div></div><ul class="w-1/3 text-center pt-[50vh]"><li class="text-white inline-block text-sm px-4 relative after:content-['•'] after:absolute after:right-[calc(0.2rem*-1)] last:after:content-['']"><a class="hover:text-highlight" href="/about">1ilsang</a></li><li class="text-white inline-block text-sm px-4 relative after:content-['•'] after:absolute after:right-[calc(0.2rem*-1)] last:after:content-['']"><a class="hover:text-highlight" href="https://github.com/1ilsang" rel="noopener noreferrer" target="_blank">GitHub</a></li><li class="text-white inline-block text-sm px-4 relative after:content-['•'] after:absolute after:right-[calc(0.2rem*-1)] last:after:content-['']"><a class="hover:text-highlight" href="https://www.linkedin.com/in/1ilsang" rel="noopener noreferrer" target="_blank">LinkedIn</a></li></ul></footer>

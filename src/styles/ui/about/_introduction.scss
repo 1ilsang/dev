@@ -1,0 +1,24 @@
+@mixin introduction {
+  @include container;
+
+  .description {
+    margin: 2rem 0 1rem;
+    line-height: 2rem;
+
+    .p {
+      margin: 1.2rem 0;
+
+      .underline-highlight-fade {
+        @media print {
+          color: $black;
+          text-decoration: underline 0.15em $black;
+        }
+      }
+    }
+
+    li::before {
+      content: '❑';
+      margin-right: 0.5rem;
+    }
+  }
+}

@@ -1,0 +1,113 @@
+<progress class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og" value="0" max="1"></progress><nav class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10	md:opacity-100 shadow-nav shadow-lg"><h2 class="tracking-tight mr-6 text-2xl	font-bold	my-2 ml-3.5"><a class="hover:underline" href="/">1ilsang</a></h2><div class="flex"><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/posts">posts</a></h2><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/tags">tags</a></h2><div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-white-blue" src="/images/chul.webp" alt="1ilsang"></a></div></div></nav><section class="h-auto min-h-full max-w-screen-md py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"><h1 class="text-4xl md:text-6xl break-words">Renovate 간단하게 살펴보기</h1><section class="flex items-center mt-4"><div class="mr-2 w-9	h-9 md:w-12 md:h-12" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-sub-blue" src="/images/chul.webp" alt="1ilsang"></a></div><div><a class="text-lg" href="/about">1ilsang</a><div class="text-sub-blue text-sm">클라이밍 하실래염?</div></div></section><section class="flex flex-wrap mt-2 items-end"><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/renovate">#<!-- -->renovate</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/packageManager">#<!-- -->packageManager</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/bot">#<!-- -->bot</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/dependency">#<!-- -->dependency</a></section><section><div class="text-date-gray inline">Published <time datetime="2022-07-02 14:01">2022-07-02 14:01</time></div></section><section id="post-body-container" class="relative"><div class="markdown"><p></p><div class="img-container"><div class="img-wrap cover"><img src="https://github.com/1ilsang/dev/assets/23524849/e3637b13-b6b4-4bda-b3bb-7cd9f15928e3" alt="cover"></div></div><p></p>
+<p>이번에는 디펜던시를 자동으로 최신화 해주는 <a class="underline-highlight-fade" target="_blank" href="https://www.mend.io/free-developer-tools/renovate/" rel="noreferrer noopener">Renovate</a>를 소개해보고자 한다.</p>
+<h2 id="index" data-heading="true"><a data-heading="true" href="#index"><span class="icon icon-link"></span></a>Index</h2>
+<ul>
+<li>INTRO</li>
+<li>Renovate란?</li>
+<li>Renovate의 장점</li>
+<li>적용 방법</li>
+<li>마무리</li>
+</ul>
+<h2 id="intro" data-heading="true"><a data-heading="true" href="#intro"><span class="icon icon-link"></span></a>INTRO</h2>
+<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/45e6a922-03f6-42a2-af73-4f9439e9d88c" alt="repo-alert"></div></div><p></p>
+<p>리포지터리에서 위와 같은 노티를 봤을수도 있다. 혹여나 <strong><em>critical severity</em></strong>가 존재한다면 마음 한켠이 굉장히 불안해지기 시작한다. "그날이 왔구나" 생각하며 일정을 산정해 버전업 계획을 세우게 된다.</p>
+<p>오래된 버전을 올리는것은 굉장히 고통스러운 작업을 동반한다.</p>
+<p>노티로 알려주는 패키지에는 "종속성"에 포함되는 패키지도 있기 때문에 복잡하게 얽힌 의존 관계를 한땀한땀 쫓아가며 올려야 하는 패키지들을 수색하는 과정이 필요하다.</p>
+<p></p><div class="img-container"><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/0b908c8e-276f-4a62-9b68-a278822b6635" alt="file-hierarchy"></div></div><p></p>
+<p>만약 <code>minimist</code> 라는 라이브러리의 버전을 올려야 한다고 할 경우, 이 라이브러리를 종속성으로 가지고 있는 "실제로 설치된" 라이브러리를 <code>yarn.lock</code>과 같은 락파일에서 디펜던시 그래프를 찾아 올라가야 한다.</p>
+<p>위의 예에서는 <code>detective</code> 패키지가 종속성을 가지고 있다. 하지만 <code>detective는</code> 설치한 적이 없기 때문에 <code>package.json</code>에 없다. 따라서 <code>detective</code> 라이브러리를 종속하고 있는 또 다른 라이브러리를 찾아 올라가야 한다.</p>
+<p>이는 굉장히 고통스러운 과정이다.</p>
+<p>의존성이 커지기 전에 조금씩 버전을 올렸다면 이런 문제는 없지 않았을까 생각하게 된다. Renovate를 통해 이 문제를 해결해 보자.</p>
+<blockquote>
+<p>깃헙의 공식 툴인 <a class="underline-highlight-fade" target="_blank" href="https://www.libhunt.com/compare-renovate-vs-dependabot-core" rel="noreferrer noopener">dependabot 과의 차이점</a>도 향후 작성해 볼 예정이다. <a class="underline-highlight-fade" target="_blank" href="https://www.reddit.com/r/reactjs/comments/us666i/how_do_you_keep_up_with_npm_package_updates/" rel="noreferrer noopener">레딧에서 다양한 의견</a>을 볼 수 있다.</p>
+</blockquote>
+<h2 id="renovate란" data-heading="true"><a data-heading="true" href="#renovate란"><span class="icon icon-link"></span></a>Renovate란?</h2>
+<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/7931049f-5714-4944-9348-fe12d56c1521" alt="renovate-logo"></div></div><p></p>
+<p><a class="underline-highlight-fade" target="_blank" href="https://www.mend.io/free-developer-tools/renovate/" rel="noreferrer noopener">Renovate</a>는 자동으로 디펜던시를 업데이트 해주는 봇이다.</p>
+<p>리포지터리의 패키지 관리자 파일을 확인하고 업데이트가 필요한 종속성을 발견하면 Pull Request 를 자동으로 해준다.</p>
+<h2 id="renovate의-장점" data-heading="true"><a data-heading="true" href="#renovate의-장점"><span class="icon icon-link"></span></a>Renovate의 장점</h2>
+<ul>
+<li><a class="underline-highlight-fade" target="_blank" href="https://github.com/renovatebot/renovate/blob/main/license" rel="noreferrer noopener">MIT license</a> / <a class="underline-highlight-fade" target="_blank" href="https://github.com/renovatebot" rel="noreferrer noopener">오픈소스</a></li>
+<li><a class="underline-highlight-fade" target="_blank" href="https://github.com/apps/renovate" rel="noreferrer noopener">간단한 봇 설치</a> 및 유지보수가 필요하지 않다.
+<ul>
+<li>리포지터리의 디펜던시에 renovate가 추가되지 않는다는 큰 장점이 있다(레포와 완전히 별개로 동작).</li>
+</ul>
+</li>
+<li>풍부한 json 봇 동작 설정.</li>
+<li>PR 자동 생성 + 릴리즈 노트.</li>
+<li>monorepo 지원.</li>
+</ul>
+<p></p><div class="img-container"><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/75ce7f26-d82c-4b7b-a589-cfe684307e0f" alt="pr-example"></div></div><p></p>
+<p>Renovate를 적용하면 <a class="underline-highlight-fade" target="_blank" href="https://github.com/1ilsang/dev/pull/5" rel="noreferrer noopener">PR</a>이 생성된다.</p>
+<p>PR을 확인해보면 아래와 같은 특징을 찾아볼 수 있다.</p>
+<ol>
+<li>캐럿 -&gt; PIN 버전으로 변경되었다.
+<ul>
+<li>버전을 특정하고 이후의 버전은 새로운 PR로 생성된다.</li>
+</ul>
+</li>
+<li>릴리즈 노트를 제공한다.
+<ul>
+<li>현재 버전과 타겟 버전 사이의 추가 내역을 제공해주기 때문에 로그를 명시적으로 확인할 수 있다.</li>
+</ul>
+</li>
+<li>Compare Source를 제공합니다.
+<ul>
+<li>라이브러리 코드의 어디가 바뀌었는지 정확히 알 수 있다.</li>
+<li>덤으로 메인테이너의 코드 리뷰나 discussion도 눈팅할수 있다.</li>
+</ul>
+</li>
+<li>PR이므로 DroneCI 및 actions와 조합해 2중 검증을 할 수 있다.</li>
+</ol>
+<p>그 외에도 main 브랜치에 다른 브랜치가 merge되어 rebase가 필요할 경우 토글 버튼만으로 처리할수 있다.</p>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="json" data-theme="material-theme-palenight"><code data-language="json" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#89DDFF">{</span></span>
+<span data-line=""><span style="color:#89DDFF">  "</span><span style="color:#C792EA">extends</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> [</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">config:base</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">],</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">  // PR의 기본 라벨 설정</span></span>
+<span data-line=""><span style="color:#89DDFF">  "</span><span style="color:#C792EA">labels</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> [</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">renovate</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> "</span><span style="color:#C3E88D">translate</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">],</span></span>
+<span data-line=""><span style="color:#89DDFF">  "</span><span style="color:#C792EA">packageRules</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> [</span></span>
+<span data-line=""><span style="color:#89DDFF">    {</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">      // 타입패키지들은 major업데이트가 아닌 이상 자동 merge</span></span>
+<span data-line=""><span style="color:#89DDFF">      "</span><span style="color:#FFCB6B">packagePatterns</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> [</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">^@types/</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">],</span></span>
+<span data-line=""><span style="color:#89DDFF">      "</span><span style="color:#FFCB6B">automerge</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> true,</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">      // automerge시 comment를 설정할 수 있다.</span></span>
+<span data-line=""><span style="color:#89DDFF">      "</span><span style="color:#FFCB6B">automergeType</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> "</span><span style="color:#C3E88D">pr-comment</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#89DDFF">      "</span><span style="color:#FFCB6B">automergeComment</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> "</span><span style="color:#C3E88D">types: auto merge</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#89DDFF">      "</span><span style="color:#FFCB6B">major</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#89DDFF">        "</span><span style="color:#F78C6C">automerge</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> false</span></span>
+<span data-line=""><span style="color:#89DDFF">      }</span></span>
+<span data-line=""><span style="color:#89DDFF">    },</span></span>
+<span data-line=""><span style="color:#89DDFF">    {</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">      // lint 관련 패키지들은 하나의 PR로 생성하도록 설정</span></span>
+<span data-line=""><span style="color:#89DDFF">      "</span><span style="color:#FFCB6B">groupName</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> "</span><span style="color:#C3E88D">lints</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#89DDFF">      "</span><span style="color:#FFCB6B">matchPackagePatterns</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> [</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">^eslint</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> "</span><span style="color:#C3E88D">^prettier</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> "</span><span style="color:#C3E88D">^markdownlint</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">],</span></span>
+<span data-line=""><span style="color:#89DDFF">      "</span><span style="color:#FFCB6B">labels</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> [</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">lint</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">]</span></span>
+<span data-line=""><span style="color:#89DDFF">    }</span></span>
+<span data-line=""><span style="color:#89DDFF">  ]</span></span>
+<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre></figure>
+<p>또한 JSON 설정을 통해 auto merge, label, semver 범위 지정, <a class="underline-highlight-fade" target="_blank" href="https://docs.renovatebot.com/configuration-options/#schedule" rel="noreferrer noopener">PR 스케줄 설정</a>, <strong>최대 PR 개수 설정(기본 10개)</strong> 등의 옵션을 설정할수 있다.</p>
+<ul>
+<li><a class="underline-highlight-fade" target="_blank" href="https://docs.renovatebot.com/configuration-options/" rel="noreferrer noopener">공식문서 보기</a></li>
+</ul>
+<h2 id="적용-방법" data-heading="true"><a data-heading="true" href="#적용-방법"><span class="icon icon-link"></span></a>적용 방법</h2>
+<p>적용 방법은 상당히 간단하다. 봇을 설치해 주면 사실상 끝이다.</p>
+<ol>
+<li>Renovate app을 설치한다.</li>
+</ol>
+<p><a class="underline-highlight-fade" target="_blank" href="https://github.com/apps/renovate" rel="noreferrer noopener">Renovate app</a> 봇을 설치한다.</p>
+<p></p><div class="img-container"><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/d47b19d3-694c-4a10-aa7f-abfef7e21f77" alt="repo-bot"></div></div><p></p>
+<p>그후 설치 페이지로 진입해서 봇을 추가할 리포지터리를 선택한다.</p>
+<ol>
+<li>Renovate PR을 merge 한다.</li>
+</ol>
+<p>앱을 레포에 등록하면 <a class="underline-highlight-fade" target="_blank" href="https://github.com/1ilsang/dev/pull/2" rel="noreferrer noopener">자동으로 PR이 생성</a>된다. 해당 PR을 머지한다.</p>
+<ol start="3">
+<li>PR 확인 및 renovate.json 설정</li>
+</ol>
+<p>이제 앞에서 본것과 같이 업데이트가 필요한 라이브러리의 PR이 자동으로 생성된다. 기본값은 10개이기 때문에 renovate.json 값을 수정해 원하는 방식으로 조정할 수 있다.</p>
+<h2 id="마무리" data-heading="true"><a data-heading="true" href="#마무리"><span class="icon icon-link"></span></a>마무리</h2>
+<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/62000c48-245d-4913-8678-dd590eba170a" alt="finish"></div></div><p></p>
+<p>그동안 디펜던시는 "기간 잡아서 한방에 처리하자"로 남겨두고 있었다.</p>
+<p>그렇기 때문에 정말 특정한 이슈가 없는 이상 버전 올릴 생각을 잘 하지 않게 되었고, 그 결과 수많은 Breaking change를 만나며 고생했던 기억이 있다.</p>
+<p>무엇보다 "<strong>사용하고 있는 라이브러리의 최신 근황</strong>"에 대해 궁금해 하지 않았던 점도 한몫 했다.</p>
+<p>이제, Renovate가 제공해주는 지속되는 PR을 통해 놓치지 않고 새로운 버전을 쫓아갈 수 있을거라 생각하고 있다. 또한 changeLog 및 sourceCompare를 통해 각 라이브러리의 근황도 자연스럽게 알게 될거라 기대하고 있다.</p>
+<p>그럼 이만!</p></div><aside class="absolute inline-block h-full top-0 left-full break-words max-xl:hidden" aria-label="index"><ul class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"><li data-id="index" class="pt-0.5 text-base select-none	cursor-pointer hover:text-sub-blue">Index</li><li data-id="intro" class="pt-0.5 text-base select-none	cursor-pointer hover:text-sub-blue">INTRO</li><li data-id="renovate란" class="pt-0.5 text-base select-none	cursor-pointer hover:text-sub-blue">Renovate란?</li><li data-id="renovate의-장점" class="pt-0.5 text-base select-none	cursor-pointer hover:text-sub-blue">Renovate의 장점</li><li data-id="적용-방법" class="pt-0.5 text-base select-none	cursor-pointer hover:text-sub-blue">적용 방법</li><li data-id="마무리" class="pt-0.5 text-base select-none	cursor-pointer hover:text-sub-blue">마무리</li></ul></aside></section><a class="highlighter mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water" href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] Renovate%20%EA%B0%84%EB%8B%A8%ED%95%98%EA%B2%8C%20%EC%82%B4%ED%8E%B4%EB%B3%B4%EA%B8%B0&amp;body=<!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 -->" rel="noopener noreferrer" target="_blank">📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍</a><div class="flex items-center mt-1.5 mb-56"><div>☕ 소주 한 잔 후원하기</div><sub>(예금주: 이상철)</sub><img class="w-20 cursor-pointer object-contain hover:animate-bouncing" src="/images/logo/toss-pay.webp" alt="toss"><img class="w-12 cursor-pointer object-contain hover:animate-bouncing" src="/images/logo/kakao-pay.webp" alt="kakao"></div></section><footer class="w-full h-screen flex"><div class="flex w-2/3 overflow-hidden"><div class="flex rotate-[40deg]"><div class="w-10 h-full bg-highlight brightness-125"></div><div class="w-10 h-full bg-snazzy-bg"></div></div><div class="flex rotate-[30deg]"><div class="w-10 h-full bg-highlight brightness-125"></div><div class="w-10 h-full bg-snazzy-bg"></div></div><div class="flex rotate-[0deg]"><div class="w-10 h-full bg-highlight brightness-125"></div><div class="w-10 h-full bg-snazzy-bg"></div></div><div class="flex rotate-[20deg]"><div class="w-10 h-full bg-highlight brightness-125"></div><div class="w-10 h-full bg-snazzy-bg"></div></div><div class="flex -rotate-[50deg]"><div class="w-10 h-full bg-highlight brightness-125"></div><div class="w-10 h-full bg-snazzy-bg"></div></div><div class="flex -rotate-[110deg]"><div class="w-10 h-full bg-highlight brightness-125"></div><div class="w-10 h-full bg-snazzy-bg"></div></div><div class="flex rotate-[20deg]"><div class="w-10 h-full bg-highlight brightness-125"></div><div class="w-10 h-full bg-snazzy-bg"></div></div><div class="flex -rotate-[90deg]"><div class="w-10 h-full bg-highlight brightness-125"></div><div class="w-10 h-full bg-snazzy-bg"></div></div><div class="flex -rotate-[60deg]"><div class="w-10 h-full bg-highlight brightness-125"></div><div class="w-10 h-full bg-snazzy-bg"></div></div><div class="flex rotate-[10deg]"><div class="w-10 h-full bg-highlight brightness-125"></div><div class="w-10 h-full bg-snazzy-bg"></div></div><div class="flex -rotate-[70deg]"><div class="w-10 h-full bg-highlight brightness-125"></div><div class="w-10 h-full bg-snazzy-bg"></div></div><div class="flex -rotate-[80deg]"><div class="w-10 h-full bg-highlight brightness-125"></div><div class="w-10 h-full bg-snazzy-bg"></div></div></div><ul class="w-1/3 text-center pt-[50vh]"><li class="text-white inline-block text-sm px-4 relative after:content-['•'] after:absolute after:right-[calc(0.2rem*-1)] last:after:content-['']"><a class="hover:text-highlight" href="/about">1ilsang</a></li><li class="text-white inline-block text-sm px-4 relative after:content-['•'] after:absolute after:right-[calc(0.2rem*-1)] last:after:content-['']"><a class="hover:text-highlight" href="https://github.com/1ilsang" rel="noopener noreferrer" target="_blank">GitHub</a></li><li class="text-white inline-block text-sm px-4 relative after:content-['•'] after:absolute after:right-[calc(0.2rem*-1)] last:after:content-['']"><a class="hover:text-highlight" href="https://www.linkedin.com/in/1ilsang" rel="noopener noreferrer" target="_blank">LinkedIn</a></li></ul></footer>

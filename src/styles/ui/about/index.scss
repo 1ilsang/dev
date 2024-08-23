@@ -1,0 +1,29 @@
+@import './common';
+@import './project';
+@import './profile';
+@import './introduction';
+@import './work';
+@import './activity';
+@import './education';
+
+.about {
+  &-profile {
+    @include profile;
+  }
+
+  &-introduction {
+    @include introduction;
+  }
+
+  &-work {
+    @include work;
+  }
+
+  &-activity {
+    @include activity;
+  }
+
+  &-education {
+    @include education;
+  }
+}
