@@ -1,0 +1,17 @@
+export const redirectUrlMapper = {
+  '/posts/activity/bali-remote': '/posts/bali-remote-work',
+  '/posts/activity/geultto8-seminar': '/posts/geultto8-open-source-seminar',
+  '/posts/book/micro-state-management': '/posts/micro-state-management-review',
+  '/posts/book/woowa-type': '/posts/woowa-type-review',
+  '/posts/book/quality-of-job': '/posts/quality-of-job-review',
+  '/posts/js/mdn-ko-reviewer': '/posts/mdn-ko-organizer',
+  '/posts/js/dev-server': '/posts/vite-dev-server',
+  '/posts/js/sort': '/posts/array-prototype-sort',
+  '/posts/js/use-transition': '/posts/use-transition',
+  '/posts/js/use-prevent-leave': '/posts/use-prevent-leave',
+  '/posts/js/storybook7': '/posts/storybook7',
+  '/posts/js/typescript5': '/posts/typescript5',
+  '/posts/js/renovate': '/posts/renovate',
+  '/posts/js/turborepo': '/posts/turborepo',
+  '/posts/tool/mac/init': '/posts/mac-init-apps',
+};

@@ -1,0 +1,27 @@
+import { expect, test } from '@playwright/test';
+import { gotoUrl, screenshotFullPage } from './shared/utils';
+import { MACRO_SUITE } from './shared/constants';
+
+test.describe('about', () => {
+  test(MACRO_SUITE.SCREEN_SNAPSHOT, async ({ page }) => {
+    await screenshotFullPage({ page, url: `/about`, arg: [`about.png`] });
+  });
+
+  test(MACRO_SUITE.DOM_SNAPSHOT, async ({ page }) => {
+    await gotoUrl({ page, url: '/about' });
+    const body = await page.locator('main').innerHTML();
+    expect(body).toMatchSnapshot([`about.html`]);
+  });
+
+  test(`should exist favicon`, async ({ page }) => {
+    await gotoUrl({ page, url: '/about' });
+    const faviconUrl = await page.evaluate(() => {
+      const link = document.querySelector(
+        'link[rel="icon"]',
+      ) as HTMLLinkElement | null;
+      return link?.href ?? '';
+    });
+
+    expect(faviconUrl.endsWith('/favicon/favicon-32x32.png')).toBe(true);
+  });
+});
