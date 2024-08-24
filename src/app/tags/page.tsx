@@ -3,18 +3,11 @@ import { type NextPage } from 'next';
 import { Footer } from '~/shared/components/Footer';
 import { MainLayout } from '~/shared/components/MainLayout';
 import Navbar from '~/shared/components/nav/Navbar';
-import { getAllPosts, getPostBySlug } from '~/shared/helpers/post';
+import { getAllTags } from '~/shared/helpers/post';
 import TagListContainer from '~/tags/tagList/Container';
 
 const Tags: NextPage = () => {
-  const rawPosts = getAllPosts(['slug']);
-  const allTags = rawPosts
-    .map((rawPost) => {
-      const data = getPostBySlug(rawPost.slug, ['tags']);
-      return data.tags;
-    })
-    .flatMap((tagList) => tagList);
-  const tags = [...new Set(allTags)];
+  const tags = getAllTags();
 
   return (
     <MainLayout>

@@ -101,6 +101,12 @@ export const getAllPosts = (fields: (keyof PostType)[] = []) => {
   return posts;
 };
 
+export const getAllTags = () => {
+  const posts = getAllPosts(['tags']);
+  const tags = [...new Set(posts.map((post) => post.tags).flat())];
+  return tags;
+};
+
 export const getPost = async (url: PostType['url']): Promise<PostType> => {
   if (!urlToSlugMap[url]) {
     // NOTE: It will set urlToSlugMap

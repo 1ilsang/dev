@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 
 import Navbar from '~/shared/components/nav/Navbar';
 import { Footer } from '~/shared/components/Footer';
-import { getAllPosts } from '~/shared/helpers/post';
+import { getAllPosts, getAllTags } from '~/shared/helpers/post';
 import TagDetailContainer from '~/tags/detail/Container';
 import { MainLayout } from '~/shared/components/MainLayout';
 
@@ -34,14 +34,8 @@ const Tags: NextPage<TagsDetailProps> = ({ params: { tag } }) => {
 export default Tags;
 
 export async function generateStaticParams(): Promise<{ tag: string }[]> {
-  const allTags = getAllPosts(['tags'])
-    .map((item) => item.tags)
-    .flatMap((tags) => tags);
-  const tags = [...new Set(allTags)];
-  const paths = tags.map((tag) => {
-    return { tag };
-  });
-
+  const tags = getAllTags();
+  const paths = tags.map((tag) => ({ tag }));
   return paths;
 }
 
