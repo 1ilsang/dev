@@ -4,16 +4,19 @@ import { memo } from 'react';
 import type { CompanyContentProjectProps } from './Container';
 
 import DateFormatter from '~/shared/components/DateFormatter';
+import classNames from 'classnames';
 
 type ProjectDateProps = Pick<
   CompanyContentProjectProps,
   'startDate' | 'endDate' | 'format'
->;
+> & { className?: string };
 
-const ProjectDate: FunctionComponent<ProjectDateProps> = memo(
-  ({ format, startDate, endDate }) => {
+export const ProjectDate: FunctionComponent<ProjectDateProps> = memo(
+  ({ format, startDate, endDate, className }) => {
     return (
-      <div className="date">
+      <div
+        className={classNames('select-none min-w-[119px] mr-2', [className])}
+      >
         <DateFormatter date={startDate} format={format} /> -{' '}
         {endDate ? <DateFormatter date={endDate} format={format} /> : 'Present'}
       </div>
@@ -21,5 +24,3 @@ const ProjectDate: FunctionComponent<ProjectDateProps> = memo(
   },
 );
 ProjectDate.displayName = 'ProjectDate';
-
-export default ProjectDate;

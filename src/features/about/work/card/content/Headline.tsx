@@ -3,21 +3,40 @@ import type { FunctionComponent, MouseEventHandler } from 'react';
 
 type ContentHeadlineProps = {
   name: string;
+  description: string;
   onClick?: MouseEventHandler<HTMLDivElement>;
   hover?: boolean;
+  underline?: boolean;
 };
 
 const ContentHeadline: FunctionComponent<ContentHeadlineProps> = ({
   name,
   onClick,
   hover = true,
+  underline = true,
+  description,
 }) => {
   return (
-    <div className={classNames(`headline`, { hover })} onClick={onClick}>
-      <div id={name} className="title">
-        {name}
+    <>
+      <div
+        className={classNames('flex', [
+          hover && 'cursor-pointer duration-300 hover:text-highlight',
+        ])}
+        onClick={onClick}
+      >
+        <div id={name} className="select-none text-2xl leading-9 font-bold">
+          {name}
+        </div>
       </div>
-    </div>
+      <div
+        className={classNames('mb-4 select-none', [
+          underline &&
+            'border-dotted border-b-[1px] border-white-blue print:border-black',
+        ])}
+      >
+        {description}
+      </div>
+    </>
   );
 };
 

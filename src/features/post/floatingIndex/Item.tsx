@@ -16,7 +16,7 @@ const FloatingItem: FunctionComponent<FloatingItemProps> = ({
     <li
       data-id={item.id}
       className={classNames([
-        'pt-0.5 text-base select-none	cursor-pointer hover:text-sub-blue',
+        'pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue',
         {
           'animate-floating-index': active,
           "before:content-['-'] before:mr-1": item.tagName === 'H3',

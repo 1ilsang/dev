@@ -3,6 +3,7 @@ const colors = {
   black: '#101010',
   'date-gray': '#6c6e6f',
   base: '#425061',
+  dark: 'rgb(100 116 139)',
   'base-og': '#ee7752',
   'sub-blue': '#61768f',
   'white-blue': '#d9dee5',
@@ -10,6 +11,7 @@ const colors = {
   progress: '#28bc97',
   'light-blue': '#6e94d8',
   'snazzy-bg': 'rgb(20 22 33)',
+  peach: '#d7c0c0',
 };
 
 const keyframes = {
@@ -88,6 +90,7 @@ module.exports = {
           'linear-gradient(-45deg,#ee7752,#23a6d5,#ff9393,#2ddbdb,#2389ff)',
         footer:
           'linear-gradient(-45deg,#ee7752,#e73c7e,#23a6d5,#e73c7e,transparent)',
+        jumbo: 'linear-gradient(-90deg, #ee7752, #e73c7e, #23a6d5, #e73c7e)',
       },
       printColorAdjust: {
         exact: 'print-color-adjust: exact',
@@ -128,6 +131,16 @@ module.exports = {
           },
           '&::-webkit-scrollbar-track': {
             background: 'transparent',
+          },
+        },
+        '.underline-highlight-fade': {
+          color: colors.highlight,
+          textDecoration: `underline 0.15em ${colors['snazzy-bg']}`,
+          transition: 'text-decoration-color 500ms',
+
+          '&:hover': {
+            cursor: 'pointer',
+            textDecorationColor: colors.highlight,
           },
         },
       });

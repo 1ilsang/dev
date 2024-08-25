@@ -6,6 +6,7 @@ import { useState } from 'react';
 import WorkCardContainer from './card/Container';
 
 import { companyData } from '~/about/work/data/company';
+import { Label } from '../shared/Label';
 
 type WorkContainerProps = {
   format: string;
@@ -18,10 +19,8 @@ const WorkContainer: FunctionComponent<WorkContainerProps> = ({ format }) => {
     setToggleOpenAll(toggleOpenAll === undefined ? false : !toggleOpenAll);
 
   return (
-    <section className="about-work">
-      <div className="label" onClick={handleTitleClick}>
-        WORK EXPERIENCE
-      </div>
+    <section className="flex flex-col pb-8">
+      <Label label="WORK EXPERIENCE" onClick={handleTitleClick} />
       <>
         {companyData.map((data) => (
           <WorkCardContainer

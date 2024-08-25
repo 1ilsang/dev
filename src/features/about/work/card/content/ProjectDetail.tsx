@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { useAtom } from 'jotai';
 import { type FunctionComponent, type MouseEventHandler, memo } from 'react';
 
@@ -6,10 +7,12 @@ import DynamicImage from '~/shared/components/DynamicImage';
 import { imageSrcAtom } from '~/shared/components/modal/atoms';
 import usePrint from '~/shared/hooks/usePrint';
 
-type ProjectDetailProps = Project;
+type ProjectDetailProps = Project & {
+  openClassName: string;
+};
 
 const ProjectDetail: FunctionComponent<ProjectDetailProps> = memo(
-  ({ summary, body, img }) => {
+  ({ summary, body, img, openClassName }) => {
     const { print } = usePrint();
     const [, setImageSrc] = useAtom(imageSrcAtom);
 
@@ -19,23 +22,25 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = memo(
     };
 
     return (
-      <>
+      <div
+        className={classNames('flex flex-wrap break-words', [openClassName])}
+      >
         {!print && img && (
           <DynamicImage
-            className="image"
+            className="w-full shadow-[1px_1px_8px] shadow-peach"
             width={img.width}
             src={img.url}
             alt={img.alt}
             onClick={handleImageClick}
           />
         )}
-        <div className="text">
-          <ul className="main">
-            <span className="summary">{summary}</span>
+        <div className="mt-4 pl-2 py-4">
+          <ul className="grid leading-7">
+            <span className="ml-1 pb-5">{summary}</span>
             {body}
           </ul>
         </div>
-      </>
+      </div>
     );
   },
 );

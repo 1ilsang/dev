@@ -6,18 +6,6 @@
   }
 }
 
-@mixin tablet {
-  @media (min-width: $min-tablet) and (max-width: $tablet) {
-    @content;
-  }
-}
-
-@mixin desktop {
-  @media (min-width: $min-desktop) and (max-width: $desktop) {
-    @content;
-  }
-}
-
 @mixin i-mac {
   @media (min-width: $i-mac) {
     @content;

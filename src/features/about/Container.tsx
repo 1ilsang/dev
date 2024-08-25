@@ -1,7 +1,7 @@
 import type { FunctionComponent } from 'react';
 
 import WorkContainer from './work/Container';
-import HeadlineContainer from './headline/Container';
+import { HeadlineContainer } from './headline/Container';
 import ActivityContainer from './activity/Container';
 import EducationContainer from './education/Container';
 import IntroductionContainer from './introduction/Container';

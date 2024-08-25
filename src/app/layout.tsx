@@ -13,9 +13,9 @@ export default function RootLayout({
   return (
     <html
       lang="ko"
-      className={`${ridi.variable} text-[14px] overflow-y-auto h-full`}
+      className={`${ridi.variable} text-[14px] overflow-y-auto print:overflow-y-scroll h-full`}
     >
-      <body className="h-full text-white bg-snazzy-bg antialiased font-ridi print:text-black print:bg-white print:w-[210mm] print:h-[297mm] print:print-color-exact pr-scroll-lock md:custom-scrollbar scroll-smooth overflow-y-auto">
+      <body className="h-full text-white bg-snazzy-bg antialiased font-ridi print:text-black print:bg-white print:w-[210mm] print:h-[297mm] print:print-color-exact pr-scroll-lock md:custom-scrollbar scroll-smooth overflow-y-auto print:overflow-y-visible">
         <BannerWrapper />
         {children}
         <div id="portal" />

@@ -4,6 +4,8 @@ import LeftSide from '../work/card/content/LeftSide';
 import ContentHeadline from '../work/card/content/Headline';
 
 import { Catholic } from '~/about/education/data/education';
+import { Label } from '../shared/Label';
+import { RightSide } from '../work/card/content/RightSide';
 
 type EducationContainerProps = {
   format: string;
@@ -13,9 +15,9 @@ const EducationContainer: FunctionComponent<EducationContainerProps> = ({
   format,
 }) => {
   return (
-    <section className="about-education">
-      <div className="label">EDUCATION</div>
-      <div className="about-work-card">
+    <section className="flex flex-col pb-8">
+      <Label label="EDUCATION" />
+      <div className="flex flex-col print:flex-row md:flex-row mt-2 py-3">
         <LeftSide
           href={Catholic.url}
           logoUrl={Catholic.logoUrl}
@@ -24,10 +26,14 @@ const EducationContainer: FunctionComponent<EducationContainerProps> = ({
           workEndDate={Catholic.endDate}
           format={format}
         />
-        <div className="content">
-          <ContentHeadline hover={false} name={Catholic.name} />
-          <div className="education-position">{Catholic.major}</div>
-        </div>
+        <RightSide>
+          <ContentHeadline
+            hover={false}
+            name={Catholic.name}
+            description={Catholic.major}
+            underline={false}
+          />
+        </RightSide>
       </div>
     </section>
   );

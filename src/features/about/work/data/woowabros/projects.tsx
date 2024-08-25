@@ -1,5 +1,6 @@
 import type { Project } from '../../models';
 import { ProjectName } from '../../models';
+import { Section } from '../../shared/Body';
 
 export const TBD: Project = {
   name: ProjectName.TBD,
@@ -8,7 +9,7 @@ export const TBD: Project = {
   summary: `TBD`,
   body: (
     <>
-      <li>TBD</li>
+      <Section top>TBD</Section>
     </>
   ),
 };

@@ -5,6 +5,7 @@ import ActivityCardContainer from './Card';
 import type { Activity } from './models';
 
 import { activityData } from '~/about/activity/data/activity';
+import { Label } from '../shared/Label';
 
 const ActivityContainer: FunctionComponent = () => {
   const activityList = useMemo(() => {
@@ -23,8 +24,8 @@ const ActivityContainer: FunctionComponent = () => {
   }, [activityData]);
 
   return (
-    <section className="about-activity">
-      <div className="label">ACTIVITY</div>
+    <section className="flex flex-col pb-16">
+      <Label label="ACTIVITY" />
       {activityList.map((activity) => (
         <ActivityCardContainer
           key={activity[0]}

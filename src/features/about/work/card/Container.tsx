@@ -6,6 +6,7 @@ import type { Company } from '../models';
 import LeftSide from './content/LeftSide';
 import ContentHeadline from './content/Headline';
 import CompanyContentProject from './content/Container';
+import { RightSide } from './content/RightSide';
 
 export type WorkCardContainerProps = Company & {
   toggleOpenAll?: boolean;
@@ -36,26 +37,26 @@ const WorkCardContainer: FunctionComponent<WorkCardContainerProps> = (
     open === undefined ? 'max-h-[8000px]' : open ? 'show' : 'hide';
 
   return (
-    <article className="about-work-card">
+    <article className="flex flex-col print:flex-row md:flex-row mt-4 py-3">
       <LeftSide
         {...props}
         href={companyHref}
         logoUrl={companyLogoUrl}
         alt={company}
       />
-      <div className="content">
+      <RightSide>
         <ContentHeadline
           {...props}
           name={props.company}
           onClick={handleHeadlineClick}
+          description={position}
         />
-        <div className="position">{position}</div>
         <div className={openClassName}>
           {projectList.map((project) => (
             <CompanyContentProject key={project.name} {...project} />
           ))}
         </div>
-      </div>
+      </RightSide>
     </article>
   );
 };

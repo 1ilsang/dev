@@ -17,16 +17,19 @@ const ProfileLogo: FunctionComponent<ProfileLogoProps> = ({
 }) => {
   const { print } = usePrint();
   return (
-    <div className="about-profile-logo">
+    <div className="flex justify-end pb-px h-7">
       <a
-        className="text-highlight print:text-black hover:underline"
+        className="flex items-center text-highlight print:text-black hover:underline"
         rel="noopener noreferrer"
         target="_blank"
         href={href}
       >
         {label}
         <img
-          className={classNames({ gmail: label === MyProfile.gmail.label })}
+          className={classNames('py-0.5 pl-1.5 w-7', {
+            'h-6': label === MyProfile.gmail.label,
+            'h-7': label !== MyProfile.gmail.label,
+          })}
           src={print ? (imageSrcBlack ?? imageSrc) : imageSrc}
           alt={alt}
         />
