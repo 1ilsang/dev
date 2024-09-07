@@ -31,30 +31,11 @@
     list-style: initial;
   }
 
-  h1 {
-    @apply text-2xl mt-16 leading-snug;
-
-    border-bottom: 1px solid hsl(210deg 18% 87% / 100%);
-  }
-
-  h2 {
-    @apply text-3xl mt-12 leading-snug;
-
-    border-bottom: 1px solid hsl(210deg 18% 87% / 100%);
-  }
-
-  h3 {
-    @apply text-2xl mt-8 leading-snug;
-  }
-
-  h4 {
-    @apply text-xl mt-6 leading-snug;
-  }
-
   h1,
   h2,
   h3,
-  h4 {
+  h4,
+  h5 {
     font-weight: 600;
     padding-bottom: 0.1rem;
     padding-top: 1.5rem;
@@ -76,6 +57,33 @@
         }
       }
     }
+  }
+
+  h1 {
+    @apply text-2xl mt-16 leading-snug;
+
+    border-bottom: 1px solid hsl(210deg 18% 87% / 100%);
+  }
+
+  h2 {
+    @apply text-3xl mt-12 leading-snug;
+
+    border-bottom: 1px solid hsl(210deg 18% 87% / 100%);
+  }
+
+  h3 {
+    @apply text-2xl mt-8 leading-snug;
+  }
+
+  h4 {
+    @apply text-xl mt-6 leading-snug;
+  }
+
+  h5 {
+    @apply text-lg leading-snug;
+
+    padding-top: 1rem;
+    margin-bottom: 0.2rem;
   }
 
   table {

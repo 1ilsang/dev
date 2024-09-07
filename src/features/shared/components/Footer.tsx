@@ -53,7 +53,7 @@ export const Footer: FunctionComponent<Props> = memo(
             <Frame key={idx} idx={idx} />
           ))}
         </div>
-        <ul className="w-1/3 text-center pt-[50vh]">
+        <ul className="w-1/3 text-center content-center">
           <Item>
             <Link className={hoverHighlight} href="/about">
               1ilsang
