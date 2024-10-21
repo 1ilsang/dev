@@ -19,7 +19,7 @@ importers:
         version: 2.10.1(@types/react@18.3.11)(react@18.3.1)
       next:
         specifier: 14.2.15
-        version: 14.2.15(@babel/core@7.25.2)(@opentelemetry/api@1.8.0)(@playwright/test@1.48.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.79.5)
+        version: 14.2.15(@babel/core@7.25.2)(@opentelemetry/api@1.8.0)(@playwright/test@1.48.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.80.3)
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -121,8 +121,8 @@ importers:
         specifier: ^3.3.3
         version: 3.3.3
       sass:
-        specifier: 1.79.5
-        version: 1.79.5
+        specifier: 1.80.3
+        version: 1.80.3
       stylelint:
         specifier: ^16.7.0
         version: 16.10.0(typescript@5.6.3)
@@ -5429,8 +5429,8 @@ packages:
   safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
 
-  sass@1.79.5:
-    resolution: {integrity: sha512-W1h5kp6bdhqFh2tk3DsI771MoEJjvrSY/2ihJRJS4pjIyfJCw0nTsxqhnrUzaLMOJjFchj8rOvraI/YUVjtx5g==}
+  sass@1.80.3:
+    resolution: {integrity: sha512-ptDWyVmDMVielpz/oWy3YP3nfs7LpJTHIJZboMVs8GEC9eUmtZTZhMHlTW98wY4aEorDfjN38+Wr/XjskFWcfA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -11745,7 +11745,7 @@ snapshots:
       p-wait-for: 4.1.0
       qs: 6.13.0
 
-  next@14.2.15(@babel/core@7.25.2)(@opentelemetry/api@1.8.0)(@playwright/test@1.48.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.79.5):
+  next@14.2.15(@babel/core@7.25.2)(@opentelemetry/api@1.8.0)(@playwright/test@1.48.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.80.3):
     dependencies:
       '@next/env': 14.2.15
       '@swc/helpers': 0.5.5
@@ -11768,7 +11768,7 @@ snapshots:
       '@next/swc-win32-x64-msvc': 14.2.15
       '@opentelemetry/api': 1.8.0
       '@playwright/test': 1.48.1
-      sass: 1.79.5
+      sass: 1.80.3
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
@@ -12654,7 +12654,7 @@ snapshots:
 
   safer-buffer@2.1.2: {}
 
-  sass@1.79.5:
+  sass@1.80.3:
     dependencies:
       '@parcel/watcher': 2.4.1
       chokidar: 4.0.1
