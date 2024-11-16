@@ -15,7 +15,7 @@ const useNotFound = () => {
     if (redirectUrl) {
       push(`${redirectUrl}${hash}`);
     }
-  });
+  }, []);
 
   return { redirect };
 };

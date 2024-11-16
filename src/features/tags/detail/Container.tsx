@@ -24,7 +24,9 @@ const TagDetailContainer: FunctionComponent<TagDetailContainerProps> = ({
               {item.title}
             </div>
             <div>{item.description}</div>
-            <div>{formatDate(new Date(item.date), 'yy.MM.dd')}</div>
+            <div suppressHydrationWarning>
+              {formatDate(new Date(item.date), 'yy.MM.dd')}
+            </div>
             <div>
               <img src={item.coverImage} width={200} />
             </div>

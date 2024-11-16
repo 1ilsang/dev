@@ -10,12 +10,13 @@ import { getAllPosts, getPost } from '~/shared/helpers/post';
 import { Portal } from '~/shared/portal/Container';
 
 interface PostsProps {
-  params: {
+  params: Promise<{
     url: PostType['url'];
-  };
+  }>;
 }
 
-const Posts: NextPage<PostsProps> = async ({ params }) => {
+const Posts: NextPage<PostsProps> = async (props) => {
+  const params = await props.params;
   const post = await getPost(params.url);
   return (
     <>
@@ -44,9 +45,8 @@ export async function generateStaticParams(): Promise<
   return paths;
 }
 
-export async function generateMetadata({
-  params,
-}: PostsProps): Promise<Metadata> {
+export async function generateMetadata(props: PostsProps): Promise<Metadata> {
+  const params = await props.params;
   const post = await getPost(params.url);
 
   return {

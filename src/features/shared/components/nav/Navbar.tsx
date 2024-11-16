@@ -22,7 +22,7 @@ const NavText: FunctionComponent<NavTextProps> = memo(
         className={classNames('tracking-tight mr-6', {
           'text-snazzy-bg': path === '/',
           'text-xl mt-2.5': !logo,
-          'text-2xl	font-bold	my-2 ml-3.5': logo,
+          'text-2xl	font-bold my-2 ml-3.5': logo,
         })}
       >
         <Link className="hover:underline" href={`${link}`}>
