@@ -3,14 +3,14 @@
   blockquote {
     padding: 0 1rem;
     color: #8b949e;
-    border-left: 0.25rem solid $base-color;
+    border-left: 0.25rem solid #425061;
   }
 
   // 문장 속 강조 `...`
   code {
     padding: 3px 4px;
     background-color: #19263a;
-    border: 1px solid $base-color;
+    border: 1px solid #425061;
     border-radius: 3px;
     color: #ffa657;
     font-family: var(--d2coding), sans-serif;

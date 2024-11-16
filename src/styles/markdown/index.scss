@@ -1,15 +1,15 @@
-@import './code';
-@import './image';
+@use 'code';
+@use 'image';
 
 .markdown {
-  @include code;
+  @include code.code;
   @apply text-lg leading-relaxed;
 
   word-wrap: break-word;
 
   u {
     padding-bottom: 2px;
-    border-bottom: 3px dashed $sub-color;
+    border-bottom: 3px dashed #61768f;
     text-decoration: none;
   }
 
@@ -53,7 +53,7 @@
 
         &::before {
           content: '⧉';
-          color: $sub-color;
+          color: #61768f;
         }
       }
     }
@@ -89,22 +89,22 @@
   table {
     width: 100%;
     table-layout: fixed;
-    color: $deep-light-color;
+    color: #dfdfdf;
     margin-bottom: 1rem;
 
     th {
-      border: 1px solid $deep-light-color;
+      border: 1px solid #dfdfdf;
       padding: 0 1rem;
-      background-color: $dark-color;
+      background-color: rgb(100 116 139);
     }
 
     td {
       padding: 0 1rem;
-      border: 1px solid $deep-light-color;
+      border: 1px solid #dfdfdf;
     }
   }
 
-  @include image;
+  @include image.image;
 }
 
 /* MOBILE */

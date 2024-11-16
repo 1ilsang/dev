@@ -1,10 +1,6 @@
+@use 'sass:meta';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* stylelint-disable no-invalid-position-at-import-rule */
-@import './variables';
-@import './utils';
-@import './common';
-@import './markdown/index';
-/* stylelint-enable no-invalid-position-at-import-rule */
+@include meta.load-css('common');
+@include meta.load-css('markdown/index');

@@ -1,3 +1,17 @@
+@mixin mobile {
+  @media not print {
+    @media (width <= 767px) {
+      @content;
+    }
+  }
+}
+
+@mixin i-mac {
+  @media (width >= 2400px) {
+    @content;
+  }
+}
+
 @mixin image-wrap {
   width: 70%;
   display: flex;
@@ -31,9 +45,9 @@
     justify-content: center;
 
     .img-wrap {
-      @include image-wrap;
-
       justify-content: center;
+
+      @include image-wrap;
     }
 
     .l {
@@ -63,9 +77,12 @@
   .img-horizon-wrap {
     @include image-wrap;
 
-    width: 100%;
-    overflow-x: scroll;
-    gap: 0.3rem;
+    /* stylelint-disable no-duplicate-selectors */
+    & {
+      width: 100%;
+      overflow-x: scroll;
+      gap: 0.3rem;
+    }
 
     &::-webkit-scrollbar {
       height: 10px;

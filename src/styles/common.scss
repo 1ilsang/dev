@@ -45,11 +45,11 @@ $target: #e73c7e;
 
 .highlighter {
   display: inline-block;
-  color: $highlight-color;
+  color: #30ffcb;
   line-height: 1.1;
 
   @media print {
-    color: $black;
+    color: #101010;
     text-decoration: underline;
   }
 
@@ -57,7 +57,7 @@ $target: #e73c7e;
     content: '';
     display: block;
     height: 1px;
-    background-color: $highlight-color;
+    background-color: #30ffcb;
     transition: width 0.5s ease;
     width: 0;
   }
@@ -72,6 +72,8 @@ $target: #e73c7e;
 }
 
 .show {
+  animation: fade 0.5s forwards;
+
   @keyframes fade {
     0% {
       max-height: 0;
@@ -79,12 +81,10 @@ $target: #e73c7e;
     }
 
     100% {
-      max-height: $max-height;
+      max-height: 8000px;
       opacity: 1;
     }
   }
-
-  animation: fade 0.5s forwards;
 
   @media print {
     animation: none;
@@ -92,9 +92,11 @@ $target: #e73c7e;
 }
 
 .hide {
+  animation: fade-out 0.25s forwards;
+
   @keyframes fade-out {
     0% {
-      max-height: $max-height;
+      max-height: 8000px;
       opacity: 1;
     }
 
@@ -104,8 +106,6 @@ $target: #e73c7e;
       visibility: hidden;
     }
   }
-
-  animation: fade-out 0.25s forwards;
 
   @media print {
     animation: none;
