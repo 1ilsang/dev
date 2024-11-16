@@ -18,6 +18,7 @@ const NavProgress: FunctionComponent = () => {
             : '[&::-webkit-progress-value]:progress-wheel',
         ],
       )}
+      suppressHydrationWarning
       value={progress}
       max={max}
     />

@@ -7,12 +7,16 @@ import TagDetailContainer from '~/tags/detail/Container';
 import { MainLayout } from '~/shared/components/MainLayout';
 
 interface TagsDetailProps {
-  params: {
+  params: Promise<{
     tag: string;
-  };
+  }>;
 }
 
-const Tags: NextPage<TagsDetailProps> = ({ params: { tag } }) => {
+const Tags: NextPage<TagsDetailProps> = async (props) => {
+  const params = await props.params;
+
+  const { tag } = params;
+
   const posts = getAllPosts([
     'tags',
     'title',

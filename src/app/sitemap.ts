@@ -2,6 +2,8 @@ import type { MetadataRoute } from 'next';
 import { MyProfile } from '~/about/headline/data/profile';
 import { getAllPosts, getAllTags } from '~/shared/helpers/post';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const DOMAIN = MyProfile.blog.href;
   const PRIORITY = {
