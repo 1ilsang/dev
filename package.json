@@ -19,6 +19,7 @@
     "lint": "pnpm run '/^lint:.*/'",
     "e2e:build": "NEXT_PUBLIC_E2E=true next build",
     "e2e:update:screen": "pnpm playwright test --grep '@screen-snapshot' --update-snapshots",
+    "e2e:update:dom": "pnpm playwright test --grep '@dom-snapshot' --update-snapshots",
     "e2e:update": "pnpm playwright test --update-snapshots",
     "e2e:report": "pnpm exec playwright show-report",
     "e2e:install": "pnpm exec playwright install --with-deps",
