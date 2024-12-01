@@ -76,7 +76,7 @@
     "netlify-cli": "^17.33.3",
     "postcss": "^8.4.39",
     "prettier": "^3.3.3",
-    "sass": "1.80.6",
+    "sass": "1.81.0",
     "sass-migrator": "^2.2.1",
     "stylelint": "^16.7.0",
     "stylelint-config-standard-scss": "^13.1.0",
