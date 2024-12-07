@@ -29,6 +29,7 @@ export enum ProjectName {
   MyBiskit = 'Mybiskit',
   Blind = 'Blind',
   Stove = 'Stove',
+  CommerceAdminPlatform = 'Commerce Admin Platform',
   TBD = 'Coming Soon',
 }
 

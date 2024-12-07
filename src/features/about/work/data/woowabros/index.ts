@@ -1,7 +1,7 @@
 import type { Company } from '../../models';
 import { CompanyName, JobPosition } from '../../models';
 
-import { TBD } from './projects';
+import { CommerceAdminPlatform } from './projects';
 
 const WoowaBros: Company = {
   company: CompanyName.WoowaBros,
@@ -9,7 +9,7 @@ const WoowaBros: Company = {
   companyLogoUrl: '/images/logo/woowa-bros.webp',
   workStartDate: 1724112000000, // 24.08.20
   position: JobPosition.FE,
-  projectList: [TBD],
+  projectList: [CommerceAdminPlatform],
 };
 
 export default WoowaBros;
