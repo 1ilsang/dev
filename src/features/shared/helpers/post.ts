@@ -54,7 +54,7 @@ const parseCategory = (category: FileCategory): Category => {
   }
 };
 
-export const getPostBySlug = (
+const getPostBySlug = (
   slug: PostType['slug'],
   fields: (keyof PostType)[] = [],
 ) => {

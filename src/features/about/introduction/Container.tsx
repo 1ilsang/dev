@@ -14,7 +14,7 @@ const IntroductionContainer: FunctionComponent = () => {
     <section className="flex flex-col pb-8">
       <div className="mt-8 mb-4 leading-8">
         <div className={my}>
-          어느덧 5년 차 프런트엔드 개발자가 되었습니다.
+          어느덧 6년 차 프런트엔드 개발자가 되었습니다.
           <br />
           <ExternalLink
             className={printUnderLine}
