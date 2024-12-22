@@ -3,10 +3,10 @@ title: '[Next.js] Google AdSense 광고 적용 및 이해하기'
 description: '구글 광고 적용기'
 url: 'google-adsense'
 tags: ['google', 'ad', 'ads', 'adsense', 'nextjs']
-coverImage: '/images/posts/google-adsense/cover.webp'
+coverImage: https://raw.githubusercontent.com/1ilsang/dev/refs/heads/main/public/images/posts/google-adsense/cover.webp
 date: '2024-08-22T07:26:38.617Z'
 ogImage:
-  url: '/images/posts/google-adsense/cover.webp'
+  url: https://raw.githubusercontent.com/1ilsang/dev/refs/heads/main/public/images/posts/google-adsense/cover.webp
 ---
 
 ![cover](/images/posts/google-adsense/cover.webp 'cover')

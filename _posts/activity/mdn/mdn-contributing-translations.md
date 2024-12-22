@@ -3,10 +3,10 @@ title: '오픈소스 기여 첫걸음, MDN 문서 번역 가이드'
 description: 'MDN 문서 번역 방법을 알아보자'
 url: 'mdn-contributing-translations'
 tags: ['mdn', 'contribution', 'translation', 'open-source']
-coverImage: '/images/posts/mdn-contributing-translations/thumbnail.webp'
+coverImage: https://raw.githubusercontent.com/1ilsang/dev/refs/heads/main/public/images/posts/mdn-contributing-translations/thumbnail.webp
 date: '2024-12-21T17:01:23.788Z'
 ogImage:
-  url: '/images/posts/mdn-contributing-translations/thumbnail.webp'
+  url: https://raw.githubusercontent.com/1ilsang/dev/refs/heads/main/public/images/posts/mdn-contributing-translations/thumbnail.webp
 ---
 
 ![cover](/images/posts/mdn-contributing-translations/cover.webp 'cover')
