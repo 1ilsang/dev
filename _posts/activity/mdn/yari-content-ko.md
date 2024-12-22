@@ -144,4 +144,4 @@ MDN은 2005년에 시작되어 문서 전체가 오픈소스로 운영되어 누
 
 그렇기 때문에 리뷰어로서 사명감을 느끼고 있다. 오픈소스를 시작하려는 분들이 꾸준히 기여하고 생태계를 끌어 나갈 인재로 성장할 수 있도록 좋은 경험을 주고 싶다.
 
-MDN 문서 번역에 관심이 생겼다면 [첫 기여자들을 위한 안내서](https://github.com/mdn/translated-content/blob/main/docs/ko/README.md)를 참고해 주시길 바란다.
+MDN 문서 번역에 관심이 생겼다면 [오픈소스 기여 첫걸음, MDN 문서 번역 가이드](/posts/mdn-contributing-translations) 및 [첫 기여자들을 위한 안내서](https://github.com/mdn/translated-content/blob/main/docs/ko/README.md)를 참고해 주시길 바란다.
