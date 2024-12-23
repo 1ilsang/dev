@@ -45,9 +45,14 @@ const CompanyContentProject: FunctionComponent<CompanyContentProjectProps> = (
   })();
 
   return (
-    <div className="mb-4 pr-1 pl-[0.7rem] pb-3 border-dark border-l-[0.24rem] border-b-[0.01rem] border-b-dotted print:border-black">
+    <div
+      className={classNames(
+        'mb-4 pr-1 pl-[0.7rem] border-dark border-l-[0.24rem] border-b-[0.01rem] border-b-dotted print:border-black',
+        { 'pb-4': open },
+      )}
+    >
       <div
-        className="flex flex-col cursor-pointer select-none group duration-300 hover:text-highlight"
+        className="flex flex-col duration-300 cursor-pointer select-none group hover:text-highlight"
         onClick={handleDetailClick}
       >
         <div className="flex items-center justify-between w-full">
