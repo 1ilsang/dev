@@ -3,7 +3,7 @@ import { UniversityName } from '~/about/education/models';
 
 export const Catholic: Education = {
   name: UniversityName.catholic,
-  url: 'https://catholic.ac.kr',
+  url: 'https://www.linkedin.com/school/the-cuk/about',
   major: '미디어공학, 컴퓨터정보공학 전공',
   logoUrl: '/images/logo/catholic.webp',
   startDate: 1330527600000,
