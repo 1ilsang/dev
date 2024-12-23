@@ -7,7 +7,7 @@ type TagsProps = Pick<Project, 'tags'>;
 
 export const Tags: FunctionComponent<TagsProps> = memo(({ tags }) => {
   return (
-    <div className="pl-6 flex w-full select-none flex-wrap">
+    <div className="flex flex-wrap w-full pl-6 select-none">
       {tags.map((tag) => (
         <div
           className="group-hover:bg-opacity-50 duration-300 bg-base text-sm text-white px-1 mt-1 mr-1 rounded-sm print:bg-transparent print:border-[1px] print:border-black print:text-black"

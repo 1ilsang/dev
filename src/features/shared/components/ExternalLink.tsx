@@ -15,10 +15,13 @@ const ExternalLink: FunctionComponent<ExternalLinkProps> = ({
   children,
   disableDefaultCSSTransition = false,
 }) => {
+  const highlighter =
+    'inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-[0] after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[""]';
+
   return (
     <a
       className={classNames([
-        { highlighter: !disableDefaultCSSTransition },
+        { [highlighter]: !disableDefaultCSSTransition },
         className,
       ])}
       href={href}

@@ -24,7 +24,7 @@ const HomeContainer: FunctionComponent = () => {
         muted
         playsInline
       />
-      <div className="bg-home fixed top-0 w-full h-full contrast-200 mix-blend-overlay" />
+      <div className="fixed top-0 w-full h-full bg-home contrast-200 mix-blend-overlay" />
     </div>
   );
 };

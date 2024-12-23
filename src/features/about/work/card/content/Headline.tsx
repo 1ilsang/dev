@@ -24,7 +24,7 @@ const ContentHeadline: FunctionComponent<ContentHeadlineProps> = ({
         ])}
         onClick={onClick}
       >
-        <div id={name} className="select-none text-2xl leading-9 font-bold">
+        <div id={name} className="text-2xl font-bold select-none leading-9">
           {name}
         </div>
       </div>

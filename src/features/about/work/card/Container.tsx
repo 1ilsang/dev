@@ -41,7 +41,7 @@ const WorkCardContainer: FunctionComponent<WorkCardContainerProps> = (
         : 'animate-hide';
 
   return (
-    <article className="flex flex-col print:flex-row md:flex-row mt-4 py-3">
+    <article className="flex flex-col py-3 mt-4 print:flex-row md:flex-row">
       <LeftSide
         {...props}
         href={companyHref}

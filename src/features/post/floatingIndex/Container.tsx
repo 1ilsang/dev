@@ -20,7 +20,7 @@ export const FloatingIndexContainer: FunctionComponent<FloatingIndexProps> = ({
   }
   return (
     <aside
-      className="absolute inline-block h-full top-0 left-full break-words max-xl:hidden"
+      className="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
       aria-label="index"
     >
       <ul className="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48">

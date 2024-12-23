@@ -22,7 +22,11 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = memo(
     };
 
     return (
-      <div className={classNames('break-words', [openClassName])}>
+      <div
+        className={classNames('break-words print:animate-none', [
+          openClassName,
+        ])}
+      >
         {!print && img && (
           <DynamicImage
             className="w-full shadow-[1px_1px_8px] shadow-peach"
@@ -32,9 +36,9 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = memo(
             onClick={handleImageClick}
           />
         )}
-        <div className="mt-4 pl-2 py-4">
+        <div className="py-4 pl-2 mt-4">
           <ul className="grid leading-7">
-            <span className="ml-1 pb-5">{summary}</span>
+            <span className="pb-5 ml-1">{summary}</span>
             {body}
           </ul>
         </div>

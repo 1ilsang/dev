@@ -10,7 +10,7 @@ export const PublishedDate: FunctionComponent<PublishedDateProps> = ({
   date,
 }) => {
   return (
-    <div className="text-date-gray inline">
+    <div className="inline text-date-gray">
       Published <DateFormatter type="iso" date={date} />
     </div>
   );

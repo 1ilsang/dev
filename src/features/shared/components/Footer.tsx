@@ -47,13 +47,13 @@ export const Footer: FunctionComponent<Props> = memo(
 
     if (print || process.env.NEXT_PUBLIC_E2E) return null;
     return (
-      <footer className="w-full h-screen flex">
+      <footer className="flex w-full h-screen">
         <div className="flex w-2/3 overflow-hidden">
           {Array.from({ length: 12 }, (_, idx) => (
             <Frame key={idx} idx={idx} />
           ))}
         </div>
-        <ul className="w-1/3 text-center content-center">
+        <ul className="content-center w-1/3 text-center">
           <Item>
             <Link className={hoverHighlight} href="/about">
               1ilsang

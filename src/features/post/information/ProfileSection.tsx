@@ -11,7 +11,7 @@ export const ProfileSection: FunctionComponent = () => {
         <Link className="text-lg" href="/about">
           {MyProfile.personal.label}
         </Link>
-        <div className="text-sub-blue text-sm">
+        <div className="text-sm text-sub-blue">
           {MyProfile.personal.description}
         </div>
       </div>

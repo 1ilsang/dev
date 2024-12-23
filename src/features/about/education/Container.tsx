@@ -17,7 +17,7 @@ const EducationContainer: FunctionComponent<EducationContainerProps> = ({
   return (
     <section className="flex flex-col pb-8">
       <Label label="EDUCATION" />
-      <div className="flex flex-col print:flex-row md:flex-row mt-2 py-3">
+      <div className="flex flex-col py-3 mt-2 print:flex-row md:flex-row">
         <LeftSide
           href={Catholic.url}
           logoUrl={Catholic.logoUrl}

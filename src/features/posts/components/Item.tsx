@@ -18,7 +18,7 @@ export const MemoedPostItem: FunctionComponent<{ post: PostType }> = memo<{
         className="flex flex-col items-center md:flex-row md:items-start"
         href={`/posts/${post.url}`}
       >
-        <div className="relative overflow-hidden w-64 md:w-52 min-w-52 h-32 md:h-28 mr-6 rounded border border-white-blue">
+        <div className="relative w-64 h-32 mr-6 overflow-hidden border rounded md:w-52 min-w-52 md:h-28 border-white-blue">
           <img
             className="object-cover w-full h-full group-hover:scale-105 transform-gpu transition duration-500"
             src={post.coverImage}

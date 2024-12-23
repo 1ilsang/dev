@@ -13,7 +13,7 @@ export const InformationContainer: FunctionComponent<Props> = ({ post }) => {
   return (
     <>
       <ProfileSection />
-      <section className="flex flex-wrap mt-2 items-end">
+      <section className="flex flex-wrap items-end mt-2">
         {post.tags.map((tag) => (
           <HashTag
             className="mr-2"
