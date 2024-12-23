@@ -31,9 +31,9 @@ const CompanyContentProject: FunctionComponent<CompanyContentProjectProps> = (
     'before:content-["▼"] text-highlight print:text-black print:before:text-black';
 
   const openClassName = (() => {
-    if (print) return 'show';
+    if (print) return 'animate-show';
     if (open === undefined) return 'invisible opacity-0	max-h-0';
-    return open ? 'show' : 'hide';
+    return open ? 'animate-show' : 'animate-hide';
   })();
   const foldState = (() => {
     if (print) return unfold;
@@ -41,7 +41,7 @@ const CompanyContentProject: FunctionComponent<CompanyContentProjectProps> = (
   })();
   const externalLink = (() => {
     if (print) return undefined;
-    return open !== undefined && url && openClassName !== 'hide';
+    return open !== undefined && url && openClassName !== 'animate-hide';
   })();
 
   return (

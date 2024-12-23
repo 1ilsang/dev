@@ -22,9 +22,7 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = memo(
     };
 
     return (
-      <div
-        className={classNames('flex flex-wrap break-words', [openClassName])}
-      >
+      <div className={classNames('break-words', [openClassName])}>
         {!print && img && (
           <DynamicImage
             className="w-full shadow-[1px_1px_8px] shadow-peach"

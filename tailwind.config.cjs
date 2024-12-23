@@ -57,6 +57,27 @@ const keyframes = {
       'background-color': 'rgba(165, 165, 165, 10%)',
     },
   },
+  show: {
+    '0%': {
+      'max-height': 0,
+      opacity: 0,
+    },
+    '100%': {
+      'max-height': '8000px',
+      opacity: 1,
+    },
+  },
+  hide: {
+    '0%': {
+      'max-height': '8000px',
+      opacity: 1,
+    },
+    '100%': {
+      'max-height': 0,
+      opacity: 0,
+      visibility: 'hidden',
+    },
+  },
 };
 
 /** @type {import('tailwindcss').Config} */
@@ -82,6 +103,8 @@ module.exports = {
         skeleton: 'skeleton 1.8s infinite ease-in-out',
         loading:
           'skeleton 1.8s infinite ease-in-out, spin 1s infinite ease-in-out',
+        show: 'show 0.5s forwards',
+        hide: 'hide 0.25s forwards',
       },
       backgroundImage: {
         home: 'linear-gradient(to left,rgb(148, 148, 255),rgb(182, 182, 255))',

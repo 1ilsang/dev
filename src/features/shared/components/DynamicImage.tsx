@@ -29,15 +29,24 @@ const DynamicImage: FunctionComponent<DynamicImageProps> = ({
 
   return (
     <div
-      className={classNames('dynamic-image', [className], {
+      className={classNames('relative mt-4 text-amber-600', [className], {
         'animate-skeleton': loading,
-        min: !min,
+        'max-w-[1.5rem] max-h-[1.5rem]': !min,
       })}
       style={{ width, height }}
     >
-      <button className={min ? 'min' : 'max'} onClick={handleMinClick} />
+      <button
+        className={classNames(
+          'absolute top-[-3rem] left-[-0.5rem] hover:text-amber-400 hover:duration-150 opacity-70 before:text-[5rem]',
+          min
+            ? 'before:content-["⎗"] before:text-[6rem]'
+            : 'before:content-["⎘"]',
+        )}
+        title="Toggle image size"
+        onClick={handleMinClick}
+      />
       <img
-        className={onClick ? 'zoom' : undefined}
+        className={onClick ? 'cursor-zoom-in' : undefined}
         src={src}
         alt={alt}
         width={width}

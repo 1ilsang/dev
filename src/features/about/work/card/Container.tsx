@@ -34,7 +34,11 @@ const WorkCardContainer: FunctionComponent<WorkCardContainerProps> = (
   }, [toggleOpenAll]);
 
   const openClassName =
-    open === undefined ? 'max-h-[8000px]' : open ? 'show' : 'hide';
+    open === undefined
+      ? 'max-h-[8000px]'
+      : open
+        ? 'animate-show'
+        : 'animate-hide';
 
   return (
     <article className="flex flex-col print:flex-row md:flex-row mt-4 py-3">
