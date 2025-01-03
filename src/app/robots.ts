@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/favicon', '/fonts', '/images', '/open.mp4'],
+      disallow: ['/fonts', '/images', '/open.mp4'],
     },
     sitemap: `${MyProfile.blog.href}/sitemap.xml`,
   };

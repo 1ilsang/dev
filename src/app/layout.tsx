@@ -40,13 +40,14 @@ export const metadata: Metadata = {
   title: MetaTitle.HOME,
   description: MetaDescription.HOME,
   icons: {
-    icon: '/favicon/favicon-32x32.png',
-    apple: '/favicon/favicon-180x180.png',
+    icon: '/images/favicon/favicon-96x96.png',
+    apple: '/images/favicon/apple-touch-icon.png',
+    shortcut: '/favicon.ico',
     other: [
       {
         rel: 'icon',
-        url: '/favicon/favicon-16x16.png',
-        sizes: '16x16',
+        url: '/images/favicon/favicon-96x96.png',
+        sizes: '96x96',
       },
     ],
   },
@@ -56,6 +57,7 @@ export const metadata: Metadata = {
     description: MetaDescription.HOME,
     images: [{ url: ImageUrl.HOME }],
   },
+  manifest: '/manifest.json',
   appleWebApp: {
     title: '1ilsang.dev',
     capable: true,
