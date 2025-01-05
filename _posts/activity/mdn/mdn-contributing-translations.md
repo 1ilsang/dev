@@ -196,5 +196,3 @@ PR 본문 작성은 [예제 PR](https://github.com/mdn/translated-content/pull/1
 초심자들이 MDN 기여를 통해 오픈소스에 좋은 인상을 얻고 누구나 할 수 있다는 자신감을 가질 수 있도록 하고 싶다.
 
 MDN 한국팀이 궁금하다면 [MDN Discord #korean 채널](https://discord.com/channels/1009925603572600863/1070064829466939503) 혹은 [Google Groups (yari-content-ko)](https://groups.google.com/g/yari-content-ko)에서 소식을 받아볼 수 있다.
-
-그럼, 이만 글을 마치겠다.
