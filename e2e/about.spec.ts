@@ -22,6 +22,6 @@ test.describe('about', () => {
       return link?.href ?? '';
     });
 
-    expect(faviconUrl.endsWith('/images/favicon/favicon-96x96.png')).toBe(true);
+    expect(faviconUrl.endsWith('/favicon.ico')).toBe(true);
   });
 });

@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import ExternalLink from './ExternalLink';
+import ExternalLink, { highlighterClass } from './ExternalLink';
 
 describe('rendering', () => {
   it('should visible', async () => {
@@ -26,16 +26,16 @@ describe('rendering', () => {
   });
 
   it('should have default class', async () => {
-    const defaultClass = 'highlighter';
     render(<ExternalLink href="1ilsang.dev" />);
-    expect(screen.getByRole('link')).toHaveClass(defaultClass);
+    expect(screen.getByRole('link')).toHaveClass(highlighterClass);
   });
 
   it('should be able to add classes', async () => {
     const propClass = 'chul';
-    const defaultClass = 'highlighter';
     render(<ExternalLink className={propClass} href="1ilsang.dev" />);
-    expect(screen.getByRole('link')).toHaveClass(...[defaultClass, propClass]);
+    expect(screen.getByRole('link')).toHaveClass(
+      ...[highlighterClass, propClass],
+    );
   });
 });
 

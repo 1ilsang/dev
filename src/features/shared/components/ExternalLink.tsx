@@ -8,6 +8,9 @@ type ExternalLinkProps = PropsWithChildren & {
   disableDefaultCSSTransition?: boolean;
 };
 
+export const highlighterClass =
+  'inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-[0] after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[""]';
+
 const ExternalLink: FunctionComponent<ExternalLinkProps> = ({
   href,
   label,
@@ -15,13 +18,10 @@ const ExternalLink: FunctionComponent<ExternalLinkProps> = ({
   children,
   disableDefaultCSSTransition = false,
 }) => {
-  const highlighter =
-    'inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-[0] after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[""]';
-
   return (
     <a
       className={classNames([
-        { [highlighter]: !disableDefaultCSSTransition },
+        { [highlighterClass]: !disableDefaultCSSTransition },
         className,
       ])}
       href={href}
