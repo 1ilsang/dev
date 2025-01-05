@@ -6,7 +6,7 @@ tags: ['woowa', 'senimar', 'mdn', 'open-source']
 coverImage: /images/posts/woowa-ignite/thumbnail.webp
 date: '2025-01-05T12:24:37.667Z'
 ogImage:
-  url: /images/posts/woowa-ignite/thumbnail.webp
+  url: https://github.com/user-attachments/assets/4f09a087-e29f-446b-86ce-d457928e3200
 ---
 
 ![cover](/images/posts/woowa-ignite/cover.webp 'cover')

@@ -40,9 +40,8 @@ export const metadata: Metadata = {
   title: MetaTitle.HOME,
   description: MetaDescription.HOME,
   icons: {
-    icon: '/images/favicon/favicon-96x96.png',
+    icon: '/favicon.ico',
     apple: '/images/favicon/apple-touch-icon.png',
-    shortcut: '/favicon.ico',
     other: [
       {
         rel: 'icon',
