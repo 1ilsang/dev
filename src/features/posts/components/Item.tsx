@@ -1,17 +1,14 @@
 import type { FunctionComponent } from 'react';
-import { memo } from 'react';
 import Link from 'next/link';
 
 import type { PostType } from '../models';
 
 import DateFormatter from '~/shared/components/DateFormatter';
 
-export const MemoedPostItem: FunctionComponent<{ post: PostType }> = memo<{
-  post: PostType;
-}>(({ post }) => {
+export const PostItem: FunctionComponent<{ post: PostType }> = ({ post }) => {
   return (
     <li
-      className="group px-1 md:px-8 py-4 mb-1 hover:text-snazzy-bg hover:bg-rainbow-water hover:animate-rainbow-water hover:bg-[length:400%_400%] hover:rounded md:hover:rounded-[35px_60px/80px_25px]"
+      className="group px-1 md:px-8 py-4 mb-1 content-visibility-auto contain-intrinsic-size hover:text-snazzy-bg hover:bg-rainbow-water hover:animate-rainbow-water hover:bg-[length:400%_400%] hover:rounded md:hover:rounded-[35px_60px/80px_25px]"
       key={post.title}
     >
       <Link
@@ -39,5 +36,4 @@ export const MemoedPostItem: FunctionComponent<{ post: PostType }> = memo<{
       </Link>
     </li>
   );
-});
-MemoedPostItem.displayName = 'MemoedPostItem';
+};

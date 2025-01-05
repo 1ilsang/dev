@@ -166,6 +166,12 @@ module.exports = {
             textDecorationColor: colors.highlight,
           },
         },
+        '.content-visibility-auto': {
+          'content-visibility': 'auto',
+        },
+        '.contain-intrinsic-size': {
+          'contain-intrinsic-size': 'auto 126px',
+        },
       });
     },
   ],

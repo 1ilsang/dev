@@ -2,11 +2,11 @@
 
 import type { FunctionComponent } from 'react';
 
-import CategoryContainer from './category/Container';
-import usePostListContainer from './hooks/usePostListContainer';
-import { MemoedPostItem } from './components/Item';
-import { type PostType } from './models';
 import { MainContainer } from '~/shared/components/MainContainer';
+import CategoryContainer from './category/Container';
+import { PostItem } from './components/Item';
+import usePostListContainer from './hooks/usePostListContainer';
+import { type PostType } from './models';
 
 type PostListContainerProps = {
   posts: PostType[];
@@ -31,7 +31,7 @@ const PostListContainer: FunctionComponent<PostListContainerProps> = ({
       />
       <ul className="pb-24 md:pb-56">
         {filteredList.map((post) => (
-          <MemoedPostItem key={post.title} post={post} />
+          <PostItem key={post.title} post={post} />
         ))}
       </ul>
     </MainContainer>
