@@ -84,7 +84,7 @@ export const remarkRehypeCustom = () => {
       const tocItem = {
         depth: node.depth,
         value: node.children[0].value,
-        id: `#${slugger.slug(node.children[0].value)}`,
+        id: slugger.slug(node.children[0].value),
       };
       toc.push(tocItem);
     });

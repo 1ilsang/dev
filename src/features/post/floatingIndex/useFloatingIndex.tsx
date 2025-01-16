@@ -8,6 +8,7 @@ type Props = {
 
 const useFloatingIndex = ({ toc }: Props) => {
   const [activeId, setActiveId] = useState<string>();
+  const [targetActiveId, setTargetActiveId] = useState<string>();
   const router = useRouter();
 
   useEffect(function setDocumentObserver() {
@@ -30,12 +31,21 @@ const useFloatingIndex = ({ toc }: Props) => {
     };
   }, []);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTargetActiveId(undefined);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, [targetActiveId]);
+
   const handleIndexClick: MouseEventHandler<HTMLLIElement> = (event) => {
-    router.replace(event.currentTarget.id);
+    const targetId = event.currentTarget.id;
+    router.replace(`#${targetId}`);
+    setTargetActiveId(targetId);
     setActiveId(undefined);
   };
 
-  return { activeId, handleIndexClick };
+  return { activeId, handleIndexClick, targetActiveId };
 };
 
 export default useFloatingIndex;

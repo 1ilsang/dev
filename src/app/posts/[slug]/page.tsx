@@ -55,6 +55,7 @@ export async function generateMetadata({
   const {
     frontmatter: { title, description, coverImage },
   } = await getPostBySlug(slug);
+  const { href } = MyProfile.blog;
 
   return {
     title,
@@ -62,7 +63,7 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      images: [coverImage],
+      images: [`${href}${coverImage}`],
       authors: MyProfile.personal.label,
       writers: MyProfile.personal.label,
       username: MyProfile.personal.label,

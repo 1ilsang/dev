@@ -12,7 +12,9 @@ type FloatingIndexProps = {
 export const FloatingIndexContainer: FunctionComponent<FloatingIndexProps> = ({
   toc,
 }) => {
-  const { activeId, handleIndexClick } = useFloatingIndex({ toc });
+  const { activeId, handleIndexClick, targetActiveId } = useFloatingIndex({
+    toc,
+  });
 
   return (
     <aside
@@ -29,6 +31,7 @@ export const FloatingIndexContainer: FunctionComponent<FloatingIndexProps> = ({
             <FloatingItem
               key={item.id}
               item={item}
+              targetActive={targetActiveId === item.id}
               active={activeId === item.id}
               handleIndexClick={handleIndexClick}
               lastSubList={lastSubList}

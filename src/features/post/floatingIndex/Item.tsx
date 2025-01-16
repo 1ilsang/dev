@@ -6,6 +6,7 @@ import { TOC_DEPTH } from '~/posts/models';
 type FloatingItemProps = {
   item: TOC;
   active: boolean;
+  targetActive: boolean;
   lastSubList: boolean;
   handleIndexClick: MouseEventHandler<HTMLLIElement>;
 };
@@ -13,6 +14,7 @@ type FloatingItemProps = {
 export const FloatingItem: FunctionComponent<FloatingItemProps> = ({
   item,
   active,
+  targetActive,
   lastSubList,
   handleIndexClick,
 }) => {
@@ -21,13 +23,15 @@ export const FloatingItem: FunctionComponent<FloatingItemProps> = ({
       key={item.id}
       id={item.id}
       className={classNames([
-        'pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue',
+        'pt-0.5 text-base select-none cursor-pointer',
         {
           'mb-0.5': item.depth === TOC_DEPTH.H2,
           'animate-floating-index': active,
           "before:content-['-'] before:mr-1 ml-2.5":
             item.depth === TOC_DEPTH.H3,
           'mb-1.5': lastSubList,
+          'hover:text-sub-blue': !targetActive,
+          'text-orange-300 hover:text-orange-300': targetActive,
         },
       ])}
       onClick={handleIndexClick}
