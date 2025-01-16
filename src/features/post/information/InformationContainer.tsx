@@ -9,12 +9,16 @@ type Props = {
   post: PostType;
 };
 
-export const InformationContainer: FunctionComponent<Props> = ({ post }) => {
+export const InformationContainer: FunctionComponent<Props> = ({
+  post: {
+    frontmatter: { tags, date, updatedAt },
+  },
+}) => {
   return (
     <>
       <ProfileSection />
       <section className="flex flex-wrap items-end mt-2">
-        {post.tags.map((tag) => (
+        {tags.map((tag) => (
           <HashTag
             className="mr-2"
             key={tag}
@@ -24,8 +28,8 @@ export const InformationContainer: FunctionComponent<Props> = ({ post }) => {
         ))}
       </section>
       <section>
-        <PublishedDate date={post.date} />
-        {post.updatedAt && <UpdatedDate date={post.updatedAt} />}
+        <PublishedDate date={date} />
+        {updatedAt && <UpdatedDate date={updatedAt} />}
       </section>
     </>
   );

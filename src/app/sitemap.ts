@@ -1,10 +1,10 @@
 import type { MetadataRoute } from 'next';
 import { MyProfile } from '~/about/headline/data/profile';
-import { getAllPosts, getAllTags } from '~/shared/helpers/post';
+import { getAllPost, getAllTag } from '~/shared/helpers/mdx/getPost';
 
 export const dynamic = 'force-static';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const DOMAIN = MyProfile.blog.href;
   const PRIORITY = {
     VERY_HIGH: 1,
@@ -12,20 +12,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     MID: 0.5,
   };
 
-  const posts = getAllPosts(['tags']);
-  const tags = getAllTags();
+  const posts = await getAllPost();
+  const tags = await getAllTag();
 
-  const postUrls: MetadataRoute.Sitemap = posts.map((post) => ({
-    url: `${DOMAIN}/posts/${post.url}`,
-    lastModified: new Date(post.updatedAt ?? post.date),
-    changeFrequency: 'daily',
-    priority: PRIORITY.VERY_HIGH,
-  }));
+  const postUrls: MetadataRoute.Sitemap = posts.map(
+    ({ url, frontmatter: { date, updatedAt } }) => ({
+      url: `${DOMAIN}/${url}`,
+      lastModified: new Date(updatedAt ?? date),
+      changeFrequency: 'daily',
+      priority: PRIORITY.VERY_HIGH,
+    }),
+  );
   const tagUrls: MetadataRoute.Sitemap = tags.map((tag) => {
-    const post = posts.find((post) => post.tags.includes(tag))!;
+    const post = posts.find((post) => post.frontmatter.tags.includes(tag))!;
     return {
       url: `${DOMAIN}/tags/${tag}`,
-      lastModified: new Date(post.date ?? post.updatedAt),
+      lastModified: new Date(
+        post.frontmatter.date ?? post.frontmatter.updatedAt,
+      ),
       changeFrequency: 'weekly',
       priority: PRIORITY.MID,
     };

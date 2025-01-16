@@ -2,7 +2,7 @@
 
 import type { FunctionComponent } from 'react';
 
-import usePrint from '~/shared/hooks/usePrint';
+import { usePrint } from '~/shared/hooks/usePrint';
 import { profileLinks } from './data/profile';
 import ProfileLogo from './profile/Logo';
 

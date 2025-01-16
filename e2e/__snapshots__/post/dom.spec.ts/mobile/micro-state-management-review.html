@@ -1,16 +1,16 @@
-<progress class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og" value="0" max="1"></progress><nav class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10	md:opacity-100 shadow-nav shadow-lg"><h2 class="tracking-tight mr-6 text-2xl	font-bold my-2 ml-3.5"><a class="hover:underline" href="/">1ilsang</a></h2><div class="flex"><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/posts">posts</a></h2><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/tags">tags</a></h2><div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-white-blue" src="/images/chul.webp" alt="1ilsang"></a></div></div></nav><section class="h-auto min-h-full max-w-screen-md py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"><h1 class="text-4xl break-words md:text-6xl">Micro State Management with React Hooks 리뷰</h1><section class="flex items-center mt-4"><div class="mr-2 w-9	h-9 md:w-12 md:h-12" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-sub-blue" src="/images/chul.webp" alt="1ilsang"></a></div><div><a class="text-lg" href="/about">1ilsang</a><div class="text-sm text-sub-blue">클라이밍 하실래염?</div></div></section><section class="flex flex-wrap items-end mt-2"><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/book">#<!-- -->book</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/review">#<!-- -->review</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/react">#<!-- -->react</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/hooks">#<!-- -->hooks</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/context">#<!-- -->context</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/zustand">#<!-- -->zustand</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/jotai">#<!-- -->jotai</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/valtio">#<!-- -->valtio</a></section><section><div class="inline text-date-gray">Published <time datetime="2024-03-01 09:00">2024-03-01 09:00</time></div></section><section id="post-body-container" class="relative"><div class="markdown"><p></p><div class="img-container"><div class="img-wrap cover"><img src="https://github.com/1ilsang/dev/assets/23524849/4e361695-129c-4d6b-885e-ad8805549b4a" alt="cover"></div></div><p></p>
-<p><a class="underline-highlight-fade" target="_blank" href="https://product.kyobobook.co.kr/detail/S000061587593" rel="noreferrer noopener">Micro State Management with React Hooks</a> 리뷰를 해보려고 한다.</p>
-<h2 id="선택하게-된-계기" data-heading="true"><a data-heading="true" href="#선택하게-된-계기"><span class="icon icon-link"></span></a>선택하게 된 계기</h2>
+<progress class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og" value="0" max="1"></progress><nav class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10	md:opacity-100 shadow-nav shadow-lg"><h2 class="tracking-tight mr-6 text-2xl	font-bold my-2 ml-3.5"><a class="hover:underline" href="/">1ilsang</a></h2><div class="flex"><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/posts">posts</a></h2><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/tags">tags</a></h2><div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-white-blue" src="/images/chul.webp" alt="1ilsang"></a></div></div></nav><section class="h-auto min-h-full max-w-screen-md py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"><h1 class="text-4xl break-words md:text-6xl">Micro State Management with React Hooks 리뷰</h1><section class="flex items-center mt-4"><div class="mr-2 w-9	h-9 md:w-12 md:h-12" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-sub-blue" src="/images/chul.webp" alt="1ilsang"></a></div><div><a class="text-lg" href="/about">1ilsang</a><div class="text-sm text-sub-blue">클라이밍 하실래염?</div></div></section><section class="flex flex-wrap items-end mt-2"><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/book">#<!-- -->book</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/review">#<!-- -->review</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/react">#<!-- -->react</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/hooks">#<!-- -->hooks</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/context">#<!-- -->context</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/zustand">#<!-- -->zustand</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/jotai">#<!-- -->jotai</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/valtio">#<!-- -->valtio</a></section><section><div class="inline text-date-gray">Published <time datetime="2024-03-01 09:00">2024-03-01 09:00</time></div></section><section id="post-body-container" class="relative"><div class="markdown"><div class="img-container"><div class="img-wrap cover"><img src="/posts/micro-state-management-review/cover-large.webp" alt="cover large"></div></div>
+<p><a href="https://product.kyobobook.co.kr/detail/S000061587593" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Micro State Management with React Hooks</a> 리뷰를 해보려고 한다.</p>
+<h2 id="선택하게-된-계기"><a aria-hidden="true" tabindex="-1" href="#선택하게-된-계기"><span class="icon icon-link"></span></a>선택하게 된 계기</h2>
 <p>이 책은 작년에 읽었었는데, 당시에는 이해가 많이 안 돼서 깊이 있게 생각하지 못했었다.</p>
-<p>실무에서 <a class="underline-highlight-fade" target="_blank" href="https://github.com/pmndrs/jotai" rel="noreferrer noopener">Jotai</a>를 사용하기 시작하면서 사용하는 라이브러리에 대한 이해를 높이고자 다시금 이 책을 읽게 되었다.</p>
+<p>실무에서 <a href="https://github.com/pmndrs/jotai" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Jotai</a>를 사용하기 시작하면서 사용하는 라이브러리에 대한 이해를 높이고자 다시금 이 책을 읽게 되었다.</p>
 <p>이 책은 세 가지 흥미로운 부분이 있다.</p>
 <ol>
 <li>원서다. 영어 기술 서적은 처음 읽어서 꽤 도전적이었다.</li>
-<li>Zustand, Jotai 등을 만든 상태관리에 진심인 메인테이너 <a class="underline-highlight-fade" target="_blank" href="https://github.com/dai-shi" rel="noreferrer noopener">Daishi Kato</a>가 직접 펴낸 책이다.</li>
+<li>Zustand, Jotai 등을 만든 상태관리에 진심인 메인테이너 <a href="https://github.com/dai-shi" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Daishi Kato</a>가 직접 펴낸 책이다.</li>
 <li>React에서의 상태 관리 전략을 다양하게 보여주기 때문에 시야가 넓어진다.</li>
 </ol>
-<p>다 읽고 나서 알게 되었는데, <a class="underline-highlight-fade" target="_blank" href="https://product.kyobobook.co.kr/detail/S000212233308" rel="noreferrer noopener">이 책은 최근에 한국어로 번역되었다</a>(-_-). 이때 아니면 언제 원서 읽었겠나 싶어 만족하려고 한다.</p>
-<h2 id="간단한-요약" data-heading="true"><a data-heading="true" href="#간단한-요약"><span class="icon icon-link"></span></a>간단한 요약</h2>
+<p>다 읽고 나서 알게 되었는데, <a href="https://product.kyobobook.co.kr/detail/S000212233308" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">이 책은 최근에 한국어로 번역되었다</a>(-_-). 이때 아니면 언제 원서 읽었겠나 싶어 만족하려고 한다.</p>
+<h2 id="간단한-요약"><a aria-hidden="true" tabindex="-1" href="#간단한-요약"><span class="icon icon-link"></span></a>간단한 요약</h2>
 <ul>
 <li>상태란 무엇일까?</li>
 <li>상태는 어떻게 존재할 수 있을까?</li>
@@ -20,12 +20,12 @@
 </ul>
 <p>이 책을 읽으면서 얻을 수 있었던 인사이트들이다.</p>
 <p>너무 어렵게 들어가지 않으면서 <u>상태 관리의 다양한 기법들을 제시</u>하기 때문에 주니어부터 시니어까지 충분히 배울게 많은 책이라는 생각이 든다.</p>
-<h2 id="인상-깊었던-부분" data-heading="true"><a data-heading="true" href="#인상-깊었던-부분"><span class="icon icon-link"></span></a>인상 깊었던 부분</h2>
+<h2 id="인상-깊었던-부분"><a aria-hidden="true" tabindex="-1" href="#인상-깊었던-부분"><span class="icon icon-link"></span></a>인상 깊었던 부분</h2>
 <p>책을 읽으면서 좋았던 예제나 포인트들을 가볍게 소개하고자 한다.</p>
-<h3 id="1-react-state에-대한-이해" data-heading="true"><a data-heading="true" href="#1-react-state에-대한-이해"><span class="icon icon-link"></span></a>1. React State에 대한 이해</h3>
+<h3 id="1-react-state에-대한-이해"><a aria-hidden="true" tabindex="-1" href="#1-react-state에-대한-이해"><span class="icon icon-link"></span></a>1. React State에 대한 이해</h3>
 <p><u>React에서 상태(state)는 UI를 나타내는 모든 데이터다.</u> React는 상태와 함께 렌더링 할 컴포넌트를 처리한다.</p>
 <p>책의 서두에서 기존 상태 관리의 문제점에 대해 이야기한다.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="md" data-theme="material-theme-palenight"><code data-language="md" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#BABED8">React Hooks 이전에는 모놀리식 상태 라이브러리들이 유행했다.</span></span>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="md" data-theme="material-theme-palenight"><code data-language="md" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#BABED8">React Hooks 이전에는 모놀리식 상태 라이브러리들이 유행했다.</span></span>
 <span data-line=""><span style="color:#BABED8">이는 DX 향상에 큰 도움을 주었지만 사용되지 않는 기능들도 포함된다는 문제가 있었다.</span></span>
 <span data-line=""> </span>
 <span data-line=""><span style="color:#89DDFF">1.</span><span style="color:#BABED8"> Form 상태는 글로벌 상태와 별도로 다루어져야 하지만, 단일 상태 솔루션에서는 불가능하다.</span></span>
@@ -36,14 +36,14 @@
 <p>위 내용을 요약하면 Hooks 이전의 상태는 상태의 순수함이 결여되어 있었다는 점이 문제라고 꼬집는다.</p>
 <p>상태는 전역 상태와 지역 상태가 있다. 지역으로 존재해야 할 데이터들이 전역 스토어에 혼재되어 있고 서버/브라우저 상태가 무분별하게 스토어에 들어 있었다.</p>
 <p>React Hooks로 위의 내용들을 해결하고자 한다는 내용이 인상적이었다.</p>
-<h3 id="2-usestate-vs-usereducer" data-heading="true"><a data-heading="true" href="#2-usestate-vs-usereducer"><span class="icon icon-link"></span></a>2. useState vs useReducer</h3>
+<h3 id="2-usestate-vs-usereducer"><a aria-hidden="true" tabindex="-1" href="#2-usestate-vs-usereducer"><span class="icon icon-link"></span></a>2. useState vs useReducer</h3>
 <p>React 컴포넌트가 상태를 가지고 있으려면 어떻게 해야 할까?</p>
 <p>일반 변수나 전역 변수로 선언하고 사용할 수도 있다. 하지만 해당 값이 변경되었다고 한들 컴포넌트는 리렌더링 되지 않는다.</p>
 <p>컴포넌트가 지역 상태의 변경을 감지하고 리렌더링 하려면 <code>useState</code> 혹은 <code>useReducer</code>를 사용해야 한다.</p>
 <blockquote>
 <p>+1. React는 전역 상태를 제공하지 않는다.</p>
 </blockquote>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="jsx" data-theme="material-theme-palenight"><code data-language="jsx" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#676E95;font-style:italic">// CASE 1.</span></span>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="jsx" data-theme="material-theme-palenight"><code data-language="jsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// CASE 1.</span></span>
 <span data-line=""><span style="color:#C792EA">const</span><span style="color:#89DDFF"> [</span><span style="color:#BABED8">count</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> setCount</span><span style="color:#89DDFF">]</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> useState</span><span style="color:#BABED8">(</span><span style="color:#F78C6C">0</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#82AAFF">setCount</span><span style="color:#BABED8">(</span><span style="color:#F78C6C">1</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#82AAFF">setCount</span><span style="color:#BABED8">(</span><span style="color:#F78C6C">1</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // Not render. 동일한 값이므로 렌더링 하지 않는다.</span></span>
@@ -74,7 +74,7 @@
 <span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> init </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#F78C6C"> 0</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#C792EA">const</span><span style="color:#89DDFF"> [</span><span style="color:#BABED8">count</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> setCount</span><span style="color:#89DDFF">]</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> useState</span><span style="color:#BABED8">(init)</span><span style="color:#89DDFF">;</span></span></code></pre></figure>
 <p>useState의 다양한 사용 사례를 들어 리렌더링이 되는 경우를 설명한다. 또한 지연 초기화 경우를 들어 상태 관리의 최적화에 관해 설명한다.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="jsx" data-theme="material-theme-palenight"><code data-language="jsx" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> init </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">count</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#BABED8"> (</span><span style="color:#89DDFF">{</span><span style="color:#BABED8"> count</span><span style="color:#89DDFF">,</span><span style="color:#F07178"> text</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">hi</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> }</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="jsx" data-theme="material-theme-palenight"><code data-language="jsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> init </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">count</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#BABED8"> (</span><span style="color:#89DDFF">{</span><span style="color:#BABED8"> count</span><span style="color:#89DDFF">,</span><span style="color:#F07178"> text</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">hi</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> }</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> reducer </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">state</span><span style="color:#89DDFF">,</span><span style="color:#BABED8;font-style:italic"> action</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">	switch</span><span style="color:#F07178">(</span><span style="color:#BABED8">action</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">type</span><span style="color:#F07178">) </span><span style="color:#89DDFF">{</span></span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">		case</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">INCREMENT</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">:</span></span>
@@ -97,7 +97,7 @@
 <span data-line=""><span style="color:#89DDFF">			&lt;</span><span style="color:#F07178">input</span><span style="color:#C792EA"> value</span><span style="color:#89DDFF">={</span><span style="color:#BABED8">state</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">text</span><span style="color:#89DDFF">} </span><span style="color:#C792EA">onChange</span><span style="color:#89DDFF">={(</span><span style="color:#BABED8;font-style:italic">e</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#82AAFF"> dispatch</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">{</span><span style="color:#F07178"> type</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">SET_TEXT</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#F07178"> text</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> e</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">target</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">value </span><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">} /&gt;</span></span></code></pre></figure>
 <p><code>useReducer</code> 부분에는 <code>useState</code>에서는 불가능한, reducer만의 특별한 기능들을 언급하며 왜 useState는 useReducer로 대체 가능하지만, 역은 안되는지에 대해 설명한다.</p>
 <p>useState와 다르게 useReducer에서 인라인으로 함수를 선언하면 사이드 이펙트가 발생한다거나(useReducer는 렌더링 단계에서 reducer를 호출하므로) 복잡한 상태 관리를 처리하기 위한 reducer만의 기법들은 좋은 인사이트를 주었다.</p>
-<h3 id="3-contextapi-vs-import" data-heading="true"><a data-heading="true" href="#3-contextapi-vs-import"><span class="icon icon-link"></span></a>3. ContextAPI vs Import</h3>
+<h3 id="3-contextapi-vs-import"><a aria-hidden="true" tabindex="-1" href="#3-contextapi-vs-import"><span class="icon icon-link"></span></a>3. ContextAPI vs Import</h3>
 <p>Context를 활용한 상태와 모듈(import) 상태에 대한 비교는 내가 가지고 있던 전역/지역 상태에 대한 시야를 넓혀주었다.</p>
 <blockquote>
 <p>모듈 상태는 ESM 스코프에 특정 상수 혹은 변수를 정의하는 것을 의미.</p>
@@ -105,67 +105,14 @@
 </blockquote>
 <p>우리는 전역 상태가 앱 전반에서 접근할 수 있는 상태라고 알고 있다. 그런데 이 <u>"앱 전반"은 "React 외부에서 접근"한다</u>는 것까지 포함해야 한다.</p>
 <p>ContextAPI로 작성된 전역 상태(root provider)는 React 외부에서 접근이 불가능하다. 하지만 모듈로 작성된 코드는 외부에서 접근이 가능하다.</p>
-<p>또한 Context는 기본적으로 <a class="underline-highlight-fade" target="_blank" href="https://ko.wikipedia.org/wiki/%EC%8B%B1%EA%B8%80%ED%84%B4_%ED%8C%A8%ED%84%B4" rel="noreferrer noopener">싱글턴 패턴</a>을 위해 디자인되지 않았다. 여러 프로바이더에서 사용될 수 있으며 여러 서브 트리에서 다양한 상태로 존재할 수 있다. 하지만 모듈 상태는 싱글턴으로 존재한다. 따라서 <u>단일 전역 상태를 위해서는 모듈 상태를 사용해야 한다.</u> 이는 인메모리에 올라간 단일 변수로 취급되기 때문이다.</p>
-<h3 id="4-zustand-vs-jotai-vs-valtio" data-heading="true"><a data-heading="true" href="#4-zustand-vs-jotai-vs-valtio"><span class="icon icon-link"></span></a>4. Zustand vs Jotai vs Valtio</h3>
-<table>
-<thead>
-<tr>
-<th align="center"></th>
-<th align="center"><a class="underline-highlight-fade" target="_blank" href="https://github.com/pmndrs/zustand" rel="noreferrer noopener">Zustand</a></th>
-<th align="center"><a class="underline-highlight-fade" target="_blank" href="https://github.com/pmndrs/jotai" rel="noreferrer noopener">Jotai</a></th>
-<th align="center"><a class="underline-highlight-fade" target="_blank" href="https://github.com/pmndrs/valtio" rel="noreferrer noopener">Valtio</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">상태의 위치</td>
-<td align="center">Module</td>
-<td align="center">React Component</td>
-<td align="center">Module</td>
-</tr>
-<tr>
-<td align="center">상태의 형태</td>
-<td align="center">Immutable</td>
-<td align="center">Immutable</td>
-<td align="center">Mutable</td>
-</tr>
-<tr>
-<td align="center">상태 변경 전략</td>
-<td align="center">Selector</td>
-<td align="center">ContextAPI</td>
-<td align="center">Proxy</td>
-</tr>
-<tr>
-<td align="center">재사용성</td>
-<td align="center">모듈 상태는 재사용이 까다롭다(싱글턴). 재사용을 위해 결국 Context를 쓰게 된다</td>
-<td align="center">Provider를 통해 쉽게 재사용이 가능하다</td>
-<td align="center">Zustand와 동일</td>
-</tr>
-<tr>
-<td align="center">코드 학습량</td>
-<td align="center">셀렉터에 대한 이해가 있어야 한다</td>
-<td align="center">Context 및 Atoms에 대한 이해가 있어야 한다</td>
-<td align="center">순수 자바스크립트로 이루어져 있어 학습량이 거의 없다</td>
-</tr>
-<tr>
-<td align="center">리렌더링 최적화</td>
-<td align="center">개발자가 셀렉터를 잘 써야 한다 한다</td>
-<td align="center">개발자가 Atom 단위를 적절하게 활용해야 한다</td>
-<td align="center">Proxy가 자동으로 해준다</td>
-</tr>
-<tr>
-<td align="center">비고</td>
-<td align="center">셀렉터 최적화, 객체 참조와 메모이제이션에 익숙하다면 편하게 단일 스토어를 사용할 수 있다</td>
-<td align="center">Context 기반이므로 Jotai에서 가능한 것들은 Context에서도 가능하다. React LifeCycle과 공존하므로 예측 가능하다(Suspense 지원 등)</td>
-<td align="center">자동 리렌더링 최적화 및 순수 JS 기반이라 편하게 사용 가능하다. 불변성을 위해 코드가 복잡해지지 않아도 된다. 하지만 디버깅 과정이 어렵다</td>
-</tr>
-</tbody>
-</table>
+<p>또한 Context는 기본적으로 <a href="https://ko.wikipedia.org/wiki/%EC%8B%B1%EA%B8%80%ED%84%B4_%ED%8C%A8%ED%84%B4" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">싱글턴 패턴</a>을 위해 디자인되지 않았다. 여러 프로바이더에서 사용될 수 있으며 여러 서브 트리에서 다양한 상태로 존재할 수 있다. 하지만 모듈 상태는 싱글턴으로 존재한다. 따라서 <u>단일 전역 상태를 위해서는 모듈 상태를 사용해야 한다.</u> 이는 인메모리에 올라간 단일 변수로 취급되기 때문이다.</p>
+<h3 id="4-zustand-vs-jotai-vs-valtio"><a aria-hidden="true" tabindex="-1" href="#4-zustand-vs-jotai-vs-valtio"><span class="icon icon-link"></span></a>4. Zustand vs Jotai vs Valtio</h3>
+<table><thead><tr><th style="text-align:center"></th><th style="text-align:center"><a href="https://github.com/pmndrs/zustand" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Zustand</a></th><th style="text-align:center"><a href="https://github.com/pmndrs/jotai" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Jotai</a></th><th style="text-align:center"><a href="https://github.com/pmndrs/valtio" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Valtio</a></th></tr></thead><tbody><tr><td style="text-align:center">상태의 위치</td><td style="text-align:center">Module</td><td style="text-align:center">React Component</td><td style="text-align:center">Module</td></tr><tr><td style="text-align:center">상태의 형태</td><td style="text-align:center">Immutable</td><td style="text-align:center">Immutable</td><td style="text-align:center">Mutable</td></tr><tr><td style="text-align:center">상태 변경 전략</td><td style="text-align:center">Selector</td><td style="text-align:center">ContextAPI</td><td style="text-align:center">Proxy</td></tr><tr><td style="text-align:center">재사용성</td><td style="text-align:center">모듈 상태는 재사용이 까다롭다(싱글턴). 재사용을 위해 결국 Context를 쓰게 된다</td><td style="text-align:center">Provider를 통해 쉽게 재사용이 가능하다</td><td style="text-align:center">Zustand와 동일</td></tr><tr><td style="text-align:center">코드 학습량</td><td style="text-align:center">셀렉터에 대한 이해가 있어야 한다</td><td style="text-align:center">Context 및 Atoms에 대한 이해가 있어야 한다</td><td style="text-align:center">순수 자바스크립트로 이루어져 있어 학습량이 거의 없다</td></tr><tr><td style="text-align:center">리렌더링 최적화</td><td style="text-align:center">개발자가 셀렉터를 잘 써야 한다 한다</td><td style="text-align:center">개발자가 Atom 단위를 적절하게 활용해야 한다</td><td style="text-align:center">Proxy가 자동으로 해준다</td></tr><tr><td style="text-align:center">비고</td><td style="text-align:center">셀렉터 최적화, 객체 참조와 메모이제이션에 익숙하다면 편하게 단일 스토어를 사용할 수 있다</td><td style="text-align:center">Context 기반이므로 Jotai에서 가능한 것들은 Context에서도 가능하다. React LifeCycle과 공존하므로 예측 가능하다(Suspense 지원 등)</td><td style="text-align:center">자동 리렌더링 최적화 및 순수 JS 기반이라 편하게 사용 가능하다. 불변성을 위해 코드가 복잡해지지 않아도 된다. 하지만 디버깅 과정이 어렵다</td></tr></tbody></table>
 <p>저자가 직접 만든 상태 관리 라이브러리들을 비교 하는 부분은 이 책의 하이라이트라고 생각한다.</p>
 <p>왜 여러 상태 라이브러리를 만들수 밖에 없었는지, 각 라이브러리의 리렌더링 회피 전략과 차이를 설명한다. 또한 공통점도 설명하는데 세 라이브러리 모두 <u>"코드량이 적다".</u></p>
 <p>저자가 가장 중요하게 생각하는 포인트라고 생각한다.</p>
-<h2 id="맺으며" data-heading="true"><a data-heading="true" href="#맺으며"><span class="icon icon-link"></span></a>맺으며</h2>
+<h2 id="맺으며"><a aria-hidden="true" tabindex="-1" href="#맺으며"><span class="icon icon-link"></span></a>맺으며</h2>
 <p>기본적으로 React를 어느정도 이해하고 있는 개발자를 대상으로 작성된 책이지만 코드 자체가 어렵진 않아서 초심자도 읽어볼 만하다고 생각한다.</p>
 <p>책을 읽으면서 상태 관리에 대해 시야가 넓어질 수 있었다.</p>
 <p>다음 월간 다이브에는 "상태"를 주제로 해보려고 한다. 책을 통해 배운 것들을 잘 풀어보고 싶다.</p>
-<p>상태 관리의 종류와 기법들에 대해 이해하고 싶다면 추천하고 싶은 책이다.</p></div><aside class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden" aria-label="index"><ul class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"><li data-id="선택하게-된-계기" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue">선택하게 된 계기</li><li data-id="간단한-요약" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue">간단한 요약</li><li data-id="인상-깊었던-부분" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue">인상 깊었던 부분</li><li><ul class="ml-2.5 last:mb-2"><li data-id="1-react-state에-대한-이해" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue before:content-['-'] before:mr-1">1. React State에 대한 이해</li><li data-id="2-usestate-vs-usereducer" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue before:content-['-'] before:mr-1">2. useState vs useReducer</li><li data-id="3-contextapi-vs-import" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue before:content-['-'] before:mr-1">3. ContextAPI vs Import</li><li data-id="4-zustand-vs-jotai-vs-valtio" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue before:content-['-'] before:mr-1">4. Zustand vs Jotai vs Valtio</li></ul></li><li data-id="맺으며" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue">맺으며</li></ul></aside></section><a class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-[0] after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water" href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] Micro%20State%20Management%20with%20React%20Hooks%20%EB%A6%AC%EB%B7%B0&amp;body=<!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 -->" rel="noopener noreferrer" target="_blank">📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍</a><div class="flex items-center mt-4 mb-56"><iframe class="border-0 rounded-md cursor-pointer object-contain hover:animate-bouncing" src="https://github.com/sponsors/1ilsang/button" title="Sponsor 1ilsang" height="32" width="114"></iframe></div></section>
+<p>상태 관리의 종류와 기법들에 대해 이해하고 싶다면 추천하고 싶은 책이다.</p></div><aside class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden" aria-label="index"><ul class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"><li id="#선택하게-된-계기" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue mb-0.5">선택하게 된 계기</li><li id="#간단한-요약" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue mb-0.5">간단한 요약</li><li id="#인상-깊었던-부분" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue mb-0.5">인상 깊었던 부분</li><li id="#1-react-state에-대한-이해" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue before:content-['-'] before:mr-1 ml-2.5">1. React State에 대한 이해</li><li id="#2-usestate-vs-usereducer" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue before:content-['-'] before:mr-1 ml-2.5">2. useState vs useReducer</li><li id="#3-contextapi-vs-import" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue before:content-['-'] before:mr-1 ml-2.5">3. ContextAPI vs Import</li><li id="#4-zustand-vs-jotai-vs-valtio" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue before:content-['-'] before:mr-1 ml-2.5 mb-1.5">4. Zustand vs Jotai vs Valtio</li><li id="#맺으며" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue mb-0.5">맺으며</li></ul></aside></section><a class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-[0] after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water" href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] Micro%20State%20Management%20with%20React%20Hooks%20%EB%A6%AC%EB%B7%B0&amp;body=<!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 -->" rel="noopener noreferrer" target="_blank">📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍</a><div class="flex items-center mt-4 mb-56"><iframe class="border-0 rounded-md cursor-pointer object-contain hover:animate-bouncing" src="https://github.com/sponsors/1ilsang/button" title="Sponsor 1ilsang" height="32" width="114"></iframe></div></section>

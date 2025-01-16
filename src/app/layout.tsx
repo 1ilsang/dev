@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
+import { MyProfile } from '~/about/headline/data/profile';
 import { BannerWrapper } from '~/shared/components/Banner';
 import { ImageUrl, MetaDescription, MetaTitle } from '~/shared/constants/blog';
 
@@ -55,6 +56,9 @@ export const metadata: Metadata = {
     title: MetaTitle.HOME,
     description: MetaDescription.HOME,
     images: [{ url: ImageUrl.HOME }],
+    authors: MyProfile.personal.label,
+    writers: MyProfile.personal.label,
+    username: MyProfile.personal.label,
   },
   manifest: '/manifest.json',
   appleWebApp: {

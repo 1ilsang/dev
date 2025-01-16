@@ -14,25 +14,27 @@ const TagDetailContainer: FunctionComponent<TagDetailContainerProps> = ({
 }) => {
   return (
     <MainContainer>
-      {posts.map((item) => (
-        <div
-          className="inline-block p-4 m-2 border border-solid border-base rounded-3xl"
-          key={item.title}
-        >
-          <Link href={`/posts/${item.url}`}>
-            <div className="text-highlight print:text-black hover:underline">
-              {item.title}
-            </div>
-            <div>{item.description}</div>
-            <div suppressHydrationWarning>
-              {formatDate(new Date(item.date), 'yy.MM.dd')}
-            </div>
-            <div>
-              <img src={item.coverImage} width={200} />
-            </div>
-          </Link>
-        </div>
-      ))}
+      {posts.map(
+        ({ url, frontmatter: { title, description, date, coverImage } }) => (
+          <div
+            className="inline-block p-4 m-2 border border-solid border-base rounded-3xl"
+            key={title}
+          >
+            <Link href={url}>
+              <div className="text-highlight print:text-black hover:underline">
+                {title}
+              </div>
+              <div>{description}</div>
+              <div suppressHydrationWarning>
+                {formatDate(new Date(date), 'yy.MM.dd')}
+              </div>
+              <div>
+                <img src={coverImage} width={200} />
+              </div>
+            </Link>
+          </div>
+        ),
+      )}
     </MainContainer>
   );
 };

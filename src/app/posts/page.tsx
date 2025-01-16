@@ -5,19 +5,17 @@ import { type PostType } from '~/posts/models';
 import { Footer } from '~/shared/components/Footer';
 import { MainLayout } from '~/shared/components/MainLayout';
 import Navbar from '~/shared/components/nav/Navbar';
-import { getAllPosts } from '~/shared/helpers/post';
+import { getAllPost } from '~/shared/helpers/mdx/getPost';
 
-const PostHome: NextPage = () => {
-  const posts: PostType[] = getAllPosts([
-    'slug',
-    'url',
-    'title',
-    'date',
-    'tags',
-    'category',
-    'description',
-    'coverImage',
-  ]);
+export type ServerPost = Omit<PostType, 'MDX'>;
+
+const PostHome: NextPage = async () => {
+  const posts: Omit<PostType, 'MDX'>[] = (await getAllPost()).map(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    ({ MDX, ...rest }) => ({
+      ...rest,
+    }),
+  );
 
   return (
     <MainLayout>

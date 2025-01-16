@@ -1,76 +1,41 @@
 import { useRouter } from 'next/navigation';
 import { type MouseEventHandler, useEffect, useState } from 'react';
-import { type PostType } from '~/posts/models';
+import type { TOC } from '~/posts/models';
 
 type Props = {
-  post: PostType;
+  toc: TOC[];
 };
 
-type FloatingIndexType = Element | Element[];
-
-const useFloatingIndex = ({ post }: Props) => {
-  const [list, setList] = useState<FloatingIndexType[]>([]);
+const useFloatingIndex = ({ toc }: Props) => {
   const [activeId, setActiveId] = useState<string>();
   const router = useRouter();
 
-  useEffect(
-    function setAsideText() {
-      const tempDiv = document.createElement('div');
-      tempDiv.innerHTML = post.content;
-      const indexItems = getHeadingItems(tempDiv);
-      tempDiv.innerHTML = '';
+  useEffect(function setDocumentObserver() {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          setActiveId(entry.target.id);
+        });
+      },
+      { rootMargin: '0px 0px -95% 0px', threshold: 0.3 },
+    );
+    toc.forEach((el) => {
+      const target = document.getElementById(el.id);
+      io.observe(target);
+    });
 
-      setList(indexItems);
-    },
-    [post.title],
-  );
-
-  useEffect(
-    function setDocumentObserver() {
-      const io = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            setActiveId(entry.target.id);
-          });
-        },
-        { rootMargin: '0px 0px -95% 0px', threshold: 0.3 },
-      );
-      const indexItems = getHeadingItems(document);
-      indexItems.flat(1).forEach((el) => io.observe(el));
-
-      return () => {
-        io.disconnect();
-      };
-    },
-    [post.title],
-  );
-
-  const getHeadingItems = (target: Document | HTMLDivElement) => {
-    return Array.from(
-      target.querySelectorAll('h2[data-heading], h3[data-heading]'),
-    ).reduce((acc, cur) => {
-      const lastElement = acc[acc.length - 1];
-      if (acc.length === 0 || cur.tagName === 'H2') {
-        acc.push(cur);
-      } else if (cur.tagName === 'H3') {
-        const lastElementIsArray = Array.isArray(lastElement);
-        const next = lastElementIsArray ? lastElement : [];
-        next.push(cur);
-        if (!lastElementIsArray) {
-          acc.push(next);
-        }
-      }
-      return acc;
-    }, [] as FloatingIndexType[]);
-  };
+    return () => {
+      io.disconnect();
+    };
+  }, []);
 
   const handleIndexClick: MouseEventHandler<HTMLLIElement> = (event) => {
-    router.replace(`#${event.currentTarget.getAttribute('data-id')}`);
+    router.replace(event.currentTarget.id);
     setActiveId(undefined);
   };
 
-  return { list, activeId, handleIndexClick };
+  return { activeId, handleIndexClick };
 };
 
 export default useFloatingIndex;

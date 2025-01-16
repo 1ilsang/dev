@@ -2,6 +2,7 @@ import { useAtom } from 'jotai';
 import { useEffect, useState } from 'react';
 import { imageSrcAtom } from '../modal/atoms';
 import { usePathname } from 'next/navigation';
+import { POST_BODY_ID } from './constants';
 
 export const INIT_MAX = 1;
 
@@ -43,7 +44,7 @@ const useProgress = () => {
   };
   const bindImageClickEvent = () => {
     if (!pathname.startsWith('/posts')) return;
-    const postBodyContainer = document.querySelector('#post-body-container');
+    const postBodyContainer = document.querySelector(POST_BODY_ID);
     if (!postBodyContainer) return;
 
     const postBodyImages = postBodyContainer.querySelectorAll('img');

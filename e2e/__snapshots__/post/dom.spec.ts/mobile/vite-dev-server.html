@@ -1,30 +1,30 @@
-<progress class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og" value="0" max="1"></progress><nav class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10	md:opacity-100 shadow-nav shadow-lg"><h2 class="tracking-tight mr-6 text-2xl	font-bold my-2 ml-3.5"><a class="hover:underline" href="/">1ilsang</a></h2><div class="flex"><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/posts">posts</a></h2><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/tags">tags</a></h2><div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-white-blue" src="/images/chul.webp" alt="1ilsang"></a></div></div></nav><section class="h-auto min-h-full max-w-screen-md py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"><h1 class="text-4xl break-words md:text-6xl">Vite Dev Server 이해하기 (feat. HMR)</h1><section class="flex items-center mt-4"><div class="mr-2 w-9	h-9 md:w-12 md:h-12" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-sub-blue" src="/images/chul.webp" alt="1ilsang"></a></div><div><a class="text-lg" href="/about">1ilsang</a><div class="text-sm text-sub-blue">클라이밍 하실래염?</div></div></section><section class="flex flex-wrap items-end mt-2"><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/vite">#<!-- -->vite</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/dev-server">#<!-- -->dev-server</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/hmr">#<!-- -->hmr</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/preact">#<!-- -->preact</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/prefresh">#<!-- -->prefresh</a></section><section><div class="inline text-date-gray">Published <time datetime="2024-02-04 22:50">2024-02-04 22:50</time></div></section><section id="post-body-container" class="relative"><div class="markdown"><p></p><div class="img-container"><div class="img-wrap cover"><img src="https://github.com/1ilsang/dev/assets/23524849/132b52c7-3c2b-4554-b0fb-8ec5f3193d7a" alt="cover"></div></div><p></p>
-<p>요즘 <a class="underline-highlight-fade" target="_blank" href="https://vitejs.dev/" rel="noreferrer noopener">Vite</a>의 매력에 푹 빠져있다. 그러던 도중 "개발 서버는 어떻게 동작하는 걸까?" 의문을 가지게 되었다. 따라서 오늘은 <u>Vite Dev Server의 동작 방식을 이해하고 HMR 과정</u>을 파헤쳐 보려고 한다.</p>
-<h2 id="index" data-heading="true"><a data-heading="true" href="#index"><span class="icon icon-link"></span></a>Index</h2>
+<progress class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og" value="0" max="1"></progress><nav class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10	md:opacity-100 shadow-nav shadow-lg"><h2 class="tracking-tight mr-6 text-2xl	font-bold my-2 ml-3.5"><a class="hover:underline" href="/">1ilsang</a></h2><div class="flex"><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/posts">posts</a></h2><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/tags">tags</a></h2><div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-white-blue" src="/images/chul.webp" alt="1ilsang"></a></div></div></nav><section class="h-auto min-h-full max-w-screen-md py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"><h1 class="text-4xl break-words md:text-6xl">Vite Dev Server 이해하기 (feat. HMR)</h1><section class="flex items-center mt-4"><div class="mr-2 w-9	h-9 md:w-12 md:h-12" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-sub-blue" src="/images/chul.webp" alt="1ilsang"></a></div><div><a class="text-lg" href="/about">1ilsang</a><div class="text-sm text-sub-blue">클라이밍 하실래염?</div></div></section><section class="flex flex-wrap items-end mt-2"><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/vite">#<!-- -->vite</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/dev-server">#<!-- -->dev-server</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/hmr">#<!-- -->hmr</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/preact">#<!-- -->preact</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/prefresh">#<!-- -->prefresh</a></section><section><div class="inline text-date-gray">Published <time datetime="2024-02-04 22:50">2024-02-04 22:50</time></div></section><section id="post-body-container" class="relative"><div class="markdown"><div class="img-container"><div class="img-wrap cover"><img src="/posts/vite-dev-server/cover.webp" alt="cover"></div></div>
+<p>요즘 <a href="https://vitejs.dev/" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Vite</a>의 매력에 푹 빠져있다. 그러던 도중 "개발 서버는 어떻게 동작하는 걸까?" 의문을 가지게 되었다. 따라서 오늘은 <u>Vite Dev Server의 동작 방식을 이해하고 HMR 과정</u>을 파헤쳐 보려고 한다.</p>
+<h2 id="index"><a aria-hidden="true" tabindex="-1" href="#index"><span class="icon icon-link"></span></a>Index</h2>
 <ul>
-<li><a class="underline-highlight-fade" target="_blank" href="#tldr" rel="noreferrer noopener">TL;DR!</a></li>
-<li><a class="underline-highlight-fade" target="_blank" href="#1-개발-서버-실행서버-초기화" rel="noreferrer noopener">1. 개발 서버 실행(서버 초기화)</a></li>
-<li><a class="underline-highlight-fade" target="_blank" href="#2-indexhtml-요청" rel="noreferrer noopener">2. index.html 요청</a></li>
-<li><a class="underline-highlight-fade" target="_blank" href="#3-indexhtml-렌더링과-자원-요청" rel="noreferrer noopener">3. index.html 렌더링과 자원 요청</a></li>
-<li><a class="underline-highlight-fade" target="_blank" href="#4-렌더링-계속-진행with-websocket" rel="noreferrer noopener">4. 렌더링 계속 진행(with WebSocket)</a></li>
-<li><a class="underline-highlight-fade" target="_blank" href="#5-코드-변경-감지" rel="noreferrer noopener">5. 코드 변경 감지</a></li>
-<li><a class="underline-highlight-fade" target="_blank" href="#6-브라우저-리렌더링" rel="noreferrer noopener">6. 브라우저 리렌더링</a></li>
-<li><a class="underline-highlight-fade" target="_blank" href="#마무리" rel="noreferrer noopener">마무리</a></li>
+<li><a href="#tldr" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">TL;DR!</a></li>
+<li><a href="#1-%EA%B0%9C%EB%B0%9C-%EC%84%9C%EB%B2%84-%EC%8B%A4%ED%96%89%EC%84%9C%EB%B2%84-%EC%B4%88%EA%B8%B0%ED%99%94" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">1. 개발 서버 실행(서버 초기화)</a></li>
+<li><a href="#2-indexhtml-%EC%9A%94%EC%B2%AD" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">2. index.html 요청</a></li>
+<li><a href="#3-indexhtml-%EB%A0%8C%EB%8D%94%EB%A7%81%EA%B3%BC-%EC%9E%90%EC%9B%90-%EC%9A%94%EC%B2%AD" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">3. index.html 렌더링과 자원 요청</a></li>
+<li><a href="#4-%EB%A0%8C%EB%8D%94%EB%A7%81-%EA%B3%84%EC%86%8D-%EC%A7%84%ED%96%89with-websocket" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">4. 렌더링 계속 진행(with WebSocket)</a></li>
+<li><a href="#5-%EC%BD%94%EB%93%9C-%EB%B3%80%EA%B2%BD-%EA%B0%90%EC%A7%80" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">5. 코드 변경 감지</a></li>
+<li><a href="#6-%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80-%EB%A6%AC%EB%A0%8C%EB%8D%94%EB%A7%81" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">6. 브라우저 리렌더링</a></li>
+<li><a href="#%EB%A7%88%EB%AC%B4%EB%A6%AC" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">마무리</a></li>
 </ul>
-<h2 id="tldr" data-heading="true"><a data-heading="true" href="#tldr"><span class="icon icon-link"></span></a>TL;DR!</h2>
-<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/03dab012-82a9-4649-8d80-15c0dfe0c129" alt="dev-server-logic-summary"></div></div><p></p>
+<h2 id="tldr"><a aria-hidden="true" tabindex="-1" href="#tldr"><span class="icon icon-link"></span></a>TL;DR!</h2>
+<div class="img-container"><div class="img-wrap l"><img src="/posts/vite-dev-server/dev-server-logic-summary.webp" alt="dev-server-logic-summary"></div></div>
 <blockquote>
 <p>한 짤로 보는 Dev Server의 동작 방식</p>
 </blockquote>
 <p>이 글은 핵심 로직에 해당하는 노란색 박스를 위주로 설명하려고 한다. 위의 도식도를 쫓아오며 글을 읽는다면 도움이 될 것으로 생각한다.</p>
-<p>이 글은 Vite <code>v5.0.12</code> <a class="underline-highlight-fade" target="_blank" href="https://github.com/vitejs/vite/tree/v5.0.12" rel="noreferrer noopener">버전을 기준</a>으로 작성되었다.</p>
+<p>이 글은 Vite <code>v5.0.12</code> <a href="https://github.com/vitejs/vite/tree/v5.0.12" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">버전을 기준</a>으로 작성되었다.</p>
 <p>Let's Dive!</p>
-<h2 id="1-개발-서버-실행서버-초기화" data-heading="true"><a data-heading="true" href="#1-개발-서버-실행서버-초기화"><span class="icon icon-link"></span></a>1. 개발 서버 실행(서버 초기화)</h2>
-<p></p><div class="img-container"><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/7d46712d-6118-4788-9c91-fa2d20f8c3c3" alt="init-server-phase"></div></div><p></p>
+<h2 id="1-개발-서버-실행서버-초기화"><a aria-hidden="true" tabindex="-1" href="#1-개발-서버-실행서버-초기화"><span class="icon icon-link"></span></a>1. 개발 서버 실행(서버 초기화)</h2>
+<div class="img-container"><div class="img-wrap"><img src="/posts/vite-dev-server/init-server-phase.webp" alt="init-server-phase"></div></div>
 <blockquote>
 <p>최초 서버 실행 이후의 상태</p>
 </blockquote>
-<figure data-rehype-pretty-code-figure=""><figcaption data-rehype-pretty-code-title="" data-language="ts" data-theme="material-theme-palenight">vite/packages/vite/src/node/server/index.ts</figcaption><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#676E95;font-style:italic">// https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/node/server/index.ts#L385</span></span>
+<figure data-rehype-pretty-code-figure=""><figcaption data-rehype-pretty-code-title="" data-language="ts" data-theme="material-theme-palenight">vite/packages/vite/src/node/server/index.ts</figcaption><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/node/server/index.ts#L385</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">// server/index.ts</span></span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">export</span><span style="color:#C792EA"> async</span><span style="color:#C792EA"> function</span><span style="color:#82AAFF"> _createServer</span><span style="color:#89DDFF">(</span></span>
 <span data-line=""><span style="color:#BABED8;font-style:italic">  inlineConfig</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> InlineConfig</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> {},</span></span>
@@ -49,27 +49,27 @@
 <span data-line=""> </span>
 <span data-line=""><span style="color:#676E95;font-style:italic">  // ...</span></span>
 <span data-line=""><span style="color:#89DDFF">}</span></span></code></pre></figure>
-<p><code>yarn vite</code> 등의 커맨드로 Dev Server를 실행시키면 <code>bin/vite.js</code>의 <code>cli.js</code>가 <a class="underline-highlight-fade" target="_blank" href="https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/bin/vite.js#L44" rel="noreferrer noopener">호출</a>된다. 이후 <code>src/node/cli.ts</code>가 <a class="underline-highlight-fade" target="_blank" href="https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/node/cli.ts#L156" rel="noreferrer noopener">호출</a>되면서 Dev Server가 실행된다.</p>
-<h3 id="dev-server는-아래와-같은-프로세스를-거치며-초기화를-진행한다" data-heading="true"><a data-heading="true" href="#dev-server는-아래와-같은-프로세스를-거치며-초기화를-진행한다"><span class="icon icon-link"></span></a>Dev Server는 아래와 같은 프로세스를 거치며 초기화를 진행한다.</h3>
+<p><code>yarn vite</code> 등의 커맨드로 Dev Server를 실행시키면 <code>bin/vite.js</code>의 <code>cli.js</code>가 <a href="https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/bin/vite.js#L44" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">호출</a>된다. 이후 <code>src/node/cli.ts</code>가 <a href="https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/node/cli.ts#L156" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">호출</a>되면서 Dev Server가 실행된다.</p>
+<h3 id="dev-server는-아래와-같은-프로세스를-거치며-초기화를-진행한다"><a aria-hidden="true" tabindex="-1" href="#dev-server는-아래와-같은-프로세스를-거치며-초기화를-진행한다"><span class="icon icon-link"></span></a>Dev Server는 아래와 같은 프로세스를 거치며 초기화를 진행한다.</h3>
 <ol>
 <li>
 <p>Dev Server가 실행되면 HTTP 서버와 웹 소켓 서버가 실행된다.</p>
 <ul>
-<li>미들웨어는 Express에서 사용되는 <a class="underline-highlight-fade" target="_blank" href="https://www.npmjs.com/package/connect" rel="noreferrer noopener">connect</a>로 연결된다.</li>
+<li>미들웨어는 Express에서 사용되는 <a href="https://www.npmjs.com/package/connect" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">connect</a>로 연결된다.</li>
 </ul>
 </li>
 <li>
 <p>파일 시스템 옵저버를 설정한다.</p>
 <ul>
-<li>파일 변경 감지를 위해 <a class="underline-highlight-fade" target="_blank" href="https://www.npmjs.com/package/chokidar" rel="noreferrer noopener">chokidar</a>를 사용한다.</li>
+<li>파일 변경 감지를 위해 <a href="https://www.npmjs.com/package/chokidar" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">chokidar</a>를 사용한다.</li>
 </ul>
 </li>
 <li>
 <p>모듈 그래프를 생성한다.</p>
 <ul>
-<li>모듈(파일)의 의존성 관계를 추적한다.
+<li>모듈(파일)의 의존성 관계를 추적한다.<!-- -->
 <ul>
-<li><a class="underline-highlight-fade" target="_blank" href="https://webpack.kr/concepts/hot-module-replacement/" rel="noreferrer noopener">HMR(Hot Module Replacement)</a> 및 <a class="underline-highlight-fade" target="_blank" href="https://webpack.kr/guides/tree-shaking/" rel="noreferrer noopener">트리쉐이킹</a> 같은 최적화 작업을 위해 존재한다.</li>
+<li><a href="https://webpack.kr/concepts/hot-module-replacement/" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">HMR(Hot Module Replacement)</a> 및 <a href="https://webpack.kr/guides/tree-shaking/" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">트리쉐이킹</a> 같은 최적화 작업을 위해 존재한다.</li>
 </ul>
 </li>
 <li>현재(초기화 단계)는 비어있다.</li>
@@ -78,7 +78,7 @@
 <li>
 <p>플러그인 컨테이너를 생성한다.</p>
 <ul>
-<li>Dev Server에 필요한 Built-in(내장된) 플러그인이 추가된다.
+<li>Dev Server에 필요한 Built-in(내장된) 플러그인이 추가된다.<!-- -->
 <ul>
 <li>importAnalysis, css, optimizer, json 등이 있다.</li>
 </ul>
@@ -91,9 +91,9 @@
 <p>클라이언트의 요청을 기다린다.</p>
 </li>
 </ol>
-<h2 id="2-indexhtml-요청" data-heading="true"><a data-heading="true" href="#2-indexhtml-요청"><span class="icon icon-link"></span></a>2. index.html 요청</h2>
-<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/ec8f01ad-b4a6-4da8-aaa6-0e5015438ba3" alt="index.html-request-phase"></div></div><p></p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#676E95;font-style:italic">// server/index.ts</span></span>
+<h2 id="2-indexhtml-요청"><a aria-hidden="true" tabindex="-1" href="#2-indexhtml-요청"><span class="icon icon-link"></span></a>2. index.html 요청</h2>
+<div class="img-container"><div class="img-wrap l"><img src="/posts/vite-dev-server/html-request-phase.webp" alt="index.html-request-phase"></div></div>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// server/index.ts</span></span>
 <span data-line=""><span style="color:#BABED8">middlewares</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">use</span><span style="color:#BABED8">(</span><span style="color:#82AAFF">indexHtmlMiddleware</span><span style="color:#BABED8">(root</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> server))</span></span>
 <span data-line=""> </span>
 <span data-line=""><span style="color:#676E95;font-style:italic">// https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/node/server/middlewares/indexHtml.ts#L438</span></span>
@@ -117,12 +117,12 @@
 <span data-line=""><span style="color:#F07178">    )</span></span>
 <span data-line=""><span style="color:#89DDFF">  }</span></span>
 <span data-line=""><span style="color:#89DDFF">}</span></span></code></pre></figure>
-<p>최초 유저의 요청(<code>GET /</code>)이 발생하면 <code>index.html</code>이 리턴된다. 이 과정에서 <code>transform</code>과 같은 <a class="underline-highlight-fade" target="_blank" href="https://vitejs.dev/guide/api-plugin.html#universal-hooks" rel="noreferrer noopener">플러그인 훅</a>을 거치며 필요한 데이터들을 세팅한다.</p>
+<p>최초 유저의 요청(<code>GET /</code>)이 발생하면 <code>index.html</code>이 리턴된다. 이 과정에서 <code>transform</code>과 같은 <a href="https://vitejs.dev/guide/api-plugin.html#universal-hooks" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">플러그인 훅</a>을 거치며 필요한 데이터들을 세팅한다.</p>
 <ol>
 <li>
 <p>미들웨어에서 <code>transform</code> 함수가 실행된다.</p>
 <ul>
-<li>플러그인 컨테이너의 플러그인들이 실행 된다.
+<li>플러그인 컨테이너의 플러그인들이 실행 된다.<!-- -->
 <ul>
 <li>플러그인들은 실행 시점(<code>pre</code>, <code>normal</code>, <code>post</code>)에 맞춰 훅이 실행된다.</li>
 </ul>
@@ -132,7 +132,7 @@
 <li>
 <p>의존성 사전 번들링</p>
 <ul>
-<li><code>node_modules</code>에 있는 의존성은 <a class="underline-highlight-fade" target="_blank" href="https://webpack.kr/guides/ecma-script-modules/" rel="noreferrer noopener">ESM</a>이 아닐 수 있다. Vite는 이들을 <a class="underline-highlight-fade" target="_blank" href="https://ko.vitejs.dev/guide/dep-pre-bundling.html" rel="noreferrer noopener">사전 번들링</a>하여 브라우저가 이해할 수 있는 ESM 형태로 변환한다.
+<li><code>node_modules</code>에 있는 의존성은 <a href="https://webpack.kr/guides/ecma-script-modules/" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">ESM</a>이 아닐 수 있다. Vite는 이들을 <a href="https://ko.vitejs.dev/guide/dep-pre-bundling.html" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">사전 번들링</a>하여 브라우저가 이해할 수 있는 ESM 형태로 변환한다.<!-- -->
 <ul>
 <li>이 과정은 esbuild로 실행되어 빠르게 처리된다.</li>
 </ul>
@@ -140,7 +140,7 @@
 </ul>
 </li>
 </ol>
-<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/23f4b155-b5f5-487d-8500-b39796919829" alt="transpile-ts-to-js"></div></div><p></p>
+<div class="img-container"><div class="img-wrap l"><img src="/posts/vite-dev-server/transpile-ts-to-js.webp" alt="transpile-ts-to-js"></div></div>
 <blockquote>
 <p>hmr.ts의 response에 타입이 사라진 모습.</p>
 </blockquote>
@@ -148,7 +148,7 @@
 <li>
 <p>코드 변환</p>
 <ul>
-<li>TS 혹은 JSX 파일의 경우 JS로 변환된다.
+<li>TS 혹은 JSX 파일의 경우 JS로 변환된다.<!-- -->
 <ul>
 <li>위의 그림과 같이 파일명 자체는 변경되지 않지만, 코드는 js로 변경된다.</li>
 </ul>
@@ -156,7 +156,7 @@
 </ul>
 </li>
 </ol>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#676E95;font-style:italic">// 만약 index.html에서 해당 파일을 import 한다고 가정해 보자.</span></span>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// 만약 index.html에서 해당 파일을 import 한다고 가정해 보자.</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">// playground/hmr/hmr.ts</span></span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">import</span><span style="color:#89DDFF"> {</span><span style="color:#BABED8"> foo</span><span style="color:#89DDFF;font-style:italic"> as</span><span style="color:#BABED8"> depFoo</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> nestedFoo</span><span style="color:#89DDFF"> }</span><span style="color:#89DDFF;font-style:italic"> from</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">./hmrDep</span><span style="color:#89DDFF">'</span></span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">import</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">./importing-updated</span><span style="color:#89DDFF">'</span></span>
@@ -198,13 +198,13 @@
 <p>변환된 html 파일을 리턴한다.</p>
 </li>
 </ol>
-<h2 id="3-indexhtml-렌더링과-자원-요청" data-heading="true"><a data-heading="true" href="#3-indexhtml-렌더링과-자원-요청"><span class="icon icon-link"></span></a>3. index.html 렌더링과 자원 요청</h2>
-<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/5321cc9c-f569-4653-8179-06669e82f630" alt="index.html-rendering-phase"></div></div><p></p>
+<h2 id="3-indexhtml-렌더링과-자원-요청"><a aria-hidden="true" tabindex="-1" href="#3-indexhtml-렌더링과-자원-요청"><span class="icon icon-link"></span></a>3. index.html 렌더링과 자원 요청</h2>
+<div class="img-container"><div class="img-wrap l"><img src="/posts/vite-dev-server/html-rendering-phase.webp" alt="index.html-rendering-phase"></div></div>
 <blockquote>
 <p>3 ~ 4. 브라우저 렌더링 및 정적 자원 요청 상황.</p>
 </blockquote>
-<p></p><div class="img-container"><div class="img-wrap"><img src="https://github.com/1ilsang/dev/assets/23524849/a5969d65-b177-4011-ab1b-d45129b9951e" alt="init-html"></div></div><p></p>
-<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/3eacdd15-514a-43a9-a71c-cc8ba228d574" alt="browser-initiator"></div></div><p></p>
+<div class="img-container"><div class="img-wrap"><img src="/posts/vite-dev-server/init-html.webp" alt="init-html"></div></div>
+<div class="img-container"><div class="img-wrap l"><img src="/posts/vite-dev-server/browser-initiator.webp" alt="browser-initiator"></div></div>
 <blockquote>
 <p>브라우저는 위에서부터 아래로 해석해 나가므로 @vite/client, global.css, hmr.ts가 순차적으로 요청되는 것을 볼 수 있다.</p>
 </blockquote>
@@ -219,7 +219,7 @@
 </ul>
 </li>
 </ol>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#676E95;font-style:italic">// server/index.ts</span></span>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// server/index.ts</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">// main transform middleware</span></span>
 <span data-line=""><span style="color:#BABED8">middlewares</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">use</span><span style="color:#BABED8">(</span><span style="color:#82AAFF">transformMiddleware</span><span style="color:#BABED8">(server))</span></span>
 <span data-line=""> </span>
@@ -243,15 +243,15 @@
 <li>
 <p>transform 적용</p>
 <ul>
-<li>각 요청에 대해 Dev Server는 <a class="underline-highlight-fade" target="_blank" href="https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/node/server/middlewares/transform.ts#L175" rel="noreferrer noopener">transformMiddleware</a>에서 <a class="underline-highlight-fade" target="_blank" href="#2-indexhtml-요청" rel="noreferrer noopener">2번 html 요청</a>과 비슷한 과정으로 <code>transform</code> 이후 응답한다.
+<li>각 요청에 대해 Dev Server는 <a href="https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/node/server/middlewares/transform.ts#L175" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">transformMiddleware</a>에서 <a href="#2-indexhtml-%EC%9A%94%EC%B2%AD" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">2번 html 요청</a>과 비슷한 과정으로 <code>transform</code> 이후 응답한다.<!-- -->
 <ul>
-<li>이때 <code>public</code> 폴더 내의 요청인지 외부 자원 요청인지 등의 분류 작업 또한 <a class="underline-highlight-fade" target="_blank" href="https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/node/server/index.ts#L774" rel="noreferrer noopener">미들웨어에서 진행</a>한다.</li>
+<li>이때 <code>public</code> 폴더 내의 요청인지 외부 자원 요청인지 등의 분류 작업 또한 <a href="https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/node/server/index.ts#L774" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">미들웨어에서 진행</a>한다.</li>
 <li><code>@fs</code> prefix는 vite 프로젝트의 루트(config 위치)를 벗어날 경우 설정된다(모노레포 혹은 파일 시스템 직접 접근 등의 경우).</li>
 </ul>
 </li>
-<li>HMR 코드 적용
+<li>HMR 코드 적용<!-- -->
 <ul>
-<li>Dev Server에 내장된 <a class="underline-highlight-fade" target="_blank" href="https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/node/plugins/importAnalysis.ts#L209" rel="noreferrer noopener">importAnalysis 플러그인</a>에서 <u>HMR이 설정된 파일(*1)이라면 <code>import.meta.hot</code>을 파일 최상단에 <a class="underline-highlight-fade" target="_blank" href="https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/node/plugins/importAnalysis.ts#L715" rel="noreferrer noopener">추가</a></u>한다.</li>
+<li>Dev Server에 내장된 <a href="https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/node/plugins/importAnalysis.ts#L209" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">importAnalysis 플러그인</a>에서 <u>HMR이 설정된 파일(*1)이라면 <code>import.meta.hot</code>을 파일 최상단에 <a href="https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/node/plugins/importAnalysis.ts#L715" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">추가</a></u>한다.</li>
 </ul>
 </li>
 </ul>
@@ -263,7 +263,7 @@
 <blockquote>
 <p>(*1): preact의 prefresh 같은 HMR 라이브러리를 적용했거나(후술) import.meta.hot.accept을 직접 코드에 추가한 경우에 해당(아래 코드)한다.</p>
 </blockquote>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="html" data-theme="material-theme-palenight"><code data-language="html" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#676E95;font-style:italic">&lt;!-- </span></span>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="html" data-theme="material-theme-palenight"><code data-language="html" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">&lt;!-- </span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">  import.meta.hot.accept가 코드에 있다면 HMR을 허용한 파일이라고 인식한다.</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">  importAnalysis 플러그인이 createHotContext를 추가한다. --&gt;</span></span>
 <span data-line=""><span style="color:#89DDFF">&lt;</span><span style="color:#F07178">script</span><span style="color:#C792EA"> type</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">module</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">&gt;</span></span>
@@ -274,27 +274,27 @@
 <span data-line=""><span style="color:#89DDFF">    }</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#89DDFF">  }</span></span>
 <span data-line=""><span style="color:#89DDFF">&lt;/</span><span style="color:#F07178">script</span><span style="color:#89DDFF">&gt;</span></span></code></pre></figure>
-<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/57326d8a-3c7a-41d4-ac7b-b202bc851bc8" alt="inject-import-meta-hot"></div></div><p></p>
+<div class="img-container"><div class="img-wrap l"><img src="/posts/vite-dev-server/inject-import-meta-hot.webp" alt="inject-import-meta-hot"></div></div>
 <blockquote>
 <p>일반 스크립트의 응답에 createHotContext 생성 및 import.meta.hot에 바인딩된 모습.</p>
 </blockquote>
-<h2 id="4-렌더링-계속-진행with-websocket" data-heading="true"><a data-heading="true" href="#4-렌더링-계속-진행with-websocket"><span class="icon icon-link"></span></a>4. 렌더링 계속 진행(with WebSocket)</h2>
+<h2 id="4-렌더링-계속-진행with-websocket"><a aria-hidden="true" tabindex="-1" href="#4-렌더링-계속-진행with-websocket"><span class="icon icon-link"></span></a>4. 렌더링 계속 진행(with WebSocket)</h2>
 <p>이제 index.html의 요청 파일을 가져왔으므로 브라우저 렌더링이 계속 진행된다.</p>
-<figure data-rehype-pretty-code-figure=""><figcaption data-rehype-pretty-code-title="" data-language="ts" data-theme="material-theme-palenight">@vite/client.ts</figcaption><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#C792EA">function</span><span style="color:#82AAFF"> setupWebSocket</span><span style="color:#89DDFF">(</span><span style="color:#BABED8">...</span><span style="color:#89DDFF">)</span><span style="color:#89DDFF"> {</span></span>
+<figure data-rehype-pretty-code-figure=""><figcaption data-rehype-pretty-code-title="" data-language="ts" data-theme="material-theme-palenight">@vite/client.ts</figcaption><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">function</span><span style="color:#82AAFF"> setupWebSocket</span><span style="color:#89DDFF">(</span><span style="color:#BABED8">...</span><span style="color:#89DDFF">)</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> socket</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> new</span><span style="color:#82AAFF"> WebSocket</span><span style="color:#F07178">(</span><span style="color:#89DDFF">`${</span><span style="color:#BABED8">protocol</span><span style="color:#89DDFF">}</span><span style="color:#C3E88D">://</span><span style="color:#89DDFF">${</span><span style="color:#BABED8">hostAndPath</span><span style="color:#89DDFF">}`</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">vite-hmr</span><span style="color:#89DDFF">'</span><span style="color:#F07178">)</span></span>
 <span data-line=""><span style="color:#BABED8">  socket</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">addEventListener</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">message</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#C792EA"> async</span><span style="color:#89DDFF"> ({</span><span style="color:#BABED8;font-style:italic"> data</span><span style="color:#89DDFF"> })</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#82AAFF">    handleMessage</span><span style="color:#F07178">(</span><span style="color:#BABED8">JSON</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">parse</span><span style="color:#F07178">(</span><span style="color:#BABED8">data</span><span style="color:#F07178">))</span></span>
 <span data-line=""><span style="color:#89DDFF">  }</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#89DDFF">}</span></span></code></pre></figure>
 <ul>
-<li><code>@vite/client</code> 파일
+<li><code>@vite/client</code> 파일<!-- -->
 <ul>
-<li>Dev Server와의 통신 및 <a class="underline-highlight-fade" target="_blank" href="https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/client/client.ts#L137" rel="noreferrer noopener">HMR에 필요한 코드들</a>이 작성되어 있다.</li>
-<li><a class="underline-highlight-fade" target="_blank" href="https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/client/client.ts#L68" rel="noreferrer noopener">WebSocket 연결</a> 및 <code>update</code> 이벤트를 기다린다.</li>
+<li>Dev Server와의 통신 및 <a href="https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/client/client.ts#L137" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">HMR에 필요한 코드들</a>이 작성되어 있다.</li>
+<li><a href="https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/client/client.ts#L68" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">WebSocket 연결</a> 및 <code>update</code> 이벤트를 기다린다.</li>
 </ul>
 </li>
 </ul>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="tsx" data-theme="material-theme-palenight"><code data-language="tsx" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#676E95;font-style:italic">// AS-IS 원본 코드</span></span>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="tsx" data-theme="material-theme-palenight"><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// AS-IS 원본 코드</span></span>
 <span data-line="" data-highlighted-line=""><span style="color:#89DDFF;font-style:italic">import</span><span style="color:#89DDFF"> {</span><span style="color:#BABED8"> h</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> render</span><span style="color:#89DDFF"> }</span><span style="color:#89DDFF;font-style:italic"> from</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">preact</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">import</span><span style="color:#BABED8"> App </span><span style="color:#89DDFF;font-style:italic">from</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">./MyComponent</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""> </span>
@@ -307,14 +307,14 @@
 <span data-line=""> </span>
 <span data-line="" data-highlighted-line=""><span style="color:#82AAFF">render</span><span style="color:#BABED8">(</span><span style="color:#82AAFF">_jsxDEV</span><span style="color:#BABED8">(App</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> ...</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> document</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">getElementById</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">app</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">))</span></span></code></pre></figure>
 <p>만약 <code>react</code>와 같은 UI 라이브러리를 사용한다면 각 <u>라이브러리가 의존하는 HMR 라이브러리가 호출</u>된다. 여기서는 <code>preact</code>를 기준으로 설명(리액트와 거의 동일하다)하겠다.</p>
-<p><code>jsxDEV</code>로 감싸진 하위 컴포넌트들은 HMR이 적용된다. 자세한 내용은 <a class="underline-highlight-fade" target="_blank" href="#6-브라우저-리렌더링" rel="noreferrer noopener">6. 브라우저 리렌더링</a>에서 다루겠다.</p>
+<p><code>jsxDEV</code>로 감싸진 하위 컴포넌트들은 HMR이 적용된다. 자세한 내용은 <a href="#6-%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80-%EB%A6%AC%EB%A0%8C%EB%8D%94%EB%A7%81" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">6. 브라우저 리렌더링</a>에서 다루겠다.</p>
 <p>이제 브라우저가 더 이상 요청할 것이 없을 때까지 3 ~ 4 과정을 반복하며 렌더링을 마무리한다.</p>
-<h2 id="5-코드-변경-감지" data-heading="true"><a data-heading="true" href="#5-코드-변경-감지"><span class="icon icon-link"></span></a>5. 코드 변경 감지</h2>
-<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/51800d15-f916-4c25-bc1f-6a6bd2044d54" alt="file-change-phase"></div></div><p></p>
+<h2 id="5-코드-변경-감지"><a aria-hidden="true" tabindex="-1" href="#5-코드-변경-감지"><span class="icon icon-link"></span></a>5. 코드 변경 감지</h2>
+<div class="img-container"><div class="img-wrap l"><img src="/posts/vite-dev-server/file-change-phase.webp" alt="file-change-phase"></div></div>
 <blockquote>
 <p>코드가 변경되었을 때의 Dev Server 모습</p>
 </blockquote>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#BABED8">watcher</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">on</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">change</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#C792EA"> async</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">file</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#BABED8">watcher</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">on</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">change</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#C792EA"> async</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">file</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#BABED8">  file</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> normalizePath</span><span style="color:#F07178">(</span><span style="color:#BABED8">file</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">  // 플러그인 컨테이너에게 update 이벤트 발송. 플러그인에서 필요시 실행된다.</span></span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">  await</span><span style="color:#BABED8"> container</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">watchChange</span><span style="color:#F07178">(</span><span style="color:#BABED8">file</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> {</span><span style="color:#F07178"> event</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">update</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> }</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
@@ -323,21 +323,21 @@
 <span data-line=""><span style="color:#676E95;font-style:italic">  // 대망의 HMR 업데이트 시작</span></span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">  await</span><span style="color:#82AAFF"> onHMRUpdate</span><span style="color:#F07178">(</span><span style="color:#BABED8">file</span><span style="color:#89DDFF">,</span><span style="color:#FF9CAC"> false</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre></figure>
-<p>개발 중 파일이 변경되면(개발자의 코드 수정) chokidar에서 <code>change</code> <a class="underline-highlight-fade" target="_blank" href="https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/node/server/index.ts#L673" rel="noreferrer noopener">이벤트를 감지</a>한다.</p>
+<p>개발 중 파일이 변경되면(개발자의 코드 수정) chokidar에서 <code>change</code> <a href="https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/node/server/index.ts#L673" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">이벤트를 감지</a>한다.</p>
 <ul>
-<li>플러그인 컨테이너에 <code>update</code> 이벤트를 전파한다.
+<li>플러그인 컨테이너에 <code>update</code> 이벤트를 전파한다.<!-- -->
 <ul>
 <li>각 플러그인에서 필요시(listen) 플러그인 코드가 실행된다.</li>
 </ul>
 </li>
-<li>의존성 그래프에 변경사항을 적용한다.
+<li>의존성 그래프에 변경사항을 적용한다.<!-- -->
 <ul>
 <li>모듈 캐싱을 무효화해 refresh 되도록 함.</li>
 </ul>
 </li>
 <li><code>onHMRUpdate</code> 함수를 호출해 hot-reloading을 준비한다.</li>
 </ul>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#C792EA">function</span><span style="color:#82AAFF"> onHMRUpdate</span><span style="color:#89DDFF">()</span><span style="color:#89DDFF"> {</span></span>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">function</span><span style="color:#82AAFF"> onHMRUpdate</span><span style="color:#89DDFF">()</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">  // 관련 플러그인 훅 실행</span></span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">  for</span><span style="color:#F07178"> (</span><span style="color:#C792EA">const</span><span style="color:#BABED8"> hook</span><span style="color:#89DDFF"> of</span><span style="color:#BABED8"> config</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">getSortedPluginHooks</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">handleHotUpdate</span><span style="color:#89DDFF">'</span><span style="color:#F07178">)) </span><span style="color:#89DDFF">{</span></span>
 <span data-line=""><span style="color:#C792EA">    const</span><span style="color:#BABED8"> filteredModules</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF;font-style:italic"> await</span><span style="color:#82AAFF"> hook</span><span style="color:#F07178">(</span><span style="color:#BABED8">hmrContext</span><span style="color:#F07178">)</span></span>
@@ -355,18 +355,18 @@
 <span data-line=""><span style="color:#89DDFF">  }</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">  // 소켓 메시지 전송</span></span>
 <span data-line="" data-highlighted-line=""><span style="color:#BABED8">  ws</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">send</span><span style="color:#F07178">(</span><span style="color:#89DDFF">{</span><span style="color:#F07178"> type</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">update</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> updates</span><span style="color:#89DDFF"> }</span><span style="color:#F07178">)</span></span></code></pre></figure>
-<p><code>onHMRUpdate</code>는 <code>updateModules</code>를 <a class="underline-highlight-fade" target="_blank" href="https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/node/server/hmr.ts#L142" rel="noreferrer noopener">호출</a>한다.</p>
+<p><code>onHMRUpdate</code>는 <code>updateModules</code>를 <a href="https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/node/server/hmr.ts#L142" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">호출</a>한다.</p>
 <ul>
 <li>HMR 관련 플러그인이 있을 때 훅(<code>handleHotUpdate</code>)을 실행시킨다.</li>
 <li>관련된 모듈 그래프를 갱신한다.</li>
 <li>브라우저에게 파일이 변경되었음을 <u>WebSocket</u>으로 알린다(update 이벤트 전송).</li>
 </ul>
-<h2 id="6-브라우저-리렌더링" data-heading="true"><a data-heading="true" href="#6-브라우저-리렌더링"><span class="icon icon-link"></span></a>6. 브라우저 리렌더링</h2>
-<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/23181d27-311e-4154-a04f-7efa2fb7cae9" alt="socket-update-event"></div></div><p></p>
+<h2 id="6-브라우저-리렌더링"><a aria-hidden="true" tabindex="-1" href="#6-브라우저-리렌더링"><span class="icon icon-link"></span></a>6. 브라우저 리렌더링</h2>
+<div class="img-container"><div class="img-wrap l"><img src="/posts/vite-dev-server/socket-update-event.webp" alt="socket-update-event"></div></div>
 <blockquote>
 <p>브라우저 소켓이 Dev Server의 update 소켓 데이터를 받은 모습.</p>
 </blockquote>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#676E95;font-style:italic">// Step 1.</span></span>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// Step 1.</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">// @vite/client.ts</span></span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">case</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">update</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">:</span></span>
 <span data-line=""><span style="color:#82AAFF">  notifyListeners</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">vite:beforeUpdate</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> payload)</span><span style="color:#89DDFF">;</span></span>
@@ -399,31 +399,31 @@
 <span data-line=""><span style="color:#89DDFF">},</span></span></code></pre></figure>
 <ol>
 <li>
-<p><code>@vite/client</code>에서 연결된 브라우저의 소켓은 <code>update</code> 이벤트를 받고 <code>hmrClient</code>에게 <a class="underline-highlight-fade" target="_blank" href="https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/client/client.ts#L182" rel="noreferrer noopener">업데이트를 지시</a>한다.</p>
+<p><code>@vite/client</code>에서 연결된 브라우저의 소켓은 <code>update</code> 이벤트를 받고 <code>hmrClient</code>에게 <a href="https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/client/client.ts#L182" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">업데이트를 지시</a>한다.</p>
 </li>
 <li>
-<p>hmrClient는 <code>fetchUpdate</code>에 데이터를 넘기고 <code>importUpdatedModule</code>을 <a class="underline-highlight-fade" target="_blank" href="https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/shared/hmr.ts#L235" rel="noreferrer noopener">호출</a>한다.</p>
+<p>hmrClient는 <code>fetchUpdate</code>에 데이터를 넘기고 <code>importUpdatedModule</code>을 <a href="https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/shared/hmr.ts#L235" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">호출</a>한다.</p>
 <ul>
-<li>importUpdatedModule은 hmrClient가 <a class="underline-highlight-fade" target="_blank" href="https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/client/client.ts#L137" rel="noreferrer noopener">생성될 때 적용</a>된다.</li>
+<li>importUpdatedModule은 hmrClient가 <a href="https://github.com/vitejs/vite/blob/v5.0.12/packages/vite/src/client/client.ts#L137" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">생성될 때 적용</a>된다.</li>
 </ul>
 </li>
 </ol>
-<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/d2d0de89-4eee-4496-9c51-d99d228eed0b" alt="import response"></div></div><p></p>
+<div class="img-container"><div class="img-wrap l"><img src="/posts/vite-dev-server/import-response.webp" alt="import response"></div></div>
 <blockquote>
 <p>Step 3 ~ 4.</p>
 </blockquote>
 <ol start="3">
 <li>
-<p>importUpdatedModule이 호출되면서 변경된 모듈이 <code>import</code> 되므로, Dev Server에 새로 요청하게 된다(<a class="underline-highlight-fade" target="_blank" href="#3-indexhtml-렌더링과-자원-요청" rel="noreferrer noopener">3. 렌더링 자원 요청</a>). 이때 <code>t</code> 값을 쿼리로 넣어(?t=123214123) <u>캐싱을 회피해 변경된 모듈의 코드를 응답으로 받을 수 있도록</u> 한다.</p>
+<p>importUpdatedModule이 호출되면서 변경된 모듈이 <code>import</code> 되므로, Dev Server에 새로 요청하게 된다(<a href="#3-indexhtml-%EB%A0%8C%EB%8D%94%EB%A7%81%EA%B3%BC-%EC%9E%90%EC%9B%90-%EC%9A%94%EC%B2%AD" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">3. 렌더링 자원 요청</a>). 이때 <code>t</code> 값을 쿼리로 넣어(?t=123214123) <u>캐싱을 회피해 변경된 모듈의 코드를 응답으로 받을 수 있도록</u> 한다.</p>
 </li>
 <li>
-<p>import로 요청한 응답이 정상적으로 오면 리렌더링 되기 시작(<a class="underline-highlight-fade" target="_blank" href="#4-렌더링-계속-진행with-websocket" rel="noreferrer noopener">4. 렌더링 진행</a>)된다.</p>
+<p>import로 요청한 응답이 정상적으로 오면 리렌더링 되기 시작(<a href="#4-%EB%A0%8C%EB%8D%94%EB%A7%81-%EA%B3%84%EC%86%8D-%EC%A7%84%ED%96%89with-websocket" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">4. 렌더링 진행</a>)된다.</p>
 </li>
 <li>
-<p>HMR이 가능한 파일은 <code>import.meta.hot.accept</code> 함수의 <a class="underline-highlight-fade" target="_blank" href="https://ko.vitejs.dev/guide/api-hmr.html#hot-accept-cb" rel="noreferrer noopener">콜백으로 실행</a>된다. HMR이 불가능한 파일이라면 전체 페이지를 리로딩한다.</p>
+<p>HMR이 가능한 파일은 <code>import.meta.hot.accept</code> 함수의 <a href="https://ko.vitejs.dev/guide/api-hmr.html#hot-accept-cb" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">콜백으로 실행</a>된다. HMR이 불가능한 파일이라면 전체 페이지를 리로딩한다.</p>
 </li>
 </ol>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color:#676E95;font-style:italic">// vite.config.ts</span></span>
+<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// vite.config.ts</span></span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">import</span><span style="color:#BABED8"> preact </span><span style="color:#89DDFF;font-style:italic">from</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">@preact/preset-vite</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""> </span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">export</span><span style="color:#89DDFF;font-style:italic"> default</span><span style="color:#82AAFF"> defineConfig</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">{</span></span>
@@ -445,30 +445,30 @@
 <span data-line=""><span style="color:#676E95;font-style:italic">// Step 4. 실제 코드 변경 부분.</span></span>
 <span data-line=""><span style="color:#C792EA">function</span><span style="color:#82AAFF"> flushUpdates</span><span style="color:#89DDFF">()</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#BABED8">  self</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">__PREFRESH__</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">replaceComponent</span><span style="color:#F07178">(</span><span style="color:#BABED8">prev</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> next</span><span style="color:#89DDFF">,</span><span style="color:#FF9CAC"> true</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span></code></pre></figure>
-<p>앞에서 잠깐 다뤘지만 <code>react</code>, <code>preact</code> 등 순수 자바스크립트가 아니라면 라이브러리 자체 HMR을 호출한다. 이 HMR 코드는 [<a class="underline-highlight-fade" target="_blank" href="#3-indexhtml-렌더링과-자원-요청" rel="noreferrer noopener">3. 렌더링 자원 요청</a>] 단계에서 추가된다.</p>
+<p>앞에서 잠깐 다뤘지만 <code>react</code>, <code>preact</code> 등 순수 자바스크립트가 아니라면 라이브러리 자체 HMR을 호출한다. 이 HMR 코드는 [<a href="#3-indexhtml-%EB%A0%8C%EB%8D%94%EB%A7%81%EA%B3%BC-%EC%9E%90%EC%9B%90-%EC%9A%94%EC%B2%AD" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">3. 렌더링 자원 요청</a>] 단계에서 추가된다.</p>
 <ol>
 <li>
-<p><a class="underline-highlight-fade" target="_blank" href="https://github.com/preactjs/preset-vite" rel="noreferrer noopener">preact-vite 플러그인</a>(<code>@preact/preset-vite</code>)은 내부적으로 <a class="underline-highlight-fade" target="_blank" href="https://github.com/preactjs/prefresh" rel="noreferrer noopener">prefresh</a>라는 HMR 라이브러리를 사용한다.</p>
+<p><a href="https://github.com/preactjs/preset-vite" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">preact-vite 플러그인</a>(<code>@preact/preset-vite</code>)은 내부적으로 <a href="https://github.com/preactjs/prefresh" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">prefresh</a>라는 HMR 라이브러리를 사용한다.</p>
 </li>
 <li>
-<p>preact 플러그인은 <code>prefreshEnabled</code> 여부에 따라 <a class="underline-highlight-fade" target="_blank" href="https://github.com/preactjs/preset-vite/blob/a325c1f3811900f70277424304c9eb42fc60f8a7/src/index.ts#L246" rel="noreferrer noopener">prefresh를 호출</a>한다.</p>
+<p>preact 플러그인은 <code>prefreshEnabled</code> 여부에 따라 <a href="https://github.com/preactjs/preset-vite/blob/a325c1f3811900f70277424304c9eb42fc60f8a7/src/index.ts#L246" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">prefresh를 호출</a>한다.</p>
 </li>
 <li>
-<p>prefresh는 <code>transform</code> 단계에서 <code>import.meta.hot.accept</code> <a class="underline-highlight-fade" target="_blank" href="https://github.com/preactjs/prefresh/blob/main/packages/vite/src/index.js#L87" rel="noreferrer noopener">코드를 주입</a>한다.</p>
+<p>prefresh는 <code>transform</code> 단계에서 <code>import.meta.hot.accept</code> <a href="https://github.com/preactjs/prefresh/blob/main/packages/vite/src/index.js#L87" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">코드를 주입</a>한다.</p>
 </li>
 <li>
-<p>[<a class="underline-highlight-fade" target="_blank" href="#6-브라우저-리렌더링" rel="noreferrer noopener">6. 브라우저 리렌더링</a>] 발생시 3번 단계의 <code>importUpdatedModule</code>를 거쳐 <code>import.meta.hot.accept</code>의 콜백이 실행된다.</p>
+<p>[<a href="#6-%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80-%EB%A6%AC%EB%A0%8C%EB%8D%94%EB%A7%81" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">6. 브라우저 리렌더링</a>] 발생시 3번 단계의 <code>importUpdatedModule</code>를 거쳐 <code>import.meta.hot.accept</code>의 콜백이 실행된다.</p>
 </li>
 <li>
-<p>perfresh에서 심어둔 <code>flushUpdates</code> 함수가 <a class="underline-highlight-fade" target="_blank" href="https://github.com/preactjs/prefresh/blob/018f5cc907629b82ffb201c32e948efe4b40098a/packages/utils/src/index.js#L11" rel="noreferrer noopener">HMR을 수행</a>(컴포넌트 변경)된다.</p>
+<p>perfresh에서 심어둔 <code>flushUpdates</code> 함수가 <a href="https://github.com/preactjs/prefresh/blob/018f5cc907629b82ffb201c32e948efe4b40098a/packages/utils/src/index.js#L11" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">HMR을 수행</a>(컴포넌트 변경)된다.</p>
 </li>
 </ol>
 <p>이로써 HMR이 완전히 마무리되면서 다시 개발자의 입력을 기다리게 된다.</p>
-<p></p><div class="img-container"><div class="img-wrap l"><img src="https://github.com/1ilsang/dev/assets/23524849/03dab012-82a9-4649-8d80-15c0dfe0c129" alt="dev-server-logic-summary"></div></div><p></p>
+<div class="img-container"><div class="img-wrap l"><img src="/posts/vite-dev-server/dev-server-logic-summary.webp" alt="dev-server-logic-summary"></div></div>
 <blockquote>
 <p>Dev Server 초기화부터 HMR까지.</p>
 </blockquote>
-<h2 id="마무리" data-heading="true"><a data-heading="true" href="#마무리"><span class="icon icon-link"></span></a>마무리</h2>
+<h2 id="마무리"><a aria-hidden="true" tabindex="-1" href="#마무리"><span class="icon icon-link"></span></a>마무리</h2>
 <p>Vite Dev Server를 사용하면서 모호하게 알고 있던 부분을 이번 기회에 한번 쭉 정리할 수 있었다. 정리하면서 모르는 것이 참 많다고 느꼈다.</p>
 <p>팩트인지 확인하기 위한 소스코드 탐험과 디버깅 과정은 상당히 의미 있었다. 글이 너무 길어질 것 같아 생략한 함수들이 꽤 있는데 감탄하며 본 로직들이 많이 있었다. 역시 남의 코드를 많이 봐야 한다.</p>
 <p>이번 과정을 통해 두 가지 인사이트를 얻을 수 있었다.</p>
@@ -478,8 +478,8 @@
 </ol>
 <p>이 글을 쓰며 참고했던 혹은 유용했던 링크를 남기며 글을 마무리하려고 한다.</p>
 <ul>
-<li><a class="underline-highlight-fade" target="_blank" href="https://rajaraodv.medium.com/webpack-hot-module-replacement-hmr-e756a726a07" rel="noreferrer noopener">https://rajaraodv.medium.com/webpack-hot-module-replacement-hmr-e756a726a07</a></li>
-<li><a class="underline-highlight-fade" target="_blank" href="https://webpack.kr/concepts/hot-module-replacement" rel="noreferrer noopener">https://webpack.kr/concepts/hot-module-replacement</a></li>
-<li><a class="underline-highlight-fade" target="_blank" href="https://ko.vitejs.dev/config/server-options.html" rel="noreferrer noopener">https://ko.vitejs.dev/config/server-options.html</a></li>
-<li><a class="underline-highlight-fade" target="_blank" href="https://github.com/vitejs/vite" rel="noreferrer noopener">https://github.com/vitejs/vite</a></li>
-</ul></div><aside class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden" aria-label="index"><ul class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"><li data-id="index" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue">Index</li><li data-id="tldr" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue">TL;DR!</li><li data-id="1-개발-서버-실행서버-초기화" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue">1. 개발 서버 실행(서버 초기화)</li><li><ul class="ml-2.5 last:mb-2"><li data-id="dev-server는-아래와-같은-프로세스를-거치며-초기화를-진행한다" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue before:content-['-'] before:mr-1">Dev Server는 아래와 같은 프로세스를 거치며 초기화를 진행한다.</li></ul></li><li data-id="2-indexhtml-요청" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue">2. index.html 요청</li><li data-id="3-indexhtml-렌더링과-자원-요청" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue">3. index.html 렌더링과 자원 요청</li><li data-id="4-렌더링-계속-진행with-websocket" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue">4. 렌더링 계속 진행(with WebSocket)</li><li data-id="5-코드-변경-감지" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue">5. 코드 변경 감지</li><li data-id="6-브라우저-리렌더링" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue">6. 브라우저 리렌더링</li><li data-id="마무리" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue">마무리</li></ul></aside></section><a class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-[0] after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water" href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] Vite%20Dev%20Server%20%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0%20(feat.%20HMR)&amp;body=<!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 -->" rel="noopener noreferrer" target="_blank">📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍</a><div class="flex items-center mt-4 mb-56"><iframe class="border-0 rounded-md cursor-pointer object-contain hover:animate-bouncing" src="https://github.com/sponsors/1ilsang/button" title="Sponsor 1ilsang" height="32" width="114"></iframe></div></section>
+<li><a href="https://rajaraodv.medium.com/webpack-hot-module-replacement-hmr-e756a726a07" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">https://rajaraodv.medium.com/webpack-hot-module-replacement-hmr-e756a726a07</a></li>
+<li><a href="https://webpack.kr/concepts/hot-module-replacement" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">https://webpack.kr/concepts/hot-module-replacement</a></li>
+<li><a href="https://ko.vitejs.dev/config/server-options.html" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">https://ko.vitejs.dev/config/server-options.html</a></li>
+<li><a href="https://github.com/vitejs/vite" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">https://github.com/vitejs/vite</a></li>
+</ul></div><aside class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden" aria-label="index"><ul class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"><li id="#index" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue mb-0.5">Index</li><li id="#tldr" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue mb-0.5">TL;DR!</li><li id="#1-개발-서버-실행서버-초기화" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue mb-0.5">1. 개발 서버 실행(서버 초기화)</li><li id="#dev-server는-아래와-같은-프로세스를-거치며-초기화를-진행한다" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue before:content-['-'] before:mr-1 ml-2.5 mb-1.5">Dev Server는 아래와 같은 프로세스를 거치며 초기화를 진행한다.</li><li id="#2-indexhtml-요청" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue mb-0.5">2. index.html 요청</li><li id="#3-indexhtml-렌더링과-자원-요청" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue mb-0.5">3. index.html 렌더링과 자원 요청</li><li id="#4-렌더링-계속-진행with-websocket" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue mb-0.5">4. 렌더링 계속 진행(with WebSocket)</li><li id="#5-코드-변경-감지" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue mb-0.5">5. 코드 변경 감지</li><li id="#6-브라우저-리렌더링" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue mb-0.5">6. 브라우저 리렌더링</li><li id="#마무리" class="pt-0.5 text-base select-none cursor-pointer hover:text-sub-blue mb-0.5">마무리</li></ul></aside></section><a class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-[0] after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water" href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] Vite%20Dev%20Server%20%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0%20(feat.%20HMR)&amp;body=<!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 -->" rel="noopener noreferrer" target="_blank">📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍</a><div class="flex items-center mt-4 mb-56"><iframe class="border-0 rounded-md cursor-pointer object-contain hover:animate-bouncing" src="https://github.com/sponsors/1ilsang/button" title="Sponsor 1ilsang" height="32" width="114"></iframe></div></section>

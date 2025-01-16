@@ -1,0 +1,109 @@
+---
+title: '[구름톤 챌린지] 통증2'
+description: '완전 탐색에서 DP까지'
+tags: ['algorithm', 'goorm', 'brute-force', 'dynamic-programming']
+coverImage: 'cover.webp'
+date: '2023-08-29T07:27:42.821Z'
+---
+
+![problem](problem.webp 'cover')
+
+> [문제 링크](https://level.goorm.io/exam/195693/%ED%86%B5%EC%A6%9D-2/quiz/1)
+
+아이템 A, B를 최소한으로 사용하여 통증을 0으로 맞출 수 있는지 확인하는 문제이다. 불가능하다면 -1을 출력한다.
+
+## 접근법
+
+### 1. 완전 탐색
+
+A와 B의 합이 N이 될 때까지 전체 조합을 탐색한다.
+
+A가 0...I개 일때 B가 0...J개로 가능한지 확인할 수 있다. 이때 개수로 확인하게 되면 A가 I번 만큼 순회할 때마다 B가 J번 만큼 순회하게 되므로 **시간초과**가 발생한다.
+
+A가 0...I개 일때 B는 0부터 하나씩 올려가며 찾지 않고 N-A가 B로 나누어지는지를 확인하면 `O(N)`만에 해결이 가능해진다.
+
+```js
+let answer = Infinity;
+for (let aCost = 0; aCost <= n; aCost += a) {
+  // N에 A를 뺀 값이 B로 나누어떨어지지 않는다면 패스한다.
+  if ((n - aCost) % b !== 0) continue;
+  const aCount = Math.floor(aCost / a);
+  const bCount = Math.floor((n - aCost) / b);
+  const count = aCount + bCount;
+  // 최소 개수를 출력해야 하므로 현재 값이 answer보다 작다면 갱신한다.
+  if (count < answer) {
+    answer = count;
+  }
+}
+// answer가 무한이라면 가능한 조합이 없다는 의미이므로 -1로 변경한다.
+if (answer === Infinity) {
+  answer = -1;
+}
+console.log(answer);
+```
+
+### 2. DP
+
+개수가 기준이 아닌 통증의 값 N을 기준으로 생각해 보자.
+
+통증 N은 `[N - A] + 1` 혹은 `[N - B] + 1`이 될 수 있다. 현재 N값이 되기 위해선 A혹은 B를 더했으므로 역산으로 A 혹은 B를 뺀 개수에 현재 카운트 1을 추가하면 된다.
+
+따라서 통증 0부터 N까지 순회하며 dp 테이블을 채워나가면 `O(N)`으로 처리가 가능해진다.
+
+> 관련 문제로 [이진수 정렬의 memo 배열이 채워지는 방식](/posts/goorm-195687)과 같다.
+
+```js
+const dp = Array(n + 1).fill(Infinity);
+dp[0] = 0;
+
+for (let i = 1; i <= n; i++) {
+  if (i - a >= 0) {
+    dp[i] = Math.min(dp[i - a] + 1, dp[i]);
+  }
+  if (i - b >= 0) {
+    dp[i] = Math.min(dp[i - b] + 1, dp[i]);
+  }
+}
+console.log(dp[n] === Infinity ? -1 : dp[n]);
+```
+
+## 정리
+
+1. 통증 N의 아이템 사용 개수는 `N - A` 혹은 `N - B` 값의 +1이다.
+2. DP 테이블을 0부터 N까지 채운다.
+3. DP[n] 값을 출력한다.
+
+## 최종 코드
+
+```js
+const readline = require('readline');
+let rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+let n;
+rl.on('line', (line) => {
+  if (n === undefined) {
+    n = Number(line);
+    return;
+  }
+  const [a, b] = line.split(' ').map((item) => Number(item));
+  const dp = Array(n + 1).fill(Infinity);
+  dp[0] = 0;
+
+  for (let i = 1; i <= n; i++) {
+    if (i - a >= 0) {
+      dp[i] = Math.min(dp[i - a] + 1, dp[i]);
+    }
+    if (i - b >= 0) {
+      dp[i] = Math.min(dp[i - b] + 1, dp[i]);
+    }
+  }
+  console.log(dp[n] === Infinity ? -1 : dp[n]);
+  rl.close();
+});
+
+rl.on('close', () => {
+  // console.log("Hello Goorm! Your input is " + input);
+});
+```

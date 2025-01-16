@@ -2,9 +2,9 @@ import type { NextPage } from 'next';
 
 import Navbar from '~/shared/components/nav/Navbar';
 import { Footer } from '~/shared/components/Footer';
-import { getAllPosts, getAllTags } from '~/shared/helpers/post';
 import TagDetailContainer from '~/tags/detail/Container';
 import { MainLayout } from '~/shared/components/MainLayout';
+import { getAllPost, getAllTag } from '~/shared/helpers/mdx/getPost';
 
 interface TagsDetailProps {
   params: Promise<{
@@ -12,19 +12,12 @@ interface TagsDetailProps {
   }>;
 }
 
-const Tags: NextPage<TagsDetailProps> = async (props) => {
-  const params = await props.params;
+const Tags: NextPage<TagsDetailProps> = async ({ params }) => {
+  const { tag } = await params;
 
-  const { tag } = params;
-
-  const posts = getAllPosts([
-    'tags',
-    'title',
-    'url',
-    'slug',
-    'coverImage',
-    'description',
-  ]).filter((item) => item.tags.includes(decodeURIComponent(tag)));
+  const posts = (await getAllPost()).filter((post) =>
+    post.frontmatter.tags.includes(decodeURIComponent(tag)),
+  );
 
   return (
     <MainLayout>
@@ -38,7 +31,7 @@ const Tags: NextPage<TagsDetailProps> = async (props) => {
 export default Tags;
 
 export async function generateStaticParams(): Promise<{ tag: string }[]> {
-  const tags = getAllTags();
+  const tags = await getAllTag();
   const paths = tags.map((tag) => ({ tag }));
   return paths;
 }

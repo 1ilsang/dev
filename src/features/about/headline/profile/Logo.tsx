@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import type { Profile } from '../models';
 
-import usePrint from '~/shared/hooks/usePrint';
+import { usePrint } from '~/shared/hooks/usePrint';
 import { MyProfile } from '../data/profile';
 
 type ProfileLogoProps = Profile;

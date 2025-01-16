@@ -25,8 +25,8 @@ export const MyProfile: Readonly<Record<ProfileKeys, Readonly<Profile>>> = {
     alt: 'github',
   },
   gmail: {
-    label: '1ilsangc@gmail.com',
-    href: 'mailto:1ilsangc@gmail.com',
+    label: '1ilsang.dev@gmail.com',
+    href: 'mailto:1ilsang.dev@gmail.com',
     imageSrc: '/images/logo/gmail.webp',
     alt: 'gmail',
   },

@@ -17,3 +17,6 @@ out
 
 # Jest
 /coverage/
+
+# Assets
+/public/posts/*

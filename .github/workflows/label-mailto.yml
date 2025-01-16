@@ -32,5 +32,5 @@ jobs:
           # Mail
           subject: '[Issue] ${{ github.event.issue.title }}: ${{github.event.label.name}}'
           body: "Issue URL: ${{ github.event.issue.html_url }}\n\nBody:\n${{env.TRIMMED_BODY}}"
-          to: 1ilsangc@gmail.com
+          to: 1ilsang.dev@gmail.com
           from: 1ilsang.dev

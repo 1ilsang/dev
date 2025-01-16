@@ -6,7 +6,7 @@ import type { FunctionComponent } from 'react';
 import { memo, useEffect, useMemo, useState } from 'react';
 import classNames from 'classnames';
 import { Avatar } from '../Avatar';
-import usePrint from '~/shared/hooks/usePrint';
+import { usePrint } from '~/shared/hooks/usePrint';
 
 interface NavTextProps {
   text: string;

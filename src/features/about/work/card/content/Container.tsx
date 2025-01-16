@@ -9,7 +9,7 @@ import { ProjectDate } from './ProjectDate';
 import ProjectDetail from './ProjectDetail';
 
 import ExternalLink from '~/shared/components/ExternalLink';
-import usePrint from '~/shared/hooks/usePrint';
+import { usePrint } from '~/shared/hooks/usePrint';
 
 export type CompanyContentProjectProps = Project & {
   format?: string;

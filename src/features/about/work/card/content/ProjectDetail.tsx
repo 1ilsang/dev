@@ -5,7 +5,7 @@ import { type FunctionComponent, type MouseEventHandler, memo } from 'react';
 import type { Project } from '~/about/work/models';
 import DynamicImage from '~/shared/components/DynamicImage';
 import { imageSrcAtom } from '~/shared/components/modal/atoms';
-import usePrint from '~/shared/hooks/usePrint';
+import { usePrint } from '~/shared/hooks/usePrint';
 
 type ProjectDetailProps = Project & {
   openClassName: string;

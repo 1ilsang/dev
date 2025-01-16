@@ -1,22 +1,28 @@
-import type { FunctionComponent } from 'react';
-import PostBody from './components/PostBody';
+import type { FunctionComponent, PropsWithChildren } from 'react';
+import { type PostType } from '~/posts/models';
+import { MainContainer } from '~/shared/components/MainContainer';
 import IssuePost from './components/IssuePost';
 import { FloatingIndexContainer } from './floatingIndex/Container';
-import { type PostType } from '~/posts/models';
-import { SponsorContainer } from './sponsor/Container';
 import { InformationContainer } from './information/InformationContainer';
-import { MainContainer } from '~/shared/components/MainContainer';
+import { SponsorContainer } from './sponsor/Container';
+import { POST_BODY_ID } from '~/shared/components/nav/constants';
 
-const PostContainer: FunctionComponent<{ post: PostType }> = ({ post }) => {
+const PostContainer: FunctionComponent<
+  PropsWithChildren<{ post: PostType }>
+> = async ({ post, children }) => {
+  const {
+    frontmatter: { title },
+    toc,
+  } = post;
   return (
     <MainContainer>
-      <h1 className="text-4xl break-words md:text-6xl">{post.title}</h1>
+      <h1 className="text-4xl break-words md:text-6xl">{title}</h1>
       <InformationContainer post={post} />
-      <section id="post-body-container" className="relative">
-        <PostBody post={post} />
-        <FloatingIndexContainer post={post} />
+      <section id={POST_BODY_ID.slice(1)} className="relative">
+        <div className="markdown">{children}</div>
+        {toc.length > 0 && <FloatingIndexContainer toc={toc} />}
       </section>
-      <IssuePost title={post.title} />
+      <IssuePost title={title} />
       <SponsorContainer />
     </MainContainer>
   );

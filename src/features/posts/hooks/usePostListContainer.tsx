@@ -1,8 +1,8 @@
 import type { MouseEventHandler } from 'react';
 import { useMemo, useState } from 'react';
-import type { PostType } from '../models';
+import type { ServerPost } from '~/app/posts/page';
 
-const usePostListContainer = (posts: PostType[]) => {
+const usePostListContainer = (posts: ServerPost[]) => {
   const [categoryFilter, setCategoryFilter] = useState('');
 
   const filteredList = useMemo(() => {

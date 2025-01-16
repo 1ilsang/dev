@@ -43,5 +43,3 @@ export const usePrint = (props?: Props) => {
 
   return { print };
 };
-
-export default usePrint;
