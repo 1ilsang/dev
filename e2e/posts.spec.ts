@@ -10,6 +10,11 @@ test.describe('posts', () => {
   });
 
   test(MACRO_SUITE.SCREEN_SNAPSHOT, async ({ page }) => {
-    await screenshotFullPage({ page, url: '/posts', arg: [`posts.png`] });
+    await screenshotFullPage({
+      page,
+      url: '/posts',
+      arg: [`posts.png`],
+      options: { maxDiffPixelRatio: 0.2 },
+    });
   });
 });

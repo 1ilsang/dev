@@ -1,10 +1,5 @@
+import type { PageAssertionsToHaveScreenshotOptions } from '@playwright/test';
 import { expect, type Page } from '@playwright/test';
-
-type ScreenshotOptions = {
-  fullPage: boolean;
-  timeout?: number;
-  clip?: { x: number; y: number; width: number; height: number };
-};
 
 export const gotoUrl = async ({
   page,
@@ -68,21 +63,24 @@ export const screenshotFullPage = async ({
   url,
   arg,
   timeout,
+  options,
 }: {
   page: Page;
   url: string;
   arg: string[];
   timeout?: number;
+  options?: PageAssertionsToHaveScreenshotOptions;
 }) => {
   await gotoUrl({ page, url });
   await waitImages({ page });
 
-  const options: ScreenshotOptions = {
+  const screenOptions: PageAssertionsToHaveScreenshotOptions = {
     fullPage: true,
+    ...options,
   };
   if (timeout >= 0) {
     options.timeout = timeout;
   }
 
-  await expect(page).toHaveScreenshot([...arg], options);
+  await expect(page).toHaveScreenshot([...arg], screenOptions);
 };
