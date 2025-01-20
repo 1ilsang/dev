@@ -79,7 +79,7 @@ export const screenshotFullPage = async ({
     ...options,
   };
   if (timeout >= 0) {
-    options.timeout = timeout;
+    screenOptions.timeout = timeout;
   }
 
   await expect(page).toHaveScreenshot([...arg], screenOptions);

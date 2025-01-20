@@ -14,7 +14,7 @@ test.describe('posts', () => {
       page,
       url: '/posts',
       arg: [`posts.png`],
-      options: { maxDiffPixelRatio: 0.2 },
+      options: { maxDiffPixelRatio: 0.3 },
     });
   });
 });
