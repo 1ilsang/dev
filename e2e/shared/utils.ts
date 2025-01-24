@@ -42,7 +42,14 @@ export const waitImages = async ({ page }: { page: Page }) => {
   // Wait for all once
   await Promise.all(imgLoadingPromises);
 
-  // Step 2. body 기준 뷰포트 설정
+  // Step 2. virtual-list를 위해 content-visibility-auto contain-intrinsic-size 를
+  // 설정했기 때문에 스크롤을 최하단으로 이동(가상 리스트의 모든 아이템을 로드하기 위함)
+  await page.evaluate(() => {
+    const GO_TO_END = 10_000_000;
+    document.body.scrollTo(0, GO_TO_END);
+  });
+
+  // Step 3. body 기준 뷰포트 설정
   // 스크롤바 커스텀으로인해 window가 아닌 body에 스크롤이 걸려있음. body 컴포넌트 크기로 뷰포트 변경
   const viewportSize = await page.locator('body').evaluate((body) => {
     return {
@@ -52,7 +59,7 @@ export const waitImages = async ({ page }: { page: Page }) => {
   });
   await page.setViewportSize(viewportSize);
 
-  // Step 3. 최상단으로 스크롤 이동
+  // Step 4. 최상단으로 스크롤 이동
   // https://github.com/microsoft/playwright/issues/18827#issuecomment-2015560128
   await page.evaluate(() => document.body.scrollTo(0, 0));
   await page.waitForFunction(() => document.body.scrollTop === 0);

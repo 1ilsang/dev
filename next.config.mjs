@@ -11,18 +11,10 @@ const getNextConfig = (phase) => {
   /** @type {import('next').NextConfig} */
   const nextConfig = {
     reactStrictMode: true,
-    experimental: {
-      // this includes files from the monorepo base two directories up
-      // outputFileTracingRoot: path.join(__dirname, "../../packages/content/posts"__dirname),
-    },
-    images: {
-      loader: 'akamai',
-      path: '/',
-    },
     sassOptions: {
       includePaths: [path.join(__dirname, 'styles')],
     },
-    pageExtensions: ['tsx', 'mdx'],
+    pageExtensions: ['ts', 'tsx', 'mdx'],
   };
 
   if (phase === PHASE_PRODUCTION_BUILD) {

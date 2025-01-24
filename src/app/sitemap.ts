@@ -1,10 +1,13 @@
 import type { MetadataRoute } from 'next';
 import { MyProfile } from '~/about/headline/data/profile';
+import { infoLog } from '~/shared/helpers/logger';
 import { getAllPost, getAllTag } from '~/shared/helpers/mdx/getPost';
 
 export const dynamic = 'force-static';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  infoLog('Build sitemap.xml');
+
   const DOMAIN = MyProfile.blog.href;
   const PRIORITY = {
     VERY_HIGH: 1,

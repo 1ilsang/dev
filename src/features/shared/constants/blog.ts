@@ -19,3 +19,6 @@ export enum MetaTitle {
 export enum MetaDescription {
   HOME = 'Software Engineer',
 }
+export enum MetaKeywords {
+  HOME = '1ilsang, dev, front, frontend, react, software, developer, engineer',
+}

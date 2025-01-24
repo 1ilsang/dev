@@ -2,7 +2,14 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { MyProfile } from '~/about/headline/data/profile';
 import { BannerWrapper } from '~/shared/components/Banner';
-import { ImageUrl, MetaDescription, MetaTitle } from '~/shared/constants/blog';
+import {
+  ImageUrl,
+  MetaDescription,
+  MetaKeywords,
+  MetaTitle,
+} from '~/shared/constants/blog';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import '~/styles/index.scss';
 
@@ -21,6 +28,8 @@ export default function RootLayout({
         <BannerWrapper />
         {children}
         <div id="portal" />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
@@ -28,16 +37,7 @@ export default function RootLayout({
 
 export const metadata: Metadata = {
   authors: [{ name: '1ilsang' }],
-  keywords: [
-    '1ilsang',
-    'dev',
-    'front',
-    'frontend',
-    'react',
-    'software',
-    'developer',
-    'engineer',
-  ],
+  keywords: MetaKeywords.HOME,
   title: MetaTitle.HOME,
   description: MetaDescription.HOME,
   icons: {
