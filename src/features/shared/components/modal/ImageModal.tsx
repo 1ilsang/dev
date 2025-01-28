@@ -26,7 +26,7 @@ const ImageModal: FunctionComponent<ImageModalProps> = () => {
           </div>
         )}
         <img
-          className={classNames('m-auto	w-full h-full object-contain', {
+          className={classNames('m-auto w-full h-full object-contain', {
             invisible: loading,
             'animate-fade-in': !loading,
             '[&]:w-2/6': imageSize === 'small',

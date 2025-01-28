@@ -11,7 +11,7 @@ import {
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
-import '~/styles/index.scss';
+import '~/styles/global.css';
 
 export default function RootLayout({
   children,

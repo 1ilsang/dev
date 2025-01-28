@@ -40,44 +40,18 @@ export const remarkRehypeCustom = () => {
       }
     });
 
-    visit(tree, 'image', (node, _, parent) => {
-      // 자식노드가 image로 추가되므로 무한루프를 방지하기 위한 코드
-      const PARENT_CLASS_NAME = 'img-wrap';
-      if (
-        `${parent.data?.hProperties?.className}`.startsWith(PARENT_CLASS_NAME)
-      ) {
-        return;
-      }
-      const className = (() => {
-        let name = PARENT_CLASS_NAME;
-        if (node.title) {
-          name += ` ${node.title}`;
-        }
-        return name;
-      })();
-
+    visit(tree, 'image', (node) => {
       const src = `/posts/${slug}/${node.url}`;
 
       setNodeEmptyProperties(node);
-      node.type = 'div';
-      node.data.hProperties.className = className;
-
-      node.children = [
-        {
-          type: 'image',
-          title: null,
-          url: src,
-          alt: node.alt,
-          data: {
-            hProperties: {},
-          },
-          children: [],
-        },
-      ];
-      return;
+      // MDX에서 title을 이미지 size로 사용하고 있음.
+      node.data.hProperties.size = node.title;
+      node.title = node.alt;
+      node.url = src;
     });
 
     visit(tree, 'heading', (node) => {
+      // 3단계 이상의 heading은 TOC에 추가하지 않음
       if (node.depth > 3) return;
 
       /** @type { {depth: number; value: string; id: string;} } */

@@ -1,5 +1,0 @@
-@use 'sass:meta';
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@include meta.load-css('markdown/index');

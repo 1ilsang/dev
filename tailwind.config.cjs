@@ -156,6 +156,27 @@ module.exports = {
             background: 'transparent',
           },
         },
+        '.custom-horizon-scrollbar': {
+          '&': {
+            width: '100%',
+            overflowX: 'scroll',
+            gap: '0.3rem',
+          },
+          '&::-webkit-scrollbar': {
+            height: '10px',
+          },
+          '&::-webkit-scrollbar-thumb': {
+            background: `linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)`,
+            backgroundSize: `400% 400%`,
+            borderRadius: `10px`,
+            border: `2px solid rgb(20 22 33)`,
+          },
+        },
+        '.img-container': {
+          width: '100%',
+          display: 'flex',
+          justifyContent: 'center',
+        },
         '.underline-highlight-fade': {
           color: colors.highlight,
           textDecoration: `underline 0.15em ${colors['snazzy-bg']}`,

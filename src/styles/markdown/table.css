@@ -1,0 +1,10 @@
+.markdown th {
+  border: 1px solid #dfdfdf;
+  padding: 0 0.2rem;
+  background-color: rgb(100, 116, 139);
+}
+
+.markdown td {
+  border: 1px solid #dfdfdf;
+  padding: 0 0.2rem;
+}

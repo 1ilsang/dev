@@ -1,0 +1,103 @@
+/* 문장 속 강조 `...` */
+.markdown code {
+  padding: 2px 3px;
+  background-color: #19263a;
+  border: 1px solid #425061;
+  border-radius: 3px;
+  color: #ffa657;
+  font-family: var(--d2coding), sans-serif;
+}
+
+/* 코드부 ```js...``` */
+.markdown figure {
+  border: 0.1px solid #2e3844;
+  border-left: 6px solid #2e3844;
+  margin: 1rem 0;
+}
+
+.markdown figure figcaption {
+  border-bottom: 0.1px dotted #2e3844;
+  background-color: #121822;
+  padding: 0.7rem 1.2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.markdown figure pre {
+  background-color: #171c24;
+  font-size: 0.9em;
+  line-height: 1.7em;
+  overflow: auto;
+}
+
+.markdown figure pre::-webkit-scrollbar {
+  height: 10px;
+}
+
+.markdown figure pre::-webkit-scrollbar-thumb {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  border-radius: 10px;
+  border: 2px solid rgb(20 22 33);
+}
+
+.markdown figure code {
+  background-color: #171c24;
+  padding: 1rem 0;
+  border: none;
+  counter-reset: line;
+}
+
+.markdown figure code span[data-line] {
+  padding-right: 2rem;
+}
+
+.markdown figure code span[data-line]:hover {
+  background-color: rgb(53, 63, 76);
+}
+
+.markdown figure code > [data-line]::before {
+  content: '';
+  display: inline-block;
+  width: 1.2rem;
+  text-align: right;
+  color: gray;
+}
+
+.markdown figure code[data-line-numbers] > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 1.7rem;
+  margin-right: 1.4rem;
+  text-align: right;
+  color: gray;
+}
+
+.markdown figure code[data-line-numbers-max-digits='2'] > [data-line]::before {
+  width: 2rem;
+}
+
+.markdown figure code[data-line-numbers-max-digits='3'] > [data-line]::before {
+  width: 3rem;
+}
+
+.markdown figure code[data-line-numbers-max-digits='4'] > [data-line]::before {
+  width: 4rem;
+}
+
+.markdown figure code > [data-highlighted-line] {
+  background-color: rgb(53, 63, 76);
+  border-left: 2px solid rgb(73, 107, 161);
+}
+
+.markdown figure [data-line] > [data-highlighted-chars-mark] {
+  background-color: rgb(53, 63, 76);
+  padding: 0.1rem;
+}
+
+.markdown u {
+  padding-bottom: 1px;
+  border-bottom: 3px dashed #61768f;
+  text-decoration: none;
+}
