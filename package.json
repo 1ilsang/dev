@@ -32,7 +32,6 @@
     "jest": "jest",
     "clean": "rm -rf .next out node_modules test-results",
     "knip": "pnpm dlx knip",
-    "nf": "netlify",
     "prepare": "husky",
     "preinstall": "npx only-allow pnpm"
   },
@@ -71,7 +70,6 @@
     "jest-environment-jsdom": "^29.7.0",
     "markdownlint": "0.37.2",
     "markdownlint-cli": "0.43.0",
-    "netlify-cli": "^17.33.3",
     "postcss": "^8.4.39",
     "prettier": "^3.3.3",
     "rehype-autolink-headings": "^7.1.0",
