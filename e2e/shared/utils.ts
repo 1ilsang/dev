@@ -4,7 +4,7 @@ import { expect, type Page } from '@playwright/test';
 export const gotoUrl = async ({
   page,
   url,
-  timeout = 30_000,
+  timeout = 3_000,
 }: {
   page: Page;
   url: string;
@@ -14,7 +14,34 @@ export const gotoUrl = async ({
   await page.evaluate(() => document.fonts.ready);
 };
 
+// virtual-list를 위해 content-visibility-auto contain-intrinsic-size 클래스를
+// 설정했기 때문에 스크롤을 최하단으로 이동(가상 리스트의 모든 아이템을 로드하기 위함)
+// https://stackoverflow.com/questions/69183922/playwright-auto-scroll-to-bottom-of-infinite-scroll-page
+const scrollToEnd = async (page: Page) => {
+  const maxScrolls = 100;
+  const scrollDelay = 4000;
+  let previousHeight = 0;
+  let scrollAttempts = 0;
+
+  while (scrollAttempts < maxScrolls) {
+    await page.evaluate(() => {
+      const GO_TO_END = 1_000_000_000;
+      document.body.scrollTo(0, GO_TO_END);
+    });
+    await page.waitForTimeout(scrollDelay);
+    const currentHeight = await page.evaluate(() => document.body.scrollHeight);
+    if (currentHeight === previousHeight) {
+      break;
+    }
+    previousHeight = currentHeight;
+    scrollAttempts++;
+  }
+};
+
 export const waitImages = async ({ page }: { page: Page }) => {
+  const curUrl = page.url();
+  const isPosts = curUrl.endsWith('/posts');
+
   // Step 1. 모든 이미지 로딩을 기다림
   // https://stackoverflow.com/questions/77287441/how-to-wait-for-full-rendered-image-in-playwright
   const locators = page.locator('img');
@@ -36,27 +63,36 @@ export const waitImages = async ({ page }: { page: Page }) => {
           image.complete || new Promise((resolve) => (image.onload = resolve))
         );
       },
-      { timeout: 30_000 },
+      { timeout: 3_000 },
     );
   });
   // Wait for all once
   await Promise.all(imgLoadingPromises);
 
-  // Step 2. virtual-list를 위해 content-visibility-auto contain-intrinsic-size 를
-  // 설정했기 때문에 스크롤을 최하단으로 이동(가상 리스트의 모든 아이템을 로드하기 위함)
-  await page.evaluate(() => {
-    const GO_TO_END = 10_000_000;
-    document.body.scrollTo(0, GO_TO_END);
-  });
+  if (isPosts) {
+    await scrollToEnd(page);
+  }
 
   // Step 3. body 기준 뷰포트 설정
   // 스크롤바 커스텀으로인해 window가 아닌 body에 스크롤이 걸려있음. body 컴포넌트 크기로 뷰포트 변경
-  const viewportSize = await page.locator('body').evaluate((body) => {
-    return {
-      width: body.scrollWidth,
-      height: body.scrollHeight,
-    };
-  });
+  const viewportSize = await page
+    .locator('body')
+    .evaluate(({ scrollWidth }) => {
+      // 문서 높이 계산
+      // https://ko.javascript.info/size-and-scroll-window#ref-190
+      const scrollHeight = Math.max(
+        document.body.scrollHeight,
+        document.documentElement.scrollHeight,
+        document.body.offsetHeight,
+        document.documentElement.offsetHeight,
+        document.body.clientHeight,
+        document.documentElement.clientHeight,
+      );
+      return {
+        height: scrollHeight,
+        width: scrollWidth,
+      };
+    });
   await page.setViewportSize(viewportSize);
 
   // Step 4. 최상단으로 스크롤 이동

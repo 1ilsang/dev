@@ -1,18 +1,18 @@
 <progress class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og" value="0" max="1"></progress><nav class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10	md:opacity-100 shadow-nav shadow-lg"><h2 class="tracking-tight mr-6 text-2xl	font-bold my-2 ml-3.5"><a class="hover:underline" href="/">1ilsang</a></h2><div class="flex"><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/posts">posts</a></h2><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/tags">tags</a></h2><div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-white-blue" src="/images/chul.webp" alt="1ilsang"></a></div></div></nav><section class="h-auto min-h-full max-w-screen-md py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"><h1 class="text-4xl break-words md:text-6xl">[Next.js] Google AdSense 광고 적용 및 이해하기</h1><section class="flex items-center mt-4"><div class="mr-2 w-9	h-9 md:w-12 md:h-12" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-sub-blue" src="/images/chul.webp" alt="1ilsang"></a></div><div><a class="text-lg" href="/about">1ilsang</a><div class="text-sm text-sub-blue">클라이밍 하실래염?</div></div></section><section class="flex flex-wrap items-end mt-2"><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/google">#<!-- -->google</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/ad">#<!-- -->ad</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/ads">#<!-- -->ads</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/adsense">#<!-- -->adsense</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/nextjs">#<!-- -->nextjs</a></section><section><div class="inline text-date-gray">Published <time datetime="2024-08-22 16:26">2024-08-22 16:26</time></div></section><section id="post-body-container" class="relative"><div class="markdown">
-<div class="img-container"><div class="img-wrap cover"><img src="/posts/google-adsense/cover.webp" alt="cover"></div></div>
-<p><a href="https://adsense.google.com/intl/ko_kr/start/" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Google AdSense</a>를 적용한 내용을 정리해 보려고 한다.</p>
-<h2 id="index"><a aria-hidden="true" tabindex="-1" href="#index"><span class="icon icon-link"></span></a>Index</h2>
-<ul>
+<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full h-[600px] object-contain bg-transparent mt-10"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="cover" src="/posts/google-adsense/cover.webp"></div></div>
+<p class="mt-4 mb-4"><a href="https://adsense.google.com/intl/ko_kr/start/" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Google AdSense</a>를 적용한 내용을 정리해 보려고 한다.</p>
+<h2 id="index" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#index"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Index</h2>
+<ul class="min-[790px]:ml-6 ml-4 list-disc">
 <li><a href="#index" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Index</a></li>
 <li><a href="#adsense-%EC%A0%81%EC%9A%A9-%EA%B2%B0%EA%B3%BC" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">AdSense 적용 결과</a></li>
 <li><a href="#google-ads-adsense-%EC%B0%A8%EC%9D%B4" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Google Ads, AdSense 차이</a></li>
 <li><a href="#adsense-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">AdSense 설정하기</a>
-<ul>
+<ul class="min-[790px]:ml-6 ml-4 list-disc">
 <li><a href="#%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%93%B1%EB%A1%9D" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">사이트 등록</a></li>
 <li><a href="#%EA%B4%91%EA%B3%A0-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EC%A0%81%EC%9A%A9" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">광고 컴포넌트 적용</a></li>
 <li><a href="#%EC%82%AC%EC%9D%B4%ED%8A%B8-%EC%86%8C%EC%9C%A0%EA%B6%8C-%ED%99%95%EC%9D%B8" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">사이트 소유권 확인</a></li>
 <li><a href="#%EA%B4%91%EA%B3%A0-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EC%98%81%EC%97%AD-%EC%84%A4%EC%A0%95" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">광고 컴포넌트 영역 설정</a>
-<ul>
+<ul class="min-[790px]:ml-6 ml-4 list-disc">
 <li><a href="#%EC%82%AC%EC%9D%B4%ED%8A%B8-%EA%B8%B0%EC%A4%80" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">사이트 기준</a></li>
 <li><a href="#%EA%B4%91%EA%B3%A0-%EB%8B%A8%EC%9C%84-%EA%B8%B0%EC%A4%80" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">광고 단위 기준</a></li>
 </ul>
@@ -23,32 +23,32 @@
 <li><a href="#%EC%88%98%EC%9D%B5-%EA%B5%AC%EC%A1%B0" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">수익 구조</a></li>
 <li><a href="#%EB%A7%88%EB%AC%B4%EB%A6%AC" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">마무리</a></li>
 </ul>
-<h2 id="adsense-적용-결과"><a aria-hidden="true" tabindex="-1" href="#adsense-적용-결과"><span class="icon icon-link"></span></a>AdSense 적용 결과</h2>
-<div class="img-horizon-wrap"><img alt="img" src="/posts/google-adsense/ad-bottom-mobile.webp"><img alt="img" src="/posts/google-adsense/ad-left-rail-desktop.webp"></div>
-<p>모바일 화면에서는 바텀 앵커 영역, 데스크탑 화면에서는 좌측 레일 부분에 광고를 실었다(현재는 제거).</p>
-<p>광고 컴포넌트 영역은 구글이 자동으로 설정하게 할 수도 있고 직접 특정 영역만 설정할 수 있다.</p>
-<p>이 부분들은 아래에서 자세히 다루겠다.</p>
-<h2 id="google-ads-adsense-차이"><a aria-hidden="true" tabindex="-1" href="#google-ads-adsense-차이"><span class="icon icon-link"></span></a>Google Ads, AdSense 차이</h2>
-<p>맨 처음 광고를 달고자 마음먹으면 곧바로 광고 도메인과 관련된 다양한 키워드에 혼란을 느끼게 된다.</p>
-<p>구글 공식 문서에 따른 <a href="https://support.google.com/adsense/answer/76231" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Google AdSense와 Ads의 차이점</a>은 광고 게시자인지 광고주인지에 따라 다르게 선택할 수 있는 플랫폼임을 알려주고 있다.</p>
-<p>우리는 광고 게시자에 해당하기 때문에 AdSense를 적용해야 한다.</p>
-<h2 id="adsense-설정하기"><a aria-hidden="true" tabindex="-1" href="#adsense-설정하기"><span class="icon icon-link"></span></a>AdSense 설정하기</h2>
-<h3 id="사이트-등록"><a aria-hidden="true" tabindex="-1" href="#사이트-등록"><span class="icon icon-link"></span></a>사이트 등록</h3>
-<div class="img-container"><div class="img-wrap l"><img src="/posts/google-adsense/site-register.webp" alt="site register"></div></div>
-<p>맨 처음 해야 할 일은 <a href="https://www.google.com/adsense" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">AdSense에 광고를 실을 사이트를 등록</a>하는 것이다.</p>
+<h2 id="adsense-적용-결과" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#adsense-적용-결과"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>AdSense 적용 결과</h2>
+<div class="mt-3 mb-3 flex items-center w-full custom-horizon-scrollbar min-h-[100px] min-[790px]:min-h-[200px]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="ad-bottom-mobile" src="/posts/google-adsense/ad-bottom-mobile.webp"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="ad-left-rail-desktop" src="/posts/google-adsense/ad-left-rail-desktop.webp"></div>
+<p class="mt-4 mb-4">모바일 화면에서는 바텀 앵커 영역, 데스크탑 화면에서는 좌측 레일 부분에 광고를 실었다(현재는 제거).</p>
+<p class="mt-4 mb-4">광고 컴포넌트 영역은 구글이 자동으로 설정하게 할 수도 있고 직접 특정 영역만 설정할 수 있다.</p>
+<p class="mt-4 mb-4">이 부분들은 아래에서 자세히 다루겠다.</p>
+<h2 id="google-ads-adsense-차이" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#google-ads-adsense-차이"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Google Ads, AdSense 차이</h2>
+<p class="mt-4 mb-4">맨 처음 광고를 달고자 마음먹으면 곧바로 광고 도메인과 관련된 다양한 키워드에 혼란을 느끼게 된다.</p>
+<p class="mt-4 mb-4">구글 공식 문서에 따른 <a href="https://support.google.com/adsense/answer/76231" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Google AdSense와 Ads의 차이점</a>은 광고 게시자인지 광고주인지에 따라 다르게 선택할 수 있는 플랫폼임을 알려주고 있다.</p>
+<p class="mt-4 mb-4">우리는 광고 게시자에 해당하기 때문에 AdSense를 적용해야 한다.</p>
+<h2 id="adsense-설정하기" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#adsense-설정하기"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>AdSense 설정하기</h2>
+<h3 id="사이트-등록" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#사이트-등록"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>사이트 등록</h3>
+<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="site register" src="/posts/google-adsense/site-register.webp"></div></div>
+<p class="mt-4 mb-4">맨 처음 해야 할 일은 <a href="https://www.google.com/adsense" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">AdSense에 광고를 실을 사이트를 등록</a>하는 것이다.</p>
 <u>사이트 등록 후 광고 스크립트 한줄만 사이트에 추가하면 사실상의 모든 과정이 끝난다(!).</u>
-<p>하지만 구글 애드센스를 적용하기 위해선 사이트 심사를 통과해야 한다. 심사 기간은 최대 2주 정도가 소요되며 사이트의 컨텐츠가 갖추어지지 않으면 거절될 수 있다.</p>
-<p>관련 내용을 살펴보니 <a href="https://support.google.com/adsense/thread/206913501/%EC%82%AC%EC%9D%B4%ED%8A%B8%EC%9D%98-%EA%B4%91%EA%B3%A0%EA%B2%8C%EC%9E%AC-%EC%8B%AC%EC%82%AC-%EA%B8%B0%EA%B0%84?hl=ko" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">설정된 페이지가 주기적으로 조회되지 않으면 심사가 최대 6주까지도 소요</a>된다고 한다.</p>
-<p>하지만 큰 문제가 없다면 하루 내로 심사가 통과되는 듯하며 이 블로그 또한 하루 내에 심사가 통과되었다.</p>
-<p>사이트 등록을 했다면 광고 스크립트를 적용해 보자.</p>
-<h3 id="광고-컴포넌트-적용"><a aria-hidden="true" tabindex="-1" href="#광고-컴포넌트-적용"><span class="icon icon-link"></span></a>광고 컴포넌트 적용</h3>
-<div class="img-container"><div class="img-wrap"><img src="/posts/google-adsense/ad-script-register.webp" alt="ad script register"></div></div>
-<p>사이트 심사 및 소유주 확인을 위해 원하는 확인 방법을 선택해 적용하면 된다.</p>
-<p>여기 UI가 이상한데, <u>3개 중 하나를 적용하는 게 아니다.</u></p>
-<p><code>애드센스 코드 스니펫</code> 혹은 <code>메타 태그</code>로 사이트 심사를 받고 <code>Ads.txt</code>로 소유주 확인을 해야 한다.</p>
-<p>죽, 애드센스 코드 스니펫 혹은 메타 태그 + <code>Ads.txt</code> 2가지를 적용해야 한다.</p>
-<p><code>Ads.txt</code>는 아래 <a href="#%EC%82%AC%EC%9D%B4%ED%8A%B8-%EC%86%8C%EC%9C%A0%EA%B6%8C-%ED%99%95%EC%9D%B8" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">사이트 소유권 확인</a>에서 다루겠다. 지금은 넘어가도 된다.</p>
-<p>나는 애드센스 코드 스니펫을 적용했다.</p>
+<p class="mt-4 mb-4">하지만 구글 애드센스를 적용하기 위해선 사이트 심사를 통과해야 한다. 심사 기간은 최대 2주 정도가 소요되며 사이트의 컨텐츠가 갖추어지지 않으면 거절될 수 있다.</p>
+<p class="mt-4 mb-4">관련 내용을 살펴보니 <a href="https://support.google.com/adsense/thread/206913501/%EC%82%AC%EC%9D%B4%ED%8A%B8%EC%9D%98-%EA%B4%91%EA%B3%A0%EA%B2%8C%EC%9E%AC-%EC%8B%AC%EC%82%AC-%EA%B8%B0%EA%B0%84?hl=ko" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">설정된 페이지가 주기적으로 조회되지 않으면 심사가 최대 6주까지도 소요</a>된다고 한다.</p>
+<p class="mt-4 mb-4">하지만 큰 문제가 없다면 하루 내로 심사가 통과되는 듯하며 이 블로그 또한 하루 내에 심사가 통과되었다.</p>
+<p class="mt-4 mb-4">사이트 등록을 했다면 광고 스크립트를 적용해 보자.</p>
+<h3 id="광고-컴포넌트-적용" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#광고-컴포넌트-적용"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>광고 컴포넌트 적용</h3>
+<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="ad script register" src="/posts/google-adsense/ad-script-register.webp"></div></div>
+<p class="mt-4 mb-4">사이트 심사 및 소유주 확인을 위해 원하는 확인 방법을 선택해 적용하면 된다.</p>
+<p class="mt-4 mb-4">여기 UI가 이상한데, <u>3개 중 하나를 적용하는 게 아니다.</u></p>
+<p class="mt-4 mb-4"><code>애드센스 코드 스니펫</code> 혹은 <code>메타 태그</code>로 사이트 심사를 받고 <code>Ads.txt</code>로 소유주 확인을 해야 한다.</p>
+<p class="mt-4 mb-4">죽, 애드센스 코드 스니펫 혹은 메타 태그 + <code>Ads.txt</code> 2가지를 적용해야 한다.</p>
+<p class="mt-4 mb-4"><code>Ads.txt</code>는 아래 <a href="#%EC%82%AC%EC%9D%B4%ED%8A%B8-%EC%86%8C%EC%9C%A0%EA%B6%8C-%ED%99%95%EC%9D%B8" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">사이트 소유권 확인</a>에서 다루겠다. 지금은 넘어가도 된다.</p>
+<p class="mt-4 mb-4">나는 애드센스 코드 스니펫을 적용했다.</p>
 <figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="tsx" data-theme="material-theme-palenight"><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#89DDFF;font-style:italic">import</span><span style="color:#BABED8"> Script </span><span style="color:#89DDFF;font-style:italic">from</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">next/script</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""> </span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">export</span><span style="color:#C792EA"> const</span><span style="color:#BABED8"> GoogleAdSense</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> FunctionComponent</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
@@ -64,7 +64,7 @@
 <span data-line=""><span style="color:#89DDFF">    /&gt;</span></span>
 <span data-line=""><span style="color:#F07178">  )</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#89DDFF">};</span></span></code></pre></figure>
-<p><code>production</code>에서만 적용되어야 하므로 분기 처리하고 애드센스 코드를 그대로 심어준다. Script strategy 및 자세한 내용은 <a href="https://nextjs.org/docs/pages/building-your-application/optimizing/scripts" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">여기</a>를 참고.</p>
+<p class="mt-4 mb-4"><code>production</code>에서만 적용되어야 하므로 분기 처리하고 애드센스 코드를 그대로 심어준다. Script strategy 및 자세한 내용은 <a href="https://nextjs.org/docs/pages/building-your-application/optimizing/scripts" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">여기</a>를 참고.</p>
 <figure data-rehype-pretty-code-figure=""><figcaption data-rehype-pretty-code-title="" data-language="tsx" data-theme="material-theme-palenight">app/layout.tsx</figcaption><pre tabindex="0" data-language="tsx" data-theme="material-theme-palenight"><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#89DDFF;font-style:italic">export</span><span style="color:#89DDFF;font-style:italic"> default</span><span style="color:#C792EA"> function</span><span style="color:#82AAFF"> RootLayout</span><span style="color:#89DDFF">({</span><span style="color:#BABED8;font-style:italic"> children</span><span style="color:#89DDFF"> })</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#F07178"> (</span></span>
 <span data-line=""><span style="color:#89DDFF">    &lt;</span><span style="color:#F07178">html</span><span style="color:#89DDFF">&gt;</span></span>
@@ -73,40 +73,40 @@
 <span data-line=""><span style="color:#89DDFF">    &lt;/</span><span style="color:#F07178">html</span><span style="color:#89DDFF">&gt;</span></span>
 <span data-line=""><span style="color:#F07178">  )</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#89DDFF">}</span></span></code></pre></figure>
-<p>그 후 앱의 최상단 레이아웃에 컴포넌트를 추가해 주면 끝난다.</p>
-<p>이제 사이트 심사가 통과될 때까지 기다리면 된다.</p>
-<h3 id="사이트-소유권-확인"><a aria-hidden="true" tabindex="-1" href="#사이트-소유권-확인"><span class="icon icon-link"></span></a>사이트 소유권 확인</h3>
-<div class="img-container"><div class="img-wrap"><img src="/posts/google-adsense/ads-text.webp" alt="ads text"></div></div>
-<p>심사를 무사히 통과했다면 소유권을 인증해야 한다. <code>ads.txt</code>를 설정하라고 알려준다.</p>
+<p class="mt-4 mb-4">그 후 앱의 최상단 레이아웃에 컴포넌트를 추가해 주면 끝난다.</p>
+<p class="mt-4 mb-4">이제 사이트 심사가 통과될 때까지 기다리면 된다.</p>
+<h3 id="사이트-소유권-확인" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#사이트-소유권-확인"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>사이트 소유권 확인</h3>
+<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="ads text" src="/posts/google-adsense/ads-text.webp"></div></div>
+<p class="mt-4 mb-4">심사를 무사히 통과했다면 소유권을 인증해야 한다. <code>ads.txt</code>를 설정하라고 알려준다.</p>
 <figure data-rehype-pretty-code-figure=""><figcaption data-rehype-pretty-code-title="" data-language="txt" data-theme="material-theme-palenight">public/ads.txt</figcaption><pre tabindex="0" data-language="txt" data-theme="material-theme-palenight"><code data-language="txt" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span>google.com, pub-ID, DIRECT, HASH_CODE</span></span></code></pre></figure>
-<p><code>public/ads.txt</code>를 생성하고 <code>ads.txt</code> 스니펫을 추가한다.</p>
-<p>이후 구글봇이 돌면서 추가내역을 확인하게 된다.</p>
-<h3 id="광고-컴포넌트-영역-설정"><a aria-hidden="true" tabindex="-1" href="#광고-컴포넌트-영역-설정"><span class="icon icon-link"></span></a>광고 컴포넌트 영역 설정</h3>
-<p>이제 가장 중요한 광고 컴포넌트 영역을 설정해야 한다.</p>
-<div class="img-horizon-wrap"><img alt="img" src="/posts/google-adsense/ad-example.webp"><img alt="img" src="/posts/google-adsense/direct-ad.webp"></div>
-<blockquote>
-<p>(좌) 사이트 기준 자동 삽입 / (우) 광고 단위 기준 직접 설정</p>
+<p class="mt-4 mb-4"><code>public/ads.txt</code>를 생성하고 <code>ads.txt</code> 스니펫을 추가한다.</p>
+<p class="mt-4 mb-4">이후 구글봇이 돌면서 추가내역을 확인하게 된다.</p>
+<h3 id="광고-컴포넌트-영역-설정" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#광고-컴포넌트-영역-설정"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>광고 컴포넌트 영역 설정</h3>
+<p class="mt-4 mb-4">이제 가장 중요한 광고 컴포넌트 영역을 설정해야 한다.</p>
+<div class="mt-3 mb-3 flex items-center w-full custom-horizon-scrollbar min-h-[100px] min-[790px]:min-h-[200px]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="ad-example" src="/posts/google-adsense/ad-example.webp"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="direct-ad" src="/posts/google-adsense/direct-ad.webp"></div>
+<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
+<p class="mt-4 mb-4">(좌) 사이트 기준 자동 삽입 / (우) 광고 단위 기준 직접 설정</p>
 </blockquote>
-<p>홈의 광고 탭으로 들어오면 컴포넌트 설정을 할 수 있다. 광고 컴포넌트는 <code>사이트 기준</code> 자동 삽입 혹은 직접 <code>광고 단위 기준</code>으로 추가할 수 있다.</p>
-<ul>
+<p class="mt-4 mb-4">홈의 광고 탭으로 들어오면 컴포넌트 설정을 할 수 있다. 광고 컴포넌트는 <code>사이트 기준</code> 자동 삽입 혹은 직접 <code>광고 단위 기준</code>으로 추가할 수 있다.</p>
+<ul class="min-[790px]:ml-6 ml-4 list-disc">
 <li>사이트 기준<!-- -->
-<ul>
+<ul class="min-[790px]:ml-6 ml-4 list-disc">
 <li>AdSense 스크립트가 자동으로 페이지 내부에 광고를 삽입</li>
 </ul>
 </li>
 <li>광고 단위 기준<!-- -->
-<ul>
+<ul class="min-[790px]:ml-6 ml-4 list-disc">
 <li>광고 크기 및 위치를 직접 설정</li>
 </ul>
 </li>
 </ul>
-<h4 id="사이트-기준"><a aria-hidden="true" tabindex="-1" href="#사이트-기준"><span class="icon icon-link"></span></a>사이트 기준</h4>
-<div class="img-container"><div class="img-wrap"><img src="/posts/google-adsense/ad-exclusive-area.webp" alt="ad-exclusive-area"></div></div>
-<p>사이트 기준으로 할 경우 오버레이, 인페이지 등에서 광고 추가 여부를 UI로 확인/선택할 수 있다.</p>
-<p>광고가 기재되길 원하지 않는다면 영역을 제외하거나 페이지 자체를 추가할 수 있다.</p>
-<h4 id="광고-단위-기준"><a aria-hidden="true" tabindex="-1" href="#광고-단위-기준"><span class="icon icon-link"></span></a>광고 단위 기준</h4>
-<div class="img-container"><div class="img-wrap l"><img src="/posts/google-adsense/ad-target.webp" alt="ad-target"></div></div>
-<p>원하는 광고 단위를 선택후 만들면 자동으로 HTML이 생성된다.</p>
+<h4 id="사이트-기준" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-xl mt-6"><a aria-hidden="true" tabindex="-1" href="#사이트-기준"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>사이트 기준</h4>
+<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="ad-exclusive-area" src="/posts/google-adsense/ad-exclusive-area.webp"></div></div>
+<p class="mt-4 mb-4">사이트 기준으로 할 경우 오버레이, 인페이지 등에서 광고 추가 여부를 UI로 확인/선택할 수 있다.</p>
+<p class="mt-4 mb-4">광고가 기재되길 원하지 않는다면 영역을 제외하거나 페이지 자체를 추가할 수 있다.</p>
+<h4 id="광고-단위-기준" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-xl mt-6"><a aria-hidden="true" tabindex="-1" href="#광고-단위-기준"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>광고 단위 기준</h4>
+<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="ad-target" src="/posts/google-adsense/ad-target.webp"></div></div>
+<p class="mt-4 mb-4">원하는 광고 단위를 선택후 만들면 자동으로 HTML이 생성된다.</p>
 <figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="tsx" data-theme="material-theme-palenight"><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">declare</span><span style="color:#BABED8"> global </span><span style="color:#89DDFF">{</span></span>
 <span data-line=""><span style="color:#C792EA">  interface</span><span style="color:#FFCB6B"> Window</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#F07178">    adsbygoogle</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> any</span><span style="color:#89DDFF">;</span></span>
@@ -129,14 +129,14 @@
 <span data-line=""><span style="color:#89DDFF">    /&gt;</span></span>
 <span data-line=""><span style="color:#F07178">  )</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#89DDFF">};</span></span></code></pre></figure>
-<p>이제 원하는 위치에 컴포넌트를 배치하면 된다.</p>
-<h3 id="지급-정보-설정"><a aria-hidden="true" tabindex="-1" href="#지급-정보-설정"><span class="icon icon-link"></span></a>지급 정보 설정</h3>
-<p>가장 중요한 지급 정보(계좌, SWIFT 코드 등)는 $100 이상 되어야 입력할 수 있다(-_-).</p>
-<p>따라서 주기적으로 광고 실적을 확인해볼 필요성이 있다.</p>
-<h2 id="수익-구조"><a aria-hidden="true" tabindex="-1" href="#수익-구조"><span class="icon icon-link"></span></a>수익 구조</h2>
-<div class="img-container"><div class="img-wrap l"><img src="/posts/google-adsense/profit-structure.webp" alt="profit structure"></div></div>
-<p><a href="https://support.google.com/adsense/answer/6242051?hl=ko" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">애드센스 작동 원리</a>에 따르면 우리가 설정한 광고 컴포넌트에 입찰가가 가장 높은 광고를 기준으로 게재된다고 한다.</p>
-<p>이때 수익 배분은 <a href="https://support.google.com/adsense/answer/180195?hl=ko" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">사용 중인 제품</a>에 따라 달라지는데 콘텐츠 광고는 게시자가 68%의 수익 지분을 가진다.</p>
-<h2 id="마무리"><a aria-hidden="true" tabindex="-1" href="#마무리"><span class="icon icon-link"></span></a>마무리</h2>
-<p>이로써 AdSense 사용법을 간단하게 살펴봤다. 사용성이 좋기 때문에 특별히 어려운 부분은 없었다.</p>
-<p>이후 사이드 프로젝트에 꼭 적용해 보길 기원하면서 글을 마무리해본다.</p></div><aside class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden" aria-label="index"><ul class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"><li id="index" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">Index</li><li id="adsense-적용-결과" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">AdSense 적용 결과</li><li id="google-ads-adsense-차이" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">Google Ads, AdSense 차이</li><li id="adsense-설정하기" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">AdSense 설정하기</li><li id="사이트-등록" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">사이트 등록</li><li id="광고-컴포넌트-적용" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">광고 컴포넌트 적용</li><li id="사이트-소유권-확인" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">사이트 소유권 확인</li><li id="광고-컴포넌트-영역-설정" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">광고 컴포넌트 영역 설정</li><li id="지급-정보-설정" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue">지급 정보 설정</li><li id="수익-구조" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">수익 구조</li><li id="마무리" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">마무리</li></ul></aside></section><a class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-[0] after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water" href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] %5BNext.js%5D%20Google%20AdSense%20%EA%B4%91%EA%B3%A0%20%EC%A0%81%EC%9A%A9%20%EB%B0%8F%20%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0&amp;body=<!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 -->" rel="noopener noreferrer" target="_blank">📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍</a><div class="flex items-center mt-4 mb-56"><iframe class="border-0 rounded-md cursor-pointer object-contain hover:animate-bouncing" src="https://github.com/sponsors/1ilsang/button" title="Sponsor 1ilsang" height="32" width="114"></iframe></div></section>
+<p class="mt-4 mb-4">이제 원하는 위치에 컴포넌트를 배치하면 된다.</p>
+<h3 id="지급-정보-설정" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#지급-정보-설정"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>지급 정보 설정</h3>
+<p class="mt-4 mb-4">가장 중요한 지급 정보(계좌, SWIFT 코드 등)는 $100 이상 되어야 입력할 수 있다(-_-).</p>
+<p class="mt-4 mb-4">따라서 주기적으로 광고 실적을 확인해볼 필요성이 있다.</p>
+<h2 id="수익-구조" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#수익-구조"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>수익 구조</h2>
+<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="profit structure" src="/posts/google-adsense/profit-structure.webp"></div></div>
+<p class="mt-4 mb-4"><a href="https://support.google.com/adsense/answer/6242051?hl=ko" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">애드센스 작동 원리</a>에 따르면 우리가 설정한 광고 컴포넌트에 입찰가가 가장 높은 광고를 기준으로 게재된다고 한다.</p>
+<p class="mt-4 mb-4">이때 수익 배분은 <a href="https://support.google.com/adsense/answer/180195?hl=ko" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">사용 중인 제품</a>에 따라 달라지는데 콘텐츠 광고는 게시자가 68%의 수익 지분을 가진다.</p>
+<h2 id="마무리" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#마무리"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>마무리</h2>
+<p class="mt-4 mb-4">이로써 AdSense 사용법을 간단하게 살펴봤다. 사용성이 좋기 때문에 특별히 어려운 부분은 없었다.</p>
+<p class="mt-4 mb-4">이후 사이드 프로젝트에 꼭 적용해 보길 기원하면서 글을 마무리해본다.</p></div><aside class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden" aria-label="index"><ul class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"><li id="index" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">Index</li><li id="adsense-적용-결과" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">AdSense 적용 결과</li><li id="google-ads-adsense-차이" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">Google Ads, AdSense 차이</li><li id="adsense-설정하기" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">AdSense 설정하기</li><li id="사이트-등록" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">사이트 등록</li><li id="광고-컴포넌트-적용" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">광고 컴포넌트 적용</li><li id="사이트-소유권-확인" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">사이트 소유권 확인</li><li id="광고-컴포넌트-영역-설정" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">광고 컴포넌트 영역 설정</li><li id="지급-정보-설정" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue">지급 정보 설정</li><li id="수익-구조" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">수익 구조</li><li id="마무리" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">마무리</li></ul></aside></section><a class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-[0] after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water" href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] %5BNext.js%5D%20Google%20AdSense%20%EA%B4%91%EA%B3%A0%20%EC%A0%81%EC%9A%A9%20%EB%B0%8F%20%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0&amp;body=<!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 -->" rel="noopener noreferrer" target="_blank">📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍</a><div class="flex items-center mt-4 mb-56"><iframe class="border-0 rounded-md cursor-pointer object-contain hover:animate-bouncing" src="https://github.com/sponsors/1ilsang/button" title="Sponsor 1ilsang" height="32" width="114"></iframe></div></section>
