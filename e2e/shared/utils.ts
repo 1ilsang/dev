@@ -40,13 +40,10 @@ const scrollToEnd = async (page: Page) => {
 
 export const waitImages = async ({
   page,
-}: Pick<ScreenshotFullPageOptions, 'page'>) => {
+  projectName,
+}: Pick<ScreenshotFullPageOptions, 'page' | 'projectName'>) => {
   const curUrl = page.url();
   const isPosts = curUrl.endsWith('/posts');
-
-  if (isPosts) {
-    await scrollToEnd(page);
-  }
 
   // Step 1. 모든 이미지 로딩을 기다림
   // https://stackoverflow.com/questions/77287441/how-to-wait-for-full-rendered-image-in-playwright
@@ -99,6 +96,10 @@ export const waitImages = async ({
         width: scrollWidth,
       };
     });
+  // FIXME: posts/desktop 에서 높이가 틀어지는 문제가 있음. 임시방편.
+  if (projectName === 'desktop') {
+    viewportSize.height = 6_500;
+  }
   await page.setViewportSize(viewportSize);
 
   // Step 4. 최상단으로 스크롤 이동
@@ -113,6 +114,7 @@ export type ScreenshotFullPageOptions = {
   arg: string[];
   timeout?: number;
   options?: PageAssertionsToHaveScreenshotOptions;
+  projectName?: 'desktop' | 'mobile';
 };
 export const screenshotFullPage = async ({
   page,
@@ -120,9 +122,10 @@ export const screenshotFullPage = async ({
   arg,
   timeout,
   options,
+  projectName,
 }: ScreenshotFullPageOptions) => {
   await gotoUrl({ page, url });
-  await waitImages({ page });
+  await waitImages({ page, projectName });
 
   const screenOptions: PageAssertionsToHaveScreenshotOptions = {
     fullPage: true,

@@ -11,10 +11,12 @@ test.describe('posts', () => {
   });
 
   test(MACRO_SUITE.SCREEN_SNAPSHOT, async ({ page }) => {
+    const projectName = test.info().project.name as 'desktop' | 'mobile';
     const options: ScreenshotFullPageOptions = {
       page,
       url: '/posts',
       arg: [`posts.png`],
+      projectName,
     };
     await screenshotFullPage(options);
   });
