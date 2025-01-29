@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { MACRO_SUITE } from './shared/constants';
+import type { ScreenshotFullPageOptions } from './shared/utils';
 import { gotoUrl, screenshotFullPage } from './shared/utils';
 
 test.describe('posts', () => {
@@ -10,10 +11,13 @@ test.describe('posts', () => {
   });
 
   test(MACRO_SUITE.SCREEN_SNAPSHOT, async ({ page }) => {
-    await screenshotFullPage({
+    const projectName = test.info().project.name as 'desktop' | 'mobile';
+    const options: ScreenshotFullPageOptions = {
       page,
       url: '/posts',
       arg: [`posts.png`],
-    });
+      projectName,
+    };
+    await screenshotFullPage(options);
   });
 });

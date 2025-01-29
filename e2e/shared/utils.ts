@@ -19,7 +19,7 @@ export const gotoUrl = async ({
 // https://stackoverflow.com/questions/69183922/playwright-auto-scroll-to-bottom-of-infinite-scroll-page
 const scrollToEnd = async (page: Page) => {
   const maxScrolls = 100;
-  const scrollDelay = 4000;
+  const scrollDelay = 1000;
   let previousHeight = 0;
   let scrollAttempts = 0;
 
@@ -38,7 +38,10 @@ const scrollToEnd = async (page: Page) => {
   }
 };
 
-export const waitImages = async ({ page }: { page: Page }) => {
+export const waitImages = async ({
+  page,
+  projectName,
+}: Pick<ScreenshotFullPageOptions, 'page' | 'projectName'>) => {
   const curUrl = page.url();
   const isPosts = curUrl.endsWith('/posts');
 
@@ -93,6 +96,10 @@ export const waitImages = async ({ page }: { page: Page }) => {
         width: scrollWidth,
       };
     });
+  // FIXME: posts/desktop 에서 높이가 틀어지는 문제가 있음. 임시방편.
+  if (projectName === 'desktop') {
+    viewportSize.height = 6_500;
+  }
   await page.setViewportSize(viewportSize);
 
   // Step 4. 최상단으로 스크롤 이동
@@ -101,21 +108,24 @@ export const waitImages = async ({ page }: { page: Page }) => {
   await page.waitForFunction(() => document.body.scrollTop === 0);
 };
 
+export type ScreenshotFullPageOptions = {
+  page: Page;
+  url: string;
+  arg: string[];
+  timeout?: number;
+  options?: PageAssertionsToHaveScreenshotOptions;
+  projectName?: 'desktop' | 'mobile';
+};
 export const screenshotFullPage = async ({
   page,
   url,
   arg,
   timeout,
   options,
-}: {
-  page: Page;
-  url: string;
-  arg: string[];
-  timeout?: number;
-  options?: PageAssertionsToHaveScreenshotOptions;
-}) => {
+  projectName,
+}: ScreenshotFullPageOptions) => {
   await gotoUrl({ page, url });
-  await waitImages({ page });
+  await waitImages({ page, projectName });
 
   const screenOptions: PageAssertionsToHaveScreenshotOptions = {
     fullPage: true,
