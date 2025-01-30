@@ -62,7 +62,7 @@
     "@types/react-dom": "^19",
     "autoprefixer": "10.4.20",
     "eslint": "^9.8.0",
-    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-prettier": "^10.0.0",
     "estree-util-value-to-estree": "^3.2.1",
     "github-slugger": "^2.0.0",
     "husky": "9.1.7",
