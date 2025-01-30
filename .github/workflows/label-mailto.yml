@@ -19,7 +19,7 @@ jobs:
           echo "EOF" >> $GITHUB_ENV
 
       - name: Send Email Notification
-        uses: dawidd6/action-send-mail@v3
+        uses: dawidd6/action-send-mail@v4
         env:
           TRIMMED_BODY: ${{ env.TRIMMED_BODY }}
         with:
