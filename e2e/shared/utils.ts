@@ -96,9 +96,9 @@ export const waitImages = async ({
         width: scrollWidth,
       };
     });
-  // FIXME: posts/desktop 에서 높이가 틀어지는 문제가 있음. 임시방편.
-  if (projectName === 'desktop') {
-    viewportSize.height = 6_500;
+  // FIXME: posts 에서 높이가 틀어지는 문제가 있음. 임시방편.
+  if (projectName === 'desktop' || projectName === 'mobile') {
+    viewportSize.height = projectName === 'desktop' ? 6_500 : 11_000;
   }
   await page.setViewportSize(viewportSize);
 
