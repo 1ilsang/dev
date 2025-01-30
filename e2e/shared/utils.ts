@@ -40,7 +40,7 @@ const scrollToEnd = async (page: Page) => {
 
 export const waitImages = async ({
   page,
-  // projectName,
+  projectName,
 }: Pick<ScreenshotFullPageOptions, 'page' | 'projectName'>) => {
   const curUrl = page.url();
   const isPosts = curUrl.endsWith('/posts');
@@ -97,9 +97,9 @@ export const waitImages = async ({
       };
     });
   // FIXME: posts 에서 높이가 틀어지는 문제가 있음. 임시방편.
-  // if (projectName === 'desktop' || projectName === 'mobile') {
-  //   viewportSize.height = projectName === 'desktop' ? 6_500 : 11_000;
-  // }
+  if (projectName === 'desktop' || projectName === 'mobile') {
+    viewportSize.height = projectName === 'desktop' ? 6_500 : 11_000;
+  }
   await page.setViewportSize(viewportSize);
 
   // Step 4. 최상단으로 스크롤 이동
