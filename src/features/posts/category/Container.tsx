@@ -15,10 +15,10 @@ const CategoryContainer: FunctionComponent<CategoryContainerProps> = ({
   onCategoryClick,
 }) => {
   const itemClass =
-    'inline-block cursor-pointer select-none py-0.5 px-1.5 my-1 mx-4 hover:category-shadow';
+    'inline-block cursor-pointer select-none py-0.5 px-1.5 my-1 mx-3.5 hover:category-shadow';
 
   return (
-    <div className="flex flex-wrap justify-center mb-4 border-b category-bar border-sub-blue">
+    <div className="flex flex-wrap justify-center mb-4 border-b border-sub-blue">
       <span
         className={`${itemClass} after:content-['𒅄'] hover:animate-slow-spin`}
         onClick={onClearClick}

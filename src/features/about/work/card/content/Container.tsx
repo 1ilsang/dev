@@ -58,7 +58,7 @@ const CompanyContentProject: FunctionComponent<CompanyContentProjectProps> = (
         <div className="flex items-center justify-between w-full">
           <div
             className={classNames(
-              'text-xl before:mr-2 before:text-sub-blue before:group-hover:text-highlight before:duration-300',
+              'text-xl before:mr-2 before:text-sub-blue group-hover:before:text-highlight before:duration-300',
               [foldState],
             )}
           >
