@@ -24,6 +24,7 @@ const EducationContainer: FunctionComponent<EducationContainerProps> = ({
           alt={Catholic.name}
           workStartDate={Catholic.startDate}
           workEndDate={Catholic.endDate}
+          objectFit="fill"
           format={format}
         />
         <RightSide>
