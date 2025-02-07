@@ -1,8 +1,7 @@
 import type { FunctionComponent } from 'react';
 import type { PostType } from '~/posts/models';
-import { ProfileSection } from './ProfileSection';
 import HashTag from '~/shared/components/HashTag';
-import { UpdatedDate } from './UpdatedDate';
+import { ProfileSection } from './ProfileSection';
 import { PublishedDate } from './PublishedDate';
 
 type Props = {
@@ -28,8 +27,7 @@ export const InformationContainer: FunctionComponent<Props> = ({
         ))}
       </section>
       <section>
-        <PublishedDate date={date} />
-        {updatedAt && <UpdatedDate date={updatedAt} />}
+        <PublishedDate date={date} updatedDate={updatedAt} />
       </section>
     </>
   );

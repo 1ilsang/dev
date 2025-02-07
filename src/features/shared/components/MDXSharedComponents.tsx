@@ -17,7 +17,22 @@ const ImageHorizonWrap: FunctionComponent<{
   );
 };
 
+const ExternalAnchor: FunctionComponent<{ href: string }> = ({ href }) => {
+  return (
+    <a
+      className="underline-highlight-fade relative top-[0.1rem] px-0.25"
+      title={href}
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      ⎋
+    </a>
+  );
+};
+
 /** MDX 내에서 바로 사용하는 컴포넌트 */
 export const MDXSharedComponents = {
   ImageHorizonWrap,
+  ExternalAnchor,
 };
