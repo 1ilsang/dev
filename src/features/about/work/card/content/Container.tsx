@@ -32,7 +32,7 @@ const CompanyContentProject: FunctionComponent<CompanyContentProjectProps> = (
 
   const openClassName = (() => {
     if (print) return 'animate-show';
-    if (open === undefined) return 'invisible opacity-0	max-h-0';
+    if (open === undefined) return 'invisible opacity-0 max-h-0';
     return open ? 'animate-show' : 'animate-hide';
   })();
   const foldState = (() => {
