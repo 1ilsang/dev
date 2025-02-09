@@ -41,7 +41,9 @@ export const remarkRehypeCustom = () => {
     });
 
     visit(tree, 'image', (node) => {
-      const src = `/posts/${slug}/${node.url}`;
+      const src = node.url.startsWith('https://')
+        ? node.url
+        : `/posts/${slug}/${node.url}`;
 
       setNodeEmptyProperties(node);
       // MDX에서 title을 이미지 size로 사용하고 있음.
