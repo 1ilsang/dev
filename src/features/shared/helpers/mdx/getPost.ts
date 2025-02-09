@@ -5,7 +5,7 @@ import { parseMDX } from './parseMDX';
 const POST_PATH = path.join(process.cwd(), '_posts');
 
 const getAllFullSlug = () => {
-  return [
+  const ret = [
     ...new Set(
       fs
         .readdirSync(POST_PATH, {
@@ -13,10 +13,11 @@ const getAllFullSlug = () => {
           recursive: true,
         })
         .filter((post) => post.isFile())
-        // _posts 이후의 경로만 추출
+        // _posts 이후의 경로만 추출. ex) _posts/js/object-type/docs.md -> js/object-type
         .map((post) => post.parentPath.slice(POST_PATH.length + 1)),
     ),
   ];
+  return ret;
 };
 
 export const getPostBySlug = async (slug: string) => {
