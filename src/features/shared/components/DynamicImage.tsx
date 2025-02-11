@@ -37,7 +37,7 @@ const DynamicImage: FunctionComponent<DynamicImageProps> = ({
     >
       <button
         className={classNames(
-          'absolute top-[-3rem] left-[-0.5rem] hover:text-amber-400 hover:duration-150 opacity-70 before:text-[5rem]',
+          'absolute top-[-3rem] left-[-0.5rem] hover:text-amber-400 hover:duration-150 opacity-70 before:text-[5rem] cursor-pointer',
           min
             ? 'before:content-["⎗"] before:text-[6rem]'
             : 'before:content-["⎘"]',
