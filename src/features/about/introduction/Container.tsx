@@ -3,8 +3,9 @@ import type { FunctionComponent } from 'react';
 import { CompanyName } from '../work/models';
 
 import ExternalLink from '~/shared/components/ExternalLink';
+import { CareerYear } from './CareerYear';
 
-const IntroductionContainer: FunctionComponent = () => {
+export const IntroductionContainer: FunctionComponent = () => {
   const printUnderLine =
     'underline-highlight-fade print:text-black print:underline print:decoration-2';
   const beforeContent = "before:content-['❑'] before:mr-2";
@@ -14,7 +15,7 @@ const IntroductionContainer: FunctionComponent = () => {
     <section className="flex flex-col pb-8">
       <div className="mt-8 mb-4 leading-8">
         <div className={my}>
-          어느덧 6년 차 프런트엔드 개발자가 되었습니다.
+          어느덧 <CareerYear />년 차 프런트엔드 개발자가 되었습니다.
           <br />
           <ExternalLink
             className={printUnderLine}
@@ -67,5 +68,3 @@ const IntroductionContainer: FunctionComponent = () => {
     </section>
   );
 };
-
-export default IntroductionContainer;
