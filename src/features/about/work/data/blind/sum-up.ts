@@ -3,7 +3,7 @@ import { CompanyName, JobPosition } from '../../models';
 
 import { Bleet, MyBiskit, Blind } from './projects';
 
-const BLIND: Company = {
+export const BLIND: Company = {
   company: CompanyName.Blind,
   companyHref: 'https://www.linkedin.com/company/teamblind/',
   companyLogoUrl: '/images/logo/blind.webp',
@@ -12,5 +12,3 @@ const BLIND: Company = {
   workEndDate: 1596726000000, // 2020.08.07
   projectList: [Bleet, MyBiskit, Blind],
 };
-
-export default BLIND;

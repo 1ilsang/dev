@@ -11,7 +11,7 @@ type EducationContainerProps = {
   format: string;
 };
 
-const EducationContainer: FunctionComponent<EducationContainerProps> = ({
+export const EducationContainer: FunctionComponent<EducationContainerProps> = ({
   format,
 }) => {
   return (
@@ -39,5 +39,3 @@ const EducationContainer: FunctionComponent<EducationContainerProps> = ({
     </section>
   );
 };
-
-export default EducationContainer;

@@ -1,15 +1,15 @@
 import type { FunctionComponent } from 'react';
 
-import WorkContainer from './work/Container';
+import { WorkContainer } from './work/Container';
 import { HeadlineContainer } from './headline/Container';
-import ActivityContainer from './activity/Container';
-import EducationContainer from './education/Container';
-import IntroductionContainer from './introduction/Container';
+import { ActivityContainer } from './activity/Container';
+import { EducationContainer } from './education/Container';
+import { IntroductionContainer } from './introduction/Container';
 import { MainContainer } from '~/shared/components/MainContainer';
 
 const DATE_FORMAT = 'yyyy.MM';
 
-const AboutContainer: FunctionComponent = () => {
+export const AboutContainer: FunctionComponent = () => {
   return (
     <MainContainer>
       <HeadlineContainer />
@@ -20,5 +20,3 @@ const AboutContainer: FunctionComponent = () => {
     </MainContainer>
   );
 };
-
-export default AboutContainer;

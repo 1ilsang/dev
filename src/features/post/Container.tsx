@@ -7,7 +7,7 @@ import { InformationContainer } from './information/InformationContainer';
 import { SponsorContainer } from './sponsor/Container';
 import { POST_BODY_ID } from '~/shared/components/nav/constants';
 
-const PostContainer: FunctionComponent<
+export const PostContainer: FunctionComponent<
   PropsWithChildren<{ post: PostType }>
 > = async ({ post, children }) => {
   const {
@@ -27,5 +27,3 @@ const PostContainer: FunctionComponent<
     </MainContainer>
   );
 };
-
-export default PostContainer;

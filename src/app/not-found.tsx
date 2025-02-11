@@ -1,12 +1,12 @@
 'use client';
 
 import type { FunctionComponent } from 'react';
-import NotFoundContainer from '~/404/Container';
-import EmptyContainer from '~/404/Empty';
-import useNotFound from '~/404/hooks/useNotFound';
+import { NotFoundContainer } from '~/404/Container';
+import { EmptyContainer } from '~/404/Empty';
+import { useNotFound } from '~/404/hooks/useNotFound';
 import { Footer } from '~/shared/components/Footer';
 import { MainLayout } from '~/shared/components/MainLayout';
-import Navbar from '~/shared/components/nav/Navbar';
+import { Navbar } from '~/shared/components/nav/Navbar';
 
 const NotFound: FunctionComponent = () => {
   const { redirect } = useNotFound();

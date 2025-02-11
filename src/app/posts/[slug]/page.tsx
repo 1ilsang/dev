@@ -1,13 +1,13 @@
 import { type Metadata, type NextPage } from 'next';
 import { MyProfile } from '~/about/headline/data/profile';
 
-import PostContainer from '~/post/Container';
+import { PostContainer } from '~/post/Container';
 import type { PostType } from '~/posts/models';
 import { Footer } from '~/shared/components/Footer';
 import { MDXSharedComponents } from '~/shared/components/MDXSharedComponents';
-import ImageModal from '~/shared/components/modal/ImageModal';
-import Navbar from '~/shared/components/nav/Navbar';
-import NavProgress from '~/shared/components/nav/Progress';
+import { ImageModal } from '~/shared/components/modal/ImageModal';
+import { Navbar } from '~/shared/components/nav/Navbar';
+import { NavProgress } from '~/shared/components/nav/Progress';
 import { getAllPost, getPostBySlug } from '~/shared/helpers/mdx/getPost';
 import { Portal } from '~/shared/portal/Container';
 

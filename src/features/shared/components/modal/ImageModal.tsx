@@ -8,7 +8,7 @@ interface ImageModalProps {
   children?: ReactNode;
 }
 
-const ImageModal: FunctionComponent<ImageModalProps> = () => {
+export const ImageModal: FunctionComponent<ImageModalProps> = () => {
   const { loading, handleDialogClick, imageSrc, imageRef, imageSize } =
     useImageModal();
 
@@ -38,5 +38,3 @@ const ImageModal: FunctionComponent<ImageModalProps> = () => {
     </div>
   );
 };
-
-export default ImageModal;

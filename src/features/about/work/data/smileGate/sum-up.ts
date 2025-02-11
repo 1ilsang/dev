@@ -3,7 +3,7 @@ import { CompanyName, JobPosition } from '../../models';
 
 import { Stove } from './projects';
 
-const SmileGate: Company = {
+export const SmileGate: Company = {
   company: CompanyName.Smilegate,
   companyHref: 'https://www.linkedin.com/company/smilegate/',
   companyLogoUrl: '/images/logo/smilegate.webp',
@@ -12,5 +12,3 @@ const SmileGate: Company = {
   position: `${JobPosition.FE}(intern)`,
   projectList: [Stove],
 };
-
-export default SmileGate;

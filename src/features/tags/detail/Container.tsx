@@ -9,7 +9,7 @@ type TagDetailContainerProps = {
   posts: PostType[];
 };
 
-const TagDetailContainer: FunctionComponent<TagDetailContainerProps> = ({
+export const TagDetailContainer: FunctionComponent<TagDetailContainerProps> = ({
   posts,
 }) => {
   return (
@@ -38,5 +38,3 @@ const TagDetailContainer: FunctionComponent<TagDetailContainerProps> = ({
     </MainContainer>
   );
 };
-
-export default TagDetailContainer;

@@ -7,7 +7,7 @@ import type { Activity } from './models';
 import { activityData } from '~/about/activity/data/activity';
 import { Label } from '../shared/Label';
 
-const ActivityContainer: FunctionComponent = () => {
+export const ActivityContainer: FunctionComponent = () => {
   const activityList = useMemo(() => {
     const sortedList = activityData.sort((a, b) =>
       a.startDate > b.startDate ? -1 : 1,
@@ -36,5 +36,3 @@ const ActivityContainer: FunctionComponent = () => {
     </section>
   );
 };
-
-export default ActivityContainer;

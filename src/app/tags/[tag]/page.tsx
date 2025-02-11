@@ -1,8 +1,8 @@
 import type { NextPage } from 'next';
 
-import Navbar from '~/shared/components/nav/Navbar';
+import { Navbar } from '~/shared/components/nav/Navbar';
 import { Footer } from '~/shared/components/Footer';
-import TagDetailContainer from '~/tags/detail/Container';
+import { TagDetailContainer } from '~/tags/detail/Container';
 import { MainLayout } from '~/shared/components/MainLayout';
 import { getAllPost, getAllTag } from '~/shared/helpers/mdx/getPost';
 

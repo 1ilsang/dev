@@ -3,7 +3,7 @@ import { CompanyName, JobPosition } from '../../models';
 
 import { CommerceAdminPlatform } from './projects';
 
-const WoowaBros: Company = {
+export const WoowaBros: Company = {
   company: CompanyName.WoowaBros,
   companyHref: 'https://www.linkedin.com/company/woowa-bros-/',
   companyLogoUrl: '/images/logo/woowa-bros.webp',
@@ -11,5 +11,3 @@ const WoowaBros: Company = {
   position: JobPosition.FE,
   projectList: [CommerceAdminPlatform],
 };
-
-export default WoowaBros;

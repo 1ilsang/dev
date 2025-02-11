@@ -12,7 +12,9 @@ type WorkContainerProps = {
   format: string;
 };
 
-const WorkContainer: FunctionComponent<WorkContainerProps> = ({ format }) => {
+export const WorkContainer: FunctionComponent<WorkContainerProps> = ({
+  format,
+}) => {
   const [toggleOpenAll, setToggleOpenAll] = useState<boolean>(undefined);
 
   const handleTitleClick = () =>
@@ -34,5 +36,3 @@ const WorkContainer: FunctionComponent<WorkContainerProps> = ({ format }) => {
     </section>
   );
 };
-
-export default WorkContainer;

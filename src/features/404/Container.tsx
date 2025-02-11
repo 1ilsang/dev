@@ -11,7 +11,7 @@ const description = `
 
 `;
 
-const NotFoundContainer: FunctionComponent = () => {
+export const NotFoundContainer: FunctionComponent = () => {
   return (
     <MainContainer className="flex flex-col items-center">
       <div>
@@ -30,5 +30,3 @@ const NotFoundContainer: FunctionComponent = () => {
     </MainContainer>
   );
 };
-
-export default NotFoundContainer;

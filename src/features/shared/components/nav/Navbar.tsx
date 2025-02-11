@@ -35,7 +35,7 @@ const NavText: FunctionComponent<NavTextProps> = memo(
 NavText.displayName = 'NavText';
 
 type Props = { showPrint?: boolean };
-const Navbar: FunctionComponent<Props> = ({ showPrint = false }) => {
+export const Navbar: FunctionComponent<Props> = ({ showPrint = false }) => {
   const pathname = usePathname();
   const [hover, setHover] = useState(false);
   const [scrollDown, setScrollDown] = useState(
@@ -83,5 +83,3 @@ const Navbar: FunctionComponent<Props> = ({ showPrint = false }) => {
     </nav>
   );
 };
-
-export default Navbar;

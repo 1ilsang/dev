@@ -7,7 +7,9 @@ type TagListContainer = {
   tags: string[];
 };
 
-const TagListContainer: FunctionComponent<TagListContainer> = ({ tags }) => {
+export const TagListContainer: FunctionComponent<TagListContainer> = ({
+  tags,
+}) => {
   return (
     <MainContainer>
       {tags.map((tag) => (
@@ -18,5 +20,3 @@ const TagListContainer: FunctionComponent<TagListContainer> = ({ tags }) => {
     </MainContainer>
   );
 };
-
-export default TagListContainer;

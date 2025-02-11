@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import type { FunctionComponent } from 'react';
 
-const HomeContainer: FunctionComponent = () => {
+export const HomeContainer: FunctionComponent = () => {
   const router = useRouter();
 
   const handleContainerClick = () => {
@@ -28,5 +28,3 @@ const HomeContainer: FunctionComponent = () => {
     </div>
   );
 };
-
-export default HomeContainer;

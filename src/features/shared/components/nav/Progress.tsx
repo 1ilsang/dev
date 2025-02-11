@@ -5,7 +5,7 @@ import type { FunctionComponent } from 'react';
 
 import useProgress, { INIT_MAX } from './useProgress';
 
-const NavProgress: FunctionComponent = () => {
+export const NavProgress: FunctionComponent = () => {
   const { progress, max } = useProgress();
 
   return (
@@ -24,5 +24,3 @@ const NavProgress: FunctionComponent = () => {
     />
   );
 };
-
-export default NavProgress;

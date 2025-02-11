@@ -2,7 +2,7 @@ import { useRouter } from 'next/navigation';
 import { redirectUrlMapper } from '../constants';
 import { useEffect, useState } from 'react';
 
-const useNotFound = () => {
+export const useNotFound = () => {
   const [redirect, setRedirect] = useState<null | string>(null);
   const { push } = useRouter();
 
@@ -19,5 +19,3 @@ const useNotFound = () => {
 
   return { redirect };
 };
-
-export default useNotFound;
