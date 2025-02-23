@@ -132,9 +132,6 @@ importers:
       remark-rehype:
         specifier: ^11.1.0
         version: 11.1.1
-      shiki:
-        specifier: ^1.23.0
-        version: 1.29.2
       stylelint:
         specifier: ^16.7.0
         version: 16.14.1(typescript@5.7.3)
