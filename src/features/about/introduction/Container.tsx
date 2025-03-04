@@ -27,9 +27,9 @@ export const IntroductionContainer: FunctionComponent = () => {
           고민해 봤습니다.
         </div>
         <ul>
-          <li className={beforeContent}>저는 즐겁게 일하고 싶습니다.</li>
+          <li className={beforeContent}>즐겁게 일하고 싶습니다.</li>
           <li className={beforeContent}>
-            저는 기술적 책임을 질 수 있는 동료가 되고 싶습니다.
+            기술적 책임을 질 수 있는 동료가 되고 싶습니다.
           </li>
         </ul>
         <div className={my}>
@@ -55,14 +55,23 @@ export const IntroductionContainer: FunctionComponent = () => {
           <b>
             <a href={`#${CompanyName.WoowaBros}`}>우아한형제들</a>
           </b>
-          에서 또 다른 커리어를 쌓고자 하고 있습니다. 또한{' '}
+          에서 또 다른 커리어를 쌓고자 하고 있습니다.
+          <br />
+          또한{' '}
           <ExternalLink
             className={printUnderLine}
-            label="MDN 한국팀의 Organizer로 활동"
+            label="MDN 한국팀의 Organizer"
             href="posts/mdn-ko-organizer"
             disableDefaultCSSTransition
+          />{' '}
+          및{' '}
+          <ExternalLink
+            className={printUnderLine}
+            label="Node.js 팀의 Triager"
+            href="https://github.com/nodejs/node?tab=readme-ov-file#triagers"
+            disableDefaultCSSTransition
           />
-          하고 있습니다.
+          로 활동하고 있습니다.
         </div>
       </div>
     </section>

@@ -3,6 +3,11 @@ import { ActivityType } from '~/about/activity/models';
 
 export const openSource: Activity[] = [
   {
+    name: 'Node.js Triager 합류',
+    url: 'https://github.com/nodejs/node?tab=readme-ov-file#triagers',
+    startDate: 1740871800000,
+  },
+  {
     name: 'Mozilla Developer Network(MDN) @mdn/yari-content-ko 팀 합류',
     url: '/posts/mdn-ko-organizer',
     startDate: 1709113159904,
