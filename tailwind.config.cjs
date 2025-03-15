@@ -19,7 +19,7 @@ const keyframes = {
   bouncing: {
     '100%': { transform: 'translateY(-5px)' },
   },
-  'floating-index': {
+  'toc-index': {
     '0%': {
       color: colors.base,
     },
@@ -97,7 +97,7 @@ module.exports = {
       keyframes,
       animation: {
         bouncing: 'bouncing 0.3s infinite alternate',
-        'floating-index': 'floating-index 0.3s forwards',
+        'toc-index': 'toc-index 0.3s forwards',
         'rainbow-water': 'rainbow-water 5s ease infinite',
         'slow-spin': 'spin 2s linear infinite',
         'fade-in': 'fade-in 0.2s',

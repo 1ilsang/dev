@@ -3,7 +3,7 @@ import { type FunctionComponent, type MouseEventHandler } from 'react';
 import type { TOC } from '~/posts/models';
 import { TOC_DEPTH } from '~/posts/models';
 
-type FloatingItemProps = {
+type TocItemProps = {
   item: TOC;
   active: boolean;
   targetActive: boolean;
@@ -11,7 +11,7 @@ type FloatingItemProps = {
   handleIndexClick: MouseEventHandler<HTMLLIElement>;
 };
 
-export const FloatingItem: FunctionComponent<FloatingItemProps> = ({
+export const TocItem: FunctionComponent<TocItemProps> = ({
   item,
   active,
   targetActive,
@@ -26,7 +26,7 @@ export const FloatingItem: FunctionComponent<FloatingItemProps> = ({
         'pt-0.5 text-base select-none cursor-pointer',
         {
           'mb-0.5': item.depth === TOC_DEPTH.H2,
-          'animate-floating-index': active,
+          'animate-toc-index': active,
           "before:content-['-'] before:mr-1 ml-2.5":
             item.depth === TOC_DEPTH.H3,
           'mb-1.5': lastSubList,

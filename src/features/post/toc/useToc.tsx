@@ -6,7 +6,7 @@ type Props = {
   toc: TOC[];
 };
 
-const useFloatingIndex = ({ toc }: Props) => {
+export const useToc = ({ toc }: Props) => {
   const [activeId, setActiveId] = useState<string>();
   const [targetActiveId, setTargetActiveId] = useState<string>();
   const router = useRouter();
@@ -48,5 +48,3 @@ const useFloatingIndex = ({ toc }: Props) => {
 
   return { activeId, handleIndexClick, targetActiveId };
 };
-
-export default useFloatingIndex;

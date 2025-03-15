@@ -2,17 +2,15 @@
 
 import { type FunctionComponent } from 'react';
 import { TOC_DEPTH, type PostType } from '~/posts/models';
-import { FloatingItem } from './Item';
-import useFloatingIndex from './useFloatingIndex';
+import { TocItem } from './Item';
+import { useToc } from './useToc';
 
-type FloatingIndexProps = {
+type TocContainerProps = {
   toc: PostType['toc'];
 };
 
-export const FloatingIndexContainer: FunctionComponent<FloatingIndexProps> = ({
-  toc,
-}) => {
-  const { activeId, handleIndexClick, targetActiveId } = useFloatingIndex({
+export const TocContainer: FunctionComponent<TocContainerProps> = ({ toc }) => {
+  const { activeId, handleIndexClick, targetActiveId } = useToc({
     toc,
   });
 
@@ -28,7 +26,7 @@ export const FloatingIndexContainer: FunctionComponent<FloatingIndexProps> = ({
             toc[index + 1].depth === TOC_DEPTH.H2 &&
             item.depth === TOC_DEPTH.H3;
           return (
-            <FloatingItem
+            <TocItem
               key={item.id}
               item={item}
               targetActive={targetActiveId === item.id}

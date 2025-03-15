@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { useRouter } from 'next/navigation';
-import { FloatingIndexContainer } from './Container';
+import { TocContainer } from './Container';
 
 import type { PostType } from '~/posts/models';
 
@@ -13,17 +13,17 @@ describe('rendering', () => {
   window.HTMLElement.prototype.scrollIntoView = function () {};
 
   it('should visible', async () => {
-    render(<FloatingIndexContainer toc={MOCK_TOC} />);
+    render(<TocContainer toc={MOCK_TOC} />);
     expect(screen.getByLabelText('index')).toBeVisible();
   });
 
   it('should empty when non-exist heading', async () => {
-    render(<FloatingIndexContainer toc={[]} />);
+    render(<TocContainer toc={[]} />);
     expect(screen.getByRole('list').childNodes.length).toBe(0);
   });
 
   it('should rendered nested', async () => {
-    render(<FloatingIndexContainer toc={MOCK_TOC} />);
+    render(<TocContainer toc={MOCK_TOC} />);
     expect(screen.getAllByRole('list').length).toBe(1);
     expect(screen.getAllByRole('listitem').length).toBe(
       MOCK_H2_COUNT + MOCK_H3_COUNT,
@@ -35,7 +35,7 @@ describe('event', () => {
   it('should redirect to heading', async () => {
     const replace = jest.fn();
     (useRouter as jest.Mock).mockReturnValue({ replace });
-    render(<FloatingIndexContainer toc={MOCK_TOC} />);
+    render(<TocContainer toc={MOCK_TOC} />);
 
     await userEvent.click(screen.getByText(MOCK_TOC[2].value));
     expect(replace).toHaveBeenCalledWith(
