@@ -15,7 +15,7 @@ export const gotoUrl = async ({
 };
 
 // virtual-list를 위해 content-visibility-auto contain-intrinsic-size 클래스를
-// 설정했기 때문에 스크롤을 최하단으로 이동(가상 리스트의 모든 아이템을 로드하기 위함)
+// 설정할 경우 때문에 스크롤을 최하단으로 이동(가상 리스트의 모든 아이템을 로드하기 위함)
 // https://stackoverflow.com/questions/69183922/playwright-auto-scroll-to-bottom-of-infinite-scroll-page
 const scrollToEnd = async (page: Page) => {
   const maxScrolls = 100;

@@ -15,12 +15,8 @@ type PostListContainerProps = {
 export const PostListContainer: FunctionComponent<PostListContainerProps> = ({
   posts,
 }) => {
-  const {
-    categoryFilter,
-    handleCategoryClick,
-    filteredList,
-    handleClearClick,
-  } = usePostListContainer(posts);
+  const { categoryFilter, handleCategoryClick, handleClearClick } =
+    usePostListContainer();
 
   return (
     <MainContainer className="md:py-[4.8rem]">
@@ -30,8 +26,12 @@ export const PostListContainer: FunctionComponent<PostListContainerProps> = ({
         onCategoryClick={handleCategoryClick}
       />
       <ul className="pb-24 md:pb-56">
-        {filteredList.map((post) => (
-          <PostItem key={post.frontmatter.title} post={post} />
+        {posts.map((post) => (
+          <PostItem
+            key={post.frontmatter.title}
+            categoryFilter={categoryFilter}
+            post={post}
+          />
         ))}
       </ul>
     </MainContainer>
