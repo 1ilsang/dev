@@ -1,5 +1,6 @@
 import classNames from 'classnames';
-import { Children, createElement, type JSX } from 'react';
+import { Children, type JSX } from 'react';
+import { jsx } from 'react/jsx-runtime';
 
 type Heading = 'h2' | 'h3' | 'h4' | 'h5';
 type HeadingGenerator = (props: JSX.IntrinsicElements[Heading]) => JSX.Element;
@@ -20,16 +21,13 @@ export const HeadingFactory = (): HeadingFactory => {
     (props) => {
       const AnchorProps = props.children[0].props;
       const AnchorSpan = AnchorProps.children;
-      const Anchor = createElement('a', AnchorProps, {
-        ...AnchorSpan,
-        props: {
-          ...AnchorSpan.props,
-          className: classNames(
-            AnchorSpan.props.className,
-            'opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300',
-            'before:absolute before:w-[40px] before:left-[-25px] before:content-["⧉"] before:text-[#61768f] before:mr-2',
-          ),
-        },
+      const Anchor = jsx('a', {
+        ...AnchorProps,
+        className: classNames(
+          AnchorSpan.props.className,
+          'opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300',
+          'before:absolute before:w-[40px] before:left-[-25px] before:content-["⧉"] before:text-[#61768f] before:mr-2',
+        ),
       });
 
       const children = Children.toArray(props.children);
