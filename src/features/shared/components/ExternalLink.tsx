@@ -1,5 +1,8 @@
-import type { FunctionComponent, PropsWithChildren } from 'react';
+'use client';
+
 import classNames from 'classnames';
+import type { FunctionComponent, PropsWithChildren } from 'react';
+import { ga } from '../helpers/logger';
 
 type ExternalLinkProps = PropsWithChildren & {
   href: string;
@@ -18,6 +21,10 @@ const ExternalLink: FunctionComponent<ExternalLinkProps> = ({
   children,
   disableDefaultCSSTransition = false,
 }) => {
+  const value = label || href;
+  const handleExternalLinkClick = () => {
+    ga('linkClick', { type: 'external-link', value });
+  };
   return (
     <a
       className={classNames([
@@ -27,8 +34,9 @@ const ExternalLink: FunctionComponent<ExternalLinkProps> = ({
       href={href}
       rel="noopener noreferrer"
       target="_blank"
+      onClick={handleExternalLinkClick}
     >
-      {label ? label : href}
+      {value}
       {children}
     </a>
   );

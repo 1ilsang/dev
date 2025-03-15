@@ -4,12 +4,12 @@ import type { FunctionComponent, MouseEventHandler } from 'react';
 import { CATEGORY_LIST } from '../constants';
 
 type CategoryContainerProps = {
-  categoryFilter: string;
+  categoryFilter: Set<string>;
   onClearClick: () => void;
   onCategoryClick: MouseEventHandler<HTMLSpanElement>;
 };
 
-const CategoryContainer: FunctionComponent<CategoryContainerProps> = ({
+export const CategoryContainer: FunctionComponent<CategoryContainerProps> = ({
   onClearClick,
   categoryFilter,
   onCategoryClick,
@@ -26,7 +26,7 @@ const CategoryContainer: FunctionComponent<CategoryContainerProps> = ({
       {CATEGORY_LIST.map((category) => (
         <span
           className={classNames(itemClass, {
-            'text-highlight': categoryFilter.includes(category),
+            'text-highlight': categoryFilter.has(category),
           })}
           key={category}
           onClick={onCategoryClick}
@@ -37,5 +37,3 @@ const CategoryContainer: FunctionComponent<CategoryContainerProps> = ({
     </div>
   );
 };
-
-export default CategoryContainer;

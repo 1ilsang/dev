@@ -2,8 +2,8 @@ import type { FunctionComponent } from 'react';
 
 import type { Activity } from './models';
 
-import ExternalLink from '~/shared/components/ExternalLink';
 import { RightSide } from '../work/card/content/RightSide';
+import { CardItem } from './CardItem';
 
 type ActivityCardContainerProps = {
   year: string;
@@ -22,19 +22,7 @@ const ActivityCardContainer: FunctionComponent<ActivityCardContainerProps> = ({
       <RightSide>
         <ul className="pl-4 border-l-[0.24rem] border-dark">
           {list.map((activity) => (
-            <li className="flex" key={activity.name}>
-              <span className="min-w-[120px] text-white-blue print:text-black">
-                {activity.type}
-              </span>
-              <div className="w-full">
-                <ExternalLink
-                  className="text-progress hover:text-highlight hover:underline duration-300 print:text-black print:underline print:decoration-[1px]"
-                  href={activity.url}
-                  label={activity.name}
-                  disableDefaultCSSTransition
-                />
-              </div>
-            </li>
+            <CardItem activity={activity} key={activity.name} />
           ))}
         </ul>
       </RightSide>

@@ -7,6 +7,7 @@ const colors = {
   'base-og': '#ee7752',
   'sub-blue': '#61768f',
   'white-blue': '#d9dee5',
+  'highlight-more': '#10ffcb',
   highlight: '#30ffcb',
   progress: '#28bc97',
   'light-blue': '#6e94d8',
@@ -185,6 +186,18 @@ module.exports = {
           '&:hover': {
             cursor: 'pointer',
             textDecorationColor: colors.highlight,
+          },
+        },
+        '.underline-highlight-fade-dark': {
+          color: colors.progress,
+          textDecoration: `underline 0.15em ${colors['snazzy-bg']}`,
+          transition: '500ms',
+
+          '&:hover': {
+            color: colors['highlight-more'],
+            textShadow: `-0.2px 0 ${colors['highlight-more']}`,
+            cursor: 'pointer',
+            textDecorationColor: colors.progress,
           },
         },
         '.content-visibility-auto': {

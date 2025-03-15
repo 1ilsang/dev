@@ -4,7 +4,7 @@ import type { FunctionComponent } from 'react';
 
 import type { ServerPost } from '~/app/posts/page';
 import { MainContainer } from '~/shared/components/MainContainer';
-import CategoryContainer from './category/Container';
+import { CategoryContainer } from './category/Container';
 import { PostItem } from './components/Item';
 import usePostListContainer from './hooks/usePostListContainer';
 
@@ -12,7 +12,7 @@ type PostListContainerProps = {
   posts: ServerPost[];
 };
 
-const PostListContainer: FunctionComponent<PostListContainerProps> = ({
+export const PostListContainer: FunctionComponent<PostListContainerProps> = ({
   posts,
 }) => {
   const {
@@ -37,5 +37,3 @@ const PostListContainer: FunctionComponent<PostListContainerProps> = ({
     </MainContainer>
   );
 };
-
-export default PostListContainer;

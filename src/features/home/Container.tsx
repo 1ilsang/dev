@@ -2,11 +2,13 @@
 
 import { useRouter } from 'next/navigation';
 import type { FunctionComponent } from 'react';
+import { ga } from '~/shared/helpers/logger';
 
 export const HomeContainer: FunctionComponent = () => {
   const router = useRouter();
 
   const handleContainerClick = () => {
+    ga('videoClick', { type: 'router-push', value: '/posts' });
     router.push('/posts');
   };
 

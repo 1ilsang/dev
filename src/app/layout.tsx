@@ -1,3 +1,6 @@
+import { GoogleAnalytics } from '@next/third-parties/google';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { MyProfile } from '~/about/headline/data/profile';
@@ -8,8 +11,6 @@ import {
   MetaKeywords,
   MetaTitle,
 } from '~/shared/constants/blog';
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import '~/styles/global.css';
 
@@ -30,6 +31,7 @@ export default function RootLayout({
         <div id="portal" />
         <Analytics />
         <SpeedInsights />
+        <GoogleAnalytics gaId="G-MCL3TLFXPN" />
       </body>
     </html>
   );
