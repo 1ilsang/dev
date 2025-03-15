@@ -29,9 +29,13 @@ export default function RootLayout({
         <BannerWrapper />
         {children}
         <div id="portal" />
-        <Analytics />
-        <SpeedInsights />
-        <GoogleAnalytics gaId="G-MCL3TLFXPN" />
+        {!process.env.NEXT_PUBLIC_E2E && (
+          <>
+            <Analytics />
+            <SpeedInsights />
+            <GoogleAnalytics gaId="G-MCL3TLFXPN" />
+          </>
+        )}
       </body>
     </html>
   );
