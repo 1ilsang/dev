@@ -7,7 +7,9 @@ type Props = {
 };
 
 export const useToc = ({ toc }: Props) => {
+  // NOTE: 현재 보고 있는 섹션의 id
   const [activeId, setActiveId] = useState<string>();
+  // NOTE: 이동할 섹션의 id
   const [targetActiveId, setTargetActiveId] = useState<string>();
   const router = useRouter();
 
@@ -31,17 +33,36 @@ export const useToc = ({ toc }: Props) => {
     };
   }, []);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setTargetActiveId(undefined);
-    }, 1000);
-    return () => clearTimeout(timer);
-  }, [targetActiveId]);
+  useEffect(
+    function showsTargetIdForNNSecond() {
+      const NN = 1000;
+      const timer = setTimeout(() => {
+        setTargetActiveId(undefined);
+      }, NN);
+      return () => clearTimeout(timer);
+    },
+    [targetActiveId],
+  );
+
+  useEffect(function hashHistoryPushBackScrollObserver() {
+    if (typeof window === 'undefined') return;
+
+    const handleHashChange = () => {
+      const hash = decodeURIComponent(window.location.hash);
+      const targetId = hash.slice(1);
+      setTargetActiveId(targetId);
+      document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, []);
 
   const handleIndexClick: MouseEventHandler<HTMLLIElement> = (event) => {
     const targetId = event.currentTarget.id;
     document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
-    router.replace(`#${targetId}`, { scroll: false });
+    router.push(`#${targetId}`, { scroll: false });
     setTargetActiveId(targetId);
     setActiveId(undefined);
   };

@@ -33,12 +33,12 @@ describe('rendering', () => {
 
 describe('event', () => {
   it('should redirect to heading', async () => {
-    const replace = jest.fn();
-    (useRouter as jest.Mock).mockReturnValue({ replace });
+    const push = jest.fn();
+    (useRouter as jest.Mock).mockReturnValue({ push });
     render(<TocContainer toc={MOCK_TOC} />);
 
     await userEvent.click(screen.getByText(MOCK_TOC[2].value));
-    expect(replace).toHaveBeenCalledWith(
+    expect(push).toHaveBeenCalledWith(
       `#${MOCK_TOC[2].id}`,
       // handleTocClick 함수에서 scroll: false 옵션을 주었기 때문
       { scroll: false },
