@@ -23,11 +23,14 @@ export const HeadingFactory = (): HeadingFactory => {
       const AnchorSpan = AnchorProps.children;
       const Anchor = jsx('a', {
         ...AnchorProps,
-        className: classNames(
-          AnchorSpan.props.className,
-          'opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300',
-          'before:absolute before:w-[40px] before:left-[-25px] before:content-["⧉"] before:text-[#61768f] before:mr-2',
-        ),
+        children: jsx('span', {
+          ...AnchorSpan.props,
+          className: classNames(
+            AnchorSpan.props.className,
+            'opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300',
+            'before:absolute before:w-[40px] before:left-[-25px] before:content-["⧉"] before:text-[#61768f] before:mr-2',
+          ),
+        }),
       });
 
       const children = Children.toArray(props.children);
