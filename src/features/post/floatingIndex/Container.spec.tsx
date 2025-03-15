@@ -10,6 +10,8 @@ jest.mock('next/navigation', () => ({
 }));
 
 describe('rendering', () => {
+  window.HTMLElement.prototype.scrollIntoView = function () {};
+
   it('should visible', async () => {
     render(<FloatingIndexContainer toc={MOCK_TOC} />);
     expect(screen.getByLabelText('index')).toBeVisible();
@@ -36,7 +38,11 @@ describe('event', () => {
     render(<FloatingIndexContainer toc={MOCK_TOC} />);
 
     await userEvent.click(screen.getByText(MOCK_TOC[2].value));
-    expect(replace).toHaveBeenCalledWith(`#${MOCK_TOC[2].id}`);
+    expect(replace).toHaveBeenCalledWith(
+      `#${MOCK_TOC[2].id}`,
+      // handleTocClick 함수에서 scroll: false 옵션을 주었기 때문
+      { scroll: false },
+    );
   });
 });
 

@@ -40,7 +40,8 @@ const useFloatingIndex = ({ toc }: Props) => {
 
   const handleIndexClick: MouseEventHandler<HTMLLIElement> = (event) => {
     const targetId = event.currentTarget.id;
-    router.replace(`#${targetId}`);
+    document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+    router.replace(`#${targetId}`, { scroll: false });
     setTargetActiveId(targetId);
     setActiveId(undefined);
   };
