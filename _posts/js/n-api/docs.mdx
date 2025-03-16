@@ -64,7 +64,7 @@ Node-API는 C/C++ 개발자가 아니더라도 사용할 수 있도록 설계되
 
 ### 3. 최적화
 
-C/C++ Addon을 특별한 바인딩 과정 없이 적용할 경우 직접 메모리 관리를 직접 해야 했으며 멀티 스레딩도 스스로 구현해야 했다.
+C/C++ Addon을 특별한 바인딩 과정 없이 적용할 경우 직접 메모리 관리를 해야 했으며 멀티 스레딩도 스스로 구현해야 했다.
 
 이는 Node.js와 V8, Libuv 등 다양한 바인딩 라이브러리들의 관계를 정확하게 알아야 하는 부담으로 다가왔다.
 
@@ -76,7 +76,7 @@ Node-API는 인터페이스를 통해 최적화해 주기 때문에 Addon 개발
 
 개발 과정은 다음과 같다.
 
-1. Addon 개발 환경 설정
+1. Node.js Addon 개발 환경 설정
 2. Rust 파일을 목적 파일로 컴파일
 3. 목적 파일을 Node.js Addon에 연결
 4. JavaScript 파일에서 사용
@@ -113,7 +113,7 @@ Rust 코드로 작성된 `rust_mul` 함수를 `libmycalc.so` 파일로 컴파일
 
 ![so file](so-file.webp)
 
-`.so` 파일은 컴파일 단계에서 코드 영역에 추가되지 않고 런타임에 동적으로 로드되는 라이브러리이다.
+`.so`(Shared Objects) 파일은 컴파일 단계에서 코드 영역에 추가되지 않고 런타임에 동적으로 로드되는 라이브러리이다.
 
 ### 3. binding.gyp 파일 생성
 
@@ -232,16 +232,16 @@ $ node-gyp configure && node-gyp build
 ```js
 // index.js
 const addon = require("./build/Release/mycalc_addon");
-console.log(addon.mul(3, 5));// 15 출력
+console.log(addon.mul(3, 5)); // 15 출력
 ```
 
 TA-DA! JavaScript 파일에서 C Addon을 사용하고 있다.
 
-이로써 Rust \<-> C \<-> Node.js 간의 연결이 완료되었다.
+이로써 Rust(`rust_mul`) \<-> C(`Mul`) \<-> Node.js(`mul`) 간의 연결이 완료되었다.
 
 ## 마치며
 
-Rust와 Node-API를 사용해 Node.js Addon을 개발하면서 Addon을 개발하는 과정을 이해할 수 있었다.
+Rust와 Node-API를 사용해 Node.js Addon을 개발하면서 Addon 및 적용 과정을 이해할 수 있었다.
 
 글을 요약하면 다음과 같다.
 
@@ -251,7 +251,7 @@ Rust와 Node-API를 사용해 Node.js Addon을 개발하면서 Addon을 개발�
 
 Node.js의 내부에 한층 더 깊게 파고들어 간 것 같아 뿌듯하다.
 
-이 글을 통해 Node.js Addon 개발에 흥미가 생겼길 바라며 글을 마무리 하겠다.
+이 글을 통해 Node.js Addon 개발에 흥미가 생겼길 바라며 마무리 하겠다.
 
 ## 참고
 

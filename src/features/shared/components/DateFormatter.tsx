@@ -1,3 +1,5 @@
+'use client';
+
 import type { FunctionComponent } from 'react';
 import { memo } from 'react';
 
@@ -21,11 +23,7 @@ const DateFormatter: FunctionComponent<DateFormatterProps> = memo(
     return (
       <>
         {before && <span className="mr-1">{before}</span>}
-        <time
-          className={className}
-          dateTime={dateTime}
-          suppressHydrationWarning
-        >
+        <time className={className} dateTime={dateTime}>
           {dateTime}
         </time>
       </>

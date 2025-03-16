@@ -29,13 +29,14 @@ export default function RootLayout({
         <BannerWrapper />
         {children}
         <div id="portal" />
-        {!process.env.NEXT_PUBLIC_E2E && (
-          <>
-            <Analytics />
-            <SpeedInsights />
-            <GoogleAnalytics gaId="G-MCL3TLFXPN" />
-          </>
-        )}
+        {!process.env.NEXT_PUBLIC_E2E &&
+          process.env.NODE_ENV === 'production' && (
+            <>
+              <Analytics />
+              <SpeedInsights />
+              <GoogleAnalytics gaId="G-MCL3TLFXPN" />
+            </>
+          )}
       </body>
     </html>
   );
