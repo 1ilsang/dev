@@ -6,7 +6,7 @@ import { slugList } from './post/utils';
 
 test.describe('posts', () => {
   test('Check all post count', () => {
-    const ALL_POST_COUNT = 39;
+    const ALL_POST_COUNT = 40;
     expect(slugList.length).toEqual(ALL_POST_COUNT);
   });
 
