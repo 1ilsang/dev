@@ -1,6 +1,7 @@
 import { useRouter } from 'next/navigation';
 import { type MouseEventHandler, useEffect, useState } from 'react';
 import type { TOC } from '~/posts/models';
+import { ga } from '~/shared/helpers/logger';
 
 type Props = {
   toc: TOC[];
@@ -62,6 +63,7 @@ export const useToc = ({ toc }: Props) => {
   const handleIndexClick: MouseEventHandler<HTMLLIElement> = (event) => {
     const targetId = event.currentTarget.id;
     document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+    ga('tocClick', { type: 'toc', value: targetId });
     router.push(`#${targetId}`, { scroll: false });
     setTargetActiveId(targetId);
     setActiveId(undefined);

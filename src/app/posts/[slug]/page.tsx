@@ -4,7 +4,7 @@ import { MyProfile } from '~/about/headline/data/profile';
 import { PostContainer } from '~/post/Container';
 import type { PostType } from '~/posts/models';
 import { Footer } from '~/shared/components/Footer';
-import { MDXSharedComponents } from '~/shared/components/MDXSharedComponents';
+import { MDXEmbedComponents } from '~/shared/components/mdx/MDXEmbedComponents';
 import { ImageModal } from '~/shared/components/modal/ImageModal';
 import { Navbar } from '~/shared/components/nav/Navbar';
 import { NavProgress } from '~/shared/components/nav/Progress';
@@ -26,7 +26,7 @@ const Post: NextPage<PostProps> = async ({ params }) => {
       <NavProgress />
       <Navbar />
       <PostContainer post={post}>
-        <MDX components={MDXSharedComponents} />
+        <MDX components={MDXEmbedComponents} />
       </PostContainer>
       <Footer />
       <Portal>

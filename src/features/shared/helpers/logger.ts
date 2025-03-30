@@ -8,6 +8,7 @@ export type GaActionType =
   | 'buttonClick'
   | 'linkClick'
   | 'categoryClick'
+  | 'tocClick'
   | 'videoClick';
 type ValueKey = 'type' | 'value';
 export const ga = (

@@ -1,7 +1,10 @@
 import type { MDXComponents } from 'mdx/types';
 import { HeadingFactory } from '~/shared/components/mdx/Headings';
-import { ImageTag, type ImageTagProps } from '~/shared/components/mdx/ImageTag';
-import { Table } from '~/shared/components/mdx/Table';
+import {
+  ImageTag,
+  type ImageTagProps,
+} from '~/shared/components/mdx/img/ImageTag';
+import { BasicTable } from '~/shared/components/mdx/table/BasicTable';
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -22,7 +25,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ul: (props) => (
       <ul className="min-[790px]:ml-6 ml-4 list-disc">{props.children}</ul>
     ),
-    table: (props) => <Table {...props} />,
+    table: (props) => <BasicTable {...props} />,
     ...HeadingFactory(),
   };
 }

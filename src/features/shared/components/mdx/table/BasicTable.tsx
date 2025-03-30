@@ -1,6 +1,6 @@
-import type { JSX } from 'react';
+import { type JSX } from 'react';
 
-export const Table = (props: JSX.IntrinsicElements['table']) => {
+export const BasicTable = (props: JSX.IntrinsicElements['table']) => {
   return (
     <table
       {...props}

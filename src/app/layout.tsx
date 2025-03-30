@@ -73,6 +73,7 @@ export const metadata: Metadata = {
     capable: true,
     statusBarStyle: 'black-translucent',
   },
+  category: 'Technology',
 };
 
 const ridi = localFont({
