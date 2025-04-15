@@ -20,5 +20,5 @@ export enum MetaDescription {
   HOME = 'Software Engineer',
 }
 export enum MetaKeywords {
-  HOME = '1ilsang, dev, front, frontend, react, software, developer, engineer',
+  HOME = '1ilsang, dev, front, frontend, react, software, developer, engineer, node.js, nodejs',
 }

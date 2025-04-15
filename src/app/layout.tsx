@@ -58,11 +58,17 @@ export const metadata: Metadata = {
       },
     ],
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     siteName: MetaTitle.HOME,
     title: MetaTitle.HOME,
+    url: MyProfile.blog.href,
     description: MetaDescription.HOME,
-    images: [{ url: ImageUrl.HOME }],
+    images: [{ url: ImageUrl.HOME, alt: 'home' }],
+    locale: 'ko_KR',
     authors: MyProfile.personal.label,
     writers: MyProfile.personal.label,
     username: MyProfile.personal.label,

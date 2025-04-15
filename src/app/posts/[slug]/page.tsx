@@ -53,7 +53,7 @@ export async function generateMetadata({
 }: PostProps): Promise<Metadata> {
   const { slug } = await params;
   const {
-    frontmatter: { title, description, coverImage },
+    frontmatter: { title, description, coverImage, tags, date, updatedAt },
   } = await getPostBySlug(slug);
   const { href } = MyProfile.blog;
 
@@ -63,10 +63,14 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      images: [`${href}${coverImage}`],
-      authors: MyProfile.personal.label,
-      writers: MyProfile.personal.label,
-      username: MyProfile.personal.label,
+      url: `${href}/${slug}`,
+      images: [{ url: `${href}${coverImage}`, alt: 'cover' }],
+      type: 'article',
+      authors: MyProfile.linkedin.href,
+      section: 'tech',
+      publishedTime: date,
+      modifiedTime: updatedAt,
+      tags,
     },
   };
 }
