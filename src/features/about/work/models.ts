@@ -30,6 +30,9 @@ export enum ProjectName {
   Blind = 'Blind',
   Stove = 'Stove',
   CommerceAdminPlatform = 'Commerce Admin Platform',
+  CommerceInternalServer = 'Commerce Internal Server',
+  WoowaBookstreet = 'Woowa Bookstreet',
+  WoowaAtelier = 'Design System',
   TBD = 'Coming Soon',
 }
 
@@ -69,7 +72,8 @@ type Technique =
   | 'Vue2'
   | 'Jotai'
   | 'AWS'
-  | 'Puppeteer';
+  | 'Puppeteer'
+  | 'Nest11';
 
 export type Project = {
   name: ProjectName;

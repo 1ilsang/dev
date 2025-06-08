@@ -13,7 +13,7 @@ export type WorkCardContainerProps = Company & {
   format: string;
 };
 
-const WorkCardContainer: FunctionComponent<WorkCardContainerProps> = (
+export const WorkCardContainer: FunctionComponent<WorkCardContainerProps> = (
   props,
 ) => {
   const {
@@ -64,5 +64,3 @@ const WorkCardContainer: FunctionComponent<WorkCardContainerProps> = (
     </article>
   );
 };
-
-export default WorkCardContainer;

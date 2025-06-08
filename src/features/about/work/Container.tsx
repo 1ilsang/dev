@@ -3,7 +3,7 @@
 import type { FunctionComponent } from 'react';
 import { useState } from 'react';
 
-import WorkCardContainer from './card/Container';
+import { WorkCardContainer } from './card/Container';
 
 import { companyData } from '~/about/work/data/company';
 import { Label } from '../shared/Label';
