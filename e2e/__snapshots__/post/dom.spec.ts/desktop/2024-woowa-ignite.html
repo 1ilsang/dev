@@ -1,66 +1,572 @@
-<progress class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og" value="0" max="1"></progress><nav class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"><h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5"><a class="hover:underline" href="/">1ilsang</a></h2><div class="flex"><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/posts">posts</a></h2><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/tags">tags</a></h2><div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-white-blue" src="/images/chul.webp" alt="1ilsang"></a></div></div></nav><section class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"><h1 class="text-4xl break-words md:text-6xl">우아콘 이그나이트 - 오픈소스 참여 경험 발표 후기</h1><section class="flex items-center mt-4"><div class="mr-2 w-9 h-9 md:w-12 md:h-12" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-sub-blue" src="/images/chul.webp" alt="1ilsang"></a></div><div><a class="text-lg" href="/about">1ilsang</a><div class="text-sm text-sub-blue">클라이밍 하실래염?</div></div></section><section class="flex flex-wrap items-end mt-2"><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/woowa">#<!-- -->woowa</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/senimar">#<!-- -->senimar</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/mdn">#<!-- -->mdn</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/open-source">#<!-- -->open-source</a></section><section><div class="inline text-date-gray"><span class="mr-1">Published</span><time datetime="2025-01-05 21:24">2025-01-05 21:24</time></div></section><section id="post-body-container" class="relative"><div class="markdown"><div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full h-[600px] object-contain bg-transparent mt-10"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="cover" src="/posts/2024-woowa-ignite/cover.webp"></div></div>
-<p class="mt-4 mb-4"><a href="https://2024.woowacon.com/" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">2024 우아콘</a> 이그나이트 세션에서 "오픈소스 참여 경험"을 주제로 발표하게 되었다.</p>
-<p class="mt-4 mb-4">조금 늦었지만, 그 과정을 정리해 보려고 한다.</p>
-<h2 id="목차" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#목차"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>목차</h2>
-<ul class="min-[790px]:ml-6 ml-4 list-disc">
-<li><a href="#%EC%A0%9C%EC%95%88" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">제안</a></li>
-<li><a href="#%EC%A4%80%EB%B9%84" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">준비</a></li>
-<li><a href="#%EB%B0%9C%ED%91%9C" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">발표</a></li>
-<li><a href="#%EB%A7%88%EC%B9%98%EB%A9%B0" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">마치며</a></li>
-</ul>
-<h2 id="제안" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#제안"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>제안</h2>
-<p class="mt-4 mb-4">우아콘 행사 준비하시는 분이 <a href="/posts/mdn-ko-organizer" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">MDN 한국 오거나이저</a>로 같이 활동하고 있었다.</p>
-<p class="mt-4 mb-4">행사에 "이그나이트" 세션이 있으니 MDN 소개 및 경험 공유를 가볍게 해보는 게 어떻겠냐고 제안을 받게 되었다.</p>
-<p class="mt-4 mb-4">1년에 한 번씩은 공개 세미나를 하는 것이 목표였던 나는 당연히 환영이었다.</p>
-<p class="mt-4 mb-4">우아한형제들로 이직하고 첫 공개 외부 활동이라 걱정 반 기대받으러 참여 신청을 하게 되었다.</p>
-<h2 id="준비" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#준비"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>준비</h2>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="intro" src="/posts/2024-woowa-ignite/intro.webp"></div></div>
-<p class="mt-4 mb-4">이그나이트 세션은 하나의 주제로 3~5명의 발표자가 5분간 빠르게 발표를 진행하는 방식의 세션이다. 해당 세션은 참여형으로, 우아한형제들 소속뿐만 아니라 외부 발표자도 참여할 수 있다.</p>
-<p class="mt-4 mb-4">이그나이트는 다양한 세션으로 준비되어 있었는데, 내가 참여한 주제는 "오픈소스 참여 경험"이었다. 5분이 짧다면 짧고 길다면 길었기 때문에 어떤 주제로 공유하는 게 청중들에게 가치를 줄 수 있을까 많이 고민했었다.</p>
-<h3 id="자기검열" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#자기검열"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>자기검열</h3>
-<p class="mt-4 mb-4">MDN에 합류한 지 이제 1년이 되어가던 시기였기 때문에 <u>"오픈소스"라는 주제로 내가 어떤 이야기를 하는 것이 맞을지</u>에 대한 의문도 컸다.</p>
-<p class="mt-4 mb-4">다행이었던 점은 나는 신입 때부터 꽤 낙천적인 스타일이어서, <a href="https://engineering.linecorp.com/ko/blog/ui-component-library-for-developers-with-typescript-storybook" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">"개발자를 위한 친절한 UI 컴포넌트 라이브러리 만들기"</a>와 같이 사내에서 발표 기회가 있으면 도전하려고 노력했다. 이러한 경험 덕에 이번에도 심리적 부담감을 조금 덜어내고 도전해 볼 수 있었다.</p>
-<p class="mt-4 mb-4">그래도 연차가 쌓이니 더 조심스러워지긴 했는데 기용님이 늘 자기검열하지 말라는 말씀을 해주셔서 힘을 얻게 되었다.</p>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4">한기용님 유투브 영상 - <a href="https://www.youtube.com/watch?v=cjWpryKRGts" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">겸손일까? 자기검열일까? 혹시 자신이 자신을 평가하고 있지는 않은가요?</a></p>
-</blockquote>
-<h3 id="주제-선정" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#주제-선정"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>주제 선정</h3>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="mdn" src="/posts/2024-woowa-ignite/mdn.webp"></div></div>
-<p class="mt-4 mb-4">도전하고자 마음먹고 나니 가장 어려운 "주제 선정"을 만나게 되었다.</p>
-<p class="mt-4 mb-4">내가 MDN에 엄청난 기여를 했던 것도 아니기 때문에 어떤 내용으로 가치를 줄 수 있을지 의문이 따라왔다.</p>
-<p class="mt-4 mb-4">그러다 내가 오픈소스에 기여하려고 노력했을 때, 기여자로서 가장 궁금했던 점이 무엇이었는지 다시 고민해 보기 시작했다. 얼마 안 가 주제가 떠올랐다. "메인테이너는 어떻게 되고 뭘 할까?"</p>
-<p class="mt-4 mb-4">따라서, <u>MDN 메인테이너가 되기까지의 과정을 정리하고 메인테이너로 어떤 것을 느꼈는지</u> 공유해 보자고 생각하게 되었다.</p>
-<p class="mt-4 mb-4">주제가 정해지니 목차는 자연스럽게 떠올랐던 것 같다. 가볍게 글로 정리하여 발표자 신청 폼을 제출했다.</p>
-<h3 id="발표자-선정" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#발표자-선정"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>발표자 선정</h3>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="선정" src="/posts/2024-woowa-ignite/selected.webp"></div></div>
-<p class="mt-4 mb-4">운이 좋게도 발표자로 선정되어 본격적으로 발표 준비를 할 수 있었다.</p>
-<h3 id="자료-준비" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#자료-준비"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>자료 준비</h3>
-<p class="mt-4 mb-4">발표자 선정 공지 이후 발표 자료 제출 마감까지 약 일주일의 시간이 주어졌다.</p>
-<p class="mt-4 mb-4">다행히 이전에 <a href="/posts/mdn-ko-organizer" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">@mdn/yari-content-ko Organizer 합류 여정</a>을 정리했었기에 당시 기억을 상세하게 떠올릴 수 있었다.</p>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="mdn" src="/posts/2024-woowa-ignite/mdn-ko-1.webp"></div></div>
-<p class="mt-4 mb-4">나는 MDN 메인테이너 활동을 소개하고 많은 분들이 MDN에 기여해 보고자 생각할 수 있도록 하고 싶었다. 따라서 아래와 같은 발표 흐름을 생각했다.</p>
-<ol class="min-[790px]:ml-6 ml-4 list-decimal">
-<li>MDN이 무엇인지</li>
-<li>메인테이너가 되기까지의 과정</li>
-<li>메인테이너는 어떤 것들을 하는지</li>
-<li>개인적 성장은 어떤 점이 있었는지</li>
-</ol>
-<p class="mt-4 mb-4">특히 나는 번역 프로젝트가 "초심자" 분들께 미치는 영향을 잘 이해하고 있었기 때문에 이 부분을 어떻게 표현할지 고민했다.</p>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="mdn" src="/posts/2024-woowa-ignite/mdn-ko-2.webp"></div></div>
-<p class="mt-4 mb-4">MDN에 기여하시는 분들의 대부분 PR은 "번역"이다. 자연스럽게 학생이나 주니어가 주로 기여하는 경향이 있다. 이분들의 PR을 리뷰하며 그분들이 더 넓은 오픈소스 생태계로 뻗어나가실 수 있도록 좋은 경험을 주는 게 나에게 있어 가장 큰 도전 가치였다.</p>
-<p class="mt-4 mb-4">따라서 내가 오픈소스에 처음 도전할 때의 그 설렘과 두려움을 기반으로 초심자분들의 호기심을 풀어줄 수 있도록 준비했다. 이러한 내 생각은 <a href="https://geultto.github.io/blog/open-source/1ilsang-interview/" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">글또 인터뷰</a>에 더 자세히 남겼다.</p>
-<p class="mt-4 mb-4">나의 생각과 발표 흐름을 정리하니 발표 자료는 금방 만들었던 것 같다. 디자인 재능이 없어 꾸미는 것이 가장 어려웠다(놀랍게도 열심히 꾸몄다ㅋ).</p>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4">발표 PDF: <a href="https://github.com/user-attachments/files/18310517/_._._.pdf" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">이그나이트_기여자에서 메인테이너까지_이상철.pdf</a></p>
-</blockquote>
-<h3 id="발표-준비" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#발표-준비"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>발표 준비</h3>
-<p class="mt-4 mb-4">발표 자료에 맞춰 스크립트를 작성하고 나니 5분 내로 말하는 것이 어려웠다.</p>
-<p class="mt-4 mb-4">그냥 읽으면서 하고 싶지 않았기 때문에 최대한 스크립트를 외우려고 했다. 그런데 이게 오히려 독이었다. 생각보다 말을 장황하게 해서 말하다가 다음 스크립트를 까먹으면 말문이 턱 막혔다. 바로 멘붕 오면서 시간을 허비하거나 횡설수설했다.</p>
-<p class="mt-4 mb-4">이런 것들을 고치기 위해 몇 번이고 반복하면서 발표 흐름 자체를 몸에 익히도록 노력했다. 특히 스크립트를 아예 버렸던 기억이 난다. 발표 내용과 흐름을 "이해"하고 즉흥적으로 말하기 시작했는데, 반복하다 보니 스크립트가 없었지만, 스크립트가 있는 것처럼 비슷하게 동일한 말을 했다.</p>
-<h2 id="발표" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#발표"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>발표</h2>
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/Ew5fyWFLOrE?si=8j-vaaQhjKuwykiG&amp;start=289" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
-<p class="mt-4 mb-4">아쉬운 점이 없다면 거짓말이겠지만 라인에서 했던 첫 발표보다는 훨씬 안정감이 생긴 것 같아 개인적으로 만족하고 있다.</p>
-<p class="mt-4 mb-4">상당히 민망하군요.</p>
-<h2 id="마치며" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#마치며"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>마치며</h2>
-<p class="mt-4 mb-4">우아한형제들의 일원이 된 만큼 본격적으로 팀과 회사에 기여하여 2025 우아콘에서 좋은 내용으로 기술 발표를 할 수 있도록 준비해 보고 싶다.</p>
-<p class="mt-4 mb-4">내년 우아콘이 기대된다.</p></div><aside class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden" aria-label="index"><ul class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"><li id="목차" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">목차</li><li id="제안" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">제안</li><li id="준비" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">준비</li><li id="자기검열" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">자기검열</li><li id="주제-선정" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">주제 선정</li><li id="발표자-선정" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">발표자 선정</li><li id="자료-준비" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">자료 준비</li><li id="발표-준비" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue">발표 준비</li><li id="발표" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">발표</li><li id="마치며" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">마치며</li></ul></aside></section><a class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water" href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] %EC%9A%B0%EC%95%84%EC%BD%98%20%EC%9D%B4%EA%B7%B8%EB%82%98%EC%9D%B4%ED%8A%B8%20-%20%EC%98%A4%ED%94%88%EC%86%8C%EC%8A%A4%20%EC%B0%B8%EC%97%AC%20%EA%B2%BD%ED%97%98%20%EB%B0%9C%ED%91%9C%20%ED%9B%84%EA%B8%B0&amp;body=<!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 -->" rel="noopener noreferrer" target="_blank">📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍</a><div class="flex items-center mt-4 mb-56"><iframe class="border-0 rounded-md cursor-pointer object-contain hover:animate-bouncing" src="https://github.com/sponsors/1ilsang/button" title="Sponsor 1ilsang" height="32" width="114"></iframe></div></section>
+<progress
+  class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  value="0"
+  max="1"
+></progress>
+<nav
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"
+>
+  <h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
+    <a class="hover:underline" href="/">1ilsang</a>
+  </h2>
+  <div class="flex">
+    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/posts">posts</a>
+    </h2>
+    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/tags">tags</a>
+    </h2>
+    <div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character">
+      <a href="/about"
+        ><img
+          class="border border-solid rounded-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+    </div>
+  </div>
+</nav>
+<section
+  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
+>
+  <h1 class="text-4xl break-words md:text-6xl">
+    우아콘 이그나이트 - 오픈소스 참여 경험 발표 후기
+  </h1>
+  <section class="flex items-center mt-4">
+    <div
+      class="mr-2 w-9 h-9 md:w-12 md:h-12"
+      role="img"
+      aria-label="1ilsang character"
+    >
+      <a href="/about"
+        ><img
+          class="border border-solid rounded-full border-sub-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+    </div>
+    <div>
+      <a class="text-lg" href="/about">1ilsang</a>
+      <div class="text-sm text-sub-blue">클라이밍 하실래염?</div>
+    </div>
+  </section>
+  <section class="flex flex-wrap items-end mt-2">
+    <a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/woowa"
+      >#<!-- -->woowa</a
+    ><a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/senimar"
+      >#<!-- -->senimar</a
+    ><a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/mdn"
+      >#<!-- -->mdn</a
+    ><a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/open-source"
+      >#<!-- -->open-source</a
+    >
+  </section>
+  <section>
+    <div class="inline text-date-gray">
+      <span class="mr-1">Published</span
+      ><time datetime="2025-01-05 21:24">2025-01-05 21:24</time>
+    </div>
+  </section>
+  <section id="post-body-container" class="relative">
+    <div class="markdown">
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full h-[600px] object-contain bg-transparent mt-10"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="cover"
+            src="/posts/2024-woowa-ignite/cover.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        <a
+          href="https://2024.woowacon.com/"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >2024 우아콘</a
+        >
+        이그나이트 세션에서 "오픈소스 참여 경험"을 주제로 발표하게 되었다.
+      </p>
+      <p class="mt-4 mb-4">조금 늦었지만, 그 과정을 정리해 보려고 한다.</p>
+      <h2
+        id="목차"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#목차"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >목차
+      </h2>
+      <ul class="min-[790px]:ml-6 ml-4 list-disc">
+        <li>
+          <a
+            href="#%EC%A0%9C%EC%95%88"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >제안</a
+          >
+        </li>
+        <li>
+          <a
+            href="#%EC%A4%80%EB%B9%84"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >준비</a
+          >
+        </li>
+        <li>
+          <a
+            href="#%EB%B0%9C%ED%91%9C"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >발표</a
+          >
+        </li>
+        <li>
+          <a
+            href="#%EB%A7%88%EC%B9%98%EB%A9%B0"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >마치며</a
+          >
+        </li>
+      </ul>
+      <h2
+        id="제안"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#제안"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >제안
+      </h2>
+      <p class="mt-4 mb-4">
+        우아콘 행사 준비하시는 분이
+        <a
+          href="/posts/mdn-ko-organizer"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >MDN 한국 오거나이저</a
+        >로 같이 활동하고 있었다.
+      </p>
+      <p class="mt-4 mb-4">
+        행사에 "이그나이트" 세션이 있으니 MDN 소개 및 경험 공유를 가볍게 해보는
+        게 어떻겠냐고 제안을 받게 되었다.
+      </p>
+      <p class="mt-4 mb-4">
+        1년에 한 번씩은 공개 세미나를 하는 것이 목표였던 나는 당연히 환영이었다.
+      </p>
+      <p class="mt-4 mb-4">
+        우아한형제들로 이직하고 첫 공개 외부 활동이라 걱정 반 기대받으러 참여
+        신청을 하게 되었다.
+      </p>
+      <h2
+        id="준비"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#준비"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >준비
+      </h2>
+      <div class="img-container">
+        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="intro"
+            src="/posts/2024-woowa-ignite/intro.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        이그나이트 세션은 하나의 주제로 3~5명의 발표자가 5분간 빠르게 발표를
+        진행하는 방식의 세션이다. 해당 세션은 참여형으로, 우아한형제들 소속뿐만
+        아니라 외부 발표자도 참여할 수 있다.
+      </p>
+      <p class="mt-4 mb-4">
+        이그나이트는 다양한 세션으로 준비되어 있었는데, 내가 참여한 주제는
+        "오픈소스 참여 경험"이었다. 5분이 짧다면 짧고 길다면 길었기 때문에 어떤
+        주제로 공유하는 게 청중들에게 가치를 줄 수 있을까 많이 고민했었다.
+      </p>
+      <h3
+        id="자기검열"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#자기검열"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >자기검열
+      </h3>
+      <p class="mt-4 mb-4">
+        MDN에 합류한 지 이제 1년이 되어가던 시기였기 때문에
+        <u>"오픈소스"라는 주제로 내가 어떤 이야기를 하는 것이 맞을지</u>에 대한
+        의문도 컸다.
+      </p>
+      <p class="mt-4 mb-4">
+        다행이었던 점은 나는 신입 때부터 꽤 낙천적인 스타일이어서,
+        <a
+          href="https://engineering.linecorp.com/ko/blog/ui-component-library-for-developers-with-typescript-storybook"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >"개발자를 위한 친절한 UI 컴포넌트 라이브러리 만들기"</a
+        >와 같이 사내에서 발표 기회가 있으면 도전하려고 노력했다. 이러한 경험
+        덕에 이번에도 심리적 부담감을 조금 덜어내고 도전해 볼 수 있었다.
+      </p>
+      <p class="mt-4 mb-4">
+        그래도 연차가 쌓이니 더 조심스러워지긴 했는데 기용님이 늘 자기검열하지
+        말라는 말씀을 해주셔서 힘을 얻게 되었다.
+      </p>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          한기용님 유투브 영상 -
+          <a
+            href="https://www.youtube.com/watch?v=cjWpryKRGts"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >겸손일까? 자기검열일까? 혹시 자신이 자신을 평가하고 있지는
+            않은가요?</a
+          >
+        </p>
+      </blockquote>
+      <h3
+        id="주제-선정"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#주제-선정"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >주제 선정
+      </h3>
+      <div class="img-container">
+        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="mdn"
+            src="/posts/2024-woowa-ignite/mdn.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        도전하고자 마음먹고 나니 가장 어려운 "주제 선정"을 만나게 되었다.
+      </p>
+      <p class="mt-4 mb-4">
+        내가 MDN에 엄청난 기여를 했던 것도 아니기 때문에 어떤 내용으로 가치를 줄
+        수 있을지 의문이 따라왔다.
+      </p>
+      <p class="mt-4 mb-4">
+        그러다 내가 오픈소스에 기여하려고 노력했을 때, 기여자로서 가장 궁금했던
+        점이 무엇이었는지 다시 고민해 보기 시작했다. 얼마 안 가 주제가 떠올랐다.
+        "메인테이너는 어떻게 되고 뭘 할까?"
+      </p>
+      <p class="mt-4 mb-4">
+        따라서,
+        <u
+          >MDN 메인테이너가 되기까지의 과정을 정리하고 메인테이너로 어떤 것을
+          느꼈는지</u
+        >
+        공유해 보자고 생각하게 되었다.
+      </p>
+      <p class="mt-4 mb-4">
+        주제가 정해지니 목차는 자연스럽게 떠올랐던 것 같다. 가볍게 글로 정리하여
+        발표자 신청 폼을 제출했다.
+      </p>
+      <h3
+        id="발표자-선정"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#발표자-선정"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >발표자 선정
+      </h3>
+      <div class="img-container">
+        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="선정"
+            src="/posts/2024-woowa-ignite/selected.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        운이 좋게도 발표자로 선정되어 본격적으로 발표 준비를 할 수 있었다.
+      </p>
+      <h3
+        id="자료-준비"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#자료-준비"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >자료 준비
+      </h3>
+      <p class="mt-4 mb-4">
+        발표자 선정 공지 이후 발표 자료 제출 마감까지 약 일주일의 시간이
+        주어졌다.
+      </p>
+      <p class="mt-4 mb-4">
+        다행히 이전에
+        <a
+          href="/posts/mdn-ko-organizer"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >@mdn/yari-content-ko Organizer 합류 여정</a
+        >을 정리했었기에 당시 기억을 상세하게 떠올릴 수 있었다.
+      </p>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="mdn"
+            src="/posts/2024-woowa-ignite/mdn-ko-1.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        나는 MDN 메인테이너 활동을 소개하고 많은 분들이 MDN에 기여해 보고자
+        생각할 수 있도록 하고 싶었다. 따라서 아래와 같은 발표 흐름을 생각했다.
+      </p>
+      <ol class="min-[790px]:ml-6 ml-4 list-decimal">
+        <li>MDN이 무엇인지</li>
+        <li>메인테이너가 되기까지의 과정</li>
+        <li>메인테이너는 어떤 것들을 하는지</li>
+        <li>개인적 성장은 어떤 점이 있었는지</li>
+      </ol>
+      <p class="mt-4 mb-4">
+        특히 나는 번역 프로젝트가 "초심자" 분들께 미치는 영향을 잘 이해하고
+        있었기 때문에 이 부분을 어떻게 표현할지 고민했다.
+      </p>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="mdn"
+            src="/posts/2024-woowa-ignite/mdn-ko-2.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        MDN에 기여하시는 분들의 대부분 PR은 "번역"이다. 자연스럽게 학생이나
+        주니어가 주로 기여하는 경향이 있다. 이분들의 PR을 리뷰하며 그분들이 더
+        넓은 오픈소스 생태계로 뻗어나가실 수 있도록 좋은 경험을 주는 게 나에게
+        있어 가장 큰 도전 가치였다.
+      </p>
+      <p class="mt-4 mb-4">
+        따라서 내가 오픈소스에 처음 도전할 때의 그 설렘과 두려움을 기반으로
+        초심자분들의 호기심을 풀어줄 수 있도록 준비했다. 이러한 내 생각은
+        <a
+          href="https://geultto.github.io/blog/open-source/1ilsang-interview/"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >글또 인터뷰</a
+        >에 더 자세히 남겼다.
+      </p>
+      <p class="mt-4 mb-4">
+        나의 생각과 발표 흐름을 정리하니 발표 자료는 금방 만들었던 것 같다.
+        디자인 재능이 없어 꾸미는 것이 가장 어려웠다(놀랍게도 열심히 꾸몄다ㅋ).
+      </p>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          발표 PDF:
+          <a
+            href="https://github.com/user-attachments/files/18310517/_._._.pdf"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >이그나이트_기여자에서
+            메인테이너까지_이상철.pdf</a
+          >
+        </p>
+      </blockquote>
+      <h3
+        id="발표-준비"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#발표-준비"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >발표 준비
+      </h3>
+      <p class="mt-4 mb-4">
+        발표 자료에 맞춰 스크립트를 작성하고 나니 5분 내로 말하는 것이 어려웠다.
+      </p>
+      <p class="mt-4 mb-4">
+        그냥 읽으면서 하고 싶지 않았기 때문에 최대한 스크립트를 외우려고 했다.
+        그런데 이게 오히려 독이었다. 생각보다 말을 장황하게 해서 말하다가 다음
+        스크립트를 까먹으면 말문이 턱 막혔다. 바로 멘붕 오면서 시간을 허비하거나
+        횡설수설했다.
+      </p>
+      <p class="mt-4 mb-4">
+        이런 것들을 고치기 위해 몇 번이고 반복하면서 발표 흐름 자체를 몸에
+        익히도록 노력했다. 특히 스크립트를 아예 버렸던 기억이 난다. 발표 내용과
+        흐름을 "이해"하고 즉흥적으로 말하기 시작했는데, 반복하다 보니 스크립트가
+        없었지만, 스크립트가 있는 것처럼 비슷하게 동일한 말을 했다.
+      </p>
+      <h2
+        id="발표"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#발표"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >발표
+      </h2>
+      <iframe
+        width="100%"
+        height="400"
+        src="https://www.youtube.com/embed/Ew5fyWFLOrE?si=8j-vaaQhjKuwykiG&amp;start=289"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen=""
+      ></iframe>
+      <p class="mt-4 mb-4">
+        아쉬운 점이 없다면 거짓말이겠지만 라인에서 했던 첫 발표보다는 훨씬
+        안정감이 생긴 것 같아 개인적으로 만족하고 있다.
+      </p>
+      <p class="mt-4 mb-4">상당히 민망하군요.</p>
+      <h2
+        id="마치며"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#마치며"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >마치며
+      </h2>
+      <p class="mt-4 mb-4">
+        우아한형제들의 일원이 된 만큼 본격적으로 팀과 회사에 기여하여 2025
+        우아콘에서 좋은 내용으로 기술 발표를 할 수 있도록 준비해 보고 싶다.
+      </p>
+      <p class="mt-4 mb-4">내년 우아콘이 기대된다.</p>
+    </div>
+    <aside
+      class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
+      aria-label="index"
+    >
+      <ul
+        class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
+      >
+        <li
+          id="목차"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          목차
+        </li>
+        <li
+          id="제안"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          제안
+        </li>
+        <li
+          id="준비"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          준비
+        </li>
+        <li
+          id="자기검열"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          자기검열
+        </li>
+        <li
+          id="주제-선정"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          주제 선정
+        </li>
+        <li
+          id="발표자-선정"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          발표자 선정
+        </li>
+        <li
+          id="자료-준비"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          자료 준비
+        </li>
+        <li
+          id="발표-준비"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
+        >
+          발표 준비
+        </li>
+        <li
+          id="발표"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          발표
+        </li>
+        <li
+          id="마치며"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          마치며
+        </li>
+      </ul>
+    </aside>
+  </section>
+  <a
+    class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water"
+    href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] %EC%9A%B0%EC%95%84%EC%BD%98%20%EC%9D%B4%EA%B7%B8%EB%82%98%EC%9D%B4%ED%8A%B8%20-%20%EC%98%A4%ED%94%88%EC%86%8C%EC%8A%A4%20%EC%B0%B8%EC%97%AC%20%EA%B2%BD%ED%97%98%20%EB%B0%9C%ED%91%9C%20%ED%9B%84%EA%B8%B0&amp;body=&lt;!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 --&gt;"
+    rel="noopener noreferrer"
+    target="_blank"
+    >📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍</a
+  >
+  <div class="flex items-center mt-4 mb-56">
+    <iframe
+      class="border-0 rounded-md cursor-pointer object-contain hover:animate-bouncing"
+      src="https://github.com/sponsors/1ilsang/button"
+      title="Sponsor 1ilsang"
+      height="32"
+      width="114"
+    ></iframe>
+  </div>
+</section>

@@ -1,5 +1,9 @@
 import { expect, test } from '@playwright/test';
-import { gotoUrl, screenshotFullPage } from './shared/utils';
+import {
+  getPageDomInnerHTML,
+  gotoUrl,
+  screenshotFullPage,
+} from './shared/utils';
 import { MACRO_SUITE } from './shared/constants';
 
 test.describe('about', () => {
@@ -9,8 +13,8 @@ test.describe('about', () => {
 
   test(MACRO_SUITE.DOM_SNAPSHOT, async ({ page }) => {
     await gotoUrl({ page, url: '/about' });
-    const body = await page.locator('main').innerHTML();
-    expect(body).toMatchSnapshot([`about.html`]);
+    const prettyHtml = await getPageDomInnerHTML({ page });
+    expect(prettyHtml).toMatchSnapshot([`about.html`]);
   });
 
   test(`should exist favicon`, async ({ page }) => {

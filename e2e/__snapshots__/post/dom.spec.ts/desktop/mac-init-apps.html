@@ -1,122 +1,762 @@
-<progress class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og" value="0" max="1"></progress><nav class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"><h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5"><a class="hover:underline" href="/">1ilsang</a></h2><div class="flex"><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/posts">posts</a></h2><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/tags">tags</a></h2><div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-white-blue" src="/images/chul.webp" alt="1ilsang"></a></div></div></nav><section class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"><h1 class="text-4xl break-words md:text-6xl">웹 개발자를 위한 도구 추천 - 유용한 Mac 앱들</h1><section class="flex items-center mt-4"><div class="mr-2 w-9 h-9 md:w-12 md:h-12" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-sub-blue" src="/images/chul.webp" alt="1ilsang"></a></div><div><a class="text-lg" href="/about">1ilsang</a><div class="text-sm text-sub-blue">클라이밍 하실래염?</div></div></section><section class="flex flex-wrap items-end mt-2"><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/mac">#<!-- -->mac</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/settings">#<!-- -->settings</a></section><section><div class="inline text-date-gray"><span class="mr-1">Published</span><time datetime="2023-12-24 12:54">2023-12-24 12:54</time></div></section><section id="post-body-container" class="relative"><div class="markdown">
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full h-[600px] object-contain bg-transparent mt-10"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="cover" src="/posts/mac-init-apps/cover.webp"></div></div>
-<p class="mt-4 mb-4">최근 기기 변경을 하면서 맥 세팅을 처음부터 할 일이 있었다. 그때 꽤 고생한 기억이 있어 이번 기회에 유용했던 것들을 한번 정리해 보려고 한다.</p>
-<p class="mt-4 mb-4">웹 개발자를 위한 도구 추천 포스트는 3가지 시리즈로 연재 될 예정이다.</p>
-<ol class="min-[790px]:ml-6 ml-4 list-decimal">
-<li>유용한 Mac 앱</li>
-<li>VSCode 익스텐션</li>
-<li>크롬 익스텐션</li>
-</ol>
-<p class="mt-4 mb-4">직접 사용하면서 유용했던 것들을 모아놓았기 때문에 안정성 문제는 없을 것으로 생각된다.</p>
-<h2 id="모아보기" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#모아보기"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>모아보기</h2>
-<ul class="min-[790px]:ml-6 ml-4 list-disc">
-<li><a href="#chrome" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Chrome</a></li>
-<li><a href="#homebrew" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Homebrew</a></li>
-<li><a href="#oh-my-zsh" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Oh My Zsh</a></li>
-<li><a href="#iterm2" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Iterm2</a></li>
-<li><a href="#vscode" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">VSCode</a></li>
-<li><a href="#neovim" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">NeoVim</a></li>
-<li><a href="#d2-coding" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">D2Coding</a></li>
-<li><a href="#nodejs" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Node.js</a></li>
-<li><a href="#nvm" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">NVM</a></li>
-<li><a href="#docker" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Docker</a></li>
-<li><a href="#giphy-capture" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">GIPHY Capture</a></li>
-<li><a href="#deepl" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">DeepL</a></li>
-<li><a href="#screenhint" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">ScreenHint</a></li>
-<li><a href="#quick-notes" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Quick Notes</a></li>
-<li><a href="#calculator-pro" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Calculator Pro</a></li>
-<li><a href="#%EC%98%AC%E3%85%8B%EC%82%AC%EC%A0%84" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">올ㅋ사전</a></li>
-<li><a href="#codewhisperer" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">CodeWhisperer</a></li>
-<li><a href="#flycut" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Flycut</a></li>
-<li><a href="#screenbrush" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">ScreenBrush</a></li>
-<li><a href="#keycastr" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Keycastr</a></li>
-<li><a href="#ngrok" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Ngrok</a></li>
-<li><a href="#hidden-bar" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Hidden bar</a></li>
-<li><a href="#digital-color-meter" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Digital Color Meter</a></li>
-</ul>
-<h2 id="chrome" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#chrome"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Chrome</h2>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="chrome-cover" src="/posts/mac-init-apps/chrome.webp"></div></div>
-<p class="mt-4 mb-4">소개 문구에서부터 포스가 장난 아니다. 테스팅 환경 때문이라도 필요한 웹 브라우저 크롬이다.</p>
-<p class="mt-4 mb-4">다음에 연재할 크롬 익스텐션 섹션을 통해 크롬이 얼마나 강력한지 후술하고자 한다.</p>
-<ul class="min-[790px]:ml-6 ml-4 list-disc">
-<li><a href="https://support.google.com/chrome/thread/64580550?hl=ko&amp;msgid=68816629" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">만약 크롬이 실행 되지 않는다면</a></li>
-</ul>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4"><a href="https://www.google.com/chrome" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">다운로드 링크</a></p>
-</blockquote>
-<h2 id="homebrew" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#homebrew"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Homebrew</h2>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="homebrew" src="/posts/mac-init-apps/homebrew.webp"></div></div>
-<p class="mt-4 mb-4"><code>homebrew</code>는 CLI로 편리하게 앱을 설치할 수 있게 해준다.</p>
-<p class="mt-4 mb-4">환경변수 및 패키지 폴더 구성 등을 자동으로 해주기 때문에 불쾌한 초기 설정을 벗어나게 해준다.</p>
-<p class="mt-4 mb-4">많은 프로젝트에서 homebrew를 통한 설치 가이드를 제공하고 있을 정도로 대중적이니 꼭 설치하자.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="sh" data-theme="material-theme-palenight"><code data-language="sh" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic"># 터미널 설치</span></span>
-<span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> /bin/bash</span><span style="color:#C3E88D"> -c</span><span style="color:#89DDFF"> "$(</span><span style="color:#FFCB6B">curl</span><span style="color:#C3E88D"> -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh</span><span style="color:#89DDFF">)"</span></span></code></pre></figure>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4"><a href="https://brew.sh/" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">다운로드 링크</a></p>
-</blockquote>
-<h2 id="oh-my-zsh" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#oh-my-zsh"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Oh My Zsh</h2>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="cmd-example" src="/posts/mac-init-apps/oh-my-zsh.webp"></div></div>
-<p class="mt-4 mb-4">brew로 작업하다 보면 터미널이 참 못생겼다고 느낄 수 있다. 터미널을 위와 같이 원하는 정보가 노출되도록 설정할 수 있다.</p>
-<p class="mt-4 mb-4">내가 사용하고 있는 테마는 <a href="https://github.com/caiogondim/bullet-train.zsh" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">bullet-train</a> 커스텀 테마이다. 해당 테마는 현재 시간 및 작업 소요 시간, 성공 여부, 깃 상태 등 다양한 정보를 노출시켜 주므로 선택하게 되었다.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="sh" data-theme="material-theme-palenight"><code data-language="sh" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic"># 터미널 설치</span></span>
-<span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> sh</span><span style="color:#C3E88D"> -c</span><span style="color:#89DDFF"> "$(</span><span style="color:#FFCB6B">curl</span><span style="color:#C3E88D"> -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh</span><span style="color:#89DDFF">)"</span></span></code></pre></figure>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4"><a href="https://ohmyz.sh/#install" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">다운로드 링크</a></p>
-</blockquote>
-<h2 id="iterm2" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#iterm2"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Iterm2</h2>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="iterm2-example" src="/posts/mac-init-apps/iterm2.webp"></div></div>
-<p class="mt-4 mb-4">기본 맥 터미널은 못생겼기 때문에 <code>iterm2</code>을 설치해 터미널을 더 예쁘게 커스텀 할 수 있다.</p>
-<p class="mt-4 mb-4"><code>zsh</code>이 터미널의 내용을 관리한다면 터미널 창 자체로 디자인을 제공해 주는 역할은 <code>iterm2</code>이다.</p>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4">만약 커맨드라인에서 cmd + delete로 <a href="https://stackoverflow.com/questions/15733312/iterm2-delete-line" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">한줄 삭제</a> 하고 싶다면</p>
-<p class="mt-4 mb-4">환경 설정 &gt; Profiles &gt; Keys &gt; Natural Text Editing으로 설정 한다.</p>
-</blockquote>
-<p class="mt-4 mb-4">이 외에도 각 탭에서 창 기본 크기, 배경 설정 등 할 수 있다.</p>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4"><a href="https://iterm2.com/" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">다운로드 링크</a></p>
-</blockquote>
-<h2 id="vscode" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#vscode"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>VSCode</h2>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="vscode-logo" src="/posts/mac-init-apps/vscode.webp"></div></div>
-<p class="mt-4 mb-4">VSCode에 너무 절여져 있어 다른 에디터는 이제 기억이 나지 않는다... 유용한 익스텐션은 다음 포스트로 연재하겠다.</p>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4"><a href="https://code.visualstudio.com/" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">다운로드 링크</a></p>
-</blockquote>
-<h2 id="neovim" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#neovim"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>NeoVim</h2>
-<p class="mt-4 mb-4">만약 vi 환경을 좋아한다면 설치하면 좋다. 기본적으로 <code>vim</code>은 한글 입력시 문제가 많다(조합 중인 문자 소실 등).</p>
-<p class="mt-4 mb-4"><code>NeoVim</code>은 <code>vim</code>을 오픈소스화하여 기존의 문제들 해결하고 커뮤니티 자발적으로 다양한 플러그인을 개발/공유하고 있어 강력한 에디팅을 지원한다.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="sh" data-theme="material-theme-palenight"><code data-language="sh" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> brew</span><span style="color:#C3E88D"> install</span><span style="color:#C3E88D"> neovim</span></span>
+<progress
+  class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  value="0"
+  max="1"
+></progress>
+<nav
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"
+>
+  <h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
+    <a class="hover:underline" href="/">1ilsang</a>
+  </h2>
+  <div class="flex">
+    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/posts">posts</a>
+    </h2>
+    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/tags">tags</a>
+    </h2>
+    <div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character">
+      <a href="/about"
+        ><img
+          class="border border-solid rounded-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+    </div>
+  </div>
+</nav>
+<section
+  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
+>
+  <h1 class="text-4xl break-words md:text-6xl">
+    웹 개발자를 위한 도구 추천 - 유용한 Mac 앱들
+  </h1>
+  <section class="flex items-center mt-4">
+    <div
+      class="mr-2 w-9 h-9 md:w-12 md:h-12"
+      role="img"
+      aria-label="1ilsang character"
+    >
+      <a href="/about"
+        ><img
+          class="border border-solid rounded-full border-sub-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+    </div>
+    <div>
+      <a class="text-lg" href="/about">1ilsang</a>
+      <div class="text-sm text-sub-blue">클라이밍 하실래염?</div>
+    </div>
+  </section>
+  <section class="flex flex-wrap items-end mt-2">
+    <a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/mac"
+      >#<!-- -->mac</a
+    ><a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/settings"
+      >#<!-- -->settings</a
+    >
+  </section>
+  <section>
+    <div class="inline text-date-gray">
+      <span class="mr-1">Published</span
+      ><time datetime="2023-12-24 12:54">2023-12-24 12:54</time>
+    </div>
+  </section>
+  <section id="post-body-container" class="relative">
+    <div class="markdown">
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full h-[600px] object-contain bg-transparent mt-10"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="cover"
+            src="/posts/mac-init-apps/cover.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        최근 기기 변경을 하면서 맥 세팅을 처음부터 할 일이 있었다. 그때 꽤
+        고생한 기억이 있어 이번 기회에 유용했던 것들을 한번 정리해 보려고 한다.
+      </p>
+      <p class="mt-4 mb-4">
+        웹 개발자를 위한 도구 추천 포스트는 3가지 시리즈로 연재 될 예정이다.
+      </p>
+      <ol class="min-[790px]:ml-6 ml-4 list-decimal">
+        <li>유용한 Mac 앱</li>
+        <li>VSCode 익스텐션</li>
+        <li>크롬 익스텐션</li>
+      </ol>
+      <p class="mt-4 mb-4">
+        직접 사용하면서 유용했던 것들을 모아놓았기 때문에 안정성 문제는 없을
+        것으로 생각된다.
+      </p>
+      <h2
+        id="모아보기"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#모아보기"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >모아보기
+      </h2>
+      <ul class="min-[790px]:ml-6 ml-4 list-disc">
+        <li>
+          <a
+            href="#chrome"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >Chrome</a
+          >
+        </li>
+        <li>
+          <a
+            href="#homebrew"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >Homebrew</a
+          >
+        </li>
+        <li>
+          <a
+            href="#oh-my-zsh"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >Oh My Zsh</a
+          >
+        </li>
+        <li>
+          <a
+            href="#iterm2"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >Iterm2</a
+          >
+        </li>
+        <li>
+          <a
+            href="#vscode"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >VSCode</a
+          >
+        </li>
+        <li>
+          <a
+            href="#neovim"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >NeoVim</a
+          >
+        </li>
+        <li>
+          <a
+            href="#d2-coding"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >D2Coding</a
+          >
+        </li>
+        <li>
+          <a
+            href="#nodejs"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >Node.js</a
+          >
+        </li>
+        <li>
+          <a
+            href="#nvm"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >NVM</a
+          >
+        </li>
+        <li>
+          <a
+            href="#docker"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >Docker</a
+          >
+        </li>
+        <li>
+          <a
+            href="#giphy-capture"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >GIPHY Capture</a
+          >
+        </li>
+        <li>
+          <a
+            href="#deepl"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >DeepL</a
+          >
+        </li>
+        <li>
+          <a
+            href="#screenhint"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >ScreenHint</a
+          >
+        </li>
+        <li>
+          <a
+            href="#quick-notes"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >Quick Notes</a
+          >
+        </li>
+        <li>
+          <a
+            href="#calculator-pro"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >Calculator Pro</a
+          >
+        </li>
+        <li>
+          <a
+            href="#%EC%98%AC%E3%85%8B%EC%82%AC%EC%A0%84"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >올ㅋ사전</a
+          >
+        </li>
+        <li>
+          <a
+            href="#codewhisperer"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >CodeWhisperer</a
+          >
+        </li>
+        <li>
+          <a
+            href="#flycut"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >Flycut</a
+          >
+        </li>
+        <li>
+          <a
+            href="#screenbrush"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >ScreenBrush</a
+          >
+        </li>
+        <li>
+          <a
+            href="#keycastr"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >Keycastr</a
+          >
+        </li>
+        <li>
+          <a
+            href="#ngrok"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >Ngrok</a
+          >
+        </li>
+        <li>
+          <a
+            href="#hidden-bar"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >Hidden bar</a
+          >
+        </li>
+        <li>
+          <a
+            href="#digital-color-meter"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >Digital Color Meter</a
+          >
+        </li>
+      </ul>
+      <h2
+        id="chrome"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#chrome"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Chrome
+      </h2>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="chrome-cover"
+            src="/posts/mac-init-apps/chrome.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        소개 문구에서부터 포스가 장난 아니다. 테스팅 환경 때문이라도 필요한 웹
+        브라우저 크롬이다.
+      </p>
+      <p class="mt-4 mb-4">
+        다음에 연재할 크롬 익스텐션 섹션을 통해 크롬이 얼마나 강력한지
+        후술하고자 한다.
+      </p>
+      <ul class="min-[790px]:ml-6 ml-4 list-disc">
+        <li>
+          <a
+            href="https://support.google.com/chrome/thread/64580550?hl=ko&amp;msgid=68816629"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >만약 크롬이 실행 되지 않는다면</a
+          >
+        </li>
+      </ul>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          <a
+            href="https://www.google.com/chrome"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >다운로드 링크</a
+          >
+        </p>
+      </blockquote>
+      <h2
+        id="homebrew"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#homebrew"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Homebrew
+      </h2>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="homebrew"
+            src="/posts/mac-init-apps/homebrew.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        <code>homebrew</code>는 CLI로 편리하게 앱을 설치할 수 있게 해준다.
+      </p>
+      <p class="mt-4 mb-4">
+        환경변수 및 패키지 폴더 구성 등을 자동으로 해주기 때문에 불쾌한 초기
+        설정을 벗어나게 해준다.
+      </p>
+      <p class="mt-4 mb-4">
+        많은 프로젝트에서 homebrew를 통한 설치 가이드를 제공하고 있을 정도로
+        대중적이니 꼭 설치하자.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="sh"
+          data-theme="material-theme-palenight"
+        ><code data-language="sh" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic"># 터미널 설치</span></span>
+<span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> /bin/bash</span><span style="color:#C3E88D"> -c</span><span style="color:#89DDFF"> "$(</span><span style="color:#FFCB6B">curl</span><span style="color:#C3E88D"> -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh</span><span style="color:#89DDFF">)"</span></span></code></pre>
+      </figure>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          <a
+            href="https://brew.sh/"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >다운로드 링크</a
+          >
+        </p>
+      </blockquote>
+      <h2
+        id="oh-my-zsh"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#oh-my-zsh"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Oh My Zsh
+      </h2>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="cmd-example"
+            src="/posts/mac-init-apps/oh-my-zsh.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        brew로 작업하다 보면 터미널이 참 못생겼다고 느낄 수 있다. 터미널을 위와
+        같이 원하는 정보가 노출되도록 설정할 수 있다.
+      </p>
+      <p class="mt-4 mb-4">
+        내가 사용하고 있는 테마는
+        <a
+          href="https://github.com/caiogondim/bullet-train.zsh"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >bullet-train</a
+        >
+        커스텀 테마이다. 해당 테마는 현재 시간 및 작업 소요 시간, 성공 여부, 깃
+        상태 등 다양한 정보를 노출시켜 주므로 선택하게 되었다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="sh"
+          data-theme="material-theme-palenight"
+        ><code data-language="sh" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic"># 터미널 설치</span></span>
+<span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> sh</span><span style="color:#C3E88D"> -c</span><span style="color:#89DDFF"> "$(</span><span style="color:#FFCB6B">curl</span><span style="color:#C3E88D"> -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh</span><span style="color:#89DDFF">)"</span></span></code></pre>
+      </figure>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          <a
+            href="https://ohmyz.sh/#install"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >다운로드 링크</a
+          >
+        </p>
+      </blockquote>
+      <h2
+        id="iterm2"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#iterm2"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Iterm2
+      </h2>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="iterm2-example"
+            src="/posts/mac-init-apps/iterm2.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        기본 맥 터미널은 못생겼기 때문에 <code>iterm2</code>을 설치해 터미널을
+        더 예쁘게 커스텀 할 수 있다.
+      </p>
+      <p class="mt-4 mb-4">
+        <code>zsh</code>이 터미널의 내용을 관리한다면 터미널 창 자체로 디자인을
+        제공해 주는 역할은 <code>iterm2</code>이다.
+      </p>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          만약 커맨드라인에서 cmd + delete로
+          <a
+            href="https://stackoverflow.com/questions/15733312/iterm2-delete-line"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >한줄 삭제</a
+          >
+          하고 싶다면
+        </p>
+        <p class="mt-4 mb-4">
+          환경 설정 &gt; Profiles &gt; Keys &gt; Natural Text Editing으로 설정
+          한다.
+        </p>
+      </blockquote>
+      <p class="mt-4 mb-4">
+        이 외에도 각 탭에서 창 기본 크기, 배경 설정 등 할 수 있다.
+      </p>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          <a
+            href="https://iterm2.com/"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >다운로드 링크</a
+          >
+        </p>
+      </blockquote>
+      <h2
+        id="vscode"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#vscode"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >VSCode
+      </h2>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="vscode-logo"
+            src="/posts/mac-init-apps/vscode.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        VSCode에 너무 절여져 있어 다른 에디터는 이제 기억이 나지 않는다...
+        유용한 익스텐션은 다음 포스트로 연재하겠다.
+      </p>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          <a
+            href="https://code.visualstudio.com/"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >다운로드 링크</a
+          >
+        </p>
+      </blockquote>
+      <h2
+        id="neovim"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#neovim"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >NeoVim
+      </h2>
+      <p class="mt-4 mb-4">
+        만약 vi 환경을 좋아한다면 설치하면 좋다. 기본적으로 <code>vim</code>은
+        한글 입력시 문제가 많다(조합 중인 문자 소실 등).
+      </p>
+      <p class="mt-4 mb-4">
+        <code>NeoVim</code>은 <code>vim</code>을 오픈소스화하여 기존의 문제들
+        해결하고 커뮤니티 자발적으로 다양한 플러그인을 개발/공유하고 있어 강력한
+        에디팅을 지원한다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="sh"
+          data-theme="material-theme-palenight"
+        ><code data-language="sh" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> brew</span><span style="color:#C3E88D"> install</span><span style="color:#C3E88D"> neovim</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic"># 기본 vi를 neovim으로 변경하고자 한다면 alias를 변경한다.</span></span>
 <span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> vi</span><span style="color:#C3E88D"> ~/.zshrc</span></span>
-<span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> alias</span><span style="color:#C3E88D"> vi=</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">nvim</span><span style="color:#89DDFF">"</span></span></code></pre></figure>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4"><a href="https://neovim.io/" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">다운로드 링크</a></p>
-</blockquote>
-<h2 id="d2-coding" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#d2-coding"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>D2 Coding</h2>
-<p class="mt-4 mb-4">폰트는 d2 코딩이 가장 편하다고 느껴서 늘 사용하고 있다.</p>
-<p class="mt-4 mb-4">모호할 수 있는 문자들이 <code>1ijIlO0tz아야저져쁆뼮뼯뗾</code> 기본적으로 잘 보인다(이 블로그 폰트도 D2coding이다).</p>
-<h3 id="iterm2에-d2coding을-기본-폰트로-적용하기" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#iterm2에-d2coding을-기본-폰트로-적용하기"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>iterm2에 d2coding을 기본 폰트로 적용하기</h3>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4">Profiles &gt; Text &gt; Font &gt; D2Coding</p>
-<p class="mt-4 mb-4"><a href="https://github.com/1ilsang/dev/assets/23524849/a3aff63a-d3d7-43aa-84c1-68b10d46dadd" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">그림으로 보기</a></p>
-</blockquote>
-<h3 id="vscode-기본-폰트로-적용하기" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#vscode-기본-폰트로-적용하기"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>VSCode 기본 폰트로 적용하기</h3>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4">Setting(cmd + ,) &gt; Font Family &gt; D2Coding을 제일 앞에 적어준다.</p>
-<p class="mt-4 mb-4"><a href="https://github.com/1ilsang/dev/assets/23524849/1eeb1e90-6a2c-4263-a8a4-f6a9ea860f98" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">그림으로 보기</a></p>
-</blockquote>
-<p class="mt-4 mb-4">상당히 개발자 친화적인 폰트라 생각한다.</p>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4"><a href="https://github.com/naver/d2codingfont" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">다운로드 링크</a></p>
-</blockquote>
-<h2 id="nodejs" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#nodejs"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Node.js</h2>
-<p class="mt-4 mb-4">"신"</p>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4"><a href="https://nodejs.org/en" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">다운로드 링크</a></p>
-</blockquote>
-<h2 id="nvm" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#nvm"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>NVM</h2>
-<p class="mt-4 mb-4">프로젝트를 여러개 만들다 보면 노드 버전이 상이한 경우가 종종 생긴다. 이때 노드 버전을 어떻게 처리할까?</p>
-<p class="mt-4 mb-4">답은 <code>nvm</code>을 통해 노드 버전을 프로젝트마다 변경하면 된다.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="sh" data-theme="material-theme-palenight"><code data-language="sh" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic"># Nvm 다운로드.</span></span>
+<span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> alias</span><span style="color:#C3E88D"> vi=</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">nvim</span><span style="color:#89DDFF">"</span></span></code></pre>
+      </figure>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          <a
+            href="https://neovim.io/"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >다운로드 링크</a
+          >
+        </p>
+      </blockquote>
+      <h2
+        id="d2-coding"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#d2-coding"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >D2 Coding
+      </h2>
+      <p class="mt-4 mb-4">
+        폰트는 d2 코딩이 가장 편하다고 느껴서 늘 사용하고 있다.
+      </p>
+      <p class="mt-4 mb-4">
+        모호할 수 있는 문자들이
+        <code>1ijIlO0tz아야저져쁆뼮뼯뗾</code> 기본적으로 잘 보인다(이 블로그
+        폰트도 D2coding이다).
+      </p>
+      <h3
+        id="iterm2에-d2coding을-기본-폰트로-적용하기"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#iterm2에-d2coding을-기본-폰트로-적용하기"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >iterm2에 d2coding을 기본 폰트로 적용하기
+      </h3>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">Profiles &gt; Text &gt; Font &gt; D2Coding</p>
+        <p class="mt-4 mb-4">
+          <a
+            href="https://github.com/1ilsang/dev/assets/23524849/a3aff63a-d3d7-43aa-84c1-68b10d46dadd"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >그림으로 보기</a
+          >
+        </p>
+      </blockquote>
+      <h3
+        id="vscode-기본-폰트로-적용하기"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#vscode-기본-폰트로-적용하기"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >VSCode 기본 폰트로 적용하기
+      </h3>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          Setting(cmd + ,) &gt; Font Family &gt; D2Coding을 제일 앞에 적어준다.
+        </p>
+        <p class="mt-4 mb-4">
+          <a
+            href="https://github.com/1ilsang/dev/assets/23524849/1eeb1e90-6a2c-4263-a8a4-f6a9ea860f98"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >그림으로 보기</a
+          >
+        </p>
+      </blockquote>
+      <p class="mt-4 mb-4">상당히 개발자 친화적인 폰트라 생각한다.</p>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          <a
+            href="https://github.com/naver/d2codingfont"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >다운로드 링크</a
+          >
+        </p>
+      </blockquote>
+      <h2
+        id="nodejs"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#nodejs"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Node.js
+      </h2>
+      <p class="mt-4 mb-4">"신"</p>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          <a
+            href="https://nodejs.org/en"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >다운로드 링크</a
+          >
+        </p>
+      </blockquote>
+      <h2
+        id="nvm"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#nvm"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >NVM
+      </h2>
+      <p class="mt-4 mb-4">
+        프로젝트를 여러개 만들다 보면 노드 버전이 상이한 경우가 종종 생긴다.
+        이때 노드 버전을 어떻게 처리할까?
+      </p>
+      <p class="mt-4 mb-4">
+        답은 <code>nvm</code>을 통해 노드 버전을 프로젝트마다 변경하면 된다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="sh"
+          data-theme="material-theme-palenight"
+        ><code data-language="sh" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic"># Nvm 다운로드.</span></span>
 <span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> curl</span><span style="color:#C3E88D"> -o-</span><span style="color:#C3E88D"> https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh</span><span style="color:#89DDFF"> |</span><span style="color:#FFCB6B"> bash</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic"># 터미널 실행시 자동으로 nvm을 사용하도록 설정.</span></span>
 <span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> vi</span><span style="color:#C3E88D"> ~/.zshrc</span></span>
@@ -124,110 +764,775 @@
 <span data-line=""><span style="color:#C792EA">export</span><span style="color:#BABED8"> NVM_DIR</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"$([</span><span style="color:#89DDFF"> -z</span><span style="color:#89DDFF"> "${</span><span style="color:#BABED8">XDG_CONFIG_HOME-</span><span style="color:#89DDFF">}"</span><span style="color:#89DDFF"> ]</span><span style="color:#89DDFF"> &amp;&amp;</span><span style="color:#82AAFF"> printf</span><span style="color:#C3E88D"> %s </span><span style="color:#89DDFF">"${</span><span style="color:#BABED8">HOME</span><span style="color:#89DDFF">}</span><span style="color:#C3E88D">/.nvm</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF"> ||</span><span style="color:#82AAFF"> printf</span><span style="color:#C3E88D"> %s </span><span style="color:#89DDFF">"${</span><span style="color:#BABED8">XDG_CONFIG_HOME</span><span style="color:#89DDFF">}</span><span style="color:#C3E88D">/nvm</span><span style="color:#89DDFF">")"</span></span>
 <span data-line=""><span style="color:#89DDFF">[</span><span style="color:#89DDFF"> -s</span><span style="color:#89DDFF"> "</span><span style="color:#BABED8">$NVM_DIR</span><span style="color:#C3E88D">/nvm.sh</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF"> ]</span><span style="color:#89DDFF"> &amp;&amp;</span><span style="color:#FFCB6B"> \.</span><span style="color:#89DDFF"> "</span><span style="color:#BABED8">$NVM_DIR</span><span style="color:#C3E88D">/nvm.sh</span><span style="color:#89DDFF">"</span><span style="color:#676E95;font-style:italic"> # This loads nvm</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic"># 쉘 반영</span></span>
-<span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> source</span><span style="color:#C3E88D"> ~/.zshrc</span></span></code></pre></figure>
-<p class="mt-4 mb-4">사용법은 아래와 같다.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="sh" data-theme="material-theme-palenight"><code data-language="sh" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic"># .nvmrc 파일이 존재하면 지정된 노드 버전으로 설정됨.</span></span>
+<span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> source</span><span style="color:#C3E88D"> ~/.zshrc</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">사용법은 아래와 같다.</p>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="sh"
+          data-theme="material-theme-palenight"
+        ><code data-language="sh" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic"># .nvmrc 파일이 존재하면 지정된 노드 버전으로 설정됨.</span></span>
 <span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> nvm</span><span style="color:#C3E88D"> use</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic"># Node.js 20.10.0 버전 다운로드.</span></span>
 <span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> nvm</span><span style="color:#C3E88D"> install</span><span style="color:#F78C6C"> 20.10.0</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic"># Node.js 20.10.0 버전 사용.</span></span>
-<span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> nvm</span><span style="color:#C3E88D"> use</span><span style="color:#F78C6C"> 20.10.0</span></span></code></pre></figure>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4"><a href="https://github.com/nvm-sh/nvm/blob/master/README.md" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">가이드 링크</a></p>
-</blockquote>
-<h2 id="docker" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#docker"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Docker</h2>
-<p class="mt-4 mb-4">두 번째 "신"</p>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4"><a href="https://www.docker.com/" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">다운로드 링크</a></p>
-</blockquote>
-<h2 id="giphy-capture" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#giphy-capture"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>GIPHY Capture</h2>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="giphy example" src="/posts/mac-init-apps/giphy.webp"></div></div>
-<p class="mt-4 mb-4">간단하게 움짤(gif)을 따야 할 때 유용하게 쓸 수 있다.</p>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4"><a href="https://apps.apple.com/kr/app/giphy-capture-the-gif-maker/id668208984" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">다운로드 링크</a></p>
-</blockquote>
-<h2 id="deepl" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#deepl"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>DeepL</h2>
-<p class="mt-4 mb-4">번역 퀄리티가 상당히 좋다. 또한 <code>cmd + c + c</code>로 빠르게 번역하기도 지원하기 때문에 숏컷 활용도 또한 뛰어나다.</p>
-<p class="mt-4 mb-4">이후 다룰 크롬 익스텐션과 함께 사용하면 찰떡이다.</p>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4"><a href="https://www.deepl.com/ko/app/" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">다운로드 링크</a></p>
-</blockquote>
-<h2 id="screenhint" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#screenhint"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>ScreenHint</h2>
-<div class="mt-3 mb-3 flex items-center w-full custom-horizon-scrollbar min-h-[100px] min-[790px]:min-h-[200px]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="screenhint" src="/posts/mac-init-apps/screenhint.webp"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="screenhint-setting" src="/posts/mac-init-apps/screenhint-setting.webp"></div>
-<p class="mt-4 mb-4">정말 추천하고 싶은 프로그램. 원하는 부분만 스크린샷으로 띄워 놓을 수 있다.</p>
-<p class="mt-4 mb-4">맥 어플 전체화면시에도 올라가 있기 때문에 상당히 편리하다.</p>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4"><a href="https://apps.apple.com/kr/app/screenhint/id1566621533?mt=12" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">다운로드 링크</a></p>
-</blockquote>
-<h2 id="quick-notes" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#quick-notes"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Quick Notes</h2>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="quick notes example" src="/posts/mac-init-apps/quick-note.webp"></div></div>
-<p class="mt-4 mb-4">줌으로 미팅하거나 전체화면으로 열려있는 자료가 많아 잠깐잠깐 메모가 필요할 때 유용한 앱이다.</p>
-<p class="mt-4 mb-4">유료라서 꼭 필요한 게 아니라면 크게 추천하고 싶진 않다.</p>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4"><a href="https://apps.apple.com/kr/app/quick-notes/id1260480179?mt=12" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">다운로드 링크</a></p>
-</blockquote>
-<h2 id="calculator-pro" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#calculator-pro"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Calculator Pro</h2>
-<div class="mt-3 mb-3 flex items-center w-full custom-horizon-scrollbar min-h-[100px] min-[790px]:min-h-[200px]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="calculator-pro" src="/posts/mac-init-apps/calculator-pro.webp"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="calculator-pro-setting" src="/posts/mac-init-apps/calculator-pro-setting.webp"></div>
-<p class="mt-4 mb-4">맥 환경 특성상 전체화면 된 앱 위에 무엇을 겹치는 것이 불가능하다. 하지만 이 앱은 계산기를 전체화면 된 앱 위에 올려준다.</p>
-<p class="mt-4 mb-4">알고리즘 풀 때 진짜 꿀이다.</p>
-<p class="mt-4 mb-4">오른쪽 화면은 내가 쓰는 글로벌 숏컷이다. 껐다켰다하며 사용하기 편하다.</p>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4"><a href="https://apps.apple.com/kr/app/calculator-pro-topbar-app/id576215086" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">다운로드 링크</a></p>
-</blockquote>
-<h2 id="올ㅋ사전" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#올ㅋ사전"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>올ㅋ사전</h2>
-<div class="mt-3 mb-3 flex items-center w-full custom-horizon-scrollbar min-h-[100px] min-[790px]:min-h-[200px]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="all-z" src="/posts/mac-init-apps/all-z.webp"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="all-z-setting" src="/posts/mac-init-apps/all-z-setting.webp"></div>
-<p class="mt-4 mb-4">특정 단어를 검색해야 할 때 화면 이동을 하는 건 너무 귀찮다. 단축키로 바로 열어서 찾는 것이 편리하다.</p>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4"><a href="https://apps.apple.com/kr/app/%EC%98%AC%E3%85%8B%EC%82%AC%EC%A0%84-%EB%A7%A5%EC%97%90%EC%84%9C-%EB%8B%A8%EC%B6%95%ED%82%A4%EB%A5%BC-%EB%88%84%EB%A5%B4%EB%A9%B4-%EC%98%81%EC%96%B4%EC%82%AC%EC%A0%84%EC%9D%B4-%EB%99%87/id1033453958?mt=12" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">다운로드 링크</a></p>
-</blockquote>
-<h2 id="codewhisperer" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#codewhisperer"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>CodeWhisperer</h2>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="CodeWhisperer example" src="/posts/mac-init-apps/codewhisperer.webp"></div></div>
-<p class="mt-4 mb-4"><a href="https://fig.io/blog/post/fig-is-sunsetting" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Fig가 공식적으로 AWS에 흡수</a>되면서 출시된 제품이다. 개인 개발에는 무료로 사용할 수 있다.</p>
-<p class="mt-4 mb-4">CLI를 자주 사용한다면 정말 유용한 앱이다. 다음 명령어에 대한 힌트뿐만 아니라 해당 명령어의 기대 효과도 같이 알려준다.</p>
-<p class="mt-4 mb-4">터미널의 효자 그 자체다.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="sh" data-theme="material-theme-palenight"><code data-language="sh" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> brew</span><span style="color:#C3E88D"> install</span><span style="color:#C3E88D"> --cask</span><span style="color:#C3E88D"> codewhisperer</span></span></code></pre></figure>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4"><a href="https://aws.amazon.com/ko/codewhisperer/resources/?refid=d66b5e73-988d-4ff9-aa68-e067ce087ab" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">다운로드 링크</a></p>
-</blockquote>
-<h2 id="flycut" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#flycut"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Flycut</h2>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="flycut example" src="/posts/mac-init-apps/flycut.webp"></div></div>
-<p class="mt-4 mb-4">우리는 복/붙을 상당히 많이 한다. 만약 이전에 복사했던 내용을 다시 가져오고 싶다면 어떻게 하고 있는지 생각해 보자.</p>
-<p class="mt-4 mb-4">별다른 수가 떠오르지 않는다면 이 앱을 추천한다. 이 앱은 이전에 복사했던 내용들을 기억하고 불러오는 것도 지원해 준다. 심지어 복사된 시간도 알려준다.</p>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4"><a href="https://apps.apple.com/kr/app/flycut-clipboard-manager/id442160987?mt=12" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">다운로드 링크</a></p>
-</blockquote>
-<h2 id="screenbrush" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#screenbrush"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>ScreenBrush</h2>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="screen brush example" src="/posts/mac-init-apps/screenbrush.webp"></div></div>
-<p class="mt-4 mb-4">줌과 같은 화상 회의를 할 때나 전체 미팅 때 내 화면을 공유할 일이 많다면 강력히 추천한다.</p>
-<p class="mt-4 mb-4">화면에 무엇인가 작성하거나 포인터가 필요할 때 예쁘게 시선을 잡아주는 효자 앱이다.</p>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4"><a href="https://apps.apple.com/kr/app/screenbrush/id1233965871?mt=12" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">다운로드 링크</a></p>
-</blockquote>
-<h2 id="keycastr" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#keycastr"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Keycastr</h2>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="keycastr example" src="/posts/mac-init-apps/keycastr.webp"></div></div>
-<p class="mt-4 mb-4"><code>ScreenBrush</code>와 함께 사용하면 빛나는 앱이다. 내가 어떤 키보드를 입력했는지 화면에 보여준다.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="sh" data-theme="material-theme-palenight"><code data-language="sh" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> brew</span><span style="color:#C3E88D"> install</span><span style="color:#C3E88D"> --cask</span><span style="color:#C3E88D"> keycastr</span></span></code></pre></figure>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4"><a href="https://github.com/keycastr/keycastr" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">다운로드 링크</a></p>
-</blockquote>
-<h2 id="ngrok" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#ngrok"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Ngrok</h2>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="ngrok example" src="/posts/mac-init-apps/ngrok.webp"></div></div>
-<p class="mt-4 mb-4">배포 없이 로컬에서 작업한 나의 페이지를 다른 사람에게 보여주고 싶다면 어떻게 해야 할까?</p>
-<p class="mt-4 mb-4"><code>ngrok</code>은 프록시 서버를 열어 내 로컬 포트로 접근하게 해준다. 서버 없이 빠르게 데모 페이지를 공유할 때 유용하다.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="sh" data-theme="material-theme-palenight"><code data-language="sh" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> ngrok</span><span style="color:#C3E88D"> http</span><span style="color:#F78C6C"> 3000</span><span style="color:#676E95;font-style:italic"> # 3000번 포트로 http 통신을 허용한다.</span></span>
+<span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> nvm</span><span style="color:#C3E88D"> use</span><span style="color:#F78C6C"> 20.10.0</span></span></code></pre>
+      </figure>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          <a
+            href="https://github.com/nvm-sh/nvm/blob/master/README.md"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >가이드 링크</a
+          >
+        </p>
+      </blockquote>
+      <h2
+        id="docker"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#docker"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Docker
+      </h2>
+      <p class="mt-4 mb-4">두 번째 "신"</p>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          <a
+            href="https://www.docker.com/"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >다운로드 링크</a
+          >
+        </p>
+      </blockquote>
+      <h2
+        id="giphy-capture"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#giphy-capture"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >GIPHY Capture
+      </h2>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="giphy example"
+            src="/posts/mac-init-apps/giphy.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        간단하게 움짤(gif)을 따야 할 때 유용하게 쓸 수 있다.
+      </p>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          <a
+            href="https://apps.apple.com/kr/app/giphy-capture-the-gif-maker/id668208984"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >다운로드 링크</a
+          >
+        </p>
+      </blockquote>
+      <h2
+        id="deepl"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#deepl"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >DeepL
+      </h2>
+      <p class="mt-4 mb-4">
+        번역 퀄리티가 상당히 좋다. 또한 <code>cmd + c + c</code>로 빠르게
+        번역하기도 지원하기 때문에 숏컷 활용도 또한 뛰어나다.
+      </p>
+      <p class="mt-4 mb-4">이후 다룰 크롬 익스텐션과 함께 사용하면 찰떡이다.</p>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          <a
+            href="https://www.deepl.com/ko/app/"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >다운로드 링크</a
+          >
+        </p>
+      </blockquote>
+      <h2
+        id="screenhint"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#screenhint"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >ScreenHint
+      </h2>
+      <div
+        class="mt-3 mb-3 flex items-center w-full custom-horizon-scrollbar min-h-[100px] min-[790px]:min-h-[200px]"
+      >
+        <img
+          class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+          alt="screenhint"
+          src="/posts/mac-init-apps/screenhint.webp"
+        /><img
+          class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+          alt="screenhint-setting"
+          src="/posts/mac-init-apps/screenhint-setting.webp"
+        />
+      </div>
+      <p class="mt-4 mb-4">
+        정말 추천하고 싶은 프로그램. 원하는 부분만 스크린샷으로 띄워 놓을 수
+        있다.
+      </p>
+      <p class="mt-4 mb-4">
+        맥 어플 전체화면시에도 올라가 있기 때문에 상당히 편리하다.
+      </p>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          <a
+            href="https://apps.apple.com/kr/app/screenhint/id1566621533?mt=12"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >다운로드 링크</a
+          >
+        </p>
+      </blockquote>
+      <h2
+        id="quick-notes"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#quick-notes"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Quick Notes
+      </h2>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="quick notes example"
+            src="/posts/mac-init-apps/quick-note.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        줌으로 미팅하거나 전체화면으로 열려있는 자료가 많아 잠깐잠깐 메모가
+        필요할 때 유용한 앱이다.
+      </p>
+      <p class="mt-4 mb-4">
+        유료라서 꼭 필요한 게 아니라면 크게 추천하고 싶진 않다.
+      </p>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          <a
+            href="https://apps.apple.com/kr/app/quick-notes/id1260480179?mt=12"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >다운로드 링크</a
+          >
+        </p>
+      </blockquote>
+      <h2
+        id="calculator-pro"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#calculator-pro"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Calculator Pro
+      </h2>
+      <div
+        class="mt-3 mb-3 flex items-center w-full custom-horizon-scrollbar min-h-[100px] min-[790px]:min-h-[200px]"
+      >
+        <img
+          class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+          alt="calculator-pro"
+          src="/posts/mac-init-apps/calculator-pro.webp"
+        /><img
+          class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+          alt="calculator-pro-setting"
+          src="/posts/mac-init-apps/calculator-pro-setting.webp"
+        />
+      </div>
+      <p class="mt-4 mb-4">
+        맥 환경 특성상 전체화면 된 앱 위에 무엇을 겹치는 것이 불가능하다. 하지만
+        이 앱은 계산기를 전체화면 된 앱 위에 올려준다.
+      </p>
+      <p class="mt-4 mb-4">알고리즘 풀 때 진짜 꿀이다.</p>
+      <p class="mt-4 mb-4">
+        오른쪽 화면은 내가 쓰는 글로벌 숏컷이다. 껐다켰다하며 사용하기 편하다.
+      </p>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          <a
+            href="https://apps.apple.com/kr/app/calculator-pro-topbar-app/id576215086"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >다운로드 링크</a
+          >
+        </p>
+      </blockquote>
+      <h2
+        id="올ㅋ사전"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#올ㅋ사전"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >올ㅋ사전
+      </h2>
+      <div
+        class="mt-3 mb-3 flex items-center w-full custom-horizon-scrollbar min-h-[100px] min-[790px]:min-h-[200px]"
+      >
+        <img
+          class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+          alt="all-z"
+          src="/posts/mac-init-apps/all-z.webp"
+        /><img
+          class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+          alt="all-z-setting"
+          src="/posts/mac-init-apps/all-z-setting.webp"
+        />
+      </div>
+      <p class="mt-4 mb-4">
+        특정 단어를 검색해야 할 때 화면 이동을 하는 건 너무 귀찮다. 단축키로
+        바로 열어서 찾는 것이 편리하다.
+      </p>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          <a
+            href="https://apps.apple.com/kr/app/%EC%98%AC%E3%85%8B%EC%82%AC%EC%A0%84-%EB%A7%A5%EC%97%90%EC%84%9C-%EB%8B%A8%EC%B6%95%ED%82%A4%EB%A5%BC-%EB%88%84%EB%A5%B4%EB%A9%B4-%EC%98%81%EC%96%B4%EC%82%AC%EC%A0%84%EC%9D%B4-%EB%99%87/id1033453958?mt=12"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >다운로드 링크</a
+          >
+        </p>
+      </blockquote>
+      <h2
+        id="codewhisperer"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#codewhisperer"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >CodeWhisperer
+      </h2>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="CodeWhisperer example"
+            src="/posts/mac-init-apps/codewhisperer.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        <a
+          href="https://fig.io/blog/post/fig-is-sunsetting"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >Fig가 공식적으로 AWS에 흡수</a
+        >되면서 출시된 제품이다. 개인 개발에는 무료로 사용할 수 있다.
+      </p>
+      <p class="mt-4 mb-4">
+        CLI를 자주 사용한다면 정말 유용한 앱이다. 다음 명령어에 대한 힌트뿐만
+        아니라 해당 명령어의 기대 효과도 같이 알려준다.
+      </p>
+      <p class="mt-4 mb-4">터미널의 효자 그 자체다.</p>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="sh"
+          data-theme="material-theme-palenight"
+        ><code data-language="sh" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> brew</span><span style="color:#C3E88D"> install</span><span style="color:#C3E88D"> --cask</span><span style="color:#C3E88D"> codewhisperer</span></span></code></pre>
+      </figure>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          <a
+            href="https://aws.amazon.com/ko/codewhisperer/resources/?refid=d66b5e73-988d-4ff9-aa68-e067ce087ab"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >다운로드 링크</a
+          >
+        </p>
+      </blockquote>
+      <h2
+        id="flycut"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#flycut"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Flycut
+      </h2>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="flycut example"
+            src="/posts/mac-init-apps/flycut.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        우리는 복/붙을 상당히 많이 한다. 만약 이전에 복사했던 내용을 다시
+        가져오고 싶다면 어떻게 하고 있는지 생각해 보자.
+      </p>
+      <p class="mt-4 mb-4">
+        별다른 수가 떠오르지 않는다면 이 앱을 추천한다. 이 앱은 이전에 복사했던
+        내용들을 기억하고 불러오는 것도 지원해 준다. 심지어 복사된 시간도
+        알려준다.
+      </p>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          <a
+            href="https://apps.apple.com/kr/app/flycut-clipboard-manager/id442160987?mt=12"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >다운로드 링크</a
+          >
+        </p>
+      </blockquote>
+      <h2
+        id="screenbrush"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#screenbrush"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >ScreenBrush
+      </h2>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="screen brush example"
+            src="/posts/mac-init-apps/screenbrush.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        줌과 같은 화상 회의를 할 때나 전체 미팅 때 내 화면을 공유할 일이 많다면
+        강력히 추천한다.
+      </p>
+      <p class="mt-4 mb-4">
+        화면에 무엇인가 작성하거나 포인터가 필요할 때 예쁘게 시선을 잡아주는
+        효자 앱이다.
+      </p>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          <a
+            href="https://apps.apple.com/kr/app/screenbrush/id1233965871?mt=12"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >다운로드 링크</a
+          >
+        </p>
+      </blockquote>
+      <h2
+        id="keycastr"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#keycastr"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Keycastr
+      </h2>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="keycastr example"
+            src="/posts/mac-init-apps/keycastr.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        <code>ScreenBrush</code>와 함께 사용하면 빛나는 앱이다. 내가 어떤
+        키보드를 입력했는지 화면에 보여준다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="sh"
+          data-theme="material-theme-palenight"
+        ><code data-language="sh" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> brew</span><span style="color:#C3E88D"> install</span><span style="color:#C3E88D"> --cask</span><span style="color:#C3E88D"> keycastr</span></span></code></pre>
+      </figure>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          <a
+            href="https://github.com/keycastr/keycastr"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >다운로드 링크</a
+          >
+        </p>
+      </blockquote>
+      <h2
+        id="ngrok"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#ngrok"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Ngrok
+      </h2>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="ngrok example"
+            src="/posts/mac-init-apps/ngrok.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        배포 없이 로컬에서 작업한 나의 페이지를 다른 사람에게 보여주고 싶다면
+        어떻게 해야 할까?
+      </p>
+      <p class="mt-4 mb-4">
+        <code>ngrok</code>은 프록시 서버를 열어 내 로컬 포트로 접근하게 해준다.
+        서버 없이 빠르게 데모 페이지를 공유할 때 유용하다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="sh"
+          data-theme="material-theme-palenight"
+        ><code data-language="sh" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> ngrok</span><span style="color:#C3E88D"> http</span><span style="color:#F78C6C"> 3000</span><span style="color:#676E95;font-style:italic"> # 3000번 포트로 http 통신을 허용한다.</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic"># 위의 이미지처럼 https://7421-1-235-243-130.ngrok-free.app URL이 생성(일회용 랜덤)된다.</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic"># 이후 해당 URL로 접근하면 localhost:3000으로 접속한 것과 같이 된다.</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic"># 이로써 정적 배포/서버 없이 누구에게나 열린 일회용 퍼블릭 URL을 가지게 되었다!</span></span></code></pre></figure>
-<p class="mt-4 mb-4">단, 사용하기 위해선 로그인 이후 인증 토큰을 넣어야 한다.</p>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4"><a href="https://ngrok.com/download" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">다운로드 링크</a></p>
-</blockquote>
-<h2 id="hidden-bar" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#hidden-bar"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Hidden bar</h2>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="hidden bar example" src="/posts/mac-init-apps/hidden-bar.webp"></div></div>
-<p class="mt-4 mb-4">이쯤 되면 상단바가 상당히 늘어났다는 것을 확인할 수 있다. <code>Hidden bar</code>는 필요한 앱들만 상단바에 노출시켜 주는 앱이다.</p>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4"><a href="https://apps.apple.com/kr/app/hidden-bar/id1452453066?mt=12" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">다운로드 링크</a></p>
-</blockquote>
-<h2 id="digital-color-meter" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#digital-color-meter"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Digital Color Meter</h2>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="example" src="/posts/mac-init-apps/digital-color-meter.webp"></div></div>
-<p class="mt-4 mb-4">맥 자체 유용한 앱이다. CSS 작업을 하다 보면 스포이드가 필요한 순간이 있는데 유용하게 사용할 수 있다.</p></div><aside class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden" aria-label="index"><ul class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"><li id="모아보기" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">모아보기</li><li id="chrome" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">Chrome</li><li id="homebrew" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">Homebrew</li><li id="oh-my-zsh" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">Oh My Zsh</li><li id="iterm2" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">Iterm2</li><li id="vscode" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">VSCode</li><li id="neovim" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">NeoVim</li><li id="d2-coding" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">D2 Coding</li><li id="iterm2에-d2coding을-기본-폰트로-적용하기" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">iterm2에 d2coding을 기본 폰트로 적용하기</li><li id="vscode-기본-폰트로-적용하기" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue">VSCode 기본 폰트로 적용하기</li><li id="nodejs" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">Node.js</li><li id="nvm" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">NVM</li><li id="docker" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">Docker</li><li id="giphy-capture" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">GIPHY Capture</li><li id="deepl" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">DeepL</li><li id="screenhint" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">ScreenHint</li><li id="quick-notes" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">Quick Notes</li><li id="calculator-pro" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">Calculator Pro</li><li id="올ㅋ사전" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">올ㅋ사전</li><li id="codewhisperer" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">CodeWhisperer</li><li id="flycut" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">Flycut</li><li id="screenbrush" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">ScreenBrush</li><li id="keycastr" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">Keycastr</li><li id="ngrok" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">Ngrok</li><li id="hidden-bar" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">Hidden bar</li><li id="digital-color-meter" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">Digital Color Meter</li></ul></aside></section><a class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water" href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] %EC%9B%B9%20%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%A5%BC%20%EC%9C%84%ED%95%9C%20%EB%8F%84%EA%B5%AC%20%EC%B6%94%EC%B2%9C%20-%20%EC%9C%A0%EC%9A%A9%ED%95%9C%20Mac%20%EC%95%B1%EB%93%A4&amp;body=<!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 -->" rel="noopener noreferrer" target="_blank">📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍</a><div class="flex items-center mt-4 mb-56"><iframe class="border-0 rounded-md cursor-pointer object-contain hover:animate-bouncing" src="https://github.com/sponsors/1ilsang/button" title="Sponsor 1ilsang" height="32" width="114"></iframe></div></section>
+<span data-line=""><span style="color:#676E95;font-style:italic"># 이로써 정적 배포/서버 없이 누구에게나 열린 일회용 퍼블릭 URL을 가지게 되었다!</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        단, 사용하기 위해선 로그인 이후 인증 토큰을 넣어야 한다.
+      </p>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          <a
+            href="https://ngrok.com/download"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >다운로드 링크</a
+          >
+        </p>
+      </blockquote>
+      <h2
+        id="hidden-bar"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#hidden-bar"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Hidden bar
+      </h2>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="hidden bar example"
+            src="/posts/mac-init-apps/hidden-bar.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        이쯤 되면 상단바가 상당히 늘어났다는 것을 확인할 수 있다.
+        <code>Hidden bar</code>는 필요한 앱들만 상단바에 노출시켜 주는 앱이다.
+      </p>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          <a
+            href="https://apps.apple.com/kr/app/hidden-bar/id1452453066?mt=12"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >다운로드 링크</a
+          >
+        </p>
+      </blockquote>
+      <h2
+        id="digital-color-meter"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#digital-color-meter"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Digital Color Meter
+      </h2>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="example"
+            src="/posts/mac-init-apps/digital-color-meter.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        맥 자체 유용한 앱이다. CSS 작업을 하다 보면 스포이드가 필요한 순간이
+        있는데 유용하게 사용할 수 있다.
+      </p>
+    </div>
+    <aside
+      class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
+      aria-label="index"
+    >
+      <ul
+        class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
+      >
+        <li
+          id="모아보기"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          모아보기
+        </li>
+        <li
+          id="chrome"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          Chrome
+        </li>
+        <li
+          id="homebrew"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          Homebrew
+        </li>
+        <li
+          id="oh-my-zsh"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          Oh My Zsh
+        </li>
+        <li
+          id="iterm2"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          Iterm2
+        </li>
+        <li
+          id="vscode"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          VSCode
+        </li>
+        <li
+          id="neovim"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          NeoVim
+        </li>
+        <li
+          id="d2-coding"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          D2 Coding
+        </li>
+        <li
+          id="iterm2에-d2coding을-기본-폰트로-적용하기"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          iterm2에 d2coding을 기본 폰트로 적용하기
+        </li>
+        <li
+          id="vscode-기본-폰트로-적용하기"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
+        >
+          VSCode 기본 폰트로 적용하기
+        </li>
+        <li
+          id="nodejs"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          Node.js
+        </li>
+        <li
+          id="nvm"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          NVM
+        </li>
+        <li
+          id="docker"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          Docker
+        </li>
+        <li
+          id="giphy-capture"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          GIPHY Capture
+        </li>
+        <li
+          id="deepl"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          DeepL
+        </li>
+        <li
+          id="screenhint"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          ScreenHint
+        </li>
+        <li
+          id="quick-notes"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          Quick Notes
+        </li>
+        <li
+          id="calculator-pro"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          Calculator Pro
+        </li>
+        <li
+          id="올ㅋ사전"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          올ㅋ사전
+        </li>
+        <li
+          id="codewhisperer"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          CodeWhisperer
+        </li>
+        <li
+          id="flycut"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          Flycut
+        </li>
+        <li
+          id="screenbrush"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          ScreenBrush
+        </li>
+        <li
+          id="keycastr"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          Keycastr
+        </li>
+        <li
+          id="ngrok"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          Ngrok
+        </li>
+        <li
+          id="hidden-bar"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          Hidden bar
+        </li>
+        <li
+          id="digital-color-meter"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          Digital Color Meter
+        </li>
+      </ul>
+    </aside>
+  </section>
+  <a
+    class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water"
+    href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] %EC%9B%B9%20%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%A5%BC%20%EC%9C%84%ED%95%9C%20%EB%8F%84%EA%B5%AC%20%EC%B6%94%EC%B2%9C%20-%20%EC%9C%A0%EC%9A%A9%ED%95%9C%20Mac%20%EC%95%B1%EB%93%A4&amp;body=&lt;!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 --&gt;"
+    rel="noopener noreferrer"
+    target="_blank"
+    >📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍</a
+  >
+  <div class="flex items-center mt-4 mb-56">
+    <iframe
+      class="border-0 rounded-md cursor-pointer object-contain hover:animate-bouncing"
+      src="https://github.com/sponsors/1ilsang/button"
+      title="Sponsor 1ilsang"
+      height="32"
+      width="114"
+    ></iframe>
+  </div>
+</section>

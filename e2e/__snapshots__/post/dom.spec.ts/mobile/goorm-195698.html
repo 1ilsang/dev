@@ -1,25 +1,185 @@
-<progress class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og" value="0" max="1"></progress><nav class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"><h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5"><a class="hover:underline" href="/">1ilsang</a></h2><div class="flex"><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/posts">posts</a></h2><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/tags">tags</a></h2><div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-white-blue" src="/images/chul.webp" alt="1ilsang"></a></div></div></nav><section class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"><h1 class="text-4xl break-words md:text-6xl">[구름톤 챌린지] 연합</h1><section class="flex items-center mt-4"><div class="mr-2 w-9 h-9 md:w-12 md:h-12" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-sub-blue" src="/images/chul.webp" alt="1ilsang"></a></div><div><a class="text-lg" href="/about">1ilsang</a><div class="text-sm text-sub-blue">클라이밍 하실래염?</div></div></section><section class="flex flex-wrap items-end mt-2"><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/algorithm">#<!-- -->algorithm</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/goorm">#<!-- -->goorm</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/graph">#<!-- -->graph</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/bfs">#<!-- -->bfs</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/union-find">#<!-- -->union-find</a></section><section><div class="inline text-date-gray"><span class="mr-1">Published</span><time datetime="2023-09-06 19:12">2023-09-06 19:12</time></div></section><section id="post-body-container" class="relative"><div class="markdown"><div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full h-[600px] object-contain bg-transparent mt-10"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="problem" src="/posts/goorm-195698/problem.webp"></div></div>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4"><a href="https://level.goorm.io/exam/195698/%EC%97%B0%ED%95%A9/quiz/1" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">문제 링크</a></p>
-</blockquote>
-<p class="mt-4 mb-4">노드 사이에 사이클이 발생하면 "연합"이 된다. 각 사이클의 노드가 인접하면 인접한 사이클끼리도 연합이 된다. 이 연합 집합의 개수를 출력하는 문제이다.</p>
-<p class="mt-4 mb-4">이 문제는 그래프에서 사이클을 찾고 집합의 구성을 분류하는 기초적인 문제라 개념 잡기에 좋은 문제인듯 하다.</p>
-<h2 id="접근법" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#접근법"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>접근법</h2>
-<p class="mt-4 mb-4">사이클을 찾고 해당 사이클이 집합을 이루는지 찾아야 한다. 이 문제는 BFS 또는 Union-Find로 풀릴 수 있다.</p>
-<p class="mt-4 mb-4">먼저 각 노드가 사이클을 가지고 있는지는 어떻게 확인할까? 무지성 <code>includes</code>를 해도 되지만 <code>O(1)</code>로 찾지 않으면 시간초과가 발생한다.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="js" data-theme="material-theme-palenight"><code data-language="js" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// 그래프의 방향성을 저장하기 위한 2차원 배열을 생성한다.</span></span>
+<progress
+  class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  value="0"
+  max="1"
+></progress>
+<nav
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"
+>
+  <h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
+    <a class="hover:underline" href="/">1ilsang</a>
+  </h2>
+  <div class="flex">
+    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/posts">posts</a>
+    </h2>
+    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/tags">tags</a>
+    </h2>
+    <div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character">
+      <a href="/about"
+        ><img
+          class="border border-solid rounded-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+    </div>
+  </div>
+</nav>
+<section
+  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
+>
+  <h1 class="text-4xl break-words md:text-6xl">[구름톤 챌린지] 연합</h1>
+  <section class="flex items-center mt-4">
+    <div
+      class="mr-2 w-9 h-9 md:w-12 md:h-12"
+      role="img"
+      aria-label="1ilsang character"
+    >
+      <a href="/about"
+        ><img
+          class="border border-solid rounded-full border-sub-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+    </div>
+    <div>
+      <a class="text-lg" href="/about">1ilsang</a>
+      <div class="text-sm text-sub-blue">클라이밍 하실래염?</div>
+    </div>
+  </section>
+  <section class="flex flex-wrap items-end mt-2">
+    <a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/algorithm"
+      >#<!-- -->algorithm</a
+    ><a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/goorm"
+      >#<!-- -->goorm</a
+    ><a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/graph"
+      >#<!-- -->graph</a
+    ><a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/bfs"
+      >#<!-- -->bfs</a
+    ><a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/union-find"
+      >#<!-- -->union-find</a
+    >
+  </section>
+  <section>
+    <div class="inline text-date-gray">
+      <span class="mr-1">Published</span
+      ><time datetime="2023-09-06 19:12">2023-09-06 19:12</time>
+    </div>
+  </section>
+  <section id="post-body-container" class="relative">
+    <div class="markdown">
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full h-[600px] object-contain bg-transparent mt-10"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="problem"
+            src="/posts/goorm-195698/problem.webp"
+          />
+        </div>
+      </div>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          <a
+            href="https://level.goorm.io/exam/195698/%EC%97%B0%ED%95%A9/quiz/1"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >문제 링크</a
+          >
+        </p>
+      </blockquote>
+      <p class="mt-4 mb-4">
+        노드 사이에 사이클이 발생하면 "연합"이 된다. 각 사이클의 노드가 인접하면
+        인접한 사이클끼리도 연합이 된다. 이 연합 집합의 개수를 출력하는
+        문제이다.
+      </p>
+      <p class="mt-4 mb-4">
+        이 문제는 그래프에서 사이클을 찾고 집합의 구성을 분류하는 기초적인
+        문제라 개념 잡기에 좋은 문제인듯 하다.
+      </p>
+      <h2
+        id="접근법"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#접근법"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >접근법
+      </h2>
+      <p class="mt-4 mb-4">
+        사이클을 찾고 해당 사이클이 집합을 이루는지 찾아야 한다. 이 문제는 BFS
+        또는 Union-Find로 풀릴 수 있다.
+      </p>
+      <p class="mt-4 mb-4">
+        먼저 각 노드가 사이클을 가지고 있는지는 어떻게 확인할까? 무지성
+        <code>includes</code>를 해도 되지만 <code>O(1)</code>로 찾지 않으면
+        시간초과가 발생한다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="js"
+          data-theme="material-theme-palenight"
+        ><code data-language="js" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// 그래프의 방향성을 저장하기 위한 2차원 배열을 생성한다.</span></span>
 <span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> check </span><span style="color:#89DDFF">=</span><span style="color:#BABED8"> Array</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">from</span><span style="color:#BABED8">(</span><span style="color:#82AAFF">Array</span><span style="color:#BABED8">(n </span><span style="color:#89DDFF">+</span><span style="color:#F78C6C"> 1</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#82AAFF"> Array</span><span style="color:#BABED8">(n </span><span style="color:#89DDFF">+</span><span style="color:#F78C6C"> 1</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">fill</span><span style="color:#BABED8">(</span><span style="color:#F78C6C">0</span><span style="color:#BABED8">))</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">// cur 노드에서 next 노드로 방향성을 가지고 있다면 체크해 준다.</span></span>
 <span data-line=""><span style="color:#BABED8">check[cur][next] </span><span style="color:#89DDFF">=</span><span style="color:#F78C6C"> 1</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""> </span>
 <span data-line=""><span style="color:#676E95;font-style:italic">// 현재 노드와 다음 노드의 방향성이 둘 다 1이라면 사이클이다.</span></span>
-<span data-line=""><span style="color:#BABED8">check[cur][next] </span><span style="color:#89DDFF">===</span><span style="color:#F78C6C"> 1</span><span style="color:#89DDFF"> &amp;&amp;</span><span style="color:#BABED8"> check[next][cur] </span><span style="color:#89DDFF">===</span><span style="color:#F78C6C"> 1</span><span style="color:#89DDFF">;</span></span></code></pre></figure>
-<p class="mt-4 mb-4">문제가 친절하게도 각 정점 사이의 직접 사이클만 요구하므로 사이클을 더 쉽게 찾을 수 있다.</p>
-<p class="mt-4 mb-4">각 노드의 사이클 여부를 확인할 수 있게 되었으니 집합을 구성해 주어야 한다.</p>
-<h3 id="bfs로-집합-구성하기" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#bfs로-집합-구성하기"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>BFS로 집합 구성하기</h3>
-<p class="mt-4 mb-4">인접한 노드끼리 사이클이면서 사이클끼리 인접하면 연합이 된다.</p>
-<p class="mt-4 mb-4">따라서 우리는 각 노드를 순회하면서 사이클을 찾고 사이클이 되는 노드에서 다시 사이클을 찾는 식으로 BFS 탐색을 하면 된다.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="js" data-theme="material-theme-palenight"><code data-language="js" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> bfs </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">i</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#BABED8">check[cur][next] </span><span style="color:#89DDFF">===</span><span style="color:#F78C6C"> 1</span><span style="color:#89DDFF"> &amp;&amp;</span><span style="color:#BABED8"> check[next][cur] </span><span style="color:#89DDFF">===</span><span style="color:#F78C6C"> 1</span><span style="color:#89DDFF">;</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        문제가 친절하게도 각 정점 사이의 직접 사이클만 요구하므로 사이클을 더
+        쉽게 찾을 수 있다.
+      </p>
+      <p class="mt-4 mb-4">
+        각 노드의 사이클 여부를 확인할 수 있게 되었으니 집합을 구성해 주어야
+        한다.
+      </p>
+      <h3
+        id="bfs로-집합-구성하기"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#bfs로-집합-구성하기"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >BFS로 집합 구성하기
+      </h3>
+      <p class="mt-4 mb-4">
+        인접한 노드끼리 사이클이면서 사이클끼리 인접하면 연합이 된다.
+      </p>
+      <p class="mt-4 mb-4">
+        따라서 우리는 각 노드를 순회하면서 사이클을 찾고 사이클이 되는 노드에서
+        다시 사이클을 찾는 식으로 BFS 탐색을 하면 된다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="js"
+          data-theme="material-theme-palenight"
+        ><code data-language="js" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> bfs </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">i</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> q</span><span style="color:#89DDFF"> =</span><span style="color:#F07178"> [</span><span style="color:#BABED8">i</span><span style="color:#F07178">]</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#BABED8">  memo</span><span style="color:#F07178">[</span><span style="color:#BABED8">i</span><span style="color:#F07178">] </span><span style="color:#89DDFF">=</span><span style="color:#F78C6C"> 1</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">  while</span><span style="color:#F07178"> (</span><span style="color:#BABED8">q</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">length</span><span style="color:#F07178">) </span><span style="color:#89DDFF">{</span></span>
@@ -43,11 +203,31 @@
 <span data-line=""><span style="color:#676E95;font-style:italic">  // BFS에서 탈출했다면 연합 한 개가 구성된 것이므로 카운트를 추가한다.</span></span>
 <span data-line=""><span style="color:#BABED8">  answer</span><span style="color:#89DDFF">++;</span></span>
 <span data-line=""><span style="color:#89DDFF">}</span></span>
-<span data-line=""><span style="color:#BABED8">console</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">log</span><span style="color:#BABED8">(answer)</span><span style="color:#89DDFF">;</span></span></code></pre></figure>
-<p class="mt-4 mb-4">따라서 각 노드에서 사이클이 되는 노드를 찾고 해당 노드를 큐에 넣어줌으로써 연속된 사이클을 계속해서 찾을 수 있다.</p>
-<h3 id="union-find로-집합-구성하기" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#union-find로-집합-구성하기"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Union-Find로 집합 구성하기</h3>
-<p class="mt-4 mb-4">그래프의 집합을 나타내는 방법으로 Union-Find를 사용할 수 있다.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="js" data-theme="material-theme-palenight"><code data-language="js" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">//     index    0  1  2  3  4  5  6  7</span></span>
+<span data-line=""><span style="color:#BABED8">console</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">log</span><span style="color:#BABED8">(answer)</span><span style="color:#89DDFF">;</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        따라서 각 노드에서 사이클이 되는 노드를 찾고 해당 노드를 큐에
+        넣어줌으로써 연속된 사이클을 계속해서 찾을 수 있다.
+      </p>
+      <h3
+        id="union-find로-집합-구성하기"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#union-find로-집합-구성하기"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Union-Find로 집합 구성하기
+      </h3>
+      <p class="mt-4 mb-4">
+        그래프의 집합을 나타내는 방법으로 Union-Find를 사용할 수 있다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="js"
+          data-theme="material-theme-palenight"
+        ><code data-language="js" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">//     index    0  1  2  3  4  5  6  7</span></span>
 <span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> parent </span><span style="color:#89DDFF">=</span><span style="color:#BABED8"> [</span><span style="color:#F78C6C">0</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 1</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 1</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 1</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 4</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 5</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 4</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 4</span><span style="color:#BABED8">]</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">// 1,2,3 인덱스 노드는 부모 노드가 1인 집합이 된다.</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">// 4,6,7 인덱스 노드는 부모 노드가 4인 집합이 된다.</span></span>
@@ -61,14 +241,32 @@
 <span data-line=""><span style="color:#676E95;font-style:italic">    // 현재 노드와 다음 노드가 사이클이라면 집합을 구한다.</span></span>
 <span data-line=""><span style="color:#82AAFF">    union</span><span style="color:#F07178">(</span><span style="color:#BABED8">parent</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> cur</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> next</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#89DDFF">  }</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre></figure>
-<p class="mt-4 mb-4">노드를 순회하면서 Union 조건이 성립(사이클)한다면 각 노드를 합쳐준다.</p>
-<p class="mt-4 mb-4">이후 각 노드의 부모 노드를 find 한다. 노드의 부모가 같다면 같은 집합이라는 뜻이 된다.</p>
-<p class="mt-4 mb-4">Union-Find에서는 <u>memo 배열을 통한 방문 여부 확인 코드가 없는 것</u>을 알 수 있다.</p>
-<ul class="min-[790px]:ml-6 ml-4 list-disc">
-<li>BFS의 경우 인접한 모든 노드를 방문하면서 방문 여부로 집합을 구성하지만, Union-Find는 각 노드의 부모로 집합 여부를 확인하기 때문에 사이클이 된다면 각 노드의 부모를 계속해서 갱신해 줘야 한다.</li>
-</ul>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="js" data-theme="material-theme-palenight"><code data-language="js" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// 오답</span></span>
+<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        노드를 순회하면서 Union 조건이 성립(사이클)한다면 각 노드를 합쳐준다.
+      </p>
+      <p class="mt-4 mb-4">
+        이후 각 노드의 부모 노드를 find 한다. 노드의 부모가 같다면 같은
+        집합이라는 뜻이 된다.
+      </p>
+      <p class="mt-4 mb-4">
+        Union-Find에서는 <u>memo 배열을 통한 방문 여부 확인 코드가 없는 것</u>을
+        알 수 있다.
+      </p>
+      <ul class="min-[790px]:ml-6 ml-4 list-disc">
+        <li>
+          BFS의 경우 인접한 모든 노드를 방문하면서 방문 여부로 집합을
+          구성하지만, Union-Find는 각 노드의 부모로 집합 여부를 확인하기 때문에
+          사이클이 된다면 각 노드의 부모를 계속해서 갱신해 줘야 한다.
+        </li>
+      </ul>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="js"
+          data-theme="material-theme-palenight"
+        ><code data-language="js" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// 오답</span></span>
 <span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> answer </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> new</span><span style="color:#82AAFF"> Set</span><span style="color:#BABED8">(parent)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#BABED8">console</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">log</span><span style="color:#BABED8">(answer</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">size)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""> </span>
@@ -77,18 +275,47 @@
 <span data-line=""><span style="color:#89DDFF;font-style:italic">for</span><span style="color:#BABED8"> (</span><span style="color:#C792EA">let</span><span style="color:#BABED8"> i </span><span style="color:#89DDFF">=</span><span style="color:#F78C6C"> 1</span><span style="color:#89DDFF">;</span><span style="color:#BABED8"> i </span><span style="color:#89DDFF">&lt;=</span><span style="color:#BABED8"> n</span><span style="color:#89DDFF">;</span><span style="color:#BABED8"> i</span><span style="color:#89DDFF">++</span><span style="color:#BABED8">) </span><span style="color:#89DDFF">{</span></span>
 <span data-line=""><span style="color:#BABED8">  answer</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">add</span><span style="color:#F07178">(</span><span style="color:#82AAFF">find</span><span style="color:#F07178">(</span><span style="color:#BABED8">parent</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> i</span><span style="color:#F07178">))</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#89DDFF">}</span></span>
-<span data-line=""><span style="color:#BABED8">console</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">log</span><span style="color:#BABED8">(answer</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">size)</span><span style="color:#89DDFF">;</span></span></code></pre></figure>
-<p class="mt-4 mb-4">이때 부모 배열의 값으로만 비교해 출력하면 오답이 된다.</p>
-<p class="mt-4 mb-4"><u>모든 노드를 순회하면서 부모를 갱신하지 않았기 때문</u>에 마지막에 각 노드를 다시 find 해서 부모를 갱신해야 올바른 값이 된다.</p>
-<h2 id="정리" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#정리"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>정리</h2>
-<ol class="min-[790px]:ml-6 ml-4 list-decimal">
-<li>양방향 그래프를 그린다.</li>
-<li>노드를 순회하면서 사이클 여부를 확인한다.</li>
-<li>사이클인 노드들을 집합으로 구분한다.</li>
-<li>집합의 개수를 출력한다.</li>
-</ol>
-<h2 id="최종-코드" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#최종-코드"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>최종 코드</h2>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="js" data-theme="material-theme-palenight"><code data-language="js" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> readline </span><span style="color:#89DDFF">=</span><span style="color:#82AAFF"> require</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">readline</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#BABED8">console</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">log</span><span style="color:#BABED8">(answer</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">size)</span><span style="color:#89DDFF">;</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        이때 부모 배열의 값으로만 비교해 출력하면 오답이 된다.
+      </p>
+      <p class="mt-4 mb-4">
+        <u>모든 노드를 순회하면서 부모를 갱신하지 않았기 때문</u>에 마지막에 각
+        노드를 다시 find 해서 부모를 갱신해야 올바른 값이 된다.
+      </p>
+      <h2
+        id="정리"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#정리"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >정리
+      </h2>
+      <ol class="min-[790px]:ml-6 ml-4 list-decimal">
+        <li>양방향 그래프를 그린다.</li>
+        <li>노드를 순회하면서 사이클 여부를 확인한다.</li>
+        <li>사이클인 노드들을 집합으로 구분한다.</li>
+        <li>집합의 개수를 출력한다.</li>
+      </ol>
+      <h2
+        id="최종-코드"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#최종-코드"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >최종 코드
+      </h2>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="js"
+          data-theme="material-theme-palenight"
+        ><code data-language="js" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> readline </span><span style="color:#89DDFF">=</span><span style="color:#82AAFF"> require</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">readline</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#C792EA">let</span><span style="color:#BABED8"> rl </span><span style="color:#89DDFF">=</span><span style="color:#BABED8"> readline</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">createInterface</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">{</span></span>
 <span data-line=""><span style="color:#F07178">  input</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> process</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">stdin</span><span style="color:#89DDFF">,</span></span>
 <span data-line=""><span style="color:#F07178">  output</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> process</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">stdout</span><span style="color:#89DDFF">,</span></span>
@@ -144,4 +371,63 @@
 <span data-line=""><span style="color:#676E95;font-style:italic">  // Set의 size는 중복되지 않는 각 노드의 부모(집합)이므로</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">  // 연합(집합)의 개수가 된다.</span></span>
 <span data-line=""><span style="color:#BABED8">  console</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">log</span><span style="color:#F07178">(</span><span style="color:#BABED8">answer</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">size</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre></figure></div><aside class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden" aria-label="index"><ul class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"><li id="접근법" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">접근법</li><li id="bfs로-집합-구성하기" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">BFS로 집합 구성하기</li><li id="union-find로-집합-구성하기" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue">Union-Find로 집합 구성하기</li><li id="정리" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">정리</li><li id="최종-코드" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">최종 코드</li></ul></aside></section><a class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water" href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] %5B%EA%B5%AC%EB%A6%84%ED%86%A4%20%EC%B1%8C%EB%A6%B0%EC%A7%80%5D%20%EC%97%B0%ED%95%A9&amp;body=<!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 -->" rel="noopener noreferrer" target="_blank">📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍</a><div class="flex items-center mt-4 mb-56"><iframe class="border-0 rounded-md cursor-pointer object-contain hover:animate-bouncing" src="https://github.com/sponsors/1ilsang/button" title="Sponsor 1ilsang" height="32" width="114"></iframe></div></section>
+<span data-line=""><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre>
+      </figure>
+    </div>
+    <aside
+      class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
+      aria-label="index"
+    >
+      <ul
+        class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
+      >
+        <li
+          id="접근법"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          접근법
+        </li>
+        <li
+          id="bfs로-집합-구성하기"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          BFS로 집합 구성하기
+        </li>
+        <li
+          id="union-find로-집합-구성하기"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
+        >
+          Union-Find로 집합 구성하기
+        </li>
+        <li
+          id="정리"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          정리
+        </li>
+        <li
+          id="최종-코드"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          최종 코드
+        </li>
+      </ul>
+    </aside>
+  </section>
+  <a
+    class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water"
+    href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] %5B%EA%B5%AC%EB%A6%84%ED%86%A4%20%EC%B1%8C%EB%A6%B0%EC%A7%80%5D%20%EC%97%B0%ED%95%A9&amp;body=&lt;!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 --&gt;"
+    rel="noopener noreferrer"
+    target="_blank"
+    >📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍</a
+  >
+  <div class="flex items-center mt-4 mb-56">
+    <iframe
+      class="border-0 rounded-md cursor-pointer object-contain hover:animate-bouncing"
+      src="https://github.com/sponsors/1ilsang/button"
+      title="Sponsor 1ilsang"
+      height="32"
+      width="114"
+    ></iframe>
+  </div>
+</section>

@@ -1,5 +1,10 @@
 import { expect, test } from '@playwright/test';
-import { gotoUrl, screenshotFullPage, waitImages } from './shared/utils';
+import {
+  getPageDomInnerHTML,
+  gotoUrl,
+  screenshotFullPage,
+  waitImages,
+} from './shared/utils';
 import { MACRO_SUITE } from './shared/constants';
 
 test.describe('404', () => {
@@ -19,7 +24,7 @@ test.describe('404', () => {
   test(MACRO_SUITE.DOM_SNAPSHOT, async ({ page }) => {
     await gotoUrl({ page, url: '/something_wrong_path', timeout: 10_000 });
     await waitImages({ page });
-    const body = await page.locator('main').innerHTML();
-    expect(body).toMatchSnapshot([`404.html`]);
+    const prettyHtml = await getPageDomInnerHTML({ page });
+    expect(prettyHtml).toMatchSnapshot([`404.html`]);
   });
 });
