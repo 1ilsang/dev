@@ -1,4 +1,5 @@
 import type { MDXComponents } from 'mdx/types';
+import { Callout } from '~/shared/components/Callout/Container';
 import { HeadingFactory } from '~/shared/components/mdx/Headings';
 import {
   ImageTag,
@@ -7,8 +8,11 @@ import {
 import { BasicTable } from '~/shared/components/mdx/table/BasicTable';
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
-  return {
+  const parser = {
     ...components,
+    Callout: (props) => {
+      return <Callout {...props}>{parser.p(props)}</Callout>;
+    },
     img: (props: ImageTagProps) => <ImageTag {...props} />,
     blockquote: (props) => {
       // > ... 참조
@@ -28,4 +32,5 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     table: (props) => <BasicTable {...props} />,
     ...HeadingFactory(),
   };
+  return parser;
 }
