@@ -1,134 +1,922 @@
-<progress class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og" value="0" max="1"></progress><nav class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"><h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5"><a class="hover:underline" href="/">1ilsang</a></h2><div class="flex"><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/posts">posts</a></h2><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/tags">tags</a></h2><div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-white-blue" alt="1ilsang" src="/images/chul.webp"></a></div></div></nav><section class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"><h1 class="text-4xl break-words md:text-6xl">오픈소스 기여 첫걸음, MDN 문서 번역 가이드</h1><section class="flex items-center mt-4"><div class="mr-2 w-9 h-9 md:w-12 md:h-12" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-sub-blue" alt="1ilsang" src="/images/chul.webp"></a></div><div><a class="text-lg" href="/about">1ilsang</a><div class="text-sm text-sub-blue">클라이밍 하실래염?</div></div></section><section class="flex flex-wrap items-end mt-2"><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/mdn">#mdn</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/contribution">#contribution</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/translation">#translation</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/open-source">#open-source</a></section><section><div class="inline text-date-gray"><span class="mr-1">Published</span><time datetime="2024-12-22 02:01">2024-12-22 02:01</time></div></section><section id="post-body-container" class="relative"><div class="markdown"><div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full h-[600px] object-contain bg-transparent mt-10"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="cover" src="/posts/mdn-contributing-translations/cover.webp"></div></div>
-<p class="mt-4 mb-4"><a href="/posts/mdn-ko-organizer" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">MDN 메인테이너 합류</a> 이후 많은 분에게 번역 기여를 권했었다. 그런데 막상 초심자분들을 위한 상세한 가이드가 없다는 것을 깨닫고 이번 기회에 작성해 보려고 한다.</p>
-<h2 id="tldr" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#tldr"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>TL;DR</h2>
-<ul class="min-[790px]:ml-6 ml-4 list-disc">
-<li>yari, content, translated-content 저장소 차이를 이해한다.</li>
-<li>개발 서버는 <code>content</code> 에서 실행한다.</li>
-<li>문서 번역은 <code>translated-content</code> 에서 진행한다.</li>
-</ul>
-<h2 id="목차" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#목차"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>목차</h2>
-<ul class="min-[790px]:ml-6 ml-4 list-disc">
-<li><a href="#%EB%AA%A9%EC%B0%A8" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">목차</a></li>
-<li><a href="#mdn-%EB%A6%AC%ED%8F%AC%EC%A7%80%ED%84%B0%EB%A6%AC-%EA%B4%80%EA%B3%84" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">MDN 리포지터리 관계</a>
-<ul class="min-[790px]:ml-6 ml-4 list-disc">
-<li><a href="#yari" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Yari</a></li>
-<li><a href="#content" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Content</a></li>
-<li><a href="#translated-content" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Translated-content</a></li>
-</ul>
-</li>
-<li><a href="#%EB%A6%AC%ED%8F%AC%EC%A7%80%ED%84%B0%EB%A6%AC%EB%A5%BC-%EA%B0%80%EC%A0%B8%EC%98%A4%EB%8A%94-%EB%B0%A9%EB%B2%95" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">리포지터리를 가져오는 방법</a></li>
-<li><a href="#%EB%A1%9C%EC%BB%AC-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">로컬 개발 환경 설정하기</a></li>
-<li><a href="#%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B0" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">실행하기</a></li>
-<li><a href="#%EB%B2%88%EC%97%AD-%EA%B0%80%EC%9D%B4%EB%93%9C-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">번역 가이드 확인하기</a></li>
-<li><a href="#pr-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">PR 생성하기</a></li>
-<li><a href="#%EB%A7%88%EC%B9%98%EB%A9%B0" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">마치며</a></li>
-</ul>
-<h2 id="mdn-리포지터리-관계" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#mdn-리포지터리-관계"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>MDN 리포지터리 관계</h2>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="mdn organizations" src="/posts/mdn-contributing-translations/mdn-organizations.webp"></div></div>
-<p class="mt-4 mb-4"><a href="https://github.com/mdn" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">MDN Organization</a>에는 다양한 저장소가 있다. 우리는 여기서 <code>yari</code>, <code>content</code>, <code>translated-content</code> 세 저장소만 이해하고 있으면 된다.</p>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4">저장소 <a href="https://developer.mozilla.org/ko/docs/MDN/Community/Contributing/Our_repositories" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">계층 설명</a>을 확인하면 저장소가 어떤 용도로 나뉘어 있는지 확인할 수 있다.</p>
-</blockquote>
-<h3 id="yari" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#yari"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Yari</h3>
-<p class="mt-4 mb-4"><a href="https://github.com/mdn/yari" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">yari</a>는 <u>MDN 문서들을 엮어 웹 사이트로 만들어주는</u> 문서화 플랫폼 저장소다. <a href="/posts/mdn-ko-organizer#%EC%97%AD%EC%82%AC" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">기존의 WYSIWYG에서 변경</a>되었다.</p>
-<p class="mt-4 mb-4"><code>content</code> 및 <code>translated-content</code>에 작성된 문서를 엮어 정적 웹 사이트로 빌드해 주는 플랫폼에 해당한다.</p>
-<p class="mt-4 mb-4">따라서 문서 내용 외부의 Navigation, Tab, Footer 등 웹 사이트 동작에 기여하려면 여기 저장소의 코드를 확인해야 한다.</p>
-<p class="mt-4 mb-4">동작 방식이 궁금하다면 <a href="https://github.com/mdn/yari?tab=readme-ov-file#how-it-works" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">How it works</a>를 참고하면 된다.</p>
-<h3 id="content" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#content"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Content</h3>
-<p class="mt-4 mb-4"><a href="https://github.com/mdn/content" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">content</a>는 MDN 웹 문서 원본이 모여있는 저장소다. 언어는 영어로 통일되어 있기 때문에 <code>files/en-us/**</code>만 존재한다.</p>
-<p class="mt-4 mb-4">문서의 최신화, 내용 오류 수정 및 새로운 문서를 작성하고 싶다면 여기 저장소에 기여하면 된다.</p>
-<h3 id="translated-content" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#translated-content"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Translated-content</h3>
-<p class="mt-4 mb-4">대망의 <a href="https://github.com/mdn/translated-content" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">translated-content</a>는 content에 저장된 원본 문서를 <u>번역한 문서들을 모아놓은 저장소</u>다.</p>
-<p class="mt-4 mb-4">따라서 content와 폴더 구조가 동일하며 한국어, 일본어 등 번역 주체에 따라 <code>files/ko/**</code>, <code>files/ja/**</code> 등으로 지역 코드가 변경된다.</p>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4">NOTE: 특정 지역으로 MDN 문서에 접근했을 때 번역된 문서가 없을 경우 en-us 파일로 리다이렉트 된다.</p>
-</blockquote>
-<p class="mt-4 mb-4">원본 문서 번역, 번역 문서의 문맥 수정 등의 기여는 여기 저장소에 기여하면 된다.</p>
-<p class="mt-4 mb-4">대부분의 MDN 기여는 <code>translated-content</code> 저장소에 PR을 날리는 상황에 해당하므로 이 글에서도 해당 저장소에 기여하는 방법을 다루도록 하겠다.</p>
-<h2 id="리포지터리를-가져오는-방법" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#리포지터리를-가져오는-방법"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>리포지터리를 가져오는 방법</h2>
-<p class="mt-4 mb-4"><code>translated-content</code>에 기여하기 위해 원격 저장소를 내 컴퓨터로 가져와야 한다.</p>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="fork translated content" src="/posts/mdn-contributing-translations/fork.webp"></div></div>
-<p class="mt-4 mb-4">MDN 저장소에 바로 push 할 권한이 없으므로 <code>fork</code>로 해당 저장소를 내 저장소로 가져온다.</p>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="copy repository" src="/posts/mdn-contributing-translations/https-copy.webp"></div></div>
-<p class="mt-4 mb-4">내 저장소를 <a href="https://namu.wiki/w/%ED%86%B5%ED%95%A9%20%EA%B0%9C%EB%B0%9C%20%ED%99%98%EA%B2%BD" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">IDE</a>에서 실행시키기 위해 HTTPS URL을 복사한다.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="sh" data-theme="material-theme-palenight"><code data-language="sh" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color: rgb(255, 203, 107);">$</span><span style="color: rgb(195, 232, 141);"> git</span><span style="color: rgb(195, 232, 141);"> init</span><span style="color: rgb(103, 110, 149); font-style: italic;"> # 깃 초기화</span></span>
-<span data-line=""><span style="color: rgb(255, 203, 107);">$</span><span style="color: rgb(195, 232, 141);"> git</span><span style="color: rgb(195, 232, 141);"> remote</span><span style="color: rgb(195, 232, 141);"> add</span><span style="color: rgb(195, 232, 141);"> origin</span><span style="color: rgb(195, 232, 141);"> {HTTPS_URL}</span><span style="color: rgb(103, 110, 149); font-style: italic;"> # 저장소를 origin으로 추가</span></span>
-<span data-line=""><span style="color: rgb(255, 203, 107);">$</span><span style="color: rgb(195, 232, 141);"> git</span><span style="color: rgb(195, 232, 141);"> pull</span><span style="color: rgb(195, 232, 141);"> origin</span><span style="color: rgb(195, 232, 141);"> main</span><span style="color: rgb(103, 110, 149); font-style: italic;"> # origin 저장소의 main 브랜치 가져오기</span></span>
-<span data-line=""><span style="color: rgb(255, 203, 107);">$</span><span style="color: rgb(195, 232, 141);"> yarn</span><span style="color: rgb(195, 232, 141);"> install</span><span style="color: rgb(103, 110, 149); font-style: italic;"> # 해당 브랜치의 종속 라이브러리 설치</span></span></code></pre></figure>
-<p class="mt-4 mb-4">이제 최신 브랜치를 IDE로 가져왔으므로 위와 같이 순차적으로 <a href="https://aws.amazon.com/ko/what-is/cli/" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">CLI</a>에 입력한다.</p>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4">GitHub과 관련된 더 자세한 내용은 <a href="https://developer.mozilla.org/ko/docs/MDN/Community/Contributing/Getting_started#%EA%B8%B0%EC%97%AC_%EC%A4%80%EB%B9%84%ED%95%98%EA%B8%B0" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">기여 준비하기</a> 문서를 추천한다.</p>
-</blockquote>
-<h2 id="로컬-개발-환경-설정하기" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#로컬-개발-환경-설정하기"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>로컬 개발 환경 설정하기</h2>
-<p class="mt-4 mb-4">위의 <a href="#%EB%A6%AC%ED%8F%AC%EC%A7%80%ED%84%B0%EB%A6%AC%EB%A5%BC-%EA%B0%80%EC%A0%B8%EC%98%A4%EB%8A%94-%EB%B0%A9%EB%B2%95" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">리포지터리를 가져오는 방법</a>에서 <code>translated-content</code>를 가져왔다. 하지만 실제 개발 환경을 실행시키기 위해선 <code>content</code> 저장소도 필요하다.</p>
-<p class="mt-4 mb-4">동일하게 <code>content</code> 저장소도 로컬에 가져온다.</p>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[40%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="folder hierarchy" src="/posts/mdn-contributing-translations/folder.webp"></div></div>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4">content, translated-content 두 저장소 모두 가져와야 한다.</p>
-</blockquote>
-<p class="mt-4 mb-4">웹 사이트를 빌드하는 <code>yari</code>가 <code>content</code>에 내장되어 있기 때문에 <code>content</code>로 사이트를 띄우고, 실제 번역을 <code>translated-content</code>에서 진행하는 방식으로 작업하게 된다.</p>
-<p class="mt-4 mb-4"><code>content</code> 저장소를 가져왔다면 <code>yarn install</code>으로 종속성 설치를 해준다.</p>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[40%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="env file" src="/posts/mdn-contributing-translations/env-file.webp"></div></div>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="md" data-theme="material-theme-palenight"><code data-language="md" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color: rgb(186, 190, 216);">CONTENT_TRANSLATED_ROOT=/path/to/translated-content/files</span></span>
-<span data-line=""><span style="color: rgb(186, 190, 216);">EDITOR=code</span></span></code></pre></figure>
-<p class="mt-4 mb-4">이후 <code>content</code> 폴더 root에 <code>.env</code> 파일을 생성한 다음 위의 내용을 추가한다(IDE가 vscode가 아닐 경우 EDITOR 제거).</p>
-<p class="mt-4 mb-4"><code>/path/to</code>에는 <code>translated-content</code> 폴더가 설치된 상위 경로를 입력해야 한다. pwd 명령어로 확인 가능하다.</p>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="dev page" src="/posts/mdn-contributing-translations/dev-page.webp"></div></div>
-<p class="mt-4 mb-4">이제 어려운 것들은 끝났다.</p>
-<p class="mt-4 mb-4"><code>content</code> 폴더에서 <code>yarn start</code> 이후 <code>localhost:5042</code>에 접근하면 사이트가 보인다.</p>
-<h2 id="실행하기" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#실행하기"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>실행하기</h2>
-<p class="mt-4 mb-4">본격적으로 번역하기 전에 개발 환경에 조금 더 익숙해져 보자.</p>
-<p class="mt-4 mb-4">만약 <code>http://localhost:5042/ko/docs/Web/API/Background_Tasks_API</code>의 문서를 수정하고 싶다면 어떻게 해야 할까?</p>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="search file" src="/posts/mdn-contributing-translations/search-file.webp"></div></div>
-<p class="mt-4 mb-4">URL의 <code>/ko/docs</code> 뒷 부분 <code>/Web/API/Background_Tasks_API</code>를 IDE에서 파일 검색해 본다.</p>
-<p class="mt-4 mb-4"><code>en-us</code>, <code>ko</code>, <code>zh-cn</code> 하위에 파일이 존재하므로 영어, 한국어, 중국어 문서가 존재한다고 생각하면 된다. 우리는 <code>ko</code> 하위의 <code>index.md</code> 파일로 접근한다.</p>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="edit file" src="/posts/mdn-contributing-translations/edit.webp"></div></div>
-<p class="mt-4 mb-4"><code>index.md</code> 파일에서 내용을 수정 후 브라우저 새로고침을 해보자.</p>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="edit result" src="/posts/mdn-contributing-translations/edit-result.webp"></div></div>
-<p class="mt-4 mb-4">🎉 TA-DA! 🎉 로컬 환경이 정상적으로 반영된 것을 알 수 있다.</p>
-<p class="mt-4 mb-4">이로써 우리는 아래의 3가지를 이해하게 되었다.</p>
-<ol class="min-[790px]:ml-6 ml-4 list-decimal">
-<li>content, translated-content 관계</li>
-<li>개발 서버는 <code>content</code> 에서 실행</li>
-<li>문서 번역은 <code>translated-content</code> 에서 진행</li>
-</ol>
-<h2 id="번역-가이드-확인하기" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#번역-가이드-확인하기"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>번역 가이드 확인하기</h2>
-<p class="mt-4 mb-4">문서의 통일을 위해 <a href="https://github.com/mdn/translated-content/blob/main/docs/README.md" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">각 현지화 문서에는 가이드라인이 존재</a>한다.</p>
-<p class="mt-4 mb-4">한국도 마찬가지로 번역 가이드 문서를 제공하므로 필요에 따라 아래의 링크에서 확인하면 된다.</p>
-<ul class="min-[790px]:ml-6 ml-4 list-disc">
-<li><a href="https://github.com/mdn/translated-content/blob/main/docs/ko/README.md" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">한국어 번역 지침서</a></li>
-</ul>
-<p class="mt-4 mb-4">특히 추천하고 싶은 문서는 아래와 같다.</p>
-<ol class="min-[790px]:ml-6 ml-4 list-decimal">
-<li><a href="https://github.com/mdn/translated-content/blob/main/docs/ko/guides/translation-guide.md" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">번역 안내서</a>
-<ul class="min-[790px]:ml-6 ml-4 list-disc">
-<li>문체, 개행 등 번역 전반적인 내용을 다룬다.</li>
-</ul>
-</li>
-<li><a href="https://github.com/mdn/translated-content/blob/main/docs/ko/guides/glossary-guide.md" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">용어 안내서</a>
-<ul class="min-[790px]:ml-6 ml-4 list-disc">
-<li>example을 '예제'로 번역할지 '예'로 번역할지 등 자주 사용되는 용어의 번역 가이드다.</li>
-</ul>
-</li>
-<li><a href="https://github.com/mdn/translated-content/blob/main/docs/ko/guides/meta-data-guide.md" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Meta Data 안내서</a>
-<ul class="min-[790px]:ml-6 ml-4 list-disc">
-<li>원본 문서와의 최신화 정보를 확인하기 위해 모든 번역 문서는 MetaData를 활용하고 있다.</li>
-</ul>
-</li>
-</ol>
-<h2 id="pr-생성하기" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#pr-생성하기"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>PR 생성하기</h2>
-<p class="mt-4 mb-4">번역된 문서를 반영하기 위해 <code>translated-content</code>에서 PR을 생성한다.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="sh" data-theme="material-theme-palenight"><code data-language="sh" data-theme="material-theme-palenight" style="display: grid;"><span data-line=""><span style="color: rgb(255, 203, 107);">$</span><span style="color: rgb(195, 232, 141);"> git</span><span style="color: rgb(195, 232, 141);"> add</span><span style="color: rgb(195, 232, 141);"> .</span></span>
-<span data-line=""><span style="color: rgb(255, 203, 107);">$</span><span style="color: rgb(195, 232, 141);"> git</span><span style="color: rgb(195, 232, 141);"> commit</span><span style="color: rgb(195, 232, 141);"> -m</span><span style="color: rgb(195, 232, 141);"> {YOUR_COMMIT_MESSAGE}</span></span>
-<span data-line=""><span style="color: rgb(255, 203, 107);">$</span><span style="color: rgb(195, 232, 141);"> git</span><span style="color: rgb(195, 232, 141);"> push</span><span style="color: rgb(195, 232, 141);"> origin</span><span style="color: rgb(195, 232, 141);"> {YOUR_BRANCH}</span></span></code></pre></figure>
-<p class="mt-4 mb-4">origin 저장소로 번역 내용을 push 한다.</p>
-<p class="mt-4 mb-4"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="create new pr" src="/posts/mdn-contributing-translations/pr.webp"></div>
-<div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="set pr target" src="/posts/mdn-contributing-translations/pr-target.webp"></div></p>
-<p class="mt-4 mb-4">깃헙 사이트에 접속해 PR 생성하기를 선택 후 내 저장소에서 <code>translated-content</code>의 <code>main</code>을 목표로 PR을 생성하면 된다.</p>
-<p class="mt-4 mb-4">PR 본문 작성은 <a href="https://github.com/mdn/translated-content/pull/12137" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">예제 PR</a> 혹은 저장소의 다른 PR들을 참고하면 된다.</p>
-<p class="mt-4 mb-4">이제 리뷰어의 응답에 따라 merge 혹은 추가 작업이 진행된다.</p>
-<h2 id="마치며" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#마치며"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>마치며</h2>
-<p class="mt-4 mb-4">핵심만 가볍게 적으려 했는데 생각보다 글이 길어졌다. 그만큼 친절한 가이드를 작성하자고 한 것이니 너그럽게 찬찬히 봐주시길 부탁드리고 싶다.</p>
-<p class="mt-4 mb-4">기여 과정이 복잡하다는 것은 곧 텐션이 떨어지게 된다는 것이므로 지금보다 더 간략화할 방법이 있을까 고민하는 계기가 되었다.</p>
-<p class="mt-4 mb-4">초심자들이 MDN 기여를 통해 오픈소스에 좋은 인상을 얻고 누구나 할 수 있다는 자신감을 가질 수 있도록 하고 싶다.</p>
-<p class="mt-4 mb-4">MDN 한국팀이 궁금하다면 <a href="https://discord.com/channels/1009925603572600863/1070064829466939503" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">MDN Discord #korean 채널</a> 혹은 <a href="https://groups.google.com/g/yari-content-ko" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Google Groups (yari-content-ko)</a>에서 소식을 받아볼 수 있다.</p></div><aside class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden" aria-label="index"><ul class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"><li id="tldr" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">TL;DR</li><li id="목차" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">목차</li><li id="mdn-리포지터리-관계" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">MDN 리포지터리 관계</li><li id="yari" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">Yari</li><li id="content" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">Content</li><li id="translated-content" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue">Translated-content</li><li id="리포지터리를-가져오는-방법" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">리포지터리를 가져오는 방법</li><li id="로컬-개발-환경-설정하기" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">로컬 개발 환경 설정하기</li><li id="실행하기" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">실행하기</li><li id="번역-가이드-확인하기" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">번역 가이드 확인하기</li><li id="pr-생성하기" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">PR 생성하기</li><li id="마치며" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">마치며</li></ul></aside></section><a class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water" href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] %EC%98%A4%ED%94%88%EC%86%8C%EC%8A%A4%20%EA%B8%B0%EC%97%AC%20%EC%B2%AB%EA%B1%B8%EC%9D%8C,%20MDN%20%EB%AC%B8%EC%84%9C%20%EB%B2%88%EC%97%AD%20%EA%B0%80%EC%9D%B4%EB%93%9C&amp;body=<!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 -->" rel="noopener noreferrer" target="_blank">📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍</a><div class="flex items-center mt-4 mb-56"><iframe class="border-0 rounded-md cursor-pointer object-contain hover:animate-bouncing" src="https://github.com/sponsors/1ilsang/button" title="Sponsor 1ilsang" height="32" width="114"></iframe></div></section>
+<progress
+  class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  value="0"
+  max="1"
+></progress>
+<nav
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"
+>
+  <h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
+    <a class="hover:underline" href="/">1ilsang</a>
+  </h2>
+  <div class="flex">
+    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/posts">posts</a>
+    </h2>
+    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/tags">tags</a>
+    </h2>
+    <div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character">
+      <a href="/about"
+        ><img
+          class="border border-solid rounded-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+    </div>
+  </div>
+</nav>
+<section
+  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
+>
+  <h1 class="text-4xl break-words md:text-6xl">
+    오픈소스 기여 첫걸음, MDN 문서 번역 가이드
+  </h1>
+  <section class="flex items-center mt-4">
+    <div
+      class="mr-2 w-9 h-9 md:w-12 md:h-12"
+      role="img"
+      aria-label="1ilsang character"
+    >
+      <a href="/about"
+        ><img
+          class="border border-solid rounded-full border-sub-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+    </div>
+    <div>
+      <a class="text-lg" href="/about">1ilsang</a>
+      <div class="text-sm text-sub-blue">클라이밍 하실래염?</div>
+    </div>
+  </section>
+  <section class="flex flex-wrap items-end mt-2">
+    <a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/mdn"
+      >#<!-- -->mdn</a
+    ><a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/contribution"
+      >#<!-- -->contribution</a
+    ><a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/translation"
+      >#<!-- -->translation</a
+    ><a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/open-source"
+      >#<!-- -->open-source</a
+    >
+  </section>
+  <section>
+    <div class="inline text-date-gray">
+      <span class="mr-1">Published</span
+      ><time datetime="2024-12-22 02:01">2024-12-22 02:01</time>
+    </div>
+  </section>
+  <section id="post-body-container" class="relative">
+    <div class="markdown">
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full h-[600px] object-contain bg-transparent mt-10"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="cover"
+            src="/posts/mdn-contributing-translations/cover.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        <a
+          href="/posts/mdn-ko-organizer"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >MDN 메인테이너 합류</a
+        >
+        이후 많은 분에게 번역 기여를 권했었다. 그런데 막상 초심자분들을 위한
+        상세한 가이드가 없다는 것을 깨닫고 이번 기회에 작성해 보려고 한다.
+      </p>
+      <h2
+        id="tldr"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#tldr"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >TL;DR
+      </h2>
+      <ul class="min-[790px]:ml-6 ml-4 list-disc">
+        <li>yari, content, translated-content 저장소 차이를 이해한다.</li>
+        <li>개발 서버는 <code>content</code> 에서 실행한다.</li>
+        <li>문서 번역은 <code>translated-content</code> 에서 진행한다.</li>
+      </ul>
+      <h2
+        id="목차"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#목차"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >목차
+      </h2>
+      <ul class="min-[790px]:ml-6 ml-4 list-disc">
+        <li>
+          <a
+            href="#%EB%AA%A9%EC%B0%A8"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >목차</a
+          >
+        </li>
+        <li>
+          <a
+            href="#mdn-%EB%A6%AC%ED%8F%AC%EC%A7%80%ED%84%B0%EB%A6%AC-%EA%B4%80%EA%B3%84"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >MDN 리포지터리 관계</a
+          >
+          <ul class="min-[790px]:ml-6 ml-4 list-disc">
+            <li>
+              <a
+                href="#yari"
+                class="underline-highlight-fade"
+                target="_blank"
+                rel="noreferrer noopener"
+                >Yari</a
+              >
+            </li>
+            <li>
+              <a
+                href="#content"
+                class="underline-highlight-fade"
+                target="_blank"
+                rel="noreferrer noopener"
+                >Content</a
+              >
+            </li>
+            <li>
+              <a
+                href="#translated-content"
+                class="underline-highlight-fade"
+                target="_blank"
+                rel="noreferrer noopener"
+                >Translated-content</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a
+            href="#%EB%A6%AC%ED%8F%AC%EC%A7%80%ED%84%B0%EB%A6%AC%EB%A5%BC-%EA%B0%80%EC%A0%B8%EC%98%A4%EB%8A%94-%EB%B0%A9%EB%B2%95"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >리포지터리를 가져오는 방법</a
+          >
+        </li>
+        <li>
+          <a
+            href="#%EB%A1%9C%EC%BB%AC-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >로컬 개발 환경 설정하기</a
+          >
+        </li>
+        <li>
+          <a
+            href="#%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B0"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >실행하기</a
+          >
+        </li>
+        <li>
+          <a
+            href="#%EB%B2%88%EC%97%AD-%EA%B0%80%EC%9D%B4%EB%93%9C-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >번역 가이드 확인하기</a
+          >
+        </li>
+        <li>
+          <a
+            href="#pr-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >PR 생성하기</a
+          >
+        </li>
+        <li>
+          <a
+            href="#%EB%A7%88%EC%B9%98%EB%A9%B0"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >마치며</a
+          >
+        </li>
+      </ul>
+      <h2
+        id="mdn-리포지터리-관계"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#mdn-리포지터리-관계"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >MDN 리포지터리 관계
+      </h2>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="mdn organizations"
+            src="/posts/mdn-contributing-translations/mdn-organizations.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        <a
+          href="https://github.com/mdn"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >MDN Organization</a
+        >에는 다양한 저장소가 있다. 우리는 여기서 <code>yari</code>,
+        <code>content</code>, <code>translated-content</code> 세 저장소만
+        이해하고 있으면 된다.
+      </p>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          저장소
+          <a
+            href="https://developer.mozilla.org/ko/docs/MDN/Community/Contributing/Our_repositories"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >계층 설명</a
+          >을 확인하면 저장소가 어떤 용도로 나뉘어 있는지 확인할 수 있다.
+        </p>
+      </blockquote>
+      <h3
+        id="yari"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#yari"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Yari
+      </h3>
+      <p class="mt-4 mb-4">
+        <a
+          href="https://github.com/mdn/yari"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >yari</a
+        >는 <u>MDN 문서들을 엮어 웹 사이트로 만들어주는</u> 문서화 플랫폼
+        저장소다.
+        <a
+          href="/posts/mdn-ko-organizer#%EC%97%AD%EC%82%AC"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >기존의 WYSIWYG에서 변경</a
+        >되었다.
+      </p>
+      <p class="mt-4 mb-4">
+        <code>content</code> 및 <code>translated-content</code>에 작성된 문서를
+        엮어 정적 웹 사이트로 빌드해 주는 플랫폼에 해당한다.
+      </p>
+      <p class="mt-4 mb-4">
+        따라서 문서 내용 외부의 Navigation, Tab, Footer 등 웹 사이트 동작에
+        기여하려면 여기 저장소의 코드를 확인해야 한다.
+      </p>
+      <p class="mt-4 mb-4">
+        동작 방식이 궁금하다면
+        <a
+          href="https://github.com/mdn/yari?tab=readme-ov-file#how-it-works"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >How it works</a
+        >를 참고하면 된다.
+      </p>
+      <h3
+        id="content"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#content"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Content
+      </h3>
+      <p class="mt-4 mb-4">
+        <a
+          href="https://github.com/mdn/content"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >content</a
+        >는 MDN 웹 문서 원본이 모여있는 저장소다. 언어는 영어로 통일되어 있기
+        때문에 <code>files/en-us/**</code>만 존재한다.
+      </p>
+      <p class="mt-4 mb-4">
+        문서의 최신화, 내용 오류 수정 및 새로운 문서를 작성하고 싶다면 여기
+        저장소에 기여하면 된다.
+      </p>
+      <h3
+        id="translated-content"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#translated-content"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Translated-content
+      </h3>
+      <p class="mt-4 mb-4">
+        대망의
+        <a
+          href="https://github.com/mdn/translated-content"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >translated-content</a
+        >는 content에 저장된 원본 문서를
+        <u>번역한 문서들을 모아놓은 저장소</u>다.
+      </p>
+      <p class="mt-4 mb-4">
+        따라서 content와 폴더 구조가 동일하며 한국어, 일본어 등 번역 주체에 따라
+        <code>files/ko/**</code>, <code>files/ja/**</code> 등으로 지역 코드가
+        변경된다.
+      </p>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          NOTE: 특정 지역으로 MDN 문서에 접근했을 때 번역된 문서가 없을 경우
+          en-us 파일로 리다이렉트 된다.
+        </p>
+      </blockquote>
+      <p class="mt-4 mb-4">
+        원본 문서 번역, 번역 문서의 문맥 수정 등의 기여는 여기 저장소에 기여하면
+        된다.
+      </p>
+      <p class="mt-4 mb-4">
+        대부분의 MDN 기여는 <code>translated-content</code> 저장소에 PR을 날리는
+        상황에 해당하므로 이 글에서도 해당 저장소에 기여하는 방법을 다루도록
+        하겠다.
+      </p>
+      <h2
+        id="리포지터리를-가져오는-방법"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#리포지터리를-가져오는-방법"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >리포지터리를 가져오는 방법
+      </h2>
+      <p class="mt-4 mb-4">
+        <code>translated-content</code>에 기여하기 위해 원격 저장소를 내
+        컴퓨터로 가져와야 한다.
+      </p>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="fork translated content"
+            src="/posts/mdn-contributing-translations/fork.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        MDN 저장소에 바로 push 할 권한이 없으므로 <code>fork</code>로 해당
+        저장소를 내 저장소로 가져온다.
+      </p>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="copy repository"
+            src="/posts/mdn-contributing-translations/https-copy.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        내 저장소를
+        <a
+          href="https://namu.wiki/w/%ED%86%B5%ED%95%A9%20%EA%B0%9C%EB%B0%9C%20%ED%99%98%EA%B2%BD"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >IDE</a
+        >에서 실행시키기 위해 HTTPS URL을 복사한다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="sh"
+          data-theme="material-theme-palenight"
+        ><code data-language="sh" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> git</span><span style="color:#C3E88D"> init</span><span style="color:#676E95;font-style:italic"> # 깃 초기화</span></span>
+<span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> git</span><span style="color:#C3E88D"> remote</span><span style="color:#C3E88D"> add</span><span style="color:#C3E88D"> origin</span><span style="color:#C3E88D"> {HTTPS_URL}</span><span style="color:#676E95;font-style:italic"> # 저장소를 origin으로 추가</span></span>
+<span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> git</span><span style="color:#C3E88D"> pull</span><span style="color:#C3E88D"> origin</span><span style="color:#C3E88D"> main</span><span style="color:#676E95;font-style:italic"> # origin 저장소의 main 브랜치 가져오기</span></span>
+<span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> yarn</span><span style="color:#C3E88D"> install</span><span style="color:#676E95;font-style:italic"> # 해당 브랜치의 종속 라이브러리 설치</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        이제 최신 브랜치를 IDE로 가져왔으므로 위와 같이 순차적으로
+        <a
+          href="https://aws.amazon.com/ko/what-is/cli/"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >CLI</a
+        >에 입력한다.
+      </p>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          GitHub과 관련된 더 자세한 내용은
+          <a
+            href="https://developer.mozilla.org/ko/docs/MDN/Community/Contributing/Getting_started#%EA%B8%B0%EC%97%AC_%EC%A4%80%EB%B9%84%ED%95%98%EA%B8%B0"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >기여 준비하기</a
+          >
+          문서를 추천한다.
+        </p>
+      </blockquote>
+      <h2
+        id="로컬-개발-환경-설정하기"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#로컬-개발-환경-설정하기"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >로컬 개발 환경 설정하기
+      </h2>
+      <p class="mt-4 mb-4">
+        위의
+        <a
+          href="#%EB%A6%AC%ED%8F%AC%EC%A7%80%ED%84%B0%EB%A6%AC%EB%A5%BC-%EA%B0%80%EC%A0%B8%EC%98%A4%EB%8A%94-%EB%B0%A9%EB%B2%95"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >리포지터리를 가져오는 방법</a
+        >에서 <code>translated-content</code>를 가져왔다. 하지만 실제 개발
+        환경을 실행시키기 위해선 <code>content</code> 저장소도 필요하다.
+      </p>
+      <p class="mt-4 mb-4">
+        동일하게 <code>content</code> 저장소도 로컬에 가져온다.
+      </p>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[40%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="folder hierarchy"
+            src="/posts/mdn-contributing-translations/folder.webp"
+          />
+        </div>
+      </div>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          content, translated-content 두 저장소 모두 가져와야 한다.
+        </p>
+      </blockquote>
+      <p class="mt-4 mb-4">
+        웹 사이트를 빌드하는 <code>yari</code>가 <code>content</code>에 내장되어
+        있기 때문에 <code>content</code>로 사이트를 띄우고, 실제 번역을
+        <code>translated-content</code>에서 진행하는 방식으로 작업하게 된다.
+      </p>
+      <p class="mt-4 mb-4">
+        <code>content</code> 저장소를 가져왔다면 <code>yarn install</code>으로
+        종속성 설치를 해준다.
+      </p>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[40%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="env file"
+            src="/posts/mdn-contributing-translations/env-file.webp"
+          />
+        </div>
+      </div>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="md"
+          data-theme="material-theme-palenight"
+        ><code data-language="md" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#BABED8">CONTENT_TRANSLATED_ROOT=/path/to/translated-content/files</span></span>
+<span data-line=""><span style="color:#BABED8">EDITOR=code</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        이후 <code>content</code> 폴더 root에 <code>.env</code> 파일을 생성한
+        다음 위의 내용을 추가한다(IDE가 vscode가 아닐 경우 EDITOR 제거).
+      </p>
+      <p class="mt-4 mb-4">
+        <code>/path/to</code>에는 <code>translated-content</code> 폴더가 설치된
+        상위 경로를 입력해야 한다. pwd 명령어로 확인 가능하다.
+      </p>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="dev page"
+            src="/posts/mdn-contributing-translations/dev-page.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">이제 어려운 것들은 끝났다.</p>
+      <p class="mt-4 mb-4">
+        <code>content</code> 폴더에서 <code>yarn start</code> 이후
+        <code>localhost:5042</code>에 접근하면 사이트가 보인다.
+      </p>
+      <h2
+        id="실행하기"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#실행하기"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >실행하기
+      </h2>
+      <p class="mt-4 mb-4">
+        본격적으로 번역하기 전에 개발 환경에 조금 더 익숙해져 보자.
+      </p>
+      <p class="mt-4 mb-4">
+        만약
+        <code>http://localhost:5042/ko/docs/Web/API/Background_Tasks_API</code
+        >의 문서를 수정하고 싶다면 어떻게 해야 할까?
+      </p>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="search file"
+            src="/posts/mdn-contributing-translations/search-file.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        URL의 <code>/ko/docs</code> 뒷 부분
+        <code>/Web/API/Background_Tasks_API</code>를 IDE에서 파일 검색해 본다.
+      </p>
+      <p class="mt-4 mb-4">
+        <code>en-us</code>, <code>ko</code>, <code>zh-cn</code> 하위에 파일이
+        존재하므로 영어, 한국어, 중국어 문서가 존재한다고 생각하면 된다. 우리는
+        <code>ko</code> 하위의 <code>index.md</code> 파일로 접근한다.
+      </p>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="edit file"
+            src="/posts/mdn-contributing-translations/edit.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        <code>index.md</code> 파일에서 내용을 수정 후 브라우저 새로고침을
+        해보자.
+      </p>
+      <div class="img-container">
+        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="edit result"
+            src="/posts/mdn-contributing-translations/edit-result.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        🎉 TA-DA! 🎉 로컬 환경이 정상적으로 반영된 것을 알 수 있다.
+      </p>
+      <p class="mt-4 mb-4">이로써 우리는 아래의 3가지를 이해하게 되었다.</p>
+      <ol class="min-[790px]:ml-6 ml-4 list-decimal">
+        <li>content, translated-content 관계</li>
+        <li>개발 서버는 <code>content</code> 에서 실행</li>
+        <li>문서 번역은 <code>translated-content</code> 에서 진행</li>
+      </ol>
+      <h2
+        id="번역-가이드-확인하기"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#번역-가이드-확인하기"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >번역 가이드 확인하기
+      </h2>
+      <p class="mt-4 mb-4">
+        문서의 통일을 위해
+        <a
+          href="https://github.com/mdn/translated-content/blob/main/docs/README.md"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >각 현지화 문서에는 가이드라인이 존재</a
+        >한다.
+      </p>
+      <p class="mt-4 mb-4">
+        한국도 마찬가지로 번역 가이드 문서를 제공하므로 필요에 따라 아래의
+        링크에서 확인하면 된다.
+      </p>
+      <ul class="min-[790px]:ml-6 ml-4 list-disc">
+        <li>
+          <a
+            href="https://github.com/mdn/translated-content/blob/main/docs/ko/README.md"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >한국어 번역 지침서</a
+          >
+        </li>
+      </ul>
+      <p class="mt-4 mb-4">특히 추천하고 싶은 문서는 아래와 같다.</p>
+      <ol class="min-[790px]:ml-6 ml-4 list-decimal">
+        <li>
+          <a
+            href="https://github.com/mdn/translated-content/blob/main/docs/ko/guides/translation-guide.md"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >번역 안내서</a
+          >
+          <ul class="min-[790px]:ml-6 ml-4 list-disc">
+            <li>문체, 개행 등 번역 전반적인 내용을 다룬다.</li>
+          </ul>
+        </li>
+        <li>
+          <a
+            href="https://github.com/mdn/translated-content/blob/main/docs/ko/guides/glossary-guide.md"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >용어 안내서</a
+          >
+          <ul class="min-[790px]:ml-6 ml-4 list-disc">
+            <li>
+              example을 '예제'로 번역할지 '예'로 번역할지 등 자주 사용되는
+              용어의 번역 가이드다.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a
+            href="https://github.com/mdn/translated-content/blob/main/docs/ko/guides/meta-data-guide.md"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >Meta Data 안내서</a
+          >
+          <ul class="min-[790px]:ml-6 ml-4 list-disc">
+            <li>
+              원본 문서와의 최신화 정보를 확인하기 위해 모든 번역 문서는
+              MetaData를 활용하고 있다.
+            </li>
+          </ul>
+        </li>
+      </ol>
+      <h2
+        id="pr-생성하기"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#pr-생성하기"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >PR 생성하기
+      </h2>
+      <p class="mt-4 mb-4">
+        번역된 문서를 반영하기 위해 <code>translated-content</code>에서 PR을
+        생성한다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="sh"
+          data-theme="material-theme-palenight"
+        ><code data-language="sh" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> git</span><span style="color:#C3E88D"> add</span><span style="color:#C3E88D"> .</span></span>
+<span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> git</span><span style="color:#C3E88D"> commit</span><span style="color:#C3E88D"> -m</span><span style="color:#C3E88D"> {YOUR_COMMIT_MESSAGE}</span></span>
+<span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> git</span><span style="color:#C3E88D"> push</span><span style="color:#C3E88D"> origin</span><span style="color:#C3E88D"> {YOUR_BRANCH}</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">origin 저장소로 번역 내용을 push 한다.</p>
+      <div>
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="create new pr"
+            src="/posts/mdn-contributing-translations/pr.webp"
+          />
+        </div>
+        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="set pr target"
+            src="/posts/mdn-contributing-translations/pr-target.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        깃헙 사이트에 접속해 PR 생성하기를 선택 후 내 저장소에서
+        <code>translated-content</code>의 <code>main</code>을 목표로 PR을
+        생성하면 된다.
+      </p>
+      <p class="mt-4 mb-4">
+        PR 본문 작성은
+        <a
+          href="https://github.com/mdn/translated-content/pull/12137"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >예제 PR</a
+        >
+        혹은 저장소의 다른 PR들을 참고하면 된다.
+      </p>
+      <p class="mt-4 mb-4">
+        이제 리뷰어의 응답에 따라 merge 혹은 추가 작업이 진행된다.
+      </p>
+      <h2
+        id="마치며"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#마치며"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >마치며
+      </h2>
+      <p class="mt-4 mb-4">
+        핵심만 가볍게 적으려 했는데 생각보다 글이 길어졌다. 그만큼 친절한
+        가이드를 작성하자고 한 것이니 너그럽게 찬찬히 봐주시길 부탁드리고 싶다.
+      </p>
+      <p class="mt-4 mb-4">
+        기여 과정이 복잡하다는 것은 곧 텐션이 떨어지게 된다는 것이므로 지금보다
+        더 간략화할 방법이 있을까 고민하는 계기가 되었다.
+      </p>
+      <p class="mt-4 mb-4">
+        초심자들이 MDN 기여를 통해 오픈소스에 좋은 인상을 얻고 누구나 할 수
+        있다는 자신감을 가질 수 있도록 하고 싶다.
+      </p>
+      <p class="mt-4 mb-4">
+        MDN 한국팀이 궁금하다면
+        <a
+          href="https://discord.com/channels/1009925603572600863/1070064829466939503"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >MDN Discord #korean 채널</a
+        >
+        혹은
+        <a
+          href="https://groups.google.com/g/yari-content-ko"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >Google Groups (yari-content-ko)</a
+        >에서 소식을 받아볼 수 있다.
+      </p>
+    </div>
+    <aside
+      class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
+      aria-label="index"
+    >
+      <ul
+        class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
+      >
+        <li
+          id="tldr"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          TL;DR
+        </li>
+        <li
+          id="목차"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          목차
+        </li>
+        <li
+          id="mdn-리포지터리-관계"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          MDN 리포지터리 관계
+        </li>
+        <li
+          id="yari"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          Yari
+        </li>
+        <li
+          id="content"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          Content
+        </li>
+        <li
+          id="translated-content"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
+        >
+          Translated-content
+        </li>
+        <li
+          id="리포지터리를-가져오는-방법"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          리포지터리를 가져오는 방법
+        </li>
+        <li
+          id="로컬-개발-환경-설정하기"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          로컬 개발 환경 설정하기
+        </li>
+        <li
+          id="실행하기"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          실행하기
+        </li>
+        <li
+          id="번역-가이드-확인하기"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          번역 가이드 확인하기
+        </li>
+        <li
+          id="pr-생성하기"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          PR 생성하기
+        </li>
+        <li
+          id="마치며"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          마치며
+        </li>
+      </ul>
+    </aside>
+  </section>
+  <a
+    class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water"
+    href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] %EC%98%A4%ED%94%88%EC%86%8C%EC%8A%A4%20%EA%B8%B0%EC%97%AC%20%EC%B2%AB%EA%B1%B8%EC%9D%8C,%20MDN%20%EB%AC%B8%EC%84%9C%20%EB%B2%88%EC%97%AD%20%EA%B0%80%EC%9D%B4%EB%93%9C&amp;body=&lt;!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 --&gt;"
+    rel="noopener noreferrer"
+    target="_blank"
+    >📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍</a
+  >
+  <div class="flex items-center mt-4 mb-56">
+    <iframe
+      class="border-0 rounded-md cursor-pointer object-contain hover:animate-bouncing"
+      src="https://github.com/sponsors/1ilsang/button"
+      title="Sponsor 1ilsang"
+      height="32"
+      width="114"
+    ></iframe>
+  </div>
+</section>

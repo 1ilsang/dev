@@ -1,34 +1,299 @@
-<progress class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og" value="0" max="1"></progress><nav class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"><h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5"><a class="hover:underline" href="/">1ilsang</a></h2><div class="flex"><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/posts">posts</a></h2><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/tags">tags</a></h2><div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-white-blue" src="/images/chul.webp" alt="1ilsang"></a></div></div></nav><section class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"><h1 class="text-4xl break-words md:text-6xl">TypeScript 5.0 살펴보기</h1><section class="flex items-center mt-4"><div class="mr-2 w-9 h-9 md:w-12 md:h-12" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-sub-blue" src="/images/chul.webp" alt="1ilsang"></a></div><div><a class="text-lg" href="/about">1ilsang</a><div class="text-sm text-sub-blue">클라이밍 하실래염?</div></div></section><section class="flex flex-wrap items-end mt-2"><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/typescript">#<!-- -->typescript</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/decorator">#<!-- -->decorator</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/const">#<!-- -->const</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/extends">#<!-- -->extends</a></section><section><div class="inline text-date-gray"><span class="mr-1">Published</span><time datetime="2023-04-09 16:24">2023-04-09 16:24</time></div></section><section id="post-body-container" class="relative"><div class="markdown"><div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full h-[600px] object-contain bg-transparent mt-10"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="cover" src="/posts/typescript5/cover.webp"></div></div>
-<p class="mt-4 mb-4">3월 초 TypeScript v5가 공식 릴리즈 되었다. 이 포스트에서는 <a href="https://devblogs.microsoft.com/typescript/announcing-typescript-5-0" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">MS 블로그에 작성된</a> 5버전의 기능들을 확인해보고 정리해 보고자 한다.</p>
-<p class="mt-4 mb-4">목차는 아래와 같이 구성되어 있다.</p>
-<ul class="min-[790px]:ml-6 ml-4 list-disc">
-<li><a href="#decorators" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Decorators</a>
-<ul class="min-[790px]:ml-6 ml-4 list-disc">
-<li><a href="#%EC%8B%A4%ED%97%98%EC%A0%81-%EB%A0%88%EA%B1%B0%EC%8B%9C-%EB%8D%B0%EC%BD%94%EB%A0%88%EC%9D%B4%ED%84%B0%EC%99%80%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">실험적 레거시 데코레이터와의 차이점</a></li>
-</ul>
-</li>
-<li><a href="#const-type-parameters" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">const Type Parameters</a></li>
-<li><a href="#supporting-multiple-configuration-files-in-extends" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Supporting Multiple Configuration Files in extends</a></li>
-<li><a href="#all-enums-are-union-enums" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">All enums Are Union enums</a></li>
-<li><a href="#--moduleresolution-bundler" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">--moduleResolution bundler</a></li>
-<li><a href="#support-for-export-type-" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Support for export type *</a></li>
-<li><a href="#overload-support-in-jsdoc" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">@overload Support in JSDoc</a></li>
-<li><a href="#speed-memory-and-package-size-optimizations" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Speed, Memory, and Package Size Optimizations</a></li>
-<li><a href="#breaking-changes-and-deprecations" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Breaking Changes and Deprecations</a>
-<ul class="min-[790px]:ml-6 ml-4 list-disc">
-<li><a href="#runtime-requirements" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Runtime Requirements</a></li>
-<li><a href="#libdts-changes" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">lib.d.ts Changes</a></li>
-<li><a href="#api-breaking-changes" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">API Breaking Changes</a></li>
-<li><a href="#forbidden-implicit-coercions-in-relational-operators" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Forbidden Implicit Coercions in Relational Operators</a></li>
-<li><a href="#enum-overhaul" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Enum Overhaul</a></li>
-</ul>
-</li>
-<li><a href="#%EB%A7%88%EB%AC%B4%EB%A6%AC" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">마무리</a></li>
-<li><a href="#%EC%B0%B8%EA%B3%A0" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">참고</a></li>
-</ul>
-<h2 id="decorators" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#decorators"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Decorators</h2>
-<p class="mt-4 mb-4"><a href="https://github.com/tc39/proposal-decorators" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Decorators</a>는 현재(2023/04)기준 <a href="https://tc39.es/process-document/" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Stage 3단계</a>(4단계가 표준 추가)인 ECMAScript 공식 스펙이다. ES2024의 유력한 기능 중 하나이다.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">class</span><span style="color:#FFCB6B"> Person</span><span style="color:#89DDFF"> {</span></span>
+<progress
+  class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  value="0"
+  max="1"
+></progress>
+<nav
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"
+>
+  <h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
+    <a class="hover:underline" href="/">1ilsang</a>
+  </h2>
+  <div class="flex">
+    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/posts">posts</a>
+    </h2>
+    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/tags">tags</a>
+    </h2>
+    <div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character">
+      <a href="/about"
+        ><img
+          class="border border-solid rounded-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+    </div>
+  </div>
+</nav>
+<section
+  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
+>
+  <h1 class="text-4xl break-words md:text-6xl">TypeScript 5.0 살펴보기</h1>
+  <section class="flex items-center mt-4">
+    <div
+      class="mr-2 w-9 h-9 md:w-12 md:h-12"
+      role="img"
+      aria-label="1ilsang character"
+    >
+      <a href="/about"
+        ><img
+          class="border border-solid rounded-full border-sub-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+    </div>
+    <div>
+      <a class="text-lg" href="/about">1ilsang</a>
+      <div class="text-sm text-sub-blue">클라이밍 하실래염?</div>
+    </div>
+  </section>
+  <section class="flex flex-wrap items-end mt-2">
+    <a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/typescript"
+      >#<!-- -->typescript</a
+    ><a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/decorator"
+      >#<!-- -->decorator</a
+    ><a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/const"
+      >#<!-- -->const</a
+    ><a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/extends"
+      >#<!-- -->extends</a
+    >
+  </section>
+  <section>
+    <div class="inline text-date-gray">
+      <span class="mr-1">Published</span
+      ><time datetime="2023-04-09 16:24">2023-04-09 16:24</time>
+    </div>
+  </section>
+  <section id="post-body-container" class="relative">
+    <div class="markdown">
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full h-[600px] object-contain bg-transparent mt-10"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="cover"
+            src="/posts/typescript5/cover.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        3월 초 TypeScript v5가 공식 릴리즈 되었다. 이 포스트에서는
+        <a
+          href="https://devblogs.microsoft.com/typescript/announcing-typescript-5-0"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >MS 블로그에 작성된</a
+        >
+        5버전의 기능들을 확인해보고 정리해 보고자 한다.
+      </p>
+      <p class="mt-4 mb-4">목차는 아래와 같이 구성되어 있다.</p>
+      <ul class="min-[790px]:ml-6 ml-4 list-disc">
+        <li>
+          <a
+            href="#decorators"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >Decorators</a
+          >
+          <ul class="min-[790px]:ml-6 ml-4 list-disc">
+            <li>
+              <a
+                href="#%EC%8B%A4%ED%97%98%EC%A0%81-%EB%A0%88%EA%B1%B0%EC%8B%9C-%EB%8D%B0%EC%BD%94%EB%A0%88%EC%9D%B4%ED%84%B0%EC%99%80%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90"
+                class="underline-highlight-fade"
+                target="_blank"
+                rel="noreferrer noopener"
+                >실험적 레거시 데코레이터와의 차이점</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a
+            href="#const-type-parameters"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >const Type Parameters</a
+          >
+        </li>
+        <li>
+          <a
+            href="#supporting-multiple-configuration-files-in-extends"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >Supporting Multiple Configuration Files in extends</a
+          >
+        </li>
+        <li>
+          <a
+            href="#all-enums-are-union-enums"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >All enums Are Union enums</a
+          >
+        </li>
+        <li>
+          <a
+            href="#--moduleresolution-bundler"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >--moduleResolution bundler</a
+          >
+        </li>
+        <li>
+          <a
+            href="#support-for-export-type-"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >Support for export type *</a
+          >
+        </li>
+        <li>
+          <a
+            href="#overload-support-in-jsdoc"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >@overload Support in JSDoc</a
+          >
+        </li>
+        <li>
+          <a
+            href="#speed-memory-and-package-size-optimizations"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >Speed, Memory, and Package Size Optimizations</a
+          >
+        </li>
+        <li>
+          <a
+            href="#breaking-changes-and-deprecations"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >Breaking Changes and Deprecations</a
+          >
+          <ul class="min-[790px]:ml-6 ml-4 list-disc">
+            <li>
+              <a
+                href="#runtime-requirements"
+                class="underline-highlight-fade"
+                target="_blank"
+                rel="noreferrer noopener"
+                >Runtime Requirements</a
+              >
+            </li>
+            <li>
+              <a
+                href="#libdts-changes"
+                class="underline-highlight-fade"
+                target="_blank"
+                rel="noreferrer noopener"
+                >lib.d.ts Changes</a
+              >
+            </li>
+            <li>
+              <a
+                href="#api-breaking-changes"
+                class="underline-highlight-fade"
+                target="_blank"
+                rel="noreferrer noopener"
+                >API Breaking Changes</a
+              >
+            </li>
+            <li>
+              <a
+                href="#forbidden-implicit-coercions-in-relational-operators"
+                class="underline-highlight-fade"
+                target="_blank"
+                rel="noreferrer noopener"
+                >Forbidden Implicit Coercions in Relational Operators</a
+              >
+            </li>
+            <li>
+              <a
+                href="#enum-overhaul"
+                class="underline-highlight-fade"
+                target="_blank"
+                rel="noreferrer noopener"
+                >Enum Overhaul</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a
+            href="#%EB%A7%88%EB%AC%B4%EB%A6%AC"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >마무리</a
+          >
+        </li>
+        <li>
+          <a
+            href="#%EC%B0%B8%EA%B3%A0"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >참고</a
+          >
+        </li>
+      </ul>
+      <h2
+        id="decorators"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#decorators"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Decorators
+      </h2>
+      <p class="mt-4 mb-4">
+        <a
+          href="https://github.com/tc39/proposal-decorators"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >Decorators</a
+        >는 현재(2023/04)기준
+        <a
+          href="https://tc39.es/process-document/"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >Stage 3단계</a
+        >(4단계가 표준 추가)인 ECMAScript 공식 스펙이다. ES2024의 유력한 기능 중
+        하나이다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="ts"
+          data-theme="material-theme-palenight"
+        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">class</span><span style="color:#FFCB6B"> Person</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#F07178">  name</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> string</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#C792EA">  constructor</span><span style="color:#89DDFF">(</span><span style="color:#BABED8;font-style:italic">name</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> string</span><span style="color:#89DDFF">)</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#89DDFF">    this.</span><span style="color:#BABED8">name</span><span style="color:#89DDFF"> =</span><span style="color:#BABED8"> name</span><span style="color:#89DDFF">;</span></span>
@@ -40,9 +305,19 @@
 <span data-line=""><span style="color:#89DDFF">}</span></span>
 <span data-line=""> </span>
 <span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> p </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> new</span><span style="color:#82AAFF"> Person</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">Ron</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#BABED8">p</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">greet</span><span style="color:#BABED8">()</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // Hello, my name is Ron.</span></span></code></pre></figure>
-<p class="mt-4 mb-4">위와 같은 간단한 Person 클래스의 greet 함수를 디버깅 하기 위해 함수 내부 시작과 끝에 <code>console.log</code>를 추가할 경우 데코레이터를 사용하면 편리하게 작업할수 있다.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">function</span><span style="color:#82AAFF"> loggedMethod</span><span style="color:#89DDFF">(</span><span style="color:#BABED8;font-style:italic">headMessage</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">LOG:</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">)</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#BABED8">p</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">greet</span><span style="color:#BABED8">()</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // Hello, my name is Ron.</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        위와 같은 간단한 Person 클래스의 greet 함수를 디버깅 하기 위해 함수 내부
+        시작과 끝에 <code>console.log</code>를 추가할 경우 데코레이터를 사용하면
+        편리하게 작업할수 있다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="ts"
+          data-theme="material-theme-palenight"
+        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">function</span><span style="color:#82AAFF"> loggedMethod</span><span style="color:#89DDFF">(</span><span style="color:#BABED8;font-style:italic">headMessage</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">LOG:</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">)</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#C792EA"> function</span><span style="color:#82AAFF"> actualDecorator</span><span style="color:#89DDFF">(</span></span>
 <span data-line=""><span style="color:#BABED8;font-style:italic">    originalMethod</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> any</span><span style="color:#89DDFF">,</span><span style="color:#676E95;font-style:italic"> // 데코레이터를 사용한 함수</span></span>
 <span data-line=""><span style="color:#BABED8;font-style:italic">    context</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> ClassMethodDecoratorContext</span><span style="color:#89DDFF">,</span><span style="color:#676E95;font-style:italic"> // 데코레이터를 사용하는 컨텍스트 객체의 데이터 및 함수가 있다(private, static 여부, 메서드 이름 등).</span></span>
@@ -74,11 +349,27 @@
 <span data-line=""><span style="color:#676E95;font-style:italic"> * [Name] Entering method 'greet'.</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic"> * Hello, my name is Ron.</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic"> * [Name] Exiting method 'greet'.</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic"> **/</span></span></code></pre></figure>
-<p class="mt-4 mb-4">이로써 모든 함수에 <code>@loggedMethod</code>만 추가하면 쉽게 정해진 로그 메서드를 사용할수 있다.</p>
-<p class="mt-4 mb-4">이 외에도 컨택스트 객체에는 <code>addInitializer</code>라는 유용한 함수가 있다. 이는 생성자의 시작 부분(또는 정적 클래스 자체의 초기화)에 연결할 수 있다.</p>
-<p class="mt-4 mb-4">자바스크립트를 사용하면서 this가 다시 바인딩 되지 않도록 아래와 같은 코딩 스타일을 자주 사용한다.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">class</span><span style="color:#FFCB6B"> Person</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic"> **/</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        이로써 모든 함수에 <code>@loggedMethod</code>만 추가하면 쉽게 정해진
+        로그 메서드를 사용할수 있다.
+      </p>
+      <p class="mt-4 mb-4">
+        이 외에도 컨택스트 객체에는 <code>addInitializer</code>라는 유용한
+        함수가 있다. 이는 생성자의 시작 부분(또는 정적 클래스 자체의 초기화)에
+        연결할 수 있다.
+      </p>
+      <p class="mt-4 mb-4">
+        자바스크립트를 사용하면서 this가 다시 바인딩 되지 않도록 아래와 같은
+        코딩 스타일을 자주 사용한다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="ts"
+          data-theme="material-theme-palenight"
+        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">class</span><span style="color:#FFCB6B"> Person</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#F07178">  name</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> string</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#C792EA">  constructor</span><span style="color:#89DDFF">(</span><span style="color:#BABED8;font-style:italic">name</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> string</span><span style="color:#89DDFF">)</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#89DDFF">    this.</span><span style="color:#BABED8">name</span><span style="color:#89DDFF"> =</span><span style="color:#BABED8"> name</span><span style="color:#89DDFF">;</span></span>
@@ -101,9 +392,17 @@
 <span data-line=""><span style="color:#89DDFF">}</span></span>
 <span data-line=""> </span>
 <span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> greet </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> new</span><span style="color:#82AAFF"> Person</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">Ron</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">greet</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#82AAFF">greet</span><span style="color:#BABED8">()</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // CASE 1,2 는 정상적으로 동작하지만 3은 this가 글로벌로 바뀌기 때문에 name이 undefined 에러가 발생한다.</span></span></code></pre></figure>
-<p class="mt-4 mb-4">이를 데코레이터로 사용하면 일관된 로직을 추가/변경해 적용할수 있게 된다.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">function</span><span style="color:#82AAFF"> bound</span><span style="color:#89DDFF">(</span><span style="color:#BABED8;font-style:italic">originalMethod</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> any</span><span style="color:#89DDFF">,</span><span style="color:#BABED8;font-style:italic"> context</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> ClassMethodDecoratorContext</span><span style="color:#89DDFF">)</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#82AAFF">greet</span><span style="color:#BABED8">()</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // CASE 1,2 는 정상적으로 동작하지만 3은 this가 글로벌로 바뀌기 때문에 name이 undefined 에러가 발생한다.</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        이를 데코레이터로 사용하면 일관된 로직을 추가/변경해 적용할수 있게 된다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="ts"
+          data-theme="material-theme-palenight"
+        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">function</span><span style="color:#82AAFF"> bound</span><span style="color:#89DDFF">(</span><span style="color:#BABED8;font-style:italic">originalMethod</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> any</span><span style="color:#89DDFF">,</span><span style="color:#BABED8;font-style:italic"> context</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> ClassMethodDecoratorContext</span><span style="color:#89DDFF">)</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> methodName</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> String</span><span style="color:#F07178">(</span><span style="color:#BABED8">context</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">name</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">  if</span><span style="color:#F07178"> (</span><span style="color:#BABED8">context</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">private</span><span style="color:#F07178">) </span><span style="color:#89DDFF">{</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">    // private 함수는 bind 하지 않는다는 예제</span></span>
@@ -136,12 +435,44 @@
 <span data-line=""><span style="color:#676E95;font-style:italic"> * [Name] Entering method 'greet'.</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic"> * Hello, my name is Ron.</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic"> * [Name] Exiting method 'greet'.</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic"> **/</span></span></code></pre></figure>
-<p class="mt-4 mb-4">여기서 유의할 점은 데코레이터는 '역순'으로 실행된다는 점이다. 위 예를 보면, <code>@loggedMethod</code>가 <code>greet</code> 메서드를 꾸미고, <code>@bound</code>가 <code>@loggedMethod</code>의 결과를 꾸미게 된다. 데코레이터가 사이드 이펙트를 가지거나 보장된 순서를 원할 경우 유의해야 한다.</p>
-<h3 id="실험적-레거시-데코레이터와의-차이점" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#실험적-레거시-데코레이터와의-차이점"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>실험적 레거시 데코레이터와의 차이점</h3>
-<p class="mt-4 mb-4">기존에 타입스크립트는 실험적 데코레이터를 지원하고 있었으며 <code>--experimentalDecorators</code> 옵션으로 활성화 할수 있었다.</p>
-<p class="mt-4 mb-4">실험적 데코레이터와 v5 데코레이터(ECMA)의 차이는 매개변수에 데코레이터를 지정하거나, <code>--emitDecoratorMetadata</code>와 호환되지 않는 등이 있다. 앞으로 데코레이터의 제안에 해당 내용들을 추가해 간격을 좁혀나갈 예정이다.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// allowed</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic"> **/</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        여기서 유의할 점은 데코레이터는 '역순'으로 실행된다는 점이다. 위 예를
+        보면, <code>@loggedMethod</code>가 <code>greet</code> 메서드를 꾸미고,
+        <code>@bound</code>가 <code>@loggedMethod</code>의 결과를 꾸미게 된다.
+        데코레이터가 사이드 이펙트를 가지거나 보장된 순서를 원할 경우 유의해야
+        한다.
+      </p>
+      <h3
+        id="실험적-레거시-데코레이터와의-차이점"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#실험적-레거시-데코레이터와의-차이점"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >실험적 레거시 데코레이터와의 차이점
+      </h3>
+      <p class="mt-4 mb-4">
+        기존에 타입스크립트는 실험적 데코레이터를 지원하고 있었으며
+        <code>--experimentalDecorators</code> 옵션으로 활성화 할수 있었다.
+      </p>
+      <p class="mt-4 mb-4">
+        실험적 데코레이터와 v5 데코레이터(ECMA)의 차이는 매개변수에 데코레이터를
+        지정하거나, <code>--emitDecoratorMetadata</code>와 호환되지 않는 등이
+        있다. 앞으로 데코레이터의 제안에 해당 내용들을 추가해 간격을 좁혀나갈
+        예정이다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="ts"
+          data-theme="material-theme-palenight"
+        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// allowed</span></span>
 <span data-line=""><span style="color:#89DDFF">@</span><span style="color:#BABED8">register</span></span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">export</span><span style="color:#89DDFF;font-style:italic"> default</span><span style="color:#C792EA"> class</span><span style="color:#FFCB6B"> Foo</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">  // ...</span></span>
@@ -159,11 +490,40 @@
 <span data-line=""><span style="color:#89DDFF">@</span><span style="color:#BABED8">after</span></span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">export</span><span style="color:#C792EA"> class</span><span style="color:#FFCB6B"> Bar</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">  // ...</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre></figure>
-<p class="mt-4 mb-4">데코레이터를 <code>export</code> 앞에 놓을 수 있게 되면서 다양하게 선언이 가능해졌지만, 양옆으로 놓을수는 없다.</p>
-<p class="mt-4 mb-4">데코레이터의 타입을 보장하기 위해서는 상당히 복잡한 타입정의가 될수 있다. 이는 가독성과 상충관계가 있기 때문에 단순하게 유지하라고 조언한다. 데코레이터의 메커니즘에 대해 자세한 내용은 <a href="https://2ality.com/2022/10/javascript-decorators.html" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">이 글</a>에 정리되어 있다.</p>
-<h2 id="const-type-parameters" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#const-type-parameters"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>const Type Parameters</h2>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> HasNames</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> {</span><span style="color:#F07178"> names</span><span style="color:#89DDFF">:</span><span style="color:#C792EA"> readonly</span><span style="color:#FFCB6B"> string</span><span style="color:#BABED8">[] </span><span style="color:#89DDFF">};</span></span>
+<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        데코레이터를 <code>export</code> 앞에 놓을 수 있게 되면서 다양하게
+        선언이 가능해졌지만, 양옆으로 놓을수는 없다.
+      </p>
+      <p class="mt-4 mb-4">
+        데코레이터의 타입을 보장하기 위해서는 상당히 복잡한 타입정의가 될수
+        있다. 이는 가독성과 상충관계가 있기 때문에 단순하게 유지하라고 조언한다.
+        데코레이터의 메커니즘에 대해 자세한 내용은
+        <a
+          href="https://2ality.com/2022/10/javascript-decorators.html"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >이 글</a
+        >에 정리되어 있다.
+      </p>
+      <h2
+        id="const-type-parameters"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#const-type-parameters"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >const Type Parameters
+      </h2>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="ts"
+          data-theme="material-theme-palenight"
+        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> HasNames</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> {</span><span style="color:#F07178"> names</span><span style="color:#89DDFF">:</span><span style="color:#C792EA"> readonly</span><span style="color:#FFCB6B"> string</span><span style="color:#BABED8">[] </span><span style="color:#89DDFF">};</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">// 우리는 아래 함수를 통해 불변 문자열 배열 타입을 얻고자 한다.</span></span>
 <span data-line=""><span style="color:#C792EA">function</span><span style="color:#82AAFF"> getNamesExactly</span><span style="color:#89DDFF">&lt;</span><span style="color:#FFCB6B">T</span><span style="color:#C792EA"> extends</span><span style="color:#FFCB6B"> HasNames</span><span style="color:#89DDFF">&gt;(</span><span style="color:#BABED8;font-style:italic">arg</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> T</span><span style="color:#89DDFF">):</span><span style="color:#FFCB6B"> T</span><span style="color:#BABED8">[</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">names</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">] </span><span style="color:#89DDFF">{</span></span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#BABED8"> arg</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">names</span><span style="color:#89DDFF">;</span></span>
@@ -176,34 +536,100 @@
 <span data-line=""> </span>
 <span data-line=""><span style="color:#676E95;font-style:italic">// Correctly gets what we wanted:</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">//    readonly ["Alice", "Bob", "Eve"]</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> names2 </span><span style="color:#89DDFF">=</span><span style="color:#82AAFF"> getNamesExactly</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">{</span><span style="color:#F07178"> names</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> [</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">Alice</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">Bob</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">Eve</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">] </span><span style="color:#89DDFF">}</span><span style="color:#89DDFF;font-style:italic"> as</span><span style="color:#C792EA"> const</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre></figure>
-<p class="mt-4 mb-4">객체의 타입을 추론할때 타입스크립트는 일반적인 타입을 선택한다. 따라서 위의 예에서 <code>names</code>는 <code>string[]</code> 타입으로 추론된다.</p>
-<p class="mt-4 mb-4">readonly 타입을 반환하게 할 경우 기존까지는 <code>as const</code> <a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">타입 어설션</a>으로 강제화 해주어야 했는데, 이는 상당히 번거롭다.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">function</span><span style="color:#82AAFF"> getNamesExactly</span><span style="color:#89DDFF">&lt;</span><span style="color:#C792EA">const</span><span style="color:#FFCB6B"> T</span><span style="color:#C792EA"> extends</span><span style="color:#FFCB6B"> HasNames</span><span style="color:#89DDFF">&gt;(</span><span style="color:#BABED8;font-style:italic">arg</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> T</span><span style="color:#89DDFF">):</span><span style="color:#FFCB6B"> T</span><span style="color:#BABED8">[</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">names</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">] </span><span style="color:#89DDFF">{</span></span>
+<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> names2 </span><span style="color:#89DDFF">=</span><span style="color:#82AAFF"> getNamesExactly</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">{</span><span style="color:#F07178"> names</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> [</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">Alice</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">Bob</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">Eve</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">] </span><span style="color:#89DDFF">}</span><span style="color:#89DDFF;font-style:italic"> as</span><span style="color:#C792EA"> const</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        객체의 타입을 추론할때 타입스크립트는 일반적인 타입을 선택한다. 따라서
+        위의 예에서 <code>names</code>는 <code>string[]</code> 타입으로
+        추론된다.
+      </p>
+      <p class="mt-4 mb-4">
+        readonly 타입을 반환하게 할 경우 기존까지는 <code>as const</code>
+        <a
+          href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >타입 어설션</a
+        >으로 강제화 해주어야 했는데, 이는 상당히 번거롭다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="ts"
+          data-theme="material-theme-palenight"
+        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">function</span><span style="color:#82AAFF"> getNamesExactly</span><span style="color:#89DDFF">&lt;</span><span style="color:#C792EA">const</span><span style="color:#FFCB6B"> T</span><span style="color:#C792EA"> extends</span><span style="color:#FFCB6B"> HasNames</span><span style="color:#89DDFF">&gt;(</span><span style="color:#BABED8;font-style:italic">arg</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> T</span><span style="color:#89DDFF">):</span><span style="color:#FFCB6B"> T</span><span style="color:#BABED8">[</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">names</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">] </span><span style="color:#89DDFF">{</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">  //                       ^^^^^</span></span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#BABED8"> arg</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">names</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#89DDFF">}</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">// Inferred type: readonly ["Alice", "Bob", "Eve"]</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">// Note: Didn't need to write 'as const' here</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> names </span><span style="color:#89DDFF">=</span><span style="color:#82AAFF"> getNamesExactly</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">{</span><span style="color:#F07178"> names</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> [</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">Alice</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">Bob</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">Eve</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">] </span><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre></figure>
-<p class="mt-4 mb-4">이제 <code>const</code> 타입 파라미터를 사용해 <code>as const</code> 추론이 가능해졌다. 하지만 이는 함수 호출 내에 작성된 객체, 배열, 표현식에만 영향을 미치므로 주소값을 넘기는 인수로는 동작할수 없음을 알아두어야 한다.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> inputNames </span><span style="color:#89DDFF">=</span><span style="color:#BABED8"> [</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">Alice</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">Bob</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">Eve</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">]</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> names </span><span style="color:#89DDFF">=</span><span style="color:#82AAFF"> getNamesExactly</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">{</span><span style="color:#F07178"> names</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> [</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">Alice</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">Bob</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">Eve</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">] </span><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        이제 <code>const</code> 타입 파라미터를 사용해
+        <code>as const</code> 추론이 가능해졌다. 하지만 이는 함수 호출 내에
+        작성된 객체, 배열, 표현식에만 영향을 미치므로 주소값을 넘기는 인수로는
+        동작할수 없음을 알아두어야 한다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="ts"
+          data-theme="material-theme-palenight"
+        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> inputNames </span><span style="color:#89DDFF">=</span><span style="color:#BABED8"> [</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">Alice</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">Bob</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">Eve</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">]</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""> </span>
 <span data-line=""><span style="color:#676E95;font-style:italic">// Inferred type: ["Alice", "Bob", "Eve"]</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">// readonly 내놔!!!</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> names </span><span style="color:#89DDFF">=</span><span style="color:#82AAFF"> getNamesExactly</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">{</span><span style="color:#F07178"> names</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> inputNames </span><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre></figure>
-<h2 id="supporting-multiple-configuration-files-in-extends" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#supporting-multiple-configuration-files-in-extends"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Supporting Multiple Configuration Files in extends</h2>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// packages/front-end/src/tsconfig.json</span></span>
+<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> names </span><span style="color:#89DDFF">=</span><span style="color:#82AAFF"> getNamesExactly</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">{</span><span style="color:#F07178"> names</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> inputNames </span><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre>
+      </figure>
+      <h2
+        id="supporting-multiple-configuration-files-in-extends"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#supporting-multiple-configuration-files-in-extends"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Supporting Multiple Configuration Files in extends
+      </h2>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="ts"
+          data-theme="material-theme-palenight"
+        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// packages/front-end/src/tsconfig.json</span></span>
 <span data-line=""><span style="color:#89DDFF">{</span></span>
 <span data-line=""><span style="color:#89DDFF">  "</span><span style="color:#C3E88D">extends</span><span style="color:#89DDFF">"</span><span style="color:#F07178">: [</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">@tsconfig/strictest/tsconfig.json</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> "</span><span style="color:#C3E88D">../../../tsconfig.base.json</span><span style="color:#89DDFF">"</span><span style="color:#F07178">]</span><span style="color:#89DDFF">,</span></span>
 <span data-line=""><span style="color:#89DDFF">  "</span><span style="color:#C3E88D">compilerOptions</span><span style="color:#89DDFF">"</span><span style="color:#F07178">: </span><span style="color:#89DDFF">{</span></span>
 <span data-line=""><span style="color:#89DDFF">      "</span><span style="color:#F07178">outDir</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> "</span><span style="color:#C3E88D">../lib</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">      // ...</span></span>
 <span data-line=""><span style="color:#89DDFF">  }</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre></figure>
-<p class="mt-4 mb-4">extends 필드에 배열로 여러개의 config 파일을 지원하게 되었다. 개인적으로 상당히 만족</p>
-<h2 id="all-enums-are-union-enums" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#all-enums-are-union-enums"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>All enums Are Union enums</h2>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// enum Color는 Red | Orange | Yellow | Green | Blue | Violet의 union 타입이다.</span></span>
+<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        extends 필드에 배열로 여러개의 config 파일을 지원하게 되었다. 개인적으로
+        상당히 만족
+      </p>
+      <h2
+        id="all-enums-are-union-enums"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#all-enums-are-union-enums"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >All enums Are Union enums
+      </h2>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="ts"
+          data-theme="material-theme-palenight"
+        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// enum Color는 Red | Orange | Yellow | Green | Blue | Violet의 union 타입이다.</span></span>
 <span data-line=""><span style="color:#C792EA">enum</span><span style="color:#FFCB6B"> Color</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#BABED8">  Red</span><span style="color:#89DDFF">,</span></span>
 <span data-line=""><span style="color:#BABED8">  Orange</span><span style="color:#89DDFF">,</span></span>
@@ -214,12 +640,39 @@
 <span data-line=""><span style="color:#89DDFF">}</span></span>
 <span data-line=""> </span>
 <span data-line=""><span style="color:#676E95;font-style:italic">// enum 멤버는 참조할 수 있는 자체 유형이 있으므로 값처럼 사용될 수 있다.</span></span>
-<span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> PrimaryColor</span><span style="color:#89DDFF"> =</span><span style="color:#FFCB6B"> Color</span><span style="color:#89DDFF">.</span><span style="color:#FFCB6B">Red</span><span style="color:#89DDFF"> |</span><span style="color:#FFCB6B"> Color</span><span style="color:#89DDFF">.</span><span style="color:#FFCB6B">Green</span><span style="color:#89DDFF"> |</span><span style="color:#FFCB6B"> Color</span><span style="color:#89DDFF">.</span><span style="color:#FFCB6B">Blue</span><span style="color:#89DDFF">;</span></span></code></pre></figure>
-<p class="mt-4 mb-4">모든 enum은 union된 enum이다. 타입스크립트가 처음 enum을 도입했을 때만 해도 enum은 상수 집합에 불과했다(number 타입). 하지만 타입스크립트 2.0에서 enum 리터럴 타입(고유한 값; 상수 10, 20 등이 타입이 됨)이 도입되면서 리터럴 타입은 각 enum 멤버에 고유한 타입을 부여하게 된다.</p>
-<p class="mt-4 mb-4">각 enum 멤버에 고유한 타입을 부여할 때 발생하는 한 가지 문제는 해당 타입이 멤버의 실제 값과 연관되어 있다는 점이다.</p>
-<p class="mt-4 mb-4">예를 들어 아래와 같이 enum 멤버가 함수 호출로 초기화될 수 있는 경우, 값을 계산할수 없으므로 초기화 이전까지는 에러가 발생한다. 또한 <code>enum E</code>의 예시와 같이 <code>const a:E</code>는 <code>3 | 4</code>의 타입이 아닌 number가 된다. 이는 리터럴 타입의 장점을 사용하지 못하고 기존 상수 집합을 사용하고 있다는 뜻이 된다.</p>
-<p class="mt-4 mb-4">이제 타입스크립트 5버전 부터는 각 멤버에 대해 고유한 타입을 생성하여 enum 멤버를 union enum으로 사용할수 있게 되었다. <strong>즉, enum의 모든 멤버를 좁혀서 그 멤버를 타입으로 참조할 수 있게 되었다</strong>.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">enum</span><span style="color:#FFCB6B"> E</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> PrimaryColor</span><span style="color:#89DDFF"> =</span><span style="color:#FFCB6B"> Color</span><span style="color:#89DDFF">.</span><span style="color:#FFCB6B">Red</span><span style="color:#89DDFF"> |</span><span style="color:#FFCB6B"> Color</span><span style="color:#89DDFF">.</span><span style="color:#FFCB6B">Green</span><span style="color:#89DDFF"> |</span><span style="color:#FFCB6B"> Color</span><span style="color:#89DDFF">.</span><span style="color:#FFCB6B">Blue</span><span style="color:#89DDFF">;</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        모든 enum은 union된 enum이다. 타입스크립트가 처음 enum을 도입했을 때만
+        해도 enum은 상수 집합에 불과했다(number 타입). 하지만 타입스크립트
+        2.0에서 enum 리터럴 타입(고유한 값; 상수 10, 20 등이 타입이 됨)이
+        도입되면서 리터럴 타입은 각 enum 멤버에 고유한 타입을 부여하게 된다.
+      </p>
+      <p class="mt-4 mb-4">
+        각 enum 멤버에 고유한 타입을 부여할 때 발생하는 한 가지 문제는 해당
+        타입이 멤버의 실제 값과 연관되어 있다는 점이다.
+      </p>
+      <p class="mt-4 mb-4">
+        예를 들어 아래와 같이 enum 멤버가 함수 호출로 초기화될 수 있는 경우,
+        값을 계산할수 없으므로 초기화 이전까지는 에러가 발생한다. 또한
+        <code>enum E</code>의 예시와 같이 <code>const a:E</code>는
+        <code>3 | 4</code>의 타입이 아닌 number가 된다. 이는 리터럴 타입의
+        장점을 사용하지 못하고 기존 상수 집합을 사용하고 있다는 뜻이 된다.
+      </p>
+      <p class="mt-4 mb-4">
+        이제 타입스크립트 5버전 부터는 각 멤버에 대해 고유한 타입을 생성하여
+        enum 멤버를 union enum으로 사용할수 있게 되었다.
+        <strong
+          >즉, enum의 모든 멤버를 좁혀서 그 멤버를 타입으로 참조할 수 있게
+          되었다</strong
+        >.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="ts"
+          data-theme="material-theme-palenight"
+        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">enum</span><span style="color:#FFCB6B"> E</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#BABED8">  three </span><span style="color:#89DDFF">=</span><span style="color:#F78C6C"> 3</span><span style="color:#89DDFF">,</span></span>
 <span data-line=""><span style="color:#BABED8">  four </span><span style="color:#89DDFF">=</span><span style="color:#F78C6C"> 4</span><span style="color:#89DDFF">,</span></span>
 <span data-line=""><span style="color:#89DDFF">}</span></span>
@@ -247,18 +700,55 @@
 <span data-line=""><span style="color:#BABED8">  two </span><span style="color:#89DDFF">=</span><span style="color:#F78C6C"> 2</span><span style="color:#89DDFF">,</span></span>
 <span data-line=""><span style="color:#89DDFF">}</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">// It works!</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> c</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> Color</span><span style="color:#89DDFF">.</span><span style="color:#FFCB6B">random</span><span style="color:#89DDFF"> =</span><span style="color:#F78C6C"> 5</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // number</span></span></code></pre></figure>
-<h2 id="--moduleresolution-bundler" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#--moduleresolution-bundler"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>--moduleResolution bundler</h2>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="json" data-theme="material-theme-palenight"><code data-language="json" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#89DDFF">{</span></span>
+<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> c</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> Color</span><span style="color:#89DDFF">.</span><span style="color:#FFCB6B">random</span><span style="color:#89DDFF"> =</span><span style="color:#F78C6C"> 5</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // number</span></span></code></pre>
+      </figure>
+      <h2
+        id="--moduleresolution-bundler"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#--moduleresolution-bundler"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >--moduleResolution bundler
+      </h2>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="json"
+          data-theme="material-theme-palenight"
+        ><code data-language="json" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#89DDFF">{</span></span>
 <span data-line=""><span style="color:#89DDFF">  "</span><span style="color:#C792EA">compilerOptions</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#89DDFF">    "</span><span style="color:#FFCB6B">target</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> "</span><span style="color:#C3E88D">esnext</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span></span>
 <span data-line=""><span style="color:#89DDFF">    "</span><span style="color:#FFCB6B">moduleResolution</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> "</span><span style="color:#C3E88D">bundler</span><span style="color:#89DDFF">"</span></span>
 <span data-line=""><span style="color:#89DDFF">  }</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre></figure>
-<p class="mt-4 mb-4">대부분의 최신 번들러는 Node.js에서 ECMAScript 모듈과 CommonJS 조회 규칙의 융합을 사용한다. 번들러의 작동 방식을 모델링하기 위해 타입스크립트는 이제 새로운 전략인 --moduleResolution 번들러를 도입한다.</p>
-<p class="mt-4 mb-4">하이브리드 조회 전략을 구현하는 Vite, esbuild, swc, Webpack, Parcel 등의 최신 번들러를 사용 중이라면 새로운 bundler옵션이 적합하다.</p>
-<h2 id="support-for-export-type-" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#support-for-export-type-"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Support for export type *</h2>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// models/vehicles.ts</span></span>
+<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        대부분의 최신 번들러는 Node.js에서 ECMAScript 모듈과 CommonJS 조회
+        규칙의 융합을 사용한다. 번들러의 작동 방식을 모델링하기 위해
+        타입스크립트는 이제 새로운 전략인 --moduleResolution 번들러를 도입한다.
+      </p>
+      <p class="mt-4 mb-4">
+        하이브리드 조회 전략을 구현하는 Vite, esbuild, swc, Webpack, Parcel 등의
+        최신 번들러를 사용 중이라면 새로운 bundler옵션이 적합하다.
+      </p>
+      <h2
+        id="support-for-export-type-"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#support-for-export-type-"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Support for export type *
+      </h2>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="ts"
+          data-theme="material-theme-palenight"
+        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// models/vehicles.ts</span></span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">export</span><span style="color:#C792EA"> class</span><span style="color:#FFCB6B"> Spaceship</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">  // ...</span></span>
 <span data-line=""><span style="color:#89DDFF">}</span></span>
@@ -278,10 +768,28 @@
 <span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#89DDFF"> new</span><span style="color:#BABED8"> vehicles</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">Spaceship</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">  //         ^^^^^^^^</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">  // 'vehicles' cannot be used as a value because it was exported using 'export type'.</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre></figure>
-<p class="mt-4 mb-4">타입스크립트에서 <code>export type *</code> 문법이 가능해졌다. 이를 통해 타입과 값의 분리가 더 명확해졌다.</p>
-<h2 id="overload-support-in-jsdoc" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#overload-support-in-jsdoc"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>@overload Support in JSDoc</h2>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// 기존에는 이와 같이 함수를 계속해서 확장해 나가야 했다.</span></span>
+<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        타입스크립트에서 <code>export type *</code> 문법이 가능해졌다. 이를 통해
+        타입과 값의 분리가 더 명확해졌다.
+      </p>
+      <h2
+        id="overload-support-in-jsdoc"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#overload-support-in-jsdoc"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >@overload Support in JSDoc
+      </h2>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="ts"
+          data-theme="material-theme-palenight"
+        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// 기존에는 이와 같이 함수를 계속해서 확장해 나가야 했다.</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">// Our overloads:</span></span>
 <span data-line=""><span style="color:#C792EA">function</span><span style="color:#82AAFF"> printValue</span><span style="color:#89DDFF">(</span><span style="color:#BABED8;font-style:italic">str</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> string</span><span style="color:#89DDFF">):</span><span style="color:#FFCB6B"> void</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#C792EA">function</span><span style="color:#82AAFF"> printValue</span><span style="color:#89DDFF">(</span><span style="color:#BABED8;font-style:italic">num</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> number</span><span style="color:#89DDFF">,</span><span style="color:#BABED8;font-style:italic"> maxFractionDigits</span><span style="color:#89DDFF">?:</span><span style="color:#FFCB6B"> number</span><span style="color:#89DDFF">):</span><span style="color:#FFCB6B"> void</span><span style="color:#89DDFF">;</span></span>
@@ -309,34 +817,179 @@
 <span data-line=""><span style="color:#82AAFF">printValue</span><span style="color:#BABED8">(</span><span style="color:#F78C6C">123.45</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#82AAFF">printValue</span><span style="color:#BABED8">(</span><span style="color:#F78C6C">123.45</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 2</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#82AAFF">printValue</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">hello!</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 123</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // error!</span></span></code></pre></figure>
-<p class="mt-4 mb-4">기존에 코드로 표현해야 했던 부분을 jsdoc으로 나누어서 표현(example 등)할수 있기 때문에 DX의 향상에 기대가 된다.</p>
-<h2 id="speed-memory-and-package-size-optimizations" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#speed-memory-and-package-size-optimizations"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Speed, Memory, and Package Size Optimizations</h2>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="size" src="/posts/typescript5/size.webp"></div></div>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="compare v5 to v4.9" src="/posts/typescript5/compare-v5-to-v4.webp"></div></div>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="typescript npm package size" src="/posts/typescript5/typescript-npm-package-size.webp"></div></div>
-<p class="mt-4 mb-4">지표에서도 눈에 띄일만큼 변경사항이 있으며 원문 블로그 자체에서도 대부분의 코드베이스에서 10~20% 정도 속도 향상을 느낄 수 있다고 자신하고 있기 때문에 모노레포에서 타입 참조 시간을 많이 줄일수 있을 것이라 기대하고 있다.</p>
-<h2 id="breaking-changes-and-deprecations" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#breaking-changes-and-deprecations"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Breaking Changes and Deprecations</h2>
-<h3 id="runtime-requirements" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#runtime-requirements"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Runtime Requirements</h3>
-<p class="mt-4 mb-4">타입스크립트는 이제 ECMAScript 2018을 대상으로 한다. 최소 엔진은 12.20으로 설정되었다.</p>
-<h3 id="libdts-changes" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#libdts-changes"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>lib.d.ts Changes</h3>
-<p class="mt-4 mb-4">DOM의 유형이 생성되는 방식이 변경되어 기존 코드에 영향을 미칠 수 있다. 특히 특정 프로퍼티가 숫자에서 숫자 리터럴 타입으로 변환되었으며, 잘라내기, 복사, 붙여넣기 이벤트 처리를 위한 프로퍼티와 메서드가 인터페이스 전반으로 이동되었다.</p>
-<h3 id="api-breaking-changes" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#api-breaking-changes"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>API Breaking Changes</h3>
-<p class="mt-4 mb-4">TypeScript 5.0에서는 모듈로 전환하고, 불필요한 인터페이스를 제거했으며, 일부 정확성을 개선했다.</p>
-<h3 id="forbidden-implicit-coercions-in-relational-operators" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#forbidden-implicit-coercions-in-relational-operators"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Forbidden Implicit Coercions in Relational Operators</h3>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">function</span><span style="color:#82AAFF"> func</span><span style="color:#89DDFF">(</span><span style="color:#BABED8;font-style:italic">ns</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> number</span><span style="color:#89DDFF"> |</span><span style="color:#FFCB6B"> string</span><span style="color:#89DDFF">)</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#82AAFF">printValue</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">hello!</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 123</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // error!</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        기존에 코드로 표현해야 했던 부분을 jsdoc으로 나누어서 표현(example
+        등)할수 있기 때문에 DX의 향상에 기대가 된다.
+      </p>
+      <h2
+        id="speed-memory-and-package-size-optimizations"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#speed-memory-and-package-size-optimizations"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Speed, Memory, and Package Size Optimizations
+      </h2>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="size"
+            src="/posts/typescript5/size.webp"
+          />
+        </div>
+      </div>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="compare v5 to v4.9"
+            src="/posts/typescript5/compare-v5-to-v4.webp"
+          />
+        </div>
+      </div>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="typescript npm package size"
+            src="/posts/typescript5/typescript-npm-package-size.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        지표에서도 눈에 띄일만큼 변경사항이 있으며 원문 블로그 자체에서도
+        대부분의 코드베이스에서 10~20% 정도 속도 향상을 느낄 수 있다고 자신하고
+        있기 때문에 모노레포에서 타입 참조 시간을 많이 줄일수 있을 것이라
+        기대하고 있다.
+      </p>
+      <h2
+        id="breaking-changes-and-deprecations"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#breaking-changes-and-deprecations"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Breaking Changes and Deprecations
+      </h2>
+      <h3
+        id="runtime-requirements"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#runtime-requirements"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Runtime Requirements
+      </h3>
+      <p class="mt-4 mb-4">
+        타입스크립트는 이제 ECMAScript 2018을 대상으로 한다. 최소 엔진은
+        12.20으로 설정되었다.
+      </p>
+      <h3
+        id="libdts-changes"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#libdts-changes"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >lib.d.ts Changes
+      </h3>
+      <p class="mt-4 mb-4">
+        DOM의 유형이 생성되는 방식이 변경되어 기존 코드에 영향을 미칠 수 있다.
+        특히 특정 프로퍼티가 숫자에서 숫자 리터럴 타입으로 변환되었으며,
+        잘라내기, 복사, 붙여넣기 이벤트 처리를 위한 프로퍼티와 메서드가
+        인터페이스 전반으로 이동되었다.
+      </p>
+      <h3
+        id="api-breaking-changes"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#api-breaking-changes"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >API Breaking Changes
+      </h3>
+      <p class="mt-4 mb-4">
+        TypeScript 5.0에서는 모듈로 전환하고, 불필요한 인터페이스를 제거했으며,
+        일부 정확성을 개선했다.
+      </p>
+      <h3
+        id="forbidden-implicit-coercions-in-relational-operators"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#forbidden-implicit-coercions-in-relational-operators"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Forbidden Implicit Coercions in Relational Operators
+      </h3>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="ts"
+          data-theme="material-theme-palenight"
+        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">function</span><span style="color:#82AAFF"> func</span><span style="color:#89DDFF">(</span><span style="color:#BABED8;font-style:italic">ns</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> number</span><span style="color:#89DDFF"> |</span><span style="color:#FFCB6B"> string</span><span style="color:#89DDFF">)</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#BABED8"> ns</span><span style="color:#89DDFF"> *</span><span style="color:#F78C6C"> 4</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // Error, possible implicit coercion</span></span>
 <span data-line=""><span style="color:#89DDFF">}</span></span>
 <span data-line=""><span style="color:#C792EA">function</span><span style="color:#82AAFF"> func</span><span style="color:#89DDFF">(</span><span style="color:#BABED8;font-style:italic">ns</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> number</span><span style="color:#89DDFF"> |</span><span style="color:#FFCB6B"> string</span><span style="color:#89DDFF">)</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#BABED8"> ns</span><span style="color:#89DDFF"> &gt;</span><span style="color:#F78C6C"> 4</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // Now also an error. number | string 타입은 비교할수 없다(string은 비교 불가능).</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre></figure>
-<p class="mt-4 mb-4">TypeScript의 특정 연산은 암시적으로 문자열을 숫자로 강제 변환할 수 있는 코드를 작성할 경우 이미 경고한다. 5.0에서는 관계 연산자(<code>&lt;,&gt;,&lt;=,=&gt;</code>)에도 적용된다.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">function</span><span style="color:#82AAFF"> func</span><span style="color:#89DDFF">(</span><span style="color:#BABED8;font-style:italic">ns</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> number</span><span style="color:#89DDFF"> |</span><span style="color:#FFCB6B"> string</span><span style="color:#89DDFF">)</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        TypeScript의 특정 연산은 암시적으로 문자열을 숫자로 강제 변환할 수 있는
+        코드를 작성할 경우 이미 경고한다. 5.0에서는 관계
+        연산자(<code>&lt;,&gt;,&lt;=,=&gt;</code>)에도 적용된다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="ts"
+          data-theme="material-theme-palenight"
+        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">function</span><span style="color:#82AAFF"> func</span><span style="color:#89DDFF">(</span><span style="color:#BABED8;font-style:italic">ns</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> number</span><span style="color:#89DDFF"> |</span><span style="color:#FFCB6B"> string</span><span style="color:#89DDFF">)</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#89DDFF"> +</span><span style="color:#BABED8">ns</span><span style="color:#89DDFF"> &gt;</span><span style="color:#F78C6C"> 4</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // OK</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre></figure>
-<p class="mt-4 mb-4"><code>+</code> 연산자를 통해 명시적 형변환후 사용하는것은 가능하다.</p>
-<h3 id="enum-overhaul" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#enum-overhaul"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Enum Overhaul</h3>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">enum</span><span style="color:#FFCB6B"> SomeEvenDigit</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        <code>+</code> 연산자를 통해 명시적 형변환후 사용하는것은 가능하다.
+      </p>
+      <h3
+        id="enum-overhaul"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#enum-overhaul"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Enum Overhaul
+      </h3>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="ts"
+          data-theme="material-theme-palenight"
+        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">enum</span><span style="color:#FFCB6B"> SomeEvenDigit</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#BABED8">  Zero </span><span style="color:#89DDFF">=</span><span style="color:#F78C6C"> 0</span><span style="color:#89DDFF">,</span></span>
 <span data-line=""><span style="color:#BABED8">  Two </span><span style="color:#89DDFF">=</span><span style="color:#F78C6C"> 2</span><span style="color:#89DDFF">,</span></span>
 <span data-line=""><span style="color:#BABED8">  Four </span><span style="color:#89DDFF">=</span><span style="color:#F78C6C"> 4</span><span style="color:#89DDFF">,</span></span>
@@ -356,15 +1009,204 @@
 <span data-line=""> </span>
 <span data-line=""><span style="color:#676E95;font-style:italic">// Now correctly an error</span></span>
 <span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> t</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> number</span><span style="color:#89DDFF"> =</span><span style="color:#BABED8"> Numbers</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">two</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> t2</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> string</span><span style="color:#89DDFF"> =</span><span style="color:#BABED8"> Numbers</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">two</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // 5.0 이전에는 여기서 에러가 발생함(-_-)</span></span></code></pre></figure>
-<p class="mt-4 mb-4">enum을 이해하는 개념 수를 줄이기 위해 위의 두 가지 오류가 추가되었다.</p>
-<h2 id="마무리" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#마무리"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>마무리</h2>
-<p class="mt-4 mb-4">decorator 추가 및 enum 명시성 확장, multi extends, jsdoc 등 다양한 편의성이 추가되었기 때문에 기대되는 메이저 업데이트이다.</p>
-<p class="mt-4 mb-4">이 글에서 다루지 않은 더 자세한 내용은 아래의 원문에 자세하게 추가되어 있다.</p>
-<h2 id="참고" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#참고"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>참고</h2>
-<ul class="min-[790px]:ml-6 ml-4 list-disc">
-<li><a href="https://devblogs.microsoft.com/typescript/announcing-typescript-5-0" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">https://devblogs.microsoft.com/typescript/announcing-typescript-5-0</a></li>
-<li><a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html</a></li>
-<li><a href="https://ko.javascript.info/call-apply-decorators#ref-634" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">https://ko.javascript.info/call-apply-decorators#ref-634</a></li>
-<li><a href="https://2ality.com/2022/10/javascript-decorators.html" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">https://2ality.com/2022/10/javascript-decorators.html</a></li>
-</ul></div><aside class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden" aria-label="index"><ul class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"><li id="decorators" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">Decorators</li><li id="실험적-레거시-데코레이터와의-차이점" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue">실험적 레거시 데코레이터와의 차이점</li><li id="const-type-parameters" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">const Type Parameters</li><li id="supporting-multiple-configuration-files-in-extends" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">Supporting Multiple Configuration Files in extends</li><li id="all-enums-are-union-enums" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">All enums Are Union enums</li><li id="--moduleresolution-bundler" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">--moduleResolution bundler</li><li id="support-for-export-type-" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">Support for export type *</li><li id="overload-support-in-jsdoc" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">@overload Support in JSDoc</li><li id="speed-memory-and-package-size-optimizations" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">Speed, Memory, and Package Size Optimizations</li><li id="breaking-changes-and-deprecations" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">Breaking Changes and Deprecations</li><li id="runtime-requirements" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">Runtime Requirements</li><li id="libdts-changes" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">lib.d.ts Changes</li><li id="api-breaking-changes" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">API Breaking Changes</li><li id="forbidden-implicit-coercions-in-relational-operators" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">Forbidden Implicit Coercions in Relational Operators</li><li id="enum-overhaul" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue">Enum Overhaul</li><li id="마무리" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">마무리</li><li id="참고" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">참고</li></ul></aside></section><a class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water" href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] TypeScript%205.0%20%EC%82%B4%ED%8E%B4%EB%B3%B4%EA%B8%B0&amp;body=<!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 -->" rel="noopener noreferrer" target="_blank">📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍</a><div class="flex items-center mt-4 mb-56"><iframe class="border-0 rounded-md cursor-pointer object-contain hover:animate-bouncing" src="https://github.com/sponsors/1ilsang/button" title="Sponsor 1ilsang" height="32" width="114"></iframe></div></section>
+<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> t2</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> string</span><span style="color:#89DDFF"> =</span><span style="color:#BABED8"> Numbers</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">two</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // 5.0 이전에는 여기서 에러가 발생함(-_-)</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        enum을 이해하는 개념 수를 줄이기 위해 위의 두 가지 오류가 추가되었다.
+      </p>
+      <h2
+        id="마무리"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#마무리"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >마무리
+      </h2>
+      <p class="mt-4 mb-4">
+        decorator 추가 및 enum 명시성 확장, multi extends, jsdoc 등 다양한
+        편의성이 추가되었기 때문에 기대되는 메이저 업데이트이다.
+      </p>
+      <p class="mt-4 mb-4">
+        이 글에서 다루지 않은 더 자세한 내용은 아래의 원문에 자세하게 추가되어
+        있다.
+      </p>
+      <h2
+        id="참고"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#참고"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >참고
+      </h2>
+      <ul class="min-[790px]:ml-6 ml-4 list-disc">
+        <li>
+          <a
+            href="https://devblogs.microsoft.com/typescript/announcing-typescript-5-0"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >https://devblogs.microsoft.com/typescript/announcing-typescript-5-0</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://ko.javascript.info/call-apply-decorators#ref-634"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >https://ko.javascript.info/call-apply-decorators#ref-634</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://2ality.com/2022/10/javascript-decorators.html"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >https://2ality.com/2022/10/javascript-decorators.html</a
+          >
+        </li>
+      </ul>
+    </div>
+    <aside
+      class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
+      aria-label="index"
+    >
+      <ul
+        class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
+      >
+        <li
+          id="decorators"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          Decorators
+        </li>
+        <li
+          id="실험적-레거시-데코레이터와의-차이점"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
+        >
+          실험적 레거시 데코레이터와의 차이점
+        </li>
+        <li
+          id="const-type-parameters"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          const Type Parameters
+        </li>
+        <li
+          id="supporting-multiple-configuration-files-in-extends"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          Supporting Multiple Configuration Files in extends
+        </li>
+        <li
+          id="all-enums-are-union-enums"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          All enums Are Union enums
+        </li>
+        <li
+          id="--moduleresolution-bundler"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          --moduleResolution bundler
+        </li>
+        <li
+          id="support-for-export-type-"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          Support for export type *
+        </li>
+        <li
+          id="overload-support-in-jsdoc"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          @overload Support in JSDoc
+        </li>
+        <li
+          id="speed-memory-and-package-size-optimizations"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          Speed, Memory, and Package Size Optimizations
+        </li>
+        <li
+          id="breaking-changes-and-deprecations"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          Breaking Changes and Deprecations
+        </li>
+        <li
+          id="runtime-requirements"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          Runtime Requirements
+        </li>
+        <li
+          id="libdts-changes"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          lib.d.ts Changes
+        </li>
+        <li
+          id="api-breaking-changes"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          API Breaking Changes
+        </li>
+        <li
+          id="forbidden-implicit-coercions-in-relational-operators"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          Forbidden Implicit Coercions in Relational Operators
+        </li>
+        <li
+          id="enum-overhaul"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
+        >
+          Enum Overhaul
+        </li>
+        <li
+          id="마무리"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          마무리
+        </li>
+        <li
+          id="참고"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          참고
+        </li>
+      </ul>
+    </aside>
+  </section>
+  <a
+    class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water"
+    href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] TypeScript%205.0%20%EC%82%B4%ED%8E%B4%EB%B3%B4%EA%B8%B0&amp;body=&lt;!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 --&gt;"
+    rel="noopener noreferrer"
+    target="_blank"
+    >📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍</a
+  >
+  <div class="flex items-center mt-4 mb-56">
+    <iframe
+      class="border-0 rounded-md cursor-pointer object-contain hover:animate-bouncing"
+      src="https://github.com/sponsors/1ilsang/button"
+      title="Sponsor 1ilsang"
+      height="32"
+      width="114"
+    ></iframe>
+  </div>
+</section>

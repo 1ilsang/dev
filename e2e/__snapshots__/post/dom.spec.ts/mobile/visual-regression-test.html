@@ -1,120 +1,756 @@
-<progress class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og" value="0" max="1"></progress><nav class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"><h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5"><a class="hover:underline" href="/">1ilsang</a></h2><div class="flex"><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/posts">posts</a></h2><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/tags">tags</a></h2><div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-white-blue" src="/images/chul.webp" alt="1ilsang"></a></div></div></nav><section class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"><h1 class="text-4xl break-words md:text-6xl">시각적 회귀 테스트 도입기</h1><section class="flex items-center mt-4"><div class="mr-2 w-9 h-9 md:w-12 md:h-12" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-sub-blue" src="/images/chul.webp" alt="1ilsang"></a></div><div><a class="text-lg" href="/about">1ilsang</a><div class="text-sm text-sub-blue">클라이밍 하실래염?</div></div></section><section class="flex flex-wrap items-end mt-2"><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/test">#<!-- -->test</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/visual-regression-test">#<!-- -->visual-regression-test</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/playwright">#<!-- -->playwright</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/snapshot">#<!-- -->snapshot</a></section><section><div class="inline text-date-gray"><span class="mr-1">Published</span><time datetime="2024-05-06 14:34">2024-05-06 14:34</time></div></section><section id="post-body-container" class="relative"><div class="markdown"><div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full h-[600px] object-contain bg-transparent mt-10"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="cover large" src="/posts/visual-regression-test/cover-large.webp"></div></div>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4">Image Source: <a href="https://commerce.nearform.com/blog/2022/react-native-owl/" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">We're Building a Visual Regression Testing Library for React Native</a></p>
-</blockquote>
-<p class="mt-4 mb-4">블로그에 항상 테스트를 도입해야겠다 생각하고 있었는데 이번에 적용하게 되어 도입 배경과 트러블 슈팅 과정을 포스트로 남겨보고자 한다.</p>
-<h2 id="index" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#index"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Index</h2>
-<ul class="min-[790px]:ml-6 ml-4 list-disc">
-<li><a href="#tldr" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">TL;DR!</a></li>
-<li><a href="#%EB%8F%84%EC%9E%85-%EB%B0%B0%EA%B2%BD" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">도입 배경</a></li>
-<li><a href="#%EC%8B%9C%EA%B0%81%EC%A0%81-%ED%9A%8C%EA%B7%80-%ED%85%8C%EC%8A%A4%ED%8A%B8%EB%9E%80" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">시각적 회귀 테스트란</a></li>
-<li><a href="#playwright" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Playwright</a>
-<ul class="min-[790px]:ml-6 ml-4 list-disc">
-<li><a href="#dom-snapshot" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">DOM Snapshot</a></li>
-<li><a href="#screenshot" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Screenshot</a></li>
-</ul>
-</li>
-<li><a href="#github-actions" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Github Actions</a></li>
-<li><a href="#%EC%84%B1%EB%8A%A5-%EA%B0%9C%EC%84%A0" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">성능 개선</a>
-<ul class="min-[790px]:ml-6 ml-4 list-disc">
-<li><a href="#%ED%85%8C%EC%8A%A4%ED%8A%B8-%EB%B0%A9%EC%8B%9D" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">테스트 방식</a></li>
-<li><a href="#%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%86%8D%EB%8F%84" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">테스트 속도</a></li>
-<li><a href="#cicd" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">CI/CD</a></li>
-</ul>
-</li>
-<li><a href="#%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">트러블 슈팅</a>
-<ul class="min-[790px]:ml-6 ml-4 list-disc">
-<li><a href="#%EB%A1%9C%EC%BB%AC-%ED%85%8C%EC%8A%A4%ED%8A%B8%EB%A5%BC-%ED%8F%AC%EA%B8%B0%ED%95%B4%EC%95%BC-%ED%95%A0%EA%B9%8C" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">로컬 테스트를 포기해야 할까</a></li>
-<li><a href="#timezone" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Timezone</a></li>
-<li><a href="#%ED%85%8C%EC%8A%A4%ED%8A%B8-%EB%B6%84%EA%B8%B0" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">테스트 분기</a></li>
-<li><a href="#1px" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">1px</a></li>
-<li><a href="#image-load" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Image load</a></li>
-</ul>
-</li>
-<li><a href="#%EB%A7%88%EB%AC%B4%EB%A6%AC" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">마무리</a></li>
-</ul>
-<h2 id="tldr" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#tldr"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>TL;DR!</h2>
-<p class="mt-4 mb-4">Playwright 및 Github Actions로 시각적 회귀 테스트 및 CI/CD를 적용한다.</p>
-<ol class="min-[790px]:ml-6 ml-4 list-decimal">
-<li>시각적 회귀 테스트로 UI 변경 사항을 배포전에 알아차린다</li>
-<li>빠르게 실패하고 실패한 부분만 재실행하자</li>
-<li>로컬 테스트와 CI Test의 통합은 어렵다</li>
-</ol>
-<h2 id="도입-배경" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#도입-배경"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>도입 배경</h2>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="test pyramid" src="/posts/visual-regression-test/test-pyramid.webp"></div></div>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4">Image Source: <a href="https://kr.freepik.com/premium-vector/test-pyramid-with-user-interface-tests-integration-tests-and-unit-tests_50393283.htm" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">사용자 인터페이스 테스트 통합 테스트 및 단위 테스트로 테스트 피라미드</a></p>
-</blockquote>
-<p class="mt-4 mb-4">이전부터 블로그에 테스트 코드가 없는 것이 꽤나 찝찝했기 때문에 어떤 방식/도구로 테스트를 적용할까 고민하고 있었다.</p>
-<p class="mt-4 mb-4">블로그의 특성상 <u>한번 배포된 콘텐츠는 크게 바뀔 일이 없기 때문</u>에 정적 UI 테스트를 도입하기에 적절하다고 생각했고 마침 꽤나 긴 연휴가 있었기 때문에 각 잡고 정적 UI 테스트를 도입하고자 마음먹게 되었다.</p>
-<p class="mt-4 mb-4">빌드된 결과물을 바탕으로 테스트할 예정이었기 때문에 아래의 두 가지 방식의 테스트를 고려했다.</p>
-<ol class="min-[790px]:ml-6 ml-4 list-decimal">
-<li>DOM Snapshot</li>
-<li>Screen Snapshot</li>
-</ol>
-<p class="mt-4 mb-4">먼저 DOM 스냅샷 비교를 통해 이후 작업에서 기존 DOM 구조를 변경하는지 확인한다. 하지만 DOM 스냅샷은 CSS의 변경 여부를 알아차리기 어렵다는 단점이 있다.</p>
-<p class="mt-4 mb-4">따라서 시각적 회귀 테스트인 Screen 스냅샷 비교로 정상적인 렌더링이 되었는지 확인한다.</p>
-<h2 id="시각적-회귀-테스트란" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#시각적-회귀-테스트란"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>시각적 회귀 테스트란</h2>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="failed visual regression test" src="/posts/visual-regression-test/failed-visual-regression-test.webp"></div></div>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4">(좌) 차이가 생긴 렌더링 결과물. (우) 차이가 생긴 부분 히트맵</p>
-</blockquote>
-<p class="mt-4 mb-4">시각적 회귀 테스트(Visual Regression Test)는 코드 변경 전후의 렌더링 된 UI의 스크린샷을 비교하는 테스트이다.</p>
-<p class="mt-4 mb-4">위의 좌측 이미지를 확인해 보면 더 명확하게 알 수 있다. 모종의 이유로 하위 이미지 크기가 달라졌고 이에 따라 이후의 <u>시각적 구조가 변경</u> 되었다.</p>
-<p class="mt-4 mb-4">우측 이미지는 Diff 이미지로, 차이가 생긴 영역에 붉게 표시를 해놓았다.</p>
-<p class="mt-4 mb-4">이로써 우리는 컴포넌트가 실제로 어떻게 렌더링 되었는지 정확하게 알 수 있게 된다.</p>
-<h2 id="playwright" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#playwright"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Playwright</h2>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="playwright" src="/posts/visual-regression-test/playwright.webp"></div></div>
-<p class="mt-4 mb-4">어떤 방식의 테스트를 할지 결정되었으니 자연스럽게 어떤 도구로 테스트를 작성할지 고민하게 되었다.</p>
-<table class="w-full mb-4 text-[#dfdfdf] table-fixed break-words"><thead><tr><th style="text-align:center">Aspect</th><th style="text-align:center">Playwright</th><th style="text-align:center">Cypress</th></tr></thead><tbody><tr><td style="text-align:center">Browser 지원</td><td style="text-align:center">Chrome, Firefox, Webkit</td><td style="text-align:center">Chrome, Firefox, Electron</td></tr><tr><td style="text-align:center">병렬 실행</td><td style="text-align:center">무료</td><td style="text-align:center">유료</td></tr><tr><td style="text-align:center">멀티탭(다중 브라우저)</td><td style="text-align:center"><a href="https://playwright.dev/docs/pages#handling-new-pages" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">가능</a></td><td style="text-align:center"><a href="https://docs.cypress.io/guides/references/trade-offs#Multiple-tabs" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">불가능</a></td></tr><tr><td style="text-align:center">성능</td><td style="text-align:center">Headless Event-driven socket 방식으로 빠름</td><td style="text-align:center">실제 브라우저에서 실행하므로 상대적으로 느림</td></tr></tbody></table>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4">더 자세한 내용은 <a href="https://www.lambdatest.com/blog/cypress-vs-playwright/" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Cypress vs Playwright: A Detailed Comparison</a> 참고</p>
-</blockquote>
-<p class="mt-4 mb-4">꾸준히 <a href="https://www.cypress.io/" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Cypress</a>를 사용해 왔지만 병렬 처리에 상당히 답답함을 느끼고 있었기 때문에 이번 기회에 <a href="https://playwright.dev/" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Playwright</a>에 도전하고자 결정했다.</p>
-<p class="mt-4 mb-4">물론 <a href="https://sorry-cypress.dev/" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Sorry-Cypress</a>로 병렬처리를 할 수 있지만 셀프 호스팅부터 신경 써야 하는 부분이 하나 더 생기기 때문에 기술부채가 싫은 나로서는 선택지에 해당되지 않았다.</p>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="playwright flow" src="/posts/visual-regression-test/playwright-flow.webp"></div></div>
-<p class="mt-4 mb-4">무엇보다 성능 부분에 차이가 있다. 테스트 결과를 하루종일 기다렸는데 심지어 실패했다? 한 줄 고치고 다시 하루종일 기다려야 한다.</p>
-<p class="mt-4 mb-4">정말 하기 싫어진다.</p>
-<p class="mt-4 mb-4">Playwright는 브라우저와 HTTP request 통신 대신 WebSocket으로 Dev tools에 바로 연결한다. 따라서 브라우저의 큰 메모리나 부가적인 리소스가 필요하지 않기 때문에 실제 브라우저와 통신하는 Cypress에 비해 가볍고 빠르다.</p>
-<p class="mt-4 mb-4">그렇다면 Playwright로 어떻게 기존의 목적, DOM snapshot과 Screen snapshot을 할 수 있는지 살펴보자.</p>
-<h3 id="dom-snapshot" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#dom-snapshot"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>DOM Snapshot</h3>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#89DDFF;font-style:italic">import</span><span style="color:#89DDFF"> {</span><span style="color:#BABED8"> expect</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> test</span><span style="color:#89DDFF"> }</span><span style="color:#89DDFF;font-style:italic"> from</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">@playwright/test</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">;</span></span>
+<progress
+  class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  value="0"
+  max="1"
+></progress>
+<nav
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"
+>
+  <h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
+    <a class="hover:underline" href="/">1ilsang</a>
+  </h2>
+  <div class="flex">
+    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/posts">posts</a>
+    </h2>
+    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/tags">tags</a>
+    </h2>
+    <div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character">
+      <a href="/about"
+        ><img
+          class="border border-solid rounded-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+    </div>
+  </div>
+</nav>
+<section
+  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
+>
+  <h1 class="text-4xl break-words md:text-6xl">시각적 회귀 테스트 도입기</h1>
+  <section class="flex items-center mt-4">
+    <div
+      class="mr-2 w-9 h-9 md:w-12 md:h-12"
+      role="img"
+      aria-label="1ilsang character"
+    >
+      <a href="/about"
+        ><img
+          class="border border-solid rounded-full border-sub-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+    </div>
+    <div>
+      <a class="text-lg" href="/about">1ilsang</a>
+      <div class="text-sm text-sub-blue">클라이밍 하실래염?</div>
+    </div>
+  </section>
+  <section class="flex flex-wrap items-end mt-2">
+    <a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/test"
+      >#<!-- -->test</a
+    ><a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/visual-regression-test"
+      >#<!-- -->visual-regression-test</a
+    ><a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/playwright"
+      >#<!-- -->playwright</a
+    ><a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/snapshot"
+      >#<!-- -->snapshot</a
+    >
+  </section>
+  <section>
+    <div class="inline text-date-gray">
+      <span class="mr-1">Published</span
+      ><time datetime="2024-05-06 14:34">2024-05-06 14:34</time>
+    </div>
+  </section>
+  <section id="post-body-container" class="relative">
+    <div class="markdown">
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full h-[600px] object-contain bg-transparent mt-10"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="cover large"
+            src="/posts/visual-regression-test/cover-large.webp"
+          />
+        </div>
+      </div>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          Image Source:
+          <a
+            href="https://commerce.nearform.com/blog/2022/react-native-owl/"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >We're Building a Visual Regression Testing Library for React
+            Native</a
+          >
+        </p>
+      </blockquote>
+      <p class="mt-4 mb-4">
+        블로그에 항상 테스트를 도입해야겠다 생각하고 있었는데 이번에 적용하게
+        되어 도입 배경과 트러블 슈팅 과정을 포스트로 남겨보고자 한다.
+      </p>
+      <h2
+        id="index"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#index"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Index
+      </h2>
+      <ul class="min-[790px]:ml-6 ml-4 list-disc">
+        <li>
+          <a
+            href="#tldr"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >TL;DR!</a
+          >
+        </li>
+        <li>
+          <a
+            href="#%EB%8F%84%EC%9E%85-%EB%B0%B0%EA%B2%BD"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >도입 배경</a
+          >
+        </li>
+        <li>
+          <a
+            href="#%EC%8B%9C%EA%B0%81%EC%A0%81-%ED%9A%8C%EA%B7%80-%ED%85%8C%EC%8A%A4%ED%8A%B8%EB%9E%80"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >시각적 회귀 테스트란</a
+          >
+        </li>
+        <li>
+          <a
+            href="#playwright"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >Playwright</a
+          >
+          <ul class="min-[790px]:ml-6 ml-4 list-disc">
+            <li>
+              <a
+                href="#dom-snapshot"
+                class="underline-highlight-fade"
+                target="_blank"
+                rel="noreferrer noopener"
+                >DOM Snapshot</a
+              >
+            </li>
+            <li>
+              <a
+                href="#screenshot"
+                class="underline-highlight-fade"
+                target="_blank"
+                rel="noreferrer noopener"
+                >Screenshot</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a
+            href="#github-actions"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >Github Actions</a
+          >
+        </li>
+        <li>
+          <a
+            href="#%EC%84%B1%EB%8A%A5-%EA%B0%9C%EC%84%A0"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >성능 개선</a
+          >
+          <ul class="min-[790px]:ml-6 ml-4 list-disc">
+            <li>
+              <a
+                href="#%ED%85%8C%EC%8A%A4%ED%8A%B8-%EB%B0%A9%EC%8B%9D"
+                class="underline-highlight-fade"
+                target="_blank"
+                rel="noreferrer noopener"
+                >테스트 방식</a
+              >
+            </li>
+            <li>
+              <a
+                href="#%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%86%8D%EB%8F%84"
+                class="underline-highlight-fade"
+                target="_blank"
+                rel="noreferrer noopener"
+                >테스트 속도</a
+              >
+            </li>
+            <li>
+              <a
+                href="#cicd"
+                class="underline-highlight-fade"
+                target="_blank"
+                rel="noreferrer noopener"
+                >CI/CD</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a
+            href="#%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >트러블 슈팅</a
+          >
+          <ul class="min-[790px]:ml-6 ml-4 list-disc">
+            <li>
+              <a
+                href="#%EB%A1%9C%EC%BB%AC-%ED%85%8C%EC%8A%A4%ED%8A%B8%EB%A5%BC-%ED%8F%AC%EA%B8%B0%ED%95%B4%EC%95%BC-%ED%95%A0%EA%B9%8C"
+                class="underline-highlight-fade"
+                target="_blank"
+                rel="noreferrer noopener"
+                >로컬 테스트를 포기해야 할까</a
+              >
+            </li>
+            <li>
+              <a
+                href="#timezone"
+                class="underline-highlight-fade"
+                target="_blank"
+                rel="noreferrer noopener"
+                >Timezone</a
+              >
+            </li>
+            <li>
+              <a
+                href="#%ED%85%8C%EC%8A%A4%ED%8A%B8-%EB%B6%84%EA%B8%B0"
+                class="underline-highlight-fade"
+                target="_blank"
+                rel="noreferrer noopener"
+                >테스트 분기</a
+              >
+            </li>
+            <li>
+              <a
+                href="#1px"
+                class="underline-highlight-fade"
+                target="_blank"
+                rel="noreferrer noopener"
+                >1px</a
+              >
+            </li>
+            <li>
+              <a
+                href="#image-load"
+                class="underline-highlight-fade"
+                target="_blank"
+                rel="noreferrer noopener"
+                >Image load</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a
+            href="#%EB%A7%88%EB%AC%B4%EB%A6%AC"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >마무리</a
+          >
+        </li>
+      </ul>
+      <h2
+        id="tldr"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#tldr"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >TL;DR!
+      </h2>
+      <p class="mt-4 mb-4">
+        Playwright 및 Github Actions로 시각적 회귀 테스트 및 CI/CD를 적용한다.
+      </p>
+      <ol class="min-[790px]:ml-6 ml-4 list-decimal">
+        <li>시각적 회귀 테스트로 UI 변경 사항을 배포전에 알아차린다</li>
+        <li>빠르게 실패하고 실패한 부분만 재실행하자</li>
+        <li>로컬 테스트와 CI Test의 통합은 어렵다</li>
+      </ol>
+      <h2
+        id="도입-배경"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#도입-배경"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >도입 배경
+      </h2>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="test pyramid"
+            src="/posts/visual-regression-test/test-pyramid.webp"
+          />
+        </div>
+      </div>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          Image Source:
+          <a
+            href="https://kr.freepik.com/premium-vector/test-pyramid-with-user-interface-tests-integration-tests-and-unit-tests_50393283.htm"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >사용자 인터페이스 테스트 통합 테스트 및 단위 테스트로 테스트
+            피라미드</a
+          >
+        </p>
+      </blockquote>
+      <p class="mt-4 mb-4">
+        이전부터 블로그에 테스트 코드가 없는 것이 꽤나 찝찝했기 때문에 어떤
+        방식/도구로 테스트를 적용할까 고민하고 있었다.
+      </p>
+      <p class="mt-4 mb-4">
+        블로그의 특성상 <u>한번 배포된 콘텐츠는 크게 바뀔 일이 없기 때문</u>에
+        정적 UI 테스트를 도입하기에 적절하다고 생각했고 마침 꽤나 긴 연휴가
+        있었기 때문에 각 잡고 정적 UI 테스트를 도입하고자 마음먹게 되었다.
+      </p>
+      <p class="mt-4 mb-4">
+        빌드된 결과물을 바탕으로 테스트할 예정이었기 때문에 아래의 두 가지
+        방식의 테스트를 고려했다.
+      </p>
+      <ol class="min-[790px]:ml-6 ml-4 list-decimal">
+        <li>DOM Snapshot</li>
+        <li>Screen Snapshot</li>
+      </ol>
+      <p class="mt-4 mb-4">
+        먼저 DOM 스냅샷 비교를 통해 이후 작업에서 기존 DOM 구조를 변경하는지
+        확인한다. 하지만 DOM 스냅샷은 CSS의 변경 여부를 알아차리기 어렵다는
+        단점이 있다.
+      </p>
+      <p class="mt-4 mb-4">
+        따라서 시각적 회귀 테스트인 Screen 스냅샷 비교로 정상적인 렌더링이
+        되었는지 확인한다.
+      </p>
+      <h2
+        id="시각적-회귀-테스트란"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#시각적-회귀-테스트란"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >시각적 회귀 테스트란
+      </h2>
+      <div class="img-container">
+        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="failed visual regression test"
+            src="/posts/visual-regression-test/failed-visual-regression-test.webp"
+          />
+        </div>
+      </div>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          (좌) 차이가 생긴 렌더링 결과물. (우) 차이가 생긴 부분 히트맵
+        </p>
+      </blockquote>
+      <p class="mt-4 mb-4">
+        시각적 회귀 테스트(Visual Regression Test)는 코드 변경 전후의 렌더링 된
+        UI의 스크린샷을 비교하는 테스트이다.
+      </p>
+      <p class="mt-4 mb-4">
+        위의 좌측 이미지를 확인해 보면 더 명확하게 알 수 있다. 모종의 이유로
+        하위 이미지 크기가 달라졌고 이에 따라 이후의
+        <u>시각적 구조가 변경</u> 되었다.
+      </p>
+      <p class="mt-4 mb-4">
+        우측 이미지는 Diff 이미지로, 차이가 생긴 영역에 붉게 표시를 해놓았다.
+      </p>
+      <p class="mt-4 mb-4">
+        이로써 우리는 컴포넌트가 실제로 어떻게 렌더링 되었는지 정확하게 알 수
+        있게 된다.
+      </p>
+      <h2
+        id="playwright"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#playwright"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Playwright
+      </h2>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="playwright"
+            src="/posts/visual-regression-test/playwright.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        어떤 방식의 테스트를 할지 결정되었으니 자연스럽게 어떤 도구로 테스트를
+        작성할지 고민하게 되었다.
+      </p>
+      <table class="w-full mb-4 text-[#dfdfdf] table-fixed break-words">
+        <thead>
+          <tr>
+            <th style="text-align: center">Aspect</th>
+            <th style="text-align: center">Playwright</th>
+            <th style="text-align: center">Cypress</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="text-align: center">Browser 지원</td>
+            <td style="text-align: center">Chrome, Firefox, Webkit</td>
+            <td style="text-align: center">Chrome, Firefox, Electron</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">병렬 실행</td>
+            <td style="text-align: center">무료</td>
+            <td style="text-align: center">유료</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">멀티탭(다중 브라우저)</td>
+            <td style="text-align: center">
+              <a
+                href="https://playwright.dev/docs/pages#handling-new-pages"
+                class="underline-highlight-fade"
+                target="_blank"
+                rel="noreferrer noopener"
+                >가능</a
+              >
+            </td>
+            <td style="text-align: center">
+              <a
+                href="https://docs.cypress.io/guides/references/trade-offs#Multiple-tabs"
+                class="underline-highlight-fade"
+                target="_blank"
+                rel="noreferrer noopener"
+                >불가능</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align: center">성능</td>
+            <td style="text-align: center">
+              Headless Event-driven socket 방식으로 빠름
+            </td>
+            <td style="text-align: center">
+              실제 브라우저에서 실행하므로 상대적으로 느림
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          더 자세한 내용은
+          <a
+            href="https://www.lambdatest.com/blog/cypress-vs-playwright/"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >Cypress vs Playwright: A Detailed Comparison</a
+          >
+          참고
+        </p>
+      </blockquote>
+      <p class="mt-4 mb-4">
+        꾸준히
+        <a
+          href="https://www.cypress.io/"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >Cypress</a
+        >를 사용해 왔지만 병렬 처리에 상당히 답답함을 느끼고 있었기 때문에 이번
+        기회에
+        <a
+          href="https://playwright.dev/"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >Playwright</a
+        >에 도전하고자 결정했다.
+      </p>
+      <p class="mt-4 mb-4">
+        물론
+        <a
+          href="https://sorry-cypress.dev/"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >Sorry-Cypress</a
+        >로 병렬처리를 할 수 있지만 셀프 호스팅부터 신경 써야 하는 부분이 하나
+        더 생기기 때문에 기술부채가 싫은 나로서는 선택지에 해당되지 않았다.
+      </p>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="playwright flow"
+            src="/posts/visual-regression-test/playwright-flow.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        무엇보다 성능 부분에 차이가 있다. 테스트 결과를 하루종일 기다렸는데
+        심지어 실패했다? 한 줄 고치고 다시 하루종일 기다려야 한다.
+      </p>
+      <p class="mt-4 mb-4">정말 하기 싫어진다.</p>
+      <p class="mt-4 mb-4">
+        Playwright는 브라우저와 HTTP request 통신 대신 WebSocket으로 Dev tools에
+        바로 연결한다. 따라서 브라우저의 큰 메모리나 부가적인 리소스가 필요하지
+        않기 때문에 실제 브라우저와 통신하는 Cypress에 비해 가볍고 빠르다.
+      </p>
+      <p class="mt-4 mb-4">
+        그렇다면 Playwright로 어떻게 기존의 목적, DOM snapshot과 Screen
+        snapshot을 할 수 있는지 살펴보자.
+      </p>
+      <h3
+        id="dom-snapshot"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#dom-snapshot"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >DOM Snapshot
+      </h3>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="ts"
+          data-theme="material-theme-palenight"
+        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#89DDFF;font-style:italic">import</span><span style="color:#89DDFF"> {</span><span style="color:#BABED8"> expect</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> test</span><span style="color:#89DDFF"> }</span><span style="color:#89DDFF;font-style:italic"> from</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">@playwright/test</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""> </span>
 <span data-line=""><span style="color:#82AAFF">test</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">should match DOM snapshot</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#C792EA"> async</span><span style="color:#89DDFF"> ({</span><span style="color:#BABED8;font-style:italic"> page</span><span style="color:#89DDFF"> })</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">  await</span><span style="color:#BABED8"> page</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">goto</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">/about</span><span style="color:#89DDFF">'</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> body</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF;font-style:italic"> await</span><span style="color:#BABED8"> page</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">locator</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">#__next</span><span style="color:#89DDFF">'</span><span style="color:#F07178">)</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">innerHTML</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
 <span data-line="" data-highlighted-line=""><span style="color:#82AAFF">  expect</span><span style="color:#F07178">(</span><span style="color:#BABED8">body</span><span style="color:#F07178">)</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">toMatchSnapshot</span><span style="color:#F07178">([</span><span style="color:#89DDFF">`</span><span style="color:#C3E88D">about.html</span><span style="color:#89DDFF">`</span><span style="color:#F07178">])</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre></figure>
-<p class="mt-4 mb-4">나는 Next.js를 사용하고 있으므로 <code>__next</code> 하위의 DOM만 비교하고자 한다.</p>
-<p class="mt-4 mb-4"><code>innerHTML</code> 메서드를 통해 DOM 구조를 가져온 다음 playwright에서 제공하는 <a href="https://playwright.dev/docs/api/class-snapshotassertions#snapshot-assertions-to-match-snapshot-2" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">toMatchSnapshot</a> 메서드로 DOM 스냅샷을 비교할 수 있다.</p>
-<h3 id="screenshot" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#screenshot"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Screenshot</h3>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#89DDFF;font-style:italic">import</span><span style="color:#89DDFF"> {</span><span style="color:#BABED8"> expect</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> test</span><span style="color:#89DDFF"> }</span><span style="color:#89DDFF;font-style:italic"> from</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">@playwright/test</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        나는 Next.js를 사용하고 있으므로 <code>__next</code> 하위의 DOM만
+        비교하고자 한다.
+      </p>
+      <p class="mt-4 mb-4">
+        <code>innerHTML</code> 메서드를 통해 DOM 구조를 가져온 다음
+        playwright에서 제공하는
+        <a
+          href="https://playwright.dev/docs/api/class-snapshotassertions#snapshot-assertions-to-match-snapshot-2"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >toMatchSnapshot</a
+        >
+        메서드로 DOM 스냅샷을 비교할 수 있다.
+      </p>
+      <h3
+        id="screenshot"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#screenshot"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Screenshot
+      </h3>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="ts"
+          data-theme="material-theme-palenight"
+        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#89DDFF;font-style:italic">import</span><span style="color:#89DDFF"> {</span><span style="color:#BABED8"> expect</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> test</span><span style="color:#89DDFF"> }</span><span style="color:#89DDFF;font-style:italic"> from</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">@playwright/test</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""> </span>
 <span data-line=""><span style="color:#82AAFF">test</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">should match Screenshot</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#C792EA"> async</span><span style="color:#89DDFF"> ({</span><span style="color:#BABED8;font-style:italic"> page</span><span style="color:#89DDFF"> })</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">  await</span><span style="color:#BABED8"> page</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">goto</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">/about</span><span style="color:#89DDFF">'</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
 <span data-line="" data-highlighted-line=""><span style="color:#89DDFF;font-style:italic">  await</span><span style="color:#82AAFF"> expect</span><span style="color:#F07178">(</span><span style="color:#BABED8">page</span><span style="color:#F07178">)</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">toHaveScreenshot</span><span style="color:#F07178">(</span><span style="color:#89DDFF">{</span><span style="color:#F07178"> fullPage</span><span style="color:#89DDFF">:</span><span style="color:#FF9CAC"> true</span><span style="color:#89DDFF"> }</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre></figure>
-<p class="mt-4 mb-4">스크린샷 또한 playwright에서 제공하는 <a href="https://playwright.dev/docs/api/class-pageassertions#page-assertions-to-have-screenshot-2" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">toHaveScreenshot</a> 메서드로 쉽게 적용할 수 있다.</p>
-<p class="mt-4 mb-4">나는 전체 화면의 비교를 할 것이므로 <code>fullPage</code>를 설정했다.</p>
-<h3 id="시각적-회귀-테스트는-다양한-이유로-실패할-수-있다" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#시각적-회귀-테스트는-다양한-이유로-실패할-수-있다"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>시각적 회귀 테스트는 다양한 이유로 실패할 수 있다</h3>
-<ol class="min-[790px]:ml-6 ml-4 list-decimal">
-<li>테스트가 실행되는 OS에 따라 화면이 달라지기 때문에 실패한다(이모지 등)</li>
-<li>동일한 OS라도 버전/브라우저에 따라 화면이 달라질 수 있다</li>
-<li>실행된 머신의 <a href="https://namu.wiki/w/%EC%8B%9C%EA%B0%84%EB%8C%80/%EB%AA%A9%EB%A1%9D?from=%EC%8B%9C%EA%B0%84%EB%8C%80%2F%EA%B0%81%EA%B5%AD%EC%9D%98%20%EC%8B%9C%EA%B0%84%EB%8C%80" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">타임존</a>에 따라 Date 값이 달라져 실패할 수 있다</li>
-<li>Image와 같은 Resource 로딩 시점에 따라 페이지가 달라질 수 있다</li>
-<li>Animation 혹은 setTimeout과 같은 시간에 종속된 동작은 일관성을 보장할 수 없다</li>
-<li>눈에 큰 차이가 안 나더라도 실패할 수 있다(1px 차이로 실패 등)</li>
-</ol>
-<p class="mt-4 mb-4">위의 내용들은 일반적인 E2E 테스트에서도 발생할 수 있는 실패 케이스들이다. 일부 케이스는 밑의 <a href="#%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">트러블 슈팅</a>에서 다루겠다.</p>
-<p class="mt-4 mb-4">이처럼 다양한 사이드 이펙트가 존재하기 때문에 동적인 컴포넌트가 많거나 화면이 자주 바뀐다면 도입 전에 <a href="https://ko.wikipedia.org/wiki/%ED%88%AC%EC%9E%90%EC%9E%90%EB%B3%B8%EC%88%98%EC%9D%B5%EB%A5%A0" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">ROI</a>를 따져보는 것이 좋다.</p>
-<p class="mt-4 mb-4">기본적인 설정은 되었으므로 CI/CD를 구축하자.</p>
-<h2 id="github-actions" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#github-actions"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Github Actions</h2>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="github actions" src="/posts/visual-regression-test/github-actions.webp"></div></div>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4">Image Source: <a href="https://www.linkedin.com/pulse/cicd-github-actions-step-by-step-workflow-mysoly-v-o-f-vngqf/" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">CI/CD with GitHub Actions: Step-by-Step Workflow</a></p>
-</blockquote>
-<p class="mt-4 mb-4"><a href="https://docs.github.com/ko/actions" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Github Actions</a>를 통해 <a href="https://www.redhat.com/ko/topics/devops/what-is-ci-cd" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">CI/CD</a>를 간편하게 구축할 수 있다.</p>
-<figure data-rehype-pretty-code-figure=""><figcaption data-rehype-pretty-code-title="" data-language="yml" data-theme="material-theme-palenight">.github/workflow/playwright.yml</figcaption><pre tabindex="0" data-language="yml" data-theme="material-theme-palenight"><code data-language="yml" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#F07178">name</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> Playwright Tests</span></span>
+<span data-line=""><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        스크린샷 또한 playwright에서 제공하는
+        <a
+          href="https://playwright.dev/docs/api/class-pageassertions#page-assertions-to-have-screenshot-2"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >toHaveScreenshot</a
+        >
+        메서드로 쉽게 적용할 수 있다.
+      </p>
+      <p class="mt-4 mb-4">
+        나는 전체 화면의 비교를 할 것이므로 <code>fullPage</code>를 설정했다.
+      </p>
+      <h3
+        id="시각적-회귀-테스트는-다양한-이유로-실패할-수-있다"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#시각적-회귀-테스트는-다양한-이유로-실패할-수-있다"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >시각적 회귀 테스트는 다양한 이유로 실패할 수 있다
+      </h3>
+      <ol class="min-[790px]:ml-6 ml-4 list-decimal">
+        <li>
+          테스트가 실행되는 OS에 따라 화면이 달라지기 때문에 실패한다(이모지 등)
+        </li>
+        <li>동일한 OS라도 버전/브라우저에 따라 화면이 달라질 수 있다</li>
+        <li>
+          실행된 머신의
+          <a
+            href="https://namu.wiki/w/%EC%8B%9C%EA%B0%84%EB%8C%80/%EB%AA%A9%EB%A1%9D?from=%EC%8B%9C%EA%B0%84%EB%8C%80%2F%EA%B0%81%EA%B5%AD%EC%9D%98%20%EC%8B%9C%EA%B0%84%EB%8C%80"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >타임존</a
+          >에 따라 Date 값이 달라져 실패할 수 있다
+        </li>
+        <li>Image와 같은 Resource 로딩 시점에 따라 페이지가 달라질 수 있다</li>
+        <li>
+          Animation 혹은 setTimeout과 같은 시간에 종속된 동작은 일관성을 보장할
+          수 없다
+        </li>
+        <li>눈에 큰 차이가 안 나더라도 실패할 수 있다(1px 차이로 실패 등)</li>
+      </ol>
+      <p class="mt-4 mb-4">
+        위의 내용들은 일반적인 E2E 테스트에서도 발생할 수 있는 실패
+        케이스들이다. 일부 케이스는 밑의
+        <a
+          href="#%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >트러블 슈팅</a
+        >에서 다루겠다.
+      </p>
+      <p class="mt-4 mb-4">
+        이처럼 다양한 사이드 이펙트가 존재하기 때문에 동적인 컴포넌트가 많거나
+        화면이 자주 바뀐다면 도입 전에
+        <a
+          href="https://ko.wikipedia.org/wiki/%ED%88%AC%EC%9E%90%EC%9E%90%EB%B3%B8%EC%88%98%EC%9D%B5%EB%A5%A0"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >ROI</a
+        >를 따져보는 것이 좋다.
+      </p>
+      <p class="mt-4 mb-4">기본적인 설정은 되었으므로 CI/CD를 구축하자.</p>
+      <h2
+        id="github-actions"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#github-actions"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Github Actions
+      </h2>
+      <div class="img-container">
+        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="github actions"
+            src="/posts/visual-regression-test/github-actions.webp"
+          />
+        </div>
+      </div>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          Image Source:
+          <a
+            href="https://www.linkedin.com/pulse/cicd-github-actions-step-by-step-workflow-mysoly-v-o-f-vngqf/"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >CI/CD with GitHub Actions: Step-by-Step Workflow</a
+          >
+        </p>
+      </blockquote>
+      <p class="mt-4 mb-4">
+        <a
+          href="https://docs.github.com/ko/actions"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >Github Actions</a
+        >를 통해
+        <a
+          href="https://www.redhat.com/ko/topics/devops/what-is-ci-cd"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >CI/CD</a
+        >를 간편하게 구축할 수 있다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <figcaption
+          data-rehype-pretty-code-title=""
+          data-language="yml"
+          data-theme="material-theme-palenight"
+        >
+          .github/workflow/playwright.yml
+        </figcaption>
+        <pre
+          tabindex="0"
+          data-language="yml"
+          data-theme="material-theme-palenight"
+        ><code data-language="yml" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#F07178">name</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> Playwright Tests</span></span>
 <span data-line=""><span style="color:#FF9CAC">on</span><span style="color:#89DDFF">:</span></span>
 <span data-line=""><span style="color:#F07178">  push</span><span style="color:#89DDFF">:</span></span>
 <span data-line=""><span style="color:#F07178">    branches</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> [</span><span style="color:#C3E88D">main</span><span style="color:#89DDFF">]</span></span>
@@ -141,29 +777,114 @@
 <span data-line=""><span style="color:#F07178">        with</span><span style="color:#89DDFF">:</span></span>
 <span data-line=""><span style="color:#F07178">          name</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> playwright-report</span></span>
 <span data-line=""><span style="color:#F07178">          path</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> playwright-report/</span></span>
-<span data-line=""><span style="color:#F07178">          retention-days</span><span style="color:#89DDFF">:</span><span style="color:#F78C6C"> 30</span></span></code></pre></figure>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="Actions result" src="/posts/visual-regression-test/actions-result.webp"></div></div>
-<h2 id="성능-개선" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#성능-개선"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>성능 개선</h2>
-<p class="mt-4 mb-4">위의 CI/CD는 3가지 문제가 있다.</p>
-<ol class="min-[790px]:ml-6 ml-4 list-decimal">
-<li>테스트 속도가 느리고 flow를 한눈에 확인하기 어렵다.</li>
-<li>캐싱이 전혀 되고 있지 않다.</li>
-<li>테스트가 실패하면 다시 처음부터 실행해야 한다.</li>
-</ol>
-<p class="mt-4 mb-4">이것을 개선해보고자 한다.</p>
-<h3 id="테스트-방식" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#테스트-방식"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>테스트 방식</h3>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="actions log" src="/posts/visual-regression-test/actions-log.webp"></div></div>
-<p class="mt-4 mb-4">테스트의 어디까지 성공했는지, 어떤 테스트를 실행 중인지 등의 작업 상황을 보기 위해선 현재는 로그를 확인해야 한다.</p>
-<p class="mt-4 mb-4">이러한 <u>문제의 근본적인 이유는 특정 기능 단위의 테스트만 실행시키는 방법이 존재하지 않기 때문</u>이다.</p>
-<figure data-rehype-pretty-code-figure=""><figcaption data-rehype-pretty-code-title="" data-language="json" data-theme="material-theme-palenight">package.json</figcaption><pre tabindex="0" data-language="json" data-theme="material-theme-palenight"><code data-language="json" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#89DDFF">{</span></span>
+<span data-line=""><span style="color:#F07178">          retention-days</span><span style="color:#89DDFF">:</span><span style="color:#F78C6C"> 30</span></span></code></pre>
+      </figure>
+      <div class="img-container">
+        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="Actions result"
+            src="/posts/visual-regression-test/actions-result.webp"
+          />
+        </div>
+      </div>
+      <h2
+        id="성능-개선"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#성능-개선"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >성능 개선
+      </h2>
+      <p class="mt-4 mb-4">위의 CI/CD는 3가지 문제가 있다.</p>
+      <ol class="min-[790px]:ml-6 ml-4 list-decimal">
+        <li>테스트 속도가 느리고 flow를 한눈에 확인하기 어렵다.</li>
+        <li>캐싱이 전혀 되고 있지 않다.</li>
+        <li>테스트가 실패하면 다시 처음부터 실행해야 한다.</li>
+      </ol>
+      <p class="mt-4 mb-4">이것을 개선해보고자 한다.</p>
+      <h3
+        id="테스트-방식"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#테스트-방식"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >테스트 방식
+      </h3>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="actions log"
+            src="/posts/visual-regression-test/actions-log.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        테스트의 어디까지 성공했는지, 어떤 테스트를 실행 중인지 등의 작업 상황을
+        보기 위해선 현재는 로그를 확인해야 한다.
+      </p>
+      <p class="mt-4 mb-4">
+        이러한
+        <u
+          >문제의 근본적인 이유는 특정 기능 단위의 테스트만 실행시키는 방법이
+          존재하지 않기 때문</u
+        >이다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <figcaption
+          data-rehype-pretty-code-title=""
+          data-language="json"
+          data-theme="material-theme-palenight"
+        >
+          package.json
+        </figcaption>
+        <pre
+          tabindex="0"
+          data-language="json"
+          data-theme="material-theme-palenight"
+        ><code data-language="json" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#89DDFF">{</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">  // ...</span></span>
 <span data-line=""><span style="color:#89DDFF">  "</span><span style="color:#C792EA">e2e:others</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> "</span><span style="color:#C3E88D">pnpm playwright test --grep-invert /@/</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span></span>
 <span data-line=""><span style="color:#89DDFF">  "</span><span style="color:#C792EA">e2e:dom</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> "</span><span style="color:#C3E88D">pnpm playwright test --grep '@dom-snapshot'</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span></span>
 <span data-line=""><span style="color:#89DDFF">  "</span><span style="color:#C792EA">e2e:screen</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> "</span><span style="color:#C3E88D">pnpm playwright test --grep '@screen-snapshot'</span><span style="color:#89DDFF">"</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre></figure>
-<p class="mt-4 mb-4">따라서 playwright에서 제공하는 <a href="https://playwright.dev/docs/test-cli#reference" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">grep</a> 명령어를 활용해 원하는 기능별로 테스트를 적용할 수 있다.</p>
-<p class="mt-4 mb-4">DOM 스냅샷은 <code>@dom-snapshot</code> 키워드를, Screen 스냅샷은 <code>@screen-snapshot</code> 키워드를 가지고 있어야 한다. 그 이외의 테스트는 <code>others</code>로 실행된다.</p>
-<figure data-rehype-pretty-code-figure=""><figcaption data-rehype-pretty-code-title="" data-language="ts" data-theme="material-theme-palenight">e2e/about.spec.ts</figcaption><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#89DDFF;font-style:italic">export</span><span style="color:#C792EA"> enum</span><span style="color:#FFCB6B"> MACRO_SUITE</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        따라서 playwright에서 제공하는
+        <a
+          href="https://playwright.dev/docs/test-cli#reference"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >grep</a
+        >
+        명령어를 활용해 원하는 기능별로 테스트를 적용할 수 있다.
+      </p>
+      <p class="mt-4 mb-4">
+        DOM 스냅샷은 <code>@dom-snapshot</code> 키워드를, Screen 스냅샷은
+        <code>@screen-snapshot</code> 키워드를 가지고 있어야 한다. 그 이외의
+        테스트는 <code>others</code>로 실행된다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <figcaption
+          data-rehype-pretty-code-title=""
+          data-language="ts"
+          data-theme="material-theme-palenight"
+        >
+          e2e/about.spec.ts
+        </figcaption>
+        <pre
+          tabindex="0"
+          data-language="ts"
+          data-theme="material-theme-palenight"
+        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#89DDFF;font-style:italic">export</span><span style="color:#C792EA"> enum</span><span style="color:#FFCB6B"> MACRO_SUITE</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#BABED8">  DOM_SNAPSHOT </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">@dom-snapshot</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span></span>
 <span data-line=""><span style="color:#BABED8">  SCREEN_SNAPSHOT </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">@screen-snapshot</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span></span>
 <span data-line=""><span style="color:#89DDFF">}</span></span>
@@ -183,10 +904,28 @@
 <span data-line=""><span style="color:#89DDFF;font-style:italic">    await</span><span style="color:#82AAFF"> gotoUrl</span><span style="color:#F07178">(</span><span style="color:#89DDFF">{</span><span style="color:#BABED8"> page</span><span style="color:#89DDFF">,</span><span style="color:#F07178"> url</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">/something_wrong_path</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#F07178"> timeout</span><span style="color:#89DDFF">:</span><span style="color:#F78C6C"> 60_000</span><span style="color:#89DDFF"> }</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">    await</span><span style="color:#82AAFF"> expect</span><span style="color:#F07178">(</span><span style="color:#BABED8">page</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">getByText</span><span style="color:#F07178">(</span><span style="color:#89DDFF">/</span><span style="color:#C3E88D">404 ERROR</span><span style="color:#89DDFF">/</span><span style="color:#F07178">))</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">toBeVisible</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#89DDFF">  }</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre></figure>
-<p class="mt-4 mb-4">이제 우리는 dom, screen, others 세 가지 테스트 피처를 가지게 되었다. 이것은 후술할 CI/CD에서 큰 역할을 하게 된다.</p>
-<h3 id="테스트-속도" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#테스트-속도"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>테스트 속도</h3>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#BABED8">test</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">describe</span><span style="color:#BABED8">(MACRO_SUITE</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">SCREEN_SNAPSHOT</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        이제 우리는 dom, screen, others 세 가지 테스트 피처를 가지게 되었다.
+        이것은 후술할 CI/CD에서 큰 역할을 하게 된다.
+      </p>
+      <h3
+        id="테스트-속도"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#테스트-속도"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >테스트 속도
+      </h3>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="ts"
+          data-theme="material-theme-palenight"
+        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#BABED8">test</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">describe</span><span style="color:#BABED8">(MACRO_SUITE</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">SCREEN_SNAPSHOT</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">  for</span><span style="color:#F07178"> (</span><span style="color:#C792EA">let</span><span style="color:#BABED8"> i</span><span style="color:#89DDFF"> =</span><span style="color:#F78C6C"> 0</span><span style="color:#89DDFF">;</span><span style="color:#BABED8"> i</span><span style="color:#89DDFF"> &lt;</span><span style="color:#BABED8"> urls</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">length</span><span style="color:#89DDFF">;</span><span style="color:#BABED8"> i</span><span style="color:#89DDFF">++</span><span style="color:#F07178">) </span><span style="color:#89DDFF">{</span></span>
 <span data-line=""><span style="color:#C792EA">    const</span><span style="color:#BABED8"> url</span><span style="color:#89DDFF"> =</span><span style="color:#BABED8"> urls</span><span style="color:#F07178">[</span><span style="color:#BABED8">i</span><span style="color:#F07178">]</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""> </span>
@@ -196,11 +935,27 @@
 <span data-line=""><span style="color:#89DDFF;font-style:italic">      await</span><span style="color:#82AAFF"> expect</span><span style="color:#F07178">(</span><span style="color:#BABED8">page</span><span style="color:#F07178">)</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">toHaveScreenshot</span><span style="color:#F07178">(</span><span style="color:#89DDFF">{</span><span style="color:#F07178"> fullPage</span><span style="color:#89DDFF">:</span><span style="color:#FF9CAC"> true</span><span style="color:#89DDFF"> }</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#89DDFF">    }</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#89DDFF">  }</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre></figure>
-<p class="mt-4 mb-4">테스트 속도에는 많은 것들의 영향이 있겠지만 기본적으로 wait timeout이 가장 좋지 않다.</p>
-<p class="mt-4 mb-4">특히 위와 같이 반복문으로 작업을 하게 될 경우 N의 배수로 시간이 증가하게 된다.</p>
-<p class="mt-4 mb-4">이미지 로딩까지 3초의 텀을 두고자 한 위의 코드는 이미지가 빨리 로딩되었다면 불필요한 기다림이 발생하고 이미지가 3초보다 늦게 로딩되면 깨지는 불안정한 코드다.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// Image 로딩 wait</span></span>
+<span data-line=""><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        테스트 속도에는 많은 것들의 영향이 있겠지만 기본적으로 wait timeout이
+        가장 좋지 않다.
+      </p>
+      <p class="mt-4 mb-4">
+        특히 위와 같이 반복문으로 작업을 하게 될 경우 N의 배수로 시간이 증가하게
+        된다.
+      </p>
+      <p class="mt-4 mb-4">
+        이미지 로딩까지 3초의 텀을 두고자 한 위의 코드는 이미지가 빨리
+        로딩되었다면 불필요한 기다림이 발생하고 이미지가 3초보다 늦게 로딩되면
+        깨지는 불안정한 코드다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="ts"
+          data-theme="material-theme-palenight"
+        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// Image 로딩 wait</span></span>
 <span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> locators </span><span style="color:#89DDFF">=</span><span style="color:#BABED8"> page</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">locator</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">img</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> scrollPromises </span><span style="color:#89DDFF">=</span><span style="color:#BABED8"> (</span><span style="color:#89DDFF;font-style:italic">await</span><span style="color:#BABED8"> locators</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">all</span><span style="color:#BABED8">())</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">map</span><span style="color:#BABED8">(</span><span style="color:#C792EA">async</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">locator</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">  // https://playwright.dev/docs/api/class-locator#locator-scroll-into-view-if-needed</span></span>
@@ -217,17 +972,45 @@
 <span data-line=""><span style="color:#89DDFF;font-style:italic">await</span><span style="color:#FFCB6B"> Promise</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">all</span><span style="color:#BABED8">(imgLoadingPromises)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""> </span>
 <span data-line=""><span style="color:#676E95;font-style:italic">// Font wait</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">await</span><span style="color:#BABED8"> page</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">evaluate</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#BABED8"> document</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">fonts</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">ready)</span><span style="color:#89DDFF">;</span></span></code></pre></figure>
-<p class="mt-4 mb-4">이처럼 유동적인 사이드 이펙트는 이벤트로 처리하면 보다 안정적으로 처리할 수 있다.</p>
-<h3 id="cicd" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#cicd"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>CI/CD</h3>
-<p class="mt-4 mb-4">앞서 언급한 세 가지 문제</p>
-<ol class="min-[790px]:ml-6 ml-4 list-decimal">
-<li>테스트 속도가 느리고 flow를 한눈에 확인하기 어렵다.</li>
-<li>캐싱이 전혀 되고 있지 않다.</li>
-<li>테스트가 실패하면 다시 처음부터 실행해야 한다.</li>
-</ol>
-<p class="mt-4 mb-4">이것은 workflow와 actions를 적절하게 나눠주고 actions/cache를 활용하면 된다.</p>
-<figure data-rehype-pretty-code-figure=""><figcaption data-rehype-pretty-code-title="" data-language="yml" data-theme="material-theme-palenight">workflows</figcaption><pre tabindex="0" data-language="yml" data-theme="material-theme-palenight"><code data-language="yml" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#F07178">jobs</span><span style="color:#89DDFF">:</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">await</span><span style="color:#BABED8"> page</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">evaluate</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#BABED8"> document</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">fonts</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">ready)</span><span style="color:#89DDFF">;</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        이처럼 유동적인 사이드 이펙트는 이벤트로 처리하면 보다 안정적으로 처리할
+        수 있다.
+      </p>
+      <h3
+        id="cicd"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#cicd"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >CI/CD
+      </h3>
+      <p class="mt-4 mb-4">앞서 언급한 세 가지 문제</p>
+      <ol class="min-[790px]:ml-6 ml-4 list-decimal">
+        <li>테스트 속도가 느리고 flow를 한눈에 확인하기 어렵다.</li>
+        <li>캐싱이 전혀 되고 있지 않다.</li>
+        <li>테스트가 실패하면 다시 처음부터 실행해야 한다.</li>
+      </ol>
+      <p class="mt-4 mb-4">
+        이것은 workflow와 actions를 적절하게 나눠주고 actions/cache를 활용하면
+        된다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <figcaption
+          data-rehype-pretty-code-title=""
+          data-language="yml"
+          data-theme="material-theme-palenight"
+        >
+          workflows
+        </figcaption>
+        <pre
+          tabindex="0"
+          data-language="yml"
+          data-theme="material-theme-palenight"
+        ><code data-language="yml" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#F07178">jobs</span><span style="color:#89DDFF">:</span></span>
 <span data-line=""><span style="color:#F07178">  others</span><span style="color:#89DDFF">:</span></span>
 <span data-line=""><span style="color:#F07178">    uses</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">./.github/workflows/e2e-reusable.yml</span><span style="color:#89DDFF">'</span></span>
 <span data-line=""><span style="color:#F07178">    with</span><span style="color:#89DDFF">:</span></span>
@@ -241,12 +1024,55 @@
 <span data-line=""><span style="color:#F07178">  screen-snapshot</span><span style="color:#89DDFF">:</span></span>
 <span data-line=""><span style="color:#F07178">    uses</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">./.github/workflows/e2e-reusable.yml</span><span style="color:#89DDFF">'</span></span>
 <span data-line=""><span style="color:#F07178">    with</span><span style="color:#89DDFF">:</span></span>
-<span data-line=""><span style="color:#F07178">      screen-snapshot</span><span style="color:#89DDFF">:</span><span style="color:#FF9CAC"> true</span></span></code></pre></figure>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="workflow job" src="/posts/visual-regression-test/workflow-job.webp"></div></div>
-<p class="mt-4 mb-4">앞에서 나눈 테스트 피처 단위로 workflows의 job을 나눠주고 <a href="https://github.com/1ilsang/dev/blob/23af6919397a28a6a69881d4b376f4c77d0b3584/.github/workflows/e2e-reusable.yml#L5" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">workflow_call</a>을 적절하게 사용한다면 편리하고 가독성 좋은 Flow를 만들 수 있다.</p>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="failed flow" src="/posts/visual-regression-test/failed-flow.webp"></div></div>
-<p class="mt-4 mb-4">무엇보다 job을 나누게 되면 실패한 부분만 재실행할 수 있기 때문에 더욱 유연한 테스트를 할 수 있게 된다.</p>
-<figure data-rehype-pretty-code-figure=""><figcaption data-rehype-pretty-code-title="" data-language="yml" data-theme="material-theme-palenight">actions</figcaption><pre tabindex="0" data-language="yml" data-theme="material-theme-palenight"><code data-language="yml" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic"># playwright 설치 캐시</span></span>
+<span data-line=""><span style="color:#F07178">      screen-snapshot</span><span style="color:#89DDFF">:</span><span style="color:#FF9CAC"> true</span></span></code></pre>
+      </figure>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="workflow job"
+            src="/posts/visual-regression-test/workflow-job.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        앞에서 나눈 테스트 피처 단위로 workflows의 job을 나눠주고
+        <a
+          href="https://github.com/1ilsang/dev/blob/23af6919397a28a6a69881d4b376f4c77d0b3584/.github/workflows/e2e-reusable.yml#L5"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >workflow_call</a
+        >을 적절하게 사용한다면 편리하고 가독성 좋은 Flow를 만들 수 있다.
+      </p>
+      <div class="img-container">
+        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="failed flow"
+            src="/posts/visual-regression-test/failed-flow.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        무엇보다 job을 나누게 되면 실패한 부분만 재실행할 수 있기 때문에 더욱
+        유연한 테스트를 할 수 있게 된다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <figcaption
+          data-rehype-pretty-code-title=""
+          data-language="yml"
+          data-theme="material-theme-palenight"
+        >
+          actions
+        </figcaption>
+        <pre
+          tabindex="0"
+          data-language="yml"
+          data-theme="material-theme-palenight"
+        ><code data-language="yml" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic"># playwright 설치 캐시</span></span>
 <span data-line=""><span style="color:#89DDFF">-</span><span style="color:#F07178"> name</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> Cache Playwright Browsers for Playwright's Version</span></span>
 <span data-line=""><span style="color:#F07178">  uses</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> actions/cache@v4</span></span>
 <span data-line=""><span style="color:#F07178">  with</span><span style="color:#89DDFF">:</span></span>
@@ -284,68 +1110,457 @@
 <span data-line=""><span style="color:#89DDFF">-</span><span style="color:#F07178"> name</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> Build and Export [default]</span></span>
 <span data-line=""><span style="color:#F07178">  shell</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> bash</span></span>
 <span data-line=""><span style="color:#F07178">  if</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> steps.cache-nextjs-build.outputs.cache-hit != 'true'</span></span>
-<span data-line=""><span style="color:#F07178">  run</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> pnpm e2e:build</span></span></code></pre></figure>
-<p class="mt-4 mb-4">Job을 분리하면 불필요한 반복 빌드 작업이 발생하게 되는데 이를 캐싱을 통해 시간을 단축시킬 수 있다.</p>
-<p class="mt-4 mb-4">특히 잘 변경되지 않는 정적 블로그의 경우 <code>pnpm</code>, <code>.next</code>, <code>out</code>, <code>playwright</code>를 캐싱해 두면 전체 테스트 시간을 아낄 수 있게 된다.</p>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[40%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="compare time" src="/posts/visual-regression-test/compare-time.webp"></div></div>
-<p class="mt-4 mb-4">이로써 절반이상 시간을 줄이고 실패에 더 유연한 CI 테스트를 할 수 있게 되었다.</p>
-<p class="mt-4 mb-4"><a href="https://github.com/1ilsang/dev/tree/23af6919397a28a6a69881d4b376f4c77d0b3584" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">완성된 전체 코드</a>는 깃헙에서 확인할 수 있다. <code>.github</code> 및 <code>e2e</code>를 확인하면 된다.</p>
-<h2 id="트러블-슈팅" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#트러블-슈팅"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>트러블 슈팅</h2>
-<h3 id="로컬-테스트를-포기해야-할까" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#로컬-테스트를-포기해야-할까"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>로컬 테스트를 포기해야 할까</h3>
-<p class="mt-4 mb-4">팀 단위의 협업에선 로컬 머신 버전을 강제하기 어렵기 때문에 로컬 테스트와 CI 테스트의 동기화가 어렵다.</p>
-<p class="mt-4 mb-4">따라서 도커를 활용하든가 CI 테스트만 사용하든가 양자택일로 흐르게 된다.</p>
-<p class="mt-4 mb-4">하지만 지금 나의 플로우와 같이 1인 개발이라면 로컬과 CI 테스트를 어느 정도 맞춰줄 수 있다.</p>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="Macos runner version" src="/posts/visual-regression-test/macos-runner-version.webp"></div></div>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4">Runner <a href="https://github.com/actions/runner-images/tree/main?tab=readme-ov-file#available-images" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">전체 목록 확인</a></p>
-</blockquote>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="yml" data-theme="material-theme-palenight"><code data-language="yml" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#F07178">jobs</span><span style="color:#89DDFF">:</span></span>
+<span data-line=""><span style="color:#F07178">  run</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> pnpm e2e:build</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        Job을 분리하면 불필요한 반복 빌드 작업이 발생하게 되는데 이를 캐싱을
+        통해 시간을 단축시킬 수 있다.
+      </p>
+      <p class="mt-4 mb-4">
+        특히 잘 변경되지 않는 정적 블로그의 경우 <code>pnpm</code>,
+        <code>.next</code>, <code>out</code>, <code>playwright</code>를 캐싱해
+        두면 전체 테스트 시간을 아낄 수 있게 된다.
+      </p>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[40%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="compare time"
+            src="/posts/visual-regression-test/compare-time.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        이로써 절반이상 시간을 줄이고 실패에 더 유연한 CI 테스트를 할 수 있게
+        되었다.
+      </p>
+      <p class="mt-4 mb-4">
+        <a
+          href="https://github.com/1ilsang/dev/tree/23af6919397a28a6a69881d4b376f4c77d0b3584"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >완성된 전체 코드</a
+        >는 깃헙에서 확인할 수 있다. <code>.github</code> 및 <code>e2e</code>를
+        확인하면 된다.
+      </p>
+      <h2
+        id="트러블-슈팅"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#트러블-슈팅"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >트러블 슈팅
+      </h2>
+      <h3
+        id="로컬-테스트를-포기해야-할까"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#로컬-테스트를-포기해야-할까"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >로컬 테스트를 포기해야 할까
+      </h3>
+      <p class="mt-4 mb-4">
+        팀 단위의 협업에선 로컬 머신 버전을 강제하기 어렵기 때문에 로컬 테스트와
+        CI 테스트의 동기화가 어렵다.
+      </p>
+      <p class="mt-4 mb-4">
+        따라서 도커를 활용하든가 CI 테스트만 사용하든가 양자택일로 흐르게 된다.
+      </p>
+      <p class="mt-4 mb-4">
+        하지만 지금 나의 플로우와 같이 1인 개발이라면 로컬과 CI 테스트를 어느
+        정도 맞춰줄 수 있다.
+      </p>
+      <div class="img-container">
+        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="Macos runner version"
+            src="/posts/visual-regression-test/macos-runner-version.webp"
+          />
+        </div>
+      </div>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          Runner
+          <a
+            href="https://github.com/actions/runner-images/tree/main?tab=readme-ov-file#available-images"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >전체 목록 확인</a
+          >
+        </p>
+      </blockquote>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="yml"
+          data-theme="material-theme-palenight"
+        ><code data-language="yml" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#F07178">jobs</span><span style="color:#89DDFF">:</span></span>
 <span data-line=""><span style="color:#F07178">  my-job</span><span style="color:#89DDFF">:</span></span>
-<span data-line=""><span style="color:#F07178">    runs-on</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> macos-latest</span></span></code></pre></figure>
-<p class="mt-4 mb-4">Github에서 제공해주는 Actions Runner에 MacOS가 존재하기 때문에 로컬과 버전을 맞춰줄 수 있다.</p>
-<p class="mt-4 mb-4">완벽하다고 장담은 못하겠지만 현재까지는 로컬과 CI 테스트가 모두 동일하게 동작하며 통과하고 있다.</p>
-<h3 id="timezone" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#timezone"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Timezone</h3>
-<p class="mt-4 mb-4">CI 테스트에서 가장 많이 실패하는 부분은 Timezone이다. 우리는 +9의 값을 가지고 있기 때문에 스냅샷 테스트에서 반드시 실패한다.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="yml" data-theme="material-theme-palenight"><code data-language="yml" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#F07178">jobs</span><span style="color:#89DDFF">:</span></span>
+<span data-line=""><span style="color:#F07178">    runs-on</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> macos-latest</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        Github에서 제공해주는 Actions Runner에 MacOS가 존재하기 때문에 로컬과
+        버전을 맞춰줄 수 있다.
+      </p>
+      <p class="mt-4 mb-4">
+        완벽하다고 장담은 못하겠지만 현재까지는 로컬과 CI 테스트가 모두 동일하게
+        동작하며 통과하고 있다.
+      </p>
+      <h3
+        id="timezone"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#timezone"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Timezone
+      </h3>
+      <p class="mt-4 mb-4">
+        CI 테스트에서 가장 많이 실패하는 부분은 Timezone이다. 우리는 +9의 값을
+        가지고 있기 때문에 스냅샷 테스트에서 반드시 실패한다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="yml"
+          data-theme="material-theme-palenight"
+        ><code data-language="yml" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#F07178">jobs</span><span style="color:#89DDFF">:</span></span>
 <span data-line=""><span style="color:#F07178">  my-job</span><span style="color:#89DDFF">:</span></span>
 <span data-line=""><span style="color:#F07178">    runs-on</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> macos-latest</span></span>
 <span data-line=""><span style="color:#F07178">    env</span><span style="color:#89DDFF">:</span></span>
-<span data-line=""><span style="color:#F07178">      TZ</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> Asia/Seoul</span></span></code></pre></figure>
-<p class="mt-4 mb-4">깃헙 액션에서는 <code>env</code>로 타임존 값을 넘길수 있다. 이를 통해 편리하게 머신의 타임존을 변경할 수 있다.</p>
-<p class="mt-4 mb-4">playwright에서 어떤 브라우저를 선택하느냐에 따라 타임존 기준점이 조금 달라진다.</p>
-<ul class="min-[790px]:ml-6 ml-4 list-disc">
-<li>크롬의 경우 기본적으로 머신의 타임존을 따른다.</li>
-<li>Webkit은 config에 설정한 타임존을 따른다.</li>
-</ul>
-<p class="mt-4 mb-4">만약 playwright에서 webkit을 사용하고 있다면 아래와 같이 <code>playwright.config.ts</code>를 변경해야 한다.</p>
-<figure data-rehype-pretty-code-figure=""><figcaption data-rehype-pretty-code-title="" data-language="ts" data-theme="material-theme-palenight">playwright.config.ts</figcaption><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#89DDFF;font-style:italic">export</span><span style="color:#89DDFF;font-style:italic"> default</span><span style="color:#82AAFF"> defineConfig</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">{</span></span>
+<span data-line=""><span style="color:#F07178">      TZ</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> Asia/Seoul</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        깃헙 액션에서는 <code>env</code>로 타임존 값을 넘길수 있다. 이를 통해
+        편리하게 머신의 타임존을 변경할 수 있다.
+      </p>
+      <p class="mt-4 mb-4">
+        playwright에서 어떤 브라우저를 선택하느냐에 따라 타임존 기준점이 조금
+        달라진다.
+      </p>
+      <ul class="min-[790px]:ml-6 ml-4 list-disc">
+        <li>크롬의 경우 기본적으로 머신의 타임존을 따른다.</li>
+        <li>Webkit은 config에 설정한 타임존을 따른다.</li>
+      </ul>
+      <p class="mt-4 mb-4">
+        만약 playwright에서 webkit을 사용하고 있다면 아래와 같이
+        <code>playwright.config.ts</code>를 변경해야 한다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <figcaption
+          data-rehype-pretty-code-title=""
+          data-language="ts"
+          data-theme="material-theme-palenight"
+        >
+          playwright.config.ts
+        </figcaption>
+        <pre
+          tabindex="0"
+          data-language="ts"
+          data-theme="material-theme-palenight"
+        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#89DDFF;font-style:italic">export</span><span style="color:#89DDFF;font-style:italic"> default</span><span style="color:#82AAFF"> defineConfig</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">{</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">  // ...</span></span>
 <span data-line=""><span style="color:#F07178">  use</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#F07178">    browserName</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">webkit</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span></span>
 <span data-line=""><span style="color:#F07178">    timezoneId</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">Asia/Seoul</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span></span>
 <span data-line=""><span style="color:#89DDFF">  },</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre></figure>
-<h3 id="테스트-분기" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#테스트-분기"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>테스트 분기</h3>
-<p class="mt-4 mb-4">코드에 테스트로 인한 분기점이 생기는 것을 원하지 않지만 어쩔 수 없는 경우(혹은 편의로) 빌드를 나누어 코드에 적용할 수 있다.</p>
-<figure data-rehype-pretty-code-figure=""><figcaption data-rehype-pretty-code-title="" data-language="json" data-theme="material-theme-palenight">package.json</figcaption><pre tabindex="0" data-language="json" data-theme="material-theme-palenight"><code data-language="json" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#89DDFF">{</span></span>
+<span data-line=""><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre>
+      </figure>
+      <h3
+        id="테스트-분기"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#테스트-분기"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >테스트 분기
+      </h3>
+      <p class="mt-4 mb-4">
+        코드에 테스트로 인한 분기점이 생기는 것을 원하지 않지만 어쩔 수 없는
+        경우(혹은 편의로) 빌드를 나누어 코드에 적용할 수 있다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <figcaption
+          data-rehype-pretty-code-title=""
+          data-language="json"
+          data-theme="material-theme-palenight"
+        >
+          package.json
+        </figcaption>
+        <pre
+          tabindex="0"
+          data-language="json"
+          data-theme="material-theme-palenight"
+        ><code data-language="json" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#89DDFF">{</span></span>
 <span data-line=""><span style="color:#89DDFF">  "</span><span style="color:#C792EA">deploy-blog</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> "</span><span style="color:#C3E88D">next build &amp;&amp; next export</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span></span>
 <span data-line=""><span style="color:#89DDFF">  "</span><span style="color:#C792EA">e2e:build</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> "</span><span style="color:#C3E88D">NEXT_PUBLIC_CI=true next build &amp;&amp; next export</span><span style="color:#89DDFF">"</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre></figure>
-<p class="mt-4 mb-4">e2e를 위한 빌드 스크립트를 만든 다음 환경변수를 주입해 코드에서 적용할 수 있다.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="tsx" data-theme="material-theme-palenight"><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#82AAFF">useEffect</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">  if</span><span style="color:#F07178"> (</span><span style="color:#BABED8">process</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">env</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">NEXT_PUBLIC_CI</span><span style="color:#F07178">) </span><span style="color:#89DDFF;font-style:italic">return</span><span style="color:#89DDFF">;</span></span></code></pre></figure>
-<h3 id="1px" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#1px"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>1px</h3>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="1px bug" src="/posts/visual-regression-test/1px-bug.webp"></div></div>
-<p class="mt-4 mb-4">크롬에서는 스크린샷이 1px 다른 경우가 있다(<a href="https://github.com/microsoft/playwright/issues/18827" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">#18827</a>).</p>
-<p class="mt-4 mb-4">이때는 clip으로 고정하거나 height를 강제하는 방법으로 처리할 수 있다.</p>
-<h3 id="image-load" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#image-load"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Image load</h3>
-<p class="mt-4 mb-4">로드와 관련된 트러블 슈팅은 <a href="#%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%86%8D%EB%8F%84" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">테스트 속도</a>에서 다루었다.</p>
-<h2 id="마무리" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#마무리"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>마무리</h2>
-<p class="mt-4 mb-4">시각적 회귀 테스트를 통해 심신의 안정을 많이 찾을 수 있었다.</p>
-<p class="mt-4 mb-4">이제 더욱 과감하게 리팩터링을 진행할 수 있게 되었다.</p>
-<p class="mt-4 mb-4">특히 playwright를 사용하며 경험이 좋았기 때문에 앞으로도 꾸준히 사용해 보고자 한다.</p>
-<p class="mt-4 mb-4">이 글을 쓰며 참고했던 혹은 유용했던 링크를 남기며 글을 마무리하려고 한다.</p>
-<ul class="min-[790px]:ml-6 ml-4 list-disc">
-<li><a href="https://techblog.woowahan.com/17081/" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">우아한형제들 디자인 시스템에 시각적 회귀 테스트 적용하기</a></li>
-<li><a href="https://tv.kakao.com/channel/3693125/cliplink/414129351" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">UI 테스트를 위한 여정</a></li>
-</ul></div><aside class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden" aria-label="index"><ul class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"><li id="index" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">Index</li><li id="tldr" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">TL;DR!</li><li id="도입-배경" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">도입 배경</li><li id="시각적-회귀-테스트란" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">시각적 회귀 테스트란</li><li id="playwright" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">Playwright</li><li id="dom-snapshot" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">DOM Snapshot</li><li id="screenshot" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">Screenshot</li><li id="시각적-회귀-테스트는-다양한-이유로-실패할-수-있다" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue">시각적 회귀 테스트는 다양한 이유로 실패할 수 있다</li><li id="github-actions" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">Github Actions</li><li id="성능-개선" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">성능 개선</li><li id="테스트-방식" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">테스트 방식</li><li id="테스트-속도" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">테스트 속도</li><li id="cicd" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue">CI/CD</li><li id="트러블-슈팅" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">트러블 슈팅</li><li id="로컬-테스트를-포기해야-할까" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">로컬 테스트를 포기해야 할까</li><li id="timezone" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">Timezone</li><li id="테스트-분기" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">테스트 분기</li><li id="1px" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">1px</li><li id="image-load" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue">Image load</li><li id="마무리" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">마무리</li></ul></aside></section><a class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water" href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] %EC%8B%9C%EA%B0%81%EC%A0%81%20%ED%9A%8C%EA%B7%80%20%ED%85%8C%EC%8A%A4%ED%8A%B8%20%EB%8F%84%EC%9E%85%EA%B8%B0&amp;body=<!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 -->" rel="noopener noreferrer" target="_blank">📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍</a><div class="flex items-center mt-4 mb-56"><iframe class="border-0 rounded-md cursor-pointer object-contain hover:animate-bouncing" src="https://github.com/sponsors/1ilsang/button" title="Sponsor 1ilsang" height="32" width="114"></iframe></div></section>
+<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        e2e를 위한 빌드 스크립트를 만든 다음 환경변수를 주입해 코드에서 적용할
+        수 있다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="tsx"
+          data-theme="material-theme-palenight"
+        ><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#82AAFF">useEffect</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">  if</span><span style="color:#F07178"> (</span><span style="color:#BABED8">process</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">env</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">NEXT_PUBLIC_CI</span><span style="color:#F07178">) </span><span style="color:#89DDFF;font-style:italic">return</span><span style="color:#89DDFF">;</span></span></code></pre>
+      </figure>
+      <h3
+        id="1px"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#1px"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >1px
+      </h3>
+      <div class="img-container">
+        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="1px bug"
+            src="/posts/visual-regression-test/1px-bug.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        크롬에서는 스크린샷이 1px 다른 경우가 있다(<a
+          href="https://github.com/microsoft/playwright/issues/18827"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >#18827</a
+        >).
+      </p>
+      <p class="mt-4 mb-4">
+        이때는 clip으로 고정하거나 height를 강제하는 방법으로 처리할 수 있다.
+      </p>
+      <h3
+        id="image-load"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#image-load"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Image load
+      </h3>
+      <p class="mt-4 mb-4">
+        로드와 관련된 트러블 슈팅은
+        <a
+          href="#%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%86%8D%EB%8F%84"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >테스트 속도</a
+        >에서 다루었다.
+      </p>
+      <h2
+        id="마무리"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#마무리"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >마무리
+      </h2>
+      <p class="mt-4 mb-4">
+        시각적 회귀 테스트를 통해 심신의 안정을 많이 찾을 수 있었다.
+      </p>
+      <p class="mt-4 mb-4">
+        이제 더욱 과감하게 리팩터링을 진행할 수 있게 되었다.
+      </p>
+      <p class="mt-4 mb-4">
+        특히 playwright를 사용하며 경험이 좋았기 때문에 앞으로도 꾸준히 사용해
+        보고자 한다.
+      </p>
+      <p class="mt-4 mb-4">
+        이 글을 쓰며 참고했던 혹은 유용했던 링크를 남기며 글을 마무리하려고
+        한다.
+      </p>
+      <ul class="min-[790px]:ml-6 ml-4 list-disc">
+        <li>
+          <a
+            href="https://techblog.woowahan.com/17081/"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >우아한형제들 디자인 시스템에 시각적 회귀 테스트 적용하기</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://tv.kakao.com/channel/3693125/cliplink/414129351"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >UI 테스트를 위한 여정</a
+          >
+        </li>
+      </ul>
+    </div>
+    <aside
+      class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
+      aria-label="index"
+    >
+      <ul
+        class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
+      >
+        <li
+          id="index"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          Index
+        </li>
+        <li
+          id="tldr"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          TL;DR!
+        </li>
+        <li
+          id="도입-배경"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          도입 배경
+        </li>
+        <li
+          id="시각적-회귀-테스트란"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          시각적 회귀 테스트란
+        </li>
+        <li
+          id="playwright"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          Playwright
+        </li>
+        <li
+          id="dom-snapshot"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          DOM Snapshot
+        </li>
+        <li
+          id="screenshot"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          Screenshot
+        </li>
+        <li
+          id="시각적-회귀-테스트는-다양한-이유로-실패할-수-있다"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
+        >
+          시각적 회귀 테스트는 다양한 이유로 실패할 수 있다
+        </li>
+        <li
+          id="github-actions"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          Github Actions
+        </li>
+        <li
+          id="성능-개선"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          성능 개선
+        </li>
+        <li
+          id="테스트-방식"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          테스트 방식
+        </li>
+        <li
+          id="테스트-속도"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          테스트 속도
+        </li>
+        <li
+          id="cicd"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
+        >
+          CI/CD
+        </li>
+        <li
+          id="트러블-슈팅"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          트러블 슈팅
+        </li>
+        <li
+          id="로컬-테스트를-포기해야-할까"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          로컬 테스트를 포기해야 할까
+        </li>
+        <li
+          id="timezone"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          Timezone
+        </li>
+        <li
+          id="테스트-분기"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          테스트 분기
+        </li>
+        <li
+          id="1px"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          1px
+        </li>
+        <li
+          id="image-load"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
+        >
+          Image load
+        </li>
+        <li
+          id="마무리"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          마무리
+        </li>
+      </ul>
+    </aside>
+  </section>
+  <a
+    class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water"
+    href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] %EC%8B%9C%EA%B0%81%EC%A0%81%20%ED%9A%8C%EA%B7%80%20%ED%85%8C%EC%8A%A4%ED%8A%B8%20%EB%8F%84%EC%9E%85%EA%B8%B0&amp;body=&lt;!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 --&gt;"
+    rel="noopener noreferrer"
+    target="_blank"
+    >📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍</a
+  >
+  <div class="flex items-center mt-4 mb-56">
+    <iframe
+      class="border-0 rounded-md cursor-pointer object-contain hover:animate-bouncing"
+      src="https://github.com/sponsors/1ilsang/button"
+      title="Sponsor 1ilsang"
+      height="32"
+      width="114"
+    ></iframe>
+  </div>
+</section>

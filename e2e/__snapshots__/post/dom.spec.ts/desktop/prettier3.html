@@ -1,20 +1,159 @@
-<progress class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og" value="0" max="1"></progress><nav class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"><h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5"><a class="hover:underline" href="/">1ilsang</a></h2><div class="flex"><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/posts">posts</a></h2><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/tags">tags</a></h2><div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-white-blue" src="/images/chul.webp" alt="1ilsang"></a></div></div></nav><section class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"><h1 class="text-4xl break-words md:text-6xl">Prettier v3 변경사항 살펴보기</h1><section class="flex items-center mt-4"><div class="mr-2 w-9 h-9 md:w-12 md:h-12" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-sub-blue" src="/images/chul.webp" alt="1ilsang"></a></div><div><a class="text-lg" href="/about">1ilsang</a><div class="text-sm text-sub-blue">클라이밍 하실래염?</div></div></section><section class="flex flex-wrap items-end mt-2"><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/prettier">#<!-- -->prettier</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/lint">#<!-- -->lint</a></section><section><div class="inline text-date-gray"><span class="mr-1">Published</span><time datetime="2023-07-06 22:29">2023-07-06 22:29</time></div></section><section id="post-body-container" class="relative"><div class="markdown"><div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full h-[600px] object-contain bg-transparent mt-10"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="cover" src="/posts/prettier3/cover.webp"></div></div>
-<p class="mt-4 mb-4">Prettier v3.0이 어제 <a href="https://prettier.io/blog/2023/07/05/3.0.0.html" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">7월 5일에 공개</a>되었다.</p>
-<p class="mt-4 mb-4">내용은 읽으면서 흥미로웠던 부분들 위주로 주요 변경점들을 기준으로 간략하게 소개 하려고 한다.</p>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4">Prettier 플러그인 개발쪽의 변경사항도 크지만 실제 사용성 위주로 정리를 했다.</p>
-</blockquote>
-<h2 id="tldr" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#tldr"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>TL;DR!</h2>
-<ol class="min-[790px]:ml-6 ml-4 list-decimal">
-<li><code>trailingComma</code> 옵션이 <code>all</code>으로 변경되었다.</li>
-<li>주석 및 MD 문서의 린팅 편의성이 높아졌다(한국어 린트가 향상되었다)</li>
-<li>최소 요구 Node 버전이 14가 되었다.</li>
-<li><code>.gitignore</code>가 드디어 기본적으로 무시된다(<code>.prettierignore</code>는 유지).</li>
-<li>화살표 함수/타입의 린트가 코드 패턴을 지원.</li>
-</ol>
-<h2 id="markdown" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#markdown"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Markdown</h2>
-<h3 id="한국어-처리의-향상" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#한국어-처리의-향상"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>한국어 처리의 향상</h3>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="md" data-theme="material-theme-palenight"><code data-language="md" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">&lt;!-- Input --&gt;</span></span>
+<progress
+  class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  value="0"
+  max="1"
+></progress>
+<nav
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"
+>
+  <h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
+    <a class="hover:underline" href="/">1ilsang</a>
+  </h2>
+  <div class="flex">
+    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/posts">posts</a>
+    </h2>
+    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/tags">tags</a>
+    </h2>
+    <div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character">
+      <a href="/about"
+        ><img
+          class="border border-solid rounded-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+    </div>
+  </div>
+</nav>
+<section
+  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
+>
+  <h1 class="text-4xl break-words md:text-6xl">
+    Prettier v3 변경사항 살펴보기
+  </h1>
+  <section class="flex items-center mt-4">
+    <div
+      class="mr-2 w-9 h-9 md:w-12 md:h-12"
+      role="img"
+      aria-label="1ilsang character"
+    >
+      <a href="/about"
+        ><img
+          class="border border-solid rounded-full border-sub-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+    </div>
+    <div>
+      <a class="text-lg" href="/about">1ilsang</a>
+      <div class="text-sm text-sub-blue">클라이밍 하실래염?</div>
+    </div>
+  </section>
+  <section class="flex flex-wrap items-end mt-2">
+    <a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/prettier"
+      >#<!-- -->prettier</a
+    ><a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/lint"
+      >#<!-- -->lint</a
+    >
+  </section>
+  <section>
+    <div class="inline text-date-gray">
+      <span class="mr-1">Published</span
+      ><time datetime="2023-07-06 22:29">2023-07-06 22:29</time>
+    </div>
+  </section>
+  <section id="post-body-container" class="relative">
+    <div class="markdown">
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full h-[600px] object-contain bg-transparent mt-10"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="cover"
+            src="/posts/prettier3/cover.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        Prettier v3.0이 어제
+        <a
+          href="https://prettier.io/blog/2023/07/05/3.0.0.html"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >7월 5일에 공개</a
+        >되었다.
+      </p>
+      <p class="mt-4 mb-4">
+        내용은 읽으면서 흥미로웠던 부분들 위주로 주요 변경점들을 기준으로
+        간략하게 소개 하려고 한다.
+      </p>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          Prettier 플러그인 개발쪽의 변경사항도 크지만 실제 사용성 위주로 정리를
+          했다.
+        </p>
+      </blockquote>
+      <h2
+        id="tldr"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#tldr"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >TL;DR!
+      </h2>
+      <ol class="min-[790px]:ml-6 ml-4 list-decimal">
+        <li>
+          <code>trailingComma</code> 옵션이 <code>all</code>으로 변경되었다.
+        </li>
+        <li>
+          주석 및 MD 문서의 린팅 편의성이 높아졌다(한국어 린트가 향상되었다)
+        </li>
+        <li>최소 요구 Node 버전이 14가 되었다.</li>
+        <li>
+          <code>.gitignore</code>가 드디어 기본적으로
+          무시된다(<code>.prettierignore</code>는 유지).
+        </li>
+        <li>화살표 함수/타입의 린트가 코드 패턴을 지원.</li>
+      </ol>
+      <h2
+        id="markdown"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#markdown"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Markdown
+      </h2>
+      <h3
+        id="한국어-처리의-향상"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#한국어-처리의-향상"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >한국어 처리의 향상
+      </h3>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="md"
+          data-theme="material-theme-palenight"
+        ><code data-language="md" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">&lt;!-- Input --&gt;</span></span>
 <span data-line=""> </span>
 <span data-line=""><span style="color:#BABED8">노래를 못해요.</span></span>
 <span data-line=""> </span>
@@ -34,15 +173,35 @@
 <span data-line=""> </span>
 <span data-line=""><span style="color:#676E95;font-style:italic">&lt;!-- Prettier 3.0, subsequent reformat with --prose-wrap always --print-width 80 --&gt;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#BABED8">노래를 못해요.</span></span></code></pre></figure>
-<p class="mt-4 mb-4">한국어는 공백의 위치에 따라 문장의 의미가 변경되는 특성이 있다.</p>
-<ul class="min-[790px]:ml-6 ml-4 list-disc">
-<li>노래를 못해요: 나는 노래를 잘 못한다.</li>
-<li>노래를 못 해요: 나는 (어떠한 이유로) 노래를 할 수 없다.</li>
-</ul>
-<p class="mt-4 mb-4">v3에서는 위의 특성을 고려해 단어를 '분해하지' 않는다. 영어와 동일하게 줄바꿈이 일어나게 된다.</p>
-<h3 id="인라인-코드-여백-유지" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#인라인-코드-여백-유지"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>인라인 코드 여백 유지</h3>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="md" data-theme="material-theme-palenight"><code data-language="md" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">&lt;!-- Input --&gt;</span></span>
+<span data-line=""><span style="color:#BABED8">노래를 못해요.</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        한국어는 공백의 위치에 따라 문장의 의미가 변경되는 특성이 있다.
+      </p>
+      <ul class="min-[790px]:ml-6 ml-4 list-disc">
+        <li>노래를 못해요: 나는 노래를 잘 못한다.</li>
+        <li>노래를 못 해요: 나는 (어떠한 이유로) 노래를 할 수 없다.</li>
+      </ul>
+      <p class="mt-4 mb-4">
+        v3에서는 위의 특성을 고려해 단어를 '분해하지' 않는다. 영어와 동일하게
+        줄바꿈이 일어나게 된다.
+      </p>
+      <h3
+        id="인라인-코드-여백-유지"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#인라인-코드-여백-유지"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >인라인 코드 여백 유지
+      </h3>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="md"
+          data-theme="material-theme-palenight"
+        ><code data-language="md" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">&lt;!-- Input --&gt;</span></span>
 <span data-line=""> </span>
 <span data-line=""><span style="color:#89DDFF">`</span><span style="color:#C3E88D">   foo   bar   baz   </span><span style="color:#89DDFF">`</span></span>
 <span data-line=""> </span>
@@ -52,11 +211,35 @@
 <span data-line=""> </span>
 <span data-line=""><span style="color:#676E95;font-style:italic">&lt;!-- Prettier 3.0 --&gt;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#89DDFF">`</span><span style="color:#C3E88D">   foo   bar   baz   </span><span style="color:#89DDFF">`</span></span></code></pre></figure>
-<p class="mt-4 mb-4">다수의 여백이 하나로 줄여지던 문제가 해결되었다.</p>
-<h2 id="javascript--typescript" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#javascript--typescript"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>JavaScript / TypeScript</h2>
-<h3 id="trailing-comma" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#trailing-comma"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>trailing-comma</h3>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="tsx" data-theme="material-theme-palenight"><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// Input</span></span>
+<span data-line=""><span style="color:#89DDFF">`</span><span style="color:#C3E88D">   foo   bar   baz   </span><span style="color:#89DDFF">`</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">다수의 여백이 하나로 줄여지던 문제가 해결되었다.</p>
+      <h2
+        id="javascript--typescript"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#javascript--typescript"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >JavaScript / TypeScript
+      </h2>
+      <h3
+        id="trailing-comma"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#trailing-comma"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >trailing-comma
+      </h3>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="tsx"
+          data-theme="material-theme-palenight"
+        ><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// Input</span></span>
 <span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> Foo</span><span style="color:#89DDFF"> =</span><span style="color:#BABED8"> [</span></span>
 <span data-line=""><span style="color:#89DDFF">  {</span></span>
 <span data-line=""><span style="color:#F07178">    from</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> string</span><span style="color:#89DDFF">;</span></span>
@@ -90,10 +273,25 @@
 <span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> Foo</span><span style="color:#89DDFF"> =</span><span style="color:#FFCB6B"> Promise</span><span style="color:#89DDFF">&lt;</span></span>
 <span data-line=""><span style="color:#89DDFF">  |</span><span style="color:#89DDFF"> {</span><span style="color:#F07178"> ok</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> true</span><span style="color:#89DDFF">;</span><span style="color:#F07178"> bar</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> string</span><span style="color:#89DDFF">;</span><span style="color:#F07178"> baz</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> SomeOtherLongType</span><span style="color:#89DDFF"> }</span></span>
 <span data-line=""><span style="color:#89DDFF">  |</span><span style="color:#89DDFF"> {</span><span style="color:#F07178"> ok</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> false</span><span style="color:#89DDFF">;</span><span style="color:#F07178"> bar</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> SomeOtherLongType</span><span style="color:#89DDFF"> }</span><span style="color:#676E95;font-style:italic"> // &lt;- 2</span></span>
-<span data-line=""><span style="color:#89DDFF">&gt;;</span></span></code></pre></figure>
-<p class="mt-4 mb-4">타입 매개변수 및 튜플에서도 쉼표가 추가되었다.</p>
-<h3 id="decorated-function-패턴-지원" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#decorated-function-패턴-지원"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Decorated function 패턴 지원</h3>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="tsx" data-theme="material-theme-palenight"><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// Prettier 2.8</span></span>
+<span data-line=""><span style="color:#89DDFF">&gt;;</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">타입 매개변수 및 튜플에서도 쉼표가 추가되었다.</p>
+      <h3
+        id="decorated-function-패턴-지원"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#decorated-function-패턴-지원"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Decorated function 패턴 지원
+      </h3>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="tsx"
+          data-theme="material-theme-palenight"
+        ><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// Prettier 2.8</span></span>
 <span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> Counter </span><span style="color:#89DDFF">=</span><span style="color:#82AAFF"> decorator</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">my-counter</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">)(</span><span style="color:#89DDFF">(</span><span style="color:#BABED8;font-style:italic">props</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#F07178">  initialCount</span><span style="color:#89DDFF">?:</span><span style="color:#FFCB6B"> number</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#F07178">  label</span><span style="color:#89DDFF">?:</span><span style="color:#FFCB6B"> string</span><span style="color:#89DDFF">;</span></span>
@@ -107,10 +305,28 @@
 <span data-line=""><span style="color:#F07178">  label</span><span style="color:#89DDFF">?:</span><span style="color:#FFCB6B"> string</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#89DDFF">})</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">  // ...</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre></figure>
-<p class="mt-4 mb-4">데코레이터 패턴에서 들여쓰기를 줄이기 위해 화살표 함수의 가독성을 희생하도록 변경되었다.</p>
-<h3 id="누락된-await-괄호-추가" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#누락된-await-괄호-추가"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>누락된 await 괄호 추가</h3>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="tsx" data-theme="material-theme-palenight"><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// Input</span></span>
+<span data-line=""><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        데코레이터 패턴에서 들여쓰기를 줄이기 위해 화살표 함수의 가독성을
+        희생하도록 변경되었다.
+      </p>
+      <h3
+        id="누락된-await-괄호-추가"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#누락된-await-괄호-추가"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >누락된 await 괄호 추가
+      </h3>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="tsx"
+          data-theme="material-theme-palenight"
+        ><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// Input</span></span>
 <span data-line=""><span style="color:#C792EA">async</span><span style="color:#C792EA"> function</span><span style="color:#82AAFF"> request</span><span style="color:#89DDFF">(</span><span style="color:#BABED8;font-style:italic">url</span><span style="color:#89DDFF">)</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#F07178"> (</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">    // prettier-ignore</span></span>
@@ -132,9 +348,27 @@
 <span data-line=""><span style="color:#676E95;font-style:italic">    // prettier-ignore</span></span>
 <span data-line=""><span style="color:#F07178">    (</span><span style="color:#89DDFF;font-style:italic">await</span><span style="color:#82AAFF"> fetch</span><span style="color:#F07178">(</span><span style="color:#BABED8">url</span><span style="color:#F07178">))</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">json</span><span style="color:#F07178">()</span></span>
 <span data-line=""><span style="color:#F07178">  )</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre></figure>
-<h3 id="커링과-화살표-함수간-괄호-일관성-개선" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#커링과-화살표-함수간-괄호-일관성-개선"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>커링과 화살표 함수간 괄호 일관성 개선</h3>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="tsx" data-theme="material-theme-palenight"><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// Input</span></span>
+<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre>
+      </figure>
+      <h3
+        id="커링과-화살표-함수간-괄호-일관성-개선"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#커링과-화살표-함수간-괄호-일관성-개선"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >커링과 화살표 함수간 괄호 일관성 개선
+      </h3>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="tsx"
+          data-theme="material-theme-palenight"
+        ><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// Input</span></span>
 <span data-line=""><span style="color:#82AAFF">Y</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#BABED8"> (a </span><span style="color:#89DDFF">?</span><span style="color:#BABED8"> b </span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> c))</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#82AAFF">Y</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#BABED8"> (a </span><span style="color:#89DDFF">?</span><span style="color:#BABED8"> b </span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> c))</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""> </span>
@@ -144,15 +378,56 @@
 <span data-line=""> </span>
 <span data-line=""><span style="color:#676E95;font-style:italic">// Prettier 3.0</span></span>
 <span data-line=""><span style="color:#82AAFF">Y</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#BABED8"> (a </span><span style="color:#89DDFF">?</span><span style="color:#BABED8"> b </span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> c))</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#82AAFF">Y</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#BABED8"> (a </span><span style="color:#89DDFF">?</span><span style="color:#BABED8"> b </span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> c))</span><span style="color:#89DDFF">;</span></span></code></pre></figure>
-<h3 id="import-attributes를-지원" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#import-attributes를-지원"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Import Attributes를 지원</h3>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="tsx" data-theme="material-theme-palenight"><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#89DDFF;font-style:italic">import</span><span style="color:#BABED8"> json </span><span style="color:#89DDFF;font-style:italic">from</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">./foo.json</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF;font-style:italic"> with</span><span style="color:#89DDFF"> {</span><span style="color:#F07178"> type</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">json</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> };</span></span>
-<span data-line=""><span style="color:#89DDFF">import</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">./foo.json</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> {</span><span style="color:#F07178"> with</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {</span><span style="color:#F07178"> type</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">json</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> }</span><span style="color:#89DDFF"> }</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre></figure>
-<ul class="min-[790px]:ml-6 ml-4 list-disc">
-<li><a href="https://github.com/tc39/proposal-import-attributes" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Import Attributes</a></li>
-</ul>
-<h3 id="주석이-있는-경우-유니온-타입의-개행이-유지" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#주석이-있는-경우-유니온-타입의-개행이-유지"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>주석이 있는 경우 유니온 타입의 개행이 유지</h3>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="ts" data-theme="material-theme-palenight"><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// Input</span></span>
+<span data-line=""><span style="color:#82AAFF">Y</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#BABED8"> (a </span><span style="color:#89DDFF">?</span><span style="color:#BABED8"> b </span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> c))</span><span style="color:#89DDFF">;</span></span></code></pre>
+      </figure>
+      <h3
+        id="import-attributes를-지원"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#import-attributes를-지원"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Import Attributes를 지원
+      </h3>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="tsx"
+          data-theme="material-theme-palenight"
+        ><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#89DDFF;font-style:italic">import</span><span style="color:#BABED8"> json </span><span style="color:#89DDFF;font-style:italic">from</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">./foo.json</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF;font-style:italic"> with</span><span style="color:#89DDFF"> {</span><span style="color:#F07178"> type</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">json</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> };</span></span>
+<span data-line=""><span style="color:#89DDFF">import</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">./foo.json</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> {</span><span style="color:#F07178"> with</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {</span><span style="color:#F07178"> type</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">json</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> }</span><span style="color:#89DDFF"> }</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre>
+      </figure>
+      <ul class="min-[790px]:ml-6 ml-4 list-disc">
+        <li>
+          <a
+            href="https://github.com/tc39/proposal-import-attributes"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >Import Attributes</a
+          >
+        </li>
+      </ul>
+      <h3
+        id="주석이-있는-경우-유니온-타입의-개행이-유지"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#주석이-있는-경우-유니온-타입의-개행이-유지"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >주석이 있는 경우 유니온 타입의 개행이 유지
+      </h3>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="ts"
+          data-theme="material-theme-palenight"
+        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// Input</span></span>
 <span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> FooBar</span><span style="color:#89DDFF"> =</span></span>
 <span data-line=""><span style="color:#89DDFF">  |</span><span style="color:#FFCB6B"> Number</span><span style="color:#676E95;font-style:italic"> // this documents the first option</span></span>
 <span data-line=""><span style="color:#89DDFF">  |</span><span style="color:#FFCB6B"> void</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // this documents the second option</span></span>
@@ -163,9 +438,24 @@
 <span data-line=""><span style="color:#676E95;font-style:italic">// Prettier 3.0</span></span>
 <span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> FooBar</span><span style="color:#89DDFF"> =</span></span>
 <span data-line=""><span style="color:#89DDFF">  |</span><span style="color:#FFCB6B"> Number</span><span style="color:#676E95;font-style:italic"> // this documents the first option</span></span>
-<span data-line=""><span style="color:#89DDFF">  |</span><span style="color:#FFCB6B"> void</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // this documents the second option</span></span></code></pre></figure>
-<h3 id="extends-줄바꿈-개선" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#extends-줄바꿈-개선"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>extends 줄바꿈 개선</h3>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="tsx" data-theme="material-theme-palenight"><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// Input</span></span>
+<span data-line=""><span style="color:#89DDFF">  |</span><span style="color:#FFCB6B"> void</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // this documents the second option</span></span></code></pre>
+      </figure>
+      <h3
+        id="extends-줄바꿈-개선"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#extends-줄바꿈-개선"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >extends 줄바꿈 개선
+      </h3>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="tsx"
+          data-theme="material-theme-palenight"
+        ><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// Input</span></span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">export</span><span style="color:#C792EA"> type</span><span style="color:#FFCB6B"> OuterType2</span><span style="color:#89DDFF">&lt;</span></span>
 <span data-line=""><span style="color:#FFCB6B">  LongerLongerLongerLongerInnerType</span><span style="color:#C792EA"> extends</span></span>
 <span data-line=""><span style="color:#FFCB6B">    LongerLongerLongerLongerLongerLongerLongerLongerOtherType</span><span style="color:#89DDFF">,</span></span>
@@ -181,10 +471,34 @@
 <span data-line=""><span style="color:#89DDFF;font-style:italic">export</span><span style="color:#C792EA"> type</span><span style="color:#FFCB6B"> OuterType2</span><span style="color:#89DDFF">&lt;</span></span>
 <span data-line=""><span style="color:#FFCB6B">  LongerLongerLongerLongerInnerType</span><span style="color:#C792EA"> extends</span></span>
 <span data-line=""><span style="color:#FFCB6B">    LongerLongerLongerLongerLongerLongerLongerLongerOtherType</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#89DDFF">&gt;</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> {</span><span style="color:#F07178"> a</span><span style="color:#89DDFF">:</span><span style="color:#F78C6C"> 1</span><span style="color:#89DDFF"> };</span></span></code></pre></figure>
-<h2 id="html" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#html"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>HTML</h2>
-<h3 id="svg-내부-script-린트-향상" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#svg-내부-script-린트-향상"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>SVG 내부 script 린트 향상</h3>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="html" data-theme="material-theme-palenight"><code data-language="html" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">&lt;!-- Input --&gt;</span></span>
+<span data-line=""><span style="color:#89DDFF">&gt;</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> {</span><span style="color:#F07178"> a</span><span style="color:#89DDFF">:</span><span style="color:#F78C6C"> 1</span><span style="color:#89DDFF"> };</span></span></code></pre>
+      </figure>
+      <h2
+        id="html"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#html"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >HTML
+      </h2>
+      <h3
+        id="svg-내부-script-린트-향상"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#svg-내부-script-린트-향상"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >SVG 내부 script 린트 향상
+      </h3>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="html"
+          data-theme="material-theme-palenight"
+        ><code data-language="html" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">&lt;!-- Input --&gt;</span></span>
 <span data-line=""><span style="color:#89DDFF">&lt;</span><span style="color:#F07178">svg</span><span style="color:#C792EA"> viewBox</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">0 0 200 200</span><span style="color:#89DDFF">"</span><span style="color:#C792EA"> xmlns</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">http://www.w3.org/2000/svg</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">&gt;</span></span>
 <span data-line=""><span style="color:#89DDFF">  &lt;</span><span style="color:#F07178">script</span><span style="color:#89DDFF">&gt;</span></span>
 <span data-line=""><span style="color:#BABED8">    document.addEventListener('DOMContentLoaded', () =&gt; {</span></span>
@@ -215,8 +529,144 @@
 <span data-line=""><span style="color:#BABED8">      }</span></span>
 <span data-line=""><span style="color:#BABED8">    });</span></span>
 <span data-line=""><span style="color:#89DDFF">  &lt;/</span><span style="color:#F07178">script</span><span style="color:#89DDFF">&gt;</span></span>
-<span data-line=""><span style="color:#89DDFF">&lt;/</span><span style="color:#F07178">svg</span><span style="color:#89DDFF">&gt;</span></span></code></pre></figure>
-<h2 id="reference" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#reference"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Reference</h2>
-<ul class="min-[790px]:ml-6 ml-4 list-disc">
-<li><a href="https://prettier.io/blog/2023/07/05/3.0.0.html" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">공식 블로그 글 보기</a></li>
-</ul></div><aside class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden" aria-label="index"><ul class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"><li id="tldr" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">TL;DR!</li><li id="markdown" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">Markdown</li><li id="한국어-처리의-향상" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">한국어 처리의 향상</li><li id="인라인-코드-여백-유지" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue">인라인 코드 여백 유지</li><li id="javascript--typescript" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">JavaScript / TypeScript</li><li id="trailing-comma" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">trailing-comma</li><li id="decorated-function-패턴-지원" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">Decorated function 패턴 지원</li><li id="누락된-await-괄호-추가" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">누락된 await 괄호 추가</li><li id="커링과-화살표-함수간-괄호-일관성-개선" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">커링과 화살표 함수간 괄호 일관성 개선</li><li id="import-attributes를-지원" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">Import Attributes를 지원</li><li id="주석이-있는-경우-유니온-타입의-개행이-유지" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">주석이 있는 경우 유니온 타입의 개행이 유지</li><li id="extends-줄바꿈-개선" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue">extends 줄바꿈 개선</li><li id="html" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">HTML</li><li id="svg-내부-script-린트-향상" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue">SVG 내부 script 린트 향상</li><li id="reference" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">Reference</li></ul></aside></section><a class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water" href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] Prettier%20v3%20%EB%B3%80%EA%B2%BD%EC%82%AC%ED%95%AD%20%EC%82%B4%ED%8E%B4%EB%B3%B4%EA%B8%B0&amp;body=<!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 -->" rel="noopener noreferrer" target="_blank">📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍</a><div class="flex items-center mt-4 mb-56"><iframe class="border-0 rounded-md cursor-pointer object-contain hover:animate-bouncing" src="https://github.com/sponsors/1ilsang/button" title="Sponsor 1ilsang" height="32" width="114"></iframe></div></section>
+<span data-line=""><span style="color:#89DDFF">&lt;/</span><span style="color:#F07178">svg</span><span style="color:#89DDFF">&gt;</span></span></code></pre>
+      </figure>
+      <h2
+        id="reference"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#reference"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Reference
+      </h2>
+      <ul class="min-[790px]:ml-6 ml-4 list-disc">
+        <li>
+          <a
+            href="https://prettier.io/blog/2023/07/05/3.0.0.html"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >공식 블로그 글 보기</a
+          >
+        </li>
+      </ul>
+    </div>
+    <aside
+      class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
+      aria-label="index"
+    >
+      <ul
+        class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
+      >
+        <li
+          id="tldr"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          TL;DR!
+        </li>
+        <li
+          id="markdown"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          Markdown
+        </li>
+        <li
+          id="한국어-처리의-향상"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          한국어 처리의 향상
+        </li>
+        <li
+          id="인라인-코드-여백-유지"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
+        >
+          인라인 코드 여백 유지
+        </li>
+        <li
+          id="javascript--typescript"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          JavaScript / TypeScript
+        </li>
+        <li
+          id="trailing-comma"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          trailing-comma
+        </li>
+        <li
+          id="decorated-function-패턴-지원"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          Decorated function 패턴 지원
+        </li>
+        <li
+          id="누락된-await-괄호-추가"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          누락된 await 괄호 추가
+        </li>
+        <li
+          id="커링과-화살표-함수간-괄호-일관성-개선"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          커링과 화살표 함수간 괄호 일관성 개선
+        </li>
+        <li
+          id="import-attributes를-지원"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          Import Attributes를 지원
+        </li>
+        <li
+          id="주석이-있는-경우-유니온-타입의-개행이-유지"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          주석이 있는 경우 유니온 타입의 개행이 유지
+        </li>
+        <li
+          id="extends-줄바꿈-개선"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
+        >
+          extends 줄바꿈 개선
+        </li>
+        <li
+          id="html"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          HTML
+        </li>
+        <li
+          id="svg-내부-script-린트-향상"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
+        >
+          SVG 내부 script 린트 향상
+        </li>
+        <li
+          id="reference"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          Reference
+        </li>
+      </ul>
+    </aside>
+  </section>
+  <a
+    class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water"
+    href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] Prettier%20v3%20%EB%B3%80%EA%B2%BD%EC%82%AC%ED%95%AD%20%EC%82%B4%ED%8E%B4%EB%B3%B4%EA%B8%B0&amp;body=&lt;!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 --&gt;"
+    rel="noopener noreferrer"
+    target="_blank"
+    >📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍</a
+  >
+  <div class="flex items-center mt-4 mb-56">
+    <iframe
+      class="border-0 rounded-md cursor-pointer object-contain hover:animate-bouncing"
+      src="https://github.com/sponsors/1ilsang/button"
+      title="Sponsor 1ilsang"
+      height="32"
+      width="114"
+    ></iframe>
+  </div>
+</section>

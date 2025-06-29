@@ -1,43 +1,282 @@
-<progress class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og" value="0" max="1"></progress><nav class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"><h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5"><a class="hover:underline" href="/">1ilsang</a></h2><div class="flex"><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/posts">posts</a></h2><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/tags">tags</a></h2><div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-white-blue" src="/images/chul.webp" alt="1ilsang"></a></div></div></nav><section class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"><h1 class="text-4xl break-words md:text-6xl">useTransition 이해하기</h1><section class="flex items-center mt-4"><div class="mr-2 w-9 h-9 md:w-12 md:h-12" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-sub-blue" src="/images/chul.webp" alt="1ilsang"></a></div><div><a class="text-lg" href="/about">1ilsang</a><div class="text-sm text-sub-blue">클라이밍 하실래염?</div></div></section><section class="flex flex-wrap items-end mt-2"><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/react">#<!-- -->react</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/hooks">#<!-- -->hooks</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/useTransition">#<!-- -->useTransition</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/throttle">#<!-- -->throttle</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/debounce">#<!-- -->debounce</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/suspense">#<!-- -->suspense</a></section><section><div class="inline text-date-gray"><span class="mr-1">Published</span><time datetime="2023-06-04 20:38">2023-06-04 20:38</time></div></section><section id="post-body-container" class="relative"><div class="markdown"><div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="cover" src="/posts/use-transition/cover.webp"></div></div>
-<p class="mt-4 mb-4">최근 리액트 공식 사이트가 <a href="https://react.dev/" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">react.dev</a>로 이사하게 되었다. 이에 맞춰 <a href="https://ko.react.dev/" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">한국 번역 페이지</a>도 새롭게 단장하게 되어 기여자를 모집하고 있었다.</p>
-<p class="mt-4 mb-4">평소 리액트 커뮤니티에 기여할 방법을 찾던 중이었기에 useTransition 파트를 <a href="https://github.com/reactjs/ko.react.dev/issues/374#issuecomment-1523237065" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">지원했고</a> 무사히 <a href="https://github.com/reactjs/ko.react.dev/pull/609" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">번역 PR</a>을 올릴수 있었다.</p>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4"><a href="https://ko.react.dev/reference/react/useTransition" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">번역된 페이지 보기</a></p>
-</blockquote>
-<p class="mt-4 mb-4">번역을 하면서 useTransition에 대해 알게 된 것들을 정리해 보고자 한다.</p>
-<h2 id="tldr" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#tldr"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>TL;DR!</h2>
-<p class="mt-4 mb-4">useTransition은 컴포넌트 최상위 수준에서 호출되어 <code>startTransition</code>을 통해 <strong>우선순위가 낮은</strong> 상태 업데이트(setState)들을 <code>transition</code>이라고 표시한다. 리액트는 UI 렌더링시 우선순위에 따라 업데이트 할 수 있게 된다.</p>
-<h2 id="목차" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#목차"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>목차</h2>
-<ol class="min-[790px]:ml-6 ml-4 list-decimal">
-<li>useTransition이란?<!-- -->
-<ul class="min-[790px]:ml-6 ml-4 list-disc">
-<li>isPending, startTransition 이해하기<!-- -->
-<ul class="min-[790px]:ml-6 ml-4 list-disc">
-<li>startTransition 유의 사항</li>
-</ul>
-</li>
-<li>전체 코드로 이해하기</li>
-</ul>
-</li>
-<li>Suspense와 연계하기</li>
-<li>그외 자잘한 팁들<!-- -->
-<ul class="min-[790px]:ml-6 ml-4 list-disc">
-<li>vs throttle, debounce</li>
-<li>startTransition에 전달된 함수는 즉시 실행된다</li>
-<li>useDeferredValue</li>
-</ul>
-</li>
-<li>마무리</li>
-</ol>
-<h2 id="usetransition이란" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#usetransition이란"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>useTransition이란?</h2>
-<p class="mt-4 mb-4"><code>useTransition</code>은 <strong>UI를 차단하지 않고 상태를 업데이트</strong> 할 수 있는 리액트 훅이다.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="jsx" data-theme="material-theme-palenight"><code data-language="jsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#89DDFF"> [</span><span style="color:#BABED8">isPending</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> startTransition</span><span style="color:#89DDFF">]</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> useTransition</span><span style="color:#BABED8">()</span><span style="color:#89DDFF">;</span></span></code></pre></figure>
-<p class="mt-4 mb-4">여기서 <em>UI를 차단하지 않고</em> 라는 문구를 유의하기 바란다. useTransition을 통해 React18에 추가된 많은 기능중 하나인 <a href="https://www.freecodecamp.org/korean/news/riaegteu-18yi-singineung-dongsiseong-rendeoring-concurrent-rendering-jadong-ilgwal-ceori-automatic-batching-deung/" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">Concurrent rendering</a>(동시성 렌더링)을 적절하게 사용할 수 있다.</p>
-<p class="mt-4 mb-4">일반적으로 오래 걸리는 상태 업데이트(setState)가 존재할 경우, 해당 업데이트가 완료된 이후에 렌더링이 일어나기 때문에 그 시간만큼 렌더 트리가 '블락(Block)'된다. 이 때문에 유저는 아무런 동작을 할 수 없는 상태에 빠지게 되므로 UX에 좋지 않은 영향을 준다.</p>
-<p class="mt-4 mb-4">useTransition은 컴포넌트 최상위 수준에서 호출되어 <code>startTransition</code>을 통해 <strong>우선순위가 낮은 상태 업데이트</strong>들을 <code>transition</code>이라고 표시해 리액트가 UI 렌더링시 우선순위에 따라 업데이트 할 수 있도록 한다. 이로써 렌더링이 오래 걸리는 컴포넌트의 블락을 피할수 있게 된다.</p>
-<p class="mt-4 mb-4"><code>transition</code>으로 표시된 상태 업데이트(A라 호칭)는 다른 일반적인 상태 업데이트(B)가 호출될때 중단되고 B의 상태 업데이트가 완료된 다음 <strong>다시</strong> A를 렌더링 시작한다. 이를 통해 특정 컴포넌트의 렌더링이 오래 걸리더라도 다른 우선순위 높은 상태의 변경을 통해 User Interaction을 블로킹하지 않고 자연스럽게 동작할 수 있도록 한다.</p>
-<h3 id="ispending-starttransition-이해하기" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#ispending-starttransition-이해하기"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>isPending, startTransition 이해하기</h3>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="jsx" data-theme="material-theme-palenight"><code data-language="jsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> TabButton </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> ({</span><span style="color:#BABED8;font-style:italic"> children</span><span style="color:#89DDFF">,</span><span style="color:#BABED8;font-style:italic"> onClick</span><span style="color:#89DDFF"> })</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
+<progress
+  class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  value="0"
+  max="1"
+></progress>
+<nav
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"
+>
+  <h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
+    <a class="hover:underline" href="/">1ilsang</a>
+  </h2>
+  <div class="flex">
+    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/posts">posts</a>
+    </h2>
+    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/tags">tags</a>
+    </h2>
+    <div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character">
+      <a href="/about"
+        ><img
+          class="border border-solid rounded-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+    </div>
+  </div>
+</nav>
+<section
+  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
+>
+  <h1 class="text-4xl break-words md:text-6xl">useTransition 이해하기</h1>
+  <section class="flex items-center mt-4">
+    <div
+      class="mr-2 w-9 h-9 md:w-12 md:h-12"
+      role="img"
+      aria-label="1ilsang character"
+    >
+      <a href="/about"
+        ><img
+          class="border border-solid rounded-full border-sub-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+    </div>
+    <div>
+      <a class="text-lg" href="/about">1ilsang</a>
+      <div class="text-sm text-sub-blue">클라이밍 하실래염?</div>
+    </div>
+  </section>
+  <section class="flex flex-wrap items-end mt-2">
+    <a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/react"
+      >#<!-- -->react</a
+    ><a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/hooks"
+      >#<!-- -->hooks</a
+    ><a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/useTransition"
+      >#<!-- -->useTransition</a
+    ><a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/throttle"
+      >#<!-- -->throttle</a
+    ><a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/debounce"
+      >#<!-- -->debounce</a
+    ><a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/suspense"
+      >#<!-- -->suspense</a
+    >
+  </section>
+  <section>
+    <div class="inline text-date-gray">
+      <span class="mr-1">Published</span
+      ><time datetime="2023-06-04 20:38">2023-06-04 20:38</time>
+    </div>
+  </section>
+  <section id="post-body-container" class="relative">
+    <div class="markdown">
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="cover"
+            src="/posts/use-transition/cover.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        최근 리액트 공식 사이트가
+        <a
+          href="https://react.dev/"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >react.dev</a
+        >로 이사하게 되었다. 이에 맞춰
+        <a
+          href="https://ko.react.dev/"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >한국 번역 페이지</a
+        >도 새롭게 단장하게 되어 기여자를 모집하고 있었다.
+      </p>
+      <p class="mt-4 mb-4">
+        평소 리액트 커뮤니티에 기여할 방법을 찾던 중이었기에 useTransition
+        파트를
+        <a
+          href="https://github.com/reactjs/ko.react.dev/issues/374#issuecomment-1523237065"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >지원했고</a
+        >
+        무사히
+        <a
+          href="https://github.com/reactjs/ko.react.dev/pull/609"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >번역 PR</a
+        >을 올릴수 있었다.
+      </p>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          <a
+            href="https://ko.react.dev/reference/react/useTransition"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >번역된 페이지 보기</a
+          >
+        </p>
+      </blockquote>
+      <p class="mt-4 mb-4">
+        번역을 하면서 useTransition에 대해 알게 된 것들을 정리해 보고자 한다.
+      </p>
+      <h2
+        id="tldr"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#tldr"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >TL;DR!
+      </h2>
+      <p class="mt-4 mb-4">
+        useTransition은 컴포넌트 최상위 수준에서 호출되어
+        <code>startTransition</code>을 통해
+        <strong>우선순위가 낮은</strong> 상태 업데이트(setState)들을
+        <code>transition</code>이라고 표시한다. 리액트는 UI 렌더링시 우선순위에
+        따라 업데이트 할 수 있게 된다.
+      </p>
+      <h2
+        id="목차"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#목차"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >목차
+      </h2>
+      <ol class="min-[790px]:ml-6 ml-4 list-decimal">
+        <li>
+          useTransition이란?<!-- -->
+          <ul class="min-[790px]:ml-6 ml-4 list-disc">
+            <li>
+              isPending, startTransition 이해하기<!-- -->
+              <ul class="min-[790px]:ml-6 ml-4 list-disc">
+                <li>startTransition 유의 사항</li>
+              </ul>
+            </li>
+            <li>전체 코드로 이해하기</li>
+          </ul>
+        </li>
+        <li>Suspense와 연계하기</li>
+        <li>
+          그외 자잘한 팁들<!-- -->
+          <ul class="min-[790px]:ml-6 ml-4 list-disc">
+            <li>vs throttle, debounce</li>
+            <li>startTransition에 전달된 함수는 즉시 실행된다</li>
+            <li>useDeferredValue</li>
+          </ul>
+        </li>
+        <li>마무리</li>
+      </ol>
+      <h2
+        id="usetransition이란"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#usetransition이란"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >useTransition이란?
+      </h2>
+      <p class="mt-4 mb-4">
+        <code>useTransition</code>은
+        <strong>UI를 차단하지 않고 상태를 업데이트</strong> 할 수 있는 리액트
+        훅이다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="jsx"
+          data-theme="material-theme-palenight"
+        ><code data-language="jsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#89DDFF"> [</span><span style="color:#BABED8">isPending</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> startTransition</span><span style="color:#89DDFF">]</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> useTransition</span><span style="color:#BABED8">()</span><span style="color:#89DDFF">;</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        여기서 <em>UI를 차단하지 않고</em> 라는 문구를 유의하기 바란다.
+        useTransition을 통해 React18에 추가된 많은 기능중 하나인
+        <a
+          href="https://www.freecodecamp.org/korean/news/riaegteu-18yi-singineung-dongsiseong-rendeoring-concurrent-rendering-jadong-ilgwal-ceori-automatic-batching-deung/"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >Concurrent rendering</a
+        >(동시성 렌더링)을 적절하게 사용할 수 있다.
+      </p>
+      <p class="mt-4 mb-4">
+        일반적으로 오래 걸리는 상태 업데이트(setState)가 존재할 경우, 해당
+        업데이트가 완료된 이후에 렌더링이 일어나기 때문에 그 시간만큼 렌더
+        트리가 '블락(Block)'된다. 이 때문에 유저는 아무런 동작을 할 수 없는
+        상태에 빠지게 되므로 UX에 좋지 않은 영향을 준다.
+      </p>
+      <p class="mt-4 mb-4">
+        useTransition은 컴포넌트 최상위 수준에서 호출되어
+        <code>startTransition</code>을 통해
+        <strong>우선순위가 낮은 상태 업데이트</strong>들을
+        <code>transition</code>이라고 표시해 리액트가 UI 렌더링시 우선순위에
+        따라 업데이트 할 수 있도록 한다. 이로써 렌더링이 오래 걸리는 컴포넌트의
+        블락을 피할수 있게 된다.
+      </p>
+      <p class="mt-4 mb-4">
+        <code>transition</code>으로 표시된 상태 업데이트(A라 호칭)는 다른
+        일반적인 상태 업데이트(B)가 호출될때 중단되고 B의 상태 업데이트가 완료된
+        다음 <strong>다시</strong> A를 렌더링 시작한다. 이를 통해 특정
+        컴포넌트의 렌더링이 오래 걸리더라도 다른 우선순위 높은 상태의 변경을
+        통해 User Interaction을 블로킹하지 않고 자연스럽게 동작할 수 있도록
+        한다.
+      </p>
+      <h3
+        id="ispending-starttransition-이해하기"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#ispending-starttransition-이해하기"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >isPending, startTransition 이해하기
+      </h3>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="jsx"
+          data-theme="material-theme-palenight"
+        ><code data-language="jsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> TabButton </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> ({</span><span style="color:#BABED8;font-style:italic"> children</span><span style="color:#89DDFF">,</span><span style="color:#BABED8;font-style:italic"> onClick</span><span style="color:#89DDFF"> })</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#C792EA">  const</span><span style="color:#89DDFF"> [</span><span style="color:#BABED8">isPending</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> startTransition</span><span style="color:#89DDFF">]</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> useTransition</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#C792EA">  const</span><span style="color:#89DDFF"> [</span><span style="color:#BABED8">tab</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> setTab</span><span style="color:#89DDFF">]</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> useState</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">about</span><span style="color:#89DDFF">'</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""> </span>
@@ -51,26 +290,70 @@
 <span data-line=""><span style="color:#89DDFF">    }</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#89DDFF">  }</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">  // ...아래에서 풀 코드로 설명</span></span>
-<span data-line=""><span style="color:#89DDFF">};</span></span></code></pre></figure>
-<p class="mt-4 mb-4">useTransition은 두 개의 항목이 있는 배열을 반환한다.</p>
-<ol class="min-[790px]:ml-6 ml-4 list-decimal">
-<li><code>isPending</code> 플래그는 대기 중인 transition이 있는지 알려준다.</li>
-<li><code>startTransition</code> 함수는 상태 업데이트(setState)를 transition으로 표시 해주는 함수다.</li>
-</ol>
-<h4 id="starttransition-유의-사항" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-xl mt-6"><a aria-hidden="true" tabindex="-1" href="#starttransition-유의-사항"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>startTransition 유의 사항</h4>
-<ol class="min-[790px]:ml-6 ml-4 list-decimal">
-<li>동기 함수여야 한다.</li>
-<li><code>transition</code>으로 표시된 setState는 다른 setState 업데이트시 중단된다.<!-- -->
-<ul class="min-[790px]:ml-6 ml-4 list-disc">
-<li>다른 상태 업데이트가 있을 경우 그것을 먼저 처리한다는 뜻</li>
-</ul>
-</li>
-<li>텍스트 입력을 제어하는 데 사용할 수 없다.</li>
-</ol>
-<h3 id="전체-코드로-이해하기" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#전체-코드로-이해하기"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>전체 코드로 이해하기</h3>
-<p class="mt-4 mb-4">전체 코드로 이해해 보자. 중간중간 주석을 통해 동작을 설명하고자 한다.</p>
-<p class="mt-4 mb-4"><a href="https://ko.react.dev/reference/react/useTransition#displaying-a-pending-visual-state-during-the-transition" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">코드 샌드박스는 공식 문서</a>에서 잘 제공해 주므로 직접 실행해 비교해 보면 좋다.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="jsx" data-theme="material-theme-palenight"><code data-language="jsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> App </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#89DDFF">};</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        useTransition은 두 개의 항목이 있는 배열을 반환한다.
+      </p>
+      <ol class="min-[790px]:ml-6 ml-4 list-decimal">
+        <li>
+          <code>isPending</code> 플래그는 대기 중인 transition이 있는지
+          알려준다.
+        </li>
+        <li>
+          <code>startTransition</code> 함수는 상태 업데이트(setState)를
+          transition으로 표시 해주는 함수다.
+        </li>
+      </ol>
+      <h4
+        id="starttransition-유의-사항"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-xl mt-6"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#starttransition-유의-사항"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >startTransition 유의 사항
+      </h4>
+      <ol class="min-[790px]:ml-6 ml-4 list-decimal">
+        <li>동기 함수여야 한다.</li>
+        <li>
+          <code>transition</code>으로 표시된 setState는 다른 setState 업데이트시
+          중단된다.<!-- -->
+          <ul class="min-[790px]:ml-6 ml-4 list-disc">
+            <li>다른 상태 업데이트가 있을 경우 그것을 먼저 처리한다는 뜻</li>
+          </ul>
+        </li>
+        <li>텍스트 입력을 제어하는 데 사용할 수 없다.</li>
+      </ol>
+      <h3
+        id="전체-코드로-이해하기"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#전체-코드로-이해하기"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >전체 코드로 이해하기
+      </h3>
+      <p class="mt-4 mb-4">
+        전체 코드로 이해해 보자. 중간중간 주석을 통해 동작을 설명하고자 한다.
+      </p>
+      <p class="mt-4 mb-4">
+        <a
+          href="https://ko.react.dev/reference/react/useTransition#displaying-a-pending-visual-state-during-the-transition"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >코드 샌드박스는 공식 문서</a
+        >에서 잘 제공해 주므로 직접 실행해 비교해 보면 좋다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="jsx"
+          data-theme="material-theme-palenight"
+        ><code data-language="jsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> App </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#C792EA">  const</span><span style="color:#89DDFF"> [</span><span style="color:#BABED8">tab</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> setTab</span><span style="color:#89DDFF">]</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> useState</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">about</span><span style="color:#89DDFF">'</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""> </span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#F07178"> (</span></span>
@@ -134,9 +417,24 @@
 <span data-line=""><span style="color:#89DDFF">};</span></span>
 <span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> ContactTab </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#89DDFF"> &lt;</span><span style="color:#F07178">p</span><span style="color:#89DDFF">&gt;</span><span style="color:#BABED8">ContactTab</span><span style="color:#89DDFF">&lt;/</span><span style="color:#F07178">p</span><span style="color:#89DDFF">&gt;;</span></span>
-<span data-line=""><span style="color:#89DDFF">};</span></span></code></pre></figure>
-<h2 id="suspense와-연계하기" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#suspense와-연계하기"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>Suspense와 연계하기</h2>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="jsx" data-theme="material-theme-palenight"><code data-language="jsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> App </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#89DDFF">};</span></span></code></pre>
+      </figure>
+      <h2
+        id="suspense와-연계하기"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#suspense와-연계하기"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >Suspense와 연계하기
+      </h2>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="jsx"
+          data-theme="material-theme-palenight"
+        ><code data-language="jsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> App </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#F07178"> (</span></span>
 <span data-line=""><span style="color:#89DDFF">    &lt;</span><span style="color:#FFCB6B">Suspense</span><span style="color:#C792EA"> fallback</span><span style="color:#89DDFF">={&lt;</span><span style="color:#FFCB6B">Spinner</span><span style="color:#89DDFF"> /&gt;}&gt;</span></span>
 <span data-line=""><span style="color:#89DDFF">      {</span><span style="color:#676E95;font-style:italic">/*</span></span>
@@ -144,35 +442,111 @@
 <span data-line=""><span style="color:#676E95;font-style:italic">       */</span><span style="color:#89DDFF">}</span></span>
 <span data-line=""><span style="color:#89DDFF">    &lt;/</span><span style="color:#FFCB6B">Suspense</span><span style="color:#89DDFF">&gt;</span></span>
 <span data-line=""><span style="color:#F07178">  )</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">};</span></span></code></pre></figure>
-<p class="mt-4 mb-4">useTransition의 <code>startTransition</code>을 <code>Suspense</code>와 함께 사용할 경우 불필요한 로딩 인디케이터 노출을 막을수 있다.</p>
-<p class="mt-4 mb-4">일반적으로 렌더링이 오래 걸리는 컴포넌트를 Suspense로 감쌀 경우 해당 컴포넌트가 렌더링 될때마다 Suspense의 fallback 컴포넌트를 만나게 된다. 해당 서스펜스 트리 하위의 렌더링을 중단할 수 없기 때문에 오래 걸리는 렌더링을 막을 방법이 없다. 해당 렌더링이 종료될 때까지 폴백 컴포넌트를 마주해야만 한다.</p>
-<p class="mt-4 mb-4">이때 오래 걸리는 상태 업데이트를 startTransition로 감싸게 될 경우 <code>transition</code> 표시가 되면서 "긴급하지 않은" 상태 업데이트로 간주된다. 이로 인해 리액트는 Suspense를 통해 컨텐츠를 숨기지 않고 이전 컨텐츠를 계속 표시하게 된다.</p>
-<p class="mt-4 mb-4">이는 아래와 같은 장점이 있다.</p>
-<ol class="min-[790px]:ml-6 ml-4 list-decimal">
-<li>transition은 중단할 수 있으므로 리렌더링까지 기다릴 필요가 없다.<!-- -->
-<ul class="min-[790px]:ml-6 ml-4 list-disc">
-<li>Suspense의 경우 하위 컴포넌트가 모두 렌더링 될때까지 fallback을 노출시킨다.</li>
-</ul>
-</li>
-<li>transition은 서스펜스 폴백을 방지(대기하지 않으므로)하므로 갑작스러운 로딩 인디케이터 노출을 피할수 있다.</li>
-</ol>
-<h2 id="그외-자잘한-팁들" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#그외-자잘한-팁들"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>그외 자잘한 팁들</h2>
-<h3 id="vs-throttle-debounce" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#vs-throttle-debounce"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>vs throttle, debounce</h3>
-<p class="mt-4 mb-4">디바운싱과 스로틀로 이벤트의 지연 및 제한은 가능하지만 UI 블로킹의 근본적인 문제는 해결할 수 없다.</p>
-<p class="mt-4 mb-4">아무리 이벤트 실행 시점/횟수를 줄인다 하여도 한번 실행이 되는 순간 블로킹이 되는건 여전하기 때문이다.</p>
-<p class="mt-4 mb-4">근본적인 원인을 해결하기 위해선 이벤트의 우선순위를 나누어 유저 인터렉션이 일어났을 때 해당 이벤트를 우선적으로 처리해 화면이 멈춘것 처럼 보이지 않게 해야한다.</p>
-<h3 id="starttransition에-전달된-함수는-즉시-실행된다" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#starttransition에-전달된-함수는-즉시-실행된다"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>startTransition에 전달된 함수는 즉시 실행된다</h3>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="jsx" data-theme="material-theme-palenight"><code data-language="jsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#BABED8">console</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">log</span><span style="color:#BABED8">(</span><span style="color:#F78C6C">1</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#89DDFF">};</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        useTransition의 <code>startTransition</code>을 <code>Suspense</code>와
+        함께 사용할 경우 불필요한 로딩 인디케이터 노출을 막을수 있다.
+      </p>
+      <p class="mt-4 mb-4">
+        일반적으로 렌더링이 오래 걸리는 컴포넌트를 Suspense로 감쌀 경우 해당
+        컴포넌트가 렌더링 될때마다 Suspense의 fallback 컴포넌트를 만나게 된다.
+        해당 서스펜스 트리 하위의 렌더링을 중단할 수 없기 때문에 오래 걸리는
+        렌더링을 막을 방법이 없다. 해당 렌더링이 종료될 때까지 폴백 컴포넌트를
+        마주해야만 한다.
+      </p>
+      <p class="mt-4 mb-4">
+        이때 오래 걸리는 상태 업데이트를 startTransition로 감싸게 될 경우
+        <code>transition</code> 표시가 되면서 "긴급하지 않은" 상태 업데이트로
+        간주된다. 이로 인해 리액트는 Suspense를 통해 컨텐츠를 숨기지 않고 이전
+        컨텐츠를 계속 표시하게 된다.
+      </p>
+      <p class="mt-4 mb-4">이는 아래와 같은 장점이 있다.</p>
+      <ol class="min-[790px]:ml-6 ml-4 list-decimal">
+        <li>
+          transition은 중단할 수 있으므로 리렌더링까지 기다릴 필요가 없다.<!-- -->
+          <ul class="min-[790px]:ml-6 ml-4 list-disc">
+            <li>
+              Suspense의 경우 하위 컴포넌트가 모두 렌더링 될때까지 fallback을
+              노출시킨다.
+            </li>
+          </ul>
+        </li>
+        <li>
+          transition은 서스펜스 폴백을 방지(대기하지 않으므로)하므로 갑작스러운
+          로딩 인디케이터 노출을 피할수 있다.
+        </li>
+      </ol>
+      <h2
+        id="그외-자잘한-팁들"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#그외-자잘한-팁들"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >그외 자잘한 팁들
+      </h2>
+      <h3
+        id="vs-throttle-debounce"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#vs-throttle-debounce"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >vs throttle, debounce
+      </h3>
+      <p class="mt-4 mb-4">
+        디바운싱과 스로틀로 이벤트의 지연 및 제한은 가능하지만 UI 블로킹의
+        근본적인 문제는 해결할 수 없다.
+      </p>
+      <p class="mt-4 mb-4">
+        아무리 이벤트 실행 시점/횟수를 줄인다 하여도 한번 실행이 되는 순간
+        블로킹이 되는건 여전하기 때문이다.
+      </p>
+      <p class="mt-4 mb-4">
+        근본적인 원인을 해결하기 위해선 이벤트의 우선순위를 나누어 유저
+        인터렉션이 일어났을 때 해당 이벤트를 우선적으로 처리해 화면이 멈춘것
+        처럼 보이지 않게 해야한다.
+      </p>
+      <h3
+        id="starttransition에-전달된-함수는-즉시-실행된다"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#starttransition에-전달된-함수는-즉시-실행된다"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >startTransition에 전달된 함수는 즉시 실행된다
+      </h3>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="jsx"
+          data-theme="material-theme-palenight"
+        ><code data-language="jsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#BABED8">console</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">log</span><span style="color:#BABED8">(</span><span style="color:#F78C6C">1</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#82AAFF">startTransition</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#BABED8">  console</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">log</span><span style="color:#F07178">(</span><span style="color:#F78C6C">2</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#82AAFF">  setPage</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">/about</span><span style="color:#89DDFF">'</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#BABED8">console</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">log</span><span style="color:#BABED8">(</span><span style="color:#F78C6C">3</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#676E95;font-style:italic">// 1, 2, 3</span></span></code></pre></figure>
-<p class="mt-4 mb-4">startTransition의 콜백 함수는 즉시 실행된다. 함수가 실행되는 동안 예약된 모든 상태 업데이트는 <code>transition</code>으로 표시된다.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="jsx" data-theme="material-theme-palenight"><code data-language="jsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// React 작동 방식의 간소화된 버전</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">// 1, 2, 3</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        startTransition의 콜백 함수는 즉시 실행된다. 함수가 실행되는 동안 예약된
+        모든 상태 업데이트는 <code>transition</code>으로 표시된다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="jsx"
+          data-theme="material-theme-palenight"
+        ><code data-language="jsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// React 작동 방식의 간소화된 버전</span></span>
 <span data-line=""><span style="color:#C792EA">let</span><span style="color:#BABED8"> isInsideTransition </span><span style="color:#89DDFF">=</span><span style="color:#FF9CAC"> false</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""> </span>
 <span data-line=""><span style="color:#C792EA">function</span><span style="color:#82AAFF"> startTransition</span><span style="color:#89DDFF">(</span><span style="color:#BABED8;font-style:italic">scope</span><span style="color:#89DDFF">)</span><span style="color:#89DDFF"> {</span></span>
@@ -187,17 +561,157 @@
 <span data-line=""><span style="color:#89DDFF">  }</span><span style="color:#89DDFF;font-style:italic"> else</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">    // ... 긴급 state 업데이트 예약 ...</span></span>
 <span data-line=""><span style="color:#89DDFF">  }</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre></figure>
-<p class="mt-4 mb-4">transition으로 처리된 경우 transitionState로 예약(큐잉)되고 아닌 경우 일반적인 state 업데이트로 예약된다.</p>
-<p class="mt-4 mb-4">예약된 작업들은 React18의 fiber 엔진(자체적인 스케줄러를 가지고 있다)이 적절하게 스케줄링 해준다.</p>
-<h3 id="usedeferredvalue" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"><a aria-hidden="true" tabindex="-1" href="#usedeferredvalue"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>useDeferredValue</h3>
-<p class="mt-4 mb-4">useDeferredValue도 useTransition과 유사하게 낮은 우선순위를 지정하기 위한 훅이다. useTransition은 함수 실행의 우선순위를 지정하는 반면, useDeferredValue는 값의 업데이트 우선순위를 지정한다.</p>
-<h2 id="마무리" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#마무리"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>마무리</h2>
-<p class="mt-4 mb-4">위의 내용을 한번더 정리하며 글을 마무리 하려고 한다.</p>
-<ol class="min-[790px]:ml-6 ml-4 list-decimal">
-<li>useTransition은 컴포넌트 최상위 수준에서 호출되어 <code>startTransition</code>을 통해 <strong>우선순위가 낮은</strong> 상태 업데이트(setState)들을 <code>transition</code>이라고 표시한다. 리액트는 UI 렌더링시 우선순위에 따라 업데이트 할 수 있게 된다.</li>
-<li><code>startTransition</code> 함수는 동기 함수여야 한다.</li>
-<li><code>transition</code> 표시된 setState는 다른 setState 업데이트시 중단된다.</li>
-<li><code>transition</code> 표시된 상태 업데이트는 <code>Suspense</code>로 컨텐츠를 숨기지 않고 이전 컨텐츠를 계속 표시한다.</li>
-<li>fiber 엔진을 통해 <code>transition</code>된 상태와 다른 상태의 스케줄링이 가능해졌다.</li>
-</ol></div><aside class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden" aria-label="index"><ul class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"><li id="tldr" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">TL;DR!</li><li id="목차" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">목차</li><li id="usetransition이란" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">useTransition이란?</li><li id="ispending-starttransition-이해하기" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">isPending, startTransition 이해하기</li><li id="전체-코드로-이해하기" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue">전체 코드로 이해하기</li><li id="suspense와-연계하기" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">Suspense와 연계하기</li><li id="그외-자잘한-팁들" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">그외 자잘한 팁들</li><li id="vs-throttle-debounce" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">vs throttle, debounce</li><li id="starttransition에-전달된-함수는-즉시-실행된다" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue">startTransition에 전달된 함수는 즉시 실행된다</li><li id="usedeferredvalue" class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue">useDeferredValue</li><li id="마무리" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">마무리</li></ul></aside></section><a class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water" href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] useTransition%20%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0&amp;body=<!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 -->" rel="noopener noreferrer" target="_blank">📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍</a><div class="flex items-center mt-4 mb-56"><iframe class="border-0 rounded-md cursor-pointer object-contain hover:animate-bouncing" src="https://github.com/sponsors/1ilsang/button" title="Sponsor 1ilsang" height="32" width="114"></iframe></div></section>
+<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        transition으로 처리된 경우 transitionState로 예약(큐잉)되고 아닌 경우
+        일반적인 state 업데이트로 예약된다.
+      </p>
+      <p class="mt-4 mb-4">
+        예약된 작업들은 React18의 fiber 엔진(자체적인 스케줄러를 가지고 있다)이
+        적절하게 스케줄링 해준다.
+      </p>
+      <h3
+        id="usedeferredvalue"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#usedeferredvalue"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >useDeferredValue
+      </h3>
+      <p class="mt-4 mb-4">
+        useDeferredValue도 useTransition과 유사하게 낮은 우선순위를 지정하기
+        위한 훅이다. useTransition은 함수 실행의 우선순위를 지정하는 반면,
+        useDeferredValue는 값의 업데이트 우선순위를 지정한다.
+      </p>
+      <h2
+        id="마무리"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#마무리"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >마무리
+      </h2>
+      <p class="mt-4 mb-4">
+        위의 내용을 한번더 정리하며 글을 마무리 하려고 한다.
+      </p>
+      <ol class="min-[790px]:ml-6 ml-4 list-decimal">
+        <li>
+          useTransition은 컴포넌트 최상위 수준에서 호출되어
+          <code>startTransition</code>을 통해
+          <strong>우선순위가 낮은</strong> 상태 업데이트(setState)들을
+          <code>transition</code>이라고 표시한다. 리액트는 UI 렌더링시
+          우선순위에 따라 업데이트 할 수 있게 된다.
+        </li>
+        <li><code>startTransition</code> 함수는 동기 함수여야 한다.</li>
+        <li>
+          <code>transition</code> 표시된 setState는 다른 setState 업데이트시
+          중단된다.
+        </li>
+        <li>
+          <code>transition</code> 표시된 상태 업데이트는 <code>Suspense</code>로
+          컨텐츠를 숨기지 않고 이전 컨텐츠를 계속 표시한다.
+        </li>
+        <li>
+          fiber 엔진을 통해 <code>transition</code>된 상태와 다른 상태의
+          스케줄링이 가능해졌다.
+        </li>
+      </ol>
+    </div>
+    <aside
+      class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
+      aria-label="index"
+    >
+      <ul
+        class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
+      >
+        <li
+          id="tldr"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          TL;DR!
+        </li>
+        <li
+          id="목차"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          목차
+        </li>
+        <li
+          id="usetransition이란"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          useTransition이란?
+        </li>
+        <li
+          id="ispending-starttransition-이해하기"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          isPending, startTransition 이해하기
+        </li>
+        <li
+          id="전체-코드로-이해하기"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
+        >
+          전체 코드로 이해하기
+        </li>
+        <li
+          id="suspense와-연계하기"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          Suspense와 연계하기
+        </li>
+        <li
+          id="그외-자잘한-팁들"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          그외 자잘한 팁들
+        </li>
+        <li
+          id="vs-throttle-debounce"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          vs throttle, debounce
+        </li>
+        <li
+          id="starttransition에-전달된-함수는-즉시-실행된다"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          startTransition에 전달된 함수는 즉시 실행된다
+        </li>
+        <li
+          id="usedeferredvalue"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
+        >
+          useDeferredValue
+        </li>
+        <li
+          id="마무리"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          마무리
+        </li>
+      </ul>
+    </aside>
+  </section>
+  <a
+    class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water"
+    href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] useTransition%20%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0&amp;body=&lt;!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 --&gt;"
+    rel="noopener noreferrer"
+    target="_blank"
+    >📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍</a
+  >
+  <div class="flex items-center mt-4 mb-56">
+    <iframe
+      class="border-0 rounded-md cursor-pointer object-contain hover:animate-bouncing"
+      src="https://github.com/sponsors/1ilsang/button"
+      title="Sponsor 1ilsang"
+      height="32"
+      width="114"
+    ></iframe>
+  </div>
+</section>

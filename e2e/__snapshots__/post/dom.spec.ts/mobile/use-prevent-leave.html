@@ -1,44 +1,275 @@
-<progress class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og" value="0" max="1"></progress><nav class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"><h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5"><a class="hover:underline" href="/">1ilsang</a></h2><div class="flex"><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/posts">posts</a></h2><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/tags">tags</a></h2><div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-white-blue" src="/images/chul.webp" alt="1ilsang"></a></div></div></nav><section class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"><h1 class="text-4xl break-words md:text-6xl">페이지 이탈시 확인 컨펌창 만들기</h1><section class="flex items-center mt-4"><div class="mr-2 w-9 h-9 md:w-12 md:h-12" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-sub-blue" src="/images/chul.webp" alt="1ilsang"></a></div><div><a class="text-lg" href="/about">1ilsang</a><div class="text-sm text-sub-blue">클라이밍 하실래염?</div></div></section><section class="flex flex-wrap items-end mt-2"><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/usePreventLeave">#<!-- -->usePreventLeave</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/beforeunload">#<!-- -->beforeunload</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/popstate">#<!-- -->popstate</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/popup">#<!-- -->popup</a></section><section><div class="inline text-date-gray"><span class="mr-1">Published</span><time datetime="2023-03-12 15:14">2023-03-12 15:14</time></div></section><section id="post-body-container" class="relative"><div class="markdown"><p class="mt-4 mb-4">유저가 페이지 이탈시 확인 컴펌을 받는 로직이 필요하게 되었고 이에 대한 고민을 공유해 보려고 한다.</p>
-<p class="mt-4 mb-4">페이지 이탈은 아래와 같은 세가지 방법이 있다고 생각한다.</p>
-<ol class="min-[790px]:ml-6 ml-4 list-decimal">
-<li>브라우저 닫기</li>
-<li>페이지 새로고침</li>
-<li>페이지 이동(e.g, 앞/뒤/URL직접입력 등)</li>
-</ol>
-<p class="mt-4 mb-4">나는 위의 세 가지 경우 모두를 확인하는 컨펌창을 만들어야 했다.</p>
-<p class="mt-4 mb-4">모든 경우 <code>beforeunload</code> 이벤트를 통해 막아줄수 있기 때문에 간편하게 작업할수 있을것이라 예상했으나, 실제로 작업해보니 3번 페이지 이동간에 이벤트가 발생하지 않아 애를 먹었다.</p>
-<p class="mt-4 mb-4">정확히는 <strong>동일한 도메인에서 서브패스가 달라졌을때만 이벤트가 발생하지 않았다</strong>(e.g., domain.com/dev -&gt; domain.com/1ilsang). 작업하던 웹앱은 <code>react-router-dom</code>을 사용하는 SPA 였기에 해당 문제가 <a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">History API</a>와 연관되어 있다고 생각하고 서치를 시작했고, 예상대로 이벤트의 기대 동작과 실제 동작이 달라서 일어난 일이었다.</p>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="prevent flow chart" src="/posts/use-prevent-leave/prevent-flow.webp"></div></div>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4"><a href="https://developer.chrome.com/docs/web-platform/page-lifecycle-api?hl=ko" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">자세히 보기</a></p>
-</blockquote>
-<p class="mt-4 mb-4"><code>beforeunload</code> 이벤트는 '페이지'간 이동에서 발생하기 때문에 단일 페이지 환경인 SPA에서는 새로운 페이지를 로딩하지 않았기 때문에 당연하게도 이벤트가 발생하지 않는다.</p>
-<p class="mt-4 mb-4">참고로 beforeunload 이벤트가 언제 발생하는지는 위의 브라우저 라이프사이클 이미지를 확인하면 된다.</p>
-<ul class="min-[790px]:ml-6 ml-4 list-disc">
-<li>f. 다른 페이지로 이동</li>
-<li>g. 활성화된 탭 끄기</li>
-<li>h. 비활성화된 탭 끄기</li>
-</ul>
-<p class="mt-4 mb-4">위 내용을 문장으로 한번 더 풀자면, beforeunload 이벤트는 브라우저 닫기(g,h), 페이지 이동(f), 새로고침(f - 새로 고침도 동일한 페이지로의 '이동'에 해당한다)시 발생하는 이벤트이다.</p>
-<p class="mt-4 mb-4">다만, <strong>SPA의 경우 실제로 브라우저가 리렌더링 되는것이 아니므로 <a href="https://github.com/vercel/next.js/issues/2694#issuecomment-344533432" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">라우터 이동시 beforeunload 이벤트가 발생하지 않는다</a>.</strong></p>
-<p class="mt-4 mb-4">이 경우 때문에 SPA 환경에서 3번 페이지 이동을 막아주기 위해서는 History API를 직접 수정해 <code>popstate</code> 이벤트로 막아줄수 있다.</p>
-<p class="mt-4 mb-4">따라서 먼저 beforeunload 이벤트로 처리하는 방식을 작성한 다음, SPA 환경을 위한 popstate 처리를 써보려고 한다.</p>
-<h2 id="beforeunload로-페이지-이탈-방지하기" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#beforeunload로-페이지-이탈-방지하기"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>beforeunload로 페이지 이탈 방지하기</h2>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[40%]"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="prevent" src="/posts/use-prevent-leave/cover.webp"></div></div>
-<p class="mt-4 mb-4">beforeunload 이벤트를 통해 페이지 이동을 감지할 경우 브라우저에서 기본 컨펌창을 제공해 주는데, 크롬 기준 컨펌창은 위의 이미지와 같다.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="tsx" data-theme="material-theme-palenight"><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> handleBeforeUnload </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">event</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> Event</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
+<progress
+  class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  value="0"
+  max="1"
+></progress>
+<nav
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"
+>
+  <h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
+    <a class="hover:underline" href="/">1ilsang</a>
+  </h2>
+  <div class="flex">
+    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/posts">posts</a>
+    </h2>
+    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/tags">tags</a>
+    </h2>
+    <div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character">
+      <a href="/about"
+        ><img
+          class="border border-solid rounded-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+    </div>
+  </div>
+</nav>
+<section
+  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
+>
+  <h1 class="text-4xl break-words md:text-6xl">
+    페이지 이탈시 확인 컨펌창 만들기
+  </h1>
+  <section class="flex items-center mt-4">
+    <div
+      class="mr-2 w-9 h-9 md:w-12 md:h-12"
+      role="img"
+      aria-label="1ilsang character"
+    >
+      <a href="/about"
+        ><img
+          class="border border-solid rounded-full border-sub-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+    </div>
+    <div>
+      <a class="text-lg" href="/about">1ilsang</a>
+      <div class="text-sm text-sub-blue">클라이밍 하실래염?</div>
+    </div>
+  </section>
+  <section class="flex flex-wrap items-end mt-2">
+    <a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/usePreventLeave"
+      >#<!-- -->usePreventLeave</a
+    ><a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/beforeunload"
+      >#<!-- -->beforeunload</a
+    ><a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/popstate"
+      >#<!-- -->popstate</a
+    ><a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/popup"
+      >#<!-- -->popup</a
+    >
+  </section>
+  <section>
+    <div class="inline text-date-gray">
+      <span class="mr-1">Published</span
+      ><time datetime="2023-03-12 15:14">2023-03-12 15:14</time>
+    </div>
+  </section>
+  <section id="post-body-container" class="relative">
+    <div class="markdown">
+      <p class="mt-4 mb-4">
+        유저가 페이지 이탈시 확인 컴펌을 받는 로직이 필요하게 되었고 이에 대한
+        고민을 공유해 보려고 한다.
+      </p>
+      <p class="mt-4 mb-4">
+        페이지 이탈은 아래와 같은 세가지 방법이 있다고 생각한다.
+      </p>
+      <ol class="min-[790px]:ml-6 ml-4 list-decimal">
+        <li>브라우저 닫기</li>
+        <li>페이지 새로고침</li>
+        <li>페이지 이동(e.g, 앞/뒤/URL직접입력 등)</li>
+      </ol>
+      <p class="mt-4 mb-4">
+        나는 위의 세 가지 경우 모두를 확인하는 컨펌창을 만들어야 했다.
+      </p>
+      <p class="mt-4 mb-4">
+        모든 경우 <code>beforeunload</code> 이벤트를 통해 막아줄수 있기 때문에
+        간편하게 작업할수 있을것이라 예상했으나, 실제로 작업해보니 3번 페이지
+        이동간에 이벤트가 발생하지 않아 애를 먹었다.
+      </p>
+      <p class="mt-4 mb-4">
+        정확히는
+        <strong
+          >동일한 도메인에서 서브패스가 달라졌을때만 이벤트가 발생하지
+          않았다</strong
+        >(e.g., domain.com/dev -&gt; domain.com/1ilsang). 작업하던 웹앱은
+        <code>react-router-dom</code>을 사용하는 SPA 였기에 해당 문제가
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/History_API"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >History API</a
+        >와 연관되어 있다고 생각하고 서치를 시작했고, 예상대로 이벤트의 기대
+        동작과 실제 동작이 달라서 일어난 일이었다.
+      </p>
+      <div class="img-container">
+        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="prevent flow chart"
+            src="/posts/use-prevent-leave/prevent-flow.webp"
+          />
+        </div>
+      </div>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          <a
+            href="https://developer.chrome.com/docs/web-platform/page-lifecycle-api?hl=ko"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >자세히 보기</a
+          >
+        </p>
+      </blockquote>
+      <p class="mt-4 mb-4">
+        <code>beforeunload</code> 이벤트는 '페이지'간 이동에서 발생하기 때문에
+        단일 페이지 환경인 SPA에서는 새로운 페이지를 로딩하지 않았기 때문에
+        당연하게도 이벤트가 발생하지 않는다.
+      </p>
+      <p class="mt-4 mb-4">
+        참고로 beforeunload 이벤트가 언제 발생하는지는 위의 브라우저
+        라이프사이클 이미지를 확인하면 된다.
+      </p>
+      <ul class="min-[790px]:ml-6 ml-4 list-disc">
+        <li>f. 다른 페이지로 이동</li>
+        <li>g. 활성화된 탭 끄기</li>
+        <li>h. 비활성화된 탭 끄기</li>
+      </ul>
+      <p class="mt-4 mb-4">
+        위 내용을 문장으로 한번 더 풀자면, beforeunload 이벤트는 브라우저
+        닫기(g,h), 페이지 이동(f), 새로고침(f - 새로 고침도 동일한 페이지로의
+        '이동'에 해당한다)시 발생하는 이벤트이다.
+      </p>
+      <p class="mt-4 mb-4">
+        다만,
+        <strong
+          >SPA의 경우 실제로 브라우저가 리렌더링 되는것이 아니므로
+          <a
+            href="https://github.com/vercel/next.js/issues/2694#issuecomment-344533432"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >라우터 이동시 beforeunload 이벤트가 발생하지 않는다</a
+          >.</strong
+        >
+      </p>
+      <p class="mt-4 mb-4">
+        이 경우 때문에 SPA 환경에서 3번 페이지 이동을 막아주기 위해서는 History
+        API를 직접 수정해 <code>popstate</code> 이벤트로 막아줄수 있다.
+      </p>
+      <p class="mt-4 mb-4">
+        따라서 먼저 beforeunload 이벤트로 처리하는 방식을 작성한 다음, SPA
+        환경을 위한 popstate 처리를 써보려고 한다.
+      </p>
+      <h2
+        id="beforeunload로-페이지-이탈-방지하기"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#beforeunload로-페이지-이탈-방지하기"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >beforeunload로 페이지 이탈 방지하기
+      </h2>
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[40%]"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="prevent"
+            src="/posts/use-prevent-leave/cover.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        beforeunload 이벤트를 통해 페이지 이동을 감지할 경우 브라우저에서 기본
+        컨펌창을 제공해 주는데, 크롬 기준 컨펌창은 위의 이미지와 같다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="tsx"
+          data-theme="material-theme-palenight"
+        ><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> handleBeforeUnload </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">event</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> Event</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#BABED8">  event</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">preventDefault</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#BABED8">  event</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">returnValue</span><span style="color:#89DDFF"> =</span><span style="color:#FF9CAC"> false</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // Chrome requires returnValue to be set.</span></span>
 <span data-line=""><span style="color:#89DDFF">};</span></span>
-<span data-line=""><span style="color:#BABED8">window</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">addEventListener</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">beforeunload</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> handleBeforeUnload)</span><span style="color:#89DDFF">;</span></span></code></pre></figure>
-<p class="mt-4 mb-4">코드로 작성하면 위와 같다. 이동을 막아줄 path에서 beforeunload 이벤트를 수신하고, <code>event.preventDefault()</code>를 통해 이벤트의 진행을 막아준다. 이를 통해 페이지를 떠나기전 이벤트가 멈추게 된다.</p>
-<p class="mt-4 mb-4">이전에는 <code>returnValue</code>로 설정해준 값이 컨펌창에 노출되었지만, 노이즈가 너무 강해(님 진짜 진자 나갈거임? 아 나가지마셈..!! 등의 텍스트) 현재는 브라우저에서 기본 텍스트만 노출하도록 변경되었다.</p>
-<p class="mt-4 mb-4">크롬의 경우 <code>returnValue</code> 값이 필요하므로 추가해주어야 브라우저 컨펌창이 노출된다. 또한 크롬의 경우 <a href="https://developer.mozilla.org/en-US/docs/Web/Security/User_activation" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">유저의 명시적 액션</a>이 있어야만 이벤트가 정상적으로 발생한다.</p>
-<p class="mt-4 mb-4">위의 내용은 MDN <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event#compatibility_notes" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">beforeunload_event#compatibility_notes</a>에서 자세하게 확인할수 있다.</p>
-<div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="beforeunload error" src="/posts/use-prevent-leave/beforeunload-error.webp"></div></div>
-<p class="mt-4 mb-4">beforeunload 이벤트로 작업하다보면 위와같은 에러를 만날수 있는데, 이는 앞서 말한 유저의 명시적 액션(e.g, mousedown)이 없었기 때문에 발생하는 에러이다.</p>
-<p class="mt-4 mb-4">이제 이 코드를 리액트로 옮겨보자.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="tsx" data-theme="material-theme-palenight"><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> usePreventLeave </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">global</span><span style="color:#89DDFF"> =</span><span style="color:#FF9CAC"> false</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#BABED8">window</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">addEventListener</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">beforeunload</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> handleBeforeUnload)</span><span style="color:#89DDFF">;</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        코드로 작성하면 위와 같다. 이동을 막아줄 path에서 beforeunload 이벤트를
+        수신하고, <code>event.preventDefault()</code>를 통해 이벤트의 진행을
+        막아준다. 이를 통해 페이지를 떠나기전 이벤트가 멈추게 된다.
+      </p>
+      <p class="mt-4 mb-4">
+        이전에는 <code>returnValue</code>로 설정해준 값이 컨펌창에 노출되었지만,
+        노이즈가 너무 강해(님 진짜 진자 나갈거임? 아 나가지마셈..!! 등의 텍스트)
+        현재는 브라우저에서 기본 텍스트만 노출하도록 변경되었다.
+      </p>
+      <p class="mt-4 mb-4">
+        크롬의 경우 <code>returnValue</code> 값이 필요하므로 추가해주어야
+        브라우저 컨펌창이 노출된다. 또한 크롬의 경우
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/Security/User_activation"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >유저의 명시적 액션</a
+        >이 있어야만 이벤트가 정상적으로 발생한다.
+      </p>
+      <p class="mt-4 mb-4">
+        위의 내용은 MDN
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event#compatibility_notes"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >beforeunload_event#compatibility_notes</a
+        >에서 자세하게 확인할수 있다.
+      </p>
+      <div class="img-container">
+        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="beforeunload error"
+            src="/posts/use-prevent-leave/beforeunload-error.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        beforeunload 이벤트로 작업하다보면 위와같은 에러를 만날수 있는데, 이는
+        앞서 말한 유저의 명시적 액션(e.g, mousedown)이 없었기 때문에 발생하는
+        에러이다.
+      </p>
+      <p class="mt-4 mb-4">이제 이 코드를 리액트로 옮겨보자.</p>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="tsx"
+          data-theme="material-theme-palenight"
+        ><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> usePreventLeave </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">global</span><span style="color:#89DDFF"> =</span><span style="color:#FF9CAC"> false</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> handleBeforeUnload</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">event</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> Event</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#BABED8">    event</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">preventDefault</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#BABED8">    event</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">returnValue</span><span style="color:#89DDFF"> =</span><span style="color:#FF9CAC"> false</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // Chrome requires returnValue to be set.</span></span>
@@ -92,13 +323,58 @@
 <span data-line=""><span style="color:#89DDFF">      &lt;</span><span style="color:#F07178">h1</span><span style="color:#89DDFF">&gt;{</span><span style="color:#BABED8">changed </span><span style="color:#89DDFF">?</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">changed</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> :</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">none</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">}&lt;/</span><span style="color:#F07178">h1</span><span style="color:#89DDFF">&gt;</span></span>
 <span data-line=""><span style="color:#89DDFF">    &lt;/</span><span style="color:#F07178">div</span><span style="color:#89DDFF">&gt;</span></span>
 <span data-line=""><span style="color:#F07178">  )</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">};</span></span></code></pre></figure>
-<p class="mt-4 mb-4">위의 <code>usePreventLeave</code> 훅에서는 두 가지 방식으로 <code>beforeunload</code> 이벤트를 사용하도록 제공하고 있다. 만약 global 값을 true로 넘겨줄 경우 전역에 beforeunload 이벤트를 설정해 컨펌창이 무조건 노출되도록 하지만(물론 앞서 이야기 했듯 유저의 인터랙션이 먼저 있어야 한다) 특정 분기(input 태그의 변화)에 맞춰 컨펌창을 띄우고 싶을 경우 <code>onPreventLeave</code> 메서드와 <code>offPreventLeave</code> 메서드를 적절하게 사용하여 이벤트를 바인딩 해줄수 있다.</p>
-<h2 id="spa에서-페이지-이탈-방지하기" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#spa에서-페이지-이탈-방지하기"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>SPA에서 페이지 이탈 방지하기</h2>
-<p class="mt-4 mb-4">기본적으로 SPA는 페이지간 이동이 일어나지 않기 때문에 우리는 history stack의 변경사항을 추적해야한다. 애석하게도 브라우저는 앞/뒤 이동일 때에만 <code>popstate</code> 이벤트가 발생하기 때문에 <code>pushState</code>로 URL을 변경할 경우 이벤트가 발생하지 않아 추적할수 없게 된다.</p>
-<p class="mt-4 mb-4">이 때문에 Remix-run에서 만든 <a href="https://www.npmjs.com/package/history" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">history 라이브러리</a>를 사용해 세션 history를 추적해 처리하거나 <code>popstate</code> 이벤트 발생 및 라우터 이동이 있는 컴포넌트 클릭시 컨펌창을 노출하는 작업을 할 수 있다.</p>
-<p class="mt-4 mb-4">나는 후자의 길을 선택했는데, 추후 보게 되겠지만 이 경우 페이지에서 라우터 이동이 있는 모든 컴포넌트 클릭에 prevent를 설정해 주어야 하므로 조금 아쉽다.</p>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="tsx" data-theme="material-theme-palenight"><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> usePreventLeave </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">global</span><span style="color:#89DDFF"> =</span><span style="color:#FF9CAC"> false</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#89DDFF">};</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        위의 <code>usePreventLeave</code> 훅에서는 두 가지 방식으로
+        <code>beforeunload</code> 이벤트를 사용하도록 제공하고 있다. 만약 global
+        값을 true로 넘겨줄 경우 전역에 beforeunload 이벤트를 설정해 컨펌창이
+        무조건 노출되도록 하지만(물론 앞서 이야기 했듯 유저의 인터랙션이 먼저
+        있어야 한다) 특정 분기(input 태그의 변화)에 맞춰 컨펌창을 띄우고 싶을
+        경우 <code>onPreventLeave</code> 메서드와
+        <code>offPreventLeave</code> 메서드를 적절하게 사용하여 이벤트를 바인딩
+        해줄수 있다.
+      </p>
+      <h2
+        id="spa에서-페이지-이탈-방지하기"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#spa에서-페이지-이탈-방지하기"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >SPA에서 페이지 이탈 방지하기
+      </h2>
+      <p class="mt-4 mb-4">
+        기본적으로 SPA는 페이지간 이동이 일어나지 않기 때문에 우리는 history
+        stack의 변경사항을 추적해야한다. 애석하게도 브라우저는 앞/뒤 이동일
+        때에만 <code>popstate</code> 이벤트가 발생하기 때문에
+        <code>pushState</code>로 URL을 변경할 경우 이벤트가 발생하지 않아
+        추적할수 없게 된다.
+      </p>
+      <p class="mt-4 mb-4">
+        이 때문에 Remix-run에서 만든
+        <a
+          href="https://www.npmjs.com/package/history"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >history 라이브러리</a
+        >를 사용해 세션 history를 추적해 처리하거나 <code>popstate</code> 이벤트
+        발생 및 라우터 이동이 있는 컴포넌트 클릭시 컨펌창을 노출하는 작업을 할
+        수 있다.
+      </p>
+      <p class="mt-4 mb-4">
+        나는 후자의 길을 선택했는데, 추후 보게 되겠지만 이 경우 페이지에서
+        라우터 이동이 있는 모든 컴포넌트 클릭에 prevent를 설정해 주어야 하므로
+        조금 아쉽다.
+      </p>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="tsx"
+          data-theme="material-theme-palenight"
+        ><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> usePreventLeave </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">global</span><span style="color:#89DDFF"> =</span><span style="color:#FF9CAC"> false</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">  // 앞의 beforeunload 이벤트 코드는 생략하였다. beforeunload 이벤트 코드도 추가해 주어야 모든 상황에서 대처 가능해진다.</span></span>
 <span data-line=""><span style="color:#C792EA">  const</span><span style="color:#89DDFF"> [</span><span style="color:#BABED8">prevent</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> setPrevent</span><span style="color:#89DDFF">]</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> useState</span><span style="color:#F07178">(</span><span style="color:#FF9CAC">false</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""> </span>
@@ -176,9 +452,24 @@
 <span data-line=""><span style="color:#89DDFF">      &lt;</span><span style="color:#FFCB6B">Link</span><span style="color:#C792EA"> to</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">/1ilsang</span><span style="color:#89DDFF">"</span><span style="color:#C792EA"> onClick</span><span style="color:#89DDFF">={</span><span style="color:#BABED8">preventLeave</span><span style="color:#89DDFF">}&gt;</span></span>
 <span data-line=""><span style="color:#89DDFF">    &lt;/</span><span style="color:#F07178">div</span><span style="color:#89DDFF">&gt;</span></span>
 <span data-line=""><span style="color:#BABED8">  );</span></span>
-<span data-line=""><span style="color:#BABED8">};</span></span></code></pre></figure>
-<h2 id="합본-코드" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#합본-코드"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>합본 코드</h2>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="tsx" data-theme="material-theme-palenight"><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> usePreventLeave </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">global</span><span style="color:#89DDFF"> =</span><span style="color:#FF9CAC"> false</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#BABED8">};</span></span></code></pre>
+      </figure>
+      <h2
+        id="합본-코드"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#합본-코드"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >합본 코드
+      </h2>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="tsx"
+          data-theme="material-theme-palenight"
+        ><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> usePreventLeave </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">global</span><span style="color:#89DDFF"> =</span><span style="color:#FF9CAC"> false</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
 <span data-line=""><span style="color:#C792EA">  const</span><span style="color:#89DDFF"> [</span><span style="color:#BABED8">prevent</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> setPrevent</span><span style="color:#89DDFF">]</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> useState</span><span style="color:#F07178">(</span><span style="color:#FF9CAC">false</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""> </span>
 <span data-line=""><span style="color:#82AAFF">  useEffect</span><span style="color:#F07178">(</span><span style="color:#89DDFF">()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
@@ -233,12 +524,109 @@
 <span data-line=""><span style="color:#F07178">  )</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""> </span>
 <span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#89DDFF"> {</span><span style="color:#BABED8"> preventLeave</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> PreventPopup</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> onPreventLeave</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> offPreventLeave</span><span style="color:#89DDFF"> };</span></span>
-<span data-line=""><span style="color:#89DDFF">};</span></span></code></pre></figure>
-<p class="mt-4 mb-4">이로써 유저 이탈시 컨펌창이 노출되는 것에 대한 최소한의 대응은 할수 있게 되었다.</p>
-<h2 id="참고" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#참고"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>참고</h2>
-<ul class="min-[790px]:ml-6 ml-4 list-disc">
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/Security/User_activation" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">https://developer.mozilla.org/en-US/docs/Web/Security/User_activation</a></li>
-<li><a href="https://developer.chrome.com/blog/page-lifecycle-api/" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">https://developer.chrome.com/blog/page-lifecycle-api/</a></li>
-<li><a href="https://heyjiawei.com/block-user-from-leaving-page-on-single-page-app" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">https://heyjiawei.com/block-user-from-leaving-page-on-single-page-app</a></li>
-</ul></div><aside class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden" aria-label="index"><ul class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"><li id="beforeunload로-페이지-이탈-방지하기" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">beforeunload로 페이지 이탈 방지하기</li><li id="spa에서-페이지-이탈-방지하기" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">SPA에서 페이지 이탈 방지하기</li><li id="합본-코드" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">합본 코드</li><li id="참고" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">참고</li></ul></aside></section><a class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water" href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] %ED%8E%98%EC%9D%B4%EC%A7%80%20%EC%9D%B4%ED%83%88%EC%8B%9C%20%ED%99%95%EC%9D%B8%20%EC%BB%A8%ED%8E%8C%EC%B0%BD%20%EB%A7%8C%EB%93%A4%EA%B8%B0&amp;body=<!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 -->" rel="noopener noreferrer" target="_blank">📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍</a><div class="flex items-center mt-4 mb-56"><iframe class="border-0 rounded-md cursor-pointer object-contain hover:animate-bouncing" src="https://github.com/sponsors/1ilsang/button" title="Sponsor 1ilsang" height="32" width="114"></iframe></div></section>
+<span data-line=""><span style="color:#89DDFF">};</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        이로써 유저 이탈시 컨펌창이 노출되는 것에 대한 최소한의 대응은 할수 있게
+        되었다.
+      </p>
+      <h2
+        id="참고"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#참고"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >참고
+      </h2>
+      <ul class="min-[790px]:ml-6 ml-4 list-disc">
+        <li>
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/Security/User_activation"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >https://developer.mozilla.org/en-US/docs/Web/Security/User_activation</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://developer.chrome.com/blog/page-lifecycle-api/"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >https://developer.chrome.com/blog/page-lifecycle-api/</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://heyjiawei.com/block-user-from-leaving-page-on-single-page-app"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >https://heyjiawei.com/block-user-from-leaving-page-on-single-page-app</a
+          >
+        </li>
+      </ul>
+    </div>
+    <aside
+      class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
+      aria-label="index"
+    >
+      <ul
+        class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
+      >
+        <li
+          id="beforeunload로-페이지-이탈-방지하기"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          beforeunload로 페이지 이탈 방지하기
+        </li>
+        <li
+          id="spa에서-페이지-이탈-방지하기"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          SPA에서 페이지 이탈 방지하기
+        </li>
+        <li
+          id="합본-코드"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          합본 코드
+        </li>
+        <li
+          id="참고"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          참고
+        </li>
+      </ul>
+    </aside>
+  </section>
+  <a
+    class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water"
+    href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] %ED%8E%98%EC%9D%B4%EC%A7%80%20%EC%9D%B4%ED%83%88%EC%8B%9C%20%ED%99%95%EC%9D%B8%20%EC%BB%A8%ED%8E%8C%EC%B0%BD%20%EB%A7%8C%EB%93%A4%EA%B8%B0&amp;body=&lt;!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 --&gt;"
+    rel="noopener noreferrer"
+    target="_blank"
+    >📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍</a
+  >
+  <div class="flex items-center mt-4 mb-56">
+    <iframe
+      class="border-0 rounded-md cursor-pointer object-contain hover:animate-bouncing"
+      src="https://github.com/sponsors/1ilsang/button"
+      title="Sponsor 1ilsang"
+      height="32"
+      width="114"
+    ></iframe>
+  </div>
+</section>

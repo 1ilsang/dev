@@ -1,29 +1,188 @@
-<progress class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og" value="0" max="1"></progress><nav class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"><h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5"><a class="hover:underline" href="/">1ilsang</a></h2><div class="flex"><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/posts">posts</a></h2><h2 class="tracking-tight mr-6 text-xl mt-2.5"><a class="hover:underline" href="/tags">tags</a></h2><div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-white-blue" src="/images/chul.webp" alt="1ilsang"></a></div></div></nav><section class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"><h1 class="text-4xl break-words md:text-6xl">[구름톤 챌린지] GameJam</h1><section class="flex items-center mt-4"><div class="mr-2 w-9 h-9 md:w-12 md:h-12" role="img" aria-label="1ilsang character"><a href="/about"><img class="border border-solid rounded-full border-sub-blue" src="/images/chul.webp" alt="1ilsang"></a></div><div><a class="text-lg" href="/about">1ilsang</a><div class="text-sm text-sub-blue">클라이밍 하실래염?</div></div></section><section class="flex flex-wrap items-end mt-2"><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/algorithm">#<!-- -->algorithm</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/goorm">#<!-- -->goorm</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/simulation">#<!-- -->simulation</a><a class="text-highlight print:text-black hover:underline mr-2" target="_self" href="/tags/brute-force">#<!-- -->brute-force</a></section><section><div class="inline text-date-gray"><span class="mr-1">Published</span><time datetime="2023-08-27 23:35">2023-08-27 23:35</time></div></section><section id="post-body-container" class="relative"><div class="markdown"><div class="img-container"><div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full h-[600px] object-contain bg-transparent mt-10"><img class="w-full h-full cursor-zoom-in object-contain max-h-[550px]" alt="problem" src="/posts/goorm-195692/problem.webp"></div></div>
-<blockquote class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
-<p class="mt-4 mb-4"><a href="https://level.goorm.io/exam/195692/gamejam/quiz/1" class="underline-highlight-fade" target="_blank" rel="noreferrer noopener">문제 링크</a></p>
-</blockquote>
-<p class="mt-4 mb-4">끔찍한 시뮬레이션 문제이다.</p>
-<p class="mt-4 mb-4">별다른 특이 사항 없이 문제에서 제시한 대로 구현하면 된다.</p>
-<h2 id="접근법" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#접근법"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>접근법</h2>
-<p class="mt-4 mb-4">구름과 플레이어 두 명이 각각 게임을 진행한다. 따라서 우리는 동일한 게임을 2번 실행해야 한다는 것을 알 수 있다.</p>
-<p class="mt-4 mb-4">즉 <strong>초기화를 잘하던가, 똑같은 코드를 두 번 실행해야 한다</strong>.</p>
-<p class="mt-4 mb-4">게임 보드 칸에는 이동 횟수와 방향이 적혀있으며 게이머가 놓은 위치에서부터 칸의 명령을 따라 쭉 실행하면 된다.</p>
-<p class="mt-4 mb-4">만약 <strong>보드를 이탈하는 경우(처음/끝) 반대쪽 첫 칸으로 이동하게 된다</strong>(<code>-1 -&gt; length -1</code>, <code>length -&gt; 0</code>),</p>
-<p class="mt-4 mb-4">이때 이전에 방문했던 곳에 다시 온다면 게임이 종료된다. 우리는 <strong>두 번의 메모 맵</strong>이 필요하다.</p>
-<p class="mt-4 mb-4">두 플레이어가 게임을 종료했을 때 <strong>점수를 비교해 출력</strong>한다.</p>
-<h2 id="정리" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#정리"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>정리</h2>
-<ol class="min-[790px]:ml-6 ml-4 list-decimal">
-<li>유저의 위치를 받아 점수를 반환하는 함수를 만든다(내부 변수 사용으로 초기화 용이).</li>
-<li>이동 거리만큼 이동한다.<!-- -->
-<ol class="min-[790px]:ml-6 ml-4 list-decimal">
-<li>보드 이탈시 좌표를 반대쪽 첫 칸으로 재설정해 준다.</li>
-<li>이동할 때마다 메모를 한다.</li>
-</ol>
-</li>
-<li>점수 값을 비교 출력한다.</li>
-</ol>
-<h2 id="최종-코드" class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"><a aria-hidden="true" tabindex="-1" href="#최종-코드"><span class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"></span></a>최종 코드</h2>
-<figure data-rehype-pretty-code-figure=""><pre tabindex="0" data-language="js" data-theme="material-theme-palenight"><code data-language="js" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> readline </span><span style="color:#89DDFF">=</span><span style="color:#82AAFF"> require</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">readline</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
+<progress
+  class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  value="0"
+  max="1"
+></progress>
+<nav
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"
+>
+  <h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
+    <a class="hover:underline" href="/">1ilsang</a>
+  </h2>
+  <div class="flex">
+    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/posts">posts</a>
+    </h2>
+    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/tags">tags</a>
+    </h2>
+    <div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character">
+      <a href="/about"
+        ><img
+          class="border border-solid rounded-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+    </div>
+  </div>
+</nav>
+<section
+  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
+>
+  <h1 class="text-4xl break-words md:text-6xl">[구름톤 챌린지] GameJam</h1>
+  <section class="flex items-center mt-4">
+    <div
+      class="mr-2 w-9 h-9 md:w-12 md:h-12"
+      role="img"
+      aria-label="1ilsang character"
+    >
+      <a href="/about"
+        ><img
+          class="border border-solid rounded-full border-sub-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+    </div>
+    <div>
+      <a class="text-lg" href="/about">1ilsang</a>
+      <div class="text-sm text-sub-blue">클라이밍 하실래염?</div>
+    </div>
+  </section>
+  <section class="flex flex-wrap items-end mt-2">
+    <a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/algorithm"
+      >#<!-- -->algorithm</a
+    ><a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/goorm"
+      >#<!-- -->goorm</a
+    ><a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/simulation"
+      >#<!-- -->simulation</a
+    ><a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/brute-force"
+      >#<!-- -->brute-force</a
+    >
+  </section>
+  <section>
+    <div class="inline text-date-gray">
+      <span class="mr-1">Published</span
+      ><time datetime="2023-08-27 23:35">2023-08-27 23:35</time>
+    </div>
+  </section>
+  <section id="post-body-container" class="relative">
+    <div class="markdown">
+      <div class="img-container">
+        <div
+          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full h-[600px] object-contain bg-transparent mt-10"
+        >
+          <img
+            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="problem"
+            src="/posts/goorm-195692/problem.webp"
+          />
+        </div>
+      </div>
+      <blockquote
+        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
+      >
+        <p class="mt-4 mb-4">
+          <a
+            href="https://level.goorm.io/exam/195692/gamejam/quiz/1"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >문제 링크</a
+          >
+        </p>
+      </blockquote>
+      <p class="mt-4 mb-4">끔찍한 시뮬레이션 문제이다.</p>
+      <p class="mt-4 mb-4">
+        별다른 특이 사항 없이 문제에서 제시한 대로 구현하면 된다.
+      </p>
+      <h2
+        id="접근법"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#접근법"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >접근법
+      </h2>
+      <p class="mt-4 mb-4">
+        구름과 플레이어 두 명이 각각 게임을 진행한다. 따라서 우리는 동일한
+        게임을 2번 실행해야 한다는 것을 알 수 있다.
+      </p>
+      <p class="mt-4 mb-4">
+        즉
+        <strong>초기화를 잘하던가, 똑같은 코드를 두 번 실행해야 한다</strong>.
+      </p>
+      <p class="mt-4 mb-4">
+        게임 보드 칸에는 이동 횟수와 방향이 적혀있으며 게이머가 놓은
+        위치에서부터 칸의 명령을 따라 쭉 실행하면 된다.
+      </p>
+      <p class="mt-4 mb-4">
+        만약
+        <strong
+          >보드를 이탈하는 경우(처음/끝) 반대쪽 첫 칸으로 이동하게 된다</strong
+        >(<code>-1 -&gt; length -1</code>, <code>length -&gt; 0</code>),
+      </p>
+      <p class="mt-4 mb-4">
+        이때 이전에 방문했던 곳에 다시 온다면 게임이 종료된다. 우리는
+        <strong>두 번의 메모 맵</strong>이 필요하다.
+      </p>
+      <p class="mt-4 mb-4">
+        두 플레이어가 게임을 종료했을 때
+        <strong>점수를 비교해 출력</strong>한다.
+      </p>
+      <h2
+        id="정리"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#정리"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >정리
+      </h2>
+      <ol class="min-[790px]:ml-6 ml-4 list-decimal">
+        <li>
+          유저의 위치를 받아 점수를 반환하는 함수를 만든다(내부 변수 사용으로
+          초기화 용이).
+        </li>
+        <li>
+          이동 거리만큼 이동한다.<!-- -->
+          <ol class="min-[790px]:ml-6 ml-4 list-decimal">
+            <li>보드 이탈시 좌표를 반대쪽 첫 칸으로 재설정해 준다.</li>
+            <li>이동할 때마다 메모를 한다.</li>
+          </ol>
+        </li>
+        <li>점수 값을 비교 출력한다.</li>
+      </ol>
+      <h2
+        id="최종-코드"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#최종-코드"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >최종 코드
+      </h2>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="js"
+          data-theme="material-theme-palenight"
+        ><code data-language="js" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> readline </span><span style="color:#89DDFF">=</span><span style="color:#82AAFF"> require</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">readline</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#C792EA">let</span><span style="color:#BABED8"> rl </span><span style="color:#89DDFF">=</span><span style="color:#BABED8"> readline</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">createInterface</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">{</span></span>
 <span data-line=""><span style="color:#F07178">  input</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> process</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">stdin</span><span style="color:#89DDFF">,</span></span>
 <span data-line=""><span style="color:#F07178">  output</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> process</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">stdout</span><span style="color:#89DDFF">,</span></span>
@@ -142,4 +301,51 @@
 <span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> answer</span><span style="color:#89DDFF"> =</span><span style="color:#BABED8"> gScore</span><span style="color:#89DDFF"> &gt;</span><span style="color:#BABED8"> pScore</span><span style="color:#89DDFF"> ?</span><span style="color:#89DDFF"> `</span><span style="color:#C3E88D">goorm </span><span style="color:#89DDFF">${</span><span style="color:#BABED8">gScore</span><span style="color:#89DDFF">}`</span><span style="color:#89DDFF"> :</span><span style="color:#89DDFF"> `</span><span style="color:#C3E88D">player </span><span style="color:#89DDFF">${</span><span style="color:#BABED8">pScore</span><span style="color:#89DDFF">}`</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#BABED8">  console</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">log</span><span style="color:#F07178">(</span><span style="color:#BABED8">answer</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#BABED8">  rl</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">close</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre></figure></div><aside class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden" aria-label="index"><ul class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"><li id="접근법" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">접근법</li><li id="정리" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">정리</li><li id="최종-코드" class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue">최종 코드</li></ul></aside></section><a class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water" href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] %5B%EA%B5%AC%EB%A6%84%ED%86%A4%20%EC%B1%8C%EB%A6%B0%EC%A7%80%5D%20GameJam&amp;body=<!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 -->" rel="noopener noreferrer" target="_blank">📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍</a><div class="flex items-center mt-4 mb-56"><iframe class="border-0 rounded-md cursor-pointer object-contain hover:animate-bouncing" src="https://github.com/sponsors/1ilsang/button" title="Sponsor 1ilsang" height="32" width="114"></iframe></div></section>
+<span data-line=""><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre>
+      </figure>
+    </div>
+    <aside
+      class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
+      aria-label="index"
+    >
+      <ul
+        class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
+      >
+        <li
+          id="접근법"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          접근법
+        </li>
+        <li
+          id="정리"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          정리
+        </li>
+        <li
+          id="최종-코드"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          최종 코드
+        </li>
+      </ul>
+    </aside>
+  </section>
+  <a
+    class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water"
+    href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] %5B%EA%B5%AC%EB%A6%84%ED%86%A4%20%EC%B1%8C%EB%A6%B0%EC%A7%80%5D%20GameJam&amp;body=&lt;!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 --&gt;"
+    rel="noopener noreferrer"
+    target="_blank"
+    >📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍</a
+  >
+  <div class="flex items-center mt-4 mb-56">
+    <iframe
+      class="border-0 rounded-md cursor-pointer object-contain hover:animate-bouncing"
+      src="https://github.com/sponsors/1ilsang/button"
+      title="Sponsor 1ilsang"
+      height="32"
+      width="114"
+    ></iframe>
+  </div>
+</section>
