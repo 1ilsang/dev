@@ -1,5 +1,8 @@
 import type { PageAssertionsToHaveScreenshotOptions } from '@playwright/test';
 import { expect, type Page } from '@playwright/test';
+import prettier from 'prettier';
+
+const prettierOptions = await prettier.resolveConfig(process.cwd());
 
 export const gotoUrl = async ({
   page,
@@ -136,4 +139,19 @@ export const screenshotFullPage = async ({
   }
 
   await expect(page).toHaveScreenshot([...arg], screenOptions);
+};
+
+export const getPageDomInnerHTML = async ({
+  page,
+  selector = 'main',
+}: {
+  page: Page;
+  selector?: string;
+}): Promise<string> => {
+  const body = await page.locator(selector).innerHTML();
+  const prettyHtml = await prettier.format(body, {
+    ...prettierOptions,
+    parser: 'html',
+  });
+  return prettyHtml;
 };
