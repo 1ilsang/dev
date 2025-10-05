@@ -126,7 +126,7 @@ Rust 코드로 작성된 `rust_mul` 함수를 `libmycalc.so` 파일로 컴파일
       "sources": ["mycalc_addon.c"],
       "libraries": [
         "/PATH/libmycalc.so" // 동적 로딩을 사용하기 위해 추가(Rust 파일을 컴파일한 파일)
-      ],
+      ]
     }
   ]
 }
@@ -231,7 +231,7 @@ $ node-gyp configure && node-gyp build
 
 ```js
 // index.js
-const addon = require("./build/Release/mycalc_addon");
+const addon = require('./build/Release/mycalc_addon');
 console.log(addon.mul(3, 5)); // 15 출력
 ```
 

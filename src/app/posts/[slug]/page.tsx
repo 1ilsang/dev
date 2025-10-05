@@ -26,7 +26,7 @@ const Post: NextPage<PostProps> = async ({ params }) => {
       <NavProgress />
       <Navbar />
       <PostContainer post={post}>
-        <MDX components={MDXEmbedComponents} />
+        <MDX components={MDXEmbedComponents({ ...post })} />
       </PostContainer>
       <Footer />
       <Portal>

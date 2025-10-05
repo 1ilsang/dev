@@ -6,8 +6,6 @@ coverImage: cover.webp
 date: '2024-08-22T07:26:38.617Z'
 ---
 
-{(globalThis.slug = 'google-adsense') && ''}
-
 ![cover](cover.webp 'cover')
 
 [Google AdSense](https://adsense.google.com/intl/ko_kr/start/)를 적용한 내용을 정리해 보려고 한다.
@@ -30,7 +28,7 @@ date: '2024-08-22T07:26:38.617Z'
 
 ## AdSense 적용 결과
 
-<ImageHorizonWrap slug={slug} list={['ad-bottom-mobile','ad-left-rail-desktop']} />
+<ImageHorizonWrap list={['ad-bottom-mobile', 'ad-left-rail-desktop']} />
 
 모바일 화면에서는 바텀 앵커 영역, 데스크탑 화면에서는 좌측 레일 부분에 광고를 실었다(현재는 제거).
 
@@ -54,7 +52,10 @@ date: '2024-08-22T07:26:38.617Z'
 
 맨 처음 해야 할 일은 [AdSense에 광고를 실을 사이트를 등록](https://www.google.com/adsense)하는 것이다.
 
-<u>사이트 등록 후 광고 스크립트 한줄만 사이트에 추가하면 사실상의 모든 과정이 끝난다(!).</u>
+<u>
+  사이트 등록 후 광고 스크립트 한줄만 사이트에 추가하면 사실상의 모든 과정이
+  끝난다(!).
+</u>
 
 하지만 구글 애드센스를 적용하기 위해선 사이트 심사를 통과해야 한다. 심사 기간은 최대 2주 정도가 소요되며 사이트의 컨텐츠가 갖추어지지 않으면 거절될 수 있다.
 
@@ -133,7 +134,7 @@ google.com, pub-ID, DIRECT, HASH_CODE
 
 이제 가장 중요한 광고 컴포넌트 영역을 설정해야 한다.
 
-<ImageHorizonWrap slug={slug} list={['ad-example','direct-ad']} />
+<ImageHorizonWrap list={['ad-example', 'direct-ad']} />
 
 > (좌) 사이트 기준 자동 삽입 / (우) 광고 단위 기준 직접 설정
 

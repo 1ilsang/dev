@@ -1,10 +1,15 @@
 import type { FunctionComponent } from 'react';
 import { ImageTag } from './ImageTag';
 
-export const ImageHorizonWrap: FunctionComponent<{
+export type ImageHorizonWrapProps = {
   slug: string;
   list: ({ src: string; ext?: string } | string)[];
-}> = ({ slug, list }) => {
+};
+
+export const ImageHorizonWrap: FunctionComponent<ImageHorizonWrapProps> = ({
+  slug,
+  list,
+}) => {
   return (
     <div className="mt-3 mb-3 flex items-center w-full custom-horizon-scrollbar min-h-[100px] min-[790px]:min-h-[200px]">
       {list.map((item) => {

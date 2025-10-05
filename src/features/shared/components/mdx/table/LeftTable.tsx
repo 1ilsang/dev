@@ -6,6 +6,7 @@ type TableRowItem = string | { w: string; content: string };
 type LeftTableProps = {
   rows: Array<TableRowItem>[];
 };
+
 export const LeftTable: FunctionComponent<LeftTableProps> = ({ rows }) => {
   return (
     <table className="w-full mb-4 text-[#dfdfdf] break-words">
@@ -40,6 +41,7 @@ const THead = ({ rows }) => {
     </thead>
   );
 };
+
 const PlainTextTd = ({ text }) => {
   const contents = text.split('\n');
   return (
