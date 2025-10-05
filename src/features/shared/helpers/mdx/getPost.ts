@@ -22,7 +22,10 @@ const getAllFullSlug = () => {
 
 export const getPostBySlug = async (slug: string) => {
   const allFullSlug = getAllFullSlug();
-  const fullSlug = allFullSlug.find((fullSlug) => fullSlug.endsWith(slug));
+  const fullSlug = allFullSlug.find((fullSlug) => {
+    const pathSegments = fullSlug.split('/');
+    return pathSegments[pathSegments.length - 1] === slug;
+  });
   return await parseMDX(fullSlug);
 };
 
