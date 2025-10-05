@@ -45,9 +45,26 @@ export const remarkRehypeCustom = () => {
         ? node.url
         : `/posts/${slug}/${node.url}`;
 
+      // MDX에서 title을 이미지 메타데이터로 사용하고 있음
+      // @example ![alt](cover.webp 'cover;origin=https://example.com')
+      const { size, origin } = (() => {
+        if (!node.title) {
+          return { size: undefined };
+        }
+        if (!node.title.includes(';')) {
+          return { size: node.title };
+        }
+        const metadata = node.title.split(';');
+        const parsedMetadata = metadata.reduce((acc, item) => {
+          const [key, value] = item.split('=');
+          return { ...acc, [key]: value };
+        }, {});
+        return parsedMetadata;
+      })();
+
       setNodeEmptyProperties(node);
-      // MDX에서 title을 이미지 size로 사용하고 있음.
-      node.data.hProperties.size = node.title;
+      node.data.hProperties.size = size;
+      node.data.hProperties.origin = origin;
       node.title = node.alt;
       node.url = src;
     });
