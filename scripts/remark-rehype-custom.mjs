@@ -45,13 +45,14 @@ export const remarkRehypeCustom = () => {
         ? node.url
         : `/posts/${slug}/${node.url}`;
 
-      // MDX에서 title을 이미지 메타데이터로 사용하고 있음
+      // NOTE: MDX에서 title을 이미지 메타데이터로 사용하고 있음
       // @example ![alt](cover.webp 'cover;origin=https://example.com')
-      const { size, origin } = (() => {
+      const parsedMetadata = (() => {
         if (!node.title) {
           return { size: undefined };
         }
-        if (!node.title.includes(';')) {
+        // NOTE: ![alt](cover.webp 'l') 처럼 바로 쓰는 경우
+        if (!node.title.includes('=')) {
           return { size: node.title };
         }
         const metadata = node.title.split(';');
@@ -63,8 +64,7 @@ export const remarkRehypeCustom = () => {
       })();
 
       setNodeEmptyProperties(node);
-      node.data.hProperties.size = size;
-      node.data.hProperties.origin = origin;
+      node.data.hProperties = { ...node.data.hProperties, ...parsedMetadata };
       node.title = node.alt;
       node.url = src;
     });

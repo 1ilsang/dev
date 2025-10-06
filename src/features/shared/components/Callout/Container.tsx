@@ -5,11 +5,13 @@ type CalloutType = 'info' | 'warning' | 'error';
 type CalloutValue = 'ℹ️' | '⚠️' | '❗';
 
 export const Callout = ({
+  className,
   children,
   info = false,
   warning = false,
   error = false,
 }: {
+  className?: string;
   children: React.ReactNode;
   info?: boolean;
   warning?: boolean;
@@ -18,14 +20,18 @@ export const Callout = ({
   const type: CalloutType = info ? 'info' : warning ? 'warning' : 'error';
   return (
     <div
-      className={classNames('flex flex-row gap-1.75 px-4 py-1 rounded-lg', {
-        'bg-blue-100 text-blue-800': info,
-        'bg-yellow-100 text-yellow-800': warning,
-        'bg-red-100 text-red-800': error,
-      })}
+      className={classNames(
+        'flex flex-row gap-1.75 px-4 py-1 rounded-lg',
+        className,
+        {
+          'bg-blue-100 text-blue-800': info,
+          'bg-yellow-100 text-yellow-800': warning,
+          'bg-red-100 text-red-800': error,
+        },
+      )}
     >
       <Type type={type} />
-      <div className="text-[0.95rem] pr-1">{children}</div>
+      <div className="text-[0.95rem] pr-1 w-full">{children}</div>
     </div>
   );
 };
