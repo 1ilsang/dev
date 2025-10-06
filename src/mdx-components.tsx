@@ -29,6 +29,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ul: (props) => (
       <ul className="min-[790px]:ml-6 ml-4 list-disc">{props.children}</ul>
     ),
+    li: (props) => <li className="my-1.25">{props.children}</li>,
     table: (props) => <BasicTable {...props} />,
     ...HeadingFactory(),
   };

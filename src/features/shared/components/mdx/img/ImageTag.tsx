@@ -8,6 +8,8 @@ export type ImageTagProps = {
   size?: 'cover' | 'l' | 's' | (string & {});
   horizon?: boolean;
   origin?: string;
+  fit?: boolean;
+  description?: string;
 };
 /**
  * MDX 주입 img 컴포넌트(ImageHorizonWrap)와 rehype 주입 img 컴포넌트(img-container) 공통화
@@ -15,26 +17,28 @@ export type ImageTagProps = {
 export const ImageTag = ({
   size: rawSize = '',
   horizon = false,
+  fit = false,
   origin,
+  description,
   ...rest
 }: ImageTagProps) => {
   if (horizon) return <Img {...rest} />;
   const { border, size } = parseSize(rawSize);
   return (
     <div
-      className={classNames(
-        'flex justify-center min-h-[200px] mt-3 mb-3 w-full flex-col',
-        {
-          'h-[600px] object-contain bg-transparent mt-10': size === 'cover',
-          'min-[790px]:min-h-[150px] min-[790px]:w-[25%]': size === 'ss',
-          'min-[790px]:w-[40%]': size === 's',
-          'min-[790px]:w-[70%]': !size,
-          'border rounded': border,
-        },
-      )}
+      className={classNames('flex justify-center mt-3 mb-3 w-full flex-col', {
+        'h-[600px] object-contain bg-transparent mt-10': size === 'cover',
+        'min-[790px]:min-h-[150px] min-[790px]:w-[25%]': size === 'ss',
+        'min-[790px]:w-[40%]': size === 's',
+        'min-[790px]:w-[70%]': !size,
+        'border rounded': border,
+        'min-h-[200px]': !fit,
+        '!min-h-0': fit,
+      })}
     >
       <Img {...rest} />
       {origin && <Copyright origin={origin} />}
+      {description && <Description description={description} />}
     </div>
   );
 };
@@ -50,6 +54,12 @@ const Copyright = ({ origin }: { origin: string }) => {
       href={origin}
       label={`ⓒ ${host}, 출처 ${lastPathname}`}
     />
+  );
+};
+
+const Description = ({ description }: { description: string }) => {
+  return (
+    <div className="mt-1 text-center text-sm text-gray-500">{description}</div>
   );
 };
 
