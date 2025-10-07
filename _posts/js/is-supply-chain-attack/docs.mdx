@@ -6,7 +6,7 @@ coverImage: 'cover.webp'
 date: '2025-09-10T11:02:32.000Z'
 ---
 
-![cover](cover.webp 'size=cover;origin=https://socket.dev/blog/npm-phishing-email-targets-developers-with-typosquatted-domain')
+![cover](cover.webp 'size=cover;fit=true;origin=https://socket.dev/blog/npm-phishing-email-targets-developers-with-typosquatted-domain')
 
 ## 들어가며
 
@@ -165,12 +165,12 @@ const arguments‌‌‌‌‌‌‌‌‌ = [
 
 그 이유는 `\u200C` 유니코드로 조합했기 때문이다.
 
-<div className="flex flex-row">
-  <p className="text-red-600 font-bold inline">
+<Typography>
+  <span className="text-red-600 font-bold">
     값이 존재하지만 표시되지 않는 특징
-  </p>
+  </span>
   을 활용해 검색되지 않도록 했다.
-</div>
+</Typography>
 
 ![200c unicode example 2(private length)](200c-2.webp 'size=ss;fit=true;description=위(해커 파일) / 아래(정상)')
 
@@ -187,7 +187,7 @@ const arguments‌‌‌‌‌‌‌‌‌ = [
 
 ### 4. 전역 객체 접근 함수 선언
 
-![global object](global-object.webp 'bold;description=약 8000줄 사이에 숨겨져 있는 코드들')
+![global object](global-object.webp 'border;description=약 8000줄 사이에 숨겨져 있는 코드들')
 
 <br />
 
@@ -229,7 +229,7 @@ const payload = {
 
 ### 5. 웹 소켓 호출
 
-![socket call](socket.webp 'l')
+![socket call](socket.webp 'size=l;border')
 
 소켓을 연결하는 코드가 있는 것을 확인할 수 있다.
 

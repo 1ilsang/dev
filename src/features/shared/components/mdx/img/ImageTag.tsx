@@ -8,6 +8,7 @@ export type ImageTagProps = {
   size?: 'cover' | 'l' | 's' | (string & {});
   horizon?: boolean;
   origin?: string;
+  border?: boolean;
   fit?: boolean;
   description?: string;
 };
@@ -15,15 +16,15 @@ export type ImageTagProps = {
  * MDX 주입 img 컴포넌트(ImageHorizonWrap)와 rehype 주입 img 컴포넌트(img-container) 공통화
  */
 export const ImageTag = ({
-  size: rawSize = '',
+  size = '',
   horizon = false,
   fit = false,
+  border = false,
   origin,
   description,
   ...rest
 }: ImageTagProps) => {
   if (horizon) return <Img {...rest} />;
-  const { border, size } = parseSize(rawSize);
   return (
     <div
       className={classNames('flex justify-center mt-3 mb-3 w-full flex-col', {
@@ -63,21 +64,10 @@ const Description = ({ description }: { description: string }) => {
   );
 };
 
-const parseSize = (
-  rawSize: ImageTagProps['size'],
-): { border: boolean; size: ImageTagProps['size'] } => {
-  const border = rawSize.includes(AdditionalSize.border);
-  return { border, size: rawSize.replace(/b/g, '') };
-};
-
 const Img = ({ src, alt }: ImageTagProps) => (
   <img
-    className="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+    className="w-full cursor-zoom-in object-contain max-h-[550px]"
     alt={alt}
     src={src}
   />
 );
-
-const AdditionalSize = {
-  border: 'b',
-};

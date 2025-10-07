@@ -47,6 +47,7 @@ export const remarkRehypeCustom = () => {
 
       // NOTE: MDX에서 title을 이미지 메타데이터로 사용하고 있음
       // @example ![alt](cover.webp 'cover;origin=https://example.com')
+      // @type ImageTagProps
       const parsedMetadata = (() => {
         if (!node.title) {
           return { size: undefined };
@@ -57,6 +58,10 @@ export const remarkRehypeCustom = () => {
         }
         const metadata = node.title.split(';');
         const parsedMetadata = metadata.reduce((acc, item) => {
+          // NOTE: ![alt](cover.webp 'size=l;border') 처럼 true 로 처리해야 하는 경우
+          if (!item.includes('=')) {
+            return { ...acc, [item]: true };
+          }
           const [key, value] = item.split('=');
           return { ...acc, [key]: value };
         }, {});

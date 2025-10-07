@@ -3,6 +3,7 @@ build
 dist
 out
 .next/
+.vscode/
 
 .DS_Store
 

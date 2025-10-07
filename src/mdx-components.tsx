@@ -6,10 +6,14 @@ import {
   type ImageTagProps,
 } from '~/shared/components/mdx/img/ImageTag';
 import { BasicTable } from '~/shared/components/mdx/table/BasicTable';
+import { Typography } from '~/shared/components/Typography/Container';
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   const parser = {
     ...components,
+    Typography: (props) => {
+      return <Typography {...props}>{props.children}</Typography>;
+    },
     Callout: (props) => {
       return <Callout {...props}>{parser.p(props)}</Callout>;
     },
@@ -22,7 +26,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         </blockquote>
       );
     },
-    p: (props) => <p className="mt-4 mb-4">{props.children}</p>,
+    p: (props) => {
+      return <p className="mt-4 mb-4">{props.children}</p>;
+    },
     ol: (props) => (
       <ol className="min-[790px]:ml-6 ml-4 list-decimal">{props.children}</ol>
     ),

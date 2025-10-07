@@ -34,7 +34,7 @@ Node의 구조를 깊이 있게 이해하기 위해 만들어진 배경과 해�
 
 ### 당시의 상황
 
-![ryan-dahl](ryan-dahl.webp 'lb')
+![ryan-dahl](ryan-dahl.webp 'size=l;border')
 
 > Node.js: The Documentary | An origin story - [YouTube](https://youtu.be/LB8KwiiUGy0?si=MLmed7yFgBQPni1a&t=54)
 
@@ -99,7 +99,7 @@ Node는 이 문제에서 탄생했다. <u>어떻게 두 가지를 동시에 처�
 
 ### 한눈에 보기
 
-![node architecture](node-architecture.webp 'lb')
+![node architecture](node-architecture.webp 'size=l;border')
 
 ### 주요 구성 요소
 
@@ -176,7 +176,7 @@ server.on('request', async (req, res) => {
 server.listen(3001, () => console.info(`Server is running...`));
 ```
 
-![hello text file](hello-txt.webp 'ssb')
+![hello text file](hello-txt.webp 'size=ss;border')
 
 특정 요청이 올 때마다 파일을 읽어 반환하는 코드를 분석해 보자.
 
@@ -188,7 +188,7 @@ $ node hello.cjs
 
 Node.js 또한 애플리케이션이기 때문에 다른 앱과 마찬가지로 실행될 때 부트스트래핑 과정이 먼저 진행된다.
 
-![bootstrapping init](bootstrapping-init.webp 'lb')
+![bootstrapping init](bootstrapping-init.webp 'size=l;border')
 
 복잡해 보이지만, 크게 2단계로 나눌 수 있다.
 
@@ -203,7 +203,7 @@ Node.js 또한 애플리케이션이기 때문에 다른 앱과 마찬가지로 
 
 여기서 우리는 `run_main_module.js`를 통해 `hello.cjs`가 실행되는 것을 확인할 수 있다. 바로 밑에서 나오지만, 아직 <u>이벤트 루프가 실행되지 않았다</u>.
 
-![bootstrapping event loop](bootstrapping-loop.webp 'b')
+![bootstrapping event loop](bootstrapping-loop.webp 'size=l;border')
 
 이후 [SpinEventLoop](https://github.com/nodejs/node/blob/v22.x/src/node_main_instance.cc#L111)(C++ Land)를 호출해 libuv의 `uv_run`이 실행되며 이벤트 루프가 시작된다.
 

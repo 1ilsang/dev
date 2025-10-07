@@ -21,7 +21,7 @@ export const Callout = ({
   return (
     <div
       className={classNames(
-        'flex flex-row gap-1.75 px-4 py-1 rounded-lg',
+        'flex flex-row gap-1.75 px-4 py-1 rounded-lg max-w-full overflow-hidden',
         className,
         {
           'bg-blue-100 text-blue-800': info,
@@ -31,7 +31,7 @@ export const Callout = ({
       )}
     >
       <Type type={type} />
-      <div className="text-[0.95rem] pr-1 w-full">{children}</div>
+      <div className="text-[0.95rem] pr-1 flex-1 min-w-0">{children}</div>
     </div>
   );
 };
