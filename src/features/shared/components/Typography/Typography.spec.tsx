@@ -164,7 +164,7 @@ describe('Typography Component', () => {
       // 15단계 깊이의 중첩 구조 생성 (최대 10단계로 제한됨)
       let nestedElement = <span>깊은 텍스트</span>;
       for (let i = 0; i < 15; i++) {
-        nestedElement = <div>{nestedElement}</div>;
+        nestedElement = <strong>{nestedElement}</strong>;
       }
 
       render(<Typography>{nestedElement}</Typography>);

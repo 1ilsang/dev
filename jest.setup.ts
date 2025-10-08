@@ -19,3 +19,9 @@ Object.defineProperty(global, 'IntersectionObserver', {
   configurable: true,
   value: IntersectionObserver,
 });
+
+// Mock Google Analytics functions to prevent warnings in test environment
+jest.mock('@next/third-parties/google', () => ({
+  GoogleAnalytics: jest.fn(() => null),
+  sendGAEvent: jest.fn(),
+}));
