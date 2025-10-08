@@ -21,6 +21,8 @@ type TypographyProps = {} & PropsWithChildren;
  *  </Typography>
  * ```
  * 이 경우 span > p > 문자 순으로 파싱되기 때문에 불필요한 p 태그가 생김. 불필요한 태그가 생기지 않게 한다.
+ *
+ * span 태그만 사용 가능하며 최상위 요소로 사용해야 한다.
  */
 export const Typography: FunctionComponent<TypographyProps> = memo(
   ({ children }) => {
