@@ -160,6 +160,39 @@ describe('Typography Component', () => {
       expect(screen.getByRole('paragraph')).toBeInTheDocument();
     });
 
+    it('isValidElement가 false인 경우를 처리해야 한다', () => {
+      const invalidElement = 'string content';
+      render(<Typography>{invalidElement}</Typography>);
+
+      expect(screen.getByText('string content')).toBeInTheDocument();
+    });
+
+    it('children이 없는 요소를 처리해야 한다', () => {
+      const ElementWithoutChildren = ({ ...props }) => <span {...props} />;
+      render(
+        <Typography>
+          <ElementWithoutChildren />
+        </Typography>,
+      );
+
+      // 에러 없이 렌더링되어야 함
+      const paragraph = screen.getByRole('paragraph');
+      expect(paragraph).toBeInTheDocument();
+    });
+
+    it('props가 undefined인 요소를 처리해야 한다', () => {
+      // processChild 함수를 직접 테스트할 수 없으므로,
+      // 실제 시나리오와 가까운 테스트를 작성
+      render(
+        <Typography>
+          <span />
+        </Typography>,
+      );
+
+      const paragraph = screen.getByRole('paragraph');
+      expect(paragraph).toBeInTheDocument();
+    });
+
     it('매우 깊은 중첩 구조에서 최대 깊이 제한을 적용해야 한다', () => {
       // 15단계 깊이의 중첩 구조 생성 (최대 10단계로 제한됨)
       let nestedElement = <span>깊은 텍스트</span>;
@@ -212,6 +245,40 @@ describe('Typography Component', () => {
       expect(pElement?.textContent).toContain('42');
       expect(pElement?.textContent).toContain('일반 텍스트');
       expect(pElement?.textContent).toContain('더 많은 텍스트');
+    });
+
+    it('children이 배열인 경우를 처리해야 한다', () => {
+      const arrayChildren = ['첫 번째', '두 번째'];
+
+      render(
+        <Typography>
+          <span>{arrayChildren}</span>
+        </Typography>,
+      );
+
+      expect(screen.getByText('첫 번째두 번째')).toBeInTheDocument();
+    });
+
+    it('복잡한 React 요소 배열을 처리해야 한다', () => {
+      const complexChildren = [
+        <span key="1">첫 번째 span</span>,
+        '텍스트',
+        <span key="2">두 번째 span</span>,
+      ];
+
+      render(
+        <Typography>
+          <span>{complexChildren}</span>
+        </Typography>,
+      );
+
+      // 각각의 텍스트가 존재하는지 확인
+      expect(screen.getByText(/첫 번째 span/)).toBeInTheDocument();
+      expect(screen.getByText(/두 번째 span/)).toBeInTheDocument();
+    });
+
+    it('displayName이 올바르게 설정되어 있어야 한다', () => {
+      expect(Typography.displayName).toBe('Typography');
     });
   });
 });

@@ -1,5 +1,11 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import ExternalLink, { highlighterClass } from './ExternalLink';
+import { ga } from '../helpers/logger';
+
+jest.mock('../helpers/logger', () => ({
+  ga: jest.fn(),
+}));
 
 describe('rendering', () => {
   it('should visible', async () => {
@@ -37,6 +43,23 @@ describe('rendering', () => {
       ...[highlighterClass, propClass],
     );
   });
+
+  it('should disable default CSS transition when prop is true', async () => {
+    render(<ExternalLink href="1ilsang.dev" disableDefaultCSSTransition />);
+    expect(screen.getByRole('link')).not.toHaveClass(highlighterClass);
+  });
+
+  it('should render with both label and children', async () => {
+    const label = 'My Link';
+    const childText = ' - Click here';
+    render(
+      <ExternalLink href="1ilsang.dev" label={label}>
+        {childText}
+      </ExternalLink>,
+    );
+    const link = screen.getByRole('link');
+    expect(link).toHaveTextContent(`${label}${childText}`);
+  });
 });
 
 describe('attr', () => {
@@ -57,5 +80,36 @@ describe('attr', () => {
       'rel',
       'noopener noreferrer',
     );
+  });
+});
+
+describe('interactions', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('should call ga tracking when clicked with href as value', async () => {
+    const href = 'https://example.com';
+    render(<ExternalLink href={href} />);
+
+    await userEvent.click(screen.getByRole('link'));
+
+    expect(ga).toHaveBeenCalledWith('linkClick', {
+      type: 'external-link',
+      value: href,
+    });
+  });
+
+  it('should call ga tracking when clicked with label as value', async () => {
+    const href = 'https://example.com';
+    const label = 'Example Site';
+    render(<ExternalLink href={href} label={label} />);
+
+    await userEvent.click(screen.getByRole('link'));
+
+    expect(ga).toHaveBeenCalledWith('linkClick', {
+      type: 'external-link',
+      value: label,
+    });
   });
 });

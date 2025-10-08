@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import type { FunctionComponent } from 'react';
 import { memo, useEffect, useMemo, useState } from 'react';
 import classNames from 'classnames';
-import { Avatar } from '../Avatar';
+import { Avatar } from '../Avatar/Container';
 import { usePrint } from '~/shared/hooks/usePrint';
 
 interface NavTextProps {
