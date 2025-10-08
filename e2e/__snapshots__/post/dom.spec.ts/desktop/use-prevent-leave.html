@@ -89,9 +89,9 @@
         페이지 이탈은 아래와 같은 세가지 방법이 있다고 생각한다.
       </p>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-        <li>브라우저 닫기</li>
-        <li>페이지 새로고침</li>
-        <li>페이지 이동(e.g, 앞/뒤/URL직접입력 등)</li>
+        <li class="my-1.25">브라우저 닫기</li>
+        <li class="my-1.25">페이지 새로고침</li>
+        <li class="my-1.25">페이지 이동(e.g, 앞/뒤/URL직접입력 등)</li>
       </ol>
       <p class="mt-4 mb-4">
         나는 위의 세 가지 경우 모두를 확인하는 컨펌창을 만들어야 했다.
@@ -118,9 +118,11 @@
         동작과 실제 동작이 달라서 일어난 일이었다.
       </p>
       <div class="img-container">
-        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+        <div
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
+        >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="prevent flow chart"
             src="/posts/use-prevent-leave/prevent-flow.webp"
           />
@@ -149,9 +151,9 @@
         라이프사이클 이미지를 확인하면 된다.
       </p>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>f. 다른 페이지로 이동</li>
-        <li>g. 활성화된 탭 끄기</li>
-        <li>h. 비활성화된 탭 끄기</li>
+        <li class="my-1.25">f. 다른 페이지로 이동</li>
+        <li class="my-1.25">g. 활성화된 탭 끄기</li>
+        <li class="my-1.25">h. 비활성화된 탭 끄기</li>
       </ul>
       <p class="mt-4 mb-4">
         위 내용을 문장으로 한번 더 풀자면, beforeunload 이벤트는 브라우저
@@ -194,10 +196,10 @@
       </h2>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[40%]"
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[40%] min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="prevent"
             src="/posts/use-prevent-leave/cover.webp"
           />
@@ -250,9 +252,11 @@
         >에서 자세하게 확인할수 있다.
       </p>
       <div class="img-container">
-        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+        <div
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
+        >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="beforeunload error"
             src="/posts/use-prevent-leave/beforeunload-error.webp"
           />
@@ -541,7 +545,7 @@
         >참고
       </h2>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           <a
             href="https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event"
             class="underline-highlight-fade"
@@ -550,7 +554,7 @@
             >https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="https://developer.mozilla.org/en-US/docs/Web/Security/User_activation"
             class="underline-highlight-fade"
@@ -559,7 +563,7 @@
             >https://developer.mozilla.org/en-US/docs/Web/Security/User_activation</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="https://developer.chrome.com/blog/page-lifecycle-api/"
             class="underline-highlight-fade"
@@ -568,7 +572,7 @@
             >https://developer.chrome.com/blog/page-lifecycle-api/</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="https://heyjiawei.com/block-user-from-leaving-page-on-single-page-app"
             class="underline-highlight-fade"

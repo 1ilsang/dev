@@ -1,0 +1,1046 @@
+<progress
+  class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  value="0"
+  max="1"
+></progress>
+<nav
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"
+>
+  <h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
+    <a class="hover:underline" href="/">1ilsang</a>
+  </h2>
+  <div class="flex">
+    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/posts">posts</a>
+    </h2>
+    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/tags">tags</a>
+    </h2>
+    <div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character">
+      <a href="/about"
+        ><img
+          class="border border-solid rounded-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+    </div>
+  </div>
+</nav>
+<section
+  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
+>
+  <h1 class="text-4xl break-words md:text-6xl">
+    is 패키지의 Supply Chain Attack 과정 분석
+  </h1>
+  <section class="flex items-center mt-4">
+    <div
+      class="mr-2 w-9 h-9 md:w-12 md:h-12"
+      role="img"
+      aria-label="1ilsang character"
+    >
+      <a href="/about"
+        ><img
+          class="border border-solid rounded-full border-sub-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+    </div>
+    <div>
+      <a class="text-lg" href="/about">1ilsang</a>
+      <div class="text-sm text-sub-blue">클라이밍 하실래염?</div>
+    </div>
+  </section>
+  <section class="flex flex-wrap items-end mt-2">
+    <a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/is"
+      >#<!-- -->is</a
+    ><a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/supply-chain-attack"
+      >#<!-- -->supply-chain-attack</a
+    ><a
+      class="text-highlight print:text-black hover:underline mr-2"
+      target="_self"
+      href="/tags/npm"
+      >#<!-- -->npm</a
+    >
+  </section>
+  <section>
+    <div class="inline text-date-gray">
+      <span class="mr-1">Published</span
+      ><time datetime="2025-09-10 20:02">2025-09-10 20:02</time>
+    </div>
+  </section>
+  <section id="post-body-container" class="relative">
+    <div class="markdown">
+      <div class="img-container">
+        <div
+          class="flex justify-center mt-3 mb-3 w-full flex-col h-[600px] object-contain bg-transparent mt-10 !min-h-0"
+        >
+          <img
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="cover"
+            src="/posts/is-supply-chain-attack/cover.webp"
+          /><a
+            class="underline-highlight-fade text-center mt-1"
+            href="https://socket.dev/blog/npm-phishing-email-targets-developers-with-typosquatted-domain"
+            rel="noopener noreferrer"
+            target="_blank"
+            >ⓒ socket.dev, 출처
+            npm-phishing-email-targets-developers-with-typosquatted-domain</a
+          >
+        </div>
+      </div>
+      <h2
+        id="들어가며"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#들어가며"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >들어가며
+      </h2>
+      <div class="img-container">
+        <div
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
+        >
+          <img
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="nodejs discord warning"
+            src="/posts/is-supply-chain-attack/node-warning.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        새벽 2시반, 잠들기 직전에 Node.js 디코에서 <code>@everyone</code>이
+        찍혔다. 이런 경우는 디코가 생긴 이후로 최초이므로 호기심이 발동해 직관을
+        하게 되었다.
+      </p>
+      <ul class="min-[790px]:ml-6 ml-4 list-disc">
+        <li class="my-1.25">
+          내용인즉 chalk, debug, color 등 을 관리하는 메인테이너의 계정이 탈취,
+          악성코드가 담긴 버전이 배포 됨<!-- -->
+          <ul class="min-[790px]:ml-6 ml-4 list-disc">
+            <li class="my-1.25">
+              영향 받는 범위는 @babel/core, express, Node.js, Next.js 등
+              엄청나게 컸음<!-- -->
+              <ul class="min-[790px]:ml-6 ml-4 list-disc">
+                <li class="my-1.25">주간 다운을 합치면 20억이 넘음</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="my-1.25">
+          멀웨어 스크립트에는 <code>typeof window !== 'undefined</code> 코드가
+          있는데, CICD 환경 등에 침투하여 암호화폐 탈취를 위한 스크립트가
+          있었음.
+        </li>
+        <li class="my-1.25">
+          관련 링크들<!-- -->
+          <ul class="min-[790px]:ml-6 ml-4 list-disc">
+            <li class="my-1.25">
+              <a
+                href="https://github.com/debug-js/debug/issues/1005"
+                class="underline-highlight-fade"
+                target="_blank"
+                rel="noreferrer noopener"
+                >해킹당한 메인테이너의 대응이 궁금하면 여기</a
+              >
+            </li>
+            <li class="my-1.25">
+              <a
+                href="https://github.com/advisories/GHSA-8mgj-vmr8-frr6"
+                class="underline-highlight-fade"
+                target="_blank"
+                rel="noreferrer noopener"
+                >https://github.com/advisories/GHSA-8mgj-vmr8-frr6</a
+              >
+            </li>
+            <li class="my-1.25">
+              <a
+                href="https://www.aikido.dev/blog/npm-debug-and-chalk-packages-compromised"
+                class="underline-highlight-fade"
+                target="_blank"
+                rel="noreferrer noopener"
+                >사건 요약</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <p class="mt-4 mb-4">
+        최근 <u>메인테이너 계정이 탈취되고 패치버전이 올라가는 문제</u>들이 많이
+        생기고 있다.
+      </p>
+      <p class="mt-4 mb-4">
+        이번 포스트에서는 비슷한 경우인 <code>is</code> 패키지의 토큰 탈취
+        과정과 공격 코드 분석을 해보려고 한다.
+      </p>
+      <h2
+        id="tldr-무슨-일이-벌어졌나"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#tldr-무슨-일이-벌어졌나"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >TL;DR: 무슨 일이 벌어졌나?
+      </h2>
+      <ul class="min-[790px]:ml-6 ml-4 list-disc">
+        <li class="my-1.25">
+          <a
+            href="https://www.npmjs.com/"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >npm</a
+          >
+          패키지
+          <a
+            href="https://www.npmjs.com/package/eslint-config-prettier"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >eslint-config-prettier</a
+          >(주간다운2000만),
+          <a
+            href="https://www.npmjs.com/package/is"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >is</a
+          >(250만) 등에 악성코드가 추가됨<!-- -->
+          <ul class="min-[790px]:ml-6 ml-4 list-disc">
+            <li class="my-1.25">
+              is 패키지는 타입 체크를 도와주는 기분적인 유틸 패키지
+            </li>
+            <li class="my-1.25">
+              is.symbol(…), is.nan(…) 등<a
+                class="underline-highlight-fade relative top-[-0.1rem] px-0.25"
+                title="https://github.com/enricomarino/is/blob/cb4d31da1fe9e315e4bd917b063c636bf110e2b2/index.js#L558"
+                href="https://github.com/enricomarino/is/blob/cb4d31da1fe9e315e4bd917b063c636bf110e2b2/index.js#L558"
+                target="_blank"
+                rel="noopener noreferrer"
+                >⎋</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="my-1.25">
+          공격자는 이전 메인테이너의 계정을 탈취해 악성 코드가 포함된 버전을
+          배포
+        </li>
+        <li class="my-1.25">
+          유저가 해당 패키지를 설치하게 되면 각종 정보가 해커에게 전송 되고 실행
+          명령어가 그대로 노출 됨
+        </li>
+      </ul>
+      <h2
+        id="공급망-공격이란"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#공급망-공격이란"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >공급망 공격이란?
+      </h2>
+      <p class="mt-4 mb-4">
+        Supply Chain Attack(공급망 공격)의 정의는 아래와 같다.
+      </p>
+      <ul class="min-[790px]:ml-6 ml-4 list-disc">
+        <li class="my-1.25">
+          해커가 SW나 HW 개발 단계부터 악성코드를 제품의 악의적 변조 또는 제품
+          내부에 악성코드 등을 숨기는 공격기법
+        </li>
+        <li class="my-1.25">
+          대표적인 예로
+          <a
+            href="https://ko.wikipedia.org/wiki/%EC%8A%A4%ED%84%B1%EC%8A%A4%EB%84%B7"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >스턱스 넷</a
+          >이 있으며, 스턱스 넷의 경우 초기 개발단계부터 악성코드가 유입된 사례<!-- -->
+          <ul class="min-[790px]:ml-6 ml-4 list-disc">
+            <li class="my-1.25">
+              <a
+                href="https://www.krcert.or.kr/kr/bbs/list.do?bbsId=B0001020&amp;menuNo=205025&amp;pageIndex=1&amp;searchCnd=1&amp;searchWrd=supply%20chain%20attack"
+                class="underline-highlight-fade"
+                target="_blank"
+                rel="noreferrer noopener"
+                >KISA &gt; 정보보호 용어 &gt; 공급망 사슬 공격</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="my-1.25">
+          제 3자 공격이라고도 불리며 주요 벤더사의 종속성에 침투하여
+          클라이언트의 시스템과 정보에 접근한다<!-- -->
+          <ul class="min-[790px]:ml-6 ml-4 list-disc">
+            <li class="my-1.25">
+              <a
+                href="https://www.cloudflare.com/ko-kr/learning/security/glossary/supply-chain-attack/"
+                class="underline-highlight-fade"
+                target="_blank"
+                rel="noreferrer noopener"
+                >공급망 공격이란? | Cloudflare</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <h2
+        id="메인테이너-계정-탈취-과정"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#메인테이너-계정-탈취-과정"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >메인테이너 계정 탈취 과정
+      </h2>
+      <div class="img-container">
+        <div
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
+        >
+          <img
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="maintainer fishing"
+            src="/posts/is-supply-chain-attack/maintainer-fishing.webp"
+          />
+        </div>
+      </div>
+      <ol class="min-[790px]:ml-6 ml-4 list-decimal">
+        <li class="my-1.25">
+          메인테이너들에게 자격증명을 요청하는 이메일이 발송 됨<!-- -->
+          <ul class="min-[790px]:ml-6 ml-4 list-disc">
+            <li class="my-1.25">
+              이메일은
+              <a
+                href="mailto:support@npmjs.org"
+                class="underline-highlight-fade"
+                target="_blank"
+                rel="noreferrer noopener"
+                >support@npmjs.org</a
+              >
+              주소를 위조
+            </li>
+          </ul>
+        </li>
+        <li class="my-1.25">
+          링크를 누르면 <code>npnjs</code>(npmjs가 아님)로 이동<!-- -->
+          <ul class="min-[790px]:ml-6 ml-4 list-disc">
+            <li class="my-1.25">
+              이러한 오타 피싱을 타이포스쿼팅 공격(Typosquating Attack)이라 함
+            </li>
+            <li class="my-1.25">
+              피싱 사이트에 <u>토큰이 쿼리로</u> 되어 있는데 이는 특정
+              메인테이너를 추적하기 위함
+            </li>
+          </ul>
+        </li>
+        <li class="my-1.25">
+          메인테이너는 피싱 사이트를 npmjs.org 로 오인해 로그인 진행
+        </li>
+      </ol>
+      <div class="img-container">
+        <div class="flex justify-center mt-3 mb-3 w-full flex-col !min-h-0">
+          <img
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="automation token"
+            src="/posts/is-supply-chain-attack/automation-token.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">&nbsp;4. 계정 탈취 및 토큰 생성 완료</p>
+      <ul class="min-[790px]:ml-6 ml-4 list-disc">
+        <li class="my-1.25">
+          <code>automation</code> 타입의 토큰은 <code>npm publish</code> 사용시
+          <strong>2FA 정책을 사용하지 않는다.</strong>
+        </li>
+      </ul>
+      <p class="mt-4 mb-4">BOOM!</p>
+      <h2
+        id="공격-코드-분석"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#공격-코드-분석"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >공격 코드 분석
+      </h2>
+      <p class="mt-4 mb-4">
+        그렇다면 악성 코드는 어떤 형태일까? 이번에는 공격 코드를 분석해보자.
+      </p>
+      <p class="mt-4 mb-4">
+        코드 전문은
+        <a
+          href="https://socket.dev/npm/package/is/files/5.0.0/index.js"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >https://socket.dev/npm/package/is/files/5.0.0/index.js</a
+        >
+        에서 확인 가능하다.
+      </p>
+      <h3
+        id="1-패키지-설치와-postinstall"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#1-패키지-설치와-postinstall"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >1. 패키지 설치와 postinstall
+      </h3>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="json"
+          data-theme="material-theme-palenight"
+        ><code data-language="json" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// is/package.json</span></span>
+<span data-line=""><span style="color:#89DDFF">{</span></span>
+<span data-line=""><span style="color:#89DDFF">  "</span><span style="color:#C792EA">name</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> "</span><span style="color:#C3E88D">is</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#89DDFF">  "</span><span style="color:#C792EA">version</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> "</span><span style="color:#C3E88D">5.0.0</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#89DDFF">  "</span><span style="color:#C792EA">scripts</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#89DDFF">    "</span><span style="color:#FFCB6B">postinstall</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> "</span><span style="color:#C3E88D">node index.js</span><span style="color:#89DDFF">"</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">  // ...</span></span>
+<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre>
+      </figure>
+      <ol class="min-[790px]:ml-6 ml-4 list-decimal">
+        <li class="my-1.25">사용자가 <code>npm i is</code>를 하게 되면</li>
+        <li class="my-1.25"><code>postinstall</code>이 실행되면서</li>
+        <li class="my-1.25">
+          해킹 코드가 있는 <code>index.js</code> 파일을 실행하게 된다.
+        </li>
+      </ol>
+      <h3
+        id="2-동적-함수-선언과-실행"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#2-동적-함수-선언과-실행"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >2. 동적 함수 선언과 실행
+      </h3>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="js"
+          data-theme="material-theme-palenight"
+        ><code data-language="js" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// index.js</span></span>
+<span data-line=""><span style="color:#82AAFF">Function</span><span style="color:#BABED8">(</span></span>
+<span data-line=""><span style="color:#89DDFF">  '</span><span style="color:#C3E88D">of‌</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#89DDFF">  `</span><span style="color:#C3E88D">var throw‌‌‌‌‌‌‌‌‌‌‌‌‌,do‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌,public‌‌‌‌‌‌‌‌‌‌‌‌,case‌‌‌‌‌‌‌‌‌‌‌‌‌‌,new‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌,void‌‌‌‌‌‌‌‌‌‌‌‌‌‌,function‌‌‌‌‌‌‌‌‌‌,of‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌,var‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌,in‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌;function for‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌(throw‌‌‌‌‌‌‌‌‌‌‌‌‌,do‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌,public‌‌‌‌‌‌‌‌‌‌‌‌){for(public‌‌‌‌‌‌‌‌‌‌‌‌=0x0;public‌‌‌‌‌‌‌‌‌‌‌‌&lt;do‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌;public‌‌‌‌‌‌‌‌‌‌‌‌++)throw‌‌‌‌‌‌‌‌‌‌‌‌‌.push(throw‌‌‌‌‌‌‌‌‌‌‌‌‌.shift());return throw‌‌‌‌‌‌‌‌‌‌‌‌‌}</span></span>
+<span data-line=""><span style="color:#C3E88D">  const arguments‌‌‌‌‌‌‌‌‌=["</span><span style="color:#BABED8">\\</span><span style="color:#C3E88D">u006c</span><span style="color:#BABED8">\\</span><span style="color:#C3E88D">u0065</span><span style="color:#BABED8">\\</span><span style="color:#C3E88D">u006e</span><span style="color:#BABED8">\\</span></span>
+<span data-line=""><span style="color:#C3E88D">  ...</span></span>
+<span data-line=""><span style="color:#C3E88D">  arguments‌‌‌‌‌‌‌‌‌‌[new‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌(arguments‌‌‌‌‌‌‌‌‌[0x89])]||arguments‌‌‌‌‌‌‌‌‌‌)}</span></span>
+<span data-line=""><span style="color:#C3E88D">                          })();</span><span style="color:#89DDFF">`</span><span style="color:#89DDFF">,</span><span style="color:#676E95;font-style:italic"> // 약 8000 줄</span></span>
+<span data-line=""><span style="color:#BABED8">)(</span><span style="color:#89DDFF">{</span></span>
+<span data-line=""><span style="color:#BABED8">  get void‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌() </span><span style="color:#89DDFF">{</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">    return</span><span style="color:#BABED8"> window</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#89DDFF">  },</span></span>
+<span data-line=""><span style="color:#BABED8">  get switch‌‌‌‌‌‌‌‌‌‌‌‌‌() </span><span style="color:#89DDFF">{</span></span>
+<span data-line=""><span style="color:#89DDFF;font-style:italic">    return</span><span style="color:#BABED8"> require</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#89DDFF">  },</span></span>
+<span data-line=""><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">악성 코드의 주요 흐름은 아래와 같다.</p>
+      <ol class="min-[790px]:ml-6 ml-4 list-decimal">
+        <li class="my-1.25">
+          함수 생성자를 활용하여 동적 함수 생성 및 호출<!-- -->
+          <ul class="min-[790px]:ml-6 ml-4 list-disc">
+            <li class="my-1.25">메모리 단계에서 사라지도록 유도</li>
+          </ul>
+        </li>
+        <li class="my-1.25">
+          인자로 넘긴 객체 <code>{ get void() { return window; }, … }</code>를
+          <code>of</code>라는 인자로 넘김
+        </li>
+        <li class="my-1.25">
+          본문의 8000줄의 코드에서 <code>of.void() // window</code> 반환 등으로
+          유저의 전역 객체에 접근해 정보를 캔다.<!-- -->
+          <ul class="min-[790px]:ml-6 ml-4 list-disc">
+            <li class="my-1.25">이를 통해 정적 분석을 회피한다</li>
+            <li class="my-1.25">
+              <code>window</code>에 직접 접근하는 코드는 보안 모니터링에 걸리기
+              때문
+            </li>
+          </ul>
+        </li>
+      </ol>
+      <div
+        class="flex flex-row gap-1.75 px-4 py-1 rounded-lg max-w-full overflow-hidden mt-4 bg-blue-100 text-blue-800"
+      >
+        <div class="text-2xl pt-3.5">ℹ️</div>
+        <div class="text-[0.95rem] pr-1 flex-1 min-w-0">
+          <p class="mt-4 mb-4">동적 함수는 런타임에 함수를 생성하는 함수다.</p>
+          <p class="mt-4 mb-4">
+            아래와 같이 함수 생성자로 함수 생성 및 즉시 실행이 가능하다.
+          </p>
+          <code class="p-2">Function("a", "b", "return a + b")(1, 2) // 3</code>
+          <p class="mt-4 mb-4">
+            <code>eval</code> 과 같이 스크립트를 "문자열"로 처리(실행)할 수 있기
+            때문에 위험한 코드다.
+          </p>
+        </div>
+      </div>
+      <h3
+        id="3-예약어-기만"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#3-예약어-기만"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >3. 예약어 기만
+      </h3>
+      <figure data-rehype-pretty-code-figure="">
+        <pre
+          tabindex="0"
+          data-language="js"
+          data-theme="material-theme-palenight"
+        ><code data-language="js" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// Function 함수의 두 번째 인자. 문자열로 되어 있음.</span></span>
+<span data-line=""><span style="color:#C792EA">var</span><span style="color:#BABED8"> throw‌‌‌‌‌‌‌‌‌‌‌‌‌</span><span style="color:#89DDFF">,</span><span style="color:#676E95;font-style:italic"> // 실제로는 throw + "보이지 않는 문자"들로 되어 있음.</span></span>
+<span data-line=""><span style="color:#BABED8">  do‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#BABED8">  public‌‌‌‌‌‌‌‌‌‌‌‌</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#BABED8">  case‌‌‌‌‌‌‌‌‌‌‌‌‌‌</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#BABED8">  new‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#BABED8">  void‌‌‌‌‌‌‌‌‌‌‌‌‌‌</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#BABED8">  function‌‌‌‌‌‌‌‌‌‌</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#BABED8">  of‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#BABED8">  var‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#BABED8">  in‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">// ...</span></span>
+<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> arguments‌‌‌‌‌‌‌‌‌ </span><span style="color:#89DDFF">=</span><span style="color:#BABED8"> [</span></span>
+<span data-line=""><span style="color:#89DDFF">  '</span><span style="color:#BABED8">\\</span><span style="color:#C3E88D">u006c</span><span style="color:#BABED8">\\</span><span style="color:#C3E88D">u0065</span><span style="color:#BABED8">\\</span><span style="color:#C3E88D">u006e</span><span style="color:#BABED8">\\</span><span style="color:#C3E88D">u0067</span><span style="color:#BABED8">\\</span><span style="color:#C3E88D">u0074</span><span style="color:#BABED8">\\</span><span style="color:#C3E88D">u0068</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#676E95;font-style:italic"> // length</span></span>
+<span data-line=""><span style="color:#F78C6C">  0x1</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#89DDFF">  '</span><span style="color:#BABED8">\\</span><span style="color:#C3E88D">u0062</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#F78C6C">  0x0</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#89DDFF">  '</span><span style="color:#BABED8">\\</span><span style="color:#C3E88D">u0068</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#F78C6C">  0x3</span><span style="color:#89DDFF">,</span></span></code></pre>
+      </figure>
+      <p class="mt-4 mb-4">
+        <code>throw</code> 같이 자주 사용되는 예약어에 <u>보이지 않는 문자</u>를
+        추가해 난독화 함으로써 유저가 쉽게 파악할 수 없도록 한다.
+      </p>
+      <div
+        class="flex flex-row gap-1.75 px-4 py-1 rounded-lg max-w-full overflow-hidden mt-4 bg-blue-100 text-blue-800"
+      >
+        <div class="text-2xl pt-3.5">ℹ️</div>
+        <div class="text-[0.95rem] pr-1 flex-1 min-w-0">
+          <p class="mt-4 mb-4">
+            기본적으로 해커의 문자열 코드에는 모든 값에 "보이지 않는 문자"가
+            추가되어 있다.
+          </p>
+          <div class="img-container">
+            <div class="flex justify-center mt-3 mb-3 w-full flex-col !min-h-0">
+              <img
+                class="w-full cursor-zoom-in object-contain max-h-[550px]"
+                alt="200c unicode"
+                src="/posts/is-supply-chain-attack/200c.webp"
+              />
+              <div class="mt-1 text-center text-sm text-gray-500">
+                ? private( 검색이 되지 않는다
+              </div>
+            </div>
+          </div>
+          <div class="img-container">
+            <div
+              class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[40%] !min-h-0"
+            >
+              <img
+                class="w-full cursor-zoom-in object-contain max-h-[550px]"
+                alt="200c unicode example"
+                src="/posts/is-supply-chain-attack/200c-1.webp"
+              />
+            </div>
+          </div>
+          <p class="mt-4 mb-4">
+            그 이유는 <code>\u200C</code> 유니코드로 조합했기 때문이다.
+          </p>
+          <p class="mt-4 mb-4">
+            <span class="text-red-600 font-bold"
+              >값이 존재하지만 표시되지 않는 특징</span
+            >을 활용해 검색되지 않도록 했다.
+          </p>
+          <div class="img-container">
+            <div
+              class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:min-h-[150px] min-[790px]:w-[25%] !min-h-0"
+            >
+              <img
+                class="w-full cursor-zoom-in object-contain max-h-[550px]"
+                alt="200c unicode example 2(private length)"
+                src="/posts/is-supply-chain-attack/200c-2.webp"
+              />
+              <div class="mt-1 text-center text-sm text-gray-500">
+                위(해커 파일) / 아래(정상)
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h4
+        id="예약어를-위와-같이-덮어쓰는건-몇가지-공격자-이점이-있다"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-xl mt-6"
+      >
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#예약어를-위와-같이-덮어쓰는건-몇가지-공격자-이점이-있다"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >예약어를 위와 같이 덮어쓰는건 몇가지 공격자 이점이 있다
+      </h4>
+      <ul class="min-[790px]:ml-6 ml-4 list-disc">
+        <li class="my-1.25">
+          일반 개발자들은 번들된 파일의 위험을 전혀 예측하지 못함
+        </li>
+        <li class="my-1.25">
+          코드 추적이 어려워져 보안패치까지 시간이 걸림<!-- -->
+          <ul class="min-[790px]:ml-6 ml-4 list-disc">
+            <li class="my-1.25">
+              진짜 예약어인지 덮어쓰여진 변수인지 구분이 어려움(private 경우
+              처럼)
+            </li>
+            <li class="my-1.25">
+              동일한 <code>private</code> 처럼 보여도
+              <code>p\u200Crivate</code>, <code>pri\u200Cvate</code> 처럼 무수히
+              많은 가지수가 생김
+            </li>
+            <li class="my-1.25">전형적인 난독화 기법</li>
+          </ul>
+        </li>
+        <li class="my-1.25">
+          민감한 예약어(throw, require, …)가 없는 척 하면서 런타임 단계에서 수정
+          실행 하는 위험이 있다.
+        </li>
+      </ul>
+      <h3
+        id="4-전역-객체-접근-함수-선언"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#4-전역-객체-접근-함수-선언"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >4. 전역 객체 접근 함수 선언
+      </h3>
+      <div class="img-container">
+        <div
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] border rounded min-h-[200px]"
+        >
+          <img
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="global object"
+            src="/posts/is-supply-chain-attack/global-object.webp"
+          />
+          <div class="mt-1 text-center text-sm text-gray-500">
+            약 8000줄 사이에 숨겨져 있는 코드들
+          </div>
+        </div>
+      </div>
+      <br />
+      <div
+        class="flex flex-row gap-1.75 px-4 py-1 rounded-lg max-w-full overflow-hidden bg-red-100 text-red-800"
+      >
+        <div class="text-2xl pt-3.5">❗</div>
+        <div class="text-[0.95rem] pr-1 flex-1 min-w-0">
+          <p class="mt-4 mb-4">전역 객체 호출이 왜 위험한가?</p>
+          <figure data-rehype-pretty-code-figure="">
+            <pre
+              tabindex="0"
+              data-language="js"
+              data-theme="material-theme-palenight"
+            ><code data-language="js" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// 이제 다음에 접근 가능</span></span>
+<span data-line=""><span style="color:#BABED8">globalObj</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">process</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">env</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic">     // 환경변수 전체</span></span>
+<span data-line=""><span style="color:#BABED8">globalObj</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">process</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">cwd</span><span style="color:#BABED8">()</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic">   // 현재 디렉토리</span></span>
+<span data-line=""><span style="color:#BABED8">globalObj</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">require</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic">        // require 함수</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#676E95;font-style:italic">// 가능한 예상 수집 대상 정보들</span></span>
+<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> payload </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#F07178">  env</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#F07178">    AWS_ACCESS_KEY_ID</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> process</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">env</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">AWS_ACCESS_KEY_ID</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#F07178">    AWS_SECRET_ACCESS_KEY</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> process</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">env</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">AWS_SECRET_ACCESS_KEY</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#F07178">    DATABASE_URL</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> process</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">env</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">DATABASE_URL</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#676E95;font-style:italic">    // ... 모든 환경변수</span></span>
+<span data-line=""><span style="color:#89DDFF">  },</span></span>
+<span data-line=""><span style="color:#F07178">  system</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#F07178">    hostname</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> os</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">hostname</span><span style="color:#BABED8">()</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#F07178">    username</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> os</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">userInfo</span><span style="color:#BABED8">()</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">username</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#F07178">    cwd</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> process</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">cwd</span><span style="color:#BABED8">()</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#F07178">    platform</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> process</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">platform</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#F07178">    arch</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> process</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">arch</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#89DDFF">  },</span></span>
+<span data-line=""><span style="color:#F07178">  project</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {</span></span>
+<span data-line=""><span style="color:#F07178">    packageJson</span><span style="color:#89DDFF">:</span><span style="color:#82AAFF"> require</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">./package.json</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#F07178">    dependencies</span><span style="color:#89DDFF">:</span><span style="color:#676E95;font-style:italic"> /* 의존성 정보 */</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#F07178">    scripts</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> /</span><span style="color:#C3E88D">_ npm scripts </span><span style="color:#BABED8">\_</span><span style="color:#89DDFF">/</span><span style="color:#89DDFF">,</span></span>
+<span data-line=""><span style="color:#89DDFF">  }</span></span>
+<span data-line=""><span style="color:#89DDFF">};</span></span>
+<span data-line=""> </span></code></pre>
+          </figure>
+        </div>
+      </div>
+      <h3
+        id="5-웹-소켓-호출"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#5-웹-소켓-호출"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >5. 웹 소켓 호출
+      </h3>
+      <div class="img-container">
+        <div
+          class="flex justify-center mt-3 mb-3 w-full flex-col border rounded min-h-[200px]"
+        >
+          <img
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="socket call"
+            src="/posts/is-supply-chain-attack/socket.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">소켓을 연결하는 코드가 있는 것을 확인할 수 있다.</p>
+      <h4
+        id="소켓이-연결-되면-아래와-같은-문제가-생긴다"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-xl mt-6"
+      >
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#소켓이-연결-되면-아래와-같은-문제가-생긴다"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >소켓이 연결 되면 아래와 같은 문제가 생긴다
+      </h4>
+      <ol class="min-[790px]:ml-6 ml-4 list-decimal">
+        <li class="my-1.25">
+          데이터 전송과정을 거치며 유저의 데이터를 탈취한다.
+        </li>
+        <li class="my-1.25">
+          위에서 "전역 객체"에 접근하는 코드를 확인했다. 이 값과 소켓 연결을
+          통해 유저의 컴퓨터를 제어할 수 있다.
+        </li>
+        <li class="my-1.25">
+          모든 메시지가 실행 가능한 JavaScript로 처리되므로 해커에게 각종
+          명령어를 제공하게 된다.
+        </li>
+      </ol>
+      <p class="mt-4 mb-4">(대충 멸망)</p>
+      <h2
+        id="방어-방법"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#방어-방법"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >방어 방법
+      </h2>
+      <ul class="min-[790px]:ml-6 ml-4 list-disc">
+        <li class="my-1.25">
+          종속성 버전을 pin 하여 고정 버전으로 사용한다.<!-- -->
+          <ul class="min-[790px]:ml-6 ml-4 list-disc">
+            <li class="my-1.25">
+              <a
+                href="/posts/renovate"
+                class="underline-highlight-fade"
+                target="_blank"
+                rel="noreferrer noopener"
+                >Renovate</a
+              >
+              등의 도구로 자동으로 버전 업데이트하는 것을 추천한다.
+            </li>
+          </ul>
+        </li>
+        <li class="my-1.25">
+          ci 명령어 혹은 production 인스톨을 한다.<!-- -->
+          <ul class="min-[790px]:ml-6 ml-4 list-disc">
+            <li class="my-1.25">
+              <code>postinstall</code> 스크립트는 <code>npm ci</code> 명령어나
+              <code>npm install --production</code> 명령어에서는 실행되지 않는다
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <h2
+        id="시사점"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#시사점"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >시사점
+      </h2>
+      <h3
+        id="1-의존성-하나가-전체-앱의-보안에-영향을-줄-수-있다"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#1-의존성-하나가-전체-앱의-보안에-영향을-줄-수-있다"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >1. 의존성 하나가 전체 앱의 보안에 영향을 줄 수 있다
+      </h3>
+      <ul class="min-[790px]:ml-6 ml-4 list-disc">
+        <li class="my-1.25">
+          프론트엔드 개발 환경은 빌드 툴(Vite, Webpack), 유틸 라이브러리, 폴리필
+          등 수많은 npm 패키지를 사용함
+        </li>
+        <li class="my-1.25">
+          작은 유틸 하나(is)도 감염되면 전체 앱이 영향 받음
+        </li>
+      </ul>
+      <h3
+        id="2-계정-탈취는-생각보다-흔하다"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#2-계정-탈취는-생각보다-흔하다"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >2. 계정 탈취는 생각보다 흔하다
+      </h3>
+      <ul class="min-[790px]:ml-6 ml-4 list-disc">
+        <li class="my-1.25">
+          이 사례처럼 오래된 메인테이너의 계정이 공격받는 일이 종종 발생
+        </li>
+        <li class="my-1.25">
+          개인 개발자가 관리하던 패키지도 공격자에 의해 감염 될 수 있음
+        </li>
+      </ul>
+      <h3
+        id="3-잠재적-위험-탐지-도구-사용"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#3-잠재적-위험-탐지-도구-사용"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >3. 잠재적 위험 탐지 도구 사용
+      </h3>
+      <div class="img-container">
+        <div
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
+        >
+          <img
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
+            alt="audit"
+            src="/posts/is-supply-chain-attack/audit.webp"
+          />
+        </div>
+      </div>
+      <p class="mt-4 mb-4">
+        <code>npm audit</code>, <code>pnpm audit</code> 등으로 의존성의 리스크를
+        점검
+      </p>
+      <p class="mt-4 mb-4">
+        <a
+          href="/posts/renovate"
+          class="underline-highlight-fade"
+          target="_blank"
+          rel="noreferrer noopener"
+          >Renovate</a
+        >를 적용하여 주기적 업데이트 적용
+      </p>
+      <h2
+        id="마치며"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#마치며"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >마치며
+      </h2>
+      <p class="mt-4 mb-4">
+        "특정 패키지가 공격당했다"고 자주 들었지만 실제로 어떤 악성 코드가
+        있는지는 잘 몰라 항상 궁금했다.
+      </p>
+      <p class="mt-4 mb-4">
+        이번 기회에 악성 코드를 분석하고 방어 방법을 고민해보게 되어 의미있는
+        시간이었다.
+      </p>
+      <p class="mt-4 mb-4">
+        디펜던시 버전을 고정하여 관리하고 Renovate 등의 도구로 안전하게 버전
+        관리 하자.
+      </p>
+      <h2
+        id="참고"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+      >
+        <a aria-hidden="true" tabindex="-1" href="#참고"
+          ><span
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+          ></span></a
+        >참고
+      </h2>
+      <ul class="min-[790px]:ml-6 ml-4 list-disc">
+        <li class="my-1.25">
+          <a
+            href="https://socket.dev/blog/npm-phishing-email-targets-developers-with-typosquatted-domain"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >https://socket.dev/blog/npm-phishing-email-targets-developers-with-typosquatted-domain</a
+          >
+        </li>
+        <li class="my-1.25">
+          <a
+            href="https://www.aikido.dev/blog/npm-debug-and-chalk-packages-compromised"
+            class="underline-highlight-fade"
+            target="_blank"
+            rel="noreferrer noopener"
+            >https://www.aikido.dev/blog/npm-debug-and-chalk-packages-compromised</a
+          >
+        </li>
+      </ul>
+    </div>
+    <aside
+      class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
+      aria-label="index"
+    >
+      <ul
+        class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
+      >
+        <li
+          id="들어가며"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          들어가며
+        </li>
+        <li
+          id="tldr-무슨-일이-벌어졌나"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          TL;DR: 무슨 일이 벌어졌나?
+        </li>
+        <li
+          id="공급망-공격이란"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          공급망 공격이란?
+        </li>
+        <li
+          id="메인테이너-계정-탈취-과정"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          메인테이너 계정 탈취 과정
+        </li>
+        <li
+          id="공격-코드-분석"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          공격 코드 분석
+        </li>
+        <li
+          id="1-패키지-설치와-postinstall"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          1. 패키지 설치와 postinstall
+        </li>
+        <li
+          id="2-동적-함수-선언과-실행"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          2. 동적 함수 선언과 실행
+        </li>
+        <li
+          id="3-예약어-기만"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          3. 예약어 기만
+        </li>
+        <li
+          id="4-전역-객체-접근-함수-선언"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          4. 전역 객체 접근 함수 선언
+        </li>
+        <li
+          id="5-웹-소켓-호출"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
+        >
+          5. 웹 소켓 호출
+        </li>
+        <li
+          id="방어-방법"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          방어 방법
+        </li>
+        <li
+          id="시사점"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          시사점
+        </li>
+        <li
+          id="1-의존성-하나가-전체-앱의-보안에-영향을-줄-수-있다"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          1. 의존성 하나가 전체 앱의 보안에 영향을 줄 수 있다
+        </li>
+        <li
+          id="2-계정-탈취는-생각보다-흔하다"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+        >
+          2. 계정 탈취는 생각보다 흔하다
+        </li>
+        <li
+          id="3-잠재적-위험-탐지-도구-사용"
+          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
+        >
+          3. 잠재적 위험 탐지 도구 사용
+        </li>
+        <li
+          id="마치며"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          마치며
+        </li>
+        <li
+          id="참고"
+          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+        >
+          참고
+        </li>
+      </ul>
+    </aside>
+  </section>
+  <a
+    class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water"
+    href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] is%20%ED%8C%A8%ED%82%A4%EC%A7%80%EC%9D%98%20Supply%20Chain%20Attack%20%EA%B3%BC%EC%A0%95%20%EB%B6%84%EC%84%9D&amp;body=&lt;!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 --&gt;"
+    rel="noopener noreferrer"
+    target="_blank"
+    >📮 이 포스트에 관심 있으신가요? 이슈를 남겨주세요! 👍</a
+  >
+  <div class="flex items-center mt-4 mb-56">
+    <iframe
+      class="border-0 rounded-md cursor-pointer object-contain hover:animate-bouncing"
+      src="https://github.com/sponsors/1ilsang/button"
+      title="Sponsor 1ilsang"
+      height="32"
+      width="114"
+    ></iframe>
+  </div>
+</section>

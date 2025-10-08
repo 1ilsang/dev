@@ -81,10 +81,10 @@
     <div class="markdown">
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full h-[600px] object-contain bg-transparent mt-10"
+          class="flex justify-center mt-3 mb-3 w-full flex-col h-[600px] object-contain bg-transparent mt-10 min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="cover"
             src="/posts/storybook7/cover.webp"
           />
@@ -112,15 +112,15 @@
         >TL;DR!
       </h2>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>사전 번들 제공으로 DX 향상</li>
-        <li>Webpack4 -&gt; Webpack5</li>
-        <li>
+        <li class="my-1.25">사전 번들 제공으로 DX 향상</li>
+        <li class="my-1.25">Webpack4 -&gt; Webpack5</li>
+        <li class="my-1.25">
           CSF(Component Story Format) v3 업데이트로 인한 스토리 Props 직관성
           향상
         </li>
-        <li>MDX v2 지원</li>
-        <li>Vite, NextJS, SvelteKit 지원</li>
-        <li>컴포넌트 테스트 지원 향상</li>
+        <li class="my-1.25">MDX v2 지원</li>
+        <li class="my-1.25">Vite, NextJS, SvelteKit 지원</li>
+        <li class="my-1.25">컴포넌트 테스트 지원 향상</li>
       </ul>
       <h2
         id="사전-번들-제공"
@@ -147,10 +147,10 @@
       </p>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="compare-speed"
             src="/posts/storybook7/compare-speed.webp"
           />
@@ -179,19 +179,19 @@
         통일화된 규격을 제공한다.
       </p>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-        <li>
+        <li class="my-1.25">
           stories 파일의 <code>default export</code>가 변경되었다. 이제 스토리
           메타데이터를 정의하는 객체를 리턴한다.
         </li>
-        <li>
+        <li class="my-1.25">
           stories 정의 방식이 변경되었다. 스토리는 스토리 메타데이터 객체 내부에
           정의되어야 한다.
         </li>
-        <li>
+        <li class="my-1.25">
           stories 템플릿을 제공한다. 템플릿으로 스토리를 정의할수 있기 때문에
           재사용성이 향상되었다.
         </li>
-        <li>
+        <li class="my-1.25">
           stories 이름을 정의하는 방식이 변경되었다. id, title 값이 메타데이터
           객체로 들어오게 되었다.
         </li>
@@ -261,9 +261,11 @@
         >MDX v2
       </h2>
       <div class="img-container">
-        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+        <div
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
+        >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="MDX"
             src="/posts/storybook7/MDX.webp"
           />
@@ -344,9 +346,11 @@
         >그 외
       </h2>
       <div class="img-container">
-        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+        <div
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
+        >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="support"
             src="/posts/storybook7/support.webp"
           />
@@ -360,9 +364,11 @@
         좋은 기회가 될꺼라 기대하고 있다.
       </p>
       <div class="img-container">
-        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+        <div
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
+        >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="test-coverage"
             src="/posts/storybook7/test-coverage.webp"
           />
@@ -377,9 +383,11 @@
         쉽게 찾을수 있게 되었다.
       </p>
       <div class="img-container">
-        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+        <div
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
+        >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="test"
             src="/posts/storybook7/test.webp"
           />
@@ -434,9 +442,11 @@
         스토리북을 지속적으로 사용할 계획이라면 업데이트 하는것이 좋아보인다.
       </p>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-        <li>빨라진 빌드 시간</li>
-        <li>개발자 친화적으로 변화한 CSF, MDX</li>
-        <li>테스트 그룹화 지원으로 그룹 단위 테스트가 가능해졌다.</li>
+        <li class="my-1.25">빨라진 빌드 시간</li>
+        <li class="my-1.25">개발자 친화적으로 변화한 CSF, MDX</li>
+        <li class="my-1.25">
+          테스트 그룹화 지원으로 그룹 단위 테스트가 가능해졌다.
+        </li>
       </ol>
       <h2
         id="참고"
@@ -449,7 +459,7 @@
         >참고
       </h2>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           <a
             href="https://storybook.js.org/blog/storybook-7-0/"
             class="underline-highlight-fade"
@@ -458,7 +468,7 @@
             >https://storybook.js.org/blog/storybook-7-0/</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="https://storybook.js.org/blog/storybook-7-docs/"
             class="underline-highlight-fade"

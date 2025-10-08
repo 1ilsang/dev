@@ -78,10 +78,10 @@
     <div class="markdown">
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full h-[600px] object-contain bg-transparent mt-10"
+          class="flex justify-center mt-3 mb-3 w-full flex-col h-[600px] object-contain bg-transparent mt-10 min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="cover"
             src="/posts/object-type/cover.webp"
           />
@@ -93,8 +93,8 @@
       </p>
       <p class="mt-4 mb-4">따라서 이번 글에서는</p>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-        <li>문자열 리터럴 타입을 확장하는 방법</li>
-        <li>
+        <li class="my-1.25">문자열 리터럴 타입을 확장하는 방법</li>
+        <li class="my-1.25">
           <code>Object</code>, <code>object</code>, <code>{}</code> 타입의
           차이점
         </li>
@@ -159,15 +159,15 @@
           tabindex="0"
           data-language="ts"
           data-theme="material-theme-palenight"
-        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> StringHint</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">foo</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">bar</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#FFCB6B"> string</span><span style="color:#676E95;font-style:italic"> // foo, bar 힌트가 보이지 않음.</span></span>
-<span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> StringHint</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">foo</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">bar</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#BABED8"> (</span><span style="color:#FFCB6B">string</span><span style="color:#89DDFF"> &amp;</span><span style="color:#89DDFF"> {}</span><span style="color:#BABED8">) </span><span style="color:#676E95;font-style:italic">// foo, bar 힌트가 보이면서 문자 입력 가능.</span></span></code></pre>
+        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> StringHint</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">foo</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">bar</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#FFCB6B"> string</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // foo, bar 힌트가 보이지 않음.</span></span>
+<span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> StringHint</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">foo</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">bar</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#BABED8"> (</span><span style="color:#FFCB6B">string</span><span style="color:#89DDFF"> &amp;</span><span style="color:#89DDFF"> {}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // foo, bar 힌트가 보이면서 문자 입력 가능.</span></span></code></pre>
       </figure>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[40%]"
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[40%] min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="type hint"
             src="/posts/object-type/typehint.webp"
           />
@@ -197,11 +197,13 @@
         타입의 서브셋인 문자열 리터럴이 잡아먹힌 상황이다.
       </p>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           <code>"Hello World"</code>는 <code>string</code> 타입이지만
           <code>string</code>은 <code>"Hello World"</code>가 아니다.
         </li>
-        <li>따라서 더 넓은 범위인 <code>string</code> 타입으로 추론된다.</li>
+        <li class="my-1.25">
+          따라서 더 넓은 범위인 <code>string</code> 타입으로 추론된다.
+        </li>
       </ul>
       <p class="mt-4 mb-4">
         그렇다면 두 번째의 <code>string &amp; {}</code>는 무엇일까?
@@ -580,7 +582,7 @@
           tabindex="0"
           data-language="ts"
           data-theme="material-theme-palenight"
-        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">let</span><span style="color:#BABED8"> str </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> "</span><span style="color:#C3E88D">hello</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">;</span></span>
+        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">let</span><span style="color:#BABED8"> str </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">hello</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">// 원시 타입은 "값"이므로 메서드를 호출할 수 없다. 그럼에도 아래의 코드가 동작한다.</span></span>
 <span data-line=""><span style="color:#BABED8">console</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">log</span><span style="color:#BABED8">(str</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">toUpperCase</span><span style="color:#BABED8">())</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // "HELLO"</span></span>
 <span data-line=""><span style="color:#676E95;font-style:italic">// 실제 런타임 상황에선 아래와 같이 래퍼 객체의 도움을 받는다.</span></span>
@@ -722,10 +724,10 @@
       </figure>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="hasOwnProperty"
             src="/posts/object-type/obj-hasown.webp"
           />
@@ -784,15 +786,15 @@
         </tbody>
       </table>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           <code>Object</code>: 자바스크립트의 <code>Object</code> 생성자 함수를
           통해 생성된 객체를 나타내는 타입. 원시 타입을 포함한 모든 객체 타입을
           나타낸다.
         </li>
-        <li>
+        <li class="my-1.25">
           <code>object</code>: 원시 타입을 제외한 모든 객체 타입을 나타낸다.
         </li>
-        <li>
+        <li class="my-1.25">
           <code>{}</code>: 0개 이상의 속성(properties)을 가진 모든
           <a
             href="https://developer.mozilla.org/en-US/docs/Glossary/Nullish"
@@ -822,45 +824,45 @@
         이제 우리는 위의 타입이 어떤 의미를 가지는지 이해할 수 있다.
       </p>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           <code>A</code>
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
-            <li>
+            <li class="my-1.25">
               문자열 리터럴 타입을 확장하면서 문자열을 입력할 수 있게 한다.
             </li>
-            <li>
+            <li class="my-1.25">
               단, <code>Object</code> 타입을 가져오므로
               <code>hasOwnProperty</code> 메서드와 같은 객체 기본 메서드를
               포함한다.
             </li>
           </ul>
         </li>
-        <li>
+        <li class="my-1.25">
           <code>AA</code>
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
-            <li>
+            <li class="my-1.25">
               위와 동일하지만 <code>Object</code> 타입이 아닌
               <code>{}</code> 타입을 확장한다.
             </li>
-            <li>
+            <li class="my-1.25">
               이는 <code>String</code> 래퍼 객체까지만의 확장을 의미한다. 즉,
               <code>hasOwnProperty</code> 메서드를 포함하지 않는다.
             </li>
-            <li>
+            <li class="my-1.25">
               따라서 문자열 리터럴 타입을 확장하면서 문자열을 입력할 때 가장
               적절한 타입이다.
             </li>
           </ul>
         </li>
-        <li>
+        <li class="my-1.25">
           <code>AAA</code>
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
-            <li>문자열 확장이 불가능하다.</li>
-            <li>
+            <li class="my-1.25">문자열 확장이 불가능하다.</li>
+            <li class="my-1.25">
               <code>object</code>는 객체 타입만을 의미하므로 원시 타입인
               <code>string</code>과 교집합이 없다.
             </li>
-            <li>이는 <code>never</code> 타입이 된다.</li>
+            <li class="my-1.25">이는 <code>never</code> 타입이 된다.</li>
           </ul>
         </li>
       </ul>
@@ -911,7 +913,7 @@
         >참고
       </h2>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           <a
             href="https://stackoverflow.com/questions/18961203/any-vs-object"
             class="underline-highlight-fade"
@@ -920,7 +922,7 @@
             >https://stackoverflow.com/questions/18961203/any-vs-object</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="https://stackoverflow.com/questions/49464634/difference-between-object-and-object-in-typescript"
             class="underline-highlight-fade"
@@ -929,7 +931,7 @@
             >https://stackoverflow.com/questions/49464634/difference-between-object-and-object-in-typescript</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="/posts/implicit-coercion"
             class="underline-highlight-fade"
@@ -938,7 +940,7 @@
             >알랑말랑 암묵적 형변환 말랑말랑 이해하기</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="https://www.reddit.com/r/typescript/comments/1e61bla/demystifying_intersection_and_union_types_in/"
             class="underline-highlight-fade"
@@ -947,7 +949,7 @@
             >https://www.reddit.com/r/typescript/comments/1e61bla/demystifying_intersection_and_union_types_in/</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="https://ivov.dev/notes/typescript-and-set-theory"
             class="underline-highlight-fade"
@@ -956,7 +958,7 @@
             >https://ivov.dev/notes/typescript-and-set-theory</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="https://blog.hwahae.co.kr/all/tech/9954"
             class="underline-highlight-fade"

@@ -81,10 +81,10 @@
     <div class="markdown">
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full h-[600px] object-contain bg-transparent mt-10"
+          class="flex justify-center mt-3 mb-3 w-full flex-col h-[600px] object-contain bg-transparent mt-10 min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="problem"
             src="/posts/goorm-195692/problem.webp"
           />
@@ -154,18 +154,20 @@
         >정리
       </h2>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-        <li>
+        <li class="my-1.25">
           유저의 위치를 받아 점수를 반환하는 함수를 만든다(내부 변수 사용으로
           초기화 용이).
         </li>
-        <li>
+        <li class="my-1.25">
           이동 거리만큼 이동한다.<!-- -->
           <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-            <li>보드 이탈시 좌표를 반대쪽 첫 칸으로 재설정해 준다.</li>
-            <li>이동할 때마다 메모를 한다.</li>
+            <li class="my-1.25">
+              보드 이탈시 좌표를 반대쪽 첫 칸으로 재설정해 준다.
+            </li>
+            <li class="my-1.25">이동할 때마다 메모를 한다.</li>
           </ol>
         </li>
-        <li>점수 값을 비교 출력한다.</li>
+        <li class="my-1.25">점수 값을 비교 출력한다.</li>
       </ol>
       <h2
         id="최종-코드"

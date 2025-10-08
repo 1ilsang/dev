@@ -81,10 +81,10 @@
     <div class="markdown">
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full h-[600px] object-contain bg-transparent mt-10"
+          class="flex justify-center mt-3 mb-3 w-full flex-col h-[600px] object-contain bg-transparent mt-10 min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="cover"
             src="/posts/renovate/cover.webp"
           />
@@ -111,11 +111,11 @@
         >Index
       </h2>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>INTRO</li>
-        <li>Renovate란?</li>
-        <li>Renovate의 장점</li>
-        <li>적용 방법</li>
-        <li>마무리</li>
+        <li class="my-1.25">INTRO</li>
+        <li class="my-1.25">Renovate란?</li>
+        <li class="my-1.25">Renovate의 장점</li>
+        <li class="my-1.25">적용 방법</li>
+        <li class="my-1.25">마무리</li>
       </ul>
       <h2
         id="intro"
@@ -128,9 +128,11 @@
         >INTRO
       </h2>
       <div class="img-container">
-        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+        <div
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
+        >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="repo-alert"
             src="/posts/renovate/repo-alert.webp"
           />
@@ -152,10 +154,10 @@
       </p>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="dependency-graph"
             src="/posts/renovate/dependency-graph.webp"
           />
@@ -211,9 +213,11 @@
         >Renovate란?
       </h2>
       <div class="img-container">
-        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+        <div
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
+        >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="renovate-logo"
             src="/posts/renovate/renovate-logo.webp"
           />
@@ -243,7 +247,7 @@
         >Renovate의 장점
       </h2>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           <a
             href="https://github.com/renovatebot/renovate/blob/main/license"
             class="underline-highlight-fade"
@@ -260,7 +264,7 @@
             >오픈소스</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="https://github.com/apps/renovate"
             class="underline-highlight-fade"
@@ -270,22 +274,22 @@
           >
           및 유지보수가 필요하지 않다.<!-- -->
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
-            <li>
+            <li class="my-1.25">
               리포지터리의 디펜던시에 renovate가 추가되지 않는다는 큰 장점이
               있다(레포와 완전히 별개로 동작).
             </li>
           </ul>
         </li>
-        <li>풍부한 json 봇 동작 설정.</li>
-        <li>PR 자동 생성 + 릴리즈 노트.</li>
-        <li>monorepo 지원.</li>
+        <li class="my-1.25">풍부한 json 봇 동작 설정.</li>
+        <li class="my-1.25">PR 자동 생성 + 릴리즈 노트.</li>
+        <li class="my-1.25">monorepo 지원.</li>
       </ul>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="pr-example"
             src="/posts/renovate/pr-example.webp"
           />
@@ -305,29 +309,37 @@
         PR을 확인해보면 아래와 같은 특징을 찾아볼 수 있다.
       </p>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-        <li>
+        <li class="my-1.25">
           캐럿 -&gt; PIN 버전으로 변경되었다.<!-- -->
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
-            <li>버전을 특정하고 이후의 버전은 새로운 PR로 생성된다.</li>
+            <li class="my-1.25">
+              버전을 특정하고 이후의 버전은 새로운 PR로 생성된다.
+            </li>
           </ul>
         </li>
-        <li>
+        <li class="my-1.25">
           릴리즈 노트를 제공한다.<!-- -->
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
-            <li>
+            <li class="my-1.25">
               현재 버전과 타겟 버전 사이의 추가 내역을 제공해주기 때문에 로그를
               명시적으로 확인할 수 있다.
             </li>
           </ul>
         </li>
-        <li>
+        <li class="my-1.25">
           Compare Source를 제공합니다.<!-- -->
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
-            <li>라이브러리 코드의 어디가 바뀌었는지 정확히 알 수 있다.</li>
-            <li>덤으로 메인테이너의 코드 리뷰나 discussion도 눈팅할수 있다.</li>
+            <li class="my-1.25">
+              라이브러리 코드의 어디가 바뀌었는지 정확히 알 수 있다.
+            </li>
+            <li class="my-1.25">
+              덤으로 메인테이너의 코드 리뷰나 discussion도 눈팅할수 있다.
+            </li>
           </ul>
         </li>
-        <li>PR이므로 DroneCI 및 actions와 조합해 2중 검증을 할 수 있다.</li>
+        <li class="my-1.25">
+          PR이므로 DroneCI 및 actions와 조합해 2중 검증을 할 수 있다.
+        </li>
       </ol>
       <p class="mt-4 mb-4">
         그 외에도 main 브랜치에 다른 브랜치가 merge되어 rebase가 필요할 경우
@@ -375,7 +387,7 @@
         있다.
       </p>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           <a
             href="https://docs.renovatebot.com/configuration-options/"
             class="underline-highlight-fade"
@@ -399,7 +411,7 @@
         적용 방법은 상당히 간단하다. 봇을 설치해 주면 사실상 끝이다.
       </p>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-        <li>Renovate app을 설치한다.</li>
+        <li class="my-1.25">Renovate app을 설치한다.</li>
       </ol>
       <p class="mt-4 mb-4">
         <a
@@ -413,10 +425,10 @@
       </p>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="repo-bot"
             src="/posts/renovate/repo-bot.webp"
           />
@@ -426,7 +438,7 @@
         그후 설치 페이지로 진입해서 봇을 추가할 리포지터리를 선택한다.
       </p>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-        <li>Renovate PR을 merge 한다.</li>
+        <li class="my-1.25">Renovate PR을 merge 한다.</li>
       </ol>
       <p class="mt-4 mb-4">
         앱을 레포에 등록하면
@@ -439,7 +451,7 @@
         >된다. 해당 PR을 머지한다.
       </p>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-        <li>PR 확인 및 renovate.json 설정</li>
+        <li class="my-1.25">PR 확인 및 renovate.json 설정</li>
       </ol>
       <p class="mt-4 mb-4">
         이제 앞에서 본것과 같이 업데이트가 필요한 라이브러리의 PR이 자동으로
@@ -457,9 +469,11 @@
         >마무리
       </h2>
       <div class="img-container">
-        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+        <div
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
+        >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="finish"
             src="/posts/renovate/finish.webp"
           />

@@ -1,22 +1,14 @@
 import type { MDXComponents } from 'mdx/types';
-import { Callout } from '~/shared/components/Callout/Container';
 import { HeadingFactory } from '~/shared/components/mdx/Headings';
 import {
   ImageTag,
   type ImageTagProps,
 } from '~/shared/components/mdx/img/ImageTag';
 import { BasicTable } from '~/shared/components/mdx/table/BasicTable';
-import { Typography } from '~/shared/components/Typography/Container';
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   const parser = {
     ...components,
-    Typography: (props) => {
-      return <Typography {...props}>{props.children}</Typography>;
-    },
-    Callout: (props) => {
-      return <Callout {...props}>{parser.p(props)}</Callout>;
-    },
     img: (props: ImageTagProps) => <ImageTag {...props} />,
     blockquote: (props) => {
       // > ... 참조

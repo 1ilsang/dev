@@ -81,10 +81,10 @@
     <div class="markdown">
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full h-[600px] object-contain bg-transparent mt-10"
+          class="flex justify-center mt-3 mb-3 w-full flex-col h-[600px] object-contain bg-transparent mt-10 min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="cover"
             src="/posts/typescript5/cover.webp"
           />
@@ -103,7 +103,7 @@
       </p>
       <p class="mt-4 mb-4">목차는 아래와 같이 구성되어 있다.</p>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           <a
             href="#decorators"
             class="underline-highlight-fade"
@@ -112,7 +112,7 @@
             >Decorators</a
           >
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
-            <li>
+            <li class="my-1.25">
               <a
                 href="#%EC%8B%A4%ED%97%98%EC%A0%81-%EB%A0%88%EA%B1%B0%EC%8B%9C-%EB%8D%B0%EC%BD%94%EB%A0%88%EC%9D%B4%ED%84%B0%EC%99%80%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90"
                 class="underline-highlight-fade"
@@ -123,7 +123,7 @@
             </li>
           </ul>
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#const-type-parameters"
             class="underline-highlight-fade"
@@ -132,7 +132,7 @@
             >const Type Parameters</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#supporting-multiple-configuration-files-in-extends"
             class="underline-highlight-fade"
@@ -141,7 +141,7 @@
             >Supporting Multiple Configuration Files in extends</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#all-enums-are-union-enums"
             class="underline-highlight-fade"
@@ -150,7 +150,7 @@
             >All enums Are Union enums</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#--moduleresolution-bundler"
             class="underline-highlight-fade"
@@ -159,7 +159,7 @@
             >--moduleResolution bundler</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#support-for-export-type-"
             class="underline-highlight-fade"
@@ -168,7 +168,7 @@
             >Support for export type *</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#overload-support-in-jsdoc"
             class="underline-highlight-fade"
@@ -177,7 +177,7 @@
             >@overload Support in JSDoc</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#speed-memory-and-package-size-optimizations"
             class="underline-highlight-fade"
@@ -186,7 +186,7 @@
             >Speed, Memory, and Package Size Optimizations</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#breaking-changes-and-deprecations"
             class="underline-highlight-fade"
@@ -195,7 +195,7 @@
             >Breaking Changes and Deprecations</a
           >
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
-            <li>
+            <li class="my-1.25">
               <a
                 href="#runtime-requirements"
                 class="underline-highlight-fade"
@@ -204,7 +204,7 @@
                 >Runtime Requirements</a
               >
             </li>
-            <li>
+            <li class="my-1.25">
               <a
                 href="#libdts-changes"
                 class="underline-highlight-fade"
@@ -213,7 +213,7 @@
                 >lib.d.ts Changes</a
               >
             </li>
-            <li>
+            <li class="my-1.25">
               <a
                 href="#api-breaking-changes"
                 class="underline-highlight-fade"
@@ -222,7 +222,7 @@
                 >API Breaking Changes</a
               >
             </li>
-            <li>
+            <li class="my-1.25">
               <a
                 href="#forbidden-implicit-coercions-in-relational-operators"
                 class="underline-highlight-fade"
@@ -231,7 +231,7 @@
                 >Forbidden Implicit Coercions in Relational Operators</a
               >
             </li>
-            <li>
+            <li class="my-1.25">
               <a
                 href="#enum-overhaul"
                 class="underline-highlight-fade"
@@ -242,7 +242,7 @@
             </li>
           </ul>
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#%EB%A7%88%EB%AC%B4%EB%A6%AC"
             class="underline-highlight-fade"
@@ -251,7 +251,7 @@
             >마무리</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#%EC%B0%B8%EA%B3%A0"
             class="underline-highlight-fade"
@@ -838,10 +838,10 @@
       </h2>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="size"
             src="/posts/typescript5/size.webp"
           />
@@ -849,10 +849,10 @@
       </div>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="compare v5 to v4.9"
             src="/posts/typescript5/compare-v5-to-v4.webp"
           />
@@ -860,10 +860,10 @@
       </div>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="typescript npm package size"
             src="/posts/typescript5/typescript-npm-package-size.webp"
           />
@@ -1043,7 +1043,7 @@
         >참고
       </h2>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           <a
             href="https://devblogs.microsoft.com/typescript/announcing-typescript-5-0"
             class="underline-highlight-fade"
@@ -1052,7 +1052,7 @@
             >https://devblogs.microsoft.com/typescript/announcing-typescript-5-0</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html"
             class="underline-highlight-fade"
@@ -1061,7 +1061,7 @@
             >https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="https://ko.javascript.info/call-apply-decorators#ref-634"
             class="underline-highlight-fade"
@@ -1070,7 +1070,7 @@
             >https://ko.javascript.info/call-apply-decorators#ref-634</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="https://2ality.com/2022/10/javascript-decorators.html"
             class="underline-highlight-fade"

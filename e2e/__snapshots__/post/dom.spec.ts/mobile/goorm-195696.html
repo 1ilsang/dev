@@ -81,10 +81,10 @@
     <div class="markdown">
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full h-[600px] object-contain bg-transparent mt-10"
+          class="flex justify-center mt-3 mb-3 w-full flex-col h-[600px] object-contain bg-transparent mt-10 min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="problem"
             src="/posts/goorm-195696/problem.webp"
           />
@@ -180,15 +180,15 @@
         따라서 비교 함수 콜백을 통해 정렬의 우선순위를 먼저 지정해야 한다.
       </p>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           콜백 함수의 리턴값이 0보다 작은 경우(음수) a를 b보다 낮은 인덱스로
           정렬한다(a가 먼저 오므로 오름차순이 됨).
         </li>
-        <li>
+        <li class="my-1.25">
           콜백 함수의 리턴값이 0인 경우 a와 b를 서로 변경하지 않고 다른 요소에
           대해 정렬한다(현재 두 값으로는 비교 X).
         </li>
-        <li>
+        <li class="my-1.25">
           콜백 함수의 리턴값이 0보다 큰 경우(양수) a를 b보다 높은 인덱스로
           정렬한다(b가 먼저 오므로 내림차순이 됨).
         </li>
@@ -208,10 +208,10 @@
         >정리
       </h2>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-        <li>양방향 그래프를 그린다.</li>
-        <li>메모 배열을 활용해 방문 시 체크해 준다.</li>
-        <li>마지막 노드와 메모 배열의 길이를 출력한다.</li>
-        <li>
+        <li class="my-1.25">양방향 그래프를 그린다.</li>
+        <li class="my-1.25">메모 배열을 활용해 방문 시 체크해 준다.</li>
+        <li class="my-1.25">마지막 노드와 메모 배열의 길이를 출력한다.</li>
+        <li class="my-1.25">
           <code>sort</code> 함수는 문자(<a
             href="https://wikipedia.org/wiki/ASCII"
             class="underline-highlight-fade"

@@ -78,10 +78,10 @@
     <div class="markdown">
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full h-[600px] object-contain bg-transparent mt-10"
+          class="flex justify-center mt-3 mb-3 w-full flex-col h-[600px] object-contain bg-transparent mt-10 min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="cover"
             src="/posts/typescript-subtyping/cover-large.webp"
           />
@@ -98,7 +98,7 @@
         >Index
       </h2>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           <a
             href="#tldr"
             class="underline-highlight-fade"
@@ -107,7 +107,7 @@
             >TL;DR!</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#%EB%AC%B8%EC%A0%9C"
             class="underline-highlight-fade"
@@ -116,7 +116,7 @@
             >문제</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#%EA%B5%AC%EC%A1%B0%EC%A0%81-%EC%84%9C%EB%B8%8C-%ED%83%80%EC%9D%B4%ED%95%91%EC%9D%B4%EB%9E%80"
             class="underline-highlight-fade"
@@ -125,7 +125,7 @@
             >구조적 서브 타이핑이란</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#%ED%95%B4%EA%B2%B0"
             class="underline-highlight-fade"
@@ -134,7 +134,7 @@
             >해결</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#%EB%A7%88%EB%AC%B4%EB%A6%AC"
             class="underline-highlight-fade"
@@ -143,7 +143,7 @@
             >마무리</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#one-more-thing"
             class="underline-highlight-fade"
@@ -152,7 +152,7 @@
             >One more thing</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#%EC%B0%B8%EA%B3%A0"
             class="underline-highlight-fade"
@@ -291,8 +291,8 @@
       </p>
       <p class="mt-4 mb-4">여기서 의문이 생긴다.</p>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>기존의 key 타입을 왜 추론하지 못할까?</li>
-        <li>제너릭 타입은 왜 제공하지 않았을까?</li>
+        <li class="my-1.25">기존의 key 타입을 왜 추론하지 못할까?</li>
+        <li class="my-1.25">제너릭 타입은 왜 제공하지 않았을까?</li>
       </ul>
       <p class="mt-4 mb-4">
         오늘은 타입스크립트를 사용하면서 만나는 미묘한 당혹스러움에 대해 파헤쳐
@@ -330,10 +330,10 @@
       </p>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="duck typing"
             src="/posts/typescript-subtyping/duck-typing.webp"
           />
@@ -489,7 +489,7 @@
         이슈 코멘트에서 확인할 수 있다.
       </p>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           <a
             href="/posts/typescript-subtyping#one-more-thing"
             class="underline-highlight-fade"
@@ -635,10 +635,10 @@
       </p>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[40%]"
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[40%] min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="what"
             src="/posts/typescript-subtyping/what.webp"
           />
@@ -773,7 +773,7 @@
         >참고
       </h2>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           <a
             href="https://www.typescriptlang.org/ko/docs/handbook/type-compatibility.html"
             class="underline-highlight-fade"
@@ -782,7 +782,7 @@
             >Type Compatibility</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="https://medium.com/@yujso66/%EB%B2%88%EC%97%AD-%EC%99%9C-%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EB%8A%94-object-keys%EC%9D%98-%ED%83%80%EC%9E%85%EC%9D%84-%EC%A0%81%EC%A0%88%ED%95%98%EA%B2%8C-%EC%B6%94%EB%A1%A0%ED%95%98%EC%A7%80-%EB%AA%BB%ED%95%A0%EA%B9%8C%EC%9A%94-477253b1aafa"
             class="underline-highlight-fade"
@@ -792,7 +792,7 @@
             못할까요?</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="https://www.mattstobbs.com/object-keys-typescript/"
             class="underline-highlight-fade"
@@ -802,7 +802,7 @@
             To Fix It)</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="https://www.yongdam.sh/blog/effective-typescript-structural-typing"
             class="underline-highlight-fade"
@@ -811,7 +811,7 @@
             >타입스크립트의 구조적 타이핑</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="https://github.com/microsoft/TypeScript/pull/12253#issuecomment-263132208"
             class="underline-highlight-fade"

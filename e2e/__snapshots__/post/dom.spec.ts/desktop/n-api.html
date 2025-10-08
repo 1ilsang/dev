@@ -83,10 +83,10 @@
     <div class="markdown">
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full h-[600px] object-contain bg-transparent mt-10"
+          class="flex justify-center mt-3 mb-3 w-full flex-col h-[600px] object-contain bg-transparent mt-10 min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="cover"
             src="/posts/n-api/cover.webp"
           />
@@ -113,9 +113,9 @@
       </p>
       <p class="mt-4 mb-4">이 글은 다음과 같은 내용을 다룬다.</p>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-        <li>Node-API란?</li>
-        <li>Node-API의 장점</li>
-        <li>Rust와 N-API를 사용한 Node.js Addon 개발</li>
+        <li class="my-1.25">Node-API란?</li>
+        <li class="my-1.25">Node-API의 장점</li>
+        <li class="my-1.25">Rust와 N-API를 사용한 Node.js Addon 개발</li>
       </ol>
       <p class="mt-4 mb-4">
         <a
@@ -137,9 +137,11 @@
         >Node-API란?
       </h2>
       <div class="img-container">
-        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+        <div
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
+        >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="node-api flow"
             src="/posts/n-api/flow.webp"
           />
@@ -194,9 +196,11 @@
         >Node-API의 장점
       </h2>
       <div class="img-container">
-        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+        <div
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
+        >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="addon chart"
             src="/posts/n-api/addon.webp"
           />
@@ -316,10 +320,10 @@
       </p>
       <p class="mt-4 mb-4">개발 과정은 다음과 같다.</p>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-        <li>Node.js Addon 개발 환경 설정</li>
-        <li>Rust 파일을 목적 파일로 컴파일</li>
-        <li>목적 파일을 Node.js Addon에 연결</li>
-        <li>JavaScript 파일에서 사용</li>
+        <li class="my-1.25">Node.js Addon 개발 환경 설정</li>
+        <li class="my-1.25">Rust 파일을 목적 파일로 컴파일</li>
+        <li class="my-1.25">목적 파일을 Node.js Addon에 연결</li>
+        <li class="my-1.25">JavaScript 파일에서 사용</li>
       </ol>
       <h3
         id="1-node-gyp-설치"
@@ -403,10 +407,10 @@
       </p>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="so file"
             src="/posts/n-api/so-file.webp"
           />
@@ -439,7 +443,7 @@
 <span data-line=""><span style="color:#89DDFF">      "</span><span style="color:#FFCB6B">sources</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> [</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">mycalc_addon.c</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">],</span></span>
 <span data-line=""><span style="color:#89DDFF">      "</span><span style="color:#FFCB6B">libraries</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> [</span></span>
 <span data-line=""><span style="color:#89DDFF">        "</span><span style="color:#C3E88D">/PATH/libmycalc.so</span><span style="color:#89DDFF">"</span><span style="color:#676E95;font-style:italic"> // 동적 로딩을 사용하기 위해 추가(Rust 파일을 컴파일한 파일)</span></span>
-<span data-line=""><span style="color:#89DDFF">      ],</span></span>
+<span data-line=""><span style="color:#89DDFF">      ]</span></span>
 <span data-line=""><span style="color:#89DDFF">    }</span></span>
 <span data-line=""><span style="color:#89DDFF">  ]</span></span>
 <span data-line=""><span style="color:#89DDFF">}</span></span></code></pre>
@@ -565,10 +569,10 @@
       <p class="mt-4 mb-4"><code>node-gyp</code>를 사용해 Addon을 빌드한다.</p>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[40%]"
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[40%] min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="build addon"
             src="/posts/n-api/build-addon.webp"
           />
@@ -605,7 +609,7 @@
           data-language="js"
           data-theme="material-theme-palenight"
         ><code data-language="js" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// index.js</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> addon </span><span style="color:#89DDFF">=</span><span style="color:#82AAFF"> require</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">./build/Release/mycalc_addon</span><span style="color:#89DDFF">"</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> addon </span><span style="color:#89DDFF">=</span><span style="color:#82AAFF"> require</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">./build/Release/mycalc_addon</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
 <span data-line=""><span style="color:#BABED8">console</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">log</span><span style="color:#BABED8">(addon</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">mul</span><span style="color:#BABED8">(</span><span style="color:#F78C6C">3</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 5</span><span style="color:#BABED8">))</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // 15 출력</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
@@ -631,12 +635,12 @@
       </p>
       <p class="mt-4 mb-4">글을 요약하면 다음과 같다.</p>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-        <li>N-API는 Node-API 를 의미한다.</li>
-        <li>
+        <li class="my-1.25">N-API는 Node-API 를 의미한다.</li>
+        <li class="my-1.25">
           Node-API를 활용해 JS 레이어를 거치지 않는, 고속 라이브러리를 만들 수
           있다.
         </li>
-        <li>
+        <li class="my-1.25">
           바이너리 코드로 통합되므로 FFI(<a
             href="https://ko.wikipedia.org/wiki/%EC%99%B8%EB%B6%80_%ED%95%A8%EC%88%98_%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4"
             class="underline-highlight-fade"
@@ -663,7 +667,7 @@
         >참고
       </h2>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           <a
             href="https://nodejs.org/docs/latest/api/addons.html"
             class="underline-highlight-fade"
@@ -672,7 +676,7 @@
             >https://nodejs.org/docs/latest/api/addons.html</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="https://medium.com/ai-innovation/a-guide-for-javascript-developers-to-build-c-add-ons-with-node-addon-api-28c84a0c0cb1"
             class="underline-highlight-fade"
@@ -681,7 +685,7 @@
             >https://medium.com/ai-innovation/a-guide-for-javascript-developers-to-build-c-add-ons-with-node-addon-api-28c84a0c0cb1</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="https://nodeaddons.com/how-not-to-access-node-js-from-c-worker-threads"
             class="underline-highlight-fade"

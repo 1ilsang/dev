@@ -81,10 +81,10 @@
     <div class="markdown">
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full h-[600px] object-contain bg-transparent mt-10"
+          class="flex justify-center mt-3 mb-3 w-full flex-col h-[600px] object-contain bg-transparent mt-10 min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="cover large"
             src="/posts/visual-regression-test/cover-large.webp"
           />
@@ -120,7 +120,7 @@
         >Index
       </h2>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           <a
             href="#tldr"
             class="underline-highlight-fade"
@@ -129,7 +129,7 @@
             >TL;DR!</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#%EB%8F%84%EC%9E%85-%EB%B0%B0%EA%B2%BD"
             class="underline-highlight-fade"
@@ -138,7 +138,7 @@
             >도입 배경</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#%EC%8B%9C%EA%B0%81%EC%A0%81-%ED%9A%8C%EA%B7%80-%ED%85%8C%EC%8A%A4%ED%8A%B8%EB%9E%80"
             class="underline-highlight-fade"
@@ -147,7 +147,7 @@
             >시각적 회귀 테스트란</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#playwright"
             class="underline-highlight-fade"
@@ -156,7 +156,7 @@
             >Playwright</a
           >
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
-            <li>
+            <li class="my-1.25">
               <a
                 href="#dom-snapshot"
                 class="underline-highlight-fade"
@@ -165,7 +165,7 @@
                 >DOM Snapshot</a
               >
             </li>
-            <li>
+            <li class="my-1.25">
               <a
                 href="#screenshot"
                 class="underline-highlight-fade"
@@ -176,7 +176,7 @@
             </li>
           </ul>
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#github-actions"
             class="underline-highlight-fade"
@@ -185,7 +185,7 @@
             >Github Actions</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#%EC%84%B1%EB%8A%A5-%EA%B0%9C%EC%84%A0"
             class="underline-highlight-fade"
@@ -194,7 +194,7 @@
             >성능 개선</a
           >
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
-            <li>
+            <li class="my-1.25">
               <a
                 href="#%ED%85%8C%EC%8A%A4%ED%8A%B8-%EB%B0%A9%EC%8B%9D"
                 class="underline-highlight-fade"
@@ -203,7 +203,7 @@
                 >테스트 방식</a
               >
             </li>
-            <li>
+            <li class="my-1.25">
               <a
                 href="#%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%86%8D%EB%8F%84"
                 class="underline-highlight-fade"
@@ -212,7 +212,7 @@
                 >테스트 속도</a
               >
             </li>
-            <li>
+            <li class="my-1.25">
               <a
                 href="#cicd"
                 class="underline-highlight-fade"
@@ -223,7 +223,7 @@
             </li>
           </ul>
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85"
             class="underline-highlight-fade"
@@ -232,7 +232,7 @@
             >트러블 슈팅</a
           >
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
-            <li>
+            <li class="my-1.25">
               <a
                 href="#%EB%A1%9C%EC%BB%AC-%ED%85%8C%EC%8A%A4%ED%8A%B8%EB%A5%BC-%ED%8F%AC%EA%B8%B0%ED%95%B4%EC%95%BC-%ED%95%A0%EA%B9%8C"
                 class="underline-highlight-fade"
@@ -241,7 +241,7 @@
                 >로컬 테스트를 포기해야 할까</a
               >
             </li>
-            <li>
+            <li class="my-1.25">
               <a
                 href="#timezone"
                 class="underline-highlight-fade"
@@ -250,7 +250,7 @@
                 >Timezone</a
               >
             </li>
-            <li>
+            <li class="my-1.25">
               <a
                 href="#%ED%85%8C%EC%8A%A4%ED%8A%B8-%EB%B6%84%EA%B8%B0"
                 class="underline-highlight-fade"
@@ -259,7 +259,7 @@
                 >테스트 분기</a
               >
             </li>
-            <li>
+            <li class="my-1.25">
               <a
                 href="#1px"
                 class="underline-highlight-fade"
@@ -268,7 +268,7 @@
                 >1px</a
               >
             </li>
-            <li>
+            <li class="my-1.25">
               <a
                 href="#image-load"
                 class="underline-highlight-fade"
@@ -279,7 +279,7 @@
             </li>
           </ul>
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#%EB%A7%88%EB%AC%B4%EB%A6%AC"
             class="underline-highlight-fade"
@@ -303,9 +303,11 @@
         Playwright 및 Github Actions로 시각적 회귀 테스트 및 CI/CD를 적용한다.
       </p>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-        <li>시각적 회귀 테스트로 UI 변경 사항을 배포전에 알아차린다</li>
-        <li>빠르게 실패하고 실패한 부분만 재실행하자</li>
-        <li>로컬 테스트와 CI Test의 통합은 어렵다</li>
+        <li class="my-1.25">
+          시각적 회귀 테스트로 UI 변경 사항을 배포전에 알아차린다
+        </li>
+        <li class="my-1.25">빠르게 실패하고 실패한 부분만 재실행하자</li>
+        <li class="my-1.25">로컬 테스트와 CI Test의 통합은 어렵다</li>
       </ol>
       <h2
         id="도입-배경"
@@ -319,10 +321,10 @@
       </h2>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="test pyramid"
             src="/posts/visual-regression-test/test-pyramid.webp"
           />
@@ -357,8 +359,8 @@
         방식의 테스트를 고려했다.
       </p>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-        <li>DOM Snapshot</li>
-        <li>Screen Snapshot</li>
+        <li class="my-1.25">DOM Snapshot</li>
+        <li class="my-1.25">Screen Snapshot</li>
       </ol>
       <p class="mt-4 mb-4">
         먼저 DOM 스냅샷 비교를 통해 이후 작업에서 기존 DOM 구조를 변경하는지
@@ -380,9 +382,11 @@
         >시각적 회귀 테스트란
       </h2>
       <div class="img-container">
-        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+        <div
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
+        >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="failed visual regression test"
             src="/posts/visual-regression-test/failed-visual-regression-test.webp"
           />
@@ -423,10 +427,10 @@
       </h2>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="playwright"
             src="/posts/visual-regression-test/playwright.webp"
           />
@@ -533,10 +537,10 @@
       </p>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="playwright flow"
             src="/posts/visual-regression-test/playwright-flow.webp"
           />
@@ -645,11 +649,13 @@
         >시각적 회귀 테스트는 다양한 이유로 실패할 수 있다
       </h3>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-        <li>
+        <li class="my-1.25">
           테스트가 실행되는 OS에 따라 화면이 달라지기 때문에 실패한다(이모지 등)
         </li>
-        <li>동일한 OS라도 버전/브라우저에 따라 화면이 달라질 수 있다</li>
-        <li>
+        <li class="my-1.25">
+          동일한 OS라도 버전/브라우저에 따라 화면이 달라질 수 있다
+        </li>
+        <li class="my-1.25">
           실행된 머신의
           <a
             href="https://namu.wiki/w/%EC%8B%9C%EA%B0%84%EB%8C%80/%EB%AA%A9%EB%A1%9D?from=%EC%8B%9C%EA%B0%84%EB%8C%80%2F%EA%B0%81%EA%B5%AD%EC%9D%98%20%EC%8B%9C%EA%B0%84%EB%8C%80"
@@ -659,12 +665,16 @@
             >타임존</a
           >에 따라 Date 값이 달라져 실패할 수 있다
         </li>
-        <li>Image와 같은 Resource 로딩 시점에 따라 페이지가 달라질 수 있다</li>
-        <li>
+        <li class="my-1.25">
+          Image와 같은 Resource 로딩 시점에 따라 페이지가 달라질 수 있다
+        </li>
+        <li class="my-1.25">
           Animation 혹은 setTimeout과 같은 시간에 종속된 동작은 일관성을 보장할
           수 없다
         </li>
-        <li>눈에 큰 차이가 안 나더라도 실패할 수 있다(1px 차이로 실패 등)</li>
+        <li class="my-1.25">
+          눈에 큰 차이가 안 나더라도 실패할 수 있다(1px 차이로 실패 등)
+        </li>
       </ol>
       <p class="mt-4 mb-4">
         위의 내용들은 일반적인 E2E 테스트에서도 발생할 수 있는 실패
@@ -700,9 +710,11 @@
         >Github Actions
       </h2>
       <div class="img-container">
-        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+        <div
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
+        >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="github actions"
             src="/posts/visual-regression-test/github-actions.webp"
           />
@@ -780,9 +792,11 @@
 <span data-line=""><span style="color:#F07178">          retention-days</span><span style="color:#89DDFF">:</span><span style="color:#F78C6C"> 30</span></span></code></pre>
       </figure>
       <div class="img-container">
-        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+        <div
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
+        >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="Actions result"
             src="/posts/visual-regression-test/actions-result.webp"
           />
@@ -800,9 +814,11 @@
       </h2>
       <p class="mt-4 mb-4">위의 CI/CD는 3가지 문제가 있다.</p>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-        <li>테스트 속도가 느리고 flow를 한눈에 확인하기 어렵다.</li>
-        <li>캐싱이 전혀 되고 있지 않다.</li>
-        <li>테스트가 실패하면 다시 처음부터 실행해야 한다.</li>
+        <li class="my-1.25">
+          테스트 속도가 느리고 flow를 한눈에 확인하기 어렵다.
+        </li>
+        <li class="my-1.25">캐싱이 전혀 되고 있지 않다.</li>
+        <li class="my-1.25">테스트가 실패하면 다시 처음부터 실행해야 한다.</li>
       </ol>
       <p class="mt-4 mb-4">이것을 개선해보고자 한다.</p>
       <h3
@@ -817,10 +833,10 @@
       </h3>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="actions log"
             src="/posts/visual-regression-test/actions-log.webp"
           />
@@ -990,9 +1006,11 @@
       </h3>
       <p class="mt-4 mb-4">앞서 언급한 세 가지 문제</p>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-        <li>테스트 속도가 느리고 flow를 한눈에 확인하기 어렵다.</li>
-        <li>캐싱이 전혀 되고 있지 않다.</li>
-        <li>테스트가 실패하면 다시 처음부터 실행해야 한다.</li>
+        <li class="my-1.25">
+          테스트 속도가 느리고 flow를 한눈에 확인하기 어렵다.
+        </li>
+        <li class="my-1.25">캐싱이 전혀 되고 있지 않다.</li>
+        <li class="my-1.25">테스트가 실패하면 다시 처음부터 실행해야 한다.</li>
       </ol>
       <p class="mt-4 mb-4">
         이것은 workflow와 actions를 적절하게 나눠주고 actions/cache를 활용하면
@@ -1028,10 +1046,10 @@
       </figure>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="workflow job"
             src="/posts/visual-regression-test/workflow-job.webp"
           />
@@ -1048,9 +1066,11 @@
         >을 적절하게 사용한다면 편리하고 가독성 좋은 Flow를 만들 수 있다.
       </p>
       <div class="img-container">
-        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+        <div
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
+        >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="failed flow"
             src="/posts/visual-regression-test/failed-flow.webp"
           />
@@ -1123,10 +1143,10 @@
       </p>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[40%]"
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[40%] min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="compare time"
             src="/posts/visual-regression-test/compare-time.webp"
           />
@@ -1178,9 +1198,11 @@
         정도 맞춰줄 수 있다.
       </p>
       <div class="img-container">
-        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+        <div
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
+        >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="Macos runner version"
             src="/posts/visual-regression-test/macos-runner-version.webp"
           />
@@ -1251,8 +1273,8 @@
         달라진다.
       </p>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>크롬의 경우 기본적으로 머신의 타임존을 따른다.</li>
-        <li>Webkit은 config에 설정한 타임존을 따른다.</li>
+        <li class="my-1.25">크롬의 경우 기본적으로 머신의 타임존을 따른다.</li>
+        <li class="my-1.25">Webkit은 config에 설정한 타임존을 따른다.</li>
       </ul>
       <p class="mt-4 mb-4">
         만약 playwright에서 webkit을 사용하고 있다면 아래와 같이
@@ -1332,9 +1354,11 @@
         >1px
       </h3>
       <div class="img-container">
-        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+        <div
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
+        >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="1px bug"
             src="/posts/visual-regression-test/1px-bug.webp"
           />
@@ -1397,7 +1421,7 @@
         한다.
       </p>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           <a
             href="https://techblog.woowahan.com/17081/"
             class="underline-highlight-fade"
@@ -1406,7 +1430,7 @@
             >우아한형제들 디자인 시스템에 시각적 회귀 테스트 적용하기</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="https://tv.kakao.com/channel/3693125/cliplink/414129351"
             class="underline-highlight-fade"

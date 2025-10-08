@@ -83,10 +83,10 @@
     <div class="markdown">
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full h-[600px] object-contain bg-transparent mt-10"
+          class="flex justify-center mt-3 mb-3 w-full flex-col h-[600px] object-contain bg-transparent mt-10 min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="cover"
             src="/posts/mdn-contributing-translations/cover.webp"
           />
@@ -114,9 +114,13 @@
         >TL;DR
       </h2>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>yari, content, translated-content 저장소 차이를 이해한다.</li>
-        <li>개발 서버는 <code>content</code> 에서 실행한다.</li>
-        <li>문서 번역은 <code>translated-content</code> 에서 진행한다.</li>
+        <li class="my-1.25">
+          yari, content, translated-content 저장소 차이를 이해한다.
+        </li>
+        <li class="my-1.25">개발 서버는 <code>content</code> 에서 실행한다.</li>
+        <li class="my-1.25">
+          문서 번역은 <code>translated-content</code> 에서 진행한다.
+        </li>
       </ul>
       <h2
         id="목차"
@@ -129,7 +133,7 @@
         >목차
       </h2>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           <a
             href="#%EB%AA%A9%EC%B0%A8"
             class="underline-highlight-fade"
@@ -138,7 +142,7 @@
             >목차</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#mdn-%EB%A6%AC%ED%8F%AC%EC%A7%80%ED%84%B0%EB%A6%AC-%EA%B4%80%EA%B3%84"
             class="underline-highlight-fade"
@@ -147,7 +151,7 @@
             >MDN 리포지터리 관계</a
           >
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
-            <li>
+            <li class="my-1.25">
               <a
                 href="#yari"
                 class="underline-highlight-fade"
@@ -156,7 +160,7 @@
                 >Yari</a
               >
             </li>
-            <li>
+            <li class="my-1.25">
               <a
                 href="#content"
                 class="underline-highlight-fade"
@@ -165,7 +169,7 @@
                 >Content</a
               >
             </li>
-            <li>
+            <li class="my-1.25">
               <a
                 href="#translated-content"
                 class="underline-highlight-fade"
@@ -176,7 +180,7 @@
             </li>
           </ul>
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#%EB%A6%AC%ED%8F%AC%EC%A7%80%ED%84%B0%EB%A6%AC%EB%A5%BC-%EA%B0%80%EC%A0%B8%EC%98%A4%EB%8A%94-%EB%B0%A9%EB%B2%95"
             class="underline-highlight-fade"
@@ -185,7 +189,7 @@
             >리포지터리를 가져오는 방법</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#%EB%A1%9C%EC%BB%AC-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0"
             class="underline-highlight-fade"
@@ -194,7 +198,7 @@
             >로컬 개발 환경 설정하기</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B0"
             class="underline-highlight-fade"
@@ -203,7 +207,7 @@
             >실행하기</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#%EB%B2%88%EC%97%AD-%EA%B0%80%EC%9D%B4%EB%93%9C-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0"
             class="underline-highlight-fade"
@@ -212,7 +216,7 @@
             >번역 가이드 확인하기</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#pr-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0"
             class="underline-highlight-fade"
@@ -221,7 +225,7 @@
             >PR 생성하기</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#%EB%A7%88%EC%B9%98%EB%A9%B0"
             class="underline-highlight-fade"
@@ -243,10 +247,10 @@
       </h2>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="mdn organizations"
             src="/posts/mdn-contributing-translations/mdn-organizations.webp"
           />
@@ -405,10 +409,10 @@
       </p>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="fork translated content"
             src="/posts/mdn-contributing-translations/fork.webp"
           />
@@ -420,10 +424,10 @@
       </p>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="copy repository"
             src="/posts/mdn-contributing-translations/https-copy.webp"
           />
@@ -500,10 +504,10 @@
       </p>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[40%]"
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[40%] min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="folder hierarchy"
             src="/posts/mdn-contributing-translations/folder.webp"
           />
@@ -527,10 +531,10 @@
       </p>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[40%]"
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[40%] min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="env file"
             src="/posts/mdn-contributing-translations/env-file.webp"
           />
@@ -554,10 +558,10 @@
       </p>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="dev page"
             src="/posts/mdn-contributing-translations/dev-page.webp"
           />
@@ -588,10 +592,10 @@
       </p>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="search file"
             src="/posts/mdn-contributing-translations/search-file.webp"
           />
@@ -608,10 +612,10 @@
       </p>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="edit file"
             src="/posts/mdn-contributing-translations/edit.webp"
           />
@@ -622,9 +626,11 @@
         해보자.
       </p>
       <div class="img-container">
-        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+        <div
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
+        >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="edit result"
             src="/posts/mdn-contributing-translations/edit-result.webp"
           />
@@ -635,9 +641,11 @@
       </p>
       <p class="mt-4 mb-4">이로써 우리는 아래의 3가지를 이해하게 되었다.</p>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-        <li>content, translated-content 관계</li>
-        <li>개발 서버는 <code>content</code> 에서 실행</li>
-        <li>문서 번역은 <code>translated-content</code> 에서 진행</li>
+        <li class="my-1.25">content, translated-content 관계</li>
+        <li class="my-1.25">개발 서버는 <code>content</code> 에서 실행</li>
+        <li class="my-1.25">
+          문서 번역은 <code>translated-content</code> 에서 진행
+        </li>
       </ol>
       <h2
         id="번역-가이드-확인하기"
@@ -664,7 +672,7 @@
         링크에서 확인하면 된다.
       </p>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           <a
             href="https://github.com/mdn/translated-content/blob/main/docs/ko/README.md"
             class="underline-highlight-fade"
@@ -676,7 +684,7 @@
       </ul>
       <p class="mt-4 mb-4">특히 추천하고 싶은 문서는 아래와 같다.</p>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-        <li>
+        <li class="my-1.25">
           <a
             href="https://github.com/mdn/translated-content/blob/main/docs/ko/guides/translation-guide.md"
             class="underline-highlight-fade"
@@ -685,10 +693,10 @@
             >번역 안내서</a
           >
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
-            <li>문체, 개행 등 번역 전반적인 내용을 다룬다.</li>
+            <li class="my-1.25">문체, 개행 등 번역 전반적인 내용을 다룬다.</li>
           </ul>
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="https://github.com/mdn/translated-content/blob/main/docs/ko/guides/glossary-guide.md"
             class="underline-highlight-fade"
@@ -697,13 +705,13 @@
             >용어 안내서</a
           >
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
-            <li>
+            <li class="my-1.25">
               example을 '예제'로 번역할지 '예'로 번역할지 등 자주 사용되는
               용어의 번역 가이드다.
             </li>
           </ul>
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="https://github.com/mdn/translated-content/blob/main/docs/ko/guides/meta-data-guide.md"
             class="underline-highlight-fade"
@@ -712,7 +720,7 @@
             >Meta Data 안내서</a
           >
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
-            <li>
+            <li class="my-1.25">
               원본 문서와의 최신화 정보를 확인하기 위해 모든 번역 문서는
               MetaData를 활용하고 있다.
             </li>
@@ -745,17 +753,19 @@
       <p class="mt-4 mb-4">origin 저장소로 번역 내용을 push 한다.</p>
       <div>
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="create new pr"
             src="/posts/mdn-contributing-translations/pr.webp"
           />
         </div>
-        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+        <div
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
+        >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="set pr target"
             src="/posts/mdn-contributing-translations/pr-target.webp"
           />

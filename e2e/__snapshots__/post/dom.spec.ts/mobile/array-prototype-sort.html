@@ -78,10 +78,10 @@
     <div class="markdown">
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full h-[600px] object-contain bg-transparent mt-10"
+          class="flex justify-center mt-3 mb-3 w-full flex-col h-[600px] object-contain bg-transparent mt-10 min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="cover"
             src="/posts/array-prototype-sort/cover-large.webp"
           />
@@ -113,7 +113,7 @@
         >Index
       </h2>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           <a
             href="#tldr"
             class="underline-highlight-fade"
@@ -122,7 +122,7 @@
             >TL;DR!</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#%EC%9D%98%EB%AC%B8%EC%9D%98-%EC%8B%9C%EC%9E%91"
             class="underline-highlight-fade"
@@ -131,7 +131,7 @@
             >의문의 시작</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#arrayprototypesort-%EA%B3%B5%EC%8B%9D-%EB%AA%85%EC%84%B8"
             class="underline-highlight-fade"
@@ -140,7 +140,7 @@
             >Array.prototype.sort() 공식 명세</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%EB%B3%84-sort-%EA%B5%AC%ED%98%84%EC%B2%B4"
             class="underline-highlight-fade"
@@ -149,7 +149,7 @@
             >브라우저별 sort 구현체</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#%EB%A7%88%EB%AC%B4%EB%A6%AC"
             class="underline-highlight-fade"
@@ -158,7 +158,7 @@
             >마무리</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="#%EC%B0%B8%EA%B3%A0"
             class="underline-highlight-fade"
@@ -217,14 +217,14 @@
         </tbody>
       </table>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-        <li>
+        <li class="my-1.25">
           sort 함수는 ECMA 2019부터 stable sort가 되었지만 in-place 하지 않을 수
           있다.
         </li>
-        <li>
+        <li class="my-1.25">
           유사 배열 객체를 정렬할 때는 length를 기준으로 프로퍼티 값을 비교한다.
         </li>
-        <li>
+        <li class="my-1.25">
           브라우저별 sort 함수의 구현체가 다르지만 ECMAScript 명세를 지킨다.
         </li>
       </ol>
@@ -256,17 +256,19 @@
         >이 나에게 있는지 의문이 들었고 스스로에게 아래와 같이 질문해 보았다.
       </p>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-        <li><code>Array.prototype.sort</code>의 명세는 어떻게 되어 있는가?</li>
-        <li>
+        <li class="my-1.25">
+          <code>Array.prototype.sort</code>의 명세는 어떻게 되어 있는가?
+        </li>
+        <li class="my-1.25">
           브라우저는 <code>Array.prototype.sort</code>의 명세대로 sort를
           구현했는가?
         </li>
-        <li>모든 브라우저가 Tim sort로 구현되어 있는가?</li>
-        <li>
+        <li class="my-1.25">모든 브라우저가 Tim sort로 구현되어 있는가?</li>
+        <li class="my-1.25">
           <code>compareFn</code>의 유무에 따른 sort 함수의 동작은 무엇이
           달라지는가?
         </li>
-        <li>
+        <li class="my-1.25">
           sort 함수는
           <a
             href="https://en.wikipedia.org/wiki/In-place_algorithm"
@@ -284,14 +286,16 @@
           >
           한가?
         </li>
-        <li>유사 배열 객체 또한 sort 함수로 정렬된다. 어떻게 동작하는가?</li>
+        <li class="my-1.25">
+          유사 배열 객체 또한 sort 함수로 정렬된다. 어떻게 동작하는가?
+        </li>
       </ol>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%]"
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="sad"
             src="/posts/array-prototype-sort/sad.webp"
           />
@@ -318,9 +322,11 @@
         >의 내용을 기준으로 설명하겠다.
       </p>
       <div class="img-container">
-        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+        <div
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
+        >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="ECMA2019 stable"
             src="/posts/array-prototype-sort/ECMA2019-stable.webp"
           />
@@ -358,9 +364,11 @@
         >23.1.3.30 Array.prototype.sort (compareFn)
       </h3>
       <div class="img-container">
-        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+        <div
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
+        >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="ecma official"
             src="/posts/array-prototype-sort/ecma-official.webp"
           />
@@ -403,8 +411,10 @@
 <span data-line=""><span style="color:#FFCB6B">Array</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">prototype</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">sort</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">call</span><span style="color:#BABED8">(list</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 123</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // TypeError!</span></span></code></pre>
       </figure>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li><code>compareFn</code>은 비교 콜백 함수를 뜻한다.</li>
-        <li>
+        <li class="my-1.25">
+          <code>compareFn</code>은 비교 콜백 함수를 뜻한다.
+        </li>
+        <li class="my-1.25">
           compareFn이 <code>undefined</code>가 아니고
           <a
             href="https://tc39.es/ecma262/#sec-iscallable"
@@ -458,7 +468,7 @@
         </p>
       </blockquote>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           <a
             href="https://tc39.es/ecma262/#sec-toobject"
             class="underline-highlight-fade"
@@ -467,11 +477,11 @@
             >ToObject</a
           >를 호출하여 현재 배열(<code>this</code> 값)을 객체로 변환한다.<!-- -->
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
-            <li>
+            <li class="my-1.25">
               위 코드의 첫 번째 예시와 같이 원시 타입 문자열을 문자열 객체로
               변환한다.
             </li>
-            <li>
+            <li class="my-1.25">
               암묵적 형변환을 이해하고 싶다면
               <a
                 href="/posts/implicit-coercion"
@@ -483,11 +493,11 @@
             </li>
           </ul>
         </li>
-        <li>
+        <li class="my-1.25">
           객체로 변환해 처리하므로, 이는
           <u>sort 메서드가 배열이 아닌 객체에도 적용될 수 있음을 뜻</u>한다.
         </li>
-        <li>설정된 객체를 <code>obj</code>라 명한다.</li>
+        <li class="my-1.25">설정된 객체를 <code>obj</code>라 명한다.</li>
       </ul>
       <h4
         id="3-객체의-길이를-계산한다"
@@ -510,7 +520,7 @@
 <span data-line=""><span style="color:#BABED8">arrayLike </span><span style="color:#89DDFF">instanceof</span><span style="color:#FFCB6B"> Array</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // false</span></span></code></pre>
       </figure>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           <a
             href="https://tc39.es/ecma262/#sec-lengthofarraylike"
             class="underline-highlight-fade"
@@ -519,18 +529,18 @@
             >LengthOfArrayLike</a
           >를 호출하여 변환된 객체(obj)의 길이를 가져온다.<!-- -->
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
-            <li>
+            <li class="my-1.25">
               LengthOfArrayLike 추상 연산은 유사 배열 객체의
               <code>length</code> 프로퍼티를 반환한다.
             </li>
-            <li>
+            <li class="my-1.25">
               해당 추상 연산에서 "유사 배열 객체"는 해당 연산이 정상으로
               완료되는 객체를 뜻한다. 즉 <code>length</code> 프로퍼티(속성)가
               있어야 유사 배열 객체로 성립한다.
             </li>
           </ul>
         </li>
-        <li>가져온 길이를 <code>len</code>이라 명한다.</li>
+        <li class="my-1.25">가져온 길이를 <code>len</code>이라 명한다.</li>
       </ul>
       <h4
         id="4-정렬-비교를-위한-추상-클로저를-생성한다"
@@ -553,11 +563,11 @@
         ><code data-language="js" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#BABED8">[</span><span style="color:#F78C6C">11</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 8</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 1</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 2</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 33</span><span style="color:#89DDFF">,</span><span style="color:#F78C6C"> 3</span><span style="color:#BABED8">]</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">sort</span><span style="color:#BABED8">()</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // [1, 11, 2, 3, 33, 8]</span></span></code></pre>
       </figure>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           매개변수로 <code>x</code>, <code>y</code>가 있는 추상 클로저를
           생성한다. 이 클로저는 compareFn을 캡쳐하고 다음 단계를 호출한다.
         </li>
-        <li>
+        <li class="my-1.25">
           클로저가 실행되면
           <a
             href="https://tc39.es/ecma262/#sec-comparearrayelements"
@@ -568,8 +578,10 @@
           >를 호출하여 <code>x</code>와 <code>y</code>를 비교(compareFn)하고
           결과를 반환한다.<!-- -->
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
-            <li>결과 값은 <code>-1,0,1</code> 혹은 에러를 반환한다.</li>
-            <li>
+            <li class="my-1.25">
+              결과 값은 <code>-1,0,1</code> 혹은 에러를 반환한다.
+            </li>
+            <li class="my-1.25">
               compareFn이 제공되지 않으면 각 인자를
               <a
                 href="https://tc39.es/ecma262/multipage/abstract-operations.html#sec-tostring"
@@ -585,7 +597,9 @@
             </li>
           </ul>
         </li>
-        <li>생성된 추상 클로저를 <code>SortCompare</code>이라 명한다.</li>
+        <li class="my-1.25">
+          생성된 추상 클로저를 <code>SortCompare</code>이라 명한다.
+        </li>
       </ul>
       <h4
         id="5-새로운-배열에-프로퍼티를-정렬한다"
@@ -601,7 +615,7 @@
         >5. 새로운 배열에 프로퍼티를 정렬한다.
       </h4>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           <a
             href="https://tc39.es/ecma262/multipage/indexed-collections.html#sec-sortindexedproperties"
             class="underline-highlight-fade"
@@ -610,43 +624,47 @@
             >SortIndexedProperties</a
           >를 위에서 생성된 값들과 함께 호출한다.<!-- -->
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
-            <li>
+            <li class="my-1.25">
               SortIndexedProperties는 객체(obj)의 인덱싱된 속성들을
               SortCompare를 사용해 len 만큼 정렬하는 함수다.
             </li>
-            <li>
+            <li class="my-1.25">
               여기서 <code>SKIP-HOLES</code>는 배열의 빈 요소를 정렬에서
               제외하라는 뜻이다.
             </li>
           </ul>
         </li>
-        <li>
+        <li class="my-1.25">
           SortIndexedProperties의 동작은 대략 아래와 같다.<!-- -->
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
-            <li>
+            <li class="my-1.25">
               빈 리스트 items를 생성한다<!-- -->
               <ul class="min-[790px]:ml-6 ml-4 list-disc">
-                <li>
+                <li class="my-1.25">
                   <u>메모리를 추가 사용한다. 명세는 in-place 하지 않다.</u>
                 </li>
               </ul>
             </li>
-            <li>숫자 0인 k를 정의한다.</li>
-            <li>
+            <li class="my-1.25">숫자 0인 k를 정의한다.</li>
+            <li class="my-1.25">
               (반복) k &lt; len 이라면 k를 문자열로 변환한 Pk를 생성한다.<!-- -->
               <ul class="min-[790px]:ml-6 ml-4 list-disc">
-                <li>
+                <li class="my-1.25">
                   obj에 Pk 속성이 있는지 확인하고 있다면(SKIP-HOLES이므로)
                   가져온다(kValue).
                 </li>
-                <li>가져온 값(kValue)을 items에 추가한다.</li>
-                <li>k의 값을 1 증가시킨다.</li>
+                <li class="my-1.25">가져온 값(kValue)을 items에 추가한다.</li>
+                <li class="my-1.25">k의 값을 1 증가시킨다.</li>
               </ul>
             </li>
-            <li>값이 추가된 items에 SortCompare를 호출해 항목을 정렬한다.</li>
+            <li class="my-1.25">
+              값이 추가된 items에 SortCompare를 호출해 항목을 정렬한다.
+            </li>
           </ul>
         </li>
-        <li>정렬된 리스트를 <code>sortedList</code>라 명한다.</li>
+        <li class="my-1.25">
+          정렬된 리스트를 <code>sortedList</code>라 명한다.
+        </li>
       </ul>
       <h4
         id="6-정렬된-요소의-개수를-계산한다"
@@ -662,7 +680,7 @@
         >6. 정렬된 요소의 개수를 계산한다.
       </h4>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           sortedList에 있는 요소의 개수를 <code>itemCount</code>라 명한다.
         </li>
       </ul>
@@ -690,11 +708,11 @@
         >8. 정렬된 요소를 객체에 설정한다.
       </h4>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>j가 itemCount보다 작을 동안 반복한다.</li>
-        <li>
+        <li class="my-1.25">j가 itemCount보다 작을 동안 반복한다.</li>
+        <li class="my-1.25">
           객체(obj)의 j 번째 속성을 sortedList[j]로 설정한다.<!-- -->
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
-            <li>
+            <li class="my-1.25">
               원본 객체를 변경하고 있다.
               <a
                 href="https://developer.mozilla.org/en-US/docs/Glossary/Mutable"
@@ -707,7 +725,7 @@
             </li>
           </ul>
         </li>
-        <li>j를 1 증가시킨다.</li>
+        <li class="my-1.25">j를 1 증가시킨다.</li>
       </ul>
       <h4
         id="9--10-빈-요소를-처리한다"
@@ -734,7 +752,7 @@
 <span data-line=""><span style="color:#FFCB6B">Array</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">prototype</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">sort</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">call</span><span style="color:#BABED8">(arrayLike)</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // { 0: 'b', 1: 'c', 123: '1ilsang', '1ilsang': 123, length: 3 };</span></span></code></pre>
       </figure>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           SortedIndexedProperties 호출 때 SKIP-HOLES를 지정했으므로 빈 요소의
           수를 유지하기 위해
           <a
@@ -757,9 +775,11 @@
         >11. 객체를 반환한다.
       </h4>
       <div class="img-container">
-        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+        <div
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
+        >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="ecma official"
             src="/posts/array-prototype-sort/ecma-official.webp"
           />
@@ -767,10 +787,10 @@
       </div>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[40%]"
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[40%] min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="easy-right?"
             src="/posts/array-prototype-sort/easy-right.webp"
           />
@@ -781,16 +801,16 @@
         많이 풀리게 되었다.
       </p>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           Array.prototype.sort의 명세는 어떻게 되어 있는가?<!-- -->
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
-            <li>위에서 다루었다.</li>
+            <li class="my-1.25">위에서 다루었다.</li>
           </ul>
         </li>
-        <li>
+        <li class="my-1.25">
           compareFn의 유무에 따른 sort 함수의 동작은 무엇이 달라지는가?<!-- -->
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
-            <li>
+            <li class="my-1.25">
               비교 함수가 없으면
               <a
                 href="#4-%EC%A0%95%EB%A0%AC-%EB%B9%84%EA%B5%90%EB%A5%BC-%EC%9C%84%ED%95%9C-%EC%B6%94%EC%83%81-%ED%81%B4%EB%A1%9C%EC%A0%80%EB%A5%BC-%EC%83%9D%EC%84%B1%ED%95%9C%EB%8B%A4"
@@ -809,11 +829,11 @@
             </li>
           </ul>
         </li>
-        <li>
+        <li class="my-1.25">
           sort 함수는 in-place 하고 stable 한가?<!-- -->
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
-            <li>공식 문서에 따르면 stable 해야 한다.</li>
-            <li>
+            <li class="my-1.25">공식 문서에 따르면 stable 해야 한다.</li>
+            <li class="my-1.25">
               <a
                 href="/posts/array-prototype-sort#5-%EC%83%88%EB%A1%9C%EC%9A%B4-%EB%B0%B0%EC%97%B4%EC%97%90-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0%EB%A5%BC-%EC%A0%95%EB%A0%AC%ED%95%9C%EB%8B%A4"
                 class="underline-highlight-fade"
@@ -825,10 +845,10 @@
             </li>
           </ul>
         </li>
-        <li>
+        <li class="my-1.25">
           유사 배열 객체 또한 sort 함수로 정렬된다. 어떻게 동작하는가?<!-- -->
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
-            <li>
+            <li class="my-1.25">
               공식 스펙 자체가 ToObject로 객체화한 후 처리하고 있으므로 객체
               비교를 전제로 동작한다.
             </li>
@@ -852,11 +872,11 @@
         >브라우저별 Sort 구현체
       </h2>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           브라우저는 <code>Array.prototype.sort</code>의 명세대로 sort를
           구현했는가?
         </li>
-        <li>모든 브라우저가 Tim sort로 구현되어 있는가?</li>
+        <li class="my-1.25">모든 브라우저가 Tim sort로 구현되어 있는가?</li>
       </ul>
       <p class="mt-4 mb-4">이제 위의 질문에 답을 해보자.</p>
       <h3
@@ -1176,17 +1196,17 @@
         </tbody>
       </table>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           브라우저는 <code>Array.prototype.sort</code>의 명세대로 sort를
           구현했는가?<!-- -->
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
-            <li>YES</li>
+            <li class="my-1.25">YES</li>
           </ul>
         </li>
-        <li>
+        <li class="my-1.25">
           모든 브라우저가 Tim sort로 구현되어 있는가?<!-- -->
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
-            <li>No</li>
+            <li class="my-1.25">No</li>
           </ul>
         </li>
       </ul>
@@ -1239,7 +1259,7 @@
         >참고
       </h2>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           <a
             href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort"
             class="underline-highlight-fade"
@@ -1248,7 +1268,7 @@
             >https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="https://tc39.es/ecma262/#sec-array.prototype.sort"
             class="underline-highlight-fade"
@@ -1257,7 +1277,7 @@
             >https://tc39.es/ecma262/#sec-array.prototype.sort</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toSorted"
             class="underline-highlight-fade"
@@ -1266,7 +1286,7 @@
             >https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toSorted</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="https://github.com/v8/v8/blob/12.3.206.1/third_party/v8/builtins/array-sort.tq#L1419"
             class="underline-highlight-fade"
@@ -1275,7 +1295,7 @@
             >https://github.com/v8/v8/blob/12.3.206.1/third_party/v8/builtins/array-sort.tq#L1419</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="https://d2.naver.com/helloworld/0315536"
             class="underline-highlight-fade"
@@ -1284,7 +1304,7 @@
             >https://d2.naver.com/helloworld/0315536</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="https://timothygu.me/es-howto"
             class="underline-highlight-fade"
@@ -1293,7 +1313,7 @@
             >https://timothygu.me/es-howto</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="https://v8.dev/blog/array-sort"
             class="underline-highlight-fade"
@@ -1302,7 +1322,7 @@
             >https://v8.dev/blog/array-sort</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="https://www.youtube.com/watch?v=HHN1axRRKx8"
             class="underline-highlight-fade"

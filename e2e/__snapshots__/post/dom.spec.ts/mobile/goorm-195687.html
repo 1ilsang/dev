@@ -81,10 +81,10 @@
     <div class="markdown">
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full h-[600px] object-contain bg-transparent mt-10"
+          class="flex justify-center mt-3 mb-3 w-full flex-col h-[600px] object-contain bg-transparent mt-10 min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="problem"
             src="/posts/goorm-195687/problem.webp"
           />
@@ -139,10 +139,10 @@
         두 가지 패턴을 찾을 수 있다.
       </p>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-        <li>
+        <li class="my-1.25">
           2의 지수승(2^n)은 무조건 1이다(1, 2, 4, 8은 2진수에서 무조건 1이다).
         </li>
-        <li>
+        <li class="my-1.25">
           <strong
             >현재 값에서 2를 나눈 값의 1의 개수와 현재 값을 2로 나눈 나머지를
             더하면 현재 값의 1의 개수가 된다.</strong
@@ -160,9 +160,11 @@
 <span data-line=""><span style="color:#BABED8">=&gt; 7 = 3</span></span></code></pre>
       </figure>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>7을 2로 나누면 3이 된다. 위의 표에서 3의 1 개수는 2이다.</li>
-        <li>7을 2로 나눈 나머지는 1이다.</li>
-        <li>2 + 1 = 3이므로 7은 3이 된다.</li>
+        <li class="my-1.25">
+          7을 2로 나누면 3이 된다. 위의 표에서 3의 1 개수는 2이다.
+        </li>
+        <li class="my-1.25">7을 2로 나눈 나머지는 1이다.</li>
+        <li class="my-1.25">2 + 1 = 3이므로 7은 3이 된다.</li>
       </ul>
       <p class="mt-4 mb-4">
         이전 값을 알면 현재 값을 손쉽게 구할 수 있게 되었다.
@@ -182,12 +184,12 @@
         >정리
       </h2>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-        <li>
+        <li class="my-1.25">
           메모이제이션을 활용해 들어올 수 있는 숫자의 최댓값
           <code>2^20</code>(1048576)까지 이진수의 개수를 구한다.
         </li>
-        <li>N을 메모이제이션 배열로 정렬한다.</li>
-        <li>K 번 인덱스의 값을 출력한다.</li>
+        <li class="my-1.25">N을 메모이제이션 배열로 정렬한다.</li>
+        <li class="my-1.25">K 번 인덱스의 값을 출력한다.</li>
       </ol>
       <h2
         id="최종-코드"

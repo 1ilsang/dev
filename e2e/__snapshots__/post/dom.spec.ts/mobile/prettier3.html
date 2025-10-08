@@ -73,10 +73,10 @@
     <div class="markdown">
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full h-[600px] object-contain bg-transparent mt-10"
+          class="flex justify-center mt-3 mb-3 w-full flex-col h-[600px] object-contain bg-transparent mt-10 min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="cover"
             src="/posts/prettier3/cover.webp"
           />
@@ -115,18 +115,18 @@
         >TL;DR!
       </h2>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-        <li>
+        <li class="my-1.25">
           <code>trailingComma</code> 옵션이 <code>all</code>으로 변경되었다.
         </li>
-        <li>
+        <li class="my-1.25">
           주석 및 MD 문서의 린팅 편의성이 높아졌다(한국어 린트가 향상되었다)
         </li>
-        <li>최소 요구 Node 버전이 14가 되었다.</li>
-        <li>
+        <li class="my-1.25">최소 요구 Node 버전이 14가 되었다.</li>
+        <li class="my-1.25">
           <code>.gitignore</code>가 드디어 기본적으로
           무시된다(<code>.prettierignore</code>는 유지).
         </li>
-        <li>화살표 함수/타입의 린트가 코드 패턴을 지원.</li>
+        <li class="my-1.25">화살표 함수/타입의 린트가 코드 패턴을 지원.</li>
       </ol>
       <h2
         id="markdown"
@@ -179,8 +179,10 @@
         한국어는 공백의 위치에 따라 문장의 의미가 변경되는 특성이 있다.
       </p>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>노래를 못해요: 나는 노래를 잘 못한다.</li>
-        <li>노래를 못 해요: 나는 (어떠한 이유로) 노래를 할 수 없다.</li>
+        <li class="my-1.25">노래를 못해요: 나는 노래를 잘 못한다.</li>
+        <li class="my-1.25">
+          노래를 못 해요: 나는 (어떠한 이유로) 노래를 할 수 없다.
+        </li>
       </ul>
       <p class="mt-4 mb-4">
         v3에서는 위의 특성을 고려해 단어를 '분해하지' 않는다. 영어와 동일하게
@@ -399,7 +401,7 @@
 <span data-line=""><span style="color:#89DDFF">import</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">./foo.json</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> {</span><span style="color:#F07178"> with</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {</span><span style="color:#F07178"> type</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">json</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> }</span><span style="color:#89DDFF"> }</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre>
       </figure>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           <a
             href="https://github.com/tc39/proposal-import-attributes"
             class="underline-highlight-fade"
@@ -542,7 +544,7 @@
         >Reference
       </h2>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           <a
             href="https://prettier.io/blog/2023/07/05/3.0.0.html"
             class="underline-highlight-fade"

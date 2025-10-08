@@ -88,10 +88,10 @@
     <div class="markdown">
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full h-[600px] object-contain bg-transparent mt-10"
+          class="flex justify-center mt-3 mb-3 w-full flex-col h-[600px] object-contain bg-transparent mt-10 min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="cover"
             src="/posts/nodejs-architecture-dive/cover.webp"
           />
@@ -113,9 +113,9 @@
       </p>
       <p class="mt-4 mb-4">글의 구성은 아래의 3단계를 거쳐나갈 예정이다.</p>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-        <li>Node.js가 무엇인지</li>
-        <li>전체 아키텍처와 구성 요소</li>
-        <li>실제 예제 코드로 동작 흐름 이해</li>
+        <li class="my-1.25">Node.js가 무엇인지</li>
+        <li class="my-1.25">전체 아키텍처와 구성 요소</li>
+        <li class="my-1.25">실제 예제 코드로 동작 흐름 이해</li>
       </ol>
       <br />
       <i>Let's Dive In!</i>
@@ -130,12 +130,12 @@
         >TL;DR!
       </h2>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-        <li>Node.js는 JavaScript 런타임 "환경"이다.</li>
-        <li>
+        <li class="my-1.25">Node.js는 JavaScript 런타임 "환경"이다.</li>
+        <li class="my-1.25">
           V8 엔진과 libuv 라이브러리를 사용하여 비동기, 이벤트 기반의 네트워크
           앱이 되었다.
         </li>
-        <li>내부 모듈은 JS/C++ 페어로 작성되어 있다.</li>
+        <li class="my-1.25">내부 모듈은 JS/C++ 페어로 작성되어 있다.</li>
       </ol>
       <h2
         id="nodejs-이해하기"
@@ -163,10 +163,10 @@
       </h3>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full border rounded"
+          class="flex justify-center mt-3 mb-3 w-full flex-col border rounded min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="ryan-dahl"
             src="/posts/nodejs-architecture-dive/ryan-dahl.webp"
           />
@@ -230,7 +230,7 @@
       >
         <p class="mt-4 mb-4">출처:</p>
         <ul class="min-[790px]:ml-6 ml-4 list-disc">
-          <li>
+          <li class="my-1.25">
             <a
               href="https://siliconangle.com/2013/04/01/the-birth-of-node-where-did-it-come-from-creator-ryan-dahl-shares-the-history/"
               class="underline-highlight-fade"
@@ -240,7 +240,7 @@
               Shares the History</a
             >
           </li>
-          <li>
+          <li class="my-1.25">
             <a
               href="https://www.almabetter.com/bytes/tutorials/nodejs/introduction-to-nodejs"
               class="underline-highlight-fade"
@@ -249,7 +249,7 @@
               >Introduction to Node JS - History &amp; Features</a
             >
           </li>
-          <li>
+          <li class="my-1.25">
             <a
               href="https://en.wikipedia.org/wiki/Node.js"
               class="underline-highlight-fade"
@@ -298,7 +298,7 @@
         >Asynchronous
       </h5>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           <a
             href="https://adrianmejia.com/asynchronous-vs-synchronous-handling-concurrency-in-javascript/"
             class="underline-highlight-fade"
@@ -319,7 +319,7 @@
         >Event-driven
       </h5>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           <a
             href="https://dev.to/iserioton/event-driven-programming-in-nodejs-975"
             class="underline-highlight-fade"
@@ -340,7 +340,7 @@
         >JavaScript runtime
       </h5>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           <a
             href="https://www.freecodecamp.org/news/javascript-engine-and-runtime-explained/"
             class="underline-highlight-fade"
@@ -361,7 +361,7 @@
         >확장 가능한 네트워크 앱
       </h5>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           Node.js의 이름이
           <a
             href="https://stackoverflow.com/questions/5621812/why-is-node-js-named-node-js"
@@ -390,9 +390,11 @@
         >Browser와의 차이점
       </h3>
       <div class="img-container">
-        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+        <div
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
+        >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="browser vs node"
             src="/posts/nodejs-architecture-dive/browser-node.webp"
           />
@@ -402,7 +404,7 @@
         class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
       >
         <ul class="min-[790px]:ml-6 ml-4 list-disc">
-          <li>
+          <li class="my-1.25">
             <a
               href="https://dev.to/shwetabh1/complete-webpage-rendering-process-in-browser-59l1"
               class="underline-highlight-fade"
@@ -411,7 +413,7 @@
               >Complete Webpage Rendering Process In Browser</a
             >
           </li>
-          <li>
+          <li class="my-1.25">
             <a
               href="https://chaudharypulkit93.medium.com/how-does-nodejs-work-beginner-to-advanced-event-loop-v8-engine-libuv-threadpool-bbe9b41b5bdd"
               class="underline-highlight-fade"
@@ -542,10 +544,10 @@
       </h3>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full border rounded"
+          class="flex justify-center mt-3 mb-3 w-full flex-col border rounded min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="node architecture"
             src="/posts/nodejs-architecture-dive/node-architecture.webp"
           />
@@ -717,9 +719,11 @@
         >동작 흐름
       </h3>
       <div class="img-container">
-        <div class="flex justify-center min-h-[200px] mt-3 mb-3 w-full">
+        <div
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
+        >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="deps"
             src="https://www.mwanmobile.com/wp-content/uploads/2023/01/pp9n3grfwgcaqgi30t4e.gif"
           />
@@ -746,24 +750,26 @@
         ><code data-language="sh" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> node</span><span style="color:#C3E88D"> FILE.cjs</span></span></code></pre>
       </figure>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-        <li>
+        <li class="my-1.25">
           Node.js는 최초 부트스래핑 이후 유저가 지정한
           애플리케이션(<code>FILE.cjs</code>)의 자바스크립트 코드를 읽어온다.
         </li>
-        <li>
+        <li class="my-1.25">
           앱 코드는 <code>V8</code>에서 변환되어 실행 혹은
           <code>Bindings</code> 영역을 거치며 필요한 내부 라이브러리 호출을
           진행한다.
         </li>
-        <li>
+        <li class="my-1.25">
           이때 비동기 작업이 필요하다면 <code>libuv</code>로 내부 호출이
           일어나게 된다.
         </li>
-        <li>
+        <li class="my-1.25">
           비동기 작업이 완료된다면 이벤트 루프의 페이즈에 맞춰 완료된
           이벤트(<code>callback</code>)가 실행된다.
         </li>
-        <li>모든 작업이 완료되면 이벤트 루프가 종료되면서 앱이 종료된다.</li>
+        <li class="my-1.25">
+          모든 작업이 완료되면 이벤트 루프가 종료되면서 앱이 종료된다.
+        </li>
       </ol>
       <h2
         id="코드로-이해하는-nodejs"
@@ -800,10 +806,10 @@
       </figure>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:min-h-[150px] min-[790px]:w-[25%] border rounded"
+          class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:min-h-[150px] min-[790px]:w-[25%] border rounded min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="hello text file"
             src="/posts/nodejs-architecture-dive/hello-txt.webp"
           />
@@ -835,10 +841,10 @@
       </p>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full border rounded"
+          class="flex justify-center mt-3 mb-3 w-full flex-col border rounded min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="bootstrapping init"
             src="/posts/nodejs-architecture-dive/bootstrapping-init.webp"
           />
@@ -846,10 +852,10 @@
       </div>
       <p class="mt-4 mb-4">복잡해 보이지만, 크게 2단계로 나눌 수 있다.</p>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-        <li>
+        <li class="my-1.25">
           Node.js 프로세스 시작(C++ Land)<!-- -->
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
-            <li>
+            <li class="my-1.25">
               <a
                 href="https://github.com/nodejs/node/blob/v22.x/src/node_main.cc#L97"
                 class="underline-highlight-fade"
@@ -858,11 +864,11 @@
                 >main 함수 실행</a
               >
             </li>
-            <li>V8 및 libuv 초기화</li>
-            <li>Realm(실행 컨텍스트) 생성 및 실행 환경 설정</li>
+            <li class="my-1.25">V8 및 libuv 초기화</li>
+            <li class="my-1.25">Realm(실행 컨텍스트) 생성 및 실행 환경 설정</li>
           </ul>
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="https://github.com/nodejs/node/blob/v22.x/src/node.cc#L440"
             class="underline-highlight-fade"
@@ -871,10 +877,10 @@
             >StartExecution</a
           >(JavaScript Land)<!-- -->
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
-            <li>
+            <li class="my-1.25">
               <code>run_main_module.js</code> 실행<!-- -->
               <ul class="min-[790px]:ml-6 ml-4 list-disc">
-                <li>
+                <li class="my-1.25">
                   여기서
                   <a
                     href="https://github.com/nodejs/node/blob/v22.x/lib/internal/main/run_main_module.js#L15"
@@ -886,7 +892,9 @@
                 </li>
               </ul>
             </li>
-            <li><code>builtins</code> 호출. 노드에 내장된 JS 파일들 실행</li>
+            <li class="my-1.25">
+              <code>builtins</code> 호출. 노드에 내장된 JS 파일들 실행
+            </li>
           </ul>
         </li>
       </ol>
@@ -897,10 +905,10 @@
       </p>
       <div class="img-container">
         <div
-          class="flex justify-center min-h-[200px] mt-3 mb-3 w-full min-[790px]:w-[70%] border rounded"
+          class="flex justify-center mt-3 mb-3 w-full flex-col border rounded min-h-[200px]"
         >
           <img
-            class="w-full h-full cursor-zoom-in object-contain max-h-[550px]"
+            class="w-full cursor-zoom-in object-contain max-h-[550px]"
             alt="bootstrapping event loop"
             src="/posts/nodejs-architecture-dive/bootstrapping-loop.webp"
           />
@@ -977,7 +985,7 @@
         이 과정은 Binding 함수인 <code>HTTPParser</code>을 이용한다.
       </p>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-        <li>
+        <li class="my-1.25">
           <a
             href="https://github.com/nodejs/node/blob/v22.x/lib/_http_server.js#L564"
             class="underline-highlight-fade"
@@ -993,7 +1001,7 @@
             >HTTPParser 객체가 생성</a
           >된다.
         </li>
-        <li>
+        <li class="my-1.25">
           <code>HTTPParser</code> 객체는
           <a
             href="https://github.com/nodejs/node/blob/v22.x/src/node_http_parser.cc#L1398"
@@ -1004,7 +1012,7 @@
           >
           하고 있다.
         </li>
-        <li>
+        <li class="my-1.25">
           작업이 완료되면
           <a
             href="https://github.com/nodejs/node/blob/v22.x/src/connection_wrap.cc#L73"
@@ -1042,7 +1050,7 @@
         V8은 파일 작업을 할 수 없기 때문에 libuv가 필요하다.
       </p>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-        <li>
+        <li class="my-1.25">
           콜백 실행 도중 bindings 영역을 거쳐 다시
           <a
             href="https://github.com/nodejs/node/blob/v22.x/src/node_file.cc#L2535-L2536"
@@ -1052,7 +1060,7 @@
             >libuv에 파일 읽기를 요청</a
           >하게 된다.
         </li>
-        <li>
+        <li class="my-1.25">
           libuv는 파일이 완료되면
           <a
             href="https://github.com/nodejs/node/blob/v22.x/deps/uv/src/unix/fs.c#L143-L147"
@@ -1062,7 +1070,7 @@
             >이벤트 루프(poll phase)에 결과를 전달</a
           >한다.
         </li>
-        <li>
+        <li class="my-1.25">
           이후
           <a
             href="https://github.com/nodejs/node/blob/v22.x/src/node_file.cc#L806"
@@ -1104,10 +1112,10 @@
         마찬가지로 V8은 네트워크 작업을 할 수 없기 때문에 libuv가 필요하다.
       </p>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
-        <li>
+        <li class="my-1.25">
           <p class="mt-4 mb-4"><code>res.write</code></p>
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
-            <li>
+            <li class="my-1.25">
               ServerResponse 함수를 호출하고 해당 함수는
               <a
                 href="https://github.com/nodejs/node/blob/v22.x/lib/_http_server.js#L197"
@@ -1117,7 +1125,7 @@
                 >OutgoingMessage를 상속</a
               >한다.
             </li>
-            <li>
+            <li class="my-1.25">
               OutgoingMessage에
               <a
                 href="https://github.com/nodejs/node/blob/v22.x/lib/_http_outgoing.js#L898"
@@ -1127,7 +1135,7 @@
                 >write 함수가 구현</a
               >되어 있다.
             </li>
-            <li>
+            <li class="my-1.25">
               함수를 타고 들어가다 보면 결국
               <a
                 href="https://github.com/nodejs/node/blob/v22.x/lib/_http_outgoing.js#L443"
@@ -1138,7 +1146,7 @@
               >
               함수를 호출한다.
             </li>
-            <li>
+            <li class="my-1.25">
               <code>conn</code>은
               <a
                 href="https://github.com/nodejs/node/blob/v22.x/lib/net.js#L367"
@@ -1155,7 +1163,7 @@
                 >stream.Duplex을 상속</a
               >받고 있다.
             </li>
-            <li>
+            <li class="my-1.25">
               <a
                 href="https://github.com/nodejs/node/blob/v22.x/lib/internal/streams/duplex.js#L57"
                 class="underline-highlight-fade"
@@ -1172,7 +1180,7 @@
                 >Writable.prototype.write</a
               >를 호출하게 된다.<!-- -->
               <ul class="min-[790px]:ml-6 ml-4 list-disc">
-                <li>
+                <li class="my-1.25">
                   <code
                     >conn.write === Stream.Writable.prototype.write //
                     true</code
@@ -1180,7 +1188,7 @@
                 </li>
               </ul>
             </li>
-            <li>
+            <li class="my-1.25">
               Writable.write는
               <a
                 href="https://github.com/nodejs/node/blob/v22.x/lib/internal/streams/writable.js#L587"
@@ -1198,7 +1206,7 @@
                 >_writev 함수</a
               >를 호출한다.
             </li>
-            <li>
+            <li class="my-1.25">
               _write 함수는
               <a
                 href="https://github.com/nodejs/node/blob/main/lib/internal/stream_base_commons.js#L137"
@@ -1230,17 +1238,19 @@
                 >uv_try_write를 호출</a
               >하게 된다.
             </li>
-            <li>
+            <li class="my-1.25">
               이로써 V8이 아닌 C++ 레이어에서 libuv를 통해 네트워크 작업을
               진행하게 된다.
             </li>
           </ul>
         </li>
-        <li>
+        <li class="my-1.25">
           <p class="mt-4 mb-4"><code>res.end</code></p>
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
-            <li>res.write와 같다. Writable.end를 상속하고 있다.</li>
-            <li>
+            <li class="my-1.25">
+              res.write와 같다. Writable.end를 상속하고 있다.
+            </li>
+            <li class="my-1.25">
               Writable.end 함수는
               <a
                 href="https://github.com/nodejs/node/blob/v22.x/lib/internal/streams/writable.js#L845"
@@ -1250,7 +1260,7 @@
                 >finishMaybe 함수를 호출</a
               >한다.
             </li>
-            <li>
+            <li class="my-1.25">
               함수를 타고 가면
               <a
                 href="https://github.com/nodejs/node/blob/v22.x/lib/internal/streams/writable.js#L916"
@@ -1260,7 +1270,7 @@
                 >stream._final을 호출</a
               >한다.
             </li>
-            <li>
+            <li class="my-1.25">
               <code>this</code>는 <code>Socket</code>이므로
               <a
                 href="https://github.com/nodejs/node/blob/v22.x/lib/net.js#L535"
@@ -1270,7 +1280,7 @@
                 >Socket._final을 호출</a
               >하게 된다.
             </li>
-            <li>
+            <li class="my-1.25">
               _final은
               <a
                 href="https://github.com/nodejs/node/blob/v22.x/lib/net.js#L551"
@@ -1280,7 +1290,7 @@
                 >_handle.shutdown</a
               >을 호출하면서 C++ 레이어로 넘어간다.<!-- -->
               <ul class="min-[790px]:ml-6 ml-4 list-disc">
-                <li>
+                <li class="my-1.25">
                   <a
                     href="https://github.com/nodejs/node/blob/v22.x/lib/net.js#L179"
                     class="underline-highlight-fade"
@@ -1291,7 +1301,7 @@
                 </li>
               </ul>
             </li>
-            <li>
+            <li class="my-1.25">
               C++ 레이어의 StreamBase::Shutdown은
               <a
                 href="https://github.com/nodejs/node/blob/v22.x/src/stream_base.cc#L61"
@@ -1308,7 +1318,7 @@
                 >libuv를 호출(uv_shutdown)</a
               >한다.
             </li>
-            <li>
+            <li class="my-1.25">
               uv_shutdown가 정상적으로 끝나면
               <a
                 href="https://github.com/nodejs/node/blob/main/src/stream_wrap.cc#L342"
@@ -1335,11 +1345,11 @@
         이번 포스트에서는 Node.js의 아키텍처와 동작 방식을 살펴보았다.
       </p>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           Node.js는 V8 엔진과 libuv 라이브러리를 사용하여 비동기, 이벤트 기반의
           네트워크 애플리케이션을 만들 수 있는 JavaScript 런타임 환경이다.
         </li>
-        <li>
+        <li class="my-1.25">
           C/C++ 애드온을 통해 성능과 확장성을 높일 수 있으며, 다양한 내장 모듈을
           제공하여 개발자들이 쉽게 사용할 수 있도록 돕는다.
         </li>
@@ -1350,7 +1360,7 @@
       </p>
       <p class="mt-4 mb-4">다이빙 과정이 흥미로웠다면 아래의 글도 추천한다.</p>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
-        <li>
+        <li class="my-1.25">
           <a
             href="/posts/array-prototype-sort"
             class="underline-highlight-fade"
@@ -1359,7 +1369,7 @@
             >Array.prototype.sort() 이해하기</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="/posts/vite-dev-server"
             class="underline-highlight-fade"
@@ -1368,7 +1378,7 @@
             >Vite Dev Server 이해하기 (feat. HMR)</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="/posts/typescript-subtyping"
             class="underline-highlight-fade"
@@ -1377,7 +1387,7 @@
             >Object.keys()는 왜 string[] 타입일까?</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="/posts/object-type"
             class="underline-highlight-fade"
@@ -1386,7 +1396,7 @@
             >Object vs object vs {}</a
           >
         </li>
-        <li>
+        <li class="my-1.25">
           <a
             href="/posts/implicit-coercion"
             class="underline-highlight-fade"
