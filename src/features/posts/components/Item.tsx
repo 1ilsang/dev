@@ -8,6 +8,7 @@ import DateFormatter from '~/shared/components/DateFormatter';
 export const PostItem: FunctionComponent<{
   post: ServerPost;
   categoryFilter: Set<string>;
+  onClick?: () => void;
 }> = ({
   post: {
     slug,
@@ -15,6 +16,7 @@ export const PostItem: FunctionComponent<{
     category,
   },
   categoryFilter,
+  onClick,
 }) => {
   const show = categoryFilter.size === 0 || categoryFilter.has(category);
   return (
@@ -26,6 +28,7 @@ export const PostItem: FunctionComponent<{
         { 'h-0': !show },
       )}
       key={slug}
+      onClick={onClick}
     >
       <Link
         className="flex flex-col items-center md:flex-row"

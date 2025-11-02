@@ -7,6 +7,7 @@ import { MainContainer } from '~/shared/components/MainContainer';
 import { CategoryContainer } from './category/Container';
 import { PostItem } from './components/Item';
 import usePostListContainer from './hooks/usePostListContainer';
+import { useScrollRestoration } from './hooks/useScrollRestoration';
 
 type PostListContainerProps = {
   posts: ServerPost[];
@@ -17,6 +18,7 @@ export const PostListContainer: FunctionComponent<PostListContainerProps> = ({
 }) => {
   const { categoryFilter, handleCategoryClick, handleClearClick } =
     usePostListContainer();
+  useScrollRestoration();
 
   return (
     <MainContainer className="md:py-[4.8rem]">
