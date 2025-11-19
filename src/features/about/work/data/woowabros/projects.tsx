@@ -93,7 +93,7 @@ export const WoowaAtelier: Project = {
         <Paragraph>
           <Sentence>
             <ExternalLink
-              href="https://techblog.woowa.in/23866"
+              href="https://techblog.woowahan.com/23866"
               label="Vite에서 CSS 우선순위를 지키는 법: 우아한공방의 문제 해결기"
             />
           </Sentence>
