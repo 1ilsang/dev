@@ -88,7 +88,23 @@ export const WoowaAtelier: Project = {
   },
   body: (
     <>
-      <Section top>TBD</Section>
+      <Section top>
+        TBU
+        <Paragraph>
+          <Sentence>
+            <ExternalLink
+              href="https://techblog.woowa.in/23866"
+              label="Vite에서 CSS 우선순위를 지키는 법: 우아한공방의 문제 해결기"
+            />
+          </Sentence>
+          <Sentence>
+            <ExternalLink
+              href="https://2025.woowacon.com/sessions?sessionId=819"
+              label="당연해진 디자인시스템, 그다음 이야기: AST와 MCP로 여는 미래"
+            />
+          </Sentence>
+        </Paragraph>
+      </Section>
     </>
   ),
 };

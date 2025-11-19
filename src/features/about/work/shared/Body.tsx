@@ -25,7 +25,7 @@ export const Paragraph: FunctionComponent<ParagraphProps> = ({ children }) => {
   return <ul className="pl-4 grid">{children}</ul>;
 };
 
-type SentenceProps = PropsWithChildren & { value: string };
+type SentenceProps = PropsWithChildren & { value?: string };
 export const Sentence: FunctionComponent<SentenceProps> = ({
   value,
   children,
