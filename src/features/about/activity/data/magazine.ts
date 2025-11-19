@@ -4,7 +4,7 @@ import { ActivityType } from '~/about/activity/models';
 export const magazine: Activity[] = [
   {
     name: 'Vite에서 CSS 우선순위를 지키는 법: 우아한공방의 문제 해결기',
-    url: 'https://techblog.woowa.in/23866',
+    url: 'https://techblog.woowahan.com/23866',
     startDate: 1763046000000,
     endDate: 1763132400000,
   },
