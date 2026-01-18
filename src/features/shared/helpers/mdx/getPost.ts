@@ -12,7 +12,7 @@ const getAllFullSlug = () => {
           withFileTypes: true,
           recursive: true,
         })
-        .filter((post) => post.isFile())
+        .filter((post) => post.isFile() && post.name !== '.DS_Store')
         // _posts 이후의 경로만 추출. ex) _posts/js/object-type/docs.md -> js/object-type
         .map((post) => post.parentPath.slice(POST_PATH.length + 1)),
     ),
