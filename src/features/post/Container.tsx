@@ -1,7 +1,7 @@
 import type { FunctionComponent, PropsWithChildren } from 'react';
 import { type PostType } from '~/posts/models';
 import { MainContainer } from '~/shared/components/MainContainer';
-import IssuePost from './components/IssuePost';
+import { IssuePost } from './components/IssuePost';
 import { TocContainer } from './toc/Container';
 import { InformationContainer } from './information/InformationContainer';
 import { SponsorContainer } from './sponsor/Container';

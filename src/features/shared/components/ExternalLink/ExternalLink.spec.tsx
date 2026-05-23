@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import ExternalLink, { highlighterClass } from './ExternalLink';
-import { ga } from '../helpers/logger';
+import { ExternalLink, highlighterClass } from './ExternalLink';
+import { ga } from '../../helpers/logger';
 
-jest.mock('../helpers/logger', () => ({
+jest.mock('../../helpers/logger', () => ({
   ga: jest.fn(),
 }));
 

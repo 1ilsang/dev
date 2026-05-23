@@ -3,7 +3,7 @@ import Link from 'next/link';
 import type { FunctionComponent } from 'react';
 
 import type { ServerPost } from '~/app/posts/page';
-import DateFormatter from '~/shared/components/DateFormatter';
+import { DateFormatter } from '~/shared/components/DateFormatter';
 
 export const PostItem: FunctionComponent<{
   post: ServerPost;

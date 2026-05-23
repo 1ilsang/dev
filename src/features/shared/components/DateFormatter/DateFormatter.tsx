@@ -3,7 +3,7 @@
 import type { FunctionComponent } from 'react';
 import { memo } from 'react';
 
-import { formatDate, parseISO } from '../helpers/date';
+import { formatDate, parseISO } from '../../helpers/date';
 
 type DateType = 'iso' | 'default';
 
@@ -15,7 +15,7 @@ interface DateFormatterProps {
   className?: string;
 }
 
-const DateFormatter: FunctionComponent<DateFormatterProps> = memo(
+export const DateFormatter: FunctionComponent<DateFormatterProps> = memo(
   ({ date, type = 'default', format, className, before }) => {
     const dateTime =
       type === 'iso' ? parseISO(String(date)) : formatDate(date, format);
@@ -31,5 +31,3 @@ const DateFormatter: FunctionComponent<DateFormatterProps> = memo(
   },
 );
 DateFormatter.displayName = 'DateFormatter';
-
-export default DateFormatter;

@@ -3,7 +3,7 @@ import { memo } from 'react';
 
 import type { CompanyContentProjectProps } from './Container';
 
-import DateFormatter from '~/shared/components/DateFormatter';
+import { DateFormatter } from '~/shared/components/DateFormatter';
 import classNames from 'classnames';
 
 type ProjectDateProps = Pick<

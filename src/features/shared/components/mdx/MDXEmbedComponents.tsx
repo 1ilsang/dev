@@ -5,8 +5,8 @@ import {
   type ImageHorizonWrapProps,
 } from './img/ImageHorizonWrap';
 import { LeftTable } from './table/LeftTable';
-import { Callout } from '../Callout/Container';
-import { Typography } from '../Typography/Container';
+import { Callout } from '../Callout';
+import { Typography } from '../Typography';
 
 /**
  * MDX 내에서 임베드되어 사용하는 컴포넌트

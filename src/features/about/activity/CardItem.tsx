@@ -1,4 +1,4 @@
-import ExternalLink from '~/shared/components/ExternalLink';
+import { ExternalLink } from '~/shared/components/ExternalLink';
 import type { Activity } from './models';
 import type { FunctionComponent } from 'react';
 

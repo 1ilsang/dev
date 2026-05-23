@@ -2,7 +2,7 @@ import type { FunctionComponent } from 'react';
 
 import { CompanyName } from '../work/models';
 
-import ExternalLink from '~/shared/components/ExternalLink';
+import { ExternalLink } from '~/shared/components/ExternalLink';
 import { CareerYear } from './CareerYear';
 
 export const IntroductionContainer: FunctionComponent = () => {

@@ -9,7 +9,7 @@ interface HashTagProps {
   target?: string;
 }
 
-const HashTag: FunctionComponent<HashTagProps> = ({
+export const HashTag: FunctionComponent<HashTagProps> = ({
   className = '',
   content,
   link,
@@ -27,5 +27,3 @@ const HashTag: FunctionComponent<HashTagProps> = ({
     </Link>
   );
 };
-
-export default HashTag;

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import type { FunctionComponent, PropsWithChildren } from 'react';
 import { memo } from 'react';
 import { MyProfile } from '~/about/headline/data/profile';
-import ExternalLink from './ExternalLink';
+import { ExternalLink } from './ExternalLink';
 import { usePrint } from '../hooks/usePrint';
 
 const Item: FunctionComponent<PropsWithChildren> = ({ children }) => {

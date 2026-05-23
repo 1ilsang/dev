@@ -1,7 +1,7 @@
 import type { Project } from '../../models';
 import { ProjectName } from '../../models';
 
-import ExternalLink from '~/shared/components/ExternalLink';
+import { ExternalLink } from '~/shared/components/ExternalLink';
 import { Paragraph, Section, Sentence } from '../../shared/Body';
 
 export const Stove: Project = {

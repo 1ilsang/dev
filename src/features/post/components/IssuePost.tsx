@@ -1,12 +1,12 @@
 import type { FunctionComponent } from 'react';
 
-import ExternalLink from '~/shared/components/ExternalLink';
+import { ExternalLink } from '~/shared/components/ExternalLink';
 
 type IssuePostProps = {
   title: string;
 };
 
-const IssuePost: FunctionComponent<IssuePostProps> = ({ title }) => {
+export const IssuePost: FunctionComponent<IssuePostProps> = ({ title }) => {
   const NEW_ISSUE_URL = 'https://github.com/1ilsang/dev/issues/new';
 
   const ICE_CUBE_LABEL = 'labels=🧊 comment';
@@ -23,5 +23,3 @@ const IssuePost: FunctionComponent<IssuePostProps> = ({ title }) => {
     />
   );
 };
-
-export default IssuePost;

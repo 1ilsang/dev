@@ -2,7 +2,7 @@
 
 import classNames from 'classnames';
 import type { FunctionComponent, PropsWithChildren } from 'react';
-import { ga } from '../helpers/logger';
+import { ga } from '../../helpers/logger';
 
 type ExternalLinkProps = PropsWithChildren & {
   href: string;
@@ -14,7 +14,7 @@ type ExternalLinkProps = PropsWithChildren & {
 export const highlighterClass =
   'inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[""]';
 
-const ExternalLink: FunctionComponent<ExternalLinkProps> = ({
+export const ExternalLink: FunctionComponent<ExternalLinkProps> = ({
   href,
   label,
   className = '',
@@ -41,5 +41,3 @@ const ExternalLink: FunctionComponent<ExternalLinkProps> = ({
     </a>
   );
 };
-
-export default ExternalLink;

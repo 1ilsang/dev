@@ -1,6 +1,6 @@
 import type { FunctionComponent } from 'react';
 
-import HashTag from '~/shared/components/HashTag';
+import { HashTag } from '~/shared/components/HashTag';
 import { MainContainer } from '~/shared/components/MainContainer';
 
 type TagListContainer = {

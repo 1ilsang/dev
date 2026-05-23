@@ -1,6 +1,6 @@
 import { type FunctionComponent } from 'react';
 
-import DateFormatter from '../../shared/components/DateFormatter';
+import { DateFormatter } from '../../shared/components/DateFormatter';
 
 interface PublishedDateProps {
   date: string;

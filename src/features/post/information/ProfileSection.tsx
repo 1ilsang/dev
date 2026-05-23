@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { FunctionComponent } from 'react';
 import { MyProfile } from '~/about/headline/data/profile';
-import { Avatar } from '~/shared/components/Avatar/Container';
+import { Avatar } from '~/shared/components/Avatar';
 
 export const ProfileSection: FunctionComponent = () => {
   return (

@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import ExternalLink from '~/shared/components/ExternalLink';
+import { ExternalLink } from '~/shared/components/ExternalLink/ExternalLink';
 
 export type ImageTagProps = {
   src: string;

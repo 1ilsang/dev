@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { render, screen } from '@testing-library/react';
-import { Typography } from './Container';
+import { Typography } from './Typography';
 
-// TODO: 이거 깨지는거 수정 필요
 describe('Typography Component', () => {
   describe('기본 렌더링', () => {
     it('일반 텍스트를 렌더링해야 한다', () => {

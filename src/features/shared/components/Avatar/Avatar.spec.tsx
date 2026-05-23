@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Avatar } from './Container';
+import { Avatar } from './Avatar';
 import { MyProfile } from '~/about/headline/data/profile';
 
 describe('rendering', () => {

@@ -1,6 +1,6 @@
 import type { FunctionComponent } from 'react';
 
-import ExternalLink from '~/shared/components/ExternalLink';
+import { ExternalLink } from '~/shared/components/ExternalLink';
 import { MainContainer } from '~/shared/components/MainContainer';
 
 const description = `

@@ -1,4 +1,4 @@
-import ExternalLink from '~/shared/components/ExternalLink';
+import { ExternalLink } from '~/shared/components/ExternalLink';
 import type { Project } from '../../models';
 import { ProjectName } from '../../models';
 import { Paragraph, Section, Sentence } from '../../shared/Body';

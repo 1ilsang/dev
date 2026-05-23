@@ -1,6 +1,6 @@
 import type { FunctionComponent } from 'react';
 import type { PostType } from '~/posts/models';
-import HashTag from '~/shared/components/HashTag';
+import { HashTag } from '~/shared/components/HashTag';
 import { ProfileSection } from './ProfileSection';
 import { PublishedDate } from './PublishedDate';
 

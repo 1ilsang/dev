@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Callout } from './Container';
+import { Callout } from './Callout';
 
 describe('Callout Component', () => {
   describe('rendering', () => {
