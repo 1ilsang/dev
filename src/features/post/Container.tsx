@@ -20,7 +20,7 @@ export const PostContainer: FunctionComponent<
       <h1 className="text-4xl break-words md:text-6xl">{title}</h1>
       <InformationContainer post={post} />
       <section id={POST_BODY_ID.slice(1)} className="relative">
-        <CodeCopyButton />
+        {!process.env.NEXT_PUBLIC_E2E && <CodeCopyButton />}
         <div className="markdown">{children}</div>
         {toc.length > 0 && <TocContainer toc={toc} />}
       </section>
