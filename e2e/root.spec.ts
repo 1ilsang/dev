@@ -72,4 +72,36 @@ test.describe('metadata', () => {
     );
     expect(bodyText).toContain(MyProfile.blog.href);
   });
+
+  test('should exist feed.xml with valid RSS', async ({ page }) => {
+    const feed = await page.goto('/feed.xml');
+
+    const body = await feed.body();
+    const bodyText = body.toString();
+
+    expect(bodyText).toContain('<rss version="2.0"');
+    expect(bodyText).toContain('<title>1ilsang.dev</title>');
+    expect(bodyText).toContain('<item>');
+    expect(bodyText).toContain(MyProfile.blog.href);
+  });
+
+  test('should exist twitter card meta', async ({ page }) => {
+    await page.goto('/');
+    const twitterCard = await page.evaluate(() => {
+      const meta = document.querySelector('meta[name="twitter:card"]');
+      return meta?.getAttribute('content') ?? '';
+    });
+    expect(twitterCard).toBe('summary_large_image');
+  });
+
+  test('should exist RSS alternate link', async ({ page }) => {
+    await page.goto('/');
+    const rssLink = await page.evaluate(() => {
+      const link = document.querySelector(
+        'link[type="application/rss+xml"]',
+      ) as HTMLLinkElement | null;
+      return link?.href ?? '';
+    });
+    expect(rssLink).toContain('/feed.xml');
+  });
 });
