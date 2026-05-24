@@ -56,9 +56,11 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: 'npm run start',
+    command: 'npx -y serve out',
     url: 'http://127.0.0.1:3000',
-    timeout: 3 * 1000,
+    // CI npm run start 처럼 3초 이내에 서버가 올라가지 않음.
+    // 따라서 30초로 설정.
+    timeout: 30 * 1000,
     reuseExistingServer: false,
   },
 
