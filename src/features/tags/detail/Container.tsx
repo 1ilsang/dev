@@ -29,7 +29,13 @@ export const TagDetailContainer: FunctionComponent<TagDetailContainerProps> = ({
                 {formatDate(new Date(date), 'yy.MM.dd')}
               </div>
               <div>
-                <img src={coverImage} width={200} />
+                <img
+                  src={coverImage}
+                  width={200}
+                  height={112}
+                  loading="lazy"
+                  alt="cover"
+                />
               </div>
             </Link>
           </div>

@@ -43,6 +43,7 @@ export default function RootLayout({
 }
 
 export const metadata: Metadata = {
+  metadataBase: new URL(MyProfile.blog.href),
   authors: [{ name: '1ilsang' }],
   keywords: MetaKeywords.HOME,
   title: MetaTitle.HOME,
@@ -73,7 +74,18 @@ export const metadata: Metadata = {
     writers: MyProfile.personal.label,
     username: MyProfile.personal.label,
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: MetaTitle.HOME,
+    description: MetaDescription.HOME,
+    images: [ImageUrl.HOME],
+  },
   manifest: '/manifest.json',
+  alternates: {
+    types: {
+      'application/rss+xml': '/feed.xml',
+    },
+  },
   appleWebApp: {
     title: '1ilsang.dev',
     capable: true,

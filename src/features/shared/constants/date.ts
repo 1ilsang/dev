@@ -19,7 +19,7 @@ type DayType =
   | 'Thursday'
   | 'Friday'
   | 'Saturday';
-export const DayList: DayType[] = [
+export const DayList = [
   'Sunday',
   'Monday',
   'Tuesday',
@@ -27,9 +27,9 @@ export const DayList: DayType[] = [
   'Thursday',
   'Friday',
   'Saturday',
-];
+] as const satisfies readonly DayType[];
 
-export const MonthList: MonthType[] = [
+export const MonthList = [
   'January',
   'February',
   'March',
@@ -42,4 +42,4 @@ export const MonthList: MonthType[] = [
   'October',
   'November',
   'December',
-];
+] as const satisfies readonly MonthType[];

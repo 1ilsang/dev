@@ -39,6 +39,9 @@ export const PostItem: FunctionComponent<{
             className="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src={coverImage}
             alt="cover"
+            loading="lazy"
+            width={208}
+            height={112}
           />
         </div>
         <div className="w-full mt-2 md:mt-0">

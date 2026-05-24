@@ -3,7 +3,7 @@ import type { Profile } from '~/about/headline/models';
 type AboutProfileKeys = 'blog' | 'github' | 'gmail' | 'linkedin';
 type ProfileKeys = AboutProfileKeys | 'personal';
 
-export const MyProfile: Readonly<Record<ProfileKeys, Readonly<Profile>>> = {
+export const MyProfile = {
   personal: {
     label: '1ilsang',
     href: '/about',
@@ -36,7 +36,7 @@ export const MyProfile: Readonly<Record<ProfileKeys, Readonly<Profile>>> = {
     imageSrc: '/images/logo/linkedin.webp',
     alt: 'linked-in',
   },
-};
+} as const satisfies Record<ProfileKeys, Readonly<Profile>>;
 
 const checkKeys = (key: string): key is AboutProfileKeys => {
   const allowList: AboutProfileKeys[] = ['blog', 'github', 'gmail', 'linkedin'];

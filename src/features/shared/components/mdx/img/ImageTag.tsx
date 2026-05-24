@@ -69,5 +69,6 @@ const Img = ({ src, alt }: ImageTagProps) => (
     className="w-full cursor-zoom-in object-contain max-h-[550px]"
     alt={alt}
     src={src}
+    loading="lazy"
   />
 );

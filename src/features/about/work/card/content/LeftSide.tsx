@@ -45,6 +45,9 @@ const LeftSide: FunctionComponent<LeftSideProps> = memo(
             )}
             src={logoUrl}
             alt={alt}
+            width={64}
+            height={64}
+            loading="lazy"
           />
         </a>
         <ProjectDate
