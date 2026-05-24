@@ -1,5 +1,6 @@
 # https://docs.github.com/en/actions/creating-actions/creating-a-composite-action?platform=mac#creating-an-action-metadata-file
 name: nextjs-build-export
+description: Build and export Next.js static site with cache
 
 inputs:
   e2e:

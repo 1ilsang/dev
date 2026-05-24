@@ -1,4 +1,5 @@
 name: pnpm-install
+description: Install pnpm and dependencies with cache
 
 runs:
   using: composite
