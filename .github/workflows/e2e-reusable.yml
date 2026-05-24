@@ -17,7 +17,7 @@ on:
 jobs:
   i:
     timeout-minutes: 60
-    runs-on: macos-latest
+    runs-on: ${{ inputs.screen-snapshot && 'macos-latest' || 'ubuntu-latest' }}
     env:
       TZ: Asia/Seoul
 
@@ -30,10 +30,11 @@ jobs:
       - name: 🥦 Install playwright
         uses: ./.github/actions/playwright-install
 
-      - name: 🏗 Build and Export
-        uses: ./.github/actions/nextjs-build-export
+      - name: 📦 Download build artifact
+        uses: actions/download-artifact@v4
         with:
-          e2e: 'true'
+          name: e2e-build
+          path: out/
 
       - name: 🍄 Run Playwright [others]
         if: inputs.others
@@ -50,6 +51,6 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: failure()
         with:
-          name: playwright-report-$${{ inputs.others && 'others' || inputs.dom-snapshot && 'dom-snapshot' || inputs.screen-snapshot && 'screen-snapshot' || 'no-input-name' }}
+          name: playwright-report-${{ inputs.others && 'others' || inputs.dom-snapshot && 'dom-snapshot' || inputs.screen-snapshot && 'screen-snapshot' || 'no-input-name' }}
           path: playwright-report/
           retention-days: 10

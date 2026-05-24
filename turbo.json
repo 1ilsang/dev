@@ -1,0 +1,38 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "build": {
+      "inputs": ["src/**", "_posts/**", "scripts/**", "next.config.mjs", "tsconfig.json", "tailwind.config.cjs"],
+      "outputs": [".next/**", "out/**"]
+    },
+    "test:unit": {
+      "inputs": ["src/**/*.{ts,tsx}", "jest.config.ts", "jest.setup.ts"],
+      "outputs": ["coverage/**"]
+    },
+    "lint:eslint": {
+      "inputs": ["src/**/*.{ts,tsx}", "scripts/**/*.{ts,mjs}", "eslint.config.js"],
+      "outputs": []
+    },
+    "lint:typeCheck": {
+      "inputs": ["src/**/*.{ts,tsx}", "tsconfig.json"],
+      "outputs": []
+    },
+    "lint:stylelint": {
+      "inputs": ["src/**/*.css", ".stylelintrc.cjs"],
+      "outputs": []
+    },
+    "lint:prettier": {
+      "inputs": ["src/**/*.{json,html,yml,tsx,ts,js,jsx,css}", "_posts/**/*.{mdx,md}", ".prettierrc.cjs"],
+      "outputs": []
+    },
+    "lint:markdown": {
+      "inputs": ["_posts/**/*.mdx", ".markdownlint.cjs"],
+      "outputs": []
+    },
+    "e2e": {
+      "dependsOn": ["build"],
+      "inputs": ["e2e/**", "out/**", "playwright.config.ts"],
+      "outputs": ["playwright-report/**", "e2e/__snapshots__/**"]
+    }
+  }
+}

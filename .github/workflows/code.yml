@@ -9,8 +9,8 @@ permissions:
   pull-requests: write
 
 jobs:
-  lint:
-    runs-on: macos-latest
+  lint-and-test:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
@@ -20,8 +20,11 @@ jobs:
       - name: 🏁 Lint
         run: pnpm lint
 
+      - name: 🪤 Jest
+        run: pnpm jest
+
   build-export:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
