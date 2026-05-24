@@ -9,8 +9,8 @@
   "type": "module",
   "scripts": {
     "predev": "node --experimental-strip-types ./scripts/pre-scripts.ts",
-    "dev": "next dev --webpack",
-    "build": "pnpm predev && next build --webpack",
+    "dev": "next dev",
+    "build": "pnpm predev && next build",
     "start": "npx serve out",
     "lint:stylelint": "stylelint --config './.stylelintrc.cjs' './src/**/*.css'",
     "lint:prettier": "prettier --check './src/**/*.{json,html,yml,tsx,ts,js,jsx,css}' './_posts/**/*.{mdx,md}'",

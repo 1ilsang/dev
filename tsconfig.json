@@ -29,6 +29,7 @@
   },
   "include": [
     "next-env.d.ts",
+    "_posts/**/*.mdx",
     "src/**/*.ts",
     "src/**/*.tsx",
     "e2e/**/*.ts",

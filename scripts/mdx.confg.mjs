@@ -1,25 +1,23 @@
+import { resolve, dirname } from 'path';
+import { fileURLToPath } from 'url';
 import createMDX from '@next/mdx';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import rehypePrettyCode from 'rehype-pretty-code';
-import rehypeSlug from 'rehype-slug';
-import remarkFrontmatter from 'remark-frontmatter';
-import remarkGfm from 'remark-gfm';
-import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
-import { remarkRehypeCustom } from './remark-rehype-custom.mjs';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const remarkRehypeCustomPath = resolve(__dirname, 'remark-rehype-custom.mjs');
 
 export const withMDX = createMDX({
   options: {
     remarkPlugins: [
-      remarkFrontmatter,
-      remarkMdxFrontmatter,
-      remarkGfm,
-      remarkRehypeCustom,
+      'remark-frontmatter',
+      'remark-mdx-frontmatter',
+      'remark-gfm',
+      [remarkRehypeCustomPath, {}],
     ],
     rehypePlugins: [
-      rehypeSlug,
-      rehypeAutolinkHeadings,
+      'rehype-slug',
+      'rehype-autolink-headings',
       [
-        rehypePrettyCode,
+        'rehype-pretty-code',
         {
           theme: 'material-theme-palenight',
           keepBackground: false,

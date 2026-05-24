@@ -118,3 +118,5 @@ export const remarkRehypeCustom = () => {
     });
   };
 };
+
+export default remarkRehypeCustom;

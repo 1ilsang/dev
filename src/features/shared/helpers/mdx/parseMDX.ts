@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import type { MDXContent } from 'mdx/types';
 import type { Category, FileCategory, PostType } from '~/posts/models';
+import { mdxMap } from './mdxMap';
 
 const POST_PATH = path.join(process.cwd(), '_posts');
 const WORDS_PER_MINUTE = 200;
@@ -42,7 +43,7 @@ export const parseMDX = async (fullSlug: string): Promise<PostType> => {
     frontmatter,
     default: MDX,
     toc,
-  } = (await import(`/_posts/${fullSlug}/docs.mdx`)) as PostType & {
+  } = mdxMap[fullSlug] as PostType & {
     default: MDXContent;
   };
 
