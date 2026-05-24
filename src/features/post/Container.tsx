@@ -1,6 +1,7 @@
 import type { FunctionComponent, PropsWithChildren } from 'react';
 import { type PostType } from '~/posts/models';
 import { MainContainer } from '~/shared/components/MainContainer';
+import { CodeCopyButton } from '~/shared/components/mdx/CodeCopyButton';
 import { IssuePost } from './components/IssuePost';
 import { TocContainer } from './toc/Container';
 import { InformationContainer } from './information/InformationContainer';
@@ -19,6 +20,7 @@ export const PostContainer: FunctionComponent<
       <h1 className="text-4xl break-words md:text-6xl">{title}</h1>
       <InformationContainer post={post} />
       <section id={POST_BODY_ID.slice(1)} className="relative">
+        <CodeCopyButton />
         <div className="markdown">{children}</div>
         {toc.length > 0 && <TocContainer toc={toc} />}
       </section>
