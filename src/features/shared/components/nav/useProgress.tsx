@@ -14,7 +14,7 @@ const useProgress = () => {
 
   const checkImages = () =>
     Array.from(document.images)
-      .filter((img) => !img.complete)
+      .filter((img) => !img.complete && img.loading !== 'lazy')
       .map(
         (img) =>
           new Promise((resolve) => {
