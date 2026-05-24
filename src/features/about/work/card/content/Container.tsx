@@ -8,7 +8,6 @@ import { Tags } from './Tags';
 import { ProjectDate } from './ProjectDate';
 import ProjectDetail from './ProjectDetail';
 
-import { ExternalLink } from '~/shared/components/ExternalLink';
 import { usePrint } from '~/shared/hooks/usePrint';
 
 export type CompanyContentProjectProps = Project & {
@@ -18,7 +17,7 @@ export type CompanyContentProjectProps = Project & {
 const CompanyContentProject: FunctionComponent<CompanyContentProjectProps> = (
   props,
 ) => {
-  const { name, url, tags, startDate, endDate, format = 'yyyy.MM' } = props;
+  const { name, tags, startDate, endDate, format = 'yyyy.MM' } = props;
   const [open, setOpen] = useState<boolean>(undefined);
   const { print } = usePrint();
 
@@ -26,9 +25,9 @@ const CompanyContentProject: FunctionComponent<CompanyContentProjectProps> = (
     setOpen(!open);
   };
 
-  const fold = 'before:content-["▶"] before:text-[0.9rem]';
+  const fold = 'before:rotate-0';
   const unfold =
-    'before:content-["▼"] text-highlight print:text-black print:before:text-black';
+    'before:rotate-90 text-highlight print:text-black print:before:text-black';
 
   const openClassName = (() => {
     if (print) return 'animate-show';
@@ -39,16 +38,11 @@ const CompanyContentProject: FunctionComponent<CompanyContentProjectProps> = (
     if (print) return unfold;
     return open ? unfold : fold;
   })();
-  const externalLink = (() => {
-    if (print) return undefined;
-    return open !== undefined && url && openClassName !== 'animate-hide';
-  })();
 
   return (
     <div
       className={classNames(
         'mb-4 pr-1 pl-[0.7rem] border-dark border-l-[0.24rem] border-b-[0.01rem] border-b-dotted print:border-black',
-        { 'pb-4': open },
       )}
     >
       <div
@@ -58,7 +52,7 @@ const CompanyContentProject: FunctionComponent<CompanyContentProjectProps> = (
         <div className="flex items-center justify-between w-full">
           <div
             className={classNames(
-              'text-xl before:mr-2 before:text-sub-blue group-hover:before:text-highlight before:duration-300',
+              'text-xl before:mr-2 before:text-sub-blue group-hover:before:text-highlight before:inline-block before:duration-300 before:content-["▶"]',
               [foldState],
             )}
           >
@@ -73,13 +67,6 @@ const CompanyContentProject: FunctionComponent<CompanyContentProjectProps> = (
         <Tags tags={tags} />
       </div>
       <ProjectDetail {...props} openClassName={openClassName} />
-      {externalLink && (
-        <ExternalLink
-          className={classNames(['mt-2', openClassName])}
-          href={url}
-          label={`> 서비스 링크`}
-        />
-      )}
     </div>
   );
 };

@@ -4,6 +4,7 @@ import { type FunctionComponent, type MouseEventHandler, memo } from 'react';
 
 import type { Project } from '~/about/work/models';
 import DynamicImage from '~/shared/components/DynamicImage';
+import { ExternalLink } from '~/shared/components/ExternalLink';
 import { imageSrcAtom } from '~/shared/components/modal/atoms';
 import { usePrint } from '~/shared/hooks/usePrint';
 
@@ -12,7 +13,7 @@ type ProjectDetailProps = Project & {
 };
 
 const ProjectDetail: FunctionComponent<ProjectDetailProps> = memo(
-  ({ summary, body, img, openClassName }) => {
+  ({ summary, body, img, url, openClassName }) => {
     const { print } = usePrint();
     const [, setImageSrc] = useAtom(imageSrcAtom);
 
@@ -42,6 +43,13 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = memo(
             {body}
           </ul>
         </div>
+        {url && (
+          <ExternalLink
+            className="mt-2 mb-4.5"
+            href={url}
+            label={`> 서비스 링크`}
+          />
+        )}
       </div>
     );
   },
