@@ -27,7 +27,7 @@ describe('logger', () => {
       infoLog(message);
 
       expect(mockConsoleInfo).toHaveBeenCalledWith(
-        `\n\x1b[36m ✓ ${message} \x1b[0m`,
+        `\x1b[36m ✓ ${message} \x1b[0m`,
       );
     });
 
@@ -36,7 +36,7 @@ describe('logger', () => {
 
       infoLog(message);
 
-      expect(mockConsoleInfo).toHaveBeenCalledWith(`\n\x1b[36m ✓  \x1b[0m`);
+      expect(mockConsoleInfo).toHaveBeenCalledWith(`\x1b[36m ✓  \x1b[0m`);
     });
 
     it('should handle special characters in message', () => {
@@ -45,7 +45,7 @@ describe('logger', () => {
       infoLog(message);
 
       expect(mockConsoleInfo).toHaveBeenCalledWith(
-        `\n\x1b[36m ✓ ${message} \x1b[0m`,
+        `\x1b[36m ✓ ${message} \x1b[0m`,
       );
     });
   });
