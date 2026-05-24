@@ -31,7 +31,7 @@
     "jest:watch": "jest --watch",
     "jest": "jest",
     "np": "node --disable-warning=ExperimentalWarning --experimental-strip-types scripts/new-post.ts",
-    "clean": "rm -rf .next out node_modules test-results",
+    "clean": "rm -rf .next out node_modules test-results coverage playwright-report",
     "knip": "pnpm dlx knip",
     "prepare": "husky",
     "preinstall": "npx only-allow pnpm"
