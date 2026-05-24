@@ -1,5 +1,6 @@
 import { type Metadata, type NextPage } from 'next';
 import { MyProfile } from '~/about/headline/data/profile';
+import { MetaTitle } from '~/shared/constants/blog';
 
 import { PostContainer } from '~/post/Container';
 import type { PostType } from '~/posts/models';
@@ -93,6 +94,8 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
+      siteName: MetaTitle.HOME,
+      locale: 'ko_KR',
       url: `${href}/posts/${slug}`,
       images: [{ url: `${href}${coverImage}`, alt: 'cover' }],
       type: 'article',

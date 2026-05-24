@@ -44,6 +44,11 @@ export default function RootLayout({
 
 export const metadata: Metadata = {
   metadataBase: new URL(MyProfile.blog.href),
+  verification: {
+    other: {
+      'naver-site-verification': 'bcdb5cf57aa9c7e527e4f53872d80218e957e9a6',
+    },
+  },
   authors: [{ name: '1ilsang' }],
   keywords: MetaKeywords.HOME,
   title: MetaTitle.HOME,

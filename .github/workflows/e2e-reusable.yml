@@ -16,7 +16,7 @@ on:
 jobs:
   i:
     timeout-minutes: 60
-    runs-on: ${{ inputs.screen-snapshot && 'macos-latest' || 'ubuntu-latest' }}
+    runs-on: macos-latest
     env:
       TZ: Asia/Seoul
 
