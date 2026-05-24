@@ -10,7 +10,7 @@ export const slugList = [
         withFileTypes: true,
         recursive: true,
       })
-      .filter((post) => post.isFile())
+      .filter((post) => post.isFile() && post.name.endsWith('.mdx'))
       .map((post) => post.parentPath.split('/').pop()),
   ),
 ];
