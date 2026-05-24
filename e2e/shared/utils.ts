@@ -2,7 +2,10 @@ import type { PageAssertionsToHaveScreenshotOptions } from '@playwright/test';
 import { expect, type Page } from '@playwright/test';
 import prettier from 'prettier';
 
-const prettierOptions = await prettier.resolveConfig(process.cwd());
+const prettierOptions = {
+  ...(await prettier.resolveConfig(process.cwd())),
+  parser: 'html',
+};
 
 export const gotoUrl = async ({
   page,
@@ -149,9 +152,6 @@ export const getPageDomInnerHTML = async ({
   selector?: string;
 }): Promise<string> => {
   const body = await page.locator(selector).innerHTML();
-  const prettyHtml = await prettier.format(body, {
-    ...prettierOptions,
-    parser: 'html',
-  });
+  const prettyHtml = await prettier.format(body, prettierOptions);
   return prettyHtml;
 };
