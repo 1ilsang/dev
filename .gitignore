@@ -21,3 +21,6 @@ out
 
 # Assets
 /public/posts/*
+
+# agents
+.kiro

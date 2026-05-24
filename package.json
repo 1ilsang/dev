@@ -30,6 +30,7 @@
     "e2e": "pnpm playwright test",
     "jest:watch": "jest --watch",
     "jest": "jest",
+    "post": "node --experimental-strip-types scripts/new-post.ts",
     "clean": "rm -rf .next out node_modules test-results",
     "knip": "pnpm dlx knip",
     "prepare": "husky",
