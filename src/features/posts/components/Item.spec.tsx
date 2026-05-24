@@ -15,6 +15,7 @@ const mockPost: ServerPost = {
   toc: [],
   url: '/posts/test-post',
   fullSlug: 'test-post',
+  readingTime: 6,
 };
 
 describe('PostItem', () => {

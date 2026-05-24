@@ -44,4 +44,6 @@ export type PostType = {
   fullSlug: string;
   /** 파일이 속한 카테고리 (ex: activity) */
   category: Category;
+  /** 예상 읽기 시간 (분) */
+  readingTime: number;
 };

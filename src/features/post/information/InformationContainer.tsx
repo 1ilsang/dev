@@ -11,6 +11,7 @@ type Props = {
 export const InformationContainer: FunctionComponent<Props> = ({
   post: {
     frontmatter: { tags, date, updatedAt },
+    readingTime,
   },
 }) => {
   return (
@@ -26,8 +27,10 @@ export const InformationContainer: FunctionComponent<Props> = ({
           />
         ))}
       </section>
-      <section>
+      <section className="flex items-center gap-2">
         <PublishedDate date={date} updatedDate={updatedAt} />
+        <span className="text-date-gray">·</span>
+        <span className="text-date-gray">{readingTime} min read</span>
       </section>
     </>
   );

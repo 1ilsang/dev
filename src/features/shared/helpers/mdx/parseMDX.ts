@@ -1,5 +1,19 @@
+import fs from 'fs';
+import path from 'path';
 import type { MDXContent } from 'mdx/types';
 import type { Category, FileCategory, PostType } from '~/posts/models';
+
+const POST_PATH = path.join(process.cwd(), '_posts');
+const WORDS_PER_MINUTE = 200;
+
+const getReadingTime = (filePath: string): number => {
+  const content = fs.readFileSync(filePath, 'utf-8');
+  const textOnly = content
+    .replace(/---[\s\S]*?---/, '')
+    .replace(/[#*`[\]()!<>{}|]/g, '');
+  const wordCount = textOnly.trim().split(/\s+/).length;
+  return Math.max(1, Math.round(wordCount / WORDS_PER_MINUTE));
+};
 
 const parseCategory = (category: FileCategory): Category => {
   switch (category) {
@@ -32,6 +46,9 @@ export const parseMDX = async (fullSlug: string): Promise<PostType> => {
     default: MDXContent;
   };
 
+  const filePath = path.join(POST_PATH, fullSlug, 'docs.mdx');
+  const readingTime = getReadingTime(filePath);
+
   return {
     frontmatter: {
       ...frontmatter,
@@ -43,5 +60,6 @@ export const parseMDX = async (fullSlug: string): Promise<PostType> => {
     fullSlug,
     category,
     MDX,
+    readingTime,
   };
 };
