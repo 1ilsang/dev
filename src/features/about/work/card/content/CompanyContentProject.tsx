@@ -11,6 +11,7 @@ import { ProjectDate } from './ProjectDate';
 import ProjectDetail from './ProjectDetail';
 import { Tags } from './Tags';
 import type { CompanyContentProjectProps } from './types';
+import { ga } from '~/shared/helpers/logger';
 
 export const CompanyContentProject: FunctionComponent<
   CompanyContentProjectProps
@@ -29,7 +30,14 @@ export const CompanyContentProject: FunctionComponent<
   const [visibility, setVisibility] = useState<DetailVisibility>('idle');
 
   const handleToggle = () => {
-    setVisibility(toggleDetailVisibility);
+    setVisibility((prev) => {
+      const next = toggleDetailVisibility(prev);
+      ga('aboutProjectToggle', {
+        type: next === 'open' ? 'open' : 'close',
+        value: name,
+      });
+      return next;
+    });
   };
 
   const handleKeyDown: KeyboardEventHandler<HTMLDivElement> = (e) => {

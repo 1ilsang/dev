@@ -10,6 +10,7 @@ import { RightSide } from './content/RightSide';
 
 import { usePrint } from '~/shared/hooks/usePrint';
 import { toggleAccordion } from './content/toggleAccordion';
+import { ga } from '~/shared/helpers/logger';
 
 export type WorkCardContainerProps = Company & {
   toggleOpenAll?: boolean;
@@ -33,7 +34,14 @@ export const WorkCardContainer: FunctionComponent<WorkCardContainerProps> = (
   const { print } = usePrint();
 
   const handleHeadlineClick = () => {
-    setOpen((prev) => toggleAccordion(prev, true));
+    setOpen((prev) => {
+      const next = toggleAccordion(prev, true);
+      ga('aboutCompanyToggle', {
+        type: next ? 'open' : 'close',
+        value: company,
+      });
+      return next;
+    });
   };
 
   useEffect(() => {

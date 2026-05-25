@@ -7,6 +7,7 @@ import { WorkCardContainer } from './card/Container';
 
 import { companyData } from '~/about/work/data/company';
 import { Label } from '../shared/Label';
+import { ga } from '~/shared/helpers/logger';
 
 type WorkContainerProps = {
   format: string;
@@ -17,8 +18,11 @@ export const WorkContainer: FunctionComponent<WorkContainerProps> = ({
 }) => {
   const [toggleOpenAll, setToggleOpenAll] = useState<boolean>(undefined);
 
-  const handleTitleClick = () =>
-    setToggleOpenAll(toggleOpenAll === undefined ? false : !toggleOpenAll);
+  const handleTitleClick = () => {
+    const next = toggleOpenAll === undefined ? false : !toggleOpenAll;
+    setToggleOpenAll(next);
+    ga('aboutToggleAll', { type: next ? 'open' : 'close', value: 'work' });
+  };
 
   return (
     <section className="flex flex-col pb-8">
