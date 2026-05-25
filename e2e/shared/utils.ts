@@ -144,6 +144,18 @@ export const screenshotFullPage = async ({
   await expect(page).toHaveScreenshot([...arg], screenOptions);
 };
 
+// DOM 스냅샷은 정적 마크업만 검증한다. 스크롤 위치에 따라 rAF/IO 이후
+// 붙는 TOC 활성화 클래스는 타이밍에 따라 달라져 flaky 하므로 제외한다.
+const DYNAMIC_DOM_CLASSES = ['animate-toc-index'] as const;
+
+const normalizeDomSnapshot = (html: string): string => {
+  const classPattern = new RegExp(
+    `\\s*(?:${DYNAMIC_DOM_CLASSES.join('|')})`,
+    'g',
+  );
+  return html.replace(classPattern, '');
+};
+
 export const getPageDomInnerHTML = async ({
   page,
   selector = 'main',
@@ -153,5 +165,5 @@ export const getPageDomInnerHTML = async ({
 }): Promise<string> => {
   const body = await page.locator(selector).innerHTML();
   const prettyHtml = await prettier.format(body, prettierOptions);
-  return prettyHtml;
+  return normalizeDomSnapshot(prettyHtml);
 };
