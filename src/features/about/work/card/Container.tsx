@@ -62,8 +62,10 @@ export const WorkCardContainer: FunctionComponent<WorkCardContainerProps> = (
           name={props.company}
           onClick={handleHeadlineClick}
           description={position}
+          ariaExpanded={open}
+          controlsId={`${props.company}-projects`}
         />
-        <div className={openClassName}>
+        <div id={`${props.company}-projects`} className={openClassName}>
           {projectList.map((project) => (
             <CompanyContentProject
               key={project.name}

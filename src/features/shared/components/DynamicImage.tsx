@@ -12,7 +12,7 @@ type DynamicImageProps = {
   loading?: boolean;
   width?: number;
   height?: number;
-  onClick?: MouseEventHandler<HTMLImageElement>;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
 };
 
 const DynamicImage: FunctionComponent<DynamicImageProps> = ({
@@ -27,6 +27,16 @@ const DynamicImage: FunctionComponent<DynamicImageProps> = ({
   const [min, setMin] = useState(true);
   const handleMinClick = () => setMin(!min);
 
+  const image = (
+    <img
+      className={onClick ? 'cursor-zoom-in w-full' : 'w-full'}
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+    />
+  );
+
   return (
     <div
       className={classNames('relative mt-4 text-amber-600', [className], {
@@ -36,23 +46,28 @@ const DynamicImage: FunctionComponent<DynamicImageProps> = ({
       style={{ width, height }}
     >
       <button
+        type="button"
         className={classNames(
-          'absolute top-[-3rem] left-[-0.5rem] hover:text-amber-400 hover:duration-150 opacity-70 before:text-[5rem] cursor-pointer',
+          'absolute top-[-3rem] left-[-0.5rem] hover:text-amber-400 hover:duration-150 opacity-70 before:text-[5rem] cursor-pointer border-none bg-transparent p-0',
           min
             ? 'before:content-["⎗"] before:text-[6rem]'
             : 'before:content-["⎘"]',
         )}
-        title="Toggle image size"
+        aria-label={min ? '이미지 크기 확대' : '이미지 크기 축소'}
         onClick={handleMinClick}
       />
-      <img
-        className={onClick ? 'cursor-zoom-in' : undefined}
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-        onClick={onClick}
-      />
+      {onClick ? (
+        <button
+          type="button"
+          className="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label={`${alt} 확대`}
+          onClick={onClick}
+        >
+          {image}
+        </button>
+      ) : (
+        image
+      )}
     </div>
   );
 };

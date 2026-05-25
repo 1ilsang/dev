@@ -22,7 +22,7 @@ const Tags: NextPage<TagsDetailProps> = async ({ params }) => {
   return (
     <MainLayout>
       <Navbar />
-      <TagDetailContainer posts={posts} />
+      <TagDetailContainer posts={posts} tag={decodeURIComponent(tag)} />
       <Footer />
     </MainLayout>
   );

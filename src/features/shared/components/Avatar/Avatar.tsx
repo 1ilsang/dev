@@ -7,23 +7,22 @@ import { MyProfile } from '~/about/headline/data/profile';
 export const Avatar: FunctionComponent<{ nav?: boolean }> = memo(
   ({ nav = false }) => {
     return (
-      <div
-        className={classNames('mr-2', [
+      <Link
+        href="/about"
+        aria-label="About 페이지로 이동"
+        className={classNames('mr-2 block', [
           nav ? 'w-8 h-8 mt-2' : 'w-9 h-9 md:w-12 md:h-12',
         ])}
-        role="img"
-        aria-label="1ilsang character"
       >
-        <Link href="/about">
-          <img
-            className={classNames('border border-solid rounded-full', [
-              nav ? 'border-white-blue' : 'border-sub-blue',
-            ])}
-            src={MyProfile.personal.imageSrc}
-            alt={MyProfile.personal.alt}
-          />
-        </Link>
-      </div>
+        <img
+          className={classNames(
+            'border border-solid rounded-full w-full h-full',
+            [nav ? 'border-white-blue' : 'border-sub-blue'],
+          )}
+          src={MyProfile.personal.imageSrc}
+          alt={MyProfile.personal.alt}
+        />
+      </Link>
     );
   },
 );

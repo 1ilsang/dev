@@ -5,8 +5,8 @@ import { ga } from '~/shared/helpers/logger';
 const usePostListContainer = () => {
   const [categoryFilter, setCategoryFilter] = useState<Set<string>>(new Set());
 
-  const handleCategoryClick: MouseEventHandler<HTMLSpanElement> = (e) => {
-    const selectedCategory = e.currentTarget.textContent;
+  const handleCategoryClick: MouseEventHandler<HTMLButtonElement> = (e) => {
+    const selectedCategory = e.currentTarget.value;
     setCategoryFilter((prev) => {
       const exist = prev.has(selectedCategory);
       const next = new Set(prev);

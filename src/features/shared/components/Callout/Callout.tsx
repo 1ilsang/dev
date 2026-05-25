@@ -4,6 +4,12 @@ import type { FunctionComponent } from 'react';
 type CalloutType = 'info' | 'warning' | 'error';
 type CalloutValue = 'ℹ️' | '⚠️' | '❗';
 
+const TYPE_LABELS: Record<CalloutType, string> = {
+  info: '정보',
+  warning: '주의',
+  error: '오류',
+};
+
 export const Callout = ({
   className,
   children,
@@ -20,6 +26,8 @@ export const Callout = ({
   const type: CalloutType = info ? 'info' : warning ? 'warning' : 'error';
   return (
     <div
+      role="note"
+      aria-label={TYPE_LABELS[type]}
       className={classNames(
         'flex flex-row gap-1.75 px-4 py-1 rounded-lg max-w-full overflow-hidden',
         className,
@@ -42,5 +50,9 @@ const Type: FunctionComponent<{ type: CalloutType }> = ({ type }) => {
     warning: '⚠️',
     error: '❗',
   };
-  return <div className="text-2xl pt-3.5">{typeMap[type]}</div>;
+  return (
+    <div className="text-2xl pt-3.5" aria-hidden="true">
+      {typeMap[type]}
+    </div>
+  );
 };

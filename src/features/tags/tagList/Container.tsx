@@ -12,6 +12,7 @@ export const TagListContainer: FunctionComponent<TagListContainer> = ({
 }) => {
   return (
     <MainContainer>
+      <h1 className="sr-only">Tags</h1>
       {tags.map((tag) => (
         <div className="inline-block m-2" key={tag}>
           <HashTag link={`/tags/${tag}`} content={tag} />

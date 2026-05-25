@@ -12,9 +12,9 @@ export const HeadlineContainer: FunctionComponent = () => {
 
   return (
     <header className="flex flex-col justify-between items-normal print:flex-row md:flex-row md:items-end print:mt-16">
-      <div className="flex justify-start bg-jumbo bg-clip-text text-transparent text-8xl drop-shadow-[2px_4px_1px_black] tracking-[1px] md:text-9xl font-bold print:text-black print:font-normal print:bg-none print:filter-none">
+      <h1 className="flex justify-start bg-jumbo bg-clip-text text-transparent text-8xl drop-shadow-[2px_4px_1px_black] tracking-[1px] md:text-9xl font-bold print:text-black print:font-normal print:bg-none print:filter-none">
         {title}
-      </div>
+      </h1>
       <div className="flex flex-col">
         {profileLinks.map((link) => (
           <ProfileLogo key={link.label} {...link} />

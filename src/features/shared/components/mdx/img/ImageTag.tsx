@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import { ExternalLink } from '~/shared/components/ExternalLink/ExternalLink';
+import { ZoomableImage } from '~/shared/components/modal/ZoomableImage';
 
 export type ImageTagProps = {
   src: string;
@@ -65,8 +66,8 @@ const Description = ({ description }: { description: string }) => {
 };
 
 const Img = ({ src, alt }: ImageTagProps) => (
-  <img
-    className="w-full cursor-zoom-in object-contain max-h-[550px]"
+  <ZoomableImage
+    className="w-full object-contain max-h-[550px]"
     alt={alt}
     src={src}
     loading="lazy"

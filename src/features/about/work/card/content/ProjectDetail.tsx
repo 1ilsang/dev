@@ -1,11 +1,11 @@
 import classNames from 'classnames';
-import { useAtom } from 'jotai';
+import { useSetAtom } from 'jotai';
 import { type FunctionComponent, type MouseEventHandler, memo } from 'react';
 
 import type { Project } from '~/about/work/models';
 import DynamicImage from '~/shared/components/DynamicImage';
 import { ExternalLink } from '~/shared/components/ExternalLink';
-import { imageSrcAtom } from '~/shared/components/modal/atoms';
+import { imageAltAtom, imageSrcAtom } from '~/shared/components/modal/atoms';
 
 type ProjectDetailProps = Pick<Project, 'summary' | 'body' | 'img' | 'url'> & {
   id: string;
@@ -15,11 +15,13 @@ type ProjectDetailProps = Pick<Project, 'summary' | 'body' | 'img' | 'url'> & {
 
 const ProjectDetail: FunctionComponent<ProjectDetailProps> = memo(
   ({ id, summary, body, img, url, openClassName, print }) => {
-    const [, setImageSrc] = useAtom(imageSrcAtom);
+    const setImageSrc = useSetAtom(imageSrcAtom);
+    const setImageAlt = useSetAtom(imageAltAtom);
 
-    const handleImageClick: MouseEventHandler<HTMLImageElement> = (e) => {
-      if (!(e.target instanceof HTMLImageElement)) return;
-      setImageSrc(e.target.src);
+    const handleImageClick: MouseEventHandler<HTMLButtonElement> = () => {
+      if (!img) return;
+      setImageSrc(img.url);
+      setImageAlt(img.alt);
     };
 
     return (
@@ -40,7 +42,7 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = memo(
         )}
         <div className="py-4 pl-2 mt-4">
           <ul className="grid leading-7">
-            <span className="pb-5 ml-1">{summary}</span>
+            <li className="pb-5 ml-1">{summary}</li>
             {body}
           </ul>
         </div>

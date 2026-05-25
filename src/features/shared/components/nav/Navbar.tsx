@@ -17,18 +17,25 @@ interface NavTextProps {
 
 const NavText: FunctionComponent<NavTextProps> = memo(
   ({ text, link, logo = false, path }) => {
+    const pathname = usePathname();
+    const handleClick = () => {
+      if (pathname === link) {
+        document.body.scrollTo(0, 0);
+      }
+    };
+
     return (
-      <h2
+      <div
         className={classNames('tracking-tight mr-6', {
           'text-snazzy-bg': path === '/',
           'text-xl mt-2.5': !logo,
           'text-2xl font-bold my-2 ml-3.5': logo,
         })}
       >
-        <Link className="hover:underline" href={`${link}`}>
+        <Link className="hover:underline" href={link} onClick={handleClick}>
           {text}
         </Link>
-      </h2>
+      </div>
     );
   },
 );
@@ -37,18 +44,14 @@ NavText.displayName = 'NavText';
 type Props = { showPrint?: boolean };
 export const Navbar: FunctionComponent<Props> = ({ showPrint = false }) => {
   const pathname = usePathname();
-  const [hover, setHover] = useState(false);
   const [scrollDown, setScrollDown] = useState(
     typeof document !== 'undefined' && document.body.scrollTop > 50,
   );
   const { print } = usePrint({ disable: showPrint });
 
-  const [navShadow, postPage] = useMemo(() => {
-    return [!['/', '/about'].includes(pathname), pathname.startsWith('/posts')];
+  const navShadow = useMemo(() => {
+    return !['/', '/about'].includes(pathname);
   }, [pathname]);
-
-  const handleMouseEnter = () => setHover(true);
-  const handleMouseLeave = () => setHover(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -64,15 +67,13 @@ export const Navbar: FunctionComponent<Props> = ({ showPrint = false }) => {
   if (print) return null;
   return (
     <nav
+      aria-label="메인 네비게이션"
       className={classNames(
         'fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%]',
         {
-          'opacity-10 md:opacity-100': !hover && postPage,
           'shadow-nav shadow-lg': navShadow && !scrollDown,
         },
       )}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
     >
       <NavText logo text="1ilsang" link="/" path={pathname} />
       <div className="flex">

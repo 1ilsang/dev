@@ -17,7 +17,7 @@ export const TocContainer: FunctionComponent<TocContainerProps> = ({ toc }) => {
   return (
     <aside
       className="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
-      aria-label="index"
+      aria-label="목차"
     >
       <ul className="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48">
         {toc.map((item, index) => {

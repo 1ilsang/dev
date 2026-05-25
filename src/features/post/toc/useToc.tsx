@@ -26,11 +26,26 @@ export const useToc = ({ toc }: Props) => {
     );
     toc.forEach((el) => {
       const target = document.getElementById(el.id);
-      io.observe(target);
+      if (target) io.observe(target);
+    });
+
+    // 스크롤 복원 후 현재 위치에 맞는 헤딩 활성화
+    const rafId = requestAnimationFrame(() => {
+      const scrollTop = document.body.scrollTop;
+      let closest: string | undefined;
+      for (const el of toc) {
+        const target = document.getElementById(el.id);
+        if (!target) continue;
+        if (target.offsetTop <= scrollTop + 100) {
+          closest = el.id;
+        }
+      }
+      if (closest) setActiveId(closest);
     });
 
     return () => {
       io.disconnect();
+      cancelAnimationFrame(rafId);
     };
   }, []);
 
@@ -60,7 +75,8 @@ export const useToc = ({ toc }: Props) => {
     };
   }, []);
 
-  const handleIndexClick: MouseEventHandler<HTMLLIElement> = (event) => {
+  const handleIndexClick: MouseEventHandler<HTMLAnchorElement> = (event) => {
+    event.preventDefault();
     const targetId = event.currentTarget.id;
     document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
     ga('tocClick', { type: 'toc', value: targetId });

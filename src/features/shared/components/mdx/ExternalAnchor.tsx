@@ -10,8 +10,9 @@ export const ExternalAnchor: FunctionComponent<{ href: string }> = ({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={`외부 링크: ${href}`}
     >
-      ⎋
+      <span aria-hidden="true">⎋</span>
     </a>
   );
 };

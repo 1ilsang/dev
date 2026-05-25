@@ -18,4 +18,12 @@ describe('MainContainer', () => {
     );
     expect(container.querySelector('section')).toHaveClass('extra');
   });
+
+  it('should be skip link target', () => {
+    render(<MainContainer>Content</MainContainer>);
+    const section = screen.getByText('Content').closest('section');
+
+    expect(section).toHaveAttribute('id', 'main-content');
+    expect(section).toHaveAttribute('tabIndex', '-1');
+  });
 });

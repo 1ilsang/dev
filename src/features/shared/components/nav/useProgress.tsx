@@ -1,77 +1,71 @@
-import { useAtom } from 'jotai';
-import { useEffect, useState } from 'react';
-import { imageSrcAtom } from '../modal/atoms';
+import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { POST_BODY_ID } from './constants';
 
 export const INIT_MAX = 1;
+const LOADING_DURATION = 1300;
+const INTERVAL_MS = 45;
+
+type Phase = 'loading' | 'ready';
 
 const useProgress = () => {
   const [progress, setProgress] = useState(0);
   const [max, setMax] = useState(INIT_MAX);
-  const [, setImageSrc] = useAtom(imageSrcAtom);
+  const phaseRef = useRef<Phase>('loading');
   const pathname = usePathname();
 
-  const checkImages = () =>
-    Array.from(document.images)
+  useEffect(() => {
+    if (process.env.NEXT_PUBLIC_E2E) return;
+
+    phaseRef.current = 'loading';
+    setMax(INIT_MAX);
+    setProgress(0);
+
+    // 로딩 애니메이션
+    const intervalId = setInterval(() => {
+      setProgress((prev) => (prev + 0.02) % INIT_MAX);
+    }, INTERVAL_MS);
+
+    // 이미지 로딩 대기
+    const pendingImages = Array.from(document.images)
       .filter((img) => !img.complete && img.loading !== 'lazy')
       .map(
         (img) =>
-          new Promise((resolve) => {
-            img.onload = img.onerror = resolve;
+          new Promise<void>((resolve) => {
+            img.onload = img.onerror = () => resolve();
           }),
       );
 
-  const handleLoadingProgress =
-    (intervalProgress: NodeJS.Timeout) => async (): Promise<number> => {
-      clearTimeout(intervalProgress);
+    let scrollHandler: (() => void) | null = null;
+
+    Promise.all(pendingImages).then(() => {
+      clearInterval(intervalId);
       setProgress(INIT_MAX);
-      return new Promise((resolve) => {
-        setTimeout(() => resolve(1), 1300);
-      });
-    };
 
-  const handleProgress = (handleScroll: () => void) => () => {
-    setMax(document.body.scrollHeight - document.body.clientHeight);
-    setProgress(0);
-    handleScroll = () => {
-      setProgress(document.body.scrollTop);
-    };
-    document.body.addEventListener('scroll', handleScroll);
-  };
-  const handleInterval = () => {
-    setProgress((prev) => (prev + 0.02) % max);
-  };
-  const bindImageClickEvent = () => {
-    if (!pathname.startsWith('/posts')) return;
-    const postBodyContainer = document.querySelector(POST_BODY_ID);
-    if (!postBodyContainer) return;
+      setTimeout(() => {
+        phaseRef.current = 'ready';
+        const newMax = document.body.scrollHeight - document.body.clientHeight;
+        setMax(newMax);
+        setProgress(document.body.scrollTop);
 
-    const postBodyImages = postBodyContainer.querySelectorAll('img');
-    Array.from(postBodyImages).map((img) => {
-      img.addEventListener('click', (event) => {
-        if (!(event.target instanceof HTMLImageElement)) return;
-        setImageSrc(event.target.src);
-      });
+        scrollHandler = () => {
+          const el = document.getElementById(
+            'nav-progress',
+          ) as HTMLProgressElement;
+          if (el) el.value = document.body.scrollTop;
+        };
+        document.body.addEventListener('scroll', scrollHandler, {
+          passive: true,
+        });
+      }, LOADING_DURATION);
     });
-  };
 
-  useEffect(() => {
-    // NOTE: For visual testing
-    if (process.env.NEXT_PUBLIC_E2E) return;
-
-    let handleScroll: () => void;
-    const intervalProgress = setInterval(handleInterval, 45);
-
-    Promise.all(checkImages())
-      .then(bindImageClickEvent)
-      .then(handleLoadingProgress(intervalProgress))
-      .then(handleProgress(handleScroll));
     return () => {
-      document.body.removeEventListener('scroll', handleScroll);
-      clearTimeout(intervalProgress);
+      clearInterval(intervalId);
+      if (scrollHandler) {
+        document.body.removeEventListener('scroll', scrollHandler);
+      }
     };
-  }, []);
+  }, [pathname]);
 
   return { max, progress };
 };

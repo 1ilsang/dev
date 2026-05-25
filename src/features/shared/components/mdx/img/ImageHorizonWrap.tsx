@@ -6,6 +6,9 @@ export type ImageHorizonWrapProps = {
   list: ({ src: string; ext?: string } | string)[];
 };
 
+const formatAlt = (filename: string) =>
+  filename.replace(/[-_]/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
+
 export const ImageHorizonWrap: FunctionComponent<ImageHorizonWrapProps> = ({
   slug,
   list,
@@ -16,7 +19,7 @@ export const ImageHorizonWrap: FunctionComponent<ImageHorizonWrapProps> = ({
         const { src, ext = 'webp' } =
           typeof item === 'string' ? { src: item } : item;
         const source = `/posts/${slug}/${src}.${ext}`;
-        return <ImageTag key={src} alt={src} src={source} horizon />;
+        return <ImageTag key={src} alt={formatAlt(src)} src={source} horizon />;
       })}
     </div>
   );

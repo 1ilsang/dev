@@ -2,11 +2,13 @@
 
 import eslintConfigPrettier from 'eslint-config-prettier';
 import eslint from '@eslint/js';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
   eslint.configs.recommended,
   eslintConfigPrettier,
+  jsxA11y.flatConfigs.recommended,
   {
     ignores: [
       '.next',

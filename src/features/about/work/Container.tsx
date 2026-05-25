@@ -22,7 +22,11 @@ export const WorkContainer: FunctionComponent<WorkContainerProps> = ({
 
   return (
     <section className="flex flex-col pb-8">
-      <Label label="WORK EXPERIENCE" onClick={handleTitleClick} />
+      <Label
+        label="WORK EXPERIENCE"
+        onClick={handleTitleClick}
+        ariaExpanded={toggleOpenAll}
+      />
       <>
         {companyData.map((data) => (
           <WorkCardContainer

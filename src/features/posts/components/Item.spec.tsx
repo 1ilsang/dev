@@ -31,31 +31,27 @@ describe('PostItem', () => {
 
   it('should render cover image', () => {
     render(<PostItem post={mockPost} categoryFilter={new Set()} />);
-    expect(screen.getByAltText('cover')).toHaveAttribute(
+    expect(screen.getByAltText('Test Title 썸네일')).toHaveAttribute(
       'src',
       '/images/test.png',
     );
   });
 
   it('should show when categoryFilter is empty', () => {
-    const { container } = render(
-      <PostItem post={mockPost} categoryFilter={new Set()} />,
-    );
-    expect(container.querySelector('li')).not.toHaveClass('h-0');
+    render(<PostItem post={mockPost} categoryFilter={new Set()} />);
+    expect(screen.getByRole('listitem')).toBeInTheDocument();
   });
 
   it('should show when category matches filter', () => {
-    const { container } = render(
+    render(
       <PostItem post={mockPost} categoryFilter={new Set(['JavaScript'])} />,
     );
-    expect(container.querySelector('li')).not.toHaveClass('h-0');
+    expect(screen.getByRole('listitem')).toBeInTheDocument();
   });
 
   it('should hide when category does not match filter', () => {
-    const { container } = render(
-      <PostItem post={mockPost} categoryFilter={new Set(['Rust'])} />,
-    );
-    expect(container.querySelector('li')).toHaveClass('h-0');
+    render(<PostItem post={mockPost} categoryFilter={new Set(['Rust'])} />);
+    expect(screen.queryByRole('listitem')).not.toBeInTheDocument();
   });
 
   it('should link to correct post URL', () => {

@@ -14,7 +14,7 @@ describe('rendering', () => {
 
   it('should visible', async () => {
     render(<TocContainer toc={MOCK_TOC} />);
-    expect(screen.getByLabelText('index')).toBeVisible();
+    expect(screen.getByLabelText('목차')).toBeVisible();
   });
 
   it('should empty when non-exist heading', async () => {

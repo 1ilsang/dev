@@ -12,6 +12,8 @@ import {
   MetaTitle,
 } from '~/shared/constants/blog';
 
+import { ScrollToTop } from '~/shared/hooks/useScrollToTop';
+
 import '~/styles/global.css';
 
 export default function RootLayout({
@@ -26,6 +28,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="h-full text-white bg-snazzy-bg antialiased font-ridi print:text-black print:bg-white print:w-[210mm] print:h-[297mm] print:print-color-exact pr-scroll-lock md:custom-scrollbar overflow-y-auto print:overflow-y-visible">
+        <ScrollToTop />
         <BannerWrapper />
         {children}
         <div id="portal" />

@@ -7,13 +7,16 @@ import { formatDate } from '~/shared/helpers/date';
 
 type TagDetailContainerProps = {
   posts: PostType[];
+  tag: string;
 };
 
 export const TagDetailContainer: FunctionComponent<TagDetailContainerProps> = ({
   posts,
+  tag,
 }) => {
   return (
     <MainContainer>
+      <h1 className="sr-only">{tag} 태그 글 목록</h1>
       {posts.map(
         ({ url, frontmatter: { title, description, date, coverImage } }) => (
           <div
@@ -34,7 +37,7 @@ export const TagDetailContainer: FunctionComponent<TagDetailContainerProps> = ({
                   width={200}
                   height={112}
                   loading="lazy"
-                  alt="cover"
+                  alt={`${title} 썸네일`}
                 />
               </div>
             </Link>

@@ -18,9 +18,10 @@ describe('CategoryContainer', () => {
   });
 
   it('should call onClearClick when clear button clicked', async () => {
-    const { container } = render(<CategoryContainer {...defaultProps} />);
-    const clearBtn = container.querySelector('span')!;
-    await userEvent.click(clearBtn);
+    render(<CategoryContainer {...defaultProps} />);
+    await userEvent.click(
+      screen.getByRole('button', { name: '카테고리 필터 초기화' }),
+    );
     expect(defaultProps.onClearClick).toHaveBeenCalled();
   });
 
@@ -34,5 +35,19 @@ describe('CategoryContainer', () => {
     const filter = new Set([CATEGORY_LIST[0]]);
     render(<CategoryContainer {...defaultProps} categoryFilter={filter} />);
     expect(screen.getByText(CATEGORY_LIST[0])).toHaveClass('text-highlight');
+  });
+
+  it('should reflect selected state with aria-pressed', () => {
+    const filter = new Set([CATEGORY_LIST[0]]);
+    render(<CategoryContainer {...defaultProps} categoryFilter={filter} />);
+
+    expect(screen.getByText(CATEGORY_LIST[0])).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
+    expect(screen.getByText(CATEGORY_LIST[1])).toHaveAttribute(
+      'aria-pressed',
+      'false',
+    );
   });
 });

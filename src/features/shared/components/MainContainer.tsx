@@ -11,6 +11,8 @@ export const MainContainer: FunctionComponent<Props> = ({
 }) => {
   return (
     <section
+      id="main-content"
+      tabIndex={-1}
       className={classNames(
         'h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0',
         className,

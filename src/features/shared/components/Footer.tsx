@@ -48,7 +48,7 @@ export const Footer: FunctionComponent<Props> = memo(
     if (print || process.env.NEXT_PUBLIC_E2E) return null;
     return (
       <footer className="flex w-full h-screen">
-        <div className="flex w-2/3 overflow-hidden">
+        <div className="flex w-2/3 overflow-hidden" aria-hidden="true">
           {Array.from({ length: 12 }, (_, idx) => (
             <Frame key={idx} idx={idx} />
           ))}

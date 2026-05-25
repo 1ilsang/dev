@@ -6,14 +6,14 @@ describe('rendering', () => {
   it('should visible', async () => {
     render(<Avatar />);
     expect(
-      screen.getByRole('img', { name: '1ilsang character' }),
+      screen.getByRole('link', { name: 'About 페이지로 이동' }),
     ).toBeVisible();
   });
 
   it('should visible with nav prop', async () => {
     render(<Avatar nav />);
     expect(
-      screen.getByRole('img', { name: '1ilsang character' }),
+      screen.getByRole('link', { name: 'About 페이지로 이동' }),
     ).toBeVisible();
   });
 });
@@ -34,8 +34,8 @@ describe('attr', () => {
 describe('styles', () => {
   it('should have default styles when nav is false', async () => {
     render(<Avatar />);
-    const container = screen.getByRole('img', { name: '1ilsang character' });
-    expect(container).toHaveClass('mr-2', 'w-9', 'h-9', 'md:w-12', 'md:h-12');
+    const link = screen.getByRole('link', { name: 'About 페이지로 이동' });
+    expect(link).toHaveClass('mr-2', 'w-9', 'h-9', 'md:w-12', 'md:h-12');
 
     const img = screen.getByAltText(MyProfile.personal.alt);
     expect(img).toHaveClass(
@@ -48,8 +48,8 @@ describe('styles', () => {
 
   it('should have nav styles when nav is true', async () => {
     render(<Avatar nav />);
-    const container = screen.getByRole('img', { name: '1ilsang character' });
-    expect(container).toHaveClass('mr-2', 'w-8', 'h-8', 'mt-2');
+    const link = screen.getByRole('link', { name: 'About 페이지로 이동' });
+    expect(link).toHaveClass('mr-2', 'w-8', 'h-8', 'mt-2');
 
     const img = screen.getByAltText(MyProfile.personal.alt);
     expect(img).toHaveClass(
@@ -62,10 +62,11 @@ describe('styles', () => {
 });
 
 describe('accessibility', () => {
-  it('should have proper ARIA attributes', async () => {
+  it('should have proper link label', async () => {
     render(<Avatar />);
-    const container = screen.getByRole('img', { name: '1ilsang character' });
-    expect(container).toHaveAttribute('aria-label', '1ilsang character');
+    expect(
+      screen.getByRole('link', { name: 'About 페이지로 이동' }),
+    ).toHaveAttribute('aria-label', 'About 페이지로 이동');
   });
 
   it('should have proper image alt text', async () => {

@@ -1,15 +1,15 @@
-import type { FunctionComponent, KeyboardEventHandler } from 'react';
-import { useId, useState } from 'react';
 import classNames from 'classnames';
+import type { FunctionComponent, KeyboardEventHandler } from 'react';
+import { useState } from 'react';
 
 import {
   DETAIL_VISIBILITY_CLASS,
   toggleDetailVisibility,
   type DetailVisibility,
 } from './detailVisibility';
-import { Tags } from './Tags';
 import { ProjectDate } from './ProjectDate';
 import ProjectDetail from './ProjectDetail';
+import { Tags } from './Tags';
 import type { CompanyContentProjectProps } from './types';
 
 export const CompanyContentProject: FunctionComponent<
@@ -27,7 +27,6 @@ export const CompanyContentProject: FunctionComponent<
   url,
 }) => {
   const [visibility, setVisibility] = useState<DetailVisibility>('idle');
-  const detailId = useId();
 
   const handleToggle = () => {
     setVisibility(toggleDetailVisibility);
@@ -59,7 +58,7 @@ export const CompanyContentProject: FunctionComponent<
         role="button"
         tabIndex={0}
         aria-expanded={isExpanded}
-        aria-controls={detailId}
+        aria-controls={name}
         className="flex flex-col duration-300 cursor-pointer select-none group hover:text-highlight"
         onClick={handleToggle}
         onKeyDown={handleKeyDown}
@@ -82,7 +81,7 @@ export const CompanyContentProject: FunctionComponent<
         <Tags tags={tags} />
       </div>
       <ProjectDetail
-        id={detailId}
+        id={name}
         summary={summary}
         body={body}
         img={img}

@@ -23,6 +23,7 @@ export const HeadingFactory = (): HeadingFactory => {
       const AnchorSpan = AnchorProps.children;
       const Anchor = jsx('a', {
         ...AnchorProps,
+        'aria-label': '이 섹션 링크',
         children: jsx('span', {
           ...AnchorSpan.props,
           className: classNames(
