@@ -22,52 +22,55 @@
   }
 </script>
 <progress
+  id="nav-progress"
   class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  aria-label="페이지 읽기 진행률"
   value="0"
   max="1"
 ></progress>
 <nav
-  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"
+  aria-label="메인 네비게이션"
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] shadow-nav shadow-lg"
 >
-  <h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
+  <div class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
     <a class="hover:underline" href="/">1ilsang</a>
-  </h2>
+  </div>
   <div class="flex">
-    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+    <div class="tracking-tight mr-6 text-xl mt-2.5">
       <a class="hover:underline" href="/posts">posts</a>
-    </h2>
-    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/tags">tags</a>
-    </h2>
-    <div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character">
-      <a href="/about"
-        ><img
-          class="border border-solid rounded-full border-white-blue"
-          src="/images/chul.webp"
-          alt="1ilsang"
-      /></a>
     </div>
+    <div class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/tags">tags</a>
+    </div>
+    <a
+      aria-label="About 페이지로 이동"
+      class="mr-2 block w-8 h-8 mt-2"
+      href="/about"
+      ><img
+        class="border border-solid rounded-full w-full h-full border-white-blue"
+        src="/images/chul.webp"
+        alt="1ilsang"
+    /></a>
   </div>
 </nav>
 <section
+  id="main-content"
+  tabindex="-1"
   class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
 >
   <h1 class="text-4xl break-words md:text-6xl">
     우아콘 이그나이트 - 오픈소스 참여 경험 발표 후기
   </h1>
   <section class="flex items-center mt-4">
-    <div
-      class="mr-2 w-9 h-9 md:w-12 md:h-12"
-      role="img"
-      aria-label="1ilsang character"
-    >
-      <a href="/about"
-        ><img
-          class="border border-solid rounded-full border-sub-blue"
-          src="/images/chul.webp"
-          alt="1ilsang"
-      /></a>
-    </div>
+    <a
+      aria-label="About 페이지로 이동"
+      class="mr-2 block w-9 h-9 md:w-12 md:h-12"
+      href="/about"
+      ><img
+        class="border border-solid rounded-full w-full h-full border-sub-blue"
+        src="/images/chul.webp"
+        alt="1ilsang"
+    /></a>
     <div>
       <a class="text-lg" href="/about">1ilsang</a>
       <div class="text-sm text-sub-blue">클라이밍 하실래염?</div>
@@ -113,12 +116,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col h-[600px] object-contain bg-transparent mt-10 min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="cover"
-            src="/posts/2024-woowa-ignite/cover.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="cover 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/2024-woowa-ignite/cover.webp"
+              alt="cover"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -136,7 +146,11 @@
         id="목차"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#목차"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#목차"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -184,7 +198,11 @@
         id="제안"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#제안"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#제안"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -215,7 +233,11 @@
         id="준비"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#준비"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#준비"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -225,12 +247,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="intro"
-            src="/posts/2024-woowa-ignite/intro.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="intro 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/2024-woowa-ignite/intro.webp"
+              alt="intro"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -247,7 +276,11 @@
         id="자기검열"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#자기검열"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#자기검열"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -292,7 +325,11 @@
         id="주제-선정"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#주제-선정"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#주제-선정"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -302,12 +339,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="mdn"
-            src="/posts/2024-woowa-ignite/mdn.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="mdn 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/2024-woowa-ignite/mdn.webp"
+              alt="mdn"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -338,7 +382,11 @@
         id="발표자-선정"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#발표자-선정"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#발표자-선정"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -348,12 +396,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="선정"
-            src="/posts/2024-woowa-ignite/selected.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="선정 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/2024-woowa-ignite/selected.webp"
+              alt="선정"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -363,7 +418,11 @@
         id="자료-준비"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#자료-준비"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#자료-준비"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -387,12 +446,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="mdn"
-            src="/posts/2024-woowa-ignite/mdn-ko-1.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="mdn 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/2024-woowa-ignite/mdn-ko-1.webp"
+              alt="mdn"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -413,12 +479,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="mdn"
-            src="/posts/2024-woowa-ignite/mdn-ko-2.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="mdn 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/2024-woowa-ignite/mdn-ko-2.webp"
+              alt="mdn"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -461,7 +534,11 @@
         id="발표-준비"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#발표-준비"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#발표-준비"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -486,7 +563,11 @@
         id="발표"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#발표"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#발표"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -511,7 +592,11 @@
         id="마치며"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#마치며"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#마치며"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -525,70 +610,100 @@
     </div>
     <aside
       class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
-      aria-label="index"
+      aria-label="목차"
     >
       <ul
         class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
       >
-        <li
-          id="목차"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          목차
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="목차"
+            href="#목차"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >목차</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="제안"
+            href="#제안"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >제안</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="준비"
+            href="#준비"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >준비</a
+          >
         </li>
         <li
-          id="제안"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          제안
+          <a
+            id="자기검열"
+            href="#자기검열"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >자기검열</a
+          >
         </li>
         <li
-          id="준비"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          준비
+          <a
+            id="주제-선정"
+            href="#주제-선정"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >주제 선정</a
+          >
         </li>
         <li
-          id="자기검열"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          자기검열
+          <a
+            id="발표자-선정"
+            href="#발표자-선정"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >발표자 선정</a
+          >
         </li>
         <li
-          id="주제-선정"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          주제 선정
+          <a
+            id="자료-준비"
+            href="#자료-준비"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >자료 준비</a
+          >
         </li>
         <li
-          id="발표자-선정"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
         >
-          발표자 선정
+          <a
+            id="발표-준비"
+            href="#발표-준비"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >발표 준비</a
+          >
         </li>
-        <li
-          id="자료-준비"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
-        >
-          자료 준비
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="발표"
+            href="#발표"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >발표</a
+          >
         </li>
-        <li
-          id="발표-준비"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
-        >
-          발표 준비
-        </li>
-        <li
-          id="발표"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          발표
-        </li>
-        <li
-          id="마치며"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          마치며
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="마치며"
+            href="#마치며"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >마치며</a
+          >
         </li>
       </ul>
     </aside>

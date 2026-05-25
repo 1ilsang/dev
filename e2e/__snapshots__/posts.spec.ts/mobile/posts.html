@@ -1,55 +1,90 @@
 <nav
-  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"
+  aria-label="메인 네비게이션"
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] shadow-nav shadow-lg"
 >
-  <h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
+  <div class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
     <a class="hover:underline" href="/">1ilsang</a>
-  </h2>
+  </div>
   <div class="flex">
-    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+    <div class="tracking-tight mr-6 text-xl mt-2.5">
       <a class="hover:underline" href="/posts">posts</a>
-    </h2>
-    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/tags">tags</a>
-    </h2>
-    <div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character">
-      <a href="/about"
-        ><img
-          class="border border-solid rounded-full border-white-blue"
-          src="/images/chul.webp"
-          alt="1ilsang"
-      /></a>
     </div>
+    <div class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/tags">tags</a>
+    </div>
+    <a
+      aria-label="About 페이지로 이동"
+      class="mr-2 block w-8 h-8 mt-2"
+      href="/about"
+      ><img
+        class="border border-solid rounded-full w-full h-full border-white-blue"
+        src="/images/chul.webp"
+        alt="1ilsang"
+    /></a>
   </div>
 </nav>
 <section
+  id="main-content"
+  tabindex="-1"
   class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0 md:py-[4.8rem]"
 >
+  <h1 class="sr-only">Posts</h1>
   <div class="flex flex-wrap justify-center mb-4 border-b border-sub-blue">
-    <span
-      class="inline-block cursor-pointer select-none my-1.5 mx-5 hover:category-shadow after:content-['𒅄'] hover:animate-slow-spin"
-    ></span
-    ><span
-      class="inline-block cursor-pointer select-none my-1.5 mx-5 hover:category-shadow"
-      >JavaScript</span
-    ><span
-      class="inline-block cursor-pointer select-none my-1.5 mx-5 hover:category-shadow"
-      >Rust</span
-    ><span
-      class="inline-block cursor-pointer select-none my-1.5 mx-5 hover:category-shadow"
-      >Activity</span
-    ><span
-      class="inline-block cursor-pointer select-none my-1.5 mx-5 hover:category-shadow"
-      >Book</span
-    ><span
-      class="inline-block cursor-pointer select-none my-1.5 mx-5 hover:category-shadow"
-      >Retrospect</span
-    ><span
-      class="inline-block cursor-pointer select-none my-1.5 mx-5 hover:category-shadow"
-      >Tool</span
-    ><span
-      class="inline-block cursor-pointer select-none my-1.5 mx-5 hover:category-shadow"
-      >Algorithm</span
+    <button
+      type="button"
+      class="inline-block cursor-pointer select-none my-1.5 mx-5 hover:category-shadow border-none bg-transparent font-inherit p-0 text-inherit after:content-['𒅄'] hover:animate-slow-spin"
+      aria-label="카테고리 필터 초기화"
+    ></button
+    ><button
+      type="button"
+      class="inline-block cursor-pointer select-none my-1.5 mx-5 hover:category-shadow border-none bg-transparent font-inherit p-0 text-inherit"
+      value="JavaScript"
+      aria-pressed="false"
     >
+      JavaScript</button
+    ><button
+      type="button"
+      class="inline-block cursor-pointer select-none my-1.5 mx-5 hover:category-shadow border-none bg-transparent font-inherit p-0 text-inherit"
+      value="Rust"
+      aria-pressed="false"
+    >
+      Rust</button
+    ><button
+      type="button"
+      class="inline-block cursor-pointer select-none my-1.5 mx-5 hover:category-shadow border-none bg-transparent font-inherit p-0 text-inherit"
+      value="Activity"
+      aria-pressed="false"
+    >
+      Activity</button
+    ><button
+      type="button"
+      class="inline-block cursor-pointer select-none my-1.5 mx-5 hover:category-shadow border-none bg-transparent font-inherit p-0 text-inherit"
+      value="Book"
+      aria-pressed="false"
+    >
+      Book</button
+    ><button
+      type="button"
+      class="inline-block cursor-pointer select-none my-1.5 mx-5 hover:category-shadow border-none bg-transparent font-inherit p-0 text-inherit"
+      value="Retrospect"
+      aria-pressed="false"
+    >
+      Retrospect</button
+    ><button
+      type="button"
+      class="inline-block cursor-pointer select-none my-1.5 mx-5 hover:category-shadow border-none bg-transparent font-inherit p-0 text-inherit"
+      value="Tool"
+      aria-pressed="false"
+    >
+      Tool</button
+    ><button
+      type="button"
+      class="inline-block cursor-pointer select-none my-1.5 mx-5 hover:category-shadow border-none bg-transparent font-inherit p-0 text-inherit"
+      value="Algorithm"
+      aria-pressed="false"
+    >
+      Algorithm
+    </button>
   </div>
   <ul class="pb-24 md:pb-56">
     <li
@@ -64,21 +99,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/is-supply-chain-attack/cover.webp"
-            alt="cover"
+            alt="is 패키지의 Supply Chain Attack 과정 분석 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             is 패키지의 Supply Chain Attack 과정 분석
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             메인테이너는 어떻게 토큰을 탈취당했을까?
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2025-09-10 20:02"
@@ -99,21 +134,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/nodejs-architecture-dive/logo.webp"
-            alt="cover"
+            alt="Node.js 아키텍처 및 동작 분석 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             Node.js 아키텍처 및 동작 분석
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             노드 내부 의존성의 존재의의와 연결성을 코드로 알아보기
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2025-03-24 21:27"
@@ -132,21 +167,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/n-api/cover.webp"
-            alt="cover"
+            alt="N-API(Node-API) 얕게 알아보기(feat. Rust) 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             N-API(Node-API) 얕게 알아보기(feat. Rust)
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             N-API를 이해하고 Node.js Addon에 Rust를 붙이는 방법을 알아보자.
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2025-03-16 21:37"
@@ -167,21 +202,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/object-type/cover.webp"
-            alt="cover"
+            alt="Object vs object vs {} 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             Object vs object vs {}
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             객체 타입의 이해와 문자열 리터럴 확장하기
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2025-01-19 19:45"
@@ -202,21 +237,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/2024-woowa-ignite/thumbnail.webp"
-            alt="cover"
+            alt="우아콘 이그나이트 - 오픈소스 참여 경험 발표 후기 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             우아콘 이그나이트 - 오픈소스 참여 경험 발표 후기
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             발표 준비 과정과 생각 정리
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2025-01-05 21:24"
@@ -237,21 +272,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/mdn-contributing-translations/thumbnail.webp"
-            alt="cover"
+            alt="오픈소스 기여 첫걸음, MDN 문서 번역 가이드 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             오픈소스 기여 첫걸음, MDN 문서 번역 가이드
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             MDN 문서 번역 방법을 알아보자
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2024-12-22 02:01"
@@ -272,21 +307,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/google-adsense/cover.webp"
-            alt="cover"
+            alt="[Next.js] Google AdSense 광고 적용 및 이해하기 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             [Next.js] Google AdSense 광고 적용 및 이해하기
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             구글 광고 적용기
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2024-08-22 16:26"
@@ -307,21 +342,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/inflearn-meetup-03-dev-career/cover.webp"
-            alt="cover"
+            alt="인프런 판교 퇴근길 밋업 - 개발자 커리어 후기 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             인프런 판교 퇴근길 밋업 - 개발자 커리어 후기
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             한기용님의 실리콘밸리에서 인정받는 개발자의 특징 10가지 소개
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2024-06-08 18:30"
@@ -342,21 +377,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/typescript-subtyping/cover.webp"
-            alt="cover"
+            alt="Object.keys()는 왜 string[] 타입일까? 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             Object.keys()는 왜 string[] 타입일까?
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             구조적 서브 타이핑과 집합적 특징을 알아보자
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2024-05-10 22:11"
@@ -377,21 +412,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/visual-regression-test/cover.webp"
-            alt="cover"
+            alt="시각적 회귀 테스트 도입기 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             시각적 회귀 테스트 도입기
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             playwright 소개와 트러블 슈팅
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2024-05-06 14:34"
@@ -412,21 +447,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/mdn-ko-organizer/cover.webp"
-            alt="cover"
+            alt="@mdn/yari-content-ko Organizer 합류 여정 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             @mdn/yari-content-ko Organizer 합류 여정
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             Mozilla Developer Network는 어떤 곳일까?
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2024-04-13 17:21"
@@ -447,21 +482,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/micro-state-management-review/cover.webp"
-            alt="cover"
+            alt="Micro State Management with React Hooks 리뷰 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             Micro State Management with React Hooks 리뷰
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             상태 관리의 종류와 기술들에 대한 이해
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2024-03-01 09:00"
@@ -482,21 +517,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/array-prototype-sort/cover.webp"
-            alt="cover"
+            alt="Array.prototype.sort() 이해하기 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             Array.prototype.sort() 이해하기
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             정열적으로 정렬해 보기
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2024-02-28 05:56"
@@ -517,21 +552,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/vite-dev-server/cover.webp"
-            alt="cover"
+            alt="Vite Dev Server 이해하기 (feat. HMR) 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             Vite Dev Server 이해하기 (feat. HMR)
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             Dev 서버의 동작 방식은 어떻게 될까?
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2024-02-04 22:50"
@@ -552,19 +587,19 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/udemy-rust-programming/cover.webp"
-            alt="cover"
+            alt="러스트 시작! - 유데미 Rust Programming를 수강하며 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             러스트 시작! - 유데미 Rust Programming를 수강하며
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">가보자고</h1>
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">가보자고</p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2024-01-13 16:47"
@@ -583,21 +618,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/2023/cover.webp"
-            alt="cover"
+            alt="2023 회고록 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             2023 회고록
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             올해를 돌아보며
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2023-12-31 14:27"
@@ -618,21 +653,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/bali-remote-work/cover.webp"
-            alt="cover"
+            alt="발리 한 달 리모트 워크 후기 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             발리 한 달 리모트 워크 후기
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             발리 한 달 살기 얼마나 낭만 있을까?
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2023-12-30 17:21"
@@ -653,21 +688,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/mac-init-apps/cover.webp"
-            alt="cover"
+            alt="웹 개발자를 위한 도구 추천 - 유용한 Mac 앱들 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             웹 개발자를 위한 도구 추천 - 유용한 Mac 앱들
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             생산성을 올려줄 유용한 맥 앱을 알아보자
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2023-12-24 12:54"
@@ -688,21 +723,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/woowa-type-review/cover.webp"
-            alt="cover"
+            alt="우아한 타입스크립트 with 리액트 리뷰 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             우아한 타입스크립트 with 리액트 리뷰
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             주니어 FE를 위한 온보딩 책
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2023-11-24 21:37"
@@ -723,21 +758,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/leetcode-hard-42/cover.webp"
-            alt="cover"
+            alt="[LeetCode] 42. Trapping Rain Water 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             [LeetCode] 42. Trapping Rain Water
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             2차원 좌표의 영역을 빠르게 구해보자
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2023-10-14 17:10"
@@ -758,21 +793,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/proving-ground-review/cover.webp"
-            alt="cover"
+            alt='"사라진 개발자들" 리뷰 썸네일'
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             "사라진 개발자들" 리뷰
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             악삭박박과 최초의 개발자들
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2023-09-24 13:24"
@@ -793,21 +828,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/jeju-remote-work/cover.webp"
-            alt="cover"
+            alt="제주 한 달 리모트 워크 후기 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             제주 한 달 리모트 워크 후기
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             제주 한 달 살기 얼마나 낭만 있을까?
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2023-09-16 12:19"
@@ -828,21 +863,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/goorm-195698/cover.webp"
-            alt="cover"
+            alt="[구름톤 챌린지] 연합 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             [구름톤 챌린지] 연합
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             단방향 그래프의 집합을 BFS 및 Union-Find로 구해보자
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2023-09-06 19:12"
@@ -863,21 +898,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/goorm-195696/cover.webp"
-            alt="cover"
+            alt="[구름톤 챌린지] 작은 노드 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             [구름톤 챌린지] 작은 노드
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             양방향 그래프 가볍게 복습하기
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2023-09-03 21:14"
@@ -898,21 +933,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/geultto8-open-source-seminar/cover.webp"
-            alt="cover"
+            alt="[글또 세미나] 모여봐요 오픈소스의 숲 발표 후기 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             [글또 세미나] 모여봐요 오픈소스의 숲 발표 후기
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             번역 기여 방법과 코어 코드에 접근하는 방법
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2023-09-01 20:30"
@@ -933,21 +968,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/deploy-eslint-plugin/cover.webp"
-            alt="cover"
+            alt="ESLint 플러그인 배포하기 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             ESLint 플러그인 배포하기
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             ESLint 플러그인 배포 방법 알아보기
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2023-09-01 15:48"
@@ -968,21 +1003,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/goorm-195693/cover.webp"
-            alt="cover"
+            alt="[구름톤 챌린지] 통증2 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             [구름톤 챌린지] 통증2
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             완전 탐색에서 DP까지
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2023-08-29 16:27"
@@ -1003,21 +1038,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/goorm-195692/cover.webp"
-            alt="cover"
+            alt="[구름톤 챌린지] GameJam 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             [구름톤 챌린지] GameJam
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             시뮬레이션 단계화하기
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2023-08-27 23:35"
@@ -1038,21 +1073,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/junction2023/cover.webp"
-            alt="cover"
+            alt="Junction Asia 2023 참여 후기 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             Junction Asia 2023 참여 후기
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             부산 벡스코에서 2박 3일간 정션 해커톤에 참여했다
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2023-08-23 19:58"
@@ -1073,21 +1108,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/goorm-195687/cover.webp"
-            alt="cover"
+            alt="[구름톤 챌린지] 이진수 정렬 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             [구름톤 챌린지] 이진수 정렬
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             메모이제이션 활용하기
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2023-08-21 21:56"
@@ -1108,21 +1143,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/leetcode-medium-238/cover.webp"
-            alt="cover"
+            alt="[LeetCode] 238. Product of Array Except Self 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             [LeetCode] 238. Product of Array Except Self
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             연속되는 곱셈을 어떻게 처리할까?
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2023-08-13 22:31"
@@ -1141,21 +1176,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/storybook7/cover.webp"
-            alt="cover"
+            alt="Storybook 7.0 살펴보기 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             Storybook 7.0 살펴보기
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             7버전은 무엇이 달라졌을까?
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2023-08-13 19:17"
@@ -1176,21 +1211,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/leetcode-easy-2727/cover.webp"
-            alt="cover"
+            alt="[LeetCode] 2727. Is Object Empty 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             [LeetCode] 2727. Is Object Empty
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             for...in vs for...of
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2023-08-01 10:02"
@@ -1209,21 +1244,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/prettier3/cover.webp"
-            alt="cover"
+            alt="Prettier v3 변경사항 살펴보기 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             Prettier v3 변경사항 살펴보기
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             린트없인 못살아
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2023-07-06 22:29"
@@ -1244,21 +1279,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/quality-of-job-review/cover.webp"
-            alt="cover"
+            alt='"일의 격"을 읽고 썸네일'
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             "일의 격"을 읽고
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             신수정님의 '일의 격' 책을 읽고 생각을 정리하게 되었다
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2023-06-22 20:36"
@@ -1279,21 +1314,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/use-transition/cover.webp"
-            alt="cover"
+            alt="useTransition 이해하기 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             useTransition 이해하기
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             상태 업데이트의 우선 순위를 지정해보자
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2023-06-04 20:38"
@@ -1314,21 +1349,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/implicit-coercion/cover.webp"
-            alt="cover"
+            alt="알랑말랑 암묵적 형변환 말랑말랑 이해하기 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             알랑말랑 암묵적 형변환 말랑말랑 이해하기
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             자바스크립트의 형변환은 어떻게 일어나는가?
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2023-04-22 17:02"
@@ -1349,21 +1384,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/typescript5/cover.webp"
-            alt="cover"
+            alt="TypeScript 5.0 살펴보기 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             TypeScript 5.0 살펴보기
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             5버전은 무엇이 달라졌을까?
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2023-04-09 16:24"
@@ -1384,21 +1419,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/use-prevent-leave/cover.webp"
-            alt="cover"
+            alt="페이지 이탈시 확인 컨펌창 만들기 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             페이지 이탈시 확인 컨펌창 만들기
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             usePreventLeave를 알아보자
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2023-03-12 15:14"
@@ -1417,21 +1452,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/renovate/cover.webp"
-            alt="cover"
+            alt="Renovate 간단하게 살펴보기 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             Renovate 간단하게 살펴보기
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             패키지 매니징을 자동화 해보자
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2022-07-02 14:01"
@@ -1450,21 +1485,21 @@
           <img
             class="object-cover w-full h-full transition duration-500 group-hover:scale-105 transform-gpu"
             src="/posts/turborepo/cover.webp"
-            alt="cover"
+            alt="Turborepo로 모노레포 개발 경험 향상하기 썸네일"
             loading="lazy"
             width="208"
             height="112"
           />
         </div>
         <div class="w-full mt-2 md:mt-0">
-          <h1
+          <h2
             class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
           >
             Turborepo로 모노레포 개발 경험 향상하기
-          </h1>
-          <h1 class="text-white-blue group-hover:text-snazzy-bg">
+          </h2>
+          <p class="text-white-blue group-hover:text-snazzy-bg">
             모노레포와 터보레포를 간략히 알아보자
-          </h1>
+          </p>
           <time
             class="text-sub-blue group-hover:text-snazzy-bg"
             datetime="2022-04-15 00:00"

@@ -22,50 +22,53 @@
   }
 </script>
 <progress
+  id="nav-progress"
   class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  aria-label="페이지 읽기 진행률"
   value="0"
   max="1"
 ></progress>
 <nav
-  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"
+  aria-label="메인 네비게이션"
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] shadow-nav shadow-lg"
 >
-  <h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
+  <div class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
     <a class="hover:underline" href="/">1ilsang</a>
-  </h2>
+  </div>
   <div class="flex">
-    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+    <div class="tracking-tight mr-6 text-xl mt-2.5">
       <a class="hover:underline" href="/posts">posts</a>
-    </h2>
-    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/tags">tags</a>
-    </h2>
-    <div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character">
-      <a href="/about"
-        ><img
-          class="border border-solid rounded-full border-white-blue"
-          src="/images/chul.webp"
-          alt="1ilsang"
-      /></a>
     </div>
+    <div class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/tags">tags</a>
+    </div>
+    <a
+      aria-label="About 페이지로 이동"
+      class="mr-2 block w-8 h-8 mt-2"
+      href="/about"
+      ><img
+        class="border border-solid rounded-full w-full h-full border-white-blue"
+        src="/images/chul.webp"
+        alt="1ilsang"
+    /></a>
   </div>
 </nav>
 <section
+  id="main-content"
+  tabindex="-1"
   class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
 >
   <h1 class="text-4xl break-words md:text-6xl">TypeScript 5.0 살펴보기</h1>
   <section class="flex items-center mt-4">
-    <div
-      class="mr-2 w-9 h-9 md:w-12 md:h-12"
-      role="img"
-      aria-label="1ilsang character"
-    >
-      <a href="/about"
-        ><img
-          class="border border-solid rounded-full border-sub-blue"
-          src="/images/chul.webp"
-          alt="1ilsang"
-      /></a>
-    </div>
+    <a
+      aria-label="About 페이지로 이동"
+      class="mr-2 block w-9 h-9 md:w-12 md:h-12"
+      href="/about"
+      ><img
+        class="border border-solid rounded-full w-full h-full border-sub-blue"
+        src="/images/chul.webp"
+        alt="1ilsang"
+    /></a>
     <div>
       <a class="text-lg" href="/about">1ilsang</a>
       <div class="text-sm text-sub-blue">클라이밍 하실래염?</div>
@@ -111,12 +114,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col h-[600px] object-contain bg-transparent mt-10 min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="cover"
-            src="/posts/typescript5/cover.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="cover 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/typescript5/cover.webp"
+              alt="cover"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -294,7 +304,11 @@
         id="decorators"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#decorators"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#decorators"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -481,6 +495,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#실험적-레거시-데코레이터와의-차이점"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -541,7 +556,11 @@
         id="const-type-parameters"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#const-type-parameters"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#const-type-parameters"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -620,6 +639,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#supporting-multiple-configuration-files-in-extends"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -647,7 +667,11 @@
         id="all-enums-are-union-enums"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#all-enums-are-union-enums"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#all-enums-are-union-enums"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -735,7 +759,11 @@
         id="--moduleresolution-bundler"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#--moduleresolution-bundler"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#--moduleresolution-bundler"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -766,7 +794,11 @@
         id="support-for-export-type-"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#support-for-export-type-"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#support-for-export-type-"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -807,7 +839,11 @@
         id="overload-support-in-jsdoc"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#overload-support-in-jsdoc"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#overload-support-in-jsdoc"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -860,6 +896,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#speed-memory-and-package-size-optimizations"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -869,36 +906,57 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="size"
-            src="/posts/typescript5/size.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="size 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/typescript5/size.webp"
+              alt="size"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <div class="img-container">
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="compare v5 to v4.9"
-            src="/posts/typescript5/compare-v5-to-v4.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="compare v5 to v4.9 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/typescript5/compare-v5-to-v4.webp"
+              alt="compare v5 to v4.9"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <div class="img-container">
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="typescript npm package size"
-            src="/posts/typescript5/typescript-npm-package-size.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="typescript npm package size 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/typescript5/typescript-npm-package-size.webp"
+              alt="typescript npm package size"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -915,6 +973,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#breaking-changes-and-deprecations"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -924,7 +983,11 @@
         id="runtime-requirements"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#runtime-requirements"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#runtime-requirements"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -938,7 +1001,11 @@
         id="libdts-changes"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#libdts-changes"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#libdts-changes"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -954,7 +1021,11 @@
         id="api-breaking-changes"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#api-breaking-changes"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#api-breaking-changes"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -972,6 +1043,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#forbidden-implicit-coercions-in-relational-operators"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -1010,7 +1082,11 @@
         id="enum-overhaul"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#enum-overhaul"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#enum-overhaul"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -1050,7 +1126,11 @@
         id="마무리"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#마무리"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#마무리"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -1068,7 +1148,11 @@
         id="참고"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#참고"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#참고"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -1115,112 +1199,158 @@
     </div>
     <aside
       class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
-      aria-label="index"
+      aria-label="목차"
     >
       <ul
         class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
       >
-        <li
-          id="decorators"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          Decorators
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="decorators"
+            href="#decorators"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Decorators</a
+          >
         </li>
         <li
-          id="실험적-레거시-데코레이터와의-차이점"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
         >
-          실험적 레거시 데코레이터와의 차이점
+          <a
+            id="실험적-레거시-데코레이터와의-차이점"
+            href="#실험적-레거시-데코레이터와의-차이점"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >실험적 레거시 데코레이터와의 차이점</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="const-type-parameters"
+            href="#const-type-parameters"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >const Type Parameters</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="supporting-multiple-configuration-files-in-extends"
+            href="#supporting-multiple-configuration-files-in-extends"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Supporting Multiple Configuration Files in extends</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="all-enums-are-union-enums"
+            href="#all-enums-are-union-enums"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >All enums Are Union enums</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="--moduleresolution-bundler"
+            href="#--moduleresolution-bundler"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >--moduleResolution bundler</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="support-for-export-type-"
+            href="#support-for-export-type-"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Support for export type *</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="overload-support-in-jsdoc"
+            href="#overload-support-in-jsdoc"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >@overload Support in JSDoc</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="speed-memory-and-package-size-optimizations"
+            href="#speed-memory-and-package-size-optimizations"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Speed, Memory, and Package Size Optimizations</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="breaking-changes-and-deprecations"
+            href="#breaking-changes-and-deprecations"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Breaking Changes and Deprecations</a
+          >
         </li>
         <li
-          id="const-type-parameters"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          const Type Parameters
+          <a
+            id="runtime-requirements"
+            href="#runtime-requirements"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Runtime Requirements</a
+          >
         </li>
         <li
-          id="supporting-multiple-configuration-files-in-extends"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          Supporting Multiple Configuration Files in extends
+          <a
+            id="libdts-changes"
+            href="#libdts-changes"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >lib.d.ts Changes</a
+          >
         </li>
         <li
-          id="all-enums-are-union-enums"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          All enums Are Union enums
+          <a
+            id="api-breaking-changes"
+            href="#api-breaking-changes"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >API Breaking Changes</a
+          >
         </li>
         <li
-          id="--moduleresolution-bundler"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          --moduleResolution bundler
+          <a
+            id="forbidden-implicit-coercions-in-relational-operators"
+            href="#forbidden-implicit-coercions-in-relational-operators"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Forbidden Implicit Coercions in Relational Operators</a
+          >
         </li>
         <li
-          id="support-for-export-type-"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
         >
-          Support for export type *
+          <a
+            id="enum-overhaul"
+            href="#enum-overhaul"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Enum Overhaul</a
+          >
         </li>
-        <li
-          id="overload-support-in-jsdoc"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          @overload Support in JSDoc
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="마무리"
+            href="#마무리"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >마무리</a
+          >
         </li>
-        <li
-          id="speed-memory-and-package-size-optimizations"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          Speed, Memory, and Package Size Optimizations
-        </li>
-        <li
-          id="breaking-changes-and-deprecations"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          Breaking Changes and Deprecations
-        </li>
-        <li
-          id="runtime-requirements"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
-        >
-          Runtime Requirements
-        </li>
-        <li
-          id="libdts-changes"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
-        >
-          lib.d.ts Changes
-        </li>
-        <li
-          id="api-breaking-changes"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
-        >
-          API Breaking Changes
-        </li>
-        <li
-          id="forbidden-implicit-coercions-in-relational-operators"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
-        >
-          Forbidden Implicit Coercions in Relational Operators
-        </li>
-        <li
-          id="enum-overhaul"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
-        >
-          Enum Overhaul
-        </li>
-        <li
-          id="마무리"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          마무리
-        </li>
-        <li
-          id="참고"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          참고
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="참고"
+            href="#참고"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >참고</a
+          >
         </li>
       </ul>
     </aside>

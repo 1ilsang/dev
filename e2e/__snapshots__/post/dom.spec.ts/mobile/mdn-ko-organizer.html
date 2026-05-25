@@ -22,52 +22,55 @@
   }
 </script>
 <progress
+  id="nav-progress"
   class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  aria-label="페이지 읽기 진행률"
   value="0"
   max="1"
 ></progress>
 <nav
-  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"
+  aria-label="메인 네비게이션"
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] shadow-nav shadow-lg"
 >
-  <h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
+  <div class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
     <a class="hover:underline" href="/">1ilsang</a>
-  </h2>
+  </div>
   <div class="flex">
-    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+    <div class="tracking-tight mr-6 text-xl mt-2.5">
       <a class="hover:underline" href="/posts">posts</a>
-    </h2>
-    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/tags">tags</a>
-    </h2>
-    <div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character">
-      <a href="/about"
-        ><img
-          class="border border-solid rounded-full border-white-blue"
-          src="/images/chul.webp"
-          alt="1ilsang"
-      /></a>
     </div>
+    <div class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/tags">tags</a>
+    </div>
+    <a
+      aria-label="About 페이지로 이동"
+      class="mr-2 block w-8 h-8 mt-2"
+      href="/about"
+      ><img
+        class="border border-solid rounded-full w-full h-full border-white-blue"
+        src="/images/chul.webp"
+        alt="1ilsang"
+    /></a>
   </div>
 </nav>
 <section
+  id="main-content"
+  tabindex="-1"
   class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
 >
   <h1 class="text-4xl break-words md:text-6xl">
     @mdn/yari-content-ko Organizer 합류 여정
   </h1>
   <section class="flex items-center mt-4">
-    <div
-      class="mr-2 w-9 h-9 md:w-12 md:h-12"
-      role="img"
-      aria-label="1ilsang character"
-    >
-      <a href="/about"
-        ><img
-          class="border border-solid rounded-full border-sub-blue"
-          src="/images/chul.webp"
-          alt="1ilsang"
-      /></a>
-    </div>
+    <a
+      aria-label="About 페이지로 이동"
+      class="mr-2 block w-9 h-9 md:w-12 md:h-12"
+      href="/about"
+      ><img
+        class="border border-solid rounded-full w-full h-full border-sub-blue"
+        src="/images/chul.webp"
+        alt="1ilsang"
+    /></a>
     <div>
       <a class="text-lg" href="/about">1ilsang</a>
       <div class="text-sm text-sub-blue">클라이밍 하실래염?</div>
@@ -108,24 +111,38 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col h-[600px] object-contain bg-transparent mt-10 min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="main"
-            src="/posts/mdn-ko-organizer/main.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="main 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/mdn-ko-organizer/main.webp"
+              alt="main"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <div class="img-container">
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="mdn local"
-            src="/posts/mdn-ko-organizer/mdn-local.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="mdn local 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/mdn-ko-organizer/mdn-local.webp"
+              alt="mdn local"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -150,7 +167,11 @@
         id="index"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#index"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#index"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -207,7 +228,11 @@
         id="mdn"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#mdn"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#mdn"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -217,12 +242,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="mdn readme"
-            src="/posts/mdn-ko-organizer/mdn-readme.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="mdn readme 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/mdn-ko-organizer/mdn-readme.webp"
+              alt="mdn readme"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <blockquote
@@ -248,12 +280,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="mdn home"
-            src="/posts/mdn-ko-organizer/mdn-home.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="mdn home 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/mdn-ko-organizer/mdn-home.webp"
+              alt="mdn home"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -269,7 +308,11 @@
         id="임무"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#임무"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#임무"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -288,7 +331,11 @@
         id="역사"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#역사"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#역사"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -351,7 +398,11 @@
         id="합류-여정"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#합류-여정"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#합류-여정"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -362,7 +413,11 @@
         id="문서화에-대한-관심"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#문서화에-대한-관심"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#문서화에-대한-관심"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -372,12 +427,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="webpack blog post"
-            src="/posts/mdn-ko-organizer/webpack-blog-post.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="webpack blog post 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/mdn-ko-organizer/webpack-blog-post.webp"
+              alt="webpack blog post"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -432,7 +494,11 @@
         id="사내-오픈소스-스프린트-참여"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#사내-오픈소스-스프린트-참여"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#사내-오픈소스-스프린트-참여"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -449,7 +515,11 @@
         id="온보딩-과정-진행"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#온보딩-과정-진행"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#온보딩-과정-진행"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -467,12 +537,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="onboarding"
-            src="/posts/mdn-ko-organizer/onboarding.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="onboarding 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/mdn-ko-organizer/onboarding.webp"
+              alt="onboarding"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -489,12 +566,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="pr"
-            src="/posts/mdn-ko-organizer/pr.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="pr 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/mdn-ko-organizer/pr.webp"
+              alt="pr"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -504,7 +588,11 @@
         id="합류-후"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#합류-후"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#합류-후"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -520,7 +608,11 @@
         id="정기-회의"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#정기-회의"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#정기-회의"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -534,7 +626,11 @@
         id="공개-논의"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#공개-논의"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#공개-논의"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -544,12 +640,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="public discussion"
-            src="/posts/mdn-ko-organizer/public-discussion.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="public discussion 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/mdn-ko-organizer/public-discussion.webp"
+              alt="public discussion"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <blockquote
@@ -573,7 +676,11 @@
         id="리뷰어-활동"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#리뷰어-활동"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#리뷰어-활동"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -583,12 +690,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="reviewer action"
-            src="/posts/mdn-ko-organizer/reviewer-action.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="reviewer action 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/mdn-ko-organizer/reviewer-action.webp"
+              alt="reviewer action"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -606,7 +720,11 @@
         id="올해-목표"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#올해-목표"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#올해-목표"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -616,12 +734,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="CSS Goal"
-            src="/posts/mdn-ko-organizer/css-goal.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="CSS Goal 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/mdn-ko-organizer/css-goal.webp"
+              alt="CSS Goal"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -646,7 +771,11 @@
         id="마무리"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#마무리"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#마무리"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -679,94 +808,138 @@
     </div>
     <aside
       class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
-      aria-label="index"
+      aria-label="목차"
     >
       <ul
         class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
       >
-        <li
-          id="index"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          Index
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="index"
+            href="#index"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Index</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="mdn"
+            href="#mdn"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >MDN?</a
+          >
         </li>
         <li
-          id="mdn"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          MDN?
+          <a
+            id="임무"
+            href="#임무"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >임무</a
+          >
         </li>
         <li
-          id="임무"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
         >
-          임무
+          <a
+            id="역사"
+            href="#역사"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >역사</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="합류-여정"
+            href="#합류-여정"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >합류 여정</a
+          >
         </li>
         <li
-          id="역사"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          역사
+          <a
+            id="문서화에-대한-관심"
+            href="#문서화에-대한-관심"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >문서화에 대한 관심</a
+          >
         </li>
         <li
-          id="합류-여정"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          합류 여정
+          <a
+            id="사내-오픈소스-스프린트-참여"
+            href="#사내-오픈소스-스프린트-참여"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >사내 오픈소스 스프린트 참여</a
+          >
         </li>
         <li
-          id="문서화에-대한-관심"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
         >
-          문서화에 대한 관심
+          <a
+            id="온보딩-과정-진행"
+            href="#온보딩-과정-진행"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >온보딩 과정 진행</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="합류-후"
+            href="#합류-후"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >합류 후</a
+          >
         </li>
         <li
-          id="사내-오픈소스-스프린트-참여"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          사내 오픈소스 스프린트 참여
+          <a
+            id="정기-회의"
+            href="#정기-회의"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >정기 회의</a
+          >
         </li>
         <li
-          id="온보딩-과정-진행"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          온보딩 과정 진행
+          <a
+            id="공개-논의"
+            href="#공개-논의"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >공개 논의</a
+          >
         </li>
         <li
-          id="합류-후"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
         >
-          합류 후
+          <a
+            id="리뷰어-활동"
+            href="#리뷰어-활동"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >리뷰어 활동</a
+          >
         </li>
-        <li
-          id="정기-회의"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
-        >
-          정기 회의
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="올해-목표"
+            href="#올해-목표"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >올해 목표</a
+          >
         </li>
-        <li
-          id="공개-논의"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
-        >
-          공개 논의
-        </li>
-        <li
-          id="리뷰어-활동"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
-        >
-          리뷰어 활동
-        </li>
-        <li
-          id="올해-목표"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          올해 목표
-        </li>
-        <li
-          id="마무리"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          마무리
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="마무리"
+            href="#마무리"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >마무리</a
+          >
         </li>
       </ul>
     </aside>

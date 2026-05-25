@@ -22,52 +22,55 @@
   }
 </script>
 <progress
+  id="nav-progress"
   class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  aria-label="페이지 읽기 진행률"
   value="0"
   max="1"
 ></progress>
 <nav
-  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"
+  aria-label="메인 네비게이션"
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] shadow-nav shadow-lg"
 >
-  <h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
+  <div class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
     <a class="hover:underline" href="/">1ilsang</a>
-  </h2>
+  </div>
   <div class="flex">
-    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+    <div class="tracking-tight mr-6 text-xl mt-2.5">
       <a class="hover:underline" href="/posts">posts</a>
-    </h2>
-    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/tags">tags</a>
-    </h2>
-    <div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character">
-      <a href="/about"
-        ><img
-          class="border border-solid rounded-full border-white-blue"
-          src="/images/chul.webp"
-          alt="1ilsang"
-      /></a>
     </div>
+    <div class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/tags">tags</a>
+    </div>
+    <a
+      aria-label="About 페이지로 이동"
+      class="mr-2 block w-8 h-8 mt-2"
+      href="/about"
+      ><img
+        class="border border-solid rounded-full w-full h-full border-white-blue"
+        src="/images/chul.webp"
+        alt="1ilsang"
+    /></a>
   </div>
 </nav>
 <section
+  id="main-content"
+  tabindex="-1"
   class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
 >
   <h1 class="text-4xl break-words md:text-6xl">
     Array.prototype.sort() 이해하기
   </h1>
   <section class="flex items-center mt-4">
-    <div
-      class="mr-2 w-9 h-9 md:w-12 md:h-12"
-      role="img"
-      aria-label="1ilsang character"
-    >
-      <a href="/about"
-        ><img
-          class="border border-solid rounded-full border-sub-blue"
-          src="/images/chul.webp"
-          alt="1ilsang"
-      /></a>
-    </div>
+    <a
+      aria-label="About 페이지로 이동"
+      class="mr-2 block w-9 h-9 md:w-12 md:h-12"
+      href="/about"
+      ><img
+        class="border border-solid rounded-full w-full h-full border-sub-blue"
+        src="/images/chul.webp"
+        alt="1ilsang"
+    /></a>
     <div>
       <a class="text-lg" href="/about">1ilsang</a>
       <div class="text-sm text-sub-blue">클라이밍 하실래염?</div>
@@ -108,12 +111,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col h-[600px] object-contain bg-transparent mt-10 min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="cover"
-            src="/posts/array-prototype-sort/cover-large.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="cover 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/array-prototype-sort/cover-large.webp"
+              alt="cover"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <figure data-rehype-pretty-code-figure="">
@@ -135,7 +145,11 @@
         id="index"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#index"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#index"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -201,7 +215,11 @@
         id="tldr"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#tldr"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#tldr"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -261,7 +279,11 @@
         id="의문의-시작"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#의문의-시작"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#의문의-시작"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -323,12 +345,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="sad"
-            src="/posts/array-prototype-sort/sad.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="sad 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/array-prototype-sort/sad.webp"
+              alt="sad"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">자 이제 감동을 채워나가자.</p>
@@ -336,7 +365,11 @@
         id="arrayprototypesort-공식-명세"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#arrayprototypesort-공식-명세"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#arrayprototypesort-공식-명세"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -355,12 +388,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="ECMA2019 stable"
-            src="/posts/array-prototype-sort/ECMA2019-stable.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="ECMA2019 stable 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/array-prototype-sort/ECMA2019-stable.webp"
+              alt="ECMA2019 stable"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -389,6 +429,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#231330-arrayprototypesort-comparefn"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -398,12 +439,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="ecma official"
-            src="/posts/array-prototype-sort/ecma-official.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="ecma official 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/array-prototype-sort/ecma-official.webp"
+              alt="ecma official"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <blockquote
@@ -428,6 +476,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#1-comparefn의-유효성을-검사한다"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -461,7 +510,11 @@
         id="2-배열-객체로-변환한다"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-xl mt-6"
       >
-        <a aria-hidden="true" tabindex="-1" href="#2-배열-객체로-변환한다"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#2-배열-객체로-변환한다"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -535,7 +588,11 @@
         id="3-객체의-길이를-계산한다"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-xl mt-6"
       >
-        <a aria-hidden="true" tabindex="-1" href="#3-객체의-길이를-계산한다"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#3-객체의-길이를-계산한다"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -582,6 +639,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#4-정렬-비교를-위한-추상-클로저를-생성한다"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -641,6 +699,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#5-새로운-배열에-프로퍼티를-정렬한다"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -706,6 +765,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#6-정렬된-요소의-개수를-계산한다"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -720,7 +780,11 @@
         id="7-j를-0으로-설정한다"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-xl mt-6"
       >
-        <a aria-hidden="true" tabindex="-1" href="#7-j를-0으로-설정한다"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#7-j를-0으로-설정한다"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -734,6 +798,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#8-정렬된-요소를-객체에-설정한다"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -763,7 +828,11 @@
         id="9--10-빈-요소를-처리한다"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-xl mt-6"
       >
-        <a aria-hidden="true" tabindex="-1" href="#9--10-빈-요소를-처리한다"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#9--10-빈-요소를-처리한다"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -800,7 +869,11 @@
         id="11-객체를-반환한다"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-xl mt-6"
       >
-        <a aria-hidden="true" tabindex="-1" href="#11-객체를-반환한다"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#11-객체를-반환한다"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -810,24 +883,38 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="ecma official"
-            src="/posts/array-prototype-sort/ecma-official.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="ecma official 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/array-prototype-sort/ecma-official.webp"
+              alt="ecma official"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <div class="img-container">
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[40%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="easy-right?"
-            src="/posts/array-prototype-sort/easy-right.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="easy-right? 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/array-prototype-sort/easy-right.webp"
+              alt="easy-right?"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -899,7 +986,11 @@
         id="브라우저별-sort-구현체"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#브라우저별-sort-구현체"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#브라우저별-sort-구현체"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -917,7 +1008,7 @@
         id="v8"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#v8"
+        <a aria-hidden="true" tabindex="-1" href="#v8" aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -1003,7 +1094,11 @@
         id="webkit"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#webkit"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#webkit"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -1084,7 +1179,11 @@
         id="spidermonkey"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#spidermonkey"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#spidermonkey"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -1185,7 +1284,11 @@
         id="정리"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#정리"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#정리"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -1248,7 +1351,11 @@
         id="마무리"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#마무리"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#마무리"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -1286,7 +1393,11 @@
         id="참고"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#참고"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#참고"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -1369,82 +1480,116 @@
     </div>
     <aside
       class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
-      aria-label="index"
+      aria-label="목차"
     >
       <ul
         class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
       >
-        <li
-          id="index"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          Index
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="index"
+            href="#index"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Index</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="tldr"
+            href="#tldr"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >TL;DR!</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="의문의-시작"
+            href="#의문의-시작"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >의문의 시작</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="arrayprototypesort-공식-명세"
+            href="#arrayprototypesort-공식-명세"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Array.prototype.sort() 공식 명세</a
+          >
         </li>
         <li
-          id="tldr"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
         >
-          TL;DR!
+          <a
+            id="231330-arrayprototypesort-comparefn"
+            href="#231330-arrayprototypesort-comparefn"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >23.1.3.30 Array.prototype.sort (compareFn)</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="브라우저별-sort-구현체"
+            href="#브라우저별-sort-구현체"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >브라우저별 Sort 구현체</a
+          >
         </li>
         <li
-          id="의문의-시작"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          의문의 시작
+          <a
+            id="v8"
+            href="#v8"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >V8</a
+          >
         </li>
         <li
-          id="arrayprototypesort-공식-명세"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          Array.prototype.sort() 공식 명세
+          <a
+            id="webkit"
+            href="#webkit"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Webkit</a
+          >
         </li>
         <li
-          id="231330-arrayprototypesort-comparefn"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          23.1.3.30 Array.prototype.sort (compareFn)
+          <a
+            id="spidermonkey"
+            href="#spidermonkey"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >SpiderMonkey</a
+          >
         </li>
         <li
-          id="브라우저별-sort-구현체"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
         >
-          브라우저별 Sort 구현체
+          <a
+            id="정리"
+            href="#정리"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >정리</a
+          >
         </li>
-        <li
-          id="v8"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
-        >
-          V8
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="마무리"
+            href="#마무리"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >마무리</a
+          >
         </li>
-        <li
-          id="webkit"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
-        >
-          Webkit
-        </li>
-        <li
-          id="spidermonkey"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
-        >
-          SpiderMonkey
-        </li>
-        <li
-          id="정리"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
-        >
-          정리
-        </li>
-        <li
-          id="마무리"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          마무리
-        </li>
-        <li
-          id="참고"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          참고
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="참고"
+            href="#참고"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >참고</a
+          >
         </li>
       </ul>
     </aside>

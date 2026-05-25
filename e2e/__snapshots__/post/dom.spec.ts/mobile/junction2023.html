@@ -22,50 +22,53 @@
   }
 </script>
 <progress
+  id="nav-progress"
   class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  aria-label="페이지 읽기 진행률"
   value="0"
   max="1"
 ></progress>
 <nav
-  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"
+  aria-label="메인 네비게이션"
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] shadow-nav shadow-lg"
 >
-  <h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
+  <div class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
     <a class="hover:underline" href="/">1ilsang</a>
-  </h2>
+  </div>
   <div class="flex">
-    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+    <div class="tracking-tight mr-6 text-xl mt-2.5">
       <a class="hover:underline" href="/posts">posts</a>
-    </h2>
-    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/tags">tags</a>
-    </h2>
-    <div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character">
-      <a href="/about"
-        ><img
-          class="border border-solid rounded-full border-white-blue"
-          src="/images/chul.webp"
-          alt="1ilsang"
-      /></a>
     </div>
+    <div class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/tags">tags</a>
+    </div>
+    <a
+      aria-label="About 페이지로 이동"
+      class="mr-2 block w-8 h-8 mt-2"
+      href="/about"
+      ><img
+        class="border border-solid rounded-full w-full h-full border-white-blue"
+        src="/images/chul.webp"
+        alt="1ilsang"
+    /></a>
   </div>
 </nav>
 <section
+  id="main-content"
+  tabindex="-1"
   class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
 >
   <h1 class="text-4xl break-words md:text-6xl">Junction Asia 2023 참여 후기</h1>
   <section class="flex items-center mt-4">
-    <div
-      class="mr-2 w-9 h-9 md:w-12 md:h-12"
-      role="img"
-      aria-label="1ilsang character"
-    >
-      <a href="/about"
-        ><img
-          class="border border-solid rounded-full border-sub-blue"
-          src="/images/chul.webp"
-          alt="1ilsang"
-      /></a>
-    </div>
+    <a
+      aria-label="About 페이지로 이동"
+      class="mr-2 block w-9 h-9 md:w-12 md:h-12"
+      href="/about"
+      ><img
+        class="border border-solid rounded-full w-full h-full border-sub-blue"
+        src="/images/chul.webp"
+        alt="1ilsang"
+    /></a>
     <div>
       <a class="text-lg" href="/about">1ilsang</a>
       <div class="text-sm text-sub-blue">클라이밍 하실래염?</div>
@@ -111,12 +114,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col h-[600px] object-contain bg-transparent mt-10 min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="poster"
-            src="/posts/junction2023/poster.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="poster 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/junction2023/poster.webp"
+              alt="poster"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -130,7 +140,11 @@
         id="지원-과정"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#지원-과정"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#지원-과정"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -151,12 +165,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="pass"
-            src="/posts/junction2023/pass.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="pass 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/junction2023/pass.webp"
+              alt="pass"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">다행히도 합격 발표가 났다!</p>
@@ -164,7 +185,11 @@
         id="부산-도착"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#부산-도착"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#부산-도착"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -174,12 +199,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="entry"
-            src="/posts/junction2023/entry.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="entry 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/junction2023/entry.webp"
+              alt="entry"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -202,7 +234,11 @@
         id="첫날-아이데이션"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#첫날-아이데이션"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#첫날-아이데이션"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -212,12 +248,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="start"
-            src="/posts/junction2023/start.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="start 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/junction2023/start.webp"
+              alt="start"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">첫날에는 트랙 공개 및 첫 번째 미션이 주어졌다.</p>
@@ -244,12 +287,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="event"
-            src="/posts/junction2023/event.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="event 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/junction2023/event.webp"
+              alt="event"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -264,7 +314,11 @@
         id="둘째-날-개발"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#둘째-날-개발"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#둘째-날-개발"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -274,12 +328,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="web"
-            src="/posts/junction2023/web.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="web 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/junction2023/web.webp"
+              alt="web"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -315,12 +376,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="spa"
-            src="/posts/junction2023/spa.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="spa 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/junction2023/spa.webp"
+              alt="spa"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -331,7 +399,11 @@
         id="셋째-날-발표"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#셋째-날-발표"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#셋째-날-발표"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -341,12 +413,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="production"
-            src="/posts/junction2023/production.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="production 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/junction2023/production.webp"
+              alt="production"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -359,12 +438,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="presentation"
-            src="/posts/junction2023/presentation.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="presentation 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/junction2023/presentation.webp"
+              alt="presentation"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -381,7 +467,11 @@
         id="마무리"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#마무리"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#마무리"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -400,46 +490,58 @@
     </div>
     <aside
       class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
-      aria-label="index"
+      aria-label="목차"
     >
       <ul
         class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
       >
-        <li
-          id="지원-과정"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          지원 과정
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="지원-과정"
+            href="#지원-과정"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >지원 과정</a
+          >
         </li>
-        <li
-          id="부산-도착"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          부산 도착
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="부산-도착"
+            href="#부산-도착"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >부산 도착</a
+          >
         </li>
-        <li
-          id="첫날-아이데이션"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          첫날: 아이데이션
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="첫날-아이데이션"
+            href="#첫날-아이데이션"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >첫날: 아이데이션</a
+          >
         </li>
-        <li
-          id="둘째-날-개발"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          둘째 날: 개발
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="둘째-날-개발"
+            href="#둘째-날-개발"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >둘째 날: 개발</a
+          >
         </li>
-        <li
-          id="셋째-날-발표"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          셋째 날: 발표
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="셋째-날-발표"
+            href="#셋째-날-발표"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >셋째 날: 발표</a
+          >
         </li>
-        <li
-          id="마무리"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          마무리
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="마무리"
+            href="#마무리"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >마무리</a
+          >
         </li>
       </ul>
     </aside>

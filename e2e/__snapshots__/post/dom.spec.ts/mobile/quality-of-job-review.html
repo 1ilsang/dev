@@ -22,50 +22,53 @@
   }
 </script>
 <progress
+  id="nav-progress"
   class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  aria-label="페이지 읽기 진행률"
   value="0"
   max="1"
 ></progress>
 <nav
-  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"
+  aria-label="메인 네비게이션"
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] shadow-nav shadow-lg"
 >
-  <h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
+  <div class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
     <a class="hover:underline" href="/">1ilsang</a>
-  </h2>
+  </div>
   <div class="flex">
-    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+    <div class="tracking-tight mr-6 text-xl mt-2.5">
       <a class="hover:underline" href="/posts">posts</a>
-    </h2>
-    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/tags">tags</a>
-    </h2>
-    <div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character">
-      <a href="/about"
-        ><img
-          class="border border-solid rounded-full border-white-blue"
-          src="/images/chul.webp"
-          alt="1ilsang"
-      /></a>
     </div>
+    <div class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/tags">tags</a>
+    </div>
+    <a
+      aria-label="About 페이지로 이동"
+      class="mr-2 block w-8 h-8 mt-2"
+      href="/about"
+      ><img
+        class="border border-solid rounded-full w-full h-full border-white-blue"
+        src="/images/chul.webp"
+        alt="1ilsang"
+    /></a>
   </div>
 </nav>
 <section
+  id="main-content"
+  tabindex="-1"
   class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
 >
   <h1 class="text-4xl break-words md:text-6xl">"일의 격"을 읽고</h1>
   <section class="flex items-center mt-4">
-    <div
-      class="mr-2 w-9 h-9 md:w-12 md:h-12"
-      role="img"
-      aria-label="1ilsang character"
-    >
-      <a href="/about"
-        ><img
-          class="border border-solid rounded-full border-sub-blue"
-          src="/images/chul.webp"
-          alt="1ilsang"
-      /></a>
-    </div>
+    <a
+      aria-label="About 페이지로 이동"
+      class="mr-2 block w-9 h-9 md:w-12 md:h-12"
+      href="/about"
+      ><img
+        class="border border-solid rounded-full w-full h-full border-sub-blue"
+        src="/images/chul.webp"
+        alt="1ilsang"
+    /></a>
     <div>
       <a class="text-lg" href="/about">1ilsang</a>
       <div class="text-sm text-sub-blue">클라이밍 하실래염?</div>
@@ -106,12 +109,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col h-[600px] object-contain bg-transparent mt-10 min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="cover large"
-            src="/posts/quality-of-job-review/cover-large.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="cover large 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/quality-of-job-review/cover-large.webp"
+              alt="cover large"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -136,7 +146,11 @@
         id="성장하는-나"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#성장하는-나"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#성장하는-나"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -150,6 +164,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#안타를-맞는다는-것은-스트라이크를-던질-수-있다는-의미이다97p"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -175,7 +190,11 @@
         id="즐긴다는-말의-허상128p"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#즐긴다는-말의-허상128p"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#즐긴다는-말의-허상128p"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -202,6 +221,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#자신이-전문가라면-더-말해야-한다147p"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -229,6 +249,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#당신의-재능이-최고의-재산이다153p"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -267,7 +288,11 @@
         id="성공하는-조직"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#성공하는-조직"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#성공하는-조직"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -281,6 +306,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#리더는-체스-플레이어가-아니라-정원사다164p"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -298,6 +324,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#상사에게-직언을-어떻게-해야-하나187p"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -320,7 +347,11 @@
         id="비효율의-숙달화224p"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#비효율의-숙달화224p"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#비효율의-숙달화224p"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -339,7 +370,11 @@
         id="좋은-회사란-무엇인가225p"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#좋은-회사란-무엇인가225p"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#좋은-회사란-무엇인가225p"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -370,6 +405,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#유능한-직원을-무능하게-만드는-간단한-방법233p"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -396,6 +432,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#내가-말하지-않으면-리더도-나를-잘-모른다235p"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -425,6 +462,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#리더는-직원과-어느-정도-개인적-유대를-맺어야-할까246p"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -445,6 +483,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#상대가-진짜-똑똑한지-허풍인지-구별하는-방법259p"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -477,7 +516,11 @@
         id="성숙한-삶"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#성숙한-삶"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#성숙한-삶"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -487,7 +530,11 @@
         id="과제의-분리275p"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#과제의-분리275p"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#과제의-분리275p"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -516,6 +563,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#더-많이-행동하면-더-행복해진다279p"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -529,7 +577,11 @@
         id="그게-다다285p"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#그게-다다285p"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#그게-다다285p"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -553,6 +605,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#내가-나를-좌절시키는-것이다291p"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -569,6 +622,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#자랑할-것-자부심을-가질-것이-무엇인가307p"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -588,6 +642,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#억누르지-말고-관점을-재해석-하라324p"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -615,6 +670,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#인간관계와-우연이-삶에-미치는-영향328p"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -633,7 +689,11 @@
         id="맺으며"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#맺으며"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#맺으며"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -647,148 +707,232 @@
     </div>
     <aside
       class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
-      aria-label="index"
+      aria-label="목차"
     >
       <ul
         class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
       >
-        <li
-          id="성장하는-나"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          성장하는 나
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="성장하는-나"
+            href="#성장하는-나"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >성장하는 나</a
+          >
         </li>
         <li
-          id="안타를-맞는다는-것은-스트라이크를-던질-수-있다는-의미이다97p"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          안타를 맞는다는 것은 스트라이크를 던질 수 있다는 의미이다(97p)
+          <a
+            id="안타를-맞는다는-것은-스트라이크를-던질-수-있다는-의미이다97p"
+            href="#안타를-맞는다는-것은-스트라이크를-던질-수-있다는-의미이다97p"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >안타를 맞는다는 것은 스트라이크를 던질 수 있다는 의미이다(97p)</a
+          >
         </li>
         <li
-          id="즐긴다는-말의-허상128p"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          '즐긴다'는 말의 허상(128p)
+          <a
+            id="즐긴다는-말의-허상128p"
+            href="#즐긴다는-말의-허상128p"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >'즐긴다'는 말의 허상(128p)</a
+          >
         </li>
         <li
-          id="자신이-전문가라면-더-말해야-한다147p"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          자신이 전문가라면 더 말해야 한다(147p)
+          <a
+            id="자신이-전문가라면-더-말해야-한다147p"
+            href="#자신이-전문가라면-더-말해야-한다147p"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >자신이 전문가라면 더 말해야 한다(147p)</a
+          >
         </li>
         <li
-          id="당신의-재능이-최고의-재산이다153p"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
         >
-          당신의 재능이 최고의 재산이다(153p)
+          <a
+            id="당신의-재능이-최고의-재산이다153p"
+            href="#당신의-재능이-최고의-재산이다153p"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >당신의 재능이 최고의 재산이다(153p)</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="성공하는-조직"
+            href="#성공하는-조직"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >성공하는 조직</a
+          >
         </li>
         <li
-          id="성공하는-조직"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          성공하는 조직
+          <a
+            id="리더는-체스-플레이어가-아니라-정원사다164p"
+            href="#리더는-체스-플레이어가-아니라-정원사다164p"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >리더는 체스 플레이어가 아니라 정원사다(164p)</a
+          >
         </li>
         <li
-          id="리더는-체스-플레이어가-아니라-정원사다164p"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          리더는 체스 플레이어가 아니라 정원사다(164p)
+          <a
+            id="상사에게-직언을-어떻게-해야-하나187p"
+            href="#상사에게-직언을-어떻게-해야-하나187p"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >상사에게 직언을 어떻게 해야 하나?(187p)</a
+          >
         </li>
         <li
-          id="상사에게-직언을-어떻게-해야-하나187p"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          상사에게 직언을 어떻게 해야 하나?(187p)
+          <a
+            id="비효율의-숙달화224p"
+            href="#비효율의-숙달화224p"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >비효율의 숙달화(224p)</a
+          >
         </li>
         <li
-          id="비효율의-숙달화224p"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          비효율의 숙달화(224p)
+          <a
+            id="좋은-회사란-무엇인가225p"
+            href="#좋은-회사란-무엇인가225p"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >좋은 회사란 무엇인가?(225p)</a
+          >
         </li>
         <li
-          id="좋은-회사란-무엇인가225p"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          좋은 회사란 무엇인가?(225p)
+          <a
+            id="유능한-직원을-무능하게-만드는-간단한-방법233p"
+            href="#유능한-직원을-무능하게-만드는-간단한-방법233p"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >유능한 직원을 무능하게 만드는 간단한 방법(233p)</a
+          >
         </li>
         <li
-          id="유능한-직원을-무능하게-만드는-간단한-방법233p"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          유능한 직원을 무능하게 만드는 간단한 방법(233p)
+          <a
+            id="내가-말하지-않으면-리더도-나를-잘-모른다235p"
+            href="#내가-말하지-않으면-리더도-나를-잘-모른다235p"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >내가 말하지 않으면 리더도 나를 잘 모른다(235p)</a
+          >
         </li>
         <li
-          id="내가-말하지-않으면-리더도-나를-잘-모른다235p"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          내가 말하지 않으면 리더도 나를 잘 모른다(235p)
+          <a
+            id="리더는-직원과-어느-정도-개인적-유대를-맺어야-할까246p"
+            href="#리더는-직원과-어느-정도-개인적-유대를-맺어야-할까246p"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >리더는 직원과 어느 정도 개인적 유대를 맺어야 할까?(246p)</a
+          >
         </li>
         <li
-          id="리더는-직원과-어느-정도-개인적-유대를-맺어야-할까246p"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
         >
-          리더는 직원과 어느 정도 개인적 유대를 맺어야 할까?(246p)
+          <a
+            id="상대가-진짜-똑똑한지-허풍인지-구별하는-방법259p"
+            href="#상대가-진짜-똑똑한지-허풍인지-구별하는-방법259p"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >상대가 진짜 똑똑한지 허풍인지 구별하는 방법(259p)</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="성숙한-삶"
+            href="#성숙한-삶"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >성숙한 삶</a
+          >
         </li>
         <li
-          id="상대가-진짜-똑똑한지-허풍인지-구별하는-방법259p"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          상대가 진짜 똑똑한지 허풍인지 구별하는 방법(259p)
+          <a
+            id="과제의-분리275p"
+            href="#과제의-분리275p"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >과제의 분리(275p)</a
+          >
         </li>
         <li
-          id="성숙한-삶"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          성숙한 삶
+          <a
+            id="더-많이-행동하면-더-행복해진다279p"
+            href="#더-많이-행동하면-더-행복해진다279p"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >더 많이 행동하면 더 행복해진다(279p)</a
+          >
         </li>
         <li
-          id="과제의-분리275p"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          과제의 분리(275p)
+          <a
+            id="그게-다다285p"
+            href="#그게-다다285p"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >그게 다다(285p)</a
+          >
         </li>
         <li
-          id="더-많이-행동하면-더-행복해진다279p"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          더 많이 행동하면 더 행복해진다(279p)
+          <a
+            id="내가-나를-좌절시키는-것이다291p"
+            href="#내가-나를-좌절시키는-것이다291p"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >내가 나를 좌절시키는 것이다(291p)</a
+          >
         </li>
         <li
-          id="그게-다다285p"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          그게 다다(285p)
+          <a
+            id="자랑할-것-자부심을-가질-것이-무엇인가307p"
+            href="#자랑할-것-자부심을-가질-것이-무엇인가307p"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >자랑할 것, 자부심을 가질 것이 무엇인가?(307p)</a
+          >
         </li>
         <li
-          id="내가-나를-좌절시키는-것이다291p"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          내가 나를 좌절시키는 것이다(291p)
+          <a
+            id="억누르지-말고-관점을-재해석-하라324p"
+            href="#억누르지-말고-관점을-재해석-하라324p"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >억누르지 말고 관점을 재해석 하라(324p)</a
+          >
         </li>
         <li
-          id="자랑할-것-자부심을-가질-것이-무엇인가307p"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
         >
-          자랑할 것, 자부심을 가질 것이 무엇인가?(307p)
+          <a
+            id="인간관계와-우연이-삶에-미치는-영향328p"
+            href="#인간관계와-우연이-삶에-미치는-영향328p"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >인간관계와 우연이 삶에 미치는 영향(328p)</a
+          >
         </li>
-        <li
-          id="억누르지-말고-관점을-재해석-하라324p"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
-        >
-          억누르지 말고 관점을 재해석 하라(324p)
-        </li>
-        <li
-          id="인간관계와-우연이-삶에-미치는-영향328p"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
-        >
-          인간관계와 우연이 삶에 미치는 영향(328p)
-        </li>
-        <li
-          id="맺으며"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          맺으며
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="맺으며"
+            href="#맺으며"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >맺으며</a
+          >
         </li>
       </ul>
     </aside>

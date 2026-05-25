@@ -1,37 +1,41 @@
 <nav
+  aria-label="메인 네비게이션"
   class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%]"
 >
-  <h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
+  <div class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
     <a class="hover:underline" href="/">1ilsang</a>
-  </h2>
+  </div>
   <div class="flex">
-    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+    <div class="tracking-tight mr-6 text-xl mt-2.5">
       <a class="hover:underline" href="/posts">posts</a>
-    </h2>
-    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/tags">tags</a>
-    </h2>
-    <div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character">
-      <a href="/about"
-        ><img
-          class="border border-solid rounded-full border-white-blue"
-          src="/images/chul.webp"
-          alt="1ilsang"
-      /></a>
     </div>
+    <div class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/tags">tags</a>
+    </div>
+    <a
+      aria-label="About 페이지로 이동"
+      class="mr-2 block w-8 h-8 mt-2"
+      href="/about"
+      ><img
+        class="border border-solid rounded-full w-full h-full border-white-blue"
+        src="/images/chul.webp"
+        alt="1ilsang"
+    /></a>
   </div>
 </nav>
 <section
+  id="main-content"
+  tabindex="-1"
   class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
 >
   <header
     class="flex flex-col justify-between items-normal print:flex-row md:flex-row md:items-end print:mt-16"
   >
-    <div
+    <h1
       class="flex justify-start bg-jumbo bg-clip-text text-transparent text-8xl drop-shadow-[2px_4px_1px_black] tracking-[1px] md:text-9xl font-bold print:text-black print:font-normal print:bg-none print:filter-none"
     >
       !ILSANG
-    </div>
+    </h1>
     <div class="flex flex-col">
       <div class="flex justify-end pb-px h-7">
         <a
@@ -137,11 +141,12 @@
     </div>
   </section>
   <section class="flex flex-col pb-8">
-    <div
-      class="select-none text-white-blue text-2xl font-bold mb-1 leading-10 border-b-[1px] border-base print:text-black cursor-pointer hover:text-sub-blue duration-300"
+    <button
+      type="button"
+      class="select-none text-white-blue text-2xl font-bold mb-1 leading-10 border-x-0 border-t-0 border-b border-base border-solid print:text-black w-full text-left bg-transparent p-0 font-inherit cursor-pointer hover:text-sub-blue duration-300"
     >
       WORK EXPERIENCE
-    </div>
+    </button>
     <article class="flex flex-col py-3 mt-4 print:flex-row md:flex-row">
       <div class="w-48">
         <a
@@ -162,7 +167,12 @@
         </div>
       </div>
       <div class="flex flex-col w-full ml-0 md:ml-6">
-        <div class="flex cursor-pointer duration-300 hover:text-highlight">
+        <div
+          role="button"
+          tabindex="0"
+          aria-controls="Woowa Bros-projects"
+          class="flex cursor-pointer duration-300 hover:text-highlight"
+        >
           <div id="Woowa Bros" class="text-2xl font-bold select-none leading-9">
             Woowa Bros
           </div>
@@ -172,7 +182,7 @@
         >
           Frontend Engineer
         </div>
-        <div class="max-h-[8000px]">
+        <div id="Woowa Bros-projects" class="max-h-[8000px]">
           <div
             class="mb-4 pr-1 pl-[0.7rem] border-dark border-l-[0.24rem] border-b-[0.01rem] border-b-dotted print:border-black"
           >
@@ -180,7 +190,7 @@
               role="button"
               tabindex="0"
               aria-expanded="false"
-              aria-controls="_R_6hj9bsnlb_"
+              aria-controls="Design System"
               class="flex flex-col duration-300 cursor-pointer select-none group hover:text-highlight"
             >
               <div class="flex items-center justify-between w-full">
@@ -213,27 +223,32 @@
               </div>
             </div>
             <div
-              id="_R_6hj9bsnlb_"
+              id="Design System"
               class="break-words print:animate-none invisible opacity-0 max-h-0"
             >
               <div
                 class="relative mt-4 text-amber-600 w-full shadow-[1px_1px_8px] shadow-peach"
               >
                 <button
-                  class="absolute top-[-3rem] left-[-0.5rem] hover:text-amber-400 hover:duration-150 opacity-70 before:text-[5rem] cursor-pointer before:content-[&quot;⎗&quot;] before:text-[6rem]"
-                  title="Toggle image size"
+                  type="button"
+                  class="absolute top-[-3rem] left-[-0.5rem] hover:text-amber-400 hover:duration-150 opacity-70 before:text-[5rem] cursor-pointer border-none bg-transparent p-0 before:content-[&quot;⎗&quot;] before:text-[6rem]"
+                  aria-label="이미지 크기 확대"
                 ></button
-                ><img
-                  class="cursor-zoom-in"
-                  src="/images/about/woowa-atelier.webp"
-                  alt="우아한공방"
-                />
+                ><button
+                  type="button"
+                  class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+                  aria-label="우아한공방 확대"
+                >
+                  <img
+                    class="cursor-zoom-in w-full"
+                    src="/images/about/woowa-atelier.webp"
+                    alt="우아한공방"
+                  />
+                </button>
               </div>
               <div class="py-4 pl-2 mt-4">
                 <ul class="grid leading-7">
-                  <span class="pb-5 ml-1"
-                    >사내 디자인시스템 - 우아한공방 개발</span
-                  >
+                  <li class="pb-5 ml-1">사내 디자인시스템 - 우아한공방 개발</li>
                   <li
                     class="pl-4 mt-1 before:content-['❑'] print:before:content-['•'] before:mr-2"
                   >
@@ -276,7 +291,7 @@
               role="button"
               tabindex="0"
               aria-expanded="false"
-              aria-controls="_R_ahj9bsnlb_"
+              aria-controls="Woowa Bookstreet"
               class="flex flex-col duration-300 cursor-pointer select-none group hover:text-highlight"
             >
               <div class="flex items-center justify-between w-full">
@@ -309,27 +324,34 @@
               </div>
             </div>
             <div
-              id="_R_ahj9bsnlb_"
+              id="Woowa Bookstreet"
               class="break-words print:animate-none invisible opacity-0 max-h-0"
             >
               <div
                 class="relative mt-4 text-amber-600 w-full shadow-[1px_1px_8px] shadow-peach"
               >
                 <button
-                  class="absolute top-[-3rem] left-[-0.5rem] hover:text-amber-400 hover:duration-150 opacity-70 before:text-[5rem] cursor-pointer before:content-[&quot;⎗&quot;] before:text-[6rem]"
-                  title="Toggle image size"
+                  type="button"
+                  class="absolute top-[-3rem] left-[-0.5rem] hover:text-amber-400 hover:duration-150 opacity-70 before:text-[5rem] cursor-pointer border-none bg-transparent p-0 before:content-[&quot;⎗&quot;] before:text-[6rem]"
+                  aria-label="이미지 크기 확대"
                 ></button
-                ><img
-                  class="cursor-zoom-in"
-                  src="/images/about/woowa-bookstreet.webp"
-                  alt="우아한책거리"
-                />
+                ><button
+                  type="button"
+                  class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+                  aria-label="우아한책거리 확대"
+                >
+                  <img
+                    class="cursor-zoom-in w-full"
+                    src="/images/about/woowa-bookstreet.webp"
+                    alt="우아한책거리"
+                  />
+                </button>
               </div>
               <div class="py-4 pl-2 mt-4">
                 <ul class="grid leading-7">
-                  <span class="pb-5 ml-1"
-                    >사내 구성원들을 위한 도서 커뮤니티 플랫폼 개발</span
-                  >
+                  <li class="pb-5 ml-1">
+                    사내 구성원들을 위한 도서 커뮤니티 플랫폼 개발
+                  </li>
                   <li
                     class="pl-4 mt-1 before:content-['❑'] print:before:content-['•'] before:mr-2"
                   >
@@ -371,7 +393,7 @@
               role="button"
               tabindex="0"
               aria-expanded="false"
-              aria-controls="_R_ehj9bsnlb_"
+              aria-controls="Commerce Internal Server"
               class="flex flex-col duration-300 cursor-pointer select-none group hover:text-highlight"
             >
               <div class="flex items-center justify-between w-full">
@@ -409,12 +431,12 @@
               </div>
             </div>
             <div
-              id="_R_ehj9bsnlb_"
+              id="Commerce Internal Server"
               class="break-words print:animate-none invisible opacity-0 max-h-0"
             >
               <div class="py-4 pl-2 mt-4">
                 <ul class="grid leading-7">
-                  <span class="pb-5 ml-1">커머스 내부 과제용 서버 개발</span>
+                  <li class="pb-5 ml-1">커머스 내부 과제용 서버 개발</li>
                   <li
                     class="pl-4 mt-1 before:content-['❑'] print:before:content-['•'] before:mr-2"
                   >
@@ -437,7 +459,7 @@
               role="button"
               tabindex="0"
               aria-expanded="false"
-              aria-controls="_R_ihj9bsnlb_"
+              aria-controls="Commerce Admin Platform"
               class="flex flex-col duration-300 cursor-pointer select-none group hover:text-highlight"
             >
               <div class="flex items-center justify-between w-full">
@@ -470,15 +492,15 @@
               </div>
             </div>
             <div
-              id="_R_ihj9bsnlb_"
+              id="Commerce Admin Platform"
               class="break-words print:animate-none invisible opacity-0 max-h-0"
             >
               <div class="py-4 pl-2 mt-4">
                 <ul class="grid leading-7">
-                  <span class="pb-5 ml-1"
-                    >서로 다른 커머스 서비스 내 주문/배송/셀러/상품 영역에서
-                    일관된 사용자 경험을 제공할 수 있는 어드민 플랫폼 개발</span
-                  >
+                  <li class="pb-5 ml-1">
+                    서로 다른 커머스 서비스 내 주문/배송/셀러/상품 영역에서
+                    일관된 사용자 경험을 제공할 수 있는 어드민 플랫폼 개발
+                  </li>
                   <li
                     class="pl-4 mt-1 before:content-['❑'] print:before:content-['•'] before:mr-2"
                   >
@@ -555,7 +577,12 @@
         </div>
       </div>
       <div class="flex flex-col w-full ml-0 md:ml-6">
-        <div class="flex cursor-pointer duration-300 hover:text-highlight">
+        <div
+          role="button"
+          tabindex="0"
+          aria-controls="LINE Plus Corp-projects"
+          class="flex cursor-pointer duration-300 hover:text-highlight"
+        >
           <div
             id="LINE Plus Corp"
             class="text-2xl font-bold select-none leading-9"
@@ -568,7 +595,7 @@
         >
           Frontend Engineer
         </div>
-        <div class="max-h-[8000px]">
+        <div id="LINE Plus Corp-projects" class="max-h-[8000px]">
           <div
             class="mb-4 pr-1 pl-[0.7rem] border-dark border-l-[0.24rem] border-b-[0.01rem] border-b-dotted print:border-black"
           >
@@ -576,7 +603,7 @@
               role="button"
               tabindex="0"
               aria-expanded="false"
-              aria-controls="_R_6ij9bsnlb_"
+              aria-controls="LandPress Content"
               class="flex flex-col duration-300 cursor-pointer select-none group hover:text-highlight"
             >
               <div class="flex items-center justify-between w-full">
@@ -609,12 +636,12 @@
               </div>
             </div>
             <div
-              id="_R_6ij9bsnlb_"
+              id="LandPress Content"
               class="break-words print:animate-none invisible opacity-0 max-h-0"
             >
               <div class="py-4 pl-2 mt-4">
                 <ul class="grid leading-7">
-                  <span class="pb-5 ml-1">사내 Headless CMS 개발</span>
+                  <li class="pb-5 ml-1">사내 Headless CMS 개발</li>
                   <li
                     class="pl-4 mt-1 before:content-['❑'] print:before:content-['•'] before:mr-2"
                   >
@@ -690,7 +717,7 @@
               role="button"
               tabindex="0"
               aria-expanded="false"
-              aria-controls="_R_aij9bsnlb_"
+              aria-controls="Universal Video Player"
               class="flex flex-col duration-300 cursor-pointer select-none group hover:text-highlight"
             >
               <div class="flex items-center justify-between w-full">
@@ -743,28 +770,35 @@
               </div>
             </div>
             <div
-              id="_R_aij9bsnlb_"
+              id="Universal Video Player"
               class="break-words print:animate-none invisible opacity-0 max-h-0"
             >
               <div
                 class="relative mt-4 text-amber-600 w-full shadow-[1px_1px_8px] shadow-peach"
               >
                 <button
-                  class="absolute top-[-3rem] left-[-0.5rem] hover:text-amber-400 hover:duration-150 opacity-70 before:text-[5rem] cursor-pointer before:content-[&quot;⎗&quot;] before:text-[6rem]"
-                  title="Toggle image size"
+                  type="button"
+                  class="absolute top-[-3rem] left-[-0.5rem] hover:text-amber-400 hover:duration-150 opacity-70 before:text-[5rem] cursor-pointer border-none bg-transparent p-0 before:content-[&quot;⎗&quot;] before:text-[6rem]"
+                  aria-label="이미지 크기 확대"
                 ></button
-                ><img
-                  class="cursor-zoom-in"
-                  src="/images/about/uvp.webp"
-                  alt="UVP cover"
-                />
+                ><button
+                  type="button"
+                  class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+                  aria-label="UVP cover 확대"
+                >
+                  <img
+                    class="cursor-zoom-in w-full"
+                    src="/images/about/uvp.webp"
+                    alt="UVP cover"
+                  />
+                </button>
               </div>
               <div class="py-4 pl-2 mt-4">
                 <ul class="grid leading-7">
-                  <span class="pb-5 ml-1"
-                    >사내 다양한 서비스에서 사용되는 웹 동영상 라이브러리
-                    메인테이닝</span
-                  >
+                  <li class="pb-5 ml-1">
+                    사내 다양한 서비스에서 사용되는 웹 동영상 라이브러리
+                    메인테이닝
+                  </li>
                   <li
                     class="pl-4 mt-1 before:content-['❑'] print:before:content-['•'] before:mr-2"
                   >
@@ -918,7 +952,7 @@
               role="button"
               tabindex="0"
               aria-expanded="false"
-              aria-controls="_R_eij9bsnlb_"
+              aria-controls="VOOM Live CMS"
               class="flex flex-col duration-300 cursor-pointer select-none group hover:text-highlight"
             >
               <div class="flex items-center justify-between w-full">
@@ -966,25 +1000,32 @@
               </div>
             </div>
             <div
-              id="_R_eij9bsnlb_"
+              id="VOOM Live CMS"
               class="break-words print:animate-none invisible opacity-0 max-h-0"
             >
               <div
                 class="relative mt-4 text-amber-600 w-full shadow-[1px_1px_8px] shadow-peach"
               >
                 <button
-                  class="absolute top-[-3rem] left-[-0.5rem] hover:text-amber-400 hover:duration-150 opacity-70 before:text-[5rem] cursor-pointer before:content-[&quot;⎗&quot;] before:text-[6rem]"
-                  title="Toggle image size"
+                  type="button"
+                  class="absolute top-[-3rem] left-[-0.5rem] hover:text-amber-400 hover:duration-150 opacity-70 before:text-[5rem] cursor-pointer border-none bg-transparent p-0 before:content-[&quot;⎗&quot;] before:text-[6rem]"
+                  aria-label="이미지 크기 확대"
                 ></button
-                ><img
-                  class="cursor-zoom-in"
-                  src="/images/about/voom-live-cms.webp"
-                  alt="VOOM Live CMS cover"
-                />
+                ><button
+                  type="button"
+                  class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+                  aria-label="VOOM Live CMS cover 확대"
+                >
+                  <img
+                    class="cursor-zoom-in w-full"
+                    src="/images/about/voom-live-cms.webp"
+                    alt="VOOM Live CMS cover"
+                  />
+                </button>
               </div>
               <div class="py-4 pl-2 mt-4">
                 <ul class="grid leading-7">
-                  <span class="pb-5 ml-1">VOOM Live 방송 CMS 페이지 개발</span>
+                  <li class="pb-5 ml-1">VOOM Live 방송 CMS 페이지 개발</li>
                   <li
                     class="pl-4 mt-1 before:content-['❑'] print:before:content-['•'] before:mr-2"
                   >
@@ -1019,7 +1060,7 @@
               role="button"
               tabindex="0"
               aria-expanded="false"
-              aria-controls="_R_iij9bsnlb_"
+              aria-controls="Official Account Live CMS"
               class="flex flex-col duration-300 cursor-pointer select-none group hover:text-highlight"
             >
               <div class="flex items-center justify-between w-full">
@@ -1072,27 +1113,34 @@
               </div>
             </div>
             <div
-              id="_R_iij9bsnlb_"
+              id="Official Account Live CMS"
               class="break-words print:animate-none invisible opacity-0 max-h-0"
             >
               <div
                 class="relative mt-4 text-amber-600 w-full shadow-[1px_1px_8px] shadow-peach"
               >
                 <button
-                  class="absolute top-[-3rem] left-[-0.5rem] hover:text-amber-400 hover:duration-150 opacity-70 before:text-[5rem] cursor-pointer before:content-[&quot;⎗&quot;] before:text-[6rem]"
-                  title="Toggle image size"
+                  type="button"
+                  class="absolute top-[-3rem] left-[-0.5rem] hover:text-amber-400 hover:duration-150 opacity-70 before:text-[5rem] cursor-pointer border-none bg-transparent p-0 before:content-[&quot;⎗&quot;] before:text-[6rem]"
+                  aria-label="이미지 크기 확대"
                 ></button
-                ><img
-                  class="cursor-zoom-in"
-                  src="/images/about/oa-live-cms.webp"
-                  alt="OA Live CMS cover"
-                />
+                ><button
+                  type="button"
+                  class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+                  aria-label="OA Live CMS cover 확대"
+                >
+                  <img
+                    class="cursor-zoom-in w-full"
+                    src="/images/about/oa-live-cms.webp"
+                    alt="OA Live CMS cover"
+                  />
+                </button>
               </div>
               <div class="py-4 pl-2 mt-4">
                 <ul class="grid leading-7">
-                  <span class="pb-5 ml-1"
-                    >LINE Official Account Live 방송 CMS 페이지 개발</span
-                  >
+                  <li class="pb-5 ml-1">
+                    LINE Official Account Live 방송 CMS 페이지 개발
+                  </li>
                   <li
                     class="pl-4 mt-1 before:content-['❑'] print:before:content-['•'] before:mr-2"
                   >
@@ -1146,7 +1194,7 @@
               role="button"
               tabindex="0"
               aria-expanded="false"
-              aria-controls="_R_mij9bsnlb_"
+              aria-controls="LINE Design System - Calendar"
               class="flex flex-col duration-300 cursor-pointer select-none group hover:text-highlight"
             >
               <div class="flex items-center justify-between w-full">
@@ -1179,28 +1227,35 @@
               </div>
             </div>
             <div
-              id="_R_mij9bsnlb_"
+              id="LINE Design System - Calendar"
               class="break-words print:animate-none invisible opacity-0 max-h-0"
             >
               <div
                 class="relative mt-4 text-amber-600 w-full shadow-[1px_1px_8px] shadow-peach"
               >
                 <button
-                  class="absolute top-[-3rem] left-[-0.5rem] hover:text-amber-400 hover:duration-150 opacity-70 before:text-[5rem] cursor-pointer before:content-[&quot;⎗&quot;] before:text-[6rem]"
-                  title="Toggle image size"
+                  type="button"
+                  class="absolute top-[-3rem] left-[-0.5rem] hover:text-amber-400 hover:duration-150 opacity-70 before:text-[5rem] cursor-pointer border-none bg-transparent p-0 before:content-[&quot;⎗&quot;] before:text-[6rem]"
+                  aria-label="이미지 크기 확대"
                 ></button
-                ><img
-                  class="cursor-zoom-in"
-                  src="/images/about/lds-calendar.webp"
-                  alt="LDS Calendar"
-                />
+                ><button
+                  type="button"
+                  class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+                  aria-label="LDS Calendar 확대"
+                >
+                  <img
+                    class="cursor-zoom-in w-full"
+                    src="/images/about/lds-calendar.webp"
+                    alt="LDS Calendar"
+                  />
+                </button>
               </div>
               <div class="py-4 pl-2 mt-4">
                 <ul class="grid leading-7">
-                  <span class="pb-5 ml-1"
-                    >LINE 디자인 시스템이 적용된 React 캘린더 컴포넌트
-                    라이브러리 개발</span
-                  >
+                  <li class="pb-5 ml-1">
+                    LINE 디자인 시스템이 적용된 React 캘린더 컴포넌트 라이브러리
+                    개발
+                  </li>
                   <li
                     class="pl-4 mt-1 before:content-['❑'] print:before:content-['•'] before:mr-2"
                   >
@@ -1247,7 +1302,7 @@
               role="button"
               tabindex="0"
               aria-expanded="false"
-              aria-controls="_R_qij9bsnlb_"
+              aria-controls="LINE Place"
               class="flex flex-col duration-300 cursor-pointer select-none group hover:text-highlight"
             >
               <div class="flex items-center justify-between w-full">
@@ -1285,7 +1340,7 @@
               </div>
             </div>
             <div
-              id="_R_qij9bsnlb_"
+              id="LINE Place"
               class="break-words print:animate-none invisible opacity-0 max-h-0"
             >
               <div
@@ -1293,21 +1348,28 @@
                 style="width: 250px"
               >
                 <button
-                  class="absolute top-[-3rem] left-[-0.5rem] hover:text-amber-400 hover:duration-150 opacity-70 before:text-[5rem] cursor-pointer before:content-[&quot;⎗&quot;] before:text-[6rem]"
-                  title="Toggle image size"
+                  type="button"
+                  class="absolute top-[-3rem] left-[-0.5rem] hover:text-amber-400 hover:duration-150 opacity-70 before:text-[5rem] cursor-pointer border-none bg-transparent p-0 before:content-[&quot;⎗&quot;] before:text-[6rem]"
+                  aria-label="이미지 크기 확대"
                 ></button
-                ><img
-                  class="cursor-zoom-in"
-                  src="/images/about/line-place.webp"
-                  alt="LINE Place cover"
-                  width="250"
-                />
+                ><button
+                  type="button"
+                  class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+                  aria-label="LINE Place cover 확대"
+                >
+                  <img
+                    class="cursor-zoom-in w-full"
+                    src="/images/about/line-place.webp"
+                    alt="LINE Place cover"
+                    width="250"
+                  />
+                </button>
               </div>
               <div class="py-4 pl-2 mt-4">
                 <ul class="grid leading-7">
-                  <span class="pb-5 ml-1"
-                    >위치 기반 음식점 추천 및 검색 서비스 개발</span
-                  >
+                  <li class="pb-5 ml-1">
+                    위치 기반 음식점 추천 및 검색 서비스 개발
+                  </li>
                   <li
                     class="pl-4 mt-1 before:content-['❑'] print:before:content-['•'] before:mr-2"
                   >
@@ -1360,7 +1422,7 @@
               role="button"
               tabindex="0"
               aria-expanded="false"
-              aria-controls="_R_uij9bsnlb_"
+              aria-controls="Official Account Profile"
               class="flex flex-col duration-300 cursor-pointer select-none group hover:text-highlight"
             >
               <div class="flex items-center justify-between w-full">
@@ -1383,7 +1445,7 @@
               </div>
             </div>
             <div
-              id="_R_uij9bsnlb_"
+              id="Official Account Profile"
               class="break-words print:animate-none invisible opacity-0 max-h-0"
             >
               <div
@@ -1391,19 +1453,26 @@
                 style="width: 250px"
               >
                 <button
-                  class="absolute top-[-3rem] left-[-0.5rem] hover:text-amber-400 hover:duration-150 opacity-70 before:text-[5rem] cursor-pointer before:content-[&quot;⎗&quot;] before:text-[6rem]"
-                  title="Toggle image size"
+                  type="button"
+                  class="absolute top-[-3rem] left-[-0.5rem] hover:text-amber-400 hover:duration-150 opacity-70 before:text-[5rem] cursor-pointer border-none bg-transparent p-0 before:content-[&quot;⎗&quot;] before:text-[6rem]"
+                  aria-label="이미지 크기 확대"
                 ></button
-                ><img
-                  class="cursor-zoom-in"
-                  src="/images/about/line-account.webp"
-                  alt="Official Account cover"
-                  width="250"
-                />
+                ><button
+                  type="button"
+                  class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+                  aria-label="Official Account cover 확대"
+                >
+                  <img
+                    class="cursor-zoom-in w-full"
+                    src="/images/about/line-account.webp"
+                    alt="Official Account cover"
+                    width="250"
+                  />
+                </button>
               </div>
               <div class="py-4 pl-2 mt-4">
                 <ul class="grid leading-7">
-                  <span class="pb-5 ml-1">라인 공식 계정 페이지 개발</span>
+                  <li class="pb-5 ml-1">라인 공식 계정 페이지 개발</li>
                   <li
                     class="pl-4 mt-1 before:content-['❑'] print:before:content-['•'] before:mr-2"
                   >
@@ -1472,7 +1541,12 @@
         </div>
       </div>
       <div class="flex flex-col w-full ml-0 md:ml-6">
-        <div class="flex cursor-pointer duration-300 hover:text-highlight">
+        <div
+          role="button"
+          tabindex="0"
+          aria-controls="TeamBlind-projects"
+          class="flex cursor-pointer duration-300 hover:text-highlight"
+        >
           <div id="TeamBlind" class="text-2xl font-bold select-none leading-9">
             TeamBlind
           </div>
@@ -1482,7 +1556,7 @@
         >
           Full Stack Engineer
         </div>
-        <div class="max-h-[8000px]">
+        <div id="TeamBlind-projects" class="max-h-[8000px]">
           <div
             class="mb-4 pr-1 pl-[0.7rem] border-dark border-l-[0.24rem] border-b-[0.01rem] border-b-dotted print:border-black"
           >
@@ -1490,7 +1564,7 @@
               role="button"
               tabindex="0"
               aria-expanded="false"
-              aria-controls="_R_6jj9bsnlb_"
+              aria-controls="Bleet"
               class="flex flex-col duration-300 cursor-pointer select-none group hover:text-highlight"
             >
               <div class="flex items-center justify-between w-full">
@@ -1528,25 +1602,32 @@
               </div>
             </div>
             <div
-              id="_R_6jj9bsnlb_"
+              id="Bleet"
               class="break-words print:animate-none invisible opacity-0 max-h-0"
             >
               <div
                 class="relative mt-4 text-amber-600 w-full shadow-[1px_1px_8px] shadow-peach"
               >
                 <button
-                  class="absolute top-[-3rem] left-[-0.5rem] hover:text-amber-400 hover:duration-150 opacity-70 before:text-[5rem] cursor-pointer before:content-[&quot;⎗&quot;] before:text-[6rem]"
-                  title="Toggle image size"
+                  type="button"
+                  class="absolute top-[-3rem] left-[-0.5rem] hover:text-amber-400 hover:duration-150 opacity-70 before:text-[5rem] cursor-pointer border-none bg-transparent p-0 before:content-[&quot;⎗&quot;] before:text-[6rem]"
+                  aria-label="이미지 크기 확대"
                 ></button
-                ><img
-                  class="cursor-zoom-in"
-                  src="/images/about/bleet.webp"
-                  alt="Bleet cover"
-                />
+                ><button
+                  type="button"
+                  class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+                  aria-label="Bleet cover 확대"
+                >
+                  <img
+                    class="cursor-zoom-in w-full"
+                    src="/images/about/bleet.webp"
+                    alt="Bleet cover"
+                  />
+                </button>
               </div>
               <div class="py-4 pl-2 mt-4">
                 <ul class="grid leading-7">
-                  <span class="pb-5 ml-1">직장인 소개팅 어플 서버 개발</span>
+                  <li class="pb-5 ml-1">직장인 소개팅 어플 서버 개발</li>
                   <li
                     class="pl-4 mt-1 before:content-['❑'] print:before:content-['•'] before:mr-2"
                   >
@@ -1593,7 +1674,7 @@
               role="button"
               tabindex="0"
               aria-expanded="false"
-              aria-controls="_R_ajj9bsnlb_"
+              aria-controls="Mybiskit"
               class="flex flex-col duration-300 cursor-pointer select-none group hover:text-highlight"
             >
               <div class="flex items-center justify-between w-full">
@@ -1631,27 +1712,34 @@
               </div>
             </div>
             <div
-              id="_R_ajj9bsnlb_"
+              id="Mybiskit"
               class="break-words print:animate-none invisible opacity-0 max-h-0"
             >
               <div
                 class="relative mt-4 text-amber-600 w-full shadow-[1px_1px_8px] shadow-peach"
               >
                 <button
-                  class="absolute top-[-3rem] left-[-0.5rem] hover:text-amber-400 hover:duration-150 opacity-70 before:text-[5rem] cursor-pointer before:content-[&quot;⎗&quot;] before:text-[6rem]"
-                  title="Toggle image size"
+                  type="button"
+                  class="absolute top-[-3rem] left-[-0.5rem] hover:text-amber-400 hover:duration-150 opacity-70 before:text-[5rem] cursor-pointer border-none bg-transparent p-0 before:content-[&quot;⎗&quot;] before:text-[6rem]"
+                  aria-label="이미지 크기 확대"
                 ></button
-                ><img
-                  class="cursor-zoom-in"
-                  src="/images/about/mybiskit.webp"
-                  alt="Mybiskit cover"
-                />
+                ><button
+                  type="button"
+                  class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+                  aria-label="Mybiskit cover 확대"
+                >
+                  <img
+                    class="cursor-zoom-in w-full"
+                    src="/images/about/mybiskit.webp"
+                    alt="Mybiskit cover"
+                  />
+                </button>
               </div>
               <div class="py-4 pl-2 mt-4">
                 <ul class="grid leading-7">
-                  <span class="pb-5 ml-1"
-                    >직장인 온라인 취미클래스 서비스 개발</span
-                  >
+                  <li class="pb-5 ml-1">
+                    직장인 온라인 취미클래스 서비스 개발
+                  </li>
                   <li
                     class="pl-4 mt-1 before:content-['❑'] print:before:content-['•'] before:mr-2"
                   >
@@ -1714,7 +1802,7 @@
               role="button"
               tabindex="0"
               aria-expanded="false"
-              aria-controls="_R_ejj9bsnlb_"
+              aria-controls="Blind"
               class="flex flex-col duration-300 cursor-pointer select-none group hover:text-highlight"
             >
               <div class="flex items-center justify-between w-full">
@@ -1762,27 +1850,34 @@
               </div>
             </div>
             <div
-              id="_R_ejj9bsnlb_"
+              id="Blind"
               class="break-words print:animate-none invisible opacity-0 max-h-0"
             >
               <div
                 class="relative mt-4 text-amber-600 w-full shadow-[1px_1px_8px] shadow-peach"
               >
                 <button
-                  class="absolute top-[-3rem] left-[-0.5rem] hover:text-amber-400 hover:duration-150 opacity-70 before:text-[5rem] cursor-pointer before:content-[&quot;⎗&quot;] before:text-[6rem]"
-                  title="Toggle image size"
+                  type="button"
+                  class="absolute top-[-3rem] left-[-0.5rem] hover:text-amber-400 hover:duration-150 opacity-70 before:text-[5rem] cursor-pointer border-none bg-transparent p-0 before:content-[&quot;⎗&quot;] before:text-[6rem]"
+                  aria-label="이미지 크기 확대"
                 ></button
-                ><img
-                  class="cursor-zoom-in"
-                  src="/images/about/blind.webp"
-                  alt="Blind cover"
-                />
+                ><button
+                  type="button"
+                  class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+                  aria-label="Blind cover 확대"
+                >
+                  <img
+                    class="cursor-zoom-in w-full"
+                    src="/images/about/blind.webp"
+                    alt="Blind cover"
+                  />
+                </button>
               </div>
               <div class="py-4 pl-2 mt-4">
                 <ul class="grid leading-7">
-                  <span class="pb-5 ml-1"
-                    >직장인 익명 앱 API 및 어드민 페이지 개발</span
-                  >
+                  <li class="pb-5 ml-1">
+                    직장인 익명 앱 API 및 어드민 페이지 개발
+                  </li>
                   <li
                     class="pl-4 mt-1 before:content-['❑'] print:before:content-['•'] before:mr-2"
                   >
@@ -1839,7 +1934,12 @@
         </div>
       </div>
       <div class="flex flex-col w-full ml-0 md:ml-6">
-        <div class="flex cursor-pointer duration-300 hover:text-highlight">
+        <div
+          role="button"
+          tabindex="0"
+          aria-controls="Smilegate-projects"
+          class="flex cursor-pointer duration-300 hover:text-highlight"
+        >
           <div id="Smilegate" class="text-2xl font-bold select-none leading-9">
             Smilegate
           </div>
@@ -1849,7 +1949,7 @@
         >
           Frontend Engineer(intern)
         </div>
-        <div class="max-h-[8000px]">
+        <div id="Smilegate-projects" class="max-h-[8000px]">
           <div
             class="mb-4 pr-1 pl-[0.7rem] border-dark border-l-[0.24rem] border-b-[0.01rem] border-b-dotted print:border-black"
           >
@@ -1857,7 +1957,7 @@
               role="button"
               tabindex="0"
               aria-expanded="false"
-              aria-controls="_R_6kj9bsnlb_"
+              aria-controls="Stove"
               class="flex flex-col duration-300 cursor-pointer select-none group hover:text-highlight"
             >
               <div class="flex items-center justify-between w-full">
@@ -1880,12 +1980,12 @@
               </div>
             </div>
             <div
-              id="_R_6kj9bsnlb_"
+              id="Stove"
               class="break-words print:animate-none invisible opacity-0 max-h-0"
             >
               <div class="py-4 pl-2 mt-4">
                 <ul class="grid leading-7">
-                  <span class="pb-5 ml-1">모바일 게임 유저 타임라인 개발</span>
+                  <li class="pb-5 ml-1">모바일 게임 유저 타임라인 개발</li>
                   <li
                     class="pl-4 mt-1 before:content-['❑'] print:before:content-['•'] before:mr-2"
                   >

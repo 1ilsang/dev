@@ -22,52 +22,55 @@
   }
 </script>
 <progress
+  id="nav-progress"
   class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  aria-label="페이지 읽기 진행률"
   value="0"
   max="1"
 ></progress>
 <nav
-  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"
+  aria-label="메인 네비게이션"
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] shadow-nav shadow-lg"
 >
-  <h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
+  <div class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
     <a class="hover:underline" href="/">1ilsang</a>
-  </h2>
+  </div>
   <div class="flex">
-    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+    <div class="tracking-tight mr-6 text-xl mt-2.5">
       <a class="hover:underline" href="/posts">posts</a>
-    </h2>
-    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/tags">tags</a>
-    </h2>
-    <div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character">
-      <a href="/about"
-        ><img
-          class="border border-solid rounded-full border-white-blue"
-          src="/images/chul.webp"
-          alt="1ilsang"
-      /></a>
     </div>
+    <div class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/tags">tags</a>
+    </div>
+    <a
+      aria-label="About 페이지로 이동"
+      class="mr-2 block w-8 h-8 mt-2"
+      href="/about"
+      ><img
+        class="border border-solid rounded-full w-full h-full border-white-blue"
+        src="/images/chul.webp"
+        alt="1ilsang"
+    /></a>
   </div>
 </nav>
 <section
+  id="main-content"
+  tabindex="-1"
   class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
 >
   <h1 class="text-4xl break-words md:text-6xl">
     N-API(Node-API) 얕게 알아보기(feat. Rust)
   </h1>
   <section class="flex items-center mt-4">
-    <div
-      class="mr-2 w-9 h-9 md:w-12 md:h-12"
-      role="img"
-      aria-label="1ilsang character"
-    >
-      <a href="/about"
-        ><img
-          class="border border-solid rounded-full border-sub-blue"
-          src="/images/chul.webp"
-          alt="1ilsang"
-      /></a>
-    </div>
+    <a
+      aria-label="About 페이지로 이동"
+      class="mr-2 block w-9 h-9 md:w-12 md:h-12"
+      href="/about"
+      ><img
+        class="border border-solid rounded-full w-full h-full border-sub-blue"
+        src="/images/chul.webp"
+        alt="1ilsang"
+    /></a>
     <div>
       <a class="text-lg" href="/about">1ilsang</a>
       <div class="text-sm text-sub-blue">클라이밍 하실래염?</div>
@@ -113,12 +116,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col h-[600px] object-contain bg-transparent mt-10 min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="cover"
-            src="/posts/n-api/cover.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="cover 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/n-api/cover.webp"
+              alt="cover"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <blockquote
@@ -159,7 +169,11 @@
         id="node-api란"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#node-api란"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#node-api란"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -169,12 +183,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="node-api flow"
-            src="/posts/n-api/flow.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="node-api flow 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/n-api/flow.webp"
+              alt="node-api flow"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -219,7 +240,11 @@
         id="node-api의-장점"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#node-api의-장점"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#node-api의-장점"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -229,12 +254,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="addon chart"
-            src="/posts/n-api/addon.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="addon chart 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/n-api/addon.webp"
+              alt="addon chart"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -270,7 +302,11 @@
         id="1-abi-안정성"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#1-abi-안정성"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#1-abi-안정성"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -284,7 +320,11 @@
         id="2-인터페이스-제공"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#2-인터페이스-제공"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#2-인터페이스-제공"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -315,7 +355,11 @@
         id="3-최적화"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#3-최적화"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#3-최적화"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -341,6 +385,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#rust와-node-api를-사용한-nodejs-addon-개발"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -360,7 +405,11 @@
         id="1-node-gyp-설치"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#1-node-gyp-설치"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#1-node-gyp-설치"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -403,6 +452,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#2-rust-파일을-목적-파일로-컴파일"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -440,12 +490,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="so file"
-            src="/posts/n-api/so-file.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="so file 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/n-api/so-file.webp"
+              alt="so file"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -456,7 +513,11 @@
         id="3-bindinggyp-파일-생성"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#3-bindinggyp-파일-생성"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#3-bindinggyp-파일-생성"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -492,7 +553,11 @@
         id="4-addon-c-파일-작성"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#4-addon-c-파일-작성"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#4-addon-c-파일-작성"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -585,7 +650,11 @@
         id="5-addon-빌드"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#5-addon-빌드"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#5-addon-빌드"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -603,12 +672,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[40%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="build addon"
-            src="/posts/n-api/build-addon.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="build addon 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/n-api/build-addon.webp"
+              alt="build addon"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -631,6 +707,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#6-javascript-파일에서-사용하기"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -656,7 +733,11 @@
         id="마치며"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#마치며"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#마치며"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -693,7 +774,11 @@
         id="참고"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#참고"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#참고"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -731,94 +816,140 @@
     </div>
     <aside
       class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
-      aria-label="index"
+      aria-label="목차"
     >
       <ul
         class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
       >
-        <li
-          id="node-api란"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          Node-API란?
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="node-api란"
+            href="#node-api란"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Node-API란?</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="node-api의-장점"
+            href="#node-api의-장점"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Node-API의 장점</a
+          >
         </li>
         <li
-          id="node-api의-장점"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          Node-API의 장점
+          <a
+            id="1-abi-안정성"
+            href="#1-abi-안정성"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >1. ABI 안정성</a
+          >
         </li>
         <li
-          id="1-abi-안정성"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          1. ABI 안정성
+          <a
+            id="2-인터페이스-제공"
+            href="#2-인터페이스-제공"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >2. 인터페이스 제공</a
+          >
         </li>
         <li
-          id="2-인터페이스-제공"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
         >
-          2. 인터페이스 제공
+          <a
+            id="3-최적화"
+            href="#3-최적화"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >3. 최적화</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="rust와-node-api를-사용한-nodejs-addon-개발"
+            href="#rust와-node-api를-사용한-nodejs-addon-개발"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Rust와 Node-API를 사용한 Node.js Addon 개발</a
+          >
         </li>
         <li
-          id="3-최적화"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          3. 최적화
+          <a
+            id="1-node-gyp-설치"
+            href="#1-node-gyp-설치"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >1. Node-gyp 설치</a
+          >
         </li>
         <li
-          id="rust와-node-api를-사용한-nodejs-addon-개발"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          Rust와 Node-API를 사용한 Node.js Addon 개발
+          <a
+            id="2-rust-파일을-목적-파일로-컴파일"
+            href="#2-rust-파일을-목적-파일로-컴파일"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >2. Rust 파일을 목적 파일로 컴파일</a
+          >
         </li>
         <li
-          id="1-node-gyp-설치"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          1. Node-gyp 설치
+          <a
+            id="3-bindinggyp-파일-생성"
+            href="#3-bindinggyp-파일-생성"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >3. binding.gyp 파일 생성</a
+          >
         </li>
         <li
-          id="2-rust-파일을-목적-파일로-컴파일"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          2. Rust 파일을 목적 파일로 컴파일
+          <a
+            id="4-addon-c-파일-작성"
+            href="#4-addon-c-파일-작성"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >4. Addon C 파일 작성</a
+          >
         </li>
         <li
-          id="3-bindinggyp-파일-생성"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          3. binding.gyp 파일 생성
+          <a
+            id="5-addon-빌드"
+            href="#5-addon-빌드"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >5. Addon 빌드</a
+          >
         </li>
         <li
-          id="4-addon-c-파일-작성"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
         >
-          4. Addon C 파일 작성
+          <a
+            id="6-javascript-파일에서-사용하기"
+            href="#6-javascript-파일에서-사용하기"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >6. JavaScript 파일에서 사용하기</a
+          >
         </li>
-        <li
-          id="5-addon-빌드"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
-        >
-          5. Addon 빌드
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="마치며"
+            href="#마치며"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >마치며</a
+          >
         </li>
-        <li
-          id="6-javascript-파일에서-사용하기"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
-        >
-          6. JavaScript 파일에서 사용하기
-        </li>
-        <li
-          id="마치며"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          마치며
-        </li>
-        <li
-          id="참고"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          참고
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="참고"
+            href="#참고"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >참고</a
+          >
         </li>
       </ul>
     </aside>

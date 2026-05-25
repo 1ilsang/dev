@@ -22,52 +22,55 @@
   }
 </script>
 <progress
+  id="nav-progress"
   class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  aria-label="페이지 읽기 진행률"
   value="0"
   max="1"
 ></progress>
 <nav
-  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"
+  aria-label="메인 네비게이션"
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] shadow-nav shadow-lg"
 >
-  <h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
+  <div class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
     <a class="hover:underline" href="/">1ilsang</a>
-  </h2>
+  </div>
   <div class="flex">
-    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+    <div class="tracking-tight mr-6 text-xl mt-2.5">
       <a class="hover:underline" href="/posts">posts</a>
-    </h2>
-    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/tags">tags</a>
-    </h2>
-    <div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character">
-      <a href="/about"
-        ><img
-          class="border border-solid rounded-full border-white-blue"
-          src="/images/chul.webp"
-          alt="1ilsang"
-      /></a>
     </div>
+    <div class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/tags">tags</a>
+    </div>
+    <a
+      aria-label="About 페이지로 이동"
+      class="mr-2 block w-8 h-8 mt-2"
+      href="/about"
+      ><img
+        class="border border-solid rounded-full w-full h-full border-white-blue"
+        src="/images/chul.webp"
+        alt="1ilsang"
+    /></a>
   </div>
 </nav>
 <section
+  id="main-content"
+  tabindex="-1"
   class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
 >
   <h1 class="text-4xl break-words md:text-6xl">
     [Next.js] Google AdSense 광고 적용 및 이해하기
   </h1>
   <section class="flex items-center mt-4">
-    <div
-      class="mr-2 w-9 h-9 md:w-12 md:h-12"
-      role="img"
-      aria-label="1ilsang character"
-    >
-      <a href="/about"
-        ><img
-          class="border border-solid rounded-full border-sub-blue"
-          src="/images/chul.webp"
-          alt="1ilsang"
-      /></a>
-    </div>
+    <a
+      aria-label="About 페이지로 이동"
+      class="mr-2 block w-9 h-9 md:w-12 md:h-12"
+      href="/about"
+      ><img
+        class="border border-solid rounded-full w-full h-full border-sub-blue"
+        src="/images/chul.webp"
+        alt="1ilsang"
+    /></a>
     <div>
       <a class="text-lg" href="/about">1ilsang</a>
       <div class="text-sm text-sub-blue">클라이밍 하실래염?</div>
@@ -118,12 +121,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col h-[600px] object-contain bg-transparent mt-10 min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="cover"
-            src="/posts/google-adsense/cover.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="cover 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/google-adsense/cover.webp"
+              alt="cover"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -139,7 +149,11 @@
         id="index"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#index"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#index"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -272,7 +286,11 @@
         id="adsense-적용-결과"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#adsense-적용-결과"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#adsense-적용-결과"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -281,17 +299,31 @@
       <div
         class="mt-3 mb-3 flex items-center w-full custom-horizon-scrollbar min-h-[100px] min-[790px]:min-h-[200px]"
       >
-        <img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="ad-bottom-mobile"
-          src="/posts/google-adsense/ad-bottom-mobile.webp"
-          loading="lazy"
-        /><img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="ad-left-rail-desktop"
-          src="/posts/google-adsense/ad-left-rail-desktop.webp"
-          loading="lazy"
-        />
+        <button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Ad Bottom Mobile 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/google-adsense/ad-bottom-mobile.webp"
+            alt="Ad Bottom Mobile"
+            loading="lazy"
+          /></button
+        ><button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Ad Left Rail Desktop 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/google-adsense/ad-left-rail-desktop.webp"
+            alt="Ad Left Rail Desktop"
+            loading="lazy"
+          />
+        </button>
       </div>
       <p class="mt-4 mb-4">
         모바일 화면에서는 바텀 앵커 영역, 데스크탑 화면에서는 좌측 레일 부분에
@@ -306,7 +338,11 @@
         id="google-ads-adsense-차이"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#google-ads-adsense-차이"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#google-ads-adsense-차이"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -334,7 +370,11 @@
         id="adsense-설정하기"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#adsense-설정하기"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#adsense-설정하기"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -344,7 +384,11 @@
         id="사이트-등록"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#사이트-등록"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#사이트-등록"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -354,12 +398,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="site register"
-            src="/posts/google-adsense/site-register.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="site register 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/google-adsense/site-register.webp"
+              alt="site register"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -403,7 +454,11 @@
         id="광고-컴포넌트-적용"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#광고-컴포넌트-적용"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#광고-컴포넌트-적용"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -413,12 +468,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="ad script register"
-            src="/posts/google-adsense/ad-script-register.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="ad script register 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/google-adsense/ad-script-register.webp"
+              alt="ad script register"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -508,7 +570,11 @@
         id="사이트-소유권-확인"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#사이트-소유권-확인"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#사이트-소유권-확인"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -518,12 +584,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="ads text"
-            src="/posts/google-adsense/ads-text.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="ads text 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/google-adsense/ads-text.webp"
+              alt="ads text"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -553,7 +626,11 @@
         id="광고-컴포넌트-영역-설정"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#광고-컴포넌트-영역-설정"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#광고-컴포넌트-영역-설정"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -565,17 +642,31 @@
       <div
         class="mt-3 mb-3 flex items-center w-full custom-horizon-scrollbar min-h-[100px] min-[790px]:min-h-[200px]"
       >
-        <img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="ad-example"
-          src="/posts/google-adsense/ad-example.webp"
-          loading="lazy"
-        /><img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="direct-ad"
-          src="/posts/google-adsense/direct-ad.webp"
-          loading="lazy"
-        />
+        <button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Ad Example 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/google-adsense/ad-example.webp"
+            alt="Ad Example"
+            loading="lazy"
+          /></button
+        ><button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Direct Ad 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/google-adsense/direct-ad.webp"
+            alt="Direct Ad"
+            loading="lazy"
+          />
+        </button>
       </div>
       <blockquote
         class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
@@ -609,7 +700,11 @@
         id="사이트-기준"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-xl mt-6"
       >
-        <a aria-hidden="true" tabindex="-1" href="#사이트-기준"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#사이트-기준"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -619,12 +714,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="ad-exclusive-area"
-            src="/posts/google-adsense/ad-exclusive-area.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="ad-exclusive-area 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/google-adsense/ad-exclusive-area.webp"
+              alt="ad-exclusive-area"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -639,7 +741,11 @@
         id="광고-단위-기준"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-xl mt-6"
       >
-        <a aria-hidden="true" tabindex="-1" href="#광고-단위-기준"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#광고-단위-기준"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -649,12 +755,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="ad-target"
-            src="/posts/google-adsense/ad-target.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="ad-target 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/google-adsense/ad-target.webp"
+              alt="ad-target"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -693,7 +806,11 @@
         id="지급-정보-설정"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#지급-정보-설정"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#지급-정보-설정"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -710,7 +827,11 @@
         id="수익-구조"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#수익-구조"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#수익-구조"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -720,12 +841,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="profit structure"
-            src="/posts/google-adsense/profit-structure.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="profit structure 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/google-adsense/profit-structure.webp"
+              alt="profit structure"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -752,7 +880,11 @@
         id="마무리"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#마무리"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#마무리"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -768,76 +900,108 @@
     </div>
     <aside
       class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
-      aria-label="index"
+      aria-label="목차"
     >
       <ul
         class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
       >
-        <li
-          id="index"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          Index
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="index"
+            href="#index"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Index</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="adsense-적용-결과"
+            href="#adsense-적용-결과"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >AdSense 적용 결과</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="google-ads-adsense-차이"
+            href="#google-ads-adsense-차이"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Google Ads, AdSense 차이</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="adsense-설정하기"
+            href="#adsense-설정하기"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >AdSense 설정하기</a
+          >
         </li>
         <li
-          id="adsense-적용-결과"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          AdSense 적용 결과
+          <a
+            id="사이트-등록"
+            href="#사이트-등록"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >사이트 등록</a
+          >
         </li>
         <li
-          id="google-ads-adsense-차이"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          Google Ads, AdSense 차이
+          <a
+            id="광고-컴포넌트-적용"
+            href="#광고-컴포넌트-적용"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >광고 컴포넌트 적용</a
+          >
         </li>
         <li
-          id="adsense-설정하기"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          AdSense 설정하기
+          <a
+            id="사이트-소유권-확인"
+            href="#사이트-소유권-확인"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >사이트 소유권 확인</a
+          >
         </li>
         <li
-          id="사이트-등록"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          사이트 등록
+          <a
+            id="광고-컴포넌트-영역-설정"
+            href="#광고-컴포넌트-영역-설정"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >광고 컴포넌트 영역 설정</a
+          >
         </li>
         <li
-          id="광고-컴포넌트-적용"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
         >
-          광고 컴포넌트 적용
+          <a
+            id="지급-정보-설정"
+            href="#지급-정보-설정"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >지급 정보 설정</a
+          >
         </li>
-        <li
-          id="사이트-소유권-확인"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
-        >
-          사이트 소유권 확인
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="수익-구조"
+            href="#수익-구조"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >수익 구조</a
+          >
         </li>
-        <li
-          id="광고-컴포넌트-영역-설정"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
-        >
-          광고 컴포넌트 영역 설정
-        </li>
-        <li
-          id="지급-정보-설정"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
-        >
-          지급 정보 설정
-        </li>
-        <li
-          id="수익-구조"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          수익 구조
-        </li>
-        <li
-          id="마무리"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          마무리
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="마무리"
+            href="#마무리"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >마무리</a
+          >
         </li>
       </ul>
     </aside>

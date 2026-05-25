@@ -22,52 +22,55 @@
   }
 </script>
 <progress
+  id="nav-progress"
   class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  aria-label="페이지 읽기 진행률"
   value="0"
   max="1"
 ></progress>
 <nav
-  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"
+  aria-label="메인 네비게이션"
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] shadow-nav shadow-lg"
 >
-  <h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
+  <div class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
     <a class="hover:underline" href="/">1ilsang</a>
-  </h2>
+  </div>
   <div class="flex">
-    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+    <div class="tracking-tight mr-6 text-xl mt-2.5">
       <a class="hover:underline" href="/posts">posts</a>
-    </h2>
-    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/tags">tags</a>
-    </h2>
-    <div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character">
-      <a href="/about"
-        ><img
-          class="border border-solid rounded-full border-white-blue"
-          src="/images/chul.webp"
-          alt="1ilsang"
-      /></a>
     </div>
+    <div class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/tags">tags</a>
+    </div>
+    <a
+      aria-label="About 페이지로 이동"
+      class="mr-2 block w-8 h-8 mt-2"
+      href="/about"
+      ><img
+        class="border border-solid rounded-full w-full h-full border-white-blue"
+        src="/images/chul.webp"
+        alt="1ilsang"
+    /></a>
   </div>
 </nav>
 <section
+  id="main-content"
+  tabindex="-1"
   class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
 >
   <h1 class="text-4xl break-words md:text-6xl">
     Node.js 아키텍처 및 동작 분석
   </h1>
   <section class="flex items-center mt-4">
-    <div
-      class="mr-2 w-9 h-9 md:w-12 md:h-12"
-      role="img"
-      aria-label="1ilsang character"
-    >
-      <a href="/about"
-        ><img
-          class="border border-solid rounded-full border-sub-blue"
-          src="/images/chul.webp"
-          alt="1ilsang"
-      /></a>
-    </div>
+    <a
+      aria-label="About 페이지로 이동"
+      class="mr-2 block w-9 h-9 md:w-12 md:h-12"
+      href="/about"
+      ><img
+        class="border border-solid rounded-full w-full h-full border-sub-blue"
+        src="/images/chul.webp"
+        alt="1ilsang"
+    /></a>
     <div>
       <a class="text-lg" href="/about">1ilsang</a>
       <div class="text-sm text-sub-blue">클라이밍 하실래염?</div>
@@ -118,12 +121,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col h-[600px] object-contain bg-transparent mt-10 min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="cover"
-            src="/posts/nodejs-architecture-dive/cover.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="cover 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/nodejs-architecture-dive/cover.webp"
+              alt="cover"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -152,7 +162,11 @@
         id="tldr"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#tldr"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#tldr"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -170,7 +184,11 @@
         id="nodejs-이해하기"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#nodejs-이해하기"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#nodejs-이해하기"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -184,7 +202,11 @@
         id="당시의-상황"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#당시의-상황"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#당시의-상황"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -194,12 +216,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col border rounded min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="ryan-dahl"
-            src="/posts/nodejs-architecture-dive/ryan-dahl.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="ryan-dahl 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/nodejs-architecture-dive/ryan-dahl.webp"
+              alt="ryan-dahl"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <blockquote
@@ -294,7 +323,11 @@
         id="nodejs란"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#nodejs란"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#nodejs란"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -321,7 +354,11 @@
         id="asynchronous"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-lg pt-4 mb-0.5"
       >
-        <a aria-hidden="true" tabindex="-1" href="#asynchronous"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#asynchronous"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -342,7 +379,11 @@
         id="event-driven"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-lg pt-4 mb-0.5"
       >
-        <a aria-hidden="true" tabindex="-1" href="#event-driven"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#event-driven"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -363,7 +404,11 @@
         id="javascript-runtime"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-lg pt-4 mb-0.5"
       >
-        <a aria-hidden="true" tabindex="-1" href="#javascript-runtime"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#javascript-runtime"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -384,7 +429,11 @@
         id="확장-가능한-네트워크-앱"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-lg pt-4 mb-0.5"
       >
-        <a aria-hidden="true" tabindex="-1" href="#확장-가능한-네트워크-앱"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#확장-가능한-네트워크-앱"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -413,7 +462,11 @@
         id="browser와의-차이점"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#browser와의-차이점"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#browser와의-차이점"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -423,12 +476,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="browser vs node"
-            src="/posts/nodejs-architecture-dive/browser-node.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="browser vs node 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/nodejs-architecture-dive/browser-node.webp"
+              alt="browser vs node"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <blockquote
@@ -554,7 +614,11 @@
         id="아키텍처-살펴보기"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#아키텍처-살펴보기"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#아키텍처-살펴보기"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -567,7 +631,11 @@
         id="한눈에-보기"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#한눈에-보기"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#한눈에-보기"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -577,19 +645,30 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col border rounded min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="node architecture"
-            src="/posts/nodejs-architecture-dive/node-architecture.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="node architecture 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/nodejs-architecture-dive/node-architecture.webp"
+              alt="node architecture"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <h3
         id="주요-구성-요소"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#주요-구성-요소"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#주요-구성-요소"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -744,7 +823,11 @@
         id="동작-흐름"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#동작-흐름"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#동작-흐름"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -754,12 +837,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="deps"
-            src="https://www.mwanmobile.com/wp-content/uploads/2023/01/pp9n3grfwgcaqgi30t4e.gif"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="deps 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="https://www.mwanmobile.com/wp-content/uploads/2023/01/pp9n3grfwgcaqgi30t4e.gif"
+              alt="deps"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <blockquote
@@ -808,7 +898,11 @@
         id="코드로-이해하는-nodejs"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#코드로-이해하는-nodejs"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#코드로-이해하는-nodejs"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -841,12 +935,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:min-h-[150px] min-[790px]:w-[25%] border rounded min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="hello text file"
-            src="/posts/nodejs-architecture-dive/hello-txt.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="hello text file 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/nodejs-architecture-dive/hello-txt.webp"
+              alt="hello text file"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -856,7 +957,11 @@
         id="bootstrapping"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#bootstrapping"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#bootstrapping"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -877,12 +982,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col border rounded min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="bootstrapping init"
-            src="/posts/nodejs-architecture-dive/bootstrapping-init.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="bootstrapping init 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/nodejs-architecture-dive/bootstrapping-init.webp"
+              alt="bootstrapping init"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">복잡해 보이지만, 크게 2단계로 나눌 수 있다.</p>
@@ -942,12 +1054,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col border rounded min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="bootstrapping event loop"
-            src="/posts/nodejs-architecture-dive/bootstrapping-loop.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="bootstrapping event loop 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/nodejs-architecture-dive/bootstrapping-loop.webp"
+              alt="bootstrapping event loop"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -970,7 +1089,8 @@
           href="#한눈에-보기"
           target="_blank"
           rel="noopener noreferrer"
-          >⎋</a
+          aria-label="외부 링크: #한눈에-보기"
+          ><span aria-hidden="true">⎋</span></a
         >를 통해 이루어지며 C++에서 JavaScript로, JavaScript에서 C++로 호출이
         가능하다.
       </p>
@@ -985,7 +1105,11 @@
         id="requestsocket-listen"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#requestsocket-listen"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#requestsocket-listen"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -1013,7 +1137,8 @@
           href="https://github.com/nodejs/node/blob/v22.x/src/tcp_wrap.cc#L286"
           target="_blank"
           rel="noopener noreferrer"
-          >⎋</a
+          aria-label="외부 링크: https://github.com/nodejs/node/blob/v22.x/src/tcp_wrap.cc#L286"
+          ><span aria-hidden="true">⎋</span></a
         >한다. 콜백 이벤트를 실행시켜야 하므로 C++ TCP Land에서 JavaScript
         Land로 이동해야 한다.
       </p>
@@ -1063,7 +1188,11 @@
         id="file-io"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#file-io"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#file-io"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -1123,7 +1252,11 @@
         id="response"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#response"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#response"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -1371,7 +1504,11 @@
         id="마무리"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#마무리"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#마무리"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -1445,100 +1582,150 @@
     </div>
     <aside
       class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
-      aria-label="index"
+      aria-label="목차"
     >
       <ul
         class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
       >
-        <li
-          id="tldr"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          TL;DR!
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="tldr"
+            href="#tldr"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >TL;DR!</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="nodejs-이해하기"
+            href="#nodejs-이해하기"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Node.js 이해하기</a
+          >
         </li>
         <li
-          id="nodejs-이해하기"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          Node.js 이해하기
+          <a
+            id="당시의-상황"
+            href="#당시의-상황"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >당시의 상황</a
+          >
         </li>
         <li
-          id="당시의-상황"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          당시의 상황
+          <a
+            id="nodejs란"
+            href="#nodejs란"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Node.js란?</a
+          >
         </li>
         <li
-          id="nodejs란"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
         >
-          Node.js란?
+          <a
+            id="browser와의-차이점"
+            href="#browser와의-차이점"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Browser와의 차이점</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="아키텍처-살펴보기"
+            href="#아키텍처-살펴보기"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >아키텍처 살펴보기</a
+          >
         </li>
         <li
-          id="browser와의-차이점"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          Browser와의 차이점
+          <a
+            id="한눈에-보기"
+            href="#한눈에-보기"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >한눈에 보기</a
+          >
         </li>
         <li
-          id="아키텍처-살펴보기"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          아키텍처 살펴보기
+          <a
+            id="주요-구성-요소"
+            href="#주요-구성-요소"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >주요 구성 요소</a
+          >
         </li>
         <li
-          id="한눈에-보기"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
         >
-          한눈에 보기
+          <a
+            id="동작-흐름"
+            href="#동작-흐름"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >동작 흐름</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="코드로-이해하는-nodejs"
+            href="#코드로-이해하는-nodejs"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >코드로 이해하는 Node.js</a
+          >
         </li>
         <li
-          id="주요-구성-요소"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          주요 구성 요소
+          <a
+            id="bootstrapping"
+            href="#bootstrapping"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Bootstrapping</a
+          >
         </li>
         <li
-          id="동작-흐름"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          동작 흐름
+          <a
+            id="requestsocket-listen"
+            href="#requestsocket-listen"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Request(Socket) listen</a
+          >
         </li>
         <li
-          id="코드로-이해하는-nodejs"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          코드로 이해하는 Node.js
+          <a
+            id="file-io"
+            href="#file-io"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >File I/O</a
+          >
         </li>
         <li
-          id="bootstrapping"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
         >
-          Bootstrapping
+          <a
+            id="response"
+            href="#response"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Response</a
+          >
         </li>
-        <li
-          id="requestsocket-listen"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
-        >
-          Request(Socket) listen
-        </li>
-        <li
-          id="file-io"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
-        >
-          File I/O
-        </li>
-        <li
-          id="response"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
-        >
-          Response
-        </li>
-        <li
-          id="마무리"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          마무리
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="마무리"
+            href="#마무리"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >마무리</a
+          >
         </li>
       </ul>
     </aside>

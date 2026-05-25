@@ -22,50 +22,53 @@
   }
 </script>
 <progress
+  id="nav-progress"
   class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  aria-label="페이지 읽기 진행률"
   value="0"
   max="1"
 ></progress>
 <nav
-  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"
+  aria-label="메인 네비게이션"
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] shadow-nav shadow-lg"
 >
-  <h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
+  <div class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
     <a class="hover:underline" href="/">1ilsang</a>
-  </h2>
+  </div>
   <div class="flex">
-    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+    <div class="tracking-tight mr-6 text-xl mt-2.5">
       <a class="hover:underline" href="/posts">posts</a>
-    </h2>
-    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/tags">tags</a>
-    </h2>
-    <div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character">
-      <a href="/about"
-        ><img
-          class="border border-solid rounded-full border-white-blue"
-          src="/images/chul.webp"
-          alt="1ilsang"
-      /></a>
     </div>
+    <div class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/tags">tags</a>
+    </div>
+    <a
+      aria-label="About 페이지로 이동"
+      class="mr-2 block w-8 h-8 mt-2"
+      href="/about"
+      ><img
+        class="border border-solid rounded-full w-full h-full border-white-blue"
+        src="/images/chul.webp"
+        alt="1ilsang"
+    /></a>
   </div>
 </nav>
 <section
+  id="main-content"
+  tabindex="-1"
   class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
 >
   <h1 class="text-4xl break-words md:text-6xl">발리 한 달 리모트 워크 후기</h1>
   <section class="flex items-center mt-4">
-    <div
-      class="mr-2 w-9 h-9 md:w-12 md:h-12"
-      role="img"
-      aria-label="1ilsang character"
-    >
-      <a href="/about"
-        ><img
-          class="border border-solid rounded-full border-sub-blue"
-          src="/images/chul.webp"
-          alt="1ilsang"
-      /></a>
-    </div>
+    <a
+      aria-label="About 페이지로 이동"
+      class="mr-2 block w-9 h-9 md:w-12 md:h-12"
+      href="/about"
+      ><img
+        class="border border-solid rounded-full w-full h-full border-sub-blue"
+        src="/images/chul.webp"
+        alt="1ilsang"
+    /></a>
     <div>
       <a class="text-lg" href="/about">1ilsang</a>
       <div class="text-sm text-sub-blue">클라이밍 하실래염?</div>
@@ -106,19 +109,30 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col h-[600px] object-contain bg-transparent mt-10 min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="cover"
-            src="/posts/bali-remote-work/cover.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="cover 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/bali-remote-work/cover.webp"
+              alt="cover"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <h2
         id="시작-계기"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#시작-계기"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#시작-계기"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -146,7 +160,11 @@
         id="알아보기"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#알아보기"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#알아보기"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -156,7 +174,11 @@
         id="면적"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#면적"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#면적"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -166,12 +188,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="map"
-            src="/posts/bali-remote-work/map.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="map 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/bali-remote-work/map.webp"
+              alt="map"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -191,7 +220,11 @@
         id="시차"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#시차"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#시차"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -205,7 +238,11 @@
         id="날씨"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#날씨"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#날씨"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -215,12 +252,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="rainfall"
-            src="/posts/bali-remote-work/rainfall.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="rainfall 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/bali-remote-work/rainfall.webp"
+              alt="rainfall"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -238,7 +282,11 @@
         id="종교"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#종교"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#종교"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -265,7 +313,11 @@
         id="물가"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#물가"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#물가"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -275,12 +327,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="price"
-            src="/posts/bali-remote-work/price.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="price 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/bali-remote-work/price.webp"
+              alt="price"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -291,7 +350,11 @@
         id="항공편"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#항공편"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#항공편"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -305,7 +368,11 @@
         id="숙소"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#숙소"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#숙소"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -318,7 +385,11 @@
         id="전기-및-통신"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#전기-및-통신"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#전기-및-통신"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -336,7 +407,11 @@
         id="교통"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#교통"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#교통"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -346,12 +421,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="traffic"
-            src="/posts/bali-remote-work/traffic.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="traffic 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/bali-remote-work/traffic.webp"
+              alt="traffic"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -363,7 +445,11 @@
         id="한-달간의-여정"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#한-달간의-여정"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#한-달간의-여정"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -372,22 +458,43 @@
       <div
         class="mt-3 mb-3 flex items-center w-full custom-horizon-scrollbar min-h-[100px] min-[790px]:min-h-[200px]"
       >
-        <img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="surf-interior"
-          src="/posts/bali-remote-work/surf-interior.webp"
-          loading="lazy"
-        /><img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="delivery-food"
-          src="/posts/bali-remote-work/delivery-food.webp"
-          loading="lazy"
-        /><img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="bicycle"
-          src="/posts/bali-remote-work/bicycle.webp"
-          loading="lazy"
-        />
+        <button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Surf Interior 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/bali-remote-work/surf-interior.webp"
+            alt="Surf Interior"
+            loading="lazy"
+          /></button
+        ><button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Delivery Food 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/bali-remote-work/delivery-food.webp"
+            alt="Delivery Food"
+            loading="lazy"
+          /></button
+        ><button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Bicycle 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/bali-remote-work/bicycle.webp"
+            alt="Bicycle"
+            loading="lazy"
+          />
+        </button>
       </div>
       <p class="mt-4 mb-4">도착 당일</p>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
@@ -462,12 +569,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="busy"
-            src="/posts/bali-remote-work/busy.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="busy 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/bali-remote-work/busy.webp"
+              alt="busy"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <blockquote
@@ -478,52 +592,115 @@
       <div
         class="mt-3 mb-3 flex items-center w-full custom-horizon-scrollbar min-h-[100px] min-[790px]:min-h-[200px]"
       >
-        <img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="bird"
-          src="/posts/bali-remote-work/bird.webp"
-          loading="lazy"
-        /><img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="lizard"
-          src="/posts/bali-remote-work/lizard.webp"
-          loading="lazy"
-        /><img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="monkey"
-          src="/posts/bali-remote-work/monkey.webp"
-          loading="lazy"
-        /><img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="kecak-fire-dance"
-          src="/posts/bali-remote-work/kecak-fire-dance.webp"
-          loading="lazy"
-        /><img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="surf"
-          src="/posts/bali-remote-work/surf.webp"
-          loading="lazy"
-        /><img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="walk"
-          src="/posts/bali-remote-work/walk.webp"
-          loading="lazy"
-        /><img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="turtle"
-          src="/posts/bali-remote-work/turtle.webp"
-          loading="lazy"
-        /><img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="medicine"
-          src="/posts/bali-remote-work/medicine.webp"
-          loading="lazy"
-        /><img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="climbing"
-          src="/posts/bali-remote-work/climbing.webp"
-          loading="lazy"
-        />
+        <button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Bird 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/bali-remote-work/bird.webp"
+            alt="Bird"
+            loading="lazy"
+          /></button
+        ><button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Lizard 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/bali-remote-work/lizard.webp"
+            alt="Lizard"
+            loading="lazy"
+          /></button
+        ><button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Monkey 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/bali-remote-work/monkey.webp"
+            alt="Monkey"
+            loading="lazy"
+          /></button
+        ><button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Kecak Fire Dance 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/bali-remote-work/kecak-fire-dance.webp"
+            alt="Kecak Fire Dance"
+            loading="lazy"
+          /></button
+        ><button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Surf 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/bali-remote-work/surf.webp"
+            alt="Surf"
+            loading="lazy"
+          /></button
+        ><button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Walk 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/bali-remote-work/walk.webp"
+            alt="Walk"
+            loading="lazy"
+          /></button
+        ><button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Turtle 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/bali-remote-work/turtle.webp"
+            alt="Turtle"
+            loading="lazy"
+          /></button
+        ><button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Medicine 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/bali-remote-work/medicine.webp"
+            alt="Medicine"
+            loading="lazy"
+          /></button
+        ><button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Climbing 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/bali-remote-work/climbing.webp"
+            alt="Climbing"
+            loading="lazy"
+          />
+        </button>
       </div>
       <p class="mt-4 mb-4">10일 차</p>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
@@ -631,7 +808,11 @@
         id="벌써-마지막-주"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#벌써-마지막-주"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#벌써-마지막-주"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -640,57 +821,127 @@
       <div
         class="mt-3 mb-3 flex items-center w-full custom-horizon-scrollbar min-h-[100px] min-[790px]:min-h-[200px]"
       >
-        <img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="canang-sari"
-          src="/posts/bali-remote-work/canang-sari.webp"
-          loading="lazy"
-        /><img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="la-brisa"
-          src="/posts/bali-remote-work/la-brisa.webp"
-          loading="lazy"
-        /><img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="la-brisa-pad"
-          src="/posts/bali-remote-work/la-brisa-pad.webp"
-          loading="lazy"
-        /><img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="motocycle"
-          src="/posts/bali-remote-work/motocycle.webp"
-          loading="lazy"
-        /><img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="jungle-water"
-          src="/posts/bali-remote-work/jungle-water.webp"
-          loading="lazy"
-        /><img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="scuba-diving"
-          src="/posts/bali-remote-work/scuba-diving.webp"
-          loading="lazy"
-        /><img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="merry-go-round"
-          src="/posts/bali-remote-work/merry-go-round.webp"
-          loading="lazy"
-        /><img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="cliff"
-          src="/posts/bali-remote-work/cliff.webp"
-          loading="lazy"
-        /><img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="duck"
-          src="/posts/bali-remote-work/duck.webp"
-          loading="lazy"
-        /><img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="shop"
-          src="/posts/bali-remote-work/shop.webp"
-          loading="lazy"
-        />
+        <button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Canang Sari 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/bali-remote-work/canang-sari.webp"
+            alt="Canang Sari"
+            loading="lazy"
+          /></button
+        ><button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="La Brisa 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/bali-remote-work/la-brisa.webp"
+            alt="La Brisa"
+            loading="lazy"
+          /></button
+        ><button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="La Brisa Pad 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/bali-remote-work/la-brisa-pad.webp"
+            alt="La Brisa Pad"
+            loading="lazy"
+          /></button
+        ><button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Motocycle 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/bali-remote-work/motocycle.webp"
+            alt="Motocycle"
+            loading="lazy"
+          /></button
+        ><button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Jungle Water 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/bali-remote-work/jungle-water.webp"
+            alt="Jungle Water"
+            loading="lazy"
+          /></button
+        ><button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Scuba Diving 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/bali-remote-work/scuba-diving.webp"
+            alt="Scuba Diving"
+            loading="lazy"
+          /></button
+        ><button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Merry Go Round 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/bali-remote-work/merry-go-round.webp"
+            alt="Merry Go Round"
+            loading="lazy"
+          /></button
+        ><button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Cliff 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/bali-remote-work/cliff.webp"
+            alt="Cliff"
+            loading="lazy"
+          /></button
+        ><button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Duck 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/bali-remote-work/duck.webp"
+            alt="Duck"
+            loading="lazy"
+          /></button
+        ><button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Shop 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/bali-remote-work/shop.webp"
+            alt="Shop"
+            loading="lazy"
+          />
+        </button>
       </div>
       <blockquote
         class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
@@ -725,42 +976,91 @@
       <div
         class="mt-3 mb-3 flex items-center w-full custom-horizon-scrollbar min-h-[100px] min-[790px]:min-h-[200px]"
       >
-        <img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="stake"
-          src="/posts/bali-remote-work/stake.webp"
-          loading="lazy"
-        /><img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="banana-soup"
-          src="/posts/bali-remote-work/banana-soup.webp"
-          loading="lazy"
-        /><img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="russian"
-          src="/posts/bali-remote-work/russian.webp"
-          loading="lazy"
-        /><img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="fan-cake"
-          src="/posts/bali-remote-work/fan-cake.webp"
-          loading="lazy"
-        /><img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="fish"
-          src="/posts/bali-remote-work/fish.webp"
-          loading="lazy"
-        /><img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="scrumble"
-          src="/posts/bali-remote-work/scrumble.webp"
-          loading="lazy"
-        /><img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="duck"
-          src="/posts/bali-remote-work/duck.webp"
-          loading="lazy"
-        />
+        <button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Stake 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/bali-remote-work/stake.webp"
+            alt="Stake"
+            loading="lazy"
+          /></button
+        ><button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Banana Soup 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/bali-remote-work/banana-soup.webp"
+            alt="Banana Soup"
+            loading="lazy"
+          /></button
+        ><button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Russian 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/bali-remote-work/russian.webp"
+            alt="Russian"
+            loading="lazy"
+          /></button
+        ><button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Fan Cake 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/bali-remote-work/fan-cake.webp"
+            alt="Fan Cake"
+            loading="lazy"
+          /></button
+        ><button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Fish 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/bali-remote-work/fish.webp"
+            alt="Fish"
+            loading="lazy"
+          /></button
+        ><button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Scrumble 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/bali-remote-work/scrumble.webp"
+            alt="Scrumble"
+            loading="lazy"
+          /></button
+        ><button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Duck 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/bali-remote-work/duck.webp"
+            alt="Duck"
+            loading="lazy"
+          />
+        </button>
       </div>
       <p class="mt-4 mb-4">
         음식 이야기가 없으면 안된다고해서;; 음식 사진을 끝으로 마무리 하겠다.
@@ -769,7 +1069,11 @@
         id="마무리"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#마무리"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#마무리"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -779,12 +1083,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="good-bye-airport"
-            src="/posts/bali-remote-work/good-bye-airport.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="good-bye-airport 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/bali-remote-work/good-bye-airport.webp"
+              alt="good-bye-airport"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -835,7 +1146,11 @@
         id="추천하는-장소"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#추천하는-장소"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#추천하는-장소"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -1051,100 +1366,148 @@
     </div>
     <aside
       class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
-      aria-label="index"
+      aria-label="목차"
     >
       <ul
         class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
       >
-        <li
-          id="시작-계기"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          시작 계기
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="시작-계기"
+            href="#시작-계기"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >시작 계기</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="알아보기"
+            href="#알아보기"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >알아보기</a
+          >
         </li>
         <li
-          id="알아보기"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          알아보기
+          <a
+            id="면적"
+            href="#면적"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >면적</a
+          >
         </li>
         <li
-          id="면적"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          면적
+          <a
+            id="시차"
+            href="#시차"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >시차</a
+          >
         </li>
         <li
-          id="시차"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          시차
+          <a
+            id="날씨"
+            href="#날씨"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >날씨</a
+          >
         </li>
         <li
-          id="날씨"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          날씨
+          <a
+            id="종교"
+            href="#종교"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >종교</a
+          >
         </li>
         <li
-          id="종교"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          종교
+          <a
+            id="물가"
+            href="#물가"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >물가</a
+          >
         </li>
         <li
-          id="물가"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          물가
+          <a
+            id="항공편"
+            href="#항공편"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >항공편</a
+          >
         </li>
         <li
-          id="항공편"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          항공편
+          <a
+            id="숙소"
+            href="#숙소"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >숙소</a
+          >
         </li>
         <li
-          id="숙소"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          숙소
+          <a
+            id="전기-및-통신"
+            href="#전기-및-통신"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >전기 및 통신</a
+          >
         </li>
         <li
-          id="전기-및-통신"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
         >
-          전기 및 통신
+          <a
+            id="교통"
+            href="#교통"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >교통</a
+          >
         </li>
-        <li
-          id="교통"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
-        >
-          교통
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="한-달간의-여정"
+            href="#한-달간의-여정"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >한 달간의 여정</a
+          >
         </li>
-        <li
-          id="한-달간의-여정"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          한 달간의 여정
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="벌써-마지막-주"
+            href="#벌써-마지막-주"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >벌써 마지막 주</a
+          >
         </li>
-        <li
-          id="벌써-마지막-주"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          벌써 마지막 주
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="마무리"
+            href="#마무리"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >마무리</a
+          >
         </li>
-        <li
-          id="마무리"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          마무리
-        </li>
-        <li
-          id="추천하는-장소"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          추천하는 장소
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="추천하는-장소"
+            href="#추천하는-장소"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >추천하는 장소</a
+          >
         </li>
       </ul>
     </aside>

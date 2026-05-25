@@ -22,52 +22,55 @@
   }
 </script>
 <progress
+  id="nav-progress"
   class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  aria-label="페이지 읽기 진행률"
   value="0"
   max="1"
 ></progress>
 <nav
-  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"
+  aria-label="메인 네비게이션"
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] shadow-nav shadow-lg"
 >
-  <h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
+  <div class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
     <a class="hover:underline" href="/">1ilsang</a>
-  </h2>
+  </div>
   <div class="flex">
-    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+    <div class="tracking-tight mr-6 text-xl mt-2.5">
       <a class="hover:underline" href="/posts">posts</a>
-    </h2>
-    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/tags">tags</a>
-    </h2>
-    <div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character">
-      <a href="/about"
-        ><img
-          class="border border-solid rounded-full border-white-blue"
-          src="/images/chul.webp"
-          alt="1ilsang"
-      /></a>
     </div>
+    <div class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/tags">tags</a>
+    </div>
+    <a
+      aria-label="About 페이지로 이동"
+      class="mr-2 block w-8 h-8 mt-2"
+      href="/about"
+      ><img
+        class="border border-solid rounded-full w-full h-full border-white-blue"
+        src="/images/chul.webp"
+        alt="1ilsang"
+    /></a>
   </div>
 </nav>
 <section
+  id="main-content"
+  tabindex="-1"
   class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
 >
   <h1 class="text-4xl break-words md:text-6xl">
     웹 개발자를 위한 도구 추천 - 유용한 Mac 앱들
   </h1>
   <section class="flex items-center mt-4">
-    <div
-      class="mr-2 w-9 h-9 md:w-12 md:h-12"
-      role="img"
-      aria-label="1ilsang character"
-    >
-      <a href="/about"
-        ><img
-          class="border border-solid rounded-full border-sub-blue"
-          src="/images/chul.webp"
-          alt="1ilsang"
-      /></a>
-    </div>
+    <a
+      aria-label="About 페이지로 이동"
+      class="mr-2 block w-9 h-9 md:w-12 md:h-12"
+      href="/about"
+      ><img
+        class="border border-solid rounded-full w-full h-full border-sub-blue"
+        src="/images/chul.webp"
+        alt="1ilsang"
+    /></a>
     <div>
       <a class="text-lg" href="/about">1ilsang</a>
       <div class="text-sm text-sub-blue">클라이밍 하실래염?</div>
@@ -103,12 +106,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col h-[600px] object-contain bg-transparent mt-10 min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="cover"
-            src="/posts/mac-init-apps/cover.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="cover 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/mac-init-apps/cover.webp"
+              alt="cover"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -131,7 +141,11 @@
         id="모아보기"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#모아보기"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#모아보기"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -350,7 +364,11 @@
         id="chrome"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#chrome"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#chrome"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -360,12 +378,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="chrome-cover"
-            src="/posts/mac-init-apps/chrome.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="chrome-cover 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/mac-init-apps/chrome.webp"
+              alt="chrome-cover"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -404,7 +429,11 @@
         id="homebrew"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#homebrew"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#homebrew"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -414,12 +443,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="homebrew"
-            src="/posts/mac-init-apps/homebrew.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="homebrew 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/mac-init-apps/homebrew.webp"
+              alt="homebrew"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -458,7 +494,11 @@
         id="oh-my-zsh"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#oh-my-zsh"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#oh-my-zsh"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -468,12 +508,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="cmd-example"
-            src="/posts/mac-init-apps/oh-my-zsh.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="cmd-example 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/mac-init-apps/oh-my-zsh.webp"
+              alt="cmd-example"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -517,7 +564,11 @@
         id="iterm2"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#iterm2"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#iterm2"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -527,12 +578,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="iterm2-example"
-            src="/posts/mac-init-apps/iterm2.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="iterm2-example 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/mac-init-apps/iterm2.webp"
+              alt="iterm2-example"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -582,7 +640,11 @@
         id="vscode"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#vscode"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#vscode"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -592,12 +654,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="vscode-logo"
-            src="/posts/mac-init-apps/vscode.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="vscode-logo 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/mac-init-apps/vscode.webp"
+              alt="vscode-logo"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -621,7 +690,11 @@
         id="neovim"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#neovim"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#neovim"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -663,7 +736,11 @@
         id="d2-coding"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#d2-coding"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#d2-coding"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -685,6 +762,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#iterm2에-d2coding을-기본-폰트로-적용하기"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -708,7 +786,11 @@
         id="vscode-기본-폰트로-적용하기"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#vscode-기본-폰트로-적용하기"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#vscode-기본-폰트로-적용하기"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -748,7 +830,11 @@
         id="nodejs"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#nodejs"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#nodejs"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -772,7 +858,11 @@
         id="nvm"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#nvm"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#nvm"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -830,7 +920,11 @@
         id="docker"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#docker"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#docker"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -854,7 +948,11 @@
         id="giphy-capture"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#giphy-capture"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#giphy-capture"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -864,12 +962,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="giphy example"
-            src="/posts/mac-init-apps/giphy.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="giphy example 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/mac-init-apps/giphy.webp"
+              alt="giphy example"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -892,7 +997,11 @@
         id="deepl"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#deepl"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#deepl"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -920,7 +1029,11 @@
         id="screenhint"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#screenhint"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#screenhint"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -929,17 +1042,31 @@
       <div
         class="mt-3 mb-3 flex items-center w-full custom-horizon-scrollbar min-h-[100px] min-[790px]:min-h-[200px]"
       >
-        <img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="screenhint"
-          src="/posts/mac-init-apps/screenhint.webp"
-          loading="lazy"
-        /><img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="screenhint-setting"
-          src="/posts/mac-init-apps/screenhint-setting.webp"
-          loading="lazy"
-        />
+        <button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Screenhint 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/mac-init-apps/screenhint.webp"
+            alt="Screenhint"
+            loading="lazy"
+          /></button
+        ><button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Screenhint Setting 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/mac-init-apps/screenhint-setting.webp"
+            alt="Screenhint Setting"
+            loading="lazy"
+          />
+        </button>
       </div>
       <p class="mt-4 mb-4">
         정말 추천하고 싶은 프로그램. 원하는 부분만 스크린샷으로 띄워 놓을 수
@@ -965,7 +1092,11 @@
         id="quick-notes"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#quick-notes"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#quick-notes"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -975,12 +1106,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="quick notes example"
-            src="/posts/mac-init-apps/quick-note.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="quick notes example 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/mac-init-apps/quick-note.webp"
+              alt="quick notes example"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -1007,7 +1145,11 @@
         id="calculator-pro"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#calculator-pro"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#calculator-pro"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -1016,17 +1158,31 @@
       <div
         class="mt-3 mb-3 flex items-center w-full custom-horizon-scrollbar min-h-[100px] min-[790px]:min-h-[200px]"
       >
-        <img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="calculator-pro"
-          src="/posts/mac-init-apps/calculator-pro.webp"
-          loading="lazy"
-        /><img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="calculator-pro-setting"
-          src="/posts/mac-init-apps/calculator-pro-setting.webp"
-          loading="lazy"
-        />
+        <button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Calculator Pro 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/mac-init-apps/calculator-pro.webp"
+            alt="Calculator Pro"
+            loading="lazy"
+          /></button
+        ><button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Calculator Pro Setting 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/mac-init-apps/calculator-pro-setting.webp"
+            alt="Calculator Pro Setting"
+            loading="lazy"
+          />
+        </button>
       </div>
       <p class="mt-4 mb-4">
         맥 환경 특성상 전체화면 된 앱 위에 무엇을 겹치는 것이 불가능하다. 하지만
@@ -1053,7 +1209,11 @@
         id="올ㅋ사전"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#올ㅋ사전"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#올ㅋ사전"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -1062,17 +1222,31 @@
       <div
         class="mt-3 mb-3 flex items-center w-full custom-horizon-scrollbar min-h-[100px] min-[790px]:min-h-[200px]"
       >
-        <img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="all-z"
-          src="/posts/mac-init-apps/all-z.webp"
-          loading="lazy"
-        /><img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="all-z-setting"
-          src="/posts/mac-init-apps/all-z-setting.webp"
-          loading="lazy"
-        />
+        <button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="All Z 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/mac-init-apps/all-z.webp"
+            alt="All Z"
+            loading="lazy"
+          /></button
+        ><button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="All Z Setting 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/mac-init-apps/all-z-setting.webp"
+            alt="All Z Setting"
+            loading="lazy"
+          />
+        </button>
       </div>
       <p class="mt-4 mb-4">
         특정 단어를 검색해야 할 때 화면 이동을 하는 건 너무 귀찮다. 단축키로
@@ -1095,7 +1269,11 @@
         id="codewhisperer"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#codewhisperer"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#codewhisperer"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -1105,12 +1283,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="CodeWhisperer example"
-            src="/posts/mac-init-apps/codewhisperer.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="CodeWhisperer example 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/mac-init-apps/codewhisperer.webp"
+              alt="CodeWhisperer example"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -1151,7 +1336,11 @@
         id="flycut"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#flycut"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#flycut"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -1161,12 +1350,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="flycut example"
-            src="/posts/mac-init-apps/flycut.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="flycut example 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/mac-init-apps/flycut.webp"
+              alt="flycut example"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -1195,7 +1391,11 @@
         id="screenbrush"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#screenbrush"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#screenbrush"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -1205,12 +1405,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="screen brush example"
-            src="/posts/mac-init-apps/screenbrush.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="screen brush example 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/mac-init-apps/screenbrush.webp"
+              alt="screen brush example"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -1238,7 +1445,11 @@
         id="keycastr"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#keycastr"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#keycastr"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -1248,12 +1459,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="keycastr example"
-            src="/posts/mac-init-apps/keycastr.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="keycastr example 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/mac-init-apps/keycastr.webp"
+              alt="keycastr example"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -1284,7 +1502,11 @@
         id="ngrok"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#ngrok"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#ngrok"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -1294,12 +1516,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="ngrok example"
-            src="/posts/mac-init-apps/ngrok.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="ngrok example 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/mac-init-apps/ngrok.webp"
+              alt="ngrok example"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -1340,7 +1569,11 @@
         id="hidden-bar"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#hidden-bar"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#hidden-bar"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -1350,12 +1583,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="hidden bar example"
-            src="/posts/mac-init-apps/hidden-bar.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="hidden bar example 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/mac-init-apps/hidden-bar.webp"
+              alt="hidden bar example"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -1379,7 +1619,11 @@
         id="digital-color-meter"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#digital-color-meter"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#digital-color-meter"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -1389,12 +1633,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="example"
-            src="/posts/mac-init-apps/digital-color-meter.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="example 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/mac-init-apps/digital-color-meter.webp"
+              alt="example"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -1404,166 +1655,222 @@
     </div>
     <aside
       class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
-      aria-label="index"
+      aria-label="목차"
     >
       <ul
         class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
       >
-        <li
-          id="모아보기"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          모아보기
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="모아보기"
+            href="#모아보기"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >모아보기</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="chrome"
+            href="#chrome"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Chrome</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="homebrew"
+            href="#homebrew"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Homebrew</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="oh-my-zsh"
+            href="#oh-my-zsh"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Oh My Zsh</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="iterm2"
+            href="#iterm2"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Iterm2</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="vscode"
+            href="#vscode"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >VSCode</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="neovim"
+            href="#neovim"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >NeoVim</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="d2-coding"
+            href="#d2-coding"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >D2 Coding</a
+          >
         </li>
         <li
-          id="chrome"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          Chrome
+          <a
+            id="iterm2에-d2coding을-기본-폰트로-적용하기"
+            href="#iterm2에-d2coding을-기본-폰트로-적용하기"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >iterm2에 d2coding을 기본 폰트로 적용하기</a
+          >
         </li>
         <li
-          id="homebrew"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
         >
-          Homebrew
+          <a
+            id="vscode-기본-폰트로-적용하기"
+            href="#vscode-기본-폰트로-적용하기"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >VSCode 기본 폰트로 적용하기</a
+          >
         </li>
-        <li
-          id="oh-my-zsh"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          Oh My Zsh
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="nodejs"
+            href="#nodejs"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Node.js</a
+          >
         </li>
-        <li
-          id="iterm2"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          Iterm2
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="nvm"
+            href="#nvm"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >NVM</a
+          >
         </li>
-        <li
-          id="vscode"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          VSCode
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="docker"
+            href="#docker"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Docker</a
+          >
         </li>
-        <li
-          id="neovim"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          NeoVim
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="giphy-capture"
+            href="#giphy-capture"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >GIPHY Capture</a
+          >
         </li>
-        <li
-          id="d2-coding"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          D2 Coding
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="deepl"
+            href="#deepl"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >DeepL</a
+          >
         </li>
-        <li
-          id="iterm2에-d2coding을-기본-폰트로-적용하기"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
-        >
-          iterm2에 d2coding을 기본 폰트로 적용하기
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="screenhint"
+            href="#screenhint"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >ScreenHint</a
+          >
         </li>
-        <li
-          id="vscode-기본-폰트로-적용하기"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
-        >
-          VSCode 기본 폰트로 적용하기
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="quick-notes"
+            href="#quick-notes"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Quick Notes</a
+          >
         </li>
-        <li
-          id="nodejs"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          Node.js
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="calculator-pro"
+            href="#calculator-pro"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Calculator Pro</a
+          >
         </li>
-        <li
-          id="nvm"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          NVM
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="올ㅋ사전"
+            href="#올ㅋ사전"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >올ㅋ사전</a
+          >
         </li>
-        <li
-          id="docker"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          Docker
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="codewhisperer"
+            href="#codewhisperer"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >CodeWhisperer</a
+          >
         </li>
-        <li
-          id="giphy-capture"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          GIPHY Capture
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="flycut"
+            href="#flycut"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Flycut</a
+          >
         </li>
-        <li
-          id="deepl"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          DeepL
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="screenbrush"
+            href="#screenbrush"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >ScreenBrush</a
+          >
         </li>
-        <li
-          id="screenhint"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          ScreenHint
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="keycastr"
+            href="#keycastr"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Keycastr</a
+          >
         </li>
-        <li
-          id="quick-notes"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          Quick Notes
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="ngrok"
+            href="#ngrok"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Ngrok</a
+          >
         </li>
-        <li
-          id="calculator-pro"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          Calculator Pro
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="hidden-bar"
+            href="#hidden-bar"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Hidden bar</a
+          >
         </li>
-        <li
-          id="올ㅋ사전"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          올ㅋ사전
-        </li>
-        <li
-          id="codewhisperer"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          CodeWhisperer
-        </li>
-        <li
-          id="flycut"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          Flycut
-        </li>
-        <li
-          id="screenbrush"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          ScreenBrush
-        </li>
-        <li
-          id="keycastr"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          Keycastr
-        </li>
-        <li
-          id="ngrok"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          Ngrok
-        </li>
-        <li
-          id="hidden-bar"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          Hidden bar
-        </li>
-        <li
-          id="digital-color-meter"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          Digital Color Meter
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="digital-color-meter"
+            href="#digital-color-meter"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Digital Color Meter</a
+          >
         </li>
       </ul>
     </aside>

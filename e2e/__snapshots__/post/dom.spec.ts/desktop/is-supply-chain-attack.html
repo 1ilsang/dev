@@ -22,52 +22,55 @@
   }
 </script>
 <progress
+  id="nav-progress"
   class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  aria-label="페이지 읽기 진행률"
   value="0"
   max="1"
 ></progress>
 <nav
-  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"
+  aria-label="메인 네비게이션"
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] shadow-nav shadow-lg"
 >
-  <h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
+  <div class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
     <a class="hover:underline" href="/">1ilsang</a>
-  </h2>
+  </div>
   <div class="flex">
-    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+    <div class="tracking-tight mr-6 text-xl mt-2.5">
       <a class="hover:underline" href="/posts">posts</a>
-    </h2>
-    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/tags">tags</a>
-    </h2>
-    <div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character">
-      <a href="/about"
-        ><img
-          class="border border-solid rounded-full border-white-blue"
-          src="/images/chul.webp"
-          alt="1ilsang"
-      /></a>
     </div>
+    <div class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/tags">tags</a>
+    </div>
+    <a
+      aria-label="About 페이지로 이동"
+      class="mr-2 block w-8 h-8 mt-2"
+      href="/about"
+      ><img
+        class="border border-solid rounded-full w-full h-full border-white-blue"
+        src="/images/chul.webp"
+        alt="1ilsang"
+    /></a>
   </div>
 </nav>
 <section
+  id="main-content"
+  tabindex="-1"
   class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
 >
   <h1 class="text-4xl break-words md:text-6xl">
     is 패키지의 Supply Chain Attack 과정 분석
   </h1>
   <section class="flex items-center mt-4">
-    <div
-      class="mr-2 w-9 h-9 md:w-12 md:h-12"
-      role="img"
-      aria-label="1ilsang character"
-    >
-      <a href="/about"
-        ><img
-          class="border border-solid rounded-full border-sub-blue"
-          src="/images/chul.webp"
-          alt="1ilsang"
-      /></a>
-    </div>
+    <a
+      aria-label="About 페이지로 이동"
+      class="mr-2 block w-9 h-9 md:w-12 md:h-12"
+      href="/about"
+      ><img
+        class="border border-solid rounded-full w-full h-full border-sub-blue"
+        src="/images/chul.webp"
+        alt="1ilsang"
+    /></a>
     <div>
       <a class="text-lg" href="/about">1ilsang</a>
       <div class="text-sm text-sub-blue">클라이밍 하실래염?</div>
@@ -108,12 +111,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col h-[600px] object-contain bg-transparent mt-10 !min-h-0"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="cover"
-            src="/posts/is-supply-chain-attack/cover.webp"
-            loading="lazy"
-          /><a
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="cover 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/is-supply-chain-attack/cover.webp"
+              alt="cover"
+              loading="lazy"
+            /></button
+          ><a
             class="underline-highlight-fade text-center mt-1"
             href="https://socket.dev/blog/npm-phishing-email-targets-developers-with-typosquatted-domain"
             rel="noopener noreferrer"
@@ -127,7 +137,11 @@
         id="들어가며"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#들어가며"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#들어가며"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -137,12 +151,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="nodejs discord warning"
-            src="/posts/is-supply-chain-attack/node-warning.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="nodejs discord warning 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/is-supply-chain-attack/node-warning.webp"
+              alt="nodejs discord warning"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -214,7 +235,11 @@
         id="tldr-무슨-일이-벌어졌나"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#tldr-무슨-일이-벌어졌나"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#tldr-무슨-일이-벌어졌나"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -255,7 +280,8 @@
                 href="https://github.com/enricomarino/is/blob/cb4d31da1fe9e315e4bd917b063c636bf110e2b2/index.js#L558"
                 target="_blank"
                 rel="noopener noreferrer"
-                >⎋</a
+                aria-label="외부 링크: https://github.com/enricomarino/is/blob/cb4d31da1fe9e315e4bd917b063c636bf110e2b2/index.js#L558"
+                ><span aria-hidden="true">⎋</span></a
               >
             </li>
           </ul>
@@ -273,7 +299,11 @@
         id="공급망-공격이란"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#공급망-공격이란"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#공급망-공격이란"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -328,7 +358,11 @@
         id="메인테이너-계정-탈취-과정"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#메인테이너-계정-탈취-과정"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#메인테이너-계정-탈취-과정"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -338,12 +372,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="maintainer fishing"
-            src="/posts/is-supply-chain-attack/maintainer-fishing.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="maintainer fishing 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/is-supply-chain-attack/maintainer-fishing.webp"
+              alt="maintainer fishing"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
@@ -381,12 +422,19 @@
       </ol>
       <div class="img-container">
         <div class="flex justify-center mt-3 mb-3 w-full flex-col !min-h-0">
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="automation token"
-            src="/posts/is-supply-chain-attack/automation-token.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="automation token 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/is-supply-chain-attack/automation-token.webp"
+              alt="automation token"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">&nbsp;4. 계정 탈취 및 토큰 생성 완료</p>
@@ -401,7 +449,11 @@
         id="공격-코드-분석"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#공격-코드-분석"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#공격-코드-분석"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -425,7 +477,11 @@
         id="1-패키지-설치와-postinstall"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#1-패키지-설치와-postinstall"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#1-패키지-설치와-postinstall"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -456,7 +512,11 @@
         id="2-동적-함수-선언과-실행"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#2-동적-함수-선언과-실행"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#2-동적-함수-선언과-실행"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -509,9 +569,11 @@
         </li>
       </ol>
       <div
+        role="note"
+        aria-label="정보"
         class="flex flex-row gap-1.75 px-4 py-1 rounded-lg max-w-full overflow-hidden mt-4 bg-blue-100 text-blue-800"
       >
-        <div class="text-2xl pt-3.5">ℹ️</div>
+        <div class="text-2xl pt-3.5" aria-hidden="true">ℹ️</div>
         <div class="text-[0.95rem] pr-1 flex-1 min-w-0">
           <p class="mt-4 mb-4">동적 함수는 런타임에 함수를 생성하는 함수다.</p>
           <p class="mt-4 mb-4">
@@ -528,7 +590,11 @@
         id="3-예약어-기만"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#3-예약어-기만"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#3-예약어-기만"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -564,9 +630,11 @@
         추가해 난독화 함으로써 유저가 쉽게 파악할 수 없도록 한다.
       </p>
       <div
+        role="note"
+        aria-label="정보"
         class="flex flex-row gap-1.75 px-4 py-1 rounded-lg max-w-full overflow-hidden mt-4 bg-blue-100 text-blue-800"
       >
-        <div class="text-2xl pt-3.5">ℹ️</div>
+        <div class="text-2xl pt-3.5" aria-hidden="true">ℹ️</div>
         <div class="text-[0.95rem] pr-1 flex-1 min-w-0">
           <p class="mt-4 mb-4">
             기본적으로 해커의 문자열 코드에는 모든 값에 "보이지 않는 문자"가
@@ -574,12 +642,19 @@
           </p>
           <div class="img-container">
             <div class="flex justify-center mt-3 mb-3 w-full flex-col !min-h-0">
-              <img
-                class="w-full cursor-zoom-in object-contain max-h-[550px]"
-                alt="200c unicode"
-                src="/posts/is-supply-chain-attack/200c.webp"
-                loading="lazy"
-              />
+              <button
+                type="button"
+                class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+                aria-label="200c unicode 확대"
+                data-zoomable="true"
+              >
+                <img
+                  class="w-full object-contain max-h-[550px]"
+                  src="/posts/is-supply-chain-attack/200c.webp"
+                  alt="200c unicode"
+                  loading="lazy"
+                />
+              </button>
               <div class="mt-1 text-center text-sm text-gray-500">
                 ? private( 검색이 되지 않는다
               </div>
@@ -589,12 +664,19 @@
             <div
               class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[40%] !min-h-0"
             >
-              <img
-                class="w-full cursor-zoom-in object-contain max-h-[550px]"
-                alt="200c unicode example"
-                src="/posts/is-supply-chain-attack/200c-1.webp"
-                loading="lazy"
-              />
+              <button
+                type="button"
+                class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+                aria-label="200c unicode example 확대"
+                data-zoomable="true"
+              >
+                <img
+                  class="w-full object-contain max-h-[550px]"
+                  src="/posts/is-supply-chain-attack/200c-1.webp"
+                  alt="200c unicode example"
+                  loading="lazy"
+                />
+              </button>
             </div>
           </div>
           <p class="mt-4 mb-4">
@@ -609,12 +691,19 @@
             <div
               class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:min-h-[150px] min-[790px]:w-[25%] !min-h-0"
             >
-              <img
-                class="w-full cursor-zoom-in object-contain max-h-[550px]"
-                alt="200c unicode example 2(private length)"
-                src="/posts/is-supply-chain-attack/200c-2.webp"
-                loading="lazy"
-              />
+              <button
+                type="button"
+                class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+                aria-label="200c unicode example 2(private length) 확대"
+                data-zoomable="true"
+              >
+                <img
+                  class="w-full object-contain max-h-[550px]"
+                  src="/posts/is-supply-chain-attack/200c-2.webp"
+                  alt="200c unicode example 2(private length)"
+                  loading="lazy"
+                />
+              </button>
               <div class="mt-1 text-center text-sm text-gray-500">
                 위(해커 파일) / 아래(정상)
               </div>
@@ -630,6 +719,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#예약어를-위와-같이-덮어쓰는건-몇가지-공격자-이점이-있다"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -663,7 +753,11 @@
         id="4-전역-객체-접근-함수-선언"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#4-전역-객체-접근-함수-선언"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#4-전역-객체-접근-함수-선언"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -673,12 +767,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] border rounded min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="global object"
-            src="/posts/is-supply-chain-attack/global-object.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="global object 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/is-supply-chain-attack/global-object.webp"
+              alt="global object"
+              loading="lazy"
+            />
+          </button>
           <div class="mt-1 text-center text-sm text-gray-500">
             약 8000줄 사이에 숨겨져 있는 코드들
           </div>
@@ -686,9 +787,11 @@
       </div>
       <br />
       <div
+        role="note"
+        aria-label="오류"
         class="flex flex-row gap-1.75 px-4 py-1 rounded-lg max-w-full overflow-hidden bg-red-100 text-red-800"
       >
-        <div class="text-2xl pt-3.5">❗</div>
+        <div class="text-2xl pt-3.5" aria-hidden="true">❗</div>
         <div class="text-[0.95rem] pr-1 flex-1 min-w-0">
           <p class="mt-4 mb-4">전역 객체 호출이 왜 위험한가?</p>
           <figure data-rehype-pretty-code-figure="">
@@ -730,7 +833,11 @@
         id="5-웹-소켓-호출"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#5-웹-소켓-호출"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#5-웹-소켓-호출"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -740,12 +847,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col border rounded min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="socket call"
-            src="/posts/is-supply-chain-attack/socket.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="socket call 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/is-supply-chain-attack/socket.webp"
+              alt="socket call"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">소켓을 연결하는 코드가 있는 것을 확인할 수 있다.</p>
@@ -757,6 +871,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#소켓이-연결-되면-아래와-같은-문제가-생긴다"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -780,7 +895,11 @@
         id="방어-방법"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#방어-방법"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#방어-방법"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -816,7 +935,11 @@
         id="시사점"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#시사점"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#시사점"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -830,6 +953,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#1-의존성-하나가-전체-앱의-보안에-영향을-줄-수-있다"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -852,6 +976,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#2-계정-탈취는-생각보다-흔하다"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -869,7 +994,11 @@
         id="3-잠재적-위험-탐지-도구-사용"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-2xl mt-8"
       >
-        <a aria-hidden="true" tabindex="-1" href="#3-잠재적-위험-탐지-도구-사용"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#3-잠재적-위험-탐지-도구-사용"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -879,12 +1008,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="audit"
-            src="/posts/is-supply-chain-attack/audit.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="audit 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/is-supply-chain-attack/audit.webp"
+              alt="audit"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -904,7 +1040,11 @@
         id="마치며"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#마치며"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#마치며"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -926,7 +1066,11 @@
         id="참고"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#참고"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#참고"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -955,112 +1099,162 @@
     </div>
     <aside
       class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
-      aria-label="index"
+      aria-label="목차"
     >
       <ul
         class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
       >
-        <li
-          id="들어가며"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          들어가며
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="들어가며"
+            href="#들어가며"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >들어가며</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="tldr-무슨-일이-벌어졌나"
+            href="#tldr-무슨-일이-벌어졌나"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >TL;DR: 무슨 일이 벌어졌나?</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="공급망-공격이란"
+            href="#공급망-공격이란"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >공급망 공격이란?</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="메인테이너-계정-탈취-과정"
+            href="#메인테이너-계정-탈취-과정"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >메인테이너 계정 탈취 과정</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="공격-코드-분석"
+            href="#공격-코드-분석"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >공격 코드 분석</a
+          >
         </li>
         <li
-          id="tldr-무슨-일이-벌어졌나"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          TL;DR: 무슨 일이 벌어졌나?
+          <a
+            id="1-패키지-설치와-postinstall"
+            href="#1-패키지-설치와-postinstall"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >1. 패키지 설치와 postinstall</a
+          >
         </li>
         <li
-          id="공급망-공격이란"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          공급망 공격이란?
+          <a
+            id="2-동적-함수-선언과-실행"
+            href="#2-동적-함수-선언과-실행"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >2. 동적 함수 선언과 실행</a
+          >
         </li>
         <li
-          id="메인테이너-계정-탈취-과정"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          메인테이너 계정 탈취 과정
+          <a
+            id="3-예약어-기만"
+            href="#3-예약어-기만"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >3. 예약어 기만</a
+          >
         </li>
         <li
-          id="공격-코드-분석"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          공격 코드 분석
+          <a
+            id="4-전역-객체-접근-함수-선언"
+            href="#4-전역-객체-접근-함수-선언"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >4. 전역 객체 접근 함수 선언</a
+          >
         </li>
         <li
-          id="1-패키지-설치와-postinstall"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
         >
-          1. 패키지 설치와 postinstall
+          <a
+            id="5-웹-소켓-호출"
+            href="#5-웹-소켓-호출"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >5. 웹 소켓 호출</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="방어-방법"
+            href="#방어-방법"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >방어 방법</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="시사점"
+            href="#시사점"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >시사점</a
+          >
         </li>
         <li
-          id="2-동적-함수-선언과-실행"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          2. 동적 함수 선언과 실행
+          <a
+            id="1-의존성-하나가-전체-앱의-보안에-영향을-줄-수-있다"
+            href="#1-의존성-하나가-전체-앱의-보안에-영향을-줄-수-있다"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >1. 의존성 하나가 전체 앱의 보안에 영향을 줄 수 있다</a
+          >
         </li>
         <li
-          id="3-예약어-기만"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
         >
-          3. 예약어 기만
+          <a
+            id="2-계정-탈취는-생각보다-흔하다"
+            href="#2-계정-탈취는-생각보다-흔하다"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >2. 계정 탈취는 생각보다 흔하다</a
+          >
         </li>
         <li
-          id="4-전역-객체-접근-함수-선언"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
         >
-          4. 전역 객체 접근 함수 선언
+          <a
+            id="3-잠재적-위험-탐지-도구-사용"
+            href="#3-잠재적-위험-탐지-도구-사용"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >3. 잠재적 위험 탐지 도구 사용</a
+          >
         </li>
-        <li
-          id="5-웹-소켓-호출"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
-        >
-          5. 웹 소켓 호출
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="마치며"
+            href="#마치며"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >마치며</a
+          >
         </li>
-        <li
-          id="방어-방법"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          방어 방법
-        </li>
-        <li
-          id="시사점"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          시사점
-        </li>
-        <li
-          id="1-의존성-하나가-전체-앱의-보안에-영향을-줄-수-있다"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
-        >
-          1. 의존성 하나가 전체 앱의 보안에 영향을 줄 수 있다
-        </li>
-        <li
-          id="2-계정-탈취는-생각보다-흔하다"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 hover:text-sub-blue"
-        >
-          2. 계정 탈취는 생각보다 흔하다
-        </li>
-        <li
-          id="3-잠재적-위험-탐지-도구-사용"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
-        >
-          3. 잠재적 위험 탐지 도구 사용
-        </li>
-        <li
-          id="마치며"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          마치며
-        </li>
-        <li
-          id="참고"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          참고
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="참고"
+            href="#참고"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >참고</a
+          >
         </li>
       </ul>
     </aside>

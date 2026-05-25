@@ -22,52 +22,55 @@
   }
 </script>
 <progress
+  id="nav-progress"
   class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  aria-label="페이지 읽기 진행률"
   value="0"
   max="1"
 ></progress>
 <nav
-  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"
+  aria-label="메인 네비게이션"
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] shadow-nav shadow-lg"
 >
-  <h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
+  <div class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
     <a class="hover:underline" href="/">1ilsang</a>
-  </h2>
+  </div>
   <div class="flex">
-    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+    <div class="tracking-tight mr-6 text-xl mt-2.5">
       <a class="hover:underline" href="/posts">posts</a>
-    </h2>
-    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/tags">tags</a>
-    </h2>
-    <div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character">
-      <a href="/about"
-        ><img
-          class="border border-solid rounded-full border-white-blue"
-          src="/images/chul.webp"
-          alt="1ilsang"
-      /></a>
     </div>
+    <div class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/tags">tags</a>
+    </div>
+    <a
+      aria-label="About 페이지로 이동"
+      class="mr-2 block w-8 h-8 mt-2"
+      href="/about"
+      ><img
+        class="border border-solid rounded-full w-full h-full border-white-blue"
+        src="/images/chul.webp"
+        alt="1ilsang"
+    /></a>
   </div>
 </nav>
 <section
+  id="main-content"
+  tabindex="-1"
   class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
 >
   <h1 class="text-4xl break-words md:text-6xl">
     Vite Dev Server 이해하기 (feat. HMR)
   </h1>
   <section class="flex items-center mt-4">
-    <div
-      class="mr-2 w-9 h-9 md:w-12 md:h-12"
-      role="img"
-      aria-label="1ilsang character"
-    >
-      <a href="/about"
-        ><img
-          class="border border-solid rounded-full border-sub-blue"
-          src="/images/chul.webp"
-          alt="1ilsang"
-      /></a>
-    </div>
+    <a
+      aria-label="About 페이지로 이동"
+      class="mr-2 block w-9 h-9 md:w-12 md:h-12"
+      href="/about"
+      ><img
+        class="border border-solid rounded-full w-full h-full border-sub-blue"
+        src="/images/chul.webp"
+        alt="1ilsang"
+    /></a>
     <div>
       <a class="text-lg" href="/about">1ilsang</a>
       <div class="text-sm text-sub-blue">클라이밍 하실래염?</div>
@@ -118,12 +121,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col h-[600px] object-contain bg-transparent mt-10 min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="cover"
-            src="/posts/vite-dev-server/cover.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="cover 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/vite-dev-server/cover.webp"
+              alt="cover"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -143,7 +153,11 @@
         id="index"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#index"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#index"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -227,7 +241,11 @@
         id="tldr"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#tldr"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#tldr"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -237,12 +255,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="dev-server-logic-summary"
-            src="/posts/vite-dev-server/dev-server-logic-summary.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="dev-server-logic-summary 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/vite-dev-server/dev-server-logic-summary.webp"
+              alt="dev-server-logic-summary"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <blockquote
@@ -269,7 +294,11 @@
         id="1-개발-서버-실행서버-초기화"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#1-개발-서버-실행서버-초기화"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#1-개발-서버-실행서버-초기화"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -279,12 +308,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="init-server-phase"
-            src="/posts/vite-dev-server/init-server-phase.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="init-server-phase 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/vite-dev-server/init-server-phase.webp"
+              alt="init-server-phase"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <blockquote
@@ -356,6 +392,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#dev-server는-아래와-같은-프로세스를-거치며-초기화를-진행한다"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -451,7 +488,11 @@
         id="2-indexhtml-요청"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#2-indexhtml-요청"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#2-indexhtml-요청"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -461,12 +502,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="index.html-request-phase"
-            src="/posts/vite-dev-server/html-request-phase.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="index.html-request-phase 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/vite-dev-server/html-request-phase.webp"
+              alt="index.html-request-phase"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <figure data-rehype-pretty-code-figure="">
@@ -560,12 +608,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="transpile-ts-to-js"
-            src="/posts/vite-dev-server/transpile-ts-to-js.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="transpile-ts-to-js 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/vite-dev-server/transpile-ts-to-js.webp"
+              alt="transpile-ts-to-js"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <blockquote
@@ -656,6 +711,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#3-indexhtml-렌더링과-자원-요청"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -665,12 +721,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="index.html-rendering-phase"
-            src="/posts/vite-dev-server/html-rendering-phase.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="index.html-rendering-phase 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/vite-dev-server/html-rendering-phase.webp"
+              alt="index.html-rendering-phase"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <blockquote
@@ -682,24 +745,38 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="init-html"
-            src="/posts/vite-dev-server/init-html.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="init-html 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/vite-dev-server/init-html.webp"
+              alt="init-html"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <div class="img-container">
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="browser-initiator"
-            src="/posts/vite-dev-server/browser-initiator.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="browser-initiator 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/vite-dev-server/browser-initiator.webp"
+              alt="browser-initiator"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <blockquote
@@ -855,12 +932,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="inject-import-meta-hot"
-            src="/posts/vite-dev-server/inject-import-meta-hot.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="inject-import-meta-hot 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/vite-dev-server/inject-import-meta-hot.webp"
+              alt="inject-import-meta-hot"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <blockquote
@@ -879,6 +963,7 @@
           aria-hidden="true"
           tabindex="-1"
           href="#4-렌더링-계속-진행with-websocket"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -976,7 +1061,11 @@
         id="5-코드-변경-감지"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#5-코드-변경-감지"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#5-코드-변경-감지"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -986,12 +1075,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="file-change-phase"
-            src="/posts/vite-dev-server/file-change-phase.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="file-change-phase 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/vite-dev-server/file-change-phase.webp"
+              alt="file-change-phase"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <blockquote
@@ -1093,7 +1189,11 @@
         id="6-브라우저-리렌더링"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#6-브라우저-리렌더링"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#6-브라우저-리렌더링"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -1103,12 +1203,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="socket-update-event"
-            src="/posts/vite-dev-server/socket-update-event.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="socket-update-event 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/vite-dev-server/socket-update-event.webp"
+              alt="socket-update-event"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <blockquote
@@ -1199,12 +1306,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="import response"
-            src="/posts/vite-dev-server/import-response.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="import response 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/vite-dev-server/import-response.webp"
+              alt="import response"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <blockquote
@@ -1366,12 +1480,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="dev-server-logic-summary"
-            src="/posts/vite-dev-server/dev-server-logic-summary.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="dev-server-logic-summary 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/vite-dev-server/dev-server-logic-summary.webp"
+              alt="dev-server-logic-summary"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <blockquote
@@ -1383,7 +1504,11 @@
         id="마무리"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#마무리"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#마무리"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -1456,70 +1581,92 @@
     </div>
     <aside
       class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
-      aria-label="index"
+      aria-label="목차"
     >
       <ul
         class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
       >
-        <li
-          id="index"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          Index
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="index"
+            href="#index"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Index</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="tldr"
+            href="#tldr"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >TL;DR!</a
+          >
+        </li>
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="1-개발-서버-실행서버-초기화"
+            href="#1-개발-서버-실행서버-초기화"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >1. 개발 서버 실행(서버 초기화)</a
+          >
         </li>
         <li
-          id="tldr"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
+          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
         >
-          TL;DR!
+          <a
+            id="dev-server는-아래와-같은-프로세스를-거치며-초기화를-진행한다"
+            href="#dev-server는-아래와-같은-프로세스를-거치며-초기화를-진행한다"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >Dev Server는 아래와 같은 프로세스를 거치며 초기화를 진행한다.</a
+          >
         </li>
-        <li
-          id="1-개발-서버-실행서버-초기화"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          1. 개발 서버 실행(서버 초기화)
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="2-indexhtml-요청"
+            href="#2-indexhtml-요청"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >2. index.html 요청</a
+          >
         </li>
-        <li
-          id="dev-server는-아래와-같은-프로세스를-거치며-초기화를-진행한다"
-          class="pt-0.5 text-base select-none cursor-pointer before:content-['-'] before:mr-1 ml-2.5 mb-1.5 hover:text-sub-blue"
-        >
-          Dev Server는 아래와 같은 프로세스를 거치며 초기화를 진행한다.
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="3-indexhtml-렌더링과-자원-요청"
+            href="#3-indexhtml-렌더링과-자원-요청"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >3. index.html 렌더링과 자원 요청</a
+          >
         </li>
-        <li
-          id="2-indexhtml-요청"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          2. index.html 요청
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="4-렌더링-계속-진행with-websocket"
+            href="#4-렌더링-계속-진행with-websocket"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >4. 렌더링 계속 진행(with WebSocket)</a
+          >
         </li>
-        <li
-          id="3-indexhtml-렌더링과-자원-요청"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          3. index.html 렌더링과 자원 요청
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="5-코드-변경-감지"
+            href="#5-코드-변경-감지"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >5. 코드 변경 감지</a
+          >
         </li>
-        <li
-          id="4-렌더링-계속-진행with-websocket"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          4. 렌더링 계속 진행(with WebSocket)
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="6-브라우저-리렌더링"
+            href="#6-브라우저-리렌더링"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >6. 브라우저 리렌더링</a
+          >
         </li>
-        <li
-          id="5-코드-변경-감지"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          5. 코드 변경 감지
-        </li>
-        <li
-          id="6-브라우저-리렌더링"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          6. 브라우저 리렌더링
-        </li>
-        <li
-          id="마무리"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          마무리
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="마무리"
+            href="#마무리"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >마무리</a
+          >
         </li>
       </ul>
     </aside>

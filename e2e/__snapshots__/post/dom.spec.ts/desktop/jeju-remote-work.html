@@ -22,50 +22,53 @@
   }
 </script>
 <progress
+  id="nav-progress"
   class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  aria-label="페이지 읽기 진행률"
   value="0"
   max="1"
 ></progress>
 <nav
-  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] opacity-10 md:opacity-100 shadow-nav shadow-lg"
+  aria-label="메인 네비게이션"
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] shadow-nav shadow-lg"
 >
-  <h2 class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
+  <div class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
     <a class="hover:underline" href="/">1ilsang</a>
-  </h2>
+  </div>
   <div class="flex">
-    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
+    <div class="tracking-tight mr-6 text-xl mt-2.5">
       <a class="hover:underline" href="/posts">posts</a>
-    </h2>
-    <h2 class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/tags">tags</a>
-    </h2>
-    <div class="mr-2 w-8 h-8 mt-2" role="img" aria-label="1ilsang character">
-      <a href="/about"
-        ><img
-          class="border border-solid rounded-full border-white-blue"
-          src="/images/chul.webp"
-          alt="1ilsang"
-      /></a>
     </div>
+    <div class="tracking-tight mr-6 text-xl mt-2.5">
+      <a class="hover:underline" href="/tags">tags</a>
+    </div>
+    <a
+      aria-label="About 페이지로 이동"
+      class="mr-2 block w-8 h-8 mt-2"
+      href="/about"
+      ><img
+        class="border border-solid rounded-full w-full h-full border-white-blue"
+        src="/images/chul.webp"
+        alt="1ilsang"
+    /></a>
   </div>
 </nav>
 <section
+  id="main-content"
+  tabindex="-1"
   class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
 >
   <h1 class="text-4xl break-words md:text-6xl">제주 한 달 리모트 워크 후기</h1>
   <section class="flex items-center mt-4">
-    <div
-      class="mr-2 w-9 h-9 md:w-12 md:h-12"
-      role="img"
-      aria-label="1ilsang character"
-    >
-      <a href="/about"
-        ><img
-          class="border border-solid rounded-full border-sub-blue"
-          src="/images/chul.webp"
-          alt="1ilsang"
-      /></a>
-    </div>
+    <a
+      aria-label="About 페이지로 이동"
+      class="mr-2 block w-9 h-9 md:w-12 md:h-12"
+      href="/about"
+      ><img
+        class="border border-solid rounded-full w-full h-full border-sub-blue"
+        src="/images/chul.webp"
+        alt="1ilsang"
+    /></a>
     <div>
       <a class="text-lg" href="/about">1ilsang</a>
       <div class="text-sm text-sub-blue">클라이밍 하실래염?</div>
@@ -106,12 +109,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col h-[600px] object-contain bg-transparent mt-10 min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="cover large"
-            src="/posts/jeju-remote-work/cover-large.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="cover large 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/jeju-remote-work/cover-large.webp"
+              alt="cover large"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <blockquote
@@ -129,7 +139,11 @@
         id="시작-계기"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#시작-계기"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#시작-계기"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -151,7 +165,11 @@
         id="첫-일주일"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#첫-일주일"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#첫-일주일"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -161,12 +179,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="start"
-            src="/posts/jeju-remote-work/start.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="start 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/jeju-remote-work/start.webp"
+              alt="start"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -197,12 +222,19 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="work"
-            src="/posts/jeju-remote-work/work.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="work 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/jeju-remote-work/work.webp"
+              alt="work"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <blockquote
@@ -231,24 +263,38 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="landscape"
-            src="/posts/jeju-remote-work/landscape.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="landscape 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/jeju-remote-work/landscape.webp"
+              alt="landscape"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <div class="img-container">
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="green-tea-cave"
-            src="/posts/jeju-remote-work/green-tea-cave.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="green-tea-cave 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/jeju-remote-work/green-tea-cave.webp"
+              alt="green-tea-cave"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <p class="mt-4 mb-4">
@@ -281,7 +327,11 @@
         id="벌써-마지막-주"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#벌써-마지막-주"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#벌써-마지막-주"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -290,17 +340,31 @@
       <div
         class="mt-3 mb-3 flex items-center w-full custom-horizon-scrollbar min-h-[100px] min-[790px]:min-h-[200px]"
       >
-        <img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="fire"
-          src="/posts/jeju-remote-work/fire.webp"
-          loading="lazy"
-        /><img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="mountain"
-          src="/posts/jeju-remote-work/mountain.webp"
-          loading="lazy"
-        />
+        <button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Fire 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/jeju-remote-work/fire.webp"
+            alt="Fire"
+            loading="lazy"
+          /></button
+        ><button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Mountain 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/jeju-remote-work/mountain.webp"
+            alt="Mountain"
+            loading="lazy"
+          />
+        </button>
       </div>
       <p class="mt-4 mb-4">
         당시에 시간이 정말 빠르게 간다고 느꼈다. 하루하루 많은 일이 있었는데
@@ -335,19 +399,30 @@
         <div
           class="flex justify-center mt-3 mb-3 w-full flex-col min-[790px]:w-[70%] min-h-[200px]"
         >
-          <img
-            class="w-full cursor-zoom-in object-contain max-h-[550px]"
-            alt="pony"
-            src="/posts/jeju-remote-work/pony.webp"
-            loading="lazy"
-          />
+          <button
+            type="button"
+            class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+            aria-label="pony 확대"
+            data-zoomable="true"
+          >
+            <img
+              class="w-full object-contain max-h-[550px]"
+              src="/posts/jeju-remote-work/pony.webp"
+              alt="pony"
+              loading="lazy"
+            />
+          </button>
         </div>
       </div>
       <h2
         id="마무리"
         class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
       >
-        <a aria-hidden="true" tabindex="-1" href="#마무리"
+        <a
+          aria-hidden="true"
+          tabindex="-1"
+          href="#마무리"
+          aria-label="이 섹션 링크"
           ><span
             class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
           ></span></a
@@ -356,17 +431,31 @@
       <div
         class="mt-3 mb-3 flex items-center w-full custom-horizon-scrollbar min-h-[100px] min-[790px]:min-h-[200px]"
       >
-        <img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="sunset-mount"
-          src="/posts/jeju-remote-work/sunset-mount.webp"
-          loading="lazy"
-        /><img
-          class="w-full cursor-zoom-in object-contain max-h-[550px]"
-          alt="sunset-sea"
-          src="/posts/jeju-remote-work/sunset-sea.webp"
-          loading="lazy"
-        />
+        <button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Sunset Mount 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/jeju-remote-work/sunset-mount.webp"
+            alt="Sunset Mount"
+            loading="lazy"
+          /></button
+        ><button
+          type="button"
+          class="block w-full border-none bg-transparent p-0 cursor-zoom-in"
+          aria-label="Sunset Sea 확대"
+          data-zoomable="true"
+        >
+          <img
+            class="w-full object-contain max-h-[550px]"
+            src="/posts/jeju-remote-work/sunset-sea.webp"
+            alt="Sunset Sea"
+            loading="lazy"
+          />
+        </button>
       </div>
       <p class="mt-4 mb-4">워케이션 기간동안 많은 것을 느꼈다.</p>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
@@ -395,34 +484,42 @@
     </div>
     <aside
       class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
-      aria-label="index"
+      aria-label="목차"
     >
       <ul
         class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
       >
-        <li
-          id="시작-계기"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          시작 계기
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="시작-계기"
+            href="#시작-계기"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >시작 계기</a
+          >
         </li>
-        <li
-          id="첫-일주일"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          첫 일주일
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="첫-일주일"
+            href="#첫-일주일"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >첫 일주일</a
+          >
         </li>
-        <li
-          id="벌써-마지막-주"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          벌써 마지막 주
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="벌써-마지막-주"
+            href="#벌써-마지막-주"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >벌써 마지막 주</a
+          >
         </li>
-        <li
-          id="마무리"
-          class="pt-0.5 text-base select-none cursor-pointer mb-0.5 hover:text-sub-blue"
-        >
-          마무리
+        <li class="pt-0.5 text-base select-none mb-0.5">
+          <a
+            id="마무리"
+            href="#마무리"
+            class="cursor-pointer inline hover:text-sub-blue"
+            >마무리</a
+          >
         </li>
       </ul>
     </aside>
