@@ -3,6 +3,7 @@ import { type PostType } from '~/posts/models';
 import { MainContainer } from '~/shared/components/MainContainer';
 import { CodeCopyButton } from '~/shared/components/mdx/CodeCopyButton';
 import { IssuePost } from './components/IssuePost';
+import { PrintTracker } from './components/PrintTracker';
 import { TocContainer } from './toc/Container';
 import { InformationContainer } from './information/InformationContainer';
 import { SponsorContainer } from './sponsor/Container';
@@ -26,6 +27,7 @@ export const PostContainer: FunctionComponent<
       </section>
       <IssuePost title={title} />
       <SponsorContainer />
+      <PrintTracker />
     </MainContainer>
   );
 };

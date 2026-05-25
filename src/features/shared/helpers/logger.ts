@@ -5,12 +5,28 @@ export const infoLog = (message: string) => {
 };
 
 export type GaActionType =
-  | 'buttonClick'
   | 'linkClick'
   | 'categoryClick'
   | 'tocClick'
-  | 'videoClick'
-  | 'sponsorClick';
+  | 'sponsorClick'
+  | 'homeClick'
+  | 'tagClick'
+  | 'codeCopy'
+  | 'postReadComplete'
+  | 'postEngaged'
+  | 'postNavigation'
+  | 'aboutVisit'
+  | 'printPost'
+  | 'returnVisit'
+  | 'sessionDepth'
+  | 'scrollMilestone'
+  | 'codeBlockView'
+  | 'imageZoom'
+  | 'headingAnchorClick'
+  | 'readingTime'
+  | 'textCopy'
+  | 'referrerType'
+  | 'scrollReversal';
 type ValueKey = 'type' | 'value';
 export const ga = (
   actionType: GaActionType,

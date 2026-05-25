@@ -56,8 +56,8 @@ describe('logger', () => {
     >;
 
     it('should call sendGAEvent with correct parameters for buttonClick', () => {
-      const actionType = 'buttonClick';
-      const value = { type: 'submit', value: 'contact-form' };
+      const actionType = 'homeClick' as const;
+      const value = { type: 'router-push', value: '/posts' };
 
       ga(actionType, value);
 
@@ -92,8 +92,8 @@ describe('logger', () => {
     });
 
     it('should call sendGAEvent with correct parameters for videoClick', () => {
-      const actionType = 'videoClick';
-      const value = { type: 'play', value: 'intro-video' };
+      const actionType = 'sponsorClick' as const;
+      const value = { type: 'sponsor', value: 'github-sponsors' };
 
       ga(actionType, value);
 
@@ -113,7 +113,7 @@ describe('logger', () => {
     });
 
     it('should be called exactly once per invocation', () => {
-      const actionType = 'buttonClick';
+      const actionType = 'linkClick' as const;
       const value = { type: 'test', value: 'test-value' };
 
       ga(actionType, value);

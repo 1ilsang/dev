@@ -42,7 +42,7 @@ describe('HomeContainer', () => {
       screen.getByRole('link', { name: '포스트 목록으로 이동' }),
     );
 
-    expect(ga).toHaveBeenCalledWith('videoClick', {
+    expect(ga).toHaveBeenCalledWith('homeClick', {
       type: 'router-push',
       value: '/posts',
     });

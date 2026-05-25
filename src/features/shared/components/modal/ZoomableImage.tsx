@@ -4,6 +4,7 @@ import { useSetAtom } from 'jotai';
 import type { FunctionComponent } from 'react';
 
 import { imageAltAtom, imageSrcAtom } from './atoms';
+import { ga } from '../../helpers/logger';
 
 type ZoomableImageProps = {
   src: string;
@@ -28,6 +29,7 @@ export const ZoomableImage: FunctionComponent<ZoomableImageProps> = ({
   const openModal = () => {
     setImageSrc(src);
     setImageAlt(alt);
+    ga('imageZoom', { type: 'zoom', value: alt || src });
   };
 
   return (

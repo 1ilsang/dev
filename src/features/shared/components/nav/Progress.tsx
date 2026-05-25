@@ -5,10 +5,12 @@ import type { FunctionComponent } from 'react';
 
 import useProgress, { INIT_MAX } from './useProgress';
 import { useBindZoomableImages } from './useBindZoomableImages';
+import { usePostAnalytics } from './usePostAnalytics';
 
 export const NavProgress: FunctionComponent = () => {
   const { progress, max } = useProgress();
   useBindZoomableImages();
+  usePostAnalytics();
 
   return (
     <progress

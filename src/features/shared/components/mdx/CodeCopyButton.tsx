@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { ga } from '../../helpers/logger';
 
 export const CodeCopyButton = () => {
   useEffect(() => {
@@ -49,6 +50,7 @@ export const CodeCopyButton = () => {
         const code = pre.querySelector('code');
         const text = code?.textContent ?? '';
         await navigator.clipboard.writeText(text);
+        ga('codeCopy', { type: 'code-block', value: text.slice(0, 50) });
 
         btn.dataset.copied = 'true';
         btn.textContent = '✅';

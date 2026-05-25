@@ -6,7 +6,7 @@ import { ga } from '~/shared/helpers/logger';
 
 export const HomeContainer: FunctionComponent = () => {
   const handleLinkClick = () => {
-    ga('videoClick', { type: 'router-push', value: '/posts' });
+    ga('homeClick', { type: 'router-push', value: '/posts' });
   };
 
   return (
