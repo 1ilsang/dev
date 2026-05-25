@@ -1,7 +1,7 @@
 import type { FunctionComponent } from 'react';
 import { memo } from 'react';
 
-import type { CompanyContentProjectProps } from './Container';
+import type { CompanyContentProjectProps } from './types';
 
 import { DateFormatter } from '~/shared/components/DateFormatter';
 import classNames from 'classnames';

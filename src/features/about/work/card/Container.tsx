@@ -3,10 +3,13 @@ import { useEffect, useState } from 'react';
 
 import type { Company } from '../models';
 
-import LeftSide from './content/LeftSide';
+import { CompanyContentProject } from './content/CompanyContentProject';
 import ContentHeadline from './content/Headline';
-import CompanyContentProject from './content/Container';
+import LeftSide from './content/LeftSide';
 import { RightSide } from './content/RightSide';
+
+import { usePrint } from '~/shared/hooks/usePrint';
+import { toggleAccordion } from './content/toggleAccordion';
 
 export type WorkCardContainerProps = Company & {
   toggleOpenAll?: boolean;
@@ -23,10 +26,15 @@ export const WorkCardContainer: FunctionComponent<WorkCardContainerProps> = (
     companyLogoUrl,
     company,
     position = 'Software Engineer',
+    format,
   } = props;
 
   const [open, setOpen] = useState<boolean>(undefined);
-  const handleHeadlineClick = () => setOpen(open === undefined ? false : !open);
+  const { print } = usePrint();
+
+  const handleHeadlineClick = () => {
+    setOpen((prev) => toggleAccordion(prev, true));
+  };
 
   useEffect(() => {
     if (toggleOpenAll === undefined) return;
@@ -57,7 +65,12 @@ export const WorkCardContainer: FunctionComponent<WorkCardContainerProps> = (
         />
         <div className={openClassName}>
           {projectList.map((project) => (
-            <CompanyContentProject key={project.name} {...project} />
+            <CompanyContentProject
+              key={project.name}
+              {...project}
+              format={format}
+              print={print}
+            />
           ))}
         </div>
       </RightSide>

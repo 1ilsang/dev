@@ -6,15 +6,15 @@ import type { Project } from '~/about/work/models';
 import DynamicImage from '~/shared/components/DynamicImage';
 import { ExternalLink } from '~/shared/components/ExternalLink';
 import { imageSrcAtom } from '~/shared/components/modal/atoms';
-import { usePrint } from '~/shared/hooks/usePrint';
 
-type ProjectDetailProps = Project & {
+type ProjectDetailProps = Pick<Project, 'summary' | 'body' | 'img' | 'url'> & {
+  id: string;
   openClassName: string;
+  print: boolean;
 };
 
 const ProjectDetail: FunctionComponent<ProjectDetailProps> = memo(
-  ({ summary, body, img, url, openClassName }) => {
-    const { print } = usePrint();
+  ({ id, summary, body, img, url, openClassName, print }) => {
     const [, setImageSrc] = useAtom(imageSrcAtom);
 
     const handleImageClick: MouseEventHandler<HTMLImageElement> = (e) => {
@@ -24,6 +24,7 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = memo(
 
     return (
       <div
+        id={id}
         className={classNames('break-words print:animate-none', [
           openClassName,
         ])}
