@@ -55,9 +55,15 @@ export const Navbar: FunctionComponent<Props> = ({ showPrint = false }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (document.body.scrollTop > document.body.clientHeight) return;
+      if (document.body.scrollTop > document.body.clientHeight) {
+        if (!scrollDown) {
+          setScrollDown(true);
+        }
+        return;
+      }
       setScrollDown(document.body.scrollTop > 50);
     };
+    handleScroll();
     document.body.addEventListener('scroll', handleScroll);
     return () => {
       document.body.removeEventListener('scroll', handleScroll);

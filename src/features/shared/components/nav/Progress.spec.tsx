@@ -16,6 +16,20 @@ jest.mock('../modal/atoms', () => ({
 import { NavProgress } from './Progress';
 
 describe('NavProgress', () => {
+  const originalConsoleError = console.error;
+
+  beforeEach(() => {
+    console.error = (...args: unknown[]) => {
+      if (typeof args[0] === 'string' && args[0].includes('not wrapped in act'))
+        return;
+      originalConsoleError(...args);
+    };
+  });
+
+  afterEach(() => {
+    console.error = originalConsoleError;
+  });
+
   it('should render progress element with aria-label', () => {
     render(<NavProgress />);
     const progress = screen.getByRole('progressbar');
