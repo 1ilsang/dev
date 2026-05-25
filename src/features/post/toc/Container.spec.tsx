@@ -32,12 +32,22 @@ describe('rendering', () => {
 });
 
 describe('event', () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+  afterEach(() => {
+    jest.useRealTimers();
+  });
+
   it('should redirect to heading', async () => {
     const push = jest.fn();
     (useRouter as jest.Mock).mockReturnValue({ push });
     render(<TocContainer toc={MOCK_TOC} />);
 
-    await userEvent.click(screen.getByText(MOCK_TOC[2].value));
+    await userEvent
+      .setup({ advanceTimers: jest.advanceTimersByTime })
+      .click(screen.getByText(MOCK_TOC[2].value));
+    jest.advanceTimersByTime(200);
     expect(push).toHaveBeenCalledWith(
       `#${MOCK_TOC[2].id}`,
       // handleTocClick 함수에서 scroll: false 옵션을 주었기 때문
