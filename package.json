@@ -18,6 +18,7 @@
     "lint:eslint": "eslint",
     "lint:markdown": "markdownlint --config './.markdownlint.cjs' './_posts/**/*.mdx'",
     "lint:cspell": "cspell lint --no-progress",
+    "lint:typeCheck": "next typegen && tsc --pretty",
     "lint": "pnpm tr lint:eslint lint:typeCheck lint:stylelint lint:prettier lint:markdown lint:cspell",
     "e2e:build": "pnpm predev && NEXT_PUBLIC_E2E=true next build",
     "e2e:update:screen": "pnpm tr e2e:update:screen:run",

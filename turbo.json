@@ -25,8 +25,13 @@
       "outputs": []
     },
     "lint:typeCheck": {
-      "inputs": ["src/**/*.{ts,tsx}", "tsconfig.json"],
-      "outputs": []
+      "inputs": [
+        "src/**/*.{ts,tsx}",
+        "tsconfig.json",
+        "next.config.mjs",
+        "next-env.d.ts"
+      ],
+      "outputs": [".next/types/**", ".next/dev/types/**", "next-env.d.ts"]
     },
     "lint:stylelint": {
       "inputs": ["src/**/*.css", ".stylelintrc.cjs"],

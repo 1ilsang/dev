@@ -5,6 +5,7 @@ out
 .next/
 .turbo
 .vscode/
+next-env.d.ts
 
 .DS_Store
 
@@ -25,3 +26,4 @@ out
 
 # agents
 .kiro
+.cursor
