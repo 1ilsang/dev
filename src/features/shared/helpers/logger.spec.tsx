@@ -1,5 +1,5 @@
 import { sendGAEvent } from '@next/third-parties/google';
-import { infoLog, ga } from './logger';
+import { infoLog, ga, trackPostNavigation } from './logger';
 
 // Mock the external dependency
 jest.mock('@next/third-parties/google', () => ({
@@ -119,6 +119,48 @@ describe('logger', () => {
       ga(actionType, value);
 
       expect(mockSendGAEvent).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('trackPostNavigation', () => {
+    const mockSendGAEvent = sendGAEvent as jest.MockedFunction<
+      typeof sendGAEvent
+    >;
+
+    it('should track prev navigation', () => {
+      trackPostNavigation('prev', 'current-post', 'older-post');
+
+      expect(mockSendGAEvent).toHaveBeenCalledWith('event', 'postNavigation', {
+        type: 'prev',
+        value: 'current-post>older-post',
+      });
+    });
+
+    it('should track next navigation', () => {
+      trackPostNavigation('next', 'current-post', 'newer-post');
+
+      expect(mockSendGAEvent).toHaveBeenCalledWith('event', 'postNavigation', {
+        type: 'next',
+        value: 'current-post>newer-post',
+      });
+    });
+
+    it('should track related navigation with rank', () => {
+      trackPostNavigation('similar', 'current-post', 'related-post', 2);
+
+      expect(mockSendGAEvent).toHaveBeenCalledWith('event', 'postNavigation', {
+        type: 'similar',
+        value: 'current-post>related-post#2',
+      });
+    });
+
+    it('should track discovery navigation with rank', () => {
+      trackPostNavigation('discovery', 'current-post', 'other-post', 3);
+
+      expect(mockSendGAEvent).toHaveBeenCalledWith('event', 'postNavigation', {
+        type: 'discovery',
+        value: 'current-post>other-post#3',
+      });
     });
   });
 });

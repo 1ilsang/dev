@@ -63,3 +63,18 @@ export const ga = (
 ) => {
   sendGAEvent('event', actionType, value);
 };
+
+type PostNavigationKind = 'prev' | 'next' | 'related' | 'similar' | 'discovery';
+
+export const trackPostNavigation = (
+  kind: PostNavigationKind,
+  fromSlug: string,
+  toSlug: string,
+  rank?: number,
+) => {
+  const rankSuffix = rank !== undefined ? `#${rank}` : '';
+  ga('postNavigation', {
+    type: kind,
+    value: `${fromSlug}>${toSlug}${rankSuffix}`,
+  });
+};

@@ -6,12 +6,16 @@ import { IssuePost } from './components/IssuePost';
 import { PrintTracker } from './components/PrintTracker';
 import { TocContainer } from './toc/Container';
 import { InformationContainer } from './information/InformationContainer';
+import {
+  PostNavigationContainer,
+  type PostNavigation,
+} from './PostNavigationContainer';
 import { SponsorContainer } from './sponsor/Container';
 import { POST_BODY_ID } from '~/shared/components/nav/constants';
 
 export const PostContainer: FunctionComponent<
-  PropsWithChildren<{ post: PostType }>
-> = async ({ post, children }) => {
+  PropsWithChildren<{ post: PostType; navigation: PostNavigation }>
+> = async ({ post, children, navigation }) => {
   const {
     frontmatter: { title },
     toc,
@@ -27,6 +31,10 @@ export const PostContainer: FunctionComponent<
       </section>
       <IssuePost title={title} />
       <SponsorContainer />
+      <PostNavigationContainer
+        navigation={navigation}
+        currentSlug={post.slug}
+      />
       <PrintTracker />
     </MainContainer>
   );

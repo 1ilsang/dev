@@ -1,8 +1,10 @@
 import { type Metadata, type NextPage } from 'next';
+import { notFound } from 'next/navigation';
 import { MyProfile } from '~/about/headline/data/profile';
 import { MetaTitle } from '~/shared/constants/blog';
 
 import { PostContainer } from '~/post/Container';
+import { getPostNavigation } from '~/post/PostNavigationContainer';
 import type { PostType } from '~/posts/models';
 import { Footer } from '~/shared/components/Footer';
 import { MDXEmbedComponents } from '~/shared/components/mdx/MDXEmbedComponents';
@@ -19,8 +21,23 @@ interface PostProps {
 
 const Post: NextPage<PostProps> = async ({ params }) => {
   const { slug } = await params;
-  const post = await getPostBySlug(slug);
+  const allPosts = await getAllPost();
+  const post = allPosts.find((item) => item.slug === slug);
+
+  if (!post) notFound();
+
   const { MDX, frontmatter } = post;
+  const postsForNavigation = allPosts.map(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    ({ MDX: _mdx, ...rest }) => rest,
+  );
+  const currentForNavigation = postsForNavigation.find(
+    (item) => item.slug === slug,
+  )!;
+  const navigation = getPostNavigation(
+    currentForNavigation,
+    postsForNavigation,
+  );
   const { href } = MyProfile.blog;
 
   const jsonLd = {
@@ -53,7 +70,7 @@ const Post: NextPage<PostProps> = async ({ params }) => {
       />
       <NavProgress />
       <Navbar />
-      <PostContainer post={post}>
+      <PostContainer post={post} navigation={navigation}>
         <MDX components={MDXEmbedComponents({ ...post })} />
       </PostContainer>
       <Footer />

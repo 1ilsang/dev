@@ -19,7 +19,7 @@ const SponsorContainer: FunctionComponent = () => {
   }, []);
 
   return (
-    <div className="flex items-center mt-4 mb-56">
+    <div className="flex items-center mt-4">
       <iframe
         ref={iframeRef}
         className={classNames('border-0 rounded-md', payIconClass)}
