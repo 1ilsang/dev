@@ -4,6 +4,35 @@ import readline from 'readline';
 
 const { process } = globalThis;
 const POST_PATH = path.join(process.cwd(), '_posts');
+const CSPELL_POSTS_CONFIG = path.join(process.cwd(), 'cspell.posts.json');
+
+const CSPELL_TEMPLATE = `{
+  "overrides": [
+    {
+      "filename": "docs.mdx",
+      "words": []
+    }
+  ]
+}
+`;
+
+const registerPostCspell = (postDir: string) => {
+  const importPath = `./${path.relative(process.cwd(), postDir).replace(/\\/g, '/')}/cspell.json`;
+
+  fs.writeFileSync(path.join(postDir, 'cspell.json'), CSPELL_TEMPLATE);
+
+  const config = JSON.parse(fs.readFileSync(CSPELL_POSTS_CONFIG, 'utf8')) as {
+    import: string[];
+  };
+  if (!config.import.includes(importPath)) {
+    config.import.push(importPath);
+    config.import.sort();
+    fs.writeFileSync(
+      CSPELL_POSTS_CONFIG,
+      `${JSON.stringify(config, null, 2)}\n`,
+    );
+  }
+};
 
 const categoryMap: Record<string, string> = {
   js: 'js',
@@ -32,7 +61,7 @@ const main = async () => {
     process.exit(1);
   }
 
-  const slug = await ask('슬러그 (kebab-case URL): ');
+  const slug = await ask('URL 슬러그(kebab-case, /posts/SLUG 형태가 됨): ');
   if (!slug) {
     console.error('❌ 슬러그를 입력해주세요');
     process.exit(1);
@@ -82,8 +111,13 @@ ${description}
 `;
 
   fs.writeFileSync(path.join(postDir, 'docs.mdx'), content);
+  registerPostCspell(postDir);
   console.info(`\n\x1b[36m ✓ Created: ${postDir}/docs.mdx\x1b[0m`);
-  console.info(`\x1b[33m ⚠ Add cover.webp to: ${postDir}/\x1b[0m\n`);
+  console.info(`\x1b[36m ✓ Created: ${postDir}/cspell.json\x1b[0m`);
+  console.info(`\x1b[33m ⚠ Add cover.webp to: ${postDir}/\x1b[0m`);
+  console.info(
+    `\x1b[33m ⚠ cspell 오탐 단어는 ${postDir}/cspell.json 의 words 에 추가하세요\x1b[0m\n`,
+  );
 };
 
 await main();

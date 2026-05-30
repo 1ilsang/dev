@@ -1,0 +1,8 @@
+{
+  "import": [
+    "./_posts/activity/remote-work/bali-remote-work/cspell.json",
+    "./_posts/book/micro-state-management-review/cspell.json",
+    "./_posts/js/array-prototype-sort/cspell.json",
+    "./_posts/js/is-supply-chain-attack/cspell.json"
+  ]
+}

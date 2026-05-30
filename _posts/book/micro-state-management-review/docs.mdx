@@ -1,8 +1,7 @@
 ---
 title: 'Micro State Management with React Hooks 리뷰'
 description: '상태 관리의 종류와 기술들에 대한 이해'
-tags:
-  ['book', 'review', 'react', 'hooks', 'context', 'zustand', 'jotai', 'valtio']
+tags: ['book-review', 'react', 'frontend', 'javascript']
 coverImage: 'cover.webp'
 date: '2024-03-01T00:00:00.000Z'
 ---
@@ -121,7 +120,7 @@ const reducer = (state, action) => {
 				return state; // THIS IS Bailout! 리렌더링 되지 않음.
 		return { ... state, text: action.text };
 		default:
-			throw new Error(`unkown action type`);
+			throw new Error(`unknown action type`);
     }
   }
 }

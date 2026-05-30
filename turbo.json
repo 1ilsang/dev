@@ -44,6 +44,17 @@
       "inputs": ["_posts/**/*.mdx", ".markdownlint.cjs"],
       "outputs": []
     },
+    "lint:cspell": {
+      "inputs": [
+        "cspell.json",
+        "cspell.posts.json",
+        "src/**",
+        "_posts/**",
+        "scripts/**",
+        ".agents/**"
+      ],
+      "outputs": []
+    },
     "e2e:build": {
       "inputs": [
         "src/**",

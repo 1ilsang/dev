@@ -1,0 +1,8 @@
+{
+  "overrides": [
+    {
+      "filename": "docs.mdx",
+      "words": ["daishi", "kato"]
+    }
+  ]
+}
