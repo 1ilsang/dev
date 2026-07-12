@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { useRouter } from 'next/navigation';
 import { TocContainer } from './Container';
@@ -47,7 +47,9 @@ describe('event', () => {
     await userEvent
       .setup({ advanceTimers: jest.advanceTimersByTime })
       .click(screen.getByText(MOCK_TOC[2].value));
-    jest.advanceTimersByTime(200);
+    act(() => {
+      jest.advanceTimersByTime(200);
+    });
     expect(push).toHaveBeenCalledWith(
       `#${MOCK_TOC[2].id}`,
       // handleTocClick 함수에서 scroll: false 옵션을 주었기 때문

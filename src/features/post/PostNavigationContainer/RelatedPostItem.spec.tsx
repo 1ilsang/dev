@@ -79,9 +79,11 @@ describe('RelatedPostItem', () => {
       />,
     );
 
-    await userEvent.click(
-      screen.getByRole('link', { name: /Sample Post Title/i }),
-    );
+    const link = screen.getByRole('link', { name: /Sample Post Title/i });
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+    });
+    await userEvent.click(link);
 
     expect(mockSendGAEvent).toHaveBeenCalledWith('event', 'postNavigation', {
       type: 'similar',
@@ -99,9 +101,11 @@ describe('RelatedPostItem', () => {
       />,
     );
 
-    await userEvent.click(
-      screen.getByRole('link', { name: /Sample Post Title/i }),
-    );
+    const link = screen.getByRole('link', { name: /Sample Post Title/i });
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+    });
+    await userEvent.click(link);
 
     expect(mockSendGAEvent).toHaveBeenCalledWith('event', 'postNavigation', {
       type: 'discovery',

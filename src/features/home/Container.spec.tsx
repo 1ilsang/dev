@@ -38,9 +38,11 @@ describe('HomeContainer', () => {
   it('should fire analytics on click', async () => {
     render(<HomeContainer />);
 
-    await userEvent.click(
-      screen.getByRole('link', { name: '포스트 목록으로 이동' }),
-    );
+    const link = screen.getByRole('link', { name: '포스트 목록으로 이동' });
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+    });
+    await userEvent.click(link);
 
     expect(ga).toHaveBeenCalledWith('homeClick', {
       type: 'router-push',

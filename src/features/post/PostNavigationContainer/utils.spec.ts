@@ -463,4 +463,321 @@ describe('getRelatedPosts', () => {
 
     expect(getRelatedPosts(current, [current])).toEqual([]);
   });
+
+  it('should prefer truly distant posts over topic-overlapping neighbors for discovery', () => {
+    const current = createPost('current', {
+      date: '2024-02-01',
+      tags: ['graphql', 'frontend'],
+      category: 'JavaScript',
+    });
+    const posts = [
+      current,
+      createPost('similar-a', {
+        date: '2024-03-01',
+        tags: ['graphql', 'frontend'],
+        category: 'JavaScript',
+      }),
+      createPost('similar-b', {
+        date: '2024-01-01',
+        tags: ['graphql', 'frontend'],
+        category: 'JavaScript',
+      }),
+      createPost('topic-neighbor', {
+        date: '2024-05-01',
+        tags: ['graphql', 'career', 'developer'],
+        category: 'Activity',
+      }),
+      createPost('true-discovery', {
+        date: '2024-06-01',
+        tags: ['book-review', 'developer'],
+        category: 'Book',
+      }),
+    ];
+
+    const related = getRelatedPosts(current, posts);
+    const discovery = related.filter(({ kind }) => kind === 'discovery');
+
+    // topic overlap은 distant 풀에서 제외되므로 첫 discovery는 true-discovery
+    expect(discovery[0].post.slug).toBe('true-discovery');
+  });
+
+  it('should prefer lower current topic score when no distant discovery pool exists', () => {
+    const current = createPost('current', {
+      date: '2024-02-01',
+      tags: ['shared-topic', 'frontend'],
+      category: 'JavaScript',
+    });
+    const posts = [
+      current,
+      createPost('similar-a', {
+        date: '2024-03-01',
+        tags: ['shared-topic', 'frontend'],
+        category: 'JavaScript',
+      }),
+      createPost('similar-b', {
+        date: '2024-01-01',
+        tags: ['shared-topic', 'frontend'],
+        category: 'JavaScript',
+      }),
+      createPost('more-overlap', {
+        date: '2024-05-01',
+        tags: ['shared-topic', 'react', 'frontend'],
+        category: 'JavaScript',
+      }),
+      createPost('less-overlap', {
+        date: '2024-06-01',
+        tags: ['react', 'frontend'],
+        category: 'JavaScript',
+      }),
+    ];
+
+    const related = getRelatedPosts(current, posts);
+    const discovery = related.filter(({ kind }) => kind === 'discovery');
+
+    expect(discovery[0].post.slug).toBe('less-overlap');
+  });
+
+  it('should prefer different category from current when topic scores are equal', () => {
+    const current = createPost('current', {
+      date: '2024-02-01',
+      tags: ['shared-topic', 'frontend'],
+      category: 'JavaScript',
+    });
+    const posts = [
+      current,
+      createPost('similar-a', {
+        date: '2024-03-01',
+        tags: ['shared-topic', 'frontend'],
+        category: 'JavaScript',
+      }),
+      createPost('similar-b', {
+        date: '2024-01-01',
+        tags: ['shared-topic', 'frontend'],
+        category: 'JavaScript',
+      }),
+      // distant 필터를 비우기 위해 둘 다 topic overlap 유지
+      createPost('same-category', {
+        date: '2024-05-01',
+        tags: ['shared-topic', 'react'],
+        category: 'JavaScript',
+      }),
+      createPost('other-category', {
+        date: '2024-06-01',
+        tags: ['shared-topic', 'react'],
+        category: 'Rust',
+      }),
+    ];
+
+    const related = getRelatedPosts(current, posts);
+    const discovery = related.filter(({ kind }) => kind === 'discovery');
+
+    expect(discovery[0].post.slug).toBe('other-category');
+  });
+
+  it('should prefer lower hub score vs current when topic and category are equal', () => {
+    const current = createPost('current', {
+      date: '2024-02-01',
+      tags: ['shared-topic', 'react', 'frontend'],
+      category: 'JavaScript',
+    });
+    const posts = [
+      current,
+      createPost('similar-a', {
+        date: '2024-03-01',
+        tags: ['shared-topic', 'react', 'frontend'],
+        category: 'JavaScript',
+      }),
+      createPost('similar-b', {
+        date: '2024-01-01',
+        tags: ['shared-topic', 'react', 'frontend'],
+        category: 'JavaScript',
+      }),
+      createPost('high-hub', {
+        date: '2024-05-01',
+        tags: ['react', 'frontend', 'javascript'],
+        category: 'JavaScript',
+      }),
+      createPost('low-hub', {
+        date: '2024-06-01',
+        tags: ['react'],
+        category: 'JavaScript',
+      }),
+    ];
+
+    const related = getRelatedPosts(current, posts);
+    const discovery = related.filter(({ kind }) => kind === 'discovery');
+
+    expect(discovery[0].post.slug).toBe('low-hub');
+  });
+
+  it('should diversify second discovery away from the first discovery topic', () => {
+    const current = createPost('current', {
+      date: '2024-02-01',
+      tags: ['react', 'frontend', 'javascript'],
+      category: 'JavaScript',
+    });
+    const posts = [
+      current,
+      createPost('similar-a', {
+        date: '2024-03-01',
+        tags: ['react', 'frontend', 'javascript'],
+      }),
+      createPost('similar-b', {
+        date: '2024-01-01',
+        tags: ['react', 'frontend', 'javascript'],
+      }),
+      createPost('discovery-career', {
+        date: '2024-05-01',
+        tags: ['career', 'developer', 'remote-work'],
+        category: 'Activity',
+      }),
+      createPost('near-career', {
+        date: '2024-06-01',
+        tags: ['career', 'developer'],
+        category: 'Book',
+      }),
+      createPost('far-book', {
+        date: '2024-07-01',
+        tags: ['book-review', 'developer'],
+        category: 'Book',
+      }),
+    ];
+
+    const related = getRelatedPosts(current, posts);
+    const discovery = related
+      .filter(({ kind }) => kind === 'discovery')
+      .map(({ post }) => post);
+
+    expect(discovery).toHaveLength(2);
+    expect(countSharedTopicTags(discovery[0], discovery[1])).toBe(0);
+    expect(discovery[0].category).not.toBe(discovery[1].category);
+  });
+
+  it('should prefer lower hub overlap with the first discovery when other scores are equal', () => {
+    const current = createPost('current', {
+      date: '2024-02-01',
+      tags: ['react', 'frontend', 'javascript'],
+      category: 'JavaScript',
+    });
+    const posts = [
+      current,
+      createPost('similar-a', {
+        date: '2024-03-01',
+        tags: ['react', 'frontend', 'javascript'],
+      }),
+      createPost('similar-b', {
+        date: '2024-01-01',
+        tags: ['react', 'frontend', 'javascript'],
+      }),
+      createPost('discovery-career', {
+        date: '2024-05-01',
+        tags: ['career', 'developer'],
+        category: 'Activity',
+      }),
+      createPost('high-hub-vs-career', {
+        date: '2024-06-01',
+        tags: ['developer', 'career', 'retrospect'],
+        category: 'Book',
+      }),
+      createPost('low-hub-vs-career', {
+        date: '2024-07-01',
+        tags: ['developer'],
+        category: 'Book',
+      }),
+    ];
+
+    const related = getRelatedPosts(current, posts);
+    const discovery = related.filter(({ kind }) => kind === 'discovery');
+
+    expect(discovery).toHaveLength(2);
+    if (discovery[0].post.slug === 'discovery-career') {
+      expect(discovery[1].post.slug).toBe('low-hub-vs-career');
+    } else {
+      // 첫 픽이 달라져도 두 번째는 서로 다른 카테고리여야 함
+      expect(discovery[0].post.category).not.toBe(discovery[1].post.category);
+    }
+  });
+
+  it('should sort second discovery by lower topic overlap with the first discovery', () => {
+    const current = createPost('current', {
+      date: '2024-02-01',
+      tags: ['react', 'frontend', 'developer'],
+      category: 'JavaScript',
+    });
+    const posts = [
+      current,
+      createPost('similar-a', {
+        date: '2024-03-01',
+        tags: ['react', 'frontend', 'developer'],
+      }),
+      createPost('similar-b', {
+        date: '2024-01-01',
+        tags: ['react', 'frontend', 'developer'],
+      }),
+      // current hub overlap이 없어 첫 discovery로 확정
+      createPost('anchor-graphql', {
+        date: '2024-05-01',
+        tags: ['graphql', 'apollo', 'career'],
+        category: 'Activity',
+      }),
+      // anchor와 topic overlap이 있어 distant 필터를 비우고 점수 비교를 유도
+      createPost('high-overlap-anchor', {
+        date: '2024-06-01',
+        tags: ['graphql', 'apollo', 'developer'],
+        category: 'Book',
+      }),
+      createPost('low-overlap-anchor', {
+        date: '2024-07-01',
+        tags: ['graphql', 'developer'],
+        category: 'Book',
+      }),
+    ];
+
+    const related = getRelatedPosts(current, posts);
+    const discovery = related.filter(({ kind }) => kind === 'discovery');
+
+    expect(discovery).toHaveLength(2);
+    expect(discovery[0].post.slug).toBe('anchor-graphql');
+    expect(discovery[1].post.slug).toBe('low-overlap-anchor');
+  });
+
+  it('should prefer lower hub overlap with first discovery when topic and category are equal', () => {
+    const current = createPost('current', {
+      date: '2024-02-01',
+      tags: ['react', 'frontend', 'developer'],
+      category: 'JavaScript',
+    });
+    const posts = [
+      current,
+      createPost('similar-a', {
+        date: '2024-03-01',
+        tags: ['react', 'frontend', 'developer'],
+      }),
+      createPost('similar-b', {
+        date: '2024-01-01',
+        tags: ['react', 'frontend', 'developer'],
+      }),
+      createPost('anchor-graphql', {
+        date: '2024-05-01',
+        tags: ['graphql', 'career'],
+        category: 'Activity',
+      }),
+      createPost('high-hub-vs-anchor', {
+        date: '2024-06-01',
+        tags: ['graphql', 'career', 'developer'],
+        category: 'Book',
+      }),
+      createPost('low-hub-vs-anchor', {
+        date: '2024-07-01',
+        tags: ['graphql', 'developer'],
+        category: 'Book',
+      }),
+    ];
+
+    const related = getRelatedPosts(current, posts);
+    const discovery = related.filter(({ kind }) => kind === 'discovery');
+
+    expect(discovery[0].post.slug).toBe('anchor-graphql');
+    expect(discovery[1].post.slug).toBe('low-hub-vs-anchor');
+  });
 });
