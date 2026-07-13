@@ -100,9 +100,13 @@ describe('PrevNext', () => {
       />,
     );
 
-    await userEvent.click(
-      screen.getByRole('link', { name: '이전 글: prev-post title' }),
-    );
+    const link = screen.getByRole('link', {
+      name: '이전 글: prev-post title',
+    });
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+    });
+    await userEvent.click(link);
 
     expect(mockSendGAEvent).toHaveBeenCalledWith('event', 'postNavigation', {
       type: 'prev',
@@ -119,9 +123,13 @@ describe('PrevNext', () => {
       />,
     );
 
-    await userEvent.click(
-      screen.getByRole('link', { name: '다음 글: next-post title' }),
-    );
+    const link = screen.getByRole('link', {
+      name: '다음 글: next-post title',
+    });
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+    });
+    await userEvent.click(link);
 
     expect(mockSendGAEvent).toHaveBeenCalledWith('event', 'postNavigation', {
       type: 'next',
