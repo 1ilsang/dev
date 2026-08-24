@@ -11,7 +11,9 @@ export const Avatar: FunctionComponent<{ nav?: boolean }> = memo(
         href="/about"
         aria-label="About 페이지로 이동"
         className={classNames('mr-2 block', [
-          nav ? 'w-8 h-8 mt-2' : 'w-9 h-9 md:w-12 md:h-12',
+          nav
+            ? 'w-8 h-8 mt-2 xl:w-12 xl:h-12 xl:mt-0 xl:mr-1'
+            : 'w-9 h-9 md:w-12 md:h-12',
         ])}
       >
         <img

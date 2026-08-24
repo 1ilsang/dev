@@ -19,7 +19,10 @@ export const withMDX = createMDX({
       [
         'rehype-pretty-code',
         {
-          theme: 'material-theme-palenight',
+          theme: {
+            light: 'github-light',
+            dark: 'material-theme-palenight',
+          },
           keepBackground: false,
         },
       ],

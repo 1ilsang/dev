@@ -15,7 +15,10 @@ export const RelatedPosts: FunctionComponent<Props> = ({
   if (recommendations.length === 0) return null;
 
   return (
-    <section aria-labelledby="related-posts-heading" className="mt-12 mb-40">
+    <section
+      aria-labelledby="related-posts-heading"
+      className="mt-12 mb-12 xl:mb-0"
+    >
       <h2 id="related-posts-heading" className="text-2xl mb-4">
         더 보기
       </h2>

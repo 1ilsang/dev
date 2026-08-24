@@ -1,7 +1,7 @@
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import localFont from 'next/font/local';
 import { MyProfile } from '~/about/headline/data/profile';
 import { BannerWrapper } from '~/shared/components/Banner';
@@ -11,6 +11,7 @@ import {
   MetaKeywords,
   MetaTitle,
 } from '~/shared/constants/blog';
+import { THEME_COLOR, THEME_INIT_SCRIPT } from '~/shared/constants/theme';
 
 import { ScrollToTop } from '~/shared/hooks/useScrollToTop';
 
@@ -27,7 +28,10 @@ export default function RootLayout({
       className={`${ridi.variable} text-[14px] overflow-y-auto print:overflow-y-scroll h-full`}
       suppressHydrationWarning
     >
-      <body className="h-full text-white bg-snazzy-bg antialiased font-ridi print:text-black print:bg-white print:w-[210mm] print:h-[297mm] print:print-color-exact pr-scroll-lock md:custom-scrollbar overflow-y-auto print:overflow-y-visible">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+      </head>
+      <body className="h-full text-white bg-snazzy-bg antialiased font-ridi print:text-black print:bg-pure-white print:w-[210mm] print:h-[297mm] print:print-color-exact pr-scroll-lock md:custom-scrollbar overflow-y-auto print:overflow-y-visible">
         <ScrollToTop />
         <BannerWrapper />
         {children}
@@ -97,9 +101,14 @@ export const metadata: Metadata = {
   appleWebApp: {
     title: '1ilsang.dev',
     capable: true,
-    statusBarStyle: 'black-translucent',
+    statusBarStyle: 'default',
   },
   category: 'Technology',
+};
+
+export const viewport: Viewport = {
+  colorScheme: 'dark light',
+  themeColor: THEME_COLOR.dark,
 };
 
 const ridi = localFont({

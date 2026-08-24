@@ -36,6 +36,8 @@ const assetsToPublic = async () => {
     if (!postUrl) continue;
     const publicPostPath = path.resolve(PUBLIC_PATH, postUrl);
     const postDirFullPath = path.resolve(POST_PATH, postDirPath);
+    const postDocumentPath = path.resolve(postDirFullPath, 'docs.mdx');
+    if (!fs.existsSync(postDocumentPath)) continue;
 
     const assetFiles = fs
       .readdirSync(postDirFullPath, {
@@ -43,8 +45,6 @@ const assetsToPublic = async () => {
       })
       .filter((file) => allowFiles.includes(path.extname(file.name)))
       .map((file) => file.name);
-
-    if (assetFiles.length === 0) continue;
 
     if (fs.existsSync(publicPostPath)) {
       fs.rmSync(publicPostPath, { recursive: true });
@@ -57,6 +57,26 @@ const assetsToPublic = async () => {
         const movePath = path.resolve(publicPostPath, file);
         await fs.promises.copyFile(assetPath, movePath);
       }),
+    );
+
+    const redirectUrl = `/post/${encodeURIComponent(postUrl)}`;
+    const redirectHtml = `<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content="0;url=${redirectUrl}" />
+    <link rel="canonical" href="${redirectUrl}" />
+    <title>Redirecting…</title>
+    <script>location.replace(${JSON.stringify(redirectUrl)} + location.hash)</script>
+  </head>
+  <body>
+    <a href="${redirectUrl}">새 포스트 주소로 이동</a>
+  </body>
+</html>
+`;
+    await fs.promises.writeFile(
+      path.resolve(publicPostPath, 'index.html'),
+      redirectHtml,
     );
   }
 };

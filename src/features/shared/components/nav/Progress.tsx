@@ -16,7 +16,7 @@ export const NavProgress: FunctionComponent = () => {
     <progress
       id="nav-progress"
       className={classNames(
-        '[&::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none',
+        '[&::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none xl:right-0 xl:left-[calc((100vw-1280px)/2+256px)] xl:w-auto',
         [
           max === INIT_MAX
             ? '[&::-webkit-progress-value]:bg-base-og'

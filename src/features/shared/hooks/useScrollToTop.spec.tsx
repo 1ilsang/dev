@@ -55,7 +55,7 @@ describe('ScrollToTop', () => {
   it('should scroll to 0 on pathname change (link click)', () => {
     const { rerender } = render(<ScrollToTop />);
 
-    mockPathname = '/posts/test';
+    mockPathname = '/post/test';
     rerender(<ScrollToTop />);
 
     expect(scrollToSpy).toHaveBeenCalledWith(0, 0);
@@ -70,7 +70,7 @@ describe('ScrollToTop', () => {
 
     const { rerender } = render(<ScrollToTop />);
 
-    mockPathname = '/posts/test';
+    mockPathname = '/post/test';
     rerender(<ScrollToTop />);
 
     const saved = JSON.parse(
@@ -85,7 +85,7 @@ describe('ScrollToTop', () => {
       JSON.stringify({ '/posts': 300 }),
     );
 
-    mockPathname = '/posts/test';
+    mockPathname = '/post/test';
     const { rerender } = render(<ScrollToTop />);
 
     // Simulate popstate

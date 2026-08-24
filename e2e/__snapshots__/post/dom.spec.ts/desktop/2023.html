@@ -17,46 +17,391 @@
       "name": "1ilsang",
       "url": "https://1ilsang.dev"
     },
-    "url": "https://1ilsang.dev/posts/2023",
+    "url": "https://1ilsang.dev/post/2023",
     "keywords": ["developer", "career", "retrospect"]
   }
 </script>
 <progress
   id="nav-progress"
-  class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none xl:right-0 xl:left-[calc((100vw-1280px)/2+256px)] xl:w-auto [&amp;::-webkit-progress-value]:bg-base-og"
   aria-label="페이지 읽기 진행률"
   value="0"
   max="1"
 ></progress>
 <nav
   aria-label="메인 네비게이션"
-  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] shadow-nav shadow-lg"
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center max-xl:hover:animate-rainbow-water max-xl:hover:bg-nav max-xl:hover:bg-[length:400%_400%] xl:top-0 xl:left-0 xl:h-screen xl:w-[calc((100vw-1280px)/2+256px)] xl:flex-col xl:flex-nowrap xl:items-stretch xl:justify-start xl:border-r xl:border-base/40 xl:bg-sidebar xl:py-[40px] max-xl:shadow-nav max-xl:shadow-lg"
 >
-  <div class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
-    <a class="hover:underline" href="/">1ilsang</a>
+  <div class="hidden h-full w-[216px] xl:mr-5 xl:ml-auto xl:flex xl:flex-col">
+    <div class="ml-3 mb-4 flex items-center">
+      <a
+        aria-label="About 페이지로 이동"
+        class="mr-2 block w-8 h-8 mt-2 xl:w-12 xl:h-12 xl:mt-0 xl:mr-1"
+        href="/about"
+        ><img
+          class="border border-solid rounded-full w-full h-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+      <div class="flex min-w-0 flex-col items-start justify-center">
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-2xl font-bold my-2 ml-3.5 xl:m-0"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-1 hover:no-underline"
+            href="/"
+            ><span class="flex items-center gap-3"
+              ><span class="flex flex-col"
+                ><span>1ilsang.dev</span
+                ><span class="whitespace-nowrap text-xs font-normal text-dark"
+                  >Software Engineer</span
+                ></span
+              ></span
+            ></a
+          >
+        </div>
+      </div>
+    </div>
+    <ul class="flex flex-col gap-1">
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="m3 11 9-8 9 8"></path>
+                <path d="M5 10v10h14V10M9 20v-6h6v6"></path></svg
+              ><span class=""><span>Home</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/posts"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M6 3h9l4 4v14H6z"></path>
+                <path d="M14 3v5h5M9 12h6M9 16h6"></path></svg
+              ><span class=""><span>Posts</span></span></span
+            ></a
+          >
+        </div>
+        <ul aria-label="포스트 카테고리" class="mt-0.5 ml-[21px] py-1 pl-3">
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/javascript"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="m9 7-5 5 5 5M15 7l5 5-5 5"></path></svg
+              ><span class="truncate">JavaScript</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/rust"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="12" r="5"></circle>
+                <path
+                  d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"
+                ></path></svg
+              ><span class="truncate">Rust</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/activity"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M3 12h4l2-6 4 12 2-6h6"></path></svg
+              ><span class="truncate">Activity</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/book"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M4 5a3 3 0 0 1 3-2h5v17H7a3 3 0 0 0-3 2z"></path>
+                <path
+                  d="M20 5a3 3 0 0 0-3-2h-5v17h5a3 3 0 0 1 3 2z"
+                ></path></svg
+              ><span class="truncate">Book</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              aria-current="page"
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-base/60 bg-base/20 text-white"
+              href="/posts/retrospect"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="12" r="8"></circle>
+                <path d="M12 8v5l3 2M5 5 3 8"></path></svg
+              ><span class="truncate">Retrospect</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/tool"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path
+                  d="M14 6a4 4 0 0 0-5 5L3 17l4 4 6-6a4 4 0 0 0 5-5l-3 3-4-4z"
+                ></path></svg
+              ><span class="truncate">Tool</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-1/2"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/algorithm"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="6" cy="5" r="2"></circle>
+                <circle cx="18" cy="12" r="2"></circle>
+                <circle cx="6" cy="19" r="2"></circle>
+                <path
+                  d="M8 5h3a3 3 0 0 1 3 3v1M8 19h3a3 3 0 0 0 3-3v-1"
+                ></path></svg
+              ><span class="truncate">Algorithm</span></a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/tags"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M20 12 12 20 4 12V4h8z"></path>
+                <circle cx="9" cy="9" r="1.3"></circle></svg
+              ><span class=""><span>Tags</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/about"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="7" r="3"></circle>
+                <path d="M5 21v-2a7 7 0 0 1 14 0v2"></path></svg
+              ><span class=""><span>About</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+    </ul>
+    <div class="mt-auto">
+      <button
+        type="button"
+        class="flex w-full cursor-pointer items-center gap-2 rounded-sm border border-base/40 px-3 py-2 text-left text-xs text-sub-blue transition-colors hover:border-base/70 hover:bg-base/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight"
+        aria-label="라이트 모드로 전환"
+      >
+        <svg
+          aria-hidden="true"
+          class="h-4 w-4 flex-none"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.7"
+          viewBox="0 0 24 24"
+        >
+          <circle cx="12" cy="12" r="4"></circle>
+          <path
+            d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+          ></path></svg
+        ><span
+          >라이트<!-- -->
+          모드</span
+        >
+      </button>
+      <p class="mt-4 border-t border-base/40 pt-5 text-xs text-dark">
+        © 1ilsang
+      </p>
+    </div>
   </div>
-  <div class="flex">
-    <div class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/posts">posts</a>
+  <div class="flex w-full justify-between xl:hidden">
+    <div
+      class="tracking-tight mr-6 xl:mr-0 text-2xl font-bold my-2 ml-3.5 xl:m-0"
+    >
+      <a
+        class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+        href="/"
+        ><span class="flex items-center gap-3"
+          ><span class=""><span>1ilsang</span></span></span
+        ></a
+      >
     </div>
-    <div class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/tags">tags</a>
+    <div class="flex">
+      <div
+        class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+      >
+        <a
+          class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+          href="/posts"
+          ><span class="flex items-center gap-3"
+            ><span class=""><span>Posts</span></span></span
+          ></a
+        >
+      </div>
+      <div
+        class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+      >
+        <a
+          class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+          href="/tags"
+          ><span class="flex items-center gap-3"
+            ><span class=""><span>Tags</span></span></span
+          ></a
+        >
+      </div>
+      <a
+        aria-label="About 페이지로 이동"
+        class="mr-2 block w-8 h-8 mt-2 xl:w-12 xl:h-12 xl:mt-0 xl:mr-1"
+        href="/about"
+        ><img
+          class="border border-solid rounded-full w-full h-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
     </div>
-    <a
-      aria-label="About 페이지로 이동"
-      class="mr-2 block w-8 h-8 mt-2"
-      href="/about"
-      ><img
-        class="border border-solid rounded-full w-full h-full border-white-blue"
-        src="/images/chul.webp"
-        alt="1ilsang"
-    /></a>
   </div>
 </nav>
 <section
   id="main-content"
   tabindex="-1"
-  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
+  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 xl:pt-20 xl:pb-24 mx-4 min-[790px]:m-auto print:py-0 xl:!pb-6"
 >
   <h1 class="text-4xl break-words md:text-6xl">2023 회고록</h1>
   <section class="flex items-center mt-4">
@@ -126,7 +471,7 @@
       </div>
       <h2
         id="2022년의-목표"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -134,7 +479,7 @@
           href="#2022년의-목표"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >2022년의 목표
       </h2>
@@ -159,7 +504,7 @@
       </p>
       <h2
         id="keep"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -167,13 +512,11 @@
           href="#keep"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Keep
       </h2>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           현재 만족하고 있는 부분과 계속 이어갔으면 하는 부분
         </p>
@@ -188,7 +531,7 @@
           href="#기술적-관심"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >기술적 관심
       </h3>
@@ -269,7 +612,7 @@
           href="#회사"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >회사
       </h3>
@@ -310,7 +653,7 @@
         </li>
         <li class="my-1.25">
           <a
-            href="/posts/quality-of-job-review"
+            href="/post/quality-of-job-review"
             class="underline-highlight-fade"
             target="_blank"
             rel="noreferrer noopener"
@@ -329,7 +672,7 @@
           href="#대외활동"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >대외활동
       </h3>
@@ -356,7 +699,7 @@
         <li class="my-1.25">
           프런트엔드 반상회에서
           <a
-            href="/posts/geultto8-open-source-seminar"
+            href="/post/geultto8-open-source-seminar"
             class="underline-highlight-fade"
             target="_blank"
             rel="noreferrer noopener"
@@ -397,7 +740,7 @@
           href="#운동"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >운동
       </h3>
@@ -420,9 +763,7 @@
           </button>
         </div>
       </div>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           띠별 푼 문제 개수이다.
           <a
@@ -454,7 +795,7 @@
           href="#여행"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >여행
       </h3>
@@ -465,7 +806,7 @@
         </li>
         <li class="my-1.25">
           <a
-            href="/posts/bali-remote-work"
+            href="/post/bali-remote-work"
             class="underline-highlight-fade"
             target="_blank"
             rel="noreferrer noopener"
@@ -486,7 +827,7 @@
           href="#독서"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >독서
       </h3>
@@ -500,7 +841,7 @@
         </li>
         <li class="my-1.25">
           <a
-            href="/posts/proving-ground-review"
+            href="/post/proving-ground-review"
             class="underline-highlight-fade"
             target="_blank"
             rel="noreferrer noopener"
@@ -511,7 +852,7 @@
       </ul>
       <h2
         id="problem"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -519,13 +860,11 @@
           href="#problem"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Problem
       </h2>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           불편하게 느끼는 부분. 개선이 필요하다고 생각되는 부분
         </p>
@@ -540,7 +879,7 @@
           href="#데이터의-파편화"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >데이터의 파편화
       </h3>
@@ -561,7 +900,7 @@
           href="#기술-갈증"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >기술 갈증
       </h3>
@@ -586,7 +925,7 @@
           href="#생활"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >생활
       </h3>
@@ -607,7 +946,7 @@
       </ul>
       <h2
         id="try"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -615,13 +954,11 @@
           href="#try"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Try
       </h2>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">Problem에 대한 해결책. 다음 Action 플랜</p>
       </blockquote>
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
@@ -639,7 +976,7 @@
       </ul>
       <h2
         id="총평"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -647,7 +984,7 @@
           href="#총평"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >총평
       </h2>
@@ -674,7 +1011,7 @@
       <p class="mt-4 mb-4">더 진심으로 살아갈 필요가 있다.</p>
       <h2
         id="신년-목표"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -682,7 +1019,7 @@
           href="#신년-목표"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >신년 목표
       </h2>
@@ -746,152 +1083,208 @@
       class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
       aria-label="목차"
     >
-      <ul
-        class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
+      <div
+        class="sticky top-32 ml-9 w-[216px] min-[1320px]:top-48 min-[1320px]:ml-20"
       >
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="2022년의-목표"
-            href="#2022년의-목표"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >2022년의 목표</a
+        <p class="mb-2 px-3 text-[10px] tracking-[0.18em] text-dark uppercase">
+          On this page
+        </p>
+        <ul>
+          <li class="relative select-none">
+            <a
+              id="2022년의-목표"
+              href="#2022년의-목표"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >2022년의 목표</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="keep"
+              href="#keep"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Keep</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="keep"
-            href="#keep"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Keep</a
+            <a
+              id="기술적-관심"
+              href="#기술적-관심"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >기술적 관심</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="기술적-관심"
-            href="#기술적-관심"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >기술적 관심</a
+            <a
+              id="회사"
+              href="#회사"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >회사</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="회사"
-            href="#회사"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >회사</a
+            <a
+              id="대외활동"
+              href="#대외활동"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >대외활동</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="대외활동"
-            href="#대외활동"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >대외활동</a
+            <a
+              id="운동"
+              href="#운동"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >운동</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="운동"
-            href="#운동"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >운동</a
+            <a
+              id="여행"
+              href="#여행"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >여행</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-1/2"
           >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="여행"
-            href="#여행"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >여행</a
+            <a
+              id="독서"
+              href="#독서"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >독서</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="problem"
+              href="#problem"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Problem</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
-        >
-          <a
-            id="독서"
-            href="#독서"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >독서</a
+            <a
+              id="데이터의-파편화"
+              href="#데이터의-파편화"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >데이터의 파편화</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="problem"
-            href="#problem"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Problem</a
+            <a
+              id="기술-갈증"
+              href="#기술-갈증"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >기술 갈증</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-1/2"
           >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="데이터의-파편화"
-            href="#데이터의-파편화"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >데이터의 파편화</a
-          >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="기술-갈증"
-            href="#기술-갈증"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >기술 갈증</a
-          >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
-        >
-          <a
-            id="생활"
-            href="#생활"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >생활</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="try"
-            href="#try"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Try</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="총평"
-            href="#총평"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >총평</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="신년-목표"
-            href="#신년-목표"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >신년 목표</a
-          >
-        </li>
-      </ul>
+            <a
+              id="생활"
+              href="#생활"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >생활</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="try"
+              href="#try"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Try</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="총평"
+              href="#총평"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >총평</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="신년-목표"
+              href="#신년-목표"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >신년 목표</span
+              ></a
+            >
+          </li>
+        </ul>
+      </div>
     </aside>
   </section>
   <a
-    class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water"
+    class="inline-block text-highlight leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-highlight after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water"
     href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] 2023%20%ED%9A%8C%EA%B3%A0%EB%A1%9D&amp;body=&lt;!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 --&gt;"
     rel="noopener noreferrer"
     target="_blank"
@@ -914,13 +1307,13 @@
       <a
         class="group flex flex-col gap-1 max-w-[45%] hover:text-highlight duration-300 items-start text-left"
         aria-label="이전 글: 발리 한 달 리모트 워크 후기"
-        href="/posts/bali-remote-work"
+        href="/post/bali-remote-work"
         ><span class="text-sm text-date-gray">← 이전 글</span
         ><span class="title-underline">발리 한 달 리모트 워크 후기</span></a
       ><a
         class="group flex flex-col gap-1 max-w-[45%] hover:text-highlight duration-300 items-end text-right ml-auto"
         aria-label="다음 글: 러스트 시작! - 유데미 Rust Programming를 수강하며"
-        href="/posts/udemy-rust-programming"
+        href="/post/udemy-rust-programming"
         ><span class="text-sm text-date-gray">다음 글 →</span
         ><span class="title-underline"
           >러스트 시작! - 유데미 Rust Programming를 수강하며</span
@@ -928,7 +1321,7 @@
       >
     </div>
   </nav>
-  <section aria-labelledby="related-posts-heading" class="mt-12 mb-40">
+  <section aria-labelledby="related-posts-heading" class="mt-12 mb-12 xl:mb-0">
     <h2 id="related-posts-heading" class="text-2xl mb-4">더 보기</h2>
     <ul>
       <li
@@ -937,7 +1330,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-2024-woowa-ignite-description"
-          href="/posts/2024-woowa-ignite"
+          href="/post/2024-woowa-ignite"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -952,18 +1345,18 @@
           </div>
           <div class="w-full mt-2 md:mt-0">
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               우아콘 이그나이트 - 오픈소스 참여 경험 발표 후기
             </h3>
             <p
               id="related-post-2024-woowa-ignite-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               발표 준비 과정과 생각 정리
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2025-01-05 21:24"
               >2025-01-05 21:24</time
             >
@@ -976,7 +1369,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-inflearn-meetup-03-dev-career-description"
-          href="/posts/inflearn-meetup-03-dev-career"
+          href="/post/inflearn-meetup-03-dev-career"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -991,18 +1384,18 @@
           </div>
           <div class="w-full mt-2 md:mt-0">
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               인프런 판교 퇴근길 밋업 - 개발자 커리어 후기
             </h3>
             <p
               id="related-post-inflearn-meetup-03-dev-career-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               한기용님의 실리콘밸리에서 인정받는 개발자의 특징 10가지 소개
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2024-06-08 18:30"
               >2024-06-08 18:30</time
             >
@@ -1015,7 +1408,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-nodejs-architecture-dive-description"
-          href="/posts/nodejs-architecture-dive"
+          href="/post/nodejs-architecture-dive"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -1033,18 +1426,18 @@
               >다른 주제 탐색</span
             >
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               Node.js 아키텍처 및 동작 분석
             </h3>
             <p
               id="related-post-nodejs-architecture-dive-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               노드 내부 의존성의 존재의의와 연결성을 코드로 알아보기
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2025-03-24 21:27"
               >2025-03-24 21:27</time
             >
@@ -1057,7 +1450,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-proving-ground-review-description"
-          href="/posts/proving-ground-review"
+          href="/post/proving-ground-review"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -1075,18 +1468,18 @@
               >다른 주제 탐색</span
             >
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               "사라진 개발자들" 리뷰
             </h3>
             <p
               id="related-post-proving-ground-review-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               악삭박박과 최초의 개발자들
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2023-09-24 13:24"
               >2023-09-24 13:24</time
             >

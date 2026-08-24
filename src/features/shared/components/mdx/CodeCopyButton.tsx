@@ -23,9 +23,9 @@ export const CodeCopyButton = () => {
         borderRadius: '4px',
         fontSize: '12px',
         lineHeight: '1',
-        color: '#a0aec0',
-        background: '#2d3748',
-        border: '1px solid #4a5568',
+        color: 'var(--theme-copy-foreground)',
+        background: 'var(--theme-copy-background)',
+        border: '1px solid var(--theme-code-border)',
         cursor: 'pointer',
         transition: 'color 0.15s, border-color 0.15s',
         minWidth: '52px',
@@ -36,13 +36,13 @@ export const CodeCopyButton = () => {
 
       btn.addEventListener('mouseenter', () => {
         if (btn.dataset.copied) return;
-        btn.style.color = '#fff';
-        btn.style.background = '#4a5568';
+        btn.style.color = 'var(--theme-foreground)';
+        btn.style.background = 'var(--theme-copy-hover-background)';
       });
       btn.addEventListener('mouseleave', () => {
         if (btn.dataset.copied) return;
-        btn.style.color = '#a0aec0';
-        btn.style.background = '#2d3748';
+        btn.style.color = 'var(--theme-copy-foreground)';
+        btn.style.background = 'var(--theme-copy-background)';
       });
 
       btn.addEventListener('click', async () => {
@@ -54,12 +54,12 @@ export const CodeCopyButton = () => {
 
         btn.dataset.copied = 'true';
         btn.textContent = '✅';
-        btn.style.color = '#68d391';
-        btn.style.borderColor = '#68d391';
+        btn.style.color = 'var(--theme-copy-success)';
+        btn.style.borderColor = 'var(--theme-copy-success)';
         btn.style.cursor = 'default';
         btn.style.transition = 'none';
         btn.style.background =
-          'linear-gradient(to right, #22543d var(--fill), #2d3748 var(--fill))';
+          'linear-gradient(to right, var(--theme-copy-success-background) var(--fill), var(--theme-copy-background) var(--fill))';
         btn.style.setProperty('--fill', '0%');
 
         requestAnimationFrame(() => {
@@ -71,9 +71,9 @@ export const CodeCopyButton = () => {
         setTimeout(() => {
           delete btn.dataset.copied;
           btn.textContent = 'Copy';
-          btn.style.color = '#a0aec0';
-          btn.style.background = '#2d3748';
-          btn.style.borderColor = '#4a5568';
+          btn.style.color = 'var(--theme-copy-foreground)';
+          btn.style.background = 'var(--theme-copy-background)';
+          btn.style.borderColor = 'var(--theme-code-border)';
           btn.style.cursor = 'pointer';
           btn.style.transition = 'color 0.15s, border-color 0.15s';
         }, 2000);

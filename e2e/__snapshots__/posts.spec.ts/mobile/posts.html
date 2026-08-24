@@ -1,90 +1,416 @@
 <nav
   aria-label="메인 네비게이션"
-  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] shadow-nav shadow-lg"
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center max-xl:hover:animate-rainbow-water max-xl:hover:bg-nav max-xl:hover:bg-[length:400%_400%] xl:top-0 xl:left-0 xl:h-screen xl:w-[calc((100vw-1280px)/2+256px)] xl:flex-col xl:flex-nowrap xl:items-stretch xl:justify-start xl:border-r xl:border-base/40 xl:bg-sidebar xl:py-[40px] max-xl:shadow-nav max-xl:shadow-lg"
 >
-  <div class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
-    <a class="hover:underline" href="/">1ilsang</a>
+  <div class="hidden h-full w-[216px] xl:mr-5 xl:ml-auto xl:flex xl:flex-col">
+    <div class="ml-3 mb-4 flex items-center">
+      <a
+        aria-label="About 페이지로 이동"
+        class="mr-2 block w-8 h-8 mt-2 xl:w-12 xl:h-12 xl:mt-0 xl:mr-1"
+        href="/about"
+        ><img
+          class="border border-solid rounded-full w-full h-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+      <div class="flex min-w-0 flex-col items-start justify-center">
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-2xl font-bold my-2 ml-3.5 xl:m-0"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-1 hover:no-underline"
+            href="/"
+            ><span class="flex items-center gap-3"
+              ><span class="flex flex-col"
+                ><span>1ilsang.dev</span
+                ><span class="whitespace-nowrap text-xs font-normal text-dark"
+                  >Software Engineer</span
+                ></span
+              ></span
+            ></a
+          >
+        </div>
+      </div>
+    </div>
+    <ul class="flex flex-col gap-1">
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="m3 11 9-8 9 8"></path>
+                <path d="M5 10v10h14V10M9 20v-6h6v6"></path></svg
+              ><span class=""><span>Home</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            aria-current="page"
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline xl:border-base/60 xl:bg-base/10 xl:text-highlight"
+            href="/posts"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M6 3h9l4 4v14H6z"></path>
+                <path d="M14 3v5h5M9 12h6M9 16h6"></path></svg
+              ><span class=""><span>Posts</span></span></span
+            ></a
+          >
+        </div>
+        <ul aria-label="포스트 카테고리" class="mt-0.5 ml-[21px] py-1 pl-3">
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/javascript"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="m9 7-5 5 5 5M15 7l5 5-5 5"></path></svg
+              ><span class="truncate">JavaScript</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/rust"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="12" r="5"></circle>
+                <path
+                  d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"
+                ></path></svg
+              ><span class="truncate">Rust</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/activity"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M3 12h4l2-6 4 12 2-6h6"></path></svg
+              ><span class="truncate">Activity</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/book"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M4 5a3 3 0 0 1 3-2h5v17H7a3 3 0 0 0-3 2z"></path>
+                <path
+                  d="M20 5a3 3 0 0 0-3-2h-5v17h5a3 3 0 0 1 3 2z"
+                ></path></svg
+              ><span class="truncate">Book</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/retrospect"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="12" r="8"></circle>
+                <path d="M12 8v5l3 2M5 5 3 8"></path></svg
+              ><span class="truncate">Retrospect</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/tool"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path
+                  d="M14 6a4 4 0 0 0-5 5L3 17l4 4 6-6a4 4 0 0 0 5-5l-3 3-4-4z"
+                ></path></svg
+              ><span class="truncate">Tool</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-1/2"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/algorithm"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="6" cy="5" r="2"></circle>
+                <circle cx="18" cy="12" r="2"></circle>
+                <circle cx="6" cy="19" r="2"></circle>
+                <path
+                  d="M8 5h3a3 3 0 0 1 3 3v1M8 19h3a3 3 0 0 0 3-3v-1"
+                ></path></svg
+              ><span class="truncate">Algorithm</span></a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/tags"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M20 12 12 20 4 12V4h8z"></path>
+                <circle cx="9" cy="9" r="1.3"></circle></svg
+              ><span class=""><span>Tags</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/about"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="7" r="3"></circle>
+                <path d="M5 21v-2a7 7 0 0 1 14 0v2"></path></svg
+              ><span class=""><span>About</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+    </ul>
+    <div class="mt-auto">
+      <button
+        type="button"
+        class="flex w-full cursor-pointer items-center gap-2 rounded-sm border border-base/40 px-3 py-2 text-left text-xs text-sub-blue transition-colors hover:border-base/70 hover:bg-base/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight"
+        aria-label="라이트 모드로 전환"
+      >
+        <svg
+          aria-hidden="true"
+          class="h-4 w-4 flex-none"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.7"
+          viewBox="0 0 24 24"
+        >
+          <circle cx="12" cy="12" r="4"></circle>
+          <path
+            d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+          ></path></svg
+        ><span
+          >라이트<!-- -->
+          모드</span
+        >
+      </button>
+      <p class="mt-4 border-t border-base/40 pt-5 text-xs text-dark">
+        © 1ilsang
+      </p>
+    </div>
   </div>
-  <div class="flex">
-    <div class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/posts">posts</a>
+  <div class="flex w-full justify-between xl:hidden">
+    <div
+      class="tracking-tight mr-6 xl:mr-0 text-2xl font-bold my-2 ml-3.5 xl:m-0"
+    >
+      <a
+        class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+        href="/"
+        ><span class="flex items-center gap-3"
+          ><span class=""><span>1ilsang</span></span></span
+        ></a
+      >
     </div>
-    <div class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/tags">tags</a>
+    <div class="flex">
+      <div
+        class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+      >
+        <a
+          aria-current="page"
+          class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline xl:border-base/60 xl:bg-base/10 xl:text-highlight"
+          href="/posts"
+          ><span class="flex items-center gap-3"
+            ><span class=""><span>Posts</span></span></span
+          ></a
+        >
+      </div>
+      <div
+        class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+      >
+        <a
+          class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+          href="/tags"
+          ><span class="flex items-center gap-3"
+            ><span class=""><span>Tags</span></span></span
+          ></a
+        >
+      </div>
+      <a
+        aria-label="About 페이지로 이동"
+        class="mr-2 block w-8 h-8 mt-2 xl:w-12 xl:h-12 xl:mt-0 xl:mr-1"
+        href="/about"
+        ><img
+          class="border border-solid rounded-full w-full h-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
     </div>
-    <a
-      aria-label="About 페이지로 이동"
-      class="mr-2 block w-8 h-8 mt-2"
-      href="/about"
-      ><img
-        class="border border-solid rounded-full w-full h-full border-white-blue"
-        src="/images/chul.webp"
-        alt="1ilsang"
-    /></a>
   </div>
 </nav>
 <section
   id="main-content"
   tabindex="-1"
-  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0 md:py-[4.8rem]"
+  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 xl:pt-20 xl:pb-24 mx-4 min-[790px]:m-auto print:py-0 min-h-dvh md:py-[4.8rem] xl:!min-h-0 xl:flex-1"
 >
   <h1 class="sr-only">Posts</h1>
   <div class="flex flex-wrap justify-center mb-4 border-b border-sub-blue">
-    <button
-      type="button"
-      class="inline-block cursor-pointer select-none my-1.5 mx-5 hover:category-shadow border-none bg-transparent font-inherit p-0 text-inherit after:content-['𒅄'] hover:animate-slow-spin"
+    <a
+      class="inline-block cursor-pointer select-none my-1.5 mx-5 hover:category-shadow border-none bg-transparent font-inherit p-0 after:content-['𒅄'] hover:animate-slow-spin text-highlight"
+      aria-current="page"
       aria-label="카테고리 필터 초기화"
-    ></button
-    ><button
-      type="button"
+      href="/posts"
+    ></a
+    ><a
       class="inline-block cursor-pointer select-none my-1.5 mx-5 hover:category-shadow border-none bg-transparent font-inherit p-0 text-inherit"
-      value="JavaScript"
-      aria-pressed="false"
-    >
-      JavaScript</button
-    ><button
-      type="button"
+      href="/posts/javascript"
+      >JavaScript</a
+    ><a
       class="inline-block cursor-pointer select-none my-1.5 mx-5 hover:category-shadow border-none bg-transparent font-inherit p-0 text-inherit"
-      value="Rust"
-      aria-pressed="false"
-    >
-      Rust</button
-    ><button
-      type="button"
+      href="/posts/rust"
+      >Rust</a
+    ><a
       class="inline-block cursor-pointer select-none my-1.5 mx-5 hover:category-shadow border-none bg-transparent font-inherit p-0 text-inherit"
-      value="Activity"
-      aria-pressed="false"
-    >
-      Activity</button
-    ><button
-      type="button"
+      href="/posts/activity"
+      >Activity</a
+    ><a
       class="inline-block cursor-pointer select-none my-1.5 mx-5 hover:category-shadow border-none bg-transparent font-inherit p-0 text-inherit"
-      value="Book"
-      aria-pressed="false"
-    >
-      Book</button
-    ><button
-      type="button"
+      href="/posts/book"
+      >Book</a
+    ><a
       class="inline-block cursor-pointer select-none my-1.5 mx-5 hover:category-shadow border-none bg-transparent font-inherit p-0 text-inherit"
-      value="Retrospect"
-      aria-pressed="false"
-    >
-      Retrospect</button
-    ><button
-      type="button"
+      href="/posts/retrospect"
+      >Retrospect</a
+    ><a
       class="inline-block cursor-pointer select-none my-1.5 mx-5 hover:category-shadow border-none bg-transparent font-inherit p-0 text-inherit"
-      value="Tool"
-      aria-pressed="false"
-    >
-      Tool</button
-    ><button
-      type="button"
+      href="/posts/tool"
+      >Tool</a
+    ><a
       class="inline-block cursor-pointer select-none my-1.5 mx-5 hover:category-shadow border-none bg-transparent font-inherit p-0 text-inherit"
-      value="Algorithm"
-      aria-pressed="false"
+      href="/posts/algorithm"
+      >Algorithm</a
     >
-      Algorithm
-    </button>
   </div>
   <ul class="pb-24 md:pb-56">
     <li
@@ -92,7 +418,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/is-supply-chain-attack"
+        href="/post/is-supply-chain-attack"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -107,15 +433,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             is 패키지의 Supply Chain Attack 과정 분석
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             메인테이너는 어떻게 토큰을 탈취당했을까?
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2025-09-10 20:02"
             >2025-09-10 20:02</time
           >
@@ -127,7 +453,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/nodejs-architecture-dive"
+        href="/post/nodejs-architecture-dive"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -142,15 +468,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             Node.js 아키텍처 및 동작 분석
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             노드 내부 의존성의 존재의의와 연결성을 코드로 알아보기
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2025-03-24 21:27"
             >2025-03-24 21:27</time
           >
@@ -160,7 +486,7 @@
     <li
       class="px-1 md:px-8 py-4 mb-1 md:rounded-[35px_60px/80px_25px] hover:bg-rainbow-water hover:animate-rainbow-water hover:bg-[length:400%_400%] group overflow-hidden transform-gpu duration-300"
     >
-      <a class="flex flex-col items-center md:flex-row" href="/posts/n-api"
+      <a class="flex flex-col items-center md:flex-row" href="/post/n-api"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -175,15 +501,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             N-API(Node-API) 얕게 알아보기(feat. Rust)
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             N-API를 이해하고 Node.js Addon에 Rust를 붙이는 방법을 알아보자.
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2025-03-16 21:37"
             >2025-03-16 21:37</time
           >
@@ -193,9 +519,7 @@
     <li
       class="px-1 md:px-8 py-4 mb-1 md:rounded-[35px_60px/80px_25px] hover:bg-rainbow-water hover:animate-rainbow-water hover:bg-[length:400%_400%] group overflow-hidden transform-gpu duration-300"
     >
-      <a
-        class="flex flex-col items-center md:flex-row"
-        href="/posts/object-type"
+      <a class="flex flex-col items-center md:flex-row" href="/post/object-type"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -210,15 +534,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             Object vs object vs {}
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             객체 타입의 이해와 문자열 리터럴 확장하기
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2025-01-19 19:45"
             >2025-01-19 19:45</time
           >
@@ -230,7 +554,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/2024-woowa-ignite"
+        href="/post/2024-woowa-ignite"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -245,15 +569,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             우아콘 이그나이트 - 오픈소스 참여 경험 발표 후기
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             발표 준비 과정과 생각 정리
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2025-01-05 21:24"
             >2025-01-05 21:24</time
           >
@@ -265,7 +589,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/mdn-contributing-translations"
+        href="/post/mdn-contributing-translations"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -280,15 +604,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             오픈소스 기여 첫걸음, MDN 문서 번역 가이드
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             MDN 문서 번역 방법을 알아보자
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2024-12-22 02:01"
             >2024-12-22 02:01</time
           >
@@ -300,7 +624,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/google-adsense"
+        href="/post/google-adsense"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -315,15 +639,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             [Next.js] Google AdSense 광고 적용 및 이해하기
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             구글 광고 적용기
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2024-08-22 16:26"
             >2024-08-22 16:26</time
           >
@@ -335,7 +659,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/inflearn-meetup-03-dev-career"
+        href="/post/inflearn-meetup-03-dev-career"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -350,15 +674,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             인프런 판교 퇴근길 밋업 - 개발자 커리어 후기
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             한기용님의 실리콘밸리에서 인정받는 개발자의 특징 10가지 소개
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2024-06-08 18:30"
             >2024-06-08 18:30</time
           >
@@ -370,7 +694,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/typescript-subtyping"
+        href="/post/typescript-subtyping"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -385,15 +709,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             Object.keys()는 왜 string[] 타입일까?
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             구조적 서브 타이핑과 집합적 특징을 알아보자
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2024-05-10 22:11"
             >2024-05-10 22:11</time
           >
@@ -405,7 +729,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/visual-regression-test"
+        href="/post/visual-regression-test"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -420,15 +744,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             시각적 회귀 테스트 도입기
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             playwright 소개와 트러블 슈팅
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2024-05-06 14:34"
             >2024-05-06 14:34</time
           >
@@ -440,7 +764,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/mdn-ko-organizer"
+        href="/post/mdn-ko-organizer"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -455,15 +779,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             @mdn/yari-content-ko Organizer 합류 여정
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             Mozilla Developer Network는 어떤 곳일까?
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2024-04-13 17:21"
             >2024-04-13 17:21</time
           >
@@ -475,7 +799,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/micro-state-management-review"
+        href="/post/micro-state-management-review"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -490,15 +814,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             Micro State Management with React Hooks 리뷰
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             상태 관리의 종류와 기술들에 대한 이해
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2024-03-01 09:00"
             >2024-03-01 09:00</time
           >
@@ -510,7 +834,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/array-prototype-sort"
+        href="/post/array-prototype-sort"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -525,15 +849,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             Array.prototype.sort() 이해하기
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             정열적으로 정렬해 보기
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2024-02-28 05:56"
             >2024-02-28 05:56</time
           >
@@ -545,7 +869,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/vite-dev-server"
+        href="/post/vite-dev-server"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -560,15 +884,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             Vite Dev Server 이해하기 (feat. HMR)
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             Dev 서버의 동작 방식은 어떻게 될까?
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2024-02-04 22:50"
             >2024-02-04 22:50</time
           >
@@ -580,7 +904,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/udemy-rust-programming"
+        href="/post/udemy-rust-programming"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -595,13 +919,13 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             러스트 시작! - 유데미 Rust Programming를 수강하며
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">가보자고</p>
+          <p class="text-white-blue group-hover:text-on-vibrant">가보자고</p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2024-01-13 16:47"
             >2024-01-13 16:47</time
           >
@@ -611,7 +935,7 @@
     <li
       class="px-1 md:px-8 py-4 mb-1 md:rounded-[35px_60px/80px_25px] hover:bg-rainbow-water hover:animate-rainbow-water hover:bg-[length:400%_400%] group overflow-hidden transform-gpu duration-300"
     >
-      <a class="flex flex-col items-center md:flex-row" href="/posts/2023"
+      <a class="flex flex-col items-center md:flex-row" href="/post/2023"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -626,15 +950,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             2023 회고록
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             올해를 돌아보며
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2023-12-31 14:27"
             >2023-12-31 14:27</time
           >
@@ -646,7 +970,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/bali-remote-work"
+        href="/post/bali-remote-work"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -661,15 +985,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             발리 한 달 리모트 워크 후기
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             발리 한 달 살기 얼마나 낭만 있을까?
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2023-12-30 17:21"
             >2023-12-30 17:21</time
           >
@@ -681,7 +1005,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/mac-init-apps"
+        href="/post/mac-init-apps"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -696,15 +1020,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             웹 개발자를 위한 도구 추천 - 유용한 Mac 앱들
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             생산성을 올려줄 유용한 맥 앱을 알아보자
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2023-12-24 12:54"
             >2023-12-24 12:54</time
           >
@@ -716,7 +1040,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/woowa-type-review"
+        href="/post/woowa-type-review"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -731,15 +1055,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             우아한 타입스크립트 with 리액트 리뷰
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             주니어 FE를 위한 온보딩 책
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2023-11-24 21:37"
             >2023-11-24 21:37</time
           >
@@ -751,7 +1075,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/leetcode-hard-42"
+        href="/post/leetcode-hard-42"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -766,15 +1090,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             [LeetCode] 42. Trapping Rain Water
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             2차원 좌표의 영역을 빠르게 구해보자
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2023-10-14 17:10"
             >2023-10-14 17:10</time
           >
@@ -786,7 +1110,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/proving-ground-review"
+        href="/post/proving-ground-review"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -801,15 +1125,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             "사라진 개발자들" 리뷰
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             악삭박박과 최초의 개발자들
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2023-09-24 13:24"
             >2023-09-24 13:24</time
           >
@@ -821,7 +1145,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/jeju-remote-work"
+        href="/post/jeju-remote-work"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -836,15 +1160,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             제주 한 달 리모트 워크 후기
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             제주 한 달 살기 얼마나 낭만 있을까?
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2023-09-16 12:19"
             >2023-09-16 12:19</time
           >
@@ -856,7 +1180,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/goorm-195698"
+        href="/post/goorm-195698"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -871,15 +1195,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             [구름톤 챌린지] 연합
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             단방향 그래프의 집합을 BFS 및 Union-Find로 구해보자
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2023-09-06 19:12"
             >2023-09-06 19:12</time
           >
@@ -891,7 +1215,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/goorm-195696"
+        href="/post/goorm-195696"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -906,15 +1230,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             [구름톤 챌린지] 작은 노드
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             양방향 그래프 가볍게 복습하기
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2023-09-03 21:14"
             >2023-09-03 21:14</time
           >
@@ -926,7 +1250,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/geultto8-open-source-seminar"
+        href="/post/geultto8-open-source-seminar"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -941,15 +1265,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             [글또 세미나] 모여봐요 오픈소스의 숲 발표 후기
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             번역 기여 방법과 코어 코드에 접근하는 방법
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2023-09-01 20:30"
             >2023-09-01 20:30</time
           >
@@ -961,7 +1285,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/deploy-eslint-plugin"
+        href="/post/deploy-eslint-plugin"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -976,15 +1300,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             ESLint 플러그인 배포하기
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             ESLint 플러그인 배포 방법 알아보기
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2023-09-01 15:48"
             >2023-09-01 15:48</time
           >
@@ -996,7 +1320,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/goorm-195693"
+        href="/post/goorm-195693"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -1011,15 +1335,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             [구름톤 챌린지] 통증2
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             완전 탐색에서 DP까지
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2023-08-29 16:27"
             >2023-08-29 16:27</time
           >
@@ -1031,7 +1355,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/goorm-195692"
+        href="/post/goorm-195692"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -1046,15 +1370,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             [구름톤 챌린지] GameJam
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             시뮬레이션 단계화하기
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2023-08-27 23:35"
             >2023-08-27 23:35</time
           >
@@ -1066,7 +1390,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/junction2023"
+        href="/post/junction2023"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -1081,15 +1405,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             Junction Asia 2023 참여 후기
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             부산 벡스코에서 2박 3일간 정션 해커톤에 참여했다
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2023-08-23 19:58"
             >2023-08-23 19:58</time
           >
@@ -1101,7 +1425,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/goorm-195687"
+        href="/post/goorm-195687"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -1116,15 +1440,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             [구름톤 챌린지] 이진수 정렬
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             메모이제이션 활용하기
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2023-08-21 21:56"
             >2023-08-21 21:56</time
           >
@@ -1136,7 +1460,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/leetcode-medium-238"
+        href="/post/leetcode-medium-238"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -1151,15 +1475,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             [LeetCode] 238. Product of Array Except Self
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             연속되는 곱셈을 어떻게 처리할까?
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2023-08-13 22:31"
             >2023-08-13 22:31</time
           >
@@ -1169,7 +1493,7 @@
     <li
       class="px-1 md:px-8 py-4 mb-1 md:rounded-[35px_60px/80px_25px] hover:bg-rainbow-water hover:animate-rainbow-water hover:bg-[length:400%_400%] group overflow-hidden transform-gpu duration-300"
     >
-      <a class="flex flex-col items-center md:flex-row" href="/posts/storybook7"
+      <a class="flex flex-col items-center md:flex-row" href="/post/storybook7"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -1184,15 +1508,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             Storybook 7.0 살펴보기
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             7버전은 무엇이 달라졌을까?
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2023-08-13 19:17"
             >2023-08-13 19:17</time
           >
@@ -1204,7 +1528,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/leetcode-easy-2727"
+        href="/post/leetcode-easy-2727"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -1219,15 +1543,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             [LeetCode] 2727. Is Object Empty
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             for...in vs for...of
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2023-08-01 10:02"
             >2023-08-01 10:02</time
           >
@@ -1237,7 +1561,7 @@
     <li
       class="px-1 md:px-8 py-4 mb-1 md:rounded-[35px_60px/80px_25px] hover:bg-rainbow-water hover:animate-rainbow-water hover:bg-[length:400%_400%] group overflow-hidden transform-gpu duration-300"
     >
-      <a class="flex flex-col items-center md:flex-row" href="/posts/prettier3"
+      <a class="flex flex-col items-center md:flex-row" href="/post/prettier3"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -1252,15 +1576,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             Prettier v3 변경사항 살펴보기
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             린트없인 못살아
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2023-07-06 22:29"
             >2023-07-06 22:29</time
           >
@@ -1272,7 +1596,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/quality-of-job-review"
+        href="/post/quality-of-job-review"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -1287,15 +1611,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             "일의 격"을 읽고
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             신수정님의 '일의 격' 책을 읽고 생각을 정리하게 되었다
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2023-06-22 20:36"
             >2023-06-22 20:36</time
           >
@@ -1307,7 +1631,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/use-transition"
+        href="/post/use-transition"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -1322,15 +1646,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             useTransition 이해하기
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             상태 업데이트의 우선 순위를 지정해보자
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2023-06-04 20:38"
             >2023-06-04 20:38</time
           >
@@ -1342,7 +1666,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/implicit-coercion"
+        href="/post/implicit-coercion"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -1357,15 +1681,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             알랑말랑 암묵적 형변환 말랑말랑 이해하기
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             자바스크립트의 형변환은 어떻게 일어나는가?
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2023-04-22 17:02"
             >2023-04-22 17:02</time
           >
@@ -1375,9 +1699,7 @@
     <li
       class="px-1 md:px-8 py-4 mb-1 md:rounded-[35px_60px/80px_25px] hover:bg-rainbow-water hover:animate-rainbow-water hover:bg-[length:400%_400%] group overflow-hidden transform-gpu duration-300"
     >
-      <a
-        class="flex flex-col items-center md:flex-row"
-        href="/posts/typescript5"
+      <a class="flex flex-col items-center md:flex-row" href="/post/typescript5"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -1392,15 +1714,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             TypeScript 5.0 살펴보기
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             5버전은 무엇이 달라졌을까?
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2023-04-09 16:24"
             >2023-04-09 16:24</time
           >
@@ -1412,7 +1734,7 @@
     >
       <a
         class="flex flex-col items-center md:flex-row"
-        href="/posts/use-prevent-leave"
+        href="/post/use-prevent-leave"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -1427,15 +1749,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             페이지 이탈시 확인 컨펌창 만들기
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             usePreventLeave를 알아보자
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2023-03-12 15:14"
             >2023-03-12 15:14</time
           >
@@ -1445,7 +1767,7 @@
     <li
       class="px-1 md:px-8 py-4 mb-1 md:rounded-[35px_60px/80px_25px] hover:bg-rainbow-water hover:animate-rainbow-water hover:bg-[length:400%_400%] group overflow-hidden transform-gpu duration-300"
     >
-      <a class="flex flex-col items-center md:flex-row" href="/posts/renovate"
+      <a class="flex flex-col items-center md:flex-row" href="/post/renovate"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -1460,15 +1782,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             Renovate 간단하게 살펴보기
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             패키지 매니징을 자동화 해보자
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2022-07-02 14:01"
             >2022-07-02 14:01</time
           >
@@ -1478,7 +1800,7 @@
     <li
       class="px-1 md:px-8 py-4 mb-1 md:rounded-[35px_60px/80px_25px] hover:bg-rainbow-water hover:animate-rainbow-water hover:bg-[length:400%_400%] group overflow-hidden transform-gpu duration-300"
     >
-      <a class="flex flex-col items-center md:flex-row" href="/posts/turborepo"
+      <a class="flex flex-col items-center md:flex-row" href="/post/turborepo"
         ><div
           class="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue"
         >
@@ -1493,15 +1815,15 @@
         </div>
         <div class="w-full mt-2 md:mt-0">
           <h2
-            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+            class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
           >
             Turborepo로 모노레포 개발 경험 향상하기
           </h2>
-          <p class="text-white-blue group-hover:text-snazzy-bg">
+          <p class="text-white-blue group-hover:text-on-vibrant">
             모노레포와 터보레포를 간략히 알아보자
           </p>
           <time
-            class="text-sub-blue group-hover:text-snazzy-bg"
+            class="text-sub-blue group-hover:text-on-vibrant"
             datetime="2022-04-15 00:00"
             >2022-04-15 00:00</time
           >

@@ -17,46 +17,391 @@
       "name": "1ilsang",
       "url": "https://1ilsang.dev"
     },
-    "url": "https://1ilsang.dev/posts/google-adsense",
+    "url": "https://1ilsang.dev/post/google-adsense",
     "keywords": ["nextjs", "react", "frontend"]
   }
 </script>
 <progress
   id="nav-progress"
-  class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none xl:right-0 xl:left-[calc((100vw-1280px)/2+256px)] xl:w-auto [&amp;::-webkit-progress-value]:bg-base-og"
   aria-label="페이지 읽기 진행률"
   value="0"
   max="1"
 ></progress>
 <nav
   aria-label="메인 네비게이션"
-  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] shadow-nav shadow-lg"
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center max-xl:hover:animate-rainbow-water max-xl:hover:bg-nav max-xl:hover:bg-[length:400%_400%] xl:top-0 xl:left-0 xl:h-screen xl:w-[calc((100vw-1280px)/2+256px)] xl:flex-col xl:flex-nowrap xl:items-stretch xl:justify-start xl:border-r xl:border-base/40 xl:bg-sidebar xl:py-[40px] max-xl:shadow-nav max-xl:shadow-lg"
 >
-  <div class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
-    <a class="hover:underline" href="/">1ilsang</a>
+  <div class="hidden h-full w-[216px] xl:mr-5 xl:ml-auto xl:flex xl:flex-col">
+    <div class="ml-3 mb-4 flex items-center">
+      <a
+        aria-label="About 페이지로 이동"
+        class="mr-2 block w-8 h-8 mt-2 xl:w-12 xl:h-12 xl:mt-0 xl:mr-1"
+        href="/about"
+        ><img
+          class="border border-solid rounded-full w-full h-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+      <div class="flex min-w-0 flex-col items-start justify-center">
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-2xl font-bold my-2 ml-3.5 xl:m-0"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-1 hover:no-underline"
+            href="/"
+            ><span class="flex items-center gap-3"
+              ><span class="flex flex-col"
+                ><span>1ilsang.dev</span
+                ><span class="whitespace-nowrap text-xs font-normal text-dark"
+                  >Software Engineer</span
+                ></span
+              ></span
+            ></a
+          >
+        </div>
+      </div>
+    </div>
+    <ul class="flex flex-col gap-1">
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="m3 11 9-8 9 8"></path>
+                <path d="M5 10v10h14V10M9 20v-6h6v6"></path></svg
+              ><span class=""><span>Home</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/posts"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M6 3h9l4 4v14H6z"></path>
+                <path d="M14 3v5h5M9 12h6M9 16h6"></path></svg
+              ><span class=""><span>Posts</span></span></span
+            ></a
+          >
+        </div>
+        <ul aria-label="포스트 카테고리" class="mt-0.5 ml-[21px] py-1 pl-3">
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              aria-current="page"
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-base/60 bg-base/20 text-white"
+              href="/posts/javascript"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="m9 7-5 5 5 5M15 7l5 5-5 5"></path></svg
+              ><span class="truncate">JavaScript</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/rust"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="12" r="5"></circle>
+                <path
+                  d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"
+                ></path></svg
+              ><span class="truncate">Rust</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/activity"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M3 12h4l2-6 4 12 2-6h6"></path></svg
+              ><span class="truncate">Activity</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/book"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M4 5a3 3 0 0 1 3-2h5v17H7a3 3 0 0 0-3 2z"></path>
+                <path
+                  d="M20 5a3 3 0 0 0-3-2h-5v17h5a3 3 0 0 1 3 2z"
+                ></path></svg
+              ><span class="truncate">Book</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/retrospect"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="12" r="8"></circle>
+                <path d="M12 8v5l3 2M5 5 3 8"></path></svg
+              ><span class="truncate">Retrospect</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/tool"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path
+                  d="M14 6a4 4 0 0 0-5 5L3 17l4 4 6-6a4 4 0 0 0 5-5l-3 3-4-4z"
+                ></path></svg
+              ><span class="truncate">Tool</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-1/2"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/algorithm"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="6" cy="5" r="2"></circle>
+                <circle cx="18" cy="12" r="2"></circle>
+                <circle cx="6" cy="19" r="2"></circle>
+                <path
+                  d="M8 5h3a3 3 0 0 1 3 3v1M8 19h3a3 3 0 0 0 3-3v-1"
+                ></path></svg
+              ><span class="truncate">Algorithm</span></a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/tags"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M20 12 12 20 4 12V4h8z"></path>
+                <circle cx="9" cy="9" r="1.3"></circle></svg
+              ><span class=""><span>Tags</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/about"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="7" r="3"></circle>
+                <path d="M5 21v-2a7 7 0 0 1 14 0v2"></path></svg
+              ><span class=""><span>About</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+    </ul>
+    <div class="mt-auto">
+      <button
+        type="button"
+        class="flex w-full cursor-pointer items-center gap-2 rounded-sm border border-base/40 px-3 py-2 text-left text-xs text-sub-blue transition-colors hover:border-base/70 hover:bg-base/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight"
+        aria-label="라이트 모드로 전환"
+      >
+        <svg
+          aria-hidden="true"
+          class="h-4 w-4 flex-none"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.7"
+          viewBox="0 0 24 24"
+        >
+          <circle cx="12" cy="12" r="4"></circle>
+          <path
+            d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+          ></path></svg
+        ><span
+          >라이트<!-- -->
+          모드</span
+        >
+      </button>
+      <p class="mt-4 border-t border-base/40 pt-5 text-xs text-dark">
+        © 1ilsang
+      </p>
+    </div>
   </div>
-  <div class="flex">
-    <div class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/posts">posts</a>
+  <div class="flex w-full justify-between xl:hidden">
+    <div
+      class="tracking-tight mr-6 xl:mr-0 text-2xl font-bold my-2 ml-3.5 xl:m-0"
+    >
+      <a
+        class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+        href="/"
+        ><span class="flex items-center gap-3"
+          ><span class=""><span>1ilsang</span></span></span
+        ></a
+      >
     </div>
-    <div class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/tags">tags</a>
+    <div class="flex">
+      <div
+        class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+      >
+        <a
+          class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+          href="/posts"
+          ><span class="flex items-center gap-3"
+            ><span class=""><span>Posts</span></span></span
+          ></a
+        >
+      </div>
+      <div
+        class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+      >
+        <a
+          class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+          href="/tags"
+          ><span class="flex items-center gap-3"
+            ><span class=""><span>Tags</span></span></span
+          ></a
+        >
+      </div>
+      <a
+        aria-label="About 페이지로 이동"
+        class="mr-2 block w-8 h-8 mt-2 xl:w-12 xl:h-12 xl:mt-0 xl:mr-1"
+        href="/about"
+        ><img
+          class="border border-solid rounded-full w-full h-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
     </div>
-    <a
-      aria-label="About 페이지로 이동"
-      class="mr-2 block w-8 h-8 mt-2"
-      href="/about"
-      ><img
-        class="border border-solid rounded-full w-full h-full border-white-blue"
-        src="/images/chul.webp"
-        alt="1ilsang"
-    /></a>
   </div>
 </nav>
 <section
   id="main-content"
   tabindex="-1"
-  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
+  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 xl:pt-20 xl:pb-24 mx-4 min-[790px]:m-auto print:py-0 xl:!pb-6"
 >
   <h1 class="text-4xl break-words md:text-6xl">
     [Next.js] Google AdSense 광고 적용 및 이해하기
@@ -137,7 +482,7 @@
       </p>
       <h2
         id="index"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -145,7 +490,7 @@
           href="#index"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Index
       </h2>
@@ -274,7 +619,7 @@
       </ul>
       <h2
         id="adsense-적용-결과"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -282,7 +627,7 @@
           href="#adsense-적용-결과"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >AdSense 적용 결과
       </h2>
@@ -326,7 +671,7 @@
       <p class="mt-4 mb-4">이 부분들은 아래에서 자세히 다루겠다.</p>
       <h2
         id="google-ads-adsense-차이"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -334,7 +679,7 @@
           href="#google-ads-adsense-차이"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Google Ads, AdSense 차이
       </h2>
@@ -358,7 +703,7 @@
       </p>
       <h2
         id="adsense-설정하기"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -366,7 +711,7 @@
           href="#adsense-설정하기"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >AdSense 설정하기
       </h2>
@@ -380,7 +725,7 @@
           href="#사이트-등록"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >사이트 등록
       </h3>
@@ -450,7 +795,7 @@
           href="#광고-컴포넌트-적용"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >광고 컴포넌트 적용
       </h3>
@@ -503,22 +848,22 @@
         <pre
           tabindex="0"
           data-language="tsx"
-          data-theme="material-theme-palenight"
-        ><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#89DDFF;font-style:italic">import</span><span style="color:#BABED8"> Script </span><span style="color:#89DDFF;font-style:italic">from</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">next/script</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">;</span></span>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="tsx" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">import</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> Script </span><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">from</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">next/script</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">export</span><span style="color:#C792EA"> const</span><span style="color:#BABED8"> GoogleAdSense</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> FunctionComponent</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">  if</span><span style="color:#F07178"> (</span><span style="color:#BABED8">process</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">env</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">NODE_ENV</span><span style="color:#89DDFF"> !==</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">production</span><span style="color:#89DDFF">'</span><span style="color:#F07178">) </span><span style="color:#89DDFF">{</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">    return</span><span style="color:#89DDFF"> null;</span></span>
-<span data-line=""><span style="color:#89DDFF">  }</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#F07178"> (</span></span>
-<span data-line=""><span style="color:#89DDFF">    &lt;</span><span style="color:#FFCB6B">Script</span></span>
-<span data-line=""><span style="color:#C792EA">      async</span></span>
-<span data-line="" data-highlighted-line=""><span style="color:#C792EA">      src</span><span style="color:#89DDFF">={</span><span style="color:#89DDFF">`</span><span style="color:#C3E88D">https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-</span><span style="color:#89DDFF">${</span><span style="color:#BABED8">PID</span><span style="color:#89DDFF">}`</span><span style="color:#89DDFF">}</span></span>
-<span data-line=""><span style="color:#C792EA">      crossOrigin</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">anonymous</span><span style="color:#89DDFF">"</span></span>
-<span data-line=""><span style="color:#C792EA">      strategy</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">lazyOnload</span><span style="color:#89DDFF">"</span></span>
-<span data-line=""><span style="color:#89DDFF">    /&gt;</span></span>
-<span data-line=""><span style="color:#F07178">  )</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">};</span></span></code></pre>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">export</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> GoogleAdSense</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> FunctionComponent</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">  if</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> (</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">process</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">env</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">NODE_ENV</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> !==</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">production</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">) </span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">    return</span><span style="--shiki-light:#005CC5;--shiki-dark:#89DDFF"> null</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  }</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">  return</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> (</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">    &lt;</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B">Script</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA">      async</span></span>
+<span data-line="" data-highlighted-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA">      src</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">`</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">${</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">PID</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">}`</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA">      crossOrigin</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">anonymous</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA">      strategy</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">lazyOnload</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">    /&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">  )</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">};</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         <code>production</code>에서만 적용되어야 하므로 분기 처리하고 애드센스
@@ -535,22 +880,22 @@
         <figcaption
           data-rehype-pretty-code-title=""
           data-language="tsx"
-          data-theme="material-theme-palenight"
+          data-theme="github-light material-theme-palenight"
         >
           app/layout.tsx
         </figcaption>
         <pre
           tabindex="0"
           data-language="tsx"
-          data-theme="material-theme-palenight"
-        ><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#89DDFF;font-style:italic">export</span><span style="color:#89DDFF;font-style:italic"> default</span><span style="color:#C792EA"> function</span><span style="color:#82AAFF"> RootLayout</span><span style="color:#89DDFF">({</span><span style="color:#BABED8;font-style:italic"> children</span><span style="color:#89DDFF"> })</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#F07178"> (</span></span>
-<span data-line=""><span style="color:#89DDFF">    &lt;</span><span style="color:#F07178">html</span><span style="color:#89DDFF">&gt;</span></span>
-<span data-line=""><span style="color:#89DDFF">      &lt;</span><span style="color:#F07178">body</span><span style="color:#89DDFF">&gt;{</span><span style="color:#BABED8">children</span><span style="color:#89DDFF">}&lt;/</span><span style="color:#F07178">body</span><span style="color:#89DDFF">&gt;</span></span>
-<span data-line="" data-highlighted-line=""><span style="color:#89DDFF">      &lt;</span><span style="color:#FFCB6B">GoogleAdSense</span><span style="color:#89DDFF"> /&gt;</span></span>
-<span data-line=""><span style="color:#89DDFF">    &lt;/</span><span style="color:#F07178">html</span><span style="color:#89DDFF">&gt;</span></span>
-<span data-line=""><span style="color:#F07178">  )</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="tsx" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">export</span><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic"> default</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> function</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> RootLayout</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">({</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic"> children</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> })</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">  return</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> (</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">    &lt;</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">html</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">      &lt;</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">body</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;{</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">children</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}&lt;/</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">body</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;</span></span>
+<span data-line="" data-highlighted-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">      &lt;</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B">GoogleAdSense</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> /&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">    &lt;/</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">html</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">  )</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         그 후 앱의 최상단 레이아웃에 컴포넌트를 추가해 주면 끝난다.
@@ -566,7 +911,7 @@
           href="#사이트-소유권-확인"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >사이트 소유권 확인
       </h3>
@@ -597,15 +942,15 @@
         <figcaption
           data-rehype-pretty-code-title=""
           data-language="txt"
-          data-theme="material-theme-palenight"
+          data-theme="github-light material-theme-palenight"
         >
           public/ads.txt
         </figcaption>
         <pre
           tabindex="0"
           data-language="txt"
-          data-theme="material-theme-palenight"
-        ><code data-language="txt" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span>google.com, pub-ID, DIRECT, HASH_CODE</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="txt" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span>google.com, pub-ID, DIRECT, HASH_CODE</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         <code>public/ads.txt</code>를 생성하고 <code>ads.txt</code> 스니펫을
@@ -622,7 +967,7 @@
           href="#광고-컴포넌트-영역-설정"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >광고 컴포넌트 영역 설정
       </h3>
@@ -658,9 +1003,7 @@
           />
         </button>
       </div>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           (좌) 사이트 기준 자동 삽입 / (우) 광고 단위 기준 직접 설정
         </p>
@@ -696,7 +1039,7 @@
           href="#사이트-기준"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >사이트 기준
       </h4>
@@ -737,7 +1080,7 @@
           href="#광고-단위-기준"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >광고 단위 기준
       </h4>
@@ -767,29 +1110,29 @@
         <pre
           tabindex="0"
           data-language="tsx"
-          data-theme="material-theme-palenight"
-        ><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">declare</span><span style="color:#BABED8"> global </span><span style="color:#89DDFF">{</span></span>
-<span data-line=""><span style="color:#C792EA">  interface</span><span style="color:#FFCB6B"> Window</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#F07178">    adsbygoogle</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> any</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">  }</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span></span>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="tsx" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">declare</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> global </span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  interface</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> Window</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#E36209;--shiki-dark:#F07178">    adsbygoogle</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> any</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  }</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">export</span><span style="color:#C792EA"> const</span><span style="color:#BABED8"> GoogleAdSenseComponent </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#82AAFF">  useEffect</span><span style="color:#F07178">(</span><span style="color:#89DDFF">()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#F07178">    (</span><span style="color:#BABED8">window</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">adsbygoogle</span><span style="color:#89DDFF"> =</span><span style="color:#BABED8"> window</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">adsbygoogle</span><span style="color:#89DDFF"> ||</span><span style="color:#F07178"> [])</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">push</span><span style="color:#F07178">(</span><span style="color:#89DDFF">{}</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">  },</span><span style="color:#F07178"> [])</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">export</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> GoogleAdSenseComponent</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">  useEffect</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">    (</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">window</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">adsbygoogle</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> window</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">adsbygoogle</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> ||</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> [])</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">push</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{}</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  },</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> [])</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#F07178"> (</span></span>
-<span data-line=""><span style="color:#89DDFF">    &lt;</span><span style="color:#F07178">ins</span></span>
-<span data-line=""><span style="color:#C792EA">      class</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">adsbygoogle</span><span style="color:#89DDFF">"</span></span>
-<span data-line=""><span style="color:#C792EA">      style</span><span style="color:#89DDFF">={{</span><span style="color:#F07178"> display</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">block</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> }}</span></span>
-<span data-line=""><span style="color:#C792EA">      data-ad-client</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">PID</span><span style="color:#89DDFF">"</span></span>
-<span data-line=""><span style="color:#C792EA">      data-ad-slot</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">SLOT_KEY</span><span style="color:#89DDFF">"</span></span>
-<span data-line=""><span style="color:#C792EA">      data-ad-format</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">auto</span><span style="color:#89DDFF">"</span></span>
-<span data-line=""><span style="color:#C792EA">      data-full-width-responsive</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">true</span><span style="color:#89DDFF">"</span></span>
-<span data-line=""><span style="color:#89DDFF">    /&gt;</span></span>
-<span data-line=""><span style="color:#F07178">  )</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">};</span></span></code></pre>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">  return</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> (</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">    &lt;</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">ins</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA">      class</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">adsbygoogle</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA">      style</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{{</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> display</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">block</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> }}</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA">      data-ad-client</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">PID</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA">      data-ad-slot</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">SLOT_KEY</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA">      data-ad-format</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">auto</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA">      data-full-width-responsive</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">true</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">    /&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">  )</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">};</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">이제 원하는 위치에 컴포넌트를 배치하면 된다.</p>
       <h3
@@ -802,7 +1145,7 @@
           href="#지급-정보-설정"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >지급 정보 설정
       </h3>
@@ -815,7 +1158,7 @@
       </p>
       <h2
         id="수익-구조"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -823,7 +1166,7 @@
           href="#수익-구조"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >수익 구조
       </h2>
@@ -868,7 +1211,7 @@
       </p>
       <h2
         id="마무리"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -876,7 +1219,7 @@
           href="#마무리"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >마무리
       </h2>
@@ -892,112 +1235,156 @@
       class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
       aria-label="목차"
     >
-      <ul
-        class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
+      <div
+        class="sticky top-32 ml-9 w-[216px] min-[1320px]:top-48 min-[1320px]:ml-20"
       >
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="index"
-            href="#index"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Index</a
+        <p class="mb-2 px-3 text-[10px] tracking-[0.18em] text-dark uppercase">
+          On this page
+        </p>
+        <ul>
+          <li class="relative select-none">
+            <a
+              id="index"
+              href="#index"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Index</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="adsense-적용-결과"
+              href="#adsense-적용-결과"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >AdSense 적용 결과</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="google-ads-adsense-차이"
+              href="#google-ads-adsense-차이"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Google Ads, AdSense 차이</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="adsense-설정하기"
+              href="#adsense-설정하기"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >AdSense 설정하기</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="adsense-적용-결과"
-            href="#adsense-적용-결과"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >AdSense 적용 결과</a
+            <a
+              id="사이트-등록"
+              href="#사이트-등록"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >사이트 등록</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="google-ads-adsense-차이"
-            href="#google-ads-adsense-차이"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Google Ads, AdSense 차이</a
+            <a
+              id="광고-컴포넌트-적용"
+              href="#광고-컴포넌트-적용"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >광고 컴포넌트 적용</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="adsense-설정하기"
-            href="#adsense-설정하기"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >AdSense 설정하기</a
+            <a
+              id="사이트-소유권-확인"
+              href="#사이트-소유권-확인"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >사이트 소유권 확인</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="사이트-등록"
-            href="#사이트-등록"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >사이트 등록</a
+            <a
+              id="광고-컴포넌트-영역-설정"
+              href="#광고-컴포넌트-영역-설정"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >광고 컴포넌트 영역 설정</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-1/2"
           >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="광고-컴포넌트-적용"
-            href="#광고-컴포넌트-적용"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >광고 컴포넌트 적용</a
-          >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="사이트-소유권-확인"
-            href="#사이트-소유권-확인"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >사이트 소유권 확인</a
-          >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="광고-컴포넌트-영역-설정"
-            href="#광고-컴포넌트-영역-설정"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >광고 컴포넌트 영역 설정</a
-          >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
-        >
-          <a
-            id="지급-정보-설정"
-            href="#지급-정보-설정"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >지급 정보 설정</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="수익-구조"
-            href="#수익-구조"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >수익 구조</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="마무리"
-            href="#마무리"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >마무리</a
-          >
-        </li>
-      </ul>
+            <a
+              id="지급-정보-설정"
+              href="#지급-정보-설정"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >지급 정보 설정</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="수익-구조"
+              href="#수익-구조"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >수익 구조</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="마무리"
+              href="#마무리"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >마무리</span
+              ></a
+            >
+          </li>
+        </ul>
+      </div>
     </aside>
   </section>
   <a
-    class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water"
+    class="inline-block text-highlight leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-highlight after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water"
     href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] %5BNext.js%5D%20Google%20AdSense%20%EA%B4%91%EA%B3%A0%20%EC%A0%81%EC%9A%A9%20%EB%B0%8F%20%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0&amp;body=&lt;!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 --&gt;"
     rel="noopener noreferrer"
     target="_blank"
@@ -1020,7 +1407,7 @@
       <a
         class="group flex flex-col gap-1 max-w-[45%] hover:text-highlight duration-300 items-start text-left"
         aria-label="이전 글: 인프런 판교 퇴근길 밋업 - 개발자 커리어 후기"
-        href="/posts/inflearn-meetup-03-dev-career"
+        href="/post/inflearn-meetup-03-dev-career"
         ><span class="text-sm text-date-gray">← 이전 글</span
         ><span class="title-underline"
           >인프런 판교 퇴근길 밋업 - 개발자 커리어 후기</span
@@ -1028,7 +1415,7 @@
       ><a
         class="group flex flex-col gap-1 max-w-[45%] hover:text-highlight duration-300 items-end text-right ml-auto"
         aria-label="다음 글: 오픈소스 기여 첫걸음, MDN 문서 번역 가이드"
-        href="/posts/mdn-contributing-translations"
+        href="/post/mdn-contributing-translations"
         ><span class="text-sm text-date-gray">다음 글 →</span
         ><span class="title-underline"
           >오픈소스 기여 첫걸음, MDN 문서 번역 가이드</span
@@ -1036,7 +1423,7 @@
       >
     </div>
   </nav>
-  <section aria-labelledby="related-posts-heading" class="mt-12 mb-40">
+  <section aria-labelledby="related-posts-heading" class="mt-12 mb-12 xl:mb-0">
     <h2 id="related-posts-heading" class="text-2xl mb-4">더 보기</h2>
     <ul>
       <li
@@ -1045,7 +1432,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-use-prevent-leave-description"
-          href="/posts/use-prevent-leave"
+          href="/post/use-prevent-leave"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -1060,18 +1447,18 @@
           </div>
           <div class="w-full mt-2 md:mt-0">
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               페이지 이탈시 확인 컨펌창 만들기
             </h3>
             <p
               id="related-post-use-prevent-leave-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               usePreventLeave를 알아보자
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2023-03-12 15:14"
               >2023-03-12 15:14</time
             >
@@ -1084,7 +1471,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-storybook7-description"
-          href="/posts/storybook7"
+          href="/post/storybook7"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -1099,18 +1486,18 @@
           </div>
           <div class="w-full mt-2 md:mt-0">
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               Storybook 7.0 살펴보기
             </h3>
             <p
               id="related-post-storybook7-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               7버전은 무엇이 달라졌을까?
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2023-08-13 19:17"
               >2023-08-13 19:17</time
             >
@@ -1123,7 +1510,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-bali-remote-work-description"
-          href="/posts/bali-remote-work"
+          href="/post/bali-remote-work"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -1141,18 +1528,18 @@
               >다른 주제 탐색</span
             >
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               발리 한 달 리모트 워크 후기
             </h3>
             <p
               id="related-post-bali-remote-work-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               발리 한 달 살기 얼마나 낭만 있을까?
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2023-12-30 17:21"
               >2023-12-30 17:21</time
             >
@@ -1165,7 +1552,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-goorm-195687-description"
-          href="/posts/goorm-195687"
+          href="/post/goorm-195687"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -1183,18 +1570,18 @@
               >다른 주제 탐색</span
             >
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               [구름톤 챌린지] 이진수 정렬
             </h3>
             <p
               id="related-post-goorm-195687-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               메모이제이션 활용하기
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2023-08-21 21:56"
               >2023-08-21 21:56</time
             >

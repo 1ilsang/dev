@@ -7,3 +7,6 @@ export const CATEGORY_LIST = [
   'Tool',
   'Algorithm',
 ] as const;
+
+export const getCategoryPath = (category: string) =>
+  `/posts/${category.toLowerCase()}`;

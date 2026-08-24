@@ -1,4 +1,4 @@
-let mockPathname = '/posts/test-post';
+let mockPathname = '/post/test-post';
 jest.mock('next/navigation', () => ({
   usePathname: () => mockPathname,
 }));
@@ -33,7 +33,7 @@ describe('useProgress', () => {
 
   beforeEach(() => {
     jest.useFakeTimers();
-    mockPathname = '/posts/test-post';
+    mockPathname = '/post/test-post';
     setBodyDimensions(2000, 800);
     setScrollTop(0);
     // useProgress의 Promise+setTimeout 패턴에서 발생하는 act() 경고 억제
@@ -184,7 +184,7 @@ describe('useProgress', () => {
       expect(result.current.max).toBe(1200);
 
       // pathname 변경
-      mockPathname = '/posts/another-post';
+      mockPathname = '/post/another-post';
       rerender();
 
       expect(result.current.progress).toBe(0);

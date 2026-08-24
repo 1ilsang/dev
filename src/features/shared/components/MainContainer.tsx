@@ -14,7 +14,7 @@ export const MainContainer: FunctionComponent<Props> = ({
       id="main-content"
       tabIndex={-1}
       className={classNames(
-        'h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0',
+        'h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 xl:pt-20 xl:pb-24 mx-4 min-[790px]:m-auto print:py-0',
         className,
       )}
     >

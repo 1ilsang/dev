@@ -58,7 +58,7 @@ const Post: NextPage<PostProps> = async ({ params }) => {
       name: '1ilsang',
       url: href,
     },
-    url: `${href}/posts/${slug}`,
+    url: `${href}/post/${slug}`,
     keywords: frontmatter.tags,
   };
 
@@ -69,7 +69,7 @@ const Post: NextPage<PostProps> = async ({ params }) => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <NavProgress />
-      <Navbar />
+      <Navbar activeCategory={post.category} />
       <PostContainer post={post} navigation={navigation}>
         <MDX components={MDXEmbedComponents({ ...post })} />
       </PostContainer>
@@ -85,12 +85,7 @@ export default Post;
 
 export async function generateStaticParams(): Promise<PostSlug[]> {
   const posts = await getAllPost();
-  const paths = posts.map(({ slug }) => {
-    return {
-      slug,
-    };
-  });
-  return paths;
+  return posts.map(({ slug }) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -106,14 +101,14 @@ export async function generateMetadata({
     title,
     description,
     alternates: {
-      canonical: `/posts/${slug}`,
+      canonical: `/post/${slug}`,
     },
     openGraph: {
       title,
       description,
       siteName: MetaTitle.HOME,
       locale: 'ko_KR',
-      url: `${href}/posts/${slug}`,
+      url: `${href}/post/${slug}`,
       images: [{ url: `${href}${coverImage}`, alt: 'cover' }],
       type: 'article',
       authors: MyProfile.linkedin.href,

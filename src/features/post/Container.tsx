@@ -21,7 +21,7 @@ export const PostContainer: FunctionComponent<
     toc,
   } = post;
   return (
-    <MainContainer>
+    <MainContainer className="xl:!pb-6">
       <h1 className="text-4xl break-words md:text-6xl">{title}</h1>
       <InformationContainer post={post} />
       <section id={POST_BODY_ID.slice(1)} className="relative">

@@ -14,11 +14,16 @@ export const MainLayout: FunctionComponent<Props> = ({
     <>
       <Link
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-2 focus:left-2 focus:px-4 focus:py-2 focus:bg-snazzy-bg focus:text-white focus:rounded"
+        tabIndex={0}
+        className="sr-only focus-visible:not-sr-only focus-visible:fixed focus-visible:top-3 focus-visible:left-3 focus-visible:z-50 focus-visible:rounded-md focus-visible:border focus-visible:border-highlight focus-visible:bg-snazzy-bg focus-visible:px-4 focus-visible:py-2 focus-visible:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight"
       >
         본문으로 건너뛰기
       </Link>
-      <main className={classNames('h-auto', className)}>{children}</main>
+      <main
+        className={classNames('content-plane h-auto min-h-full', className)}
+      >
+        {children}
+      </main>
     </>
   );
 };

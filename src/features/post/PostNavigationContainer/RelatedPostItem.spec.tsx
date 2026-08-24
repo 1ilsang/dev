@@ -11,7 +11,7 @@ jest.mock('@next/third-parties/google', () => ({
 
 const mockPost: PostForNavigation = {
   slug: 'sample-post',
-  url: '/posts/sample-post',
+  url: '/post/sample-post',
   fullSlug: 'js/sample-post',
   category: 'JavaScript',
   frontmatter: {
@@ -43,7 +43,7 @@ describe('RelatedPostItem', () => {
     );
 
     const link = screen.getByRole('link', { name: /Sample Post Title/i });
-    expect(link).toHaveAttribute('href', '/posts/sample-post');
+    expect(link).toHaveAttribute('href', '/post/sample-post');
     expect(screen.getByText('Sample post description')).toBeVisible();
     const image = screen.getByRole('presentation');
     expect(image).toHaveAttribute('src', '/posts/sample-post/cover.webp');

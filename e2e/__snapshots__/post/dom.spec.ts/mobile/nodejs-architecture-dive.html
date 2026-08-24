@@ -17,46 +17,391 @@
       "name": "1ilsang",
       "url": "https://1ilsang.dev"
     },
-    "url": "https://1ilsang.dev/posts/nodejs-architecture-dive",
+    "url": "https://1ilsang.dev/post/nodejs-architecture-dive",
     "keywords": ["nodejs", "javascript", "frontend"]
   }
 </script>
 <progress
   id="nav-progress"
-  class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none xl:right-0 xl:left-[calc((100vw-1280px)/2+256px)] xl:w-auto [&amp;::-webkit-progress-value]:bg-base-og"
   aria-label="페이지 읽기 진행률"
   value="0"
   max="1"
 ></progress>
 <nav
   aria-label="메인 네비게이션"
-  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] shadow-nav shadow-lg"
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center max-xl:hover:animate-rainbow-water max-xl:hover:bg-nav max-xl:hover:bg-[length:400%_400%] xl:top-0 xl:left-0 xl:h-screen xl:w-[calc((100vw-1280px)/2+256px)] xl:flex-col xl:flex-nowrap xl:items-stretch xl:justify-start xl:border-r xl:border-base/40 xl:bg-sidebar xl:py-[40px] max-xl:shadow-nav max-xl:shadow-lg"
 >
-  <div class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
-    <a class="hover:underline" href="/">1ilsang</a>
+  <div class="hidden h-full w-[216px] xl:mr-5 xl:ml-auto xl:flex xl:flex-col">
+    <div class="ml-3 mb-4 flex items-center">
+      <a
+        aria-label="About 페이지로 이동"
+        class="mr-2 block w-8 h-8 mt-2 xl:w-12 xl:h-12 xl:mt-0 xl:mr-1"
+        href="/about"
+        ><img
+          class="border border-solid rounded-full w-full h-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+      <div class="flex min-w-0 flex-col items-start justify-center">
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-2xl font-bold my-2 ml-3.5 xl:m-0"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-1 hover:no-underline"
+            href="/"
+            ><span class="flex items-center gap-3"
+              ><span class="flex flex-col"
+                ><span>1ilsang.dev</span
+                ><span class="whitespace-nowrap text-xs font-normal text-dark"
+                  >Software Engineer</span
+                ></span
+              ></span
+            ></a
+          >
+        </div>
+      </div>
+    </div>
+    <ul class="flex flex-col gap-1">
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="m3 11 9-8 9 8"></path>
+                <path d="M5 10v10h14V10M9 20v-6h6v6"></path></svg
+              ><span class=""><span>Home</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/posts"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M6 3h9l4 4v14H6z"></path>
+                <path d="M14 3v5h5M9 12h6M9 16h6"></path></svg
+              ><span class=""><span>Posts</span></span></span
+            ></a
+          >
+        </div>
+        <ul aria-label="포스트 카테고리" class="mt-0.5 ml-[21px] py-1 pl-3">
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              aria-current="page"
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-base/60 bg-base/20 text-white"
+              href="/posts/javascript"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="m9 7-5 5 5 5M15 7l5 5-5 5"></path></svg
+              ><span class="truncate">JavaScript</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/rust"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="12" r="5"></circle>
+                <path
+                  d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"
+                ></path></svg
+              ><span class="truncate">Rust</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/activity"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M3 12h4l2-6 4 12 2-6h6"></path></svg
+              ><span class="truncate">Activity</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/book"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M4 5a3 3 0 0 1 3-2h5v17H7a3 3 0 0 0-3 2z"></path>
+                <path
+                  d="M20 5a3 3 0 0 0-3-2h-5v17h5a3 3 0 0 1 3 2z"
+                ></path></svg
+              ><span class="truncate">Book</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/retrospect"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="12" r="8"></circle>
+                <path d="M12 8v5l3 2M5 5 3 8"></path></svg
+              ><span class="truncate">Retrospect</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/tool"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path
+                  d="M14 6a4 4 0 0 0-5 5L3 17l4 4 6-6a4 4 0 0 0 5-5l-3 3-4-4z"
+                ></path></svg
+              ><span class="truncate">Tool</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-1/2"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/algorithm"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="6" cy="5" r="2"></circle>
+                <circle cx="18" cy="12" r="2"></circle>
+                <circle cx="6" cy="19" r="2"></circle>
+                <path
+                  d="M8 5h3a3 3 0 0 1 3 3v1M8 19h3a3 3 0 0 0 3-3v-1"
+                ></path></svg
+              ><span class="truncate">Algorithm</span></a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/tags"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M20 12 12 20 4 12V4h8z"></path>
+                <circle cx="9" cy="9" r="1.3"></circle></svg
+              ><span class=""><span>Tags</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/about"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="7" r="3"></circle>
+                <path d="M5 21v-2a7 7 0 0 1 14 0v2"></path></svg
+              ><span class=""><span>About</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+    </ul>
+    <div class="mt-auto">
+      <button
+        type="button"
+        class="flex w-full cursor-pointer items-center gap-2 rounded-sm border border-base/40 px-3 py-2 text-left text-xs text-sub-blue transition-colors hover:border-base/70 hover:bg-base/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight"
+        aria-label="라이트 모드로 전환"
+      >
+        <svg
+          aria-hidden="true"
+          class="h-4 w-4 flex-none"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.7"
+          viewBox="0 0 24 24"
+        >
+          <circle cx="12" cy="12" r="4"></circle>
+          <path
+            d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+          ></path></svg
+        ><span
+          >라이트<!-- -->
+          모드</span
+        >
+      </button>
+      <p class="mt-4 border-t border-base/40 pt-5 text-xs text-dark">
+        © 1ilsang
+      </p>
+    </div>
   </div>
-  <div class="flex">
-    <div class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/posts">posts</a>
+  <div class="flex w-full justify-between xl:hidden">
+    <div
+      class="tracking-tight mr-6 xl:mr-0 text-2xl font-bold my-2 ml-3.5 xl:m-0"
+    >
+      <a
+        class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+        href="/"
+        ><span class="flex items-center gap-3"
+          ><span class=""><span>1ilsang</span></span></span
+        ></a
+      >
     </div>
-    <div class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/tags">tags</a>
+    <div class="flex">
+      <div
+        class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+      >
+        <a
+          class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+          href="/posts"
+          ><span class="flex items-center gap-3"
+            ><span class=""><span>Posts</span></span></span
+          ></a
+        >
+      </div>
+      <div
+        class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+      >
+        <a
+          class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+          href="/tags"
+          ><span class="flex items-center gap-3"
+            ><span class=""><span>Tags</span></span></span
+          ></a
+        >
+      </div>
+      <a
+        aria-label="About 페이지로 이동"
+        class="mr-2 block w-8 h-8 mt-2 xl:w-12 xl:h-12 xl:mt-0 xl:mr-1"
+        href="/about"
+        ><img
+          class="border border-solid rounded-full w-full h-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
     </div>
-    <a
-      aria-label="About 페이지로 이동"
-      class="mr-2 block w-8 h-8 mt-2"
-      href="/about"
-      ><img
-        class="border border-solid rounded-full w-full h-full border-white-blue"
-        src="/images/chul.webp"
-        alt="1ilsang"
-    /></a>
   </div>
 </nav>
 <section
   id="main-content"
   tabindex="-1"
-  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
+  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 xl:pt-20 xl:pb-24 mx-4 min-[790px]:m-auto print:py-0 xl:!pb-6"
 >
   <h1 class="text-4xl break-words md:text-6xl">
     Node.js 아키텍처 및 동작 분석
@@ -150,7 +495,7 @@
       <i>Let's Dive In!</i>
       <h2
         id="tldr"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -158,7 +503,7 @@
           href="#tldr"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >TL;DR!
       </h2>
@@ -172,7 +517,7 @@
       </ol>
       <h2
         id="nodejs-이해하기"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -180,7 +525,7 @@
           href="#nodejs-이해하기"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Node.js 이해하기
       </h2>
@@ -198,7 +543,7 @@
           href="#당시의-상황"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >당시의 상황
       </h3>
@@ -221,9 +566,7 @@
           </button>
         </div>
       </div>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           Node.js: The Documentary | An origin story -
           <a
@@ -274,9 +617,7 @@
         <u>어떻게 두 가지를 동시에 처리할 수 있을까?</u> 모든 것을 비동기로
         처리하고 IO를 기다리지 않는다면(non-blocking) 어떨까?
       </p>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">출처:</p>
         <ul class="min-[790px]:ml-6 ml-4 list-disc">
           <li class="my-1.25">
@@ -319,13 +660,11 @@
           href="#nodejs란"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Node.js란?
       </h3>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           As an asynchronous event-driven JavaScript runtime, Node.js is
           designed to build scalable network applications.
@@ -350,7 +689,7 @@
           href="#asynchronous"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Asynchronous
       </h5>
@@ -375,7 +714,7 @@
           href="#event-driven"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Event-driven
       </h5>
@@ -400,7 +739,7 @@
           href="#javascript-runtime"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >JavaScript runtime
       </h5>
@@ -425,7 +764,7 @@
           href="#확장-가능한-네트워크-앱"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >확장 가능한 네트워크 앱
       </h5>
@@ -458,7 +797,7 @@
           href="#browser와의-차이점"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Browser와의 차이점
       </h3>
@@ -481,9 +820,7 @@
           </button>
         </div>
       </div>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <ul class="min-[790px]:ml-6 ml-4 list-disc">
           <li class="my-1.25">
             <a
@@ -560,9 +897,7 @@
           >libuv</a
         >를 사용한다.
       </p>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           NOTE&gt; 이벤트 루프의 웹 표준은
           <a
@@ -592,7 +927,7 @@
           >WebAPI</a
         >와
         <a
-          href="/posts/n-api"
+          href="/post/n-api"
           class="underline-highlight-fade"
           target="_blank"
           rel="noreferrer noopener"
@@ -602,7 +937,7 @@
       </p>
       <h2
         id="아키텍처-살펴보기"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -610,7 +945,7 @@
           href="#아키텍처-살펴보기"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >아키텍처 살펴보기
       </h2>
@@ -627,7 +962,7 @@
           href="#한눈에-보기"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >한눈에 보기
       </h3>
@@ -660,20 +995,20 @@
           href="#주요-구성-요소"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >주요 구성 요소
       </h3>
-      <table class="w-full mb-4 text-[#dfdfdf] break-words">
+      <table class="mb-4 w-full break-words text-white">
         <thead>
           <tr>
             <th
-              class="text-left text-sm font-normal p-2 border-b border-[#5e5e5e] w-32"
+              class="border-b border-base/70 p-2 text-left text-sm font-normal w-32"
             >
               요소
             </th>
             <th
-              class="text-left text-sm font-normal p-2 border-b border-[#5e5e5e]"
+              class="border-b border-base/70 p-2 text-left text-sm font-normal"
             >
               설명
             </th>
@@ -681,7 +1016,7 @@
         </thead>
         <tbody>
           <tr>
-            <td class="text-left text-sm p-2 border-b border-[#5e5e5e]">
+            <td class="border-b border-base/70 p-2 text-left text-sm">
               <span
                 ><a
                   class="underline-highlight-fade"
@@ -692,7 +1027,7 @@
                 ></span
               ><br />
             </td>
-            <td class="text-left text-sm p-2 border-b border-[#5e5e5e]">
+            <td class="border-b border-base/70 p-2 text-left text-sm">
               <span
                 >- 자바스크립트 코드를 바이트 코드로 변환 및 실행하는 엔진</span
               ><br /><span>
@@ -711,7 +1046,7 @@
             </td>
           </tr>
           <tr>
-            <td class="text-left text-sm p-2 border-b border-[#5e5e5e]">
+            <td class="border-b border-base/70 p-2 text-left text-sm">
               <span
                 ><a
                   class="underline-highlight-fade"
@@ -722,7 +1057,7 @@
                 ></span
               ><br />
             </td>
-            <td class="text-left text-sm p-2 border-b border-[#5e5e5e]">
+            <td class="border-b border-base/70 p-2 text-left text-sm">
               <span
                 >- 비동기 I/O,
                 <a
@@ -739,7 +1074,7 @@
             </td>
           </tr>
           <tr>
-            <td class="text-left text-sm p-2 border-b border-[#5e5e5e]">
+            <td class="border-b border-base/70 p-2 text-left text-sm">
               <span
                 ><a
                   class="underline-highlight-fade"
@@ -750,7 +1085,7 @@
                 ></span
               ><br />
             </td>
-            <td class="text-left text-sm p-2 border-b border-[#5e5e5e]">
+            <td class="border-b border-base/70 p-2 text-left text-sm">
               <span
                 >- 성능, 확장성 등의 이유로 C/C++ 코드가 필요할 경우 애드온으로
                 작성해 노드에서 실행시킬 수 있다</span
@@ -758,7 +1093,7 @@
                 - 노드에서 제공하는
                 <a
                   class="underline-highlight-fade"
-                  href="/posts/n-api"
+                  href="/post/n-api"
                   target="_blank"
                   rel="noopener noreferrer"
                   >Node-API</a
@@ -768,7 +1103,7 @@
             </td>
           </tr>
           <tr>
-            <td class="text-left text-sm p-2 border-b border-[#5e5e5e]">
+            <td class="border-b border-base/70 p-2 text-left text-sm">
               <span
                 ><a
                   class="underline-highlight-fade"
@@ -779,7 +1114,7 @@
                 ></span
               ><br />
             </td>
-            <td class="text-left text-sm p-2 border-b border-[#5e5e5e]">
+            <td class="border-b border-base/70 p-2 text-left text-sm">
               <span>- 노드에 내장된 자바스크립트 코드</span><br /><span>
                 - 개발자가 직접 사용하는 모듈(fs, path, http 등) 및 내부용
                 코드가 존재</span
@@ -787,10 +1122,10 @@
             </td>
           </tr>
           <tr>
-            <td class="text-left text-sm p-2 border-b border-[#5e5e5e]">
+            <td class="border-b border-base/70 p-2 text-left text-sm">
               <span>Bindings</span><br />
             </td>
-            <td class="text-left text-sm p-2 border-b border-[#5e5e5e]">
+            <td class="border-b border-base/70 p-2 text-left text-sm">
               <span>- 자바스크립트 코드에서 사용되는 API를 C++로 구현한 것</span
               ><br /><span>
                 - V8, libuv, C/C++ 애드온 등과 연결되는 인터페이스 역할을
@@ -800,10 +1135,10 @@
             </td>
           </tr>
           <tr>
-            <td class="text-left text-sm p-2 border-b border-[#5e5e5e]">
+            <td class="border-b border-base/70 p-2 text-left text-sm">
               <span>Other Deps</span><br />
             </td>
-            <td class="text-left text-sm p-2 border-b border-[#5e5e5e]">
+            <td class="border-b border-base/70 p-2 text-left text-sm">
               <span>- Node.js가 의존하는 외부 모듈</span><br />
             </td>
           </tr>
@@ -819,7 +1154,7 @@
           href="#동작-흐름"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >동작 흐름
       </h3>
@@ -842,9 +1177,7 @@
           </button>
         </div>
       </div>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           <a
             href="https://www.mwanmobile.com/node-js-animated-event-loop"
@@ -859,8 +1192,8 @@
         <pre
           tabindex="0"
           data-language="sh"
-          data-theme="material-theme-palenight"
-        ><code data-language="sh" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> node</span><span style="color:#C3E88D"> FILE.cjs</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="sh" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">$</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> node</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> FILE.cjs</span></span></code></pre>
       </figure>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
         <li class="my-1.25">
@@ -886,7 +1219,7 @@
       </ol>
       <h2
         id="코드로-이해하는-nodejs"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -894,7 +1227,7 @@
           href="#코드로-이해하는-nodejs"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >코드로 이해하는 Node.js
       </h2>
@@ -903,23 +1236,23 @@
         <pre
           tabindex="0"
           data-language="js"
-          data-theme="material-theme-palenight"
-        ><code data-language="js" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// hello.cjs</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> fs </span><span style="color:#89DDFF">=</span><span style="color:#82AAFF"> require</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">fs</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> http </span><span style="color:#89DDFF">=</span><span style="color:#82AAFF"> require</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">http</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> server </span><span style="color:#89DDFF">=</span><span style="color:#BABED8"> http</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">createServer</span><span style="color:#BABED8">()</span><span style="color:#89DDFF">;</span></span>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="js" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">// hello.cjs</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> fs</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> require</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">fs</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> http</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> require</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">http</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> server</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> http</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">createServer</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">()</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#BABED8">server</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">on</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">request</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#C792EA"> async</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">req</span><span style="color:#89DDFF">,</span><span style="color:#BABED8;font-style:italic"> res</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">  if</span><span style="color:#F07178"> (</span><span style="color:#BABED8">req</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">url</span><span style="color:#89DDFF"> ===</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">/</span><span style="color:#89DDFF">'</span><span style="color:#F07178">) </span><span style="color:#89DDFF">{</span></span>
-<span data-line="" data-highlighted-line=""><span style="color:#BABED8">    fs</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">readFile</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">hello.txt</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">utf-8</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">err</span><span style="color:#89DDFF">,</span><span style="color:#BABED8;font-style:italic"> data</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#C792EA">      const</span><span style="color:#BABED8"> json</span><span style="color:#89DDFF"> =</span><span style="color:#BABED8"> JSON</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">stringify</span><span style="color:#F07178">(</span><span style="color:#89DDFF">{</span><span style="color:#BABED8"> data</span><span style="color:#89DDFF"> }</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#BABED8">      res</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">writeHead</span><span style="color:#F07178">(</span><span style="color:#F78C6C">200</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> {</span><span style="color:#89DDFF"> '</span><span style="color:#F07178">Content-Type</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">application/json</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> }</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#BABED8">      res</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">write</span><span style="color:#F07178">(</span><span style="color:#BABED8">json</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#BABED8">      res</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">end</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">    }</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">  }</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#BABED8">server</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">listen</span><span style="color:#BABED8">(</span><span style="color:#F78C6C">3001</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#BABED8"> console</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">info</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">`</span><span style="color:#C3E88D">Server is running...</span><span style="color:#89DDFF">`</span><span style="color:#BABED8">))</span><span style="color:#89DDFF">;</span></span></code></pre>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">server</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">on</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">request</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> async</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> (</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic">req</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic"> res</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">)</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">  if</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> (</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">req</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">url</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> ===</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">/</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">) </span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span></span>
+<span data-line="" data-highlighted-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">    fs</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">readFile</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">hello.txt</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">utf-8</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> (</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic">err</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic"> data</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">)</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">      const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> json</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> JSON</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">stringify</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> data</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> }</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">      res</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">writeHead</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#F78C6C">200</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#F07178">Content-Type</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">application/json</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> }</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">      res</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">write</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">json</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">      res</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">end</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">()</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">    }</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  }</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">server</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">listen</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#F78C6C">3001</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> console</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">info</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">`</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">Server is running...</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">`</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">))</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span></code></pre>
       </figure>
       <div class="img-container">
         <div
@@ -953,7 +1286,7 @@
           href="#bootstrapping"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Bootstrapping
       </h3>
@@ -961,8 +1294,8 @@
         <pre
           tabindex="0"
           data-language="sh"
-          data-theme="material-theme-palenight"
-        ><code data-language="sh" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> node</span><span style="color:#C3E88D"> hello.cjs</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="sh" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">$</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> node</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> hello.cjs</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         Node.js 또한 애플리케이션이기 때문에 다른 앱과 마찬가지로 실행될 때
@@ -1084,9 +1417,7 @@
         >를 통해 이루어지며 C++에서 JavaScript로, JavaScript에서 C++로 호출이
         가능하다.
       </p>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           NOTE&gt; Node.js는 제공된 파일을 한 번 읽고 이벤트 루프를 실행시킨다.
         </p>
@@ -1101,7 +1432,7 @@
           href="#requestsocket-listen"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Request(Socket) listen
       </h3>
@@ -1109,8 +1440,8 @@
         <pre
           tabindex="0"
           data-language="js"
-          data-theme="material-theme-palenight"
-        ><code data-language="js" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#BABED8">server</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">on</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">request</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> ...</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="js" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">server</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">on</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">request</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> ...</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         이벤트 루프의
@@ -1184,7 +1515,7 @@
           href="#file-io"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >File I/O
       </h3>
@@ -1192,10 +1523,10 @@
         <pre
           tabindex="0"
           data-language="js"
-          data-theme="material-theme-palenight"
-        ><code data-language="js" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#BABED8">server</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">on</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">request</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#C792EA"> async</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">req</span><span style="color:#89DDFF">,</span><span style="color:#BABED8;font-style:italic"> res</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">  // ...</span></span>
-<span data-line=""><span style="color:#BABED8">    fs</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">readFile</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">hello.txt</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">utf-8</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">err</span><span style="color:#89DDFF">,</span><span style="color:#BABED8;font-style:italic"> data</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="js" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">server</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">on</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">request</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> async</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> (</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic">req</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic"> res</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">)</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">  // ...</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">    fs</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">readFile</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">hello.txt</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">utf-8</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> (</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic">err</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic"> data</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">)</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         위에서 소켓 연결과 콜백 실행을 확인했었다. <code>request</code> 콜백
@@ -1248,7 +1579,7 @@
           href="#response"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Response
       </h3>
@@ -1256,12 +1587,12 @@
         <pre
           tabindex="0"
           data-language="js"
-          data-theme="material-theme-palenight"
-        ><code data-language="js" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#BABED8">fs</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">readFile</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">hello.txt</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">utf-8</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">err</span><span style="color:#89DDFF">,</span><span style="color:#BABED8;font-style:italic"> data</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">  // ...</span></span>
-<span data-line=""><span style="color:#BABED8">  res</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">write</span><span style="color:#F07178">(</span><span style="color:#BABED8">json</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#BABED8">  res</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">end</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="js" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">fs</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">readFile</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">hello.txt</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">utf-8</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> (</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic">err</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic"> data</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">)</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">  // ...</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">  res</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">write</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">json</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">  res</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">end</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">()</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         <code>readFile</code> 콜백을 실행하면 파일을 읽은 결과를
@@ -1492,7 +1823,7 @@
       </ol>
       <h2
         id="마무리"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -1500,7 +1831,7 @@
           href="#마무리"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >마무리
       </h2>
@@ -1525,7 +1856,7 @@
       <ul class="min-[790px]:ml-6 ml-4 list-disc">
         <li class="my-1.25">
           <a
-            href="/posts/array-prototype-sort"
+            href="/post/array-prototype-sort"
             class="underline-highlight-fade"
             target="_blank"
             rel="noreferrer noopener"
@@ -1534,7 +1865,7 @@
         </li>
         <li class="my-1.25">
           <a
-            href="/posts/vite-dev-server"
+            href="/post/vite-dev-server"
             class="underline-highlight-fade"
             target="_blank"
             rel="noreferrer noopener"
@@ -1543,7 +1874,7 @@
         </li>
         <li class="my-1.25">
           <a
-            href="/posts/typescript-subtyping"
+            href="/post/typescript-subtyping"
             class="underline-highlight-fade"
             target="_blank"
             rel="noreferrer noopener"
@@ -1552,7 +1883,7 @@
         </li>
         <li class="my-1.25">
           <a
-            href="/posts/object-type"
+            href="/post/object-type"
             class="underline-highlight-fade"
             target="_blank"
             rel="noreferrer noopener"
@@ -1561,7 +1892,7 @@
         </li>
         <li class="my-1.25">
           <a
-            href="/posts/implicit-coercion"
+            href="/post/implicit-coercion"
             class="underline-highlight-fade"
             target="_blank"
             rel="noreferrer noopener"
@@ -1574,154 +1905,209 @@
       class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
       aria-label="목차"
     >
-      <ul
-        class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
+      <div
+        class="sticky top-32 ml-9 w-[216px] min-[1320px]:top-48 min-[1320px]:ml-20"
       >
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="tldr"
-            href="#tldr"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >TL;DR!</a
+        <p class="mb-2 px-3 text-[10px] tracking-[0.18em] text-dark uppercase">
+          On this page
+        </p>
+        <ul>
+          <li class="relative select-none">
+            <a
+              id="tldr"
+              href="#tldr"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >TL;DR!</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="nodejs-이해하기"
+              href="#nodejs-이해하기"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Node.js 이해하기</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="nodejs-이해하기"
-            href="#nodejs-이해하기"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Node.js 이해하기</a
+            <a
+              id="당시의-상황"
+              href="#당시의-상황"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >당시의 상황</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="당시의-상황"
-            href="#당시의-상황"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >당시의 상황</a
+            <a
+              id="nodejs란"
+              href="#nodejs란"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Node.js란?</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-1/2"
           >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="nodejs란"
-            href="#nodejs란"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Node.js란?</a
+            <a
+              id="browser와의-차이점"
+              href="#browser와의-차이점"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Browser와의 차이점</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="아키텍처-살펴보기"
+              href="#아키텍처-살펴보기"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >아키텍처 살펴보기</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
-        >
-          <a
-            id="browser와의-차이점"
-            href="#browser와의-차이점"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Browser와의 차이점</a
+            <a
+              id="한눈에-보기"
+              href="#한눈에-보기"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >한눈에 보기</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="아키텍처-살펴보기"
-            href="#아키텍처-살펴보기"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >아키텍처 살펴보기</a
+            <a
+              id="주요-구성-요소"
+              href="#주요-구성-요소"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >주요 구성 요소</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-1/2"
           >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="한눈에-보기"
-            href="#한눈에-보기"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >한눈에 보기</a
+            <a
+              id="동작-흐름"
+              href="#동작-흐름"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >동작 흐름</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="코드로-이해하는-nodejs"
+              href="#코드로-이해하는-nodejs"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >코드로 이해하는 Node.js</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="주요-구성-요소"
-            href="#주요-구성-요소"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >주요 구성 요소</a
+            <a
+              id="bootstrapping"
+              href="#bootstrapping"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Bootstrapping</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
-        >
-          <a
-            id="동작-흐름"
-            href="#동작-흐름"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >동작 흐름</a
+            <a
+              id="requestsocket-listen"
+              href="#requestsocket-listen"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Request(Socket) listen</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="코드로-이해하는-nodejs"
-            href="#코드로-이해하는-nodejs"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >코드로 이해하는 Node.js</a
+            <a
+              id="file-io"
+              href="#file-io"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >File I/O</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-1/2"
           >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="bootstrapping"
-            href="#bootstrapping"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Bootstrapping</a
-          >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="requestsocket-listen"
-            href="#requestsocket-listen"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Request(Socket) listen</a
-          >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="file-io"
-            href="#file-io"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >File I/O</a
-          >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
-        >
-          <a
-            id="response"
-            href="#response"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Response</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="마무리"
-            href="#마무리"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >마무리</a
-          >
-        </li>
-      </ul>
+            <a
+              id="response"
+              href="#response"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Response</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="마무리"
+              href="#마무리"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >마무리</span
+              ></a
+            >
+          </li>
+        </ul>
+      </div>
     </aside>
   </section>
   <a
-    class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water"
+    class="inline-block text-highlight leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-highlight after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water"
     href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] Node.js%20%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98%20%EB%B0%8F%20%EB%8F%99%EC%9E%91%20%EB%B6%84%EC%84%9D&amp;body=&lt;!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 --&gt;"
     rel="noopener noreferrer"
     target="_blank"
@@ -1744,7 +2130,7 @@
       <a
         class="group flex flex-col gap-1 max-w-[45%] hover:text-highlight duration-300 items-start text-left"
         aria-label="이전 글: N-API(Node-API) 얕게 알아보기(feat. Rust)"
-        href="/posts/n-api"
+        href="/post/n-api"
         ><span class="text-sm text-date-gray">← 이전 글</span
         ><span class="title-underline"
           >N-API(Node-API) 얕게 알아보기(feat. Rust)</span
@@ -1752,7 +2138,7 @@
       ><a
         class="group flex flex-col gap-1 max-w-[45%] hover:text-highlight duration-300 items-end text-right ml-auto"
         aria-label="다음 글: is 패키지의 Supply Chain Attack 과정 분석"
-        href="/posts/is-supply-chain-attack"
+        href="/post/is-supply-chain-attack"
         ><span class="text-sm text-date-gray">다음 글 →</span
         ><span class="title-underline"
           >is 패키지의 Supply Chain Attack 과정 분석</span
@@ -1760,7 +2146,7 @@
       >
     </div>
   </nav>
-  <section aria-labelledby="related-posts-heading" class="mt-12 mb-40">
+  <section aria-labelledby="related-posts-heading" class="mt-12 mb-12 xl:mb-0">
     <h2 id="related-posts-heading" class="text-2xl mb-4">더 보기</h2>
     <ul>
       <li
@@ -1769,7 +2155,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-is-supply-chain-attack-description"
-          href="/posts/is-supply-chain-attack"
+          href="/post/is-supply-chain-attack"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -1784,18 +2170,18 @@
           </div>
           <div class="w-full mt-2 md:mt-0">
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               is 패키지의 Supply Chain Attack 과정 분석
             </h3>
             <p
               id="related-post-is-supply-chain-attack-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               메인테이너는 어떻게 토큰을 탈취당했을까?
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2025-09-10 20:02"
               >2025-09-10 20:02</time
             >
@@ -1808,7 +2194,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-n-api-description"
-          href="/posts/n-api"
+          href="/post/n-api"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -1823,18 +2209,18 @@
           </div>
           <div class="w-full mt-2 md:mt-0">
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               N-API(Node-API) 얕게 알아보기(feat. Rust)
             </h3>
             <p
               id="related-post-n-api-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               N-API를 이해하고 Node.js Addon에 Rust를 붙이는 방법을 알아보자.
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2025-03-16 21:37"
               >2025-03-16 21:37</time
             >
@@ -1847,7 +2233,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-bali-remote-work-description"
-          href="/posts/bali-remote-work"
+          href="/post/bali-remote-work"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -1865,18 +2251,18 @@
               >다른 주제 탐색</span
             >
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               발리 한 달 리모트 워크 후기
             </h3>
             <p
               id="related-post-bali-remote-work-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               발리 한 달 살기 얼마나 낭만 있을까?
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2023-12-30 17:21"
               >2023-12-30 17:21</time
             >
@@ -1889,7 +2275,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-goorm-195696-description"
-          href="/posts/goorm-195696"
+          href="/post/goorm-195696"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -1907,18 +2293,18 @@
               >다른 주제 탐색</span
             >
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               [구름톤 챌린지] 작은 노드
             </h3>
             <p
               id="related-post-goorm-195696-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               양방향 그래프 가볍게 복습하기
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2023-09-03 21:14"
               >2023-09-03 21:14</time
             >

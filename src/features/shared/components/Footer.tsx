@@ -47,13 +47,23 @@ export const Footer: FunctionComponent<Props> = memo(
 
     if (print || process.env.NEXT_PUBLIC_E2E) return null;
     return (
-      <footer className="flex w-full h-screen">
-        <div className="flex w-2/3 overflow-hidden" aria-hidden="true">
+      <footer className="relative isolate flex h-screen w-full shrink-0 overflow-hidden xl:mx-auto xl:h-[320px] xl:max-w-[768px] xl:items-center xl:justify-center xl:border-t xl:border-base/40 xl:px-10 xl:py-20">
+        <div
+          className="flex w-2/3 overflow-hidden xl:hidden"
+          aria-hidden="true"
+        >
           {Array.from({ length: 12 }, (_, idx) => (
             <Frame key={idx} idx={idx} />
           ))}
         </div>
-        <ul className="content-center w-1/3 text-center">
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 hidden h-px overflow-hidden xl:block"
+          aria-hidden="true"
+        >
+          <div className="h-full w-1/3 animate-footer-sweep bg-gradient-to-r from-transparent via-highlight to-transparent motion-reduce:animate-none" />
+        </div>
+
+        <ul className="flex w-1/3 items-center justify-center text-center xl:hidden">
           <Item>
             <Link className={hoverHighlight} href="/about">
               1ilsang
@@ -76,6 +86,43 @@ export const Footer: FunctionComponent<Props> = memo(
             />
           </Item>
         </ul>
+
+        <div className="relative z-10 hidden w-full items-center justify-between xl:flex">
+          <div>
+            <Link
+              className="text-xl font-bold transition-colors hover:text-highlight"
+              href="/"
+            >
+              1ilsang.dev
+            </Link>
+            <p className="text-[10px] tracking-[0.25em] text-sub-blue uppercase">
+              Keep exploring
+            </p>
+          </div>
+          <ul className="flex items-center">
+            <Item>
+              <Link className={hoverHighlight} href="/about">
+                About
+              </Link>
+            </Item>
+            <Item>
+              <ExternalLink
+                className={hoverHighlight}
+                href={MyProfile.github.href}
+                label="GitHub"
+                disableDefaultCSSTransition
+              />
+            </Item>
+            <Item>
+              <ExternalLink
+                className={hoverHighlight}
+                href={MyProfile.linkedin.href}
+                label="LinkedIn"
+                disableDefaultCSSTransition
+              />
+            </Item>
+          </ul>
+        </div>
       </footer>
     );
   },

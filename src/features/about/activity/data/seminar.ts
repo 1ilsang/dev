@@ -10,13 +10,13 @@ export const seminar: Activity[] = [
   },
   {
     name: '우아콘 이그나이트 - 오픈소스 참여 경험',
-    url: '/posts/2024-woowa-ignite',
+    url: '/post/2024-woowa-ignite',
     startDate: 1730214000000, // 2024.10.28 15:50
     endDate: 1730214000000, // 2024.10.28 16:30
   },
   {
     name: '모여봐요 오픈소스의 숲',
-    url: '/posts/geultto8-open-source-seminar',
+    url: '/post/geultto8-open-source-seminar',
     startDate: 1693567800000, // 2023.09.01 15:50
     endDate: 1693567800000, // 2023.09.01 16:30
   },

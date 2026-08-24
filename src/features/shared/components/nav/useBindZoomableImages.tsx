@@ -43,7 +43,7 @@ export const useBindZoomableImages = () => {
   const pathname = usePathname();
 
   useEffect(() => {
-    if (!pathname.startsWith('/posts')) return;
+    if (!pathname.startsWith('/post/')) return;
     const postBodyContainer = document.querySelector(POST_BODY_ID);
     if (!postBodyContainer) return;
 

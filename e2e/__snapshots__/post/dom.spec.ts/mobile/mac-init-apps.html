@@ -17,46 +17,391 @@
       "name": "1ilsang",
       "url": "https://1ilsang.dev"
     },
-    "url": "https://1ilsang.dev/posts/mac-init-apps",
+    "url": "https://1ilsang.dev/post/mac-init-apps",
     "keywords": ["devtools", "developer", "frontend"]
   }
 </script>
 <progress
   id="nav-progress"
-  class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none xl:right-0 xl:left-[calc((100vw-1280px)/2+256px)] xl:w-auto [&amp;::-webkit-progress-value]:bg-base-og"
   aria-label="페이지 읽기 진행률"
   value="0"
   max="1"
 ></progress>
 <nav
   aria-label="메인 네비게이션"
-  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] shadow-nav shadow-lg"
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center max-xl:hover:animate-rainbow-water max-xl:hover:bg-nav max-xl:hover:bg-[length:400%_400%] xl:top-0 xl:left-0 xl:h-screen xl:w-[calc((100vw-1280px)/2+256px)] xl:flex-col xl:flex-nowrap xl:items-stretch xl:justify-start xl:border-r xl:border-base/40 xl:bg-sidebar xl:py-[40px] max-xl:shadow-nav max-xl:shadow-lg"
 >
-  <div class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
-    <a class="hover:underline" href="/">1ilsang</a>
+  <div class="hidden h-full w-[216px] xl:mr-5 xl:ml-auto xl:flex xl:flex-col">
+    <div class="ml-3 mb-4 flex items-center">
+      <a
+        aria-label="About 페이지로 이동"
+        class="mr-2 block w-8 h-8 mt-2 xl:w-12 xl:h-12 xl:mt-0 xl:mr-1"
+        href="/about"
+        ><img
+          class="border border-solid rounded-full w-full h-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+      <div class="flex min-w-0 flex-col items-start justify-center">
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-2xl font-bold my-2 ml-3.5 xl:m-0"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-1 hover:no-underline"
+            href="/"
+            ><span class="flex items-center gap-3"
+              ><span class="flex flex-col"
+                ><span>1ilsang.dev</span
+                ><span class="whitespace-nowrap text-xs font-normal text-dark"
+                  >Software Engineer</span
+                ></span
+              ></span
+            ></a
+          >
+        </div>
+      </div>
+    </div>
+    <ul class="flex flex-col gap-1">
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="m3 11 9-8 9 8"></path>
+                <path d="M5 10v10h14V10M9 20v-6h6v6"></path></svg
+              ><span class=""><span>Home</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/posts"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M6 3h9l4 4v14H6z"></path>
+                <path d="M14 3v5h5M9 12h6M9 16h6"></path></svg
+              ><span class=""><span>Posts</span></span></span
+            ></a
+          >
+        </div>
+        <ul aria-label="포스트 카테고리" class="mt-0.5 ml-[21px] py-1 pl-3">
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/javascript"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="m9 7-5 5 5 5M15 7l5 5-5 5"></path></svg
+              ><span class="truncate">JavaScript</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/rust"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="12" r="5"></circle>
+                <path
+                  d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"
+                ></path></svg
+              ><span class="truncate">Rust</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/activity"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M3 12h4l2-6 4 12 2-6h6"></path></svg
+              ><span class="truncate">Activity</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/book"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M4 5a3 3 0 0 1 3-2h5v17H7a3 3 0 0 0-3 2z"></path>
+                <path
+                  d="M20 5a3 3 0 0 0-3-2h-5v17h5a3 3 0 0 1 3 2z"
+                ></path></svg
+              ><span class="truncate">Book</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/retrospect"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="12" r="8"></circle>
+                <path d="M12 8v5l3 2M5 5 3 8"></path></svg
+              ><span class="truncate">Retrospect</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              aria-current="page"
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-base/60 bg-base/20 text-white"
+              href="/posts/tool"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path
+                  d="M14 6a4 4 0 0 0-5 5L3 17l4 4 6-6a4 4 0 0 0 5-5l-3 3-4-4z"
+                ></path></svg
+              ><span class="truncate">Tool</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-1/2"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/algorithm"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="6" cy="5" r="2"></circle>
+                <circle cx="18" cy="12" r="2"></circle>
+                <circle cx="6" cy="19" r="2"></circle>
+                <path
+                  d="M8 5h3a3 3 0 0 1 3 3v1M8 19h3a3 3 0 0 0 3-3v-1"
+                ></path></svg
+              ><span class="truncate">Algorithm</span></a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/tags"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M20 12 12 20 4 12V4h8z"></path>
+                <circle cx="9" cy="9" r="1.3"></circle></svg
+              ><span class=""><span>Tags</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/about"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="7" r="3"></circle>
+                <path d="M5 21v-2a7 7 0 0 1 14 0v2"></path></svg
+              ><span class=""><span>About</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+    </ul>
+    <div class="mt-auto">
+      <button
+        type="button"
+        class="flex w-full cursor-pointer items-center gap-2 rounded-sm border border-base/40 px-3 py-2 text-left text-xs text-sub-blue transition-colors hover:border-base/70 hover:bg-base/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight"
+        aria-label="라이트 모드로 전환"
+      >
+        <svg
+          aria-hidden="true"
+          class="h-4 w-4 flex-none"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.7"
+          viewBox="0 0 24 24"
+        >
+          <circle cx="12" cy="12" r="4"></circle>
+          <path
+            d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+          ></path></svg
+        ><span
+          >라이트<!-- -->
+          모드</span
+        >
+      </button>
+      <p class="mt-4 border-t border-base/40 pt-5 text-xs text-dark">
+        © 1ilsang
+      </p>
+    </div>
   </div>
-  <div class="flex">
-    <div class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/posts">posts</a>
+  <div class="flex w-full justify-between xl:hidden">
+    <div
+      class="tracking-tight mr-6 xl:mr-0 text-2xl font-bold my-2 ml-3.5 xl:m-0"
+    >
+      <a
+        class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+        href="/"
+        ><span class="flex items-center gap-3"
+          ><span class=""><span>1ilsang</span></span></span
+        ></a
+      >
     </div>
-    <div class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/tags">tags</a>
+    <div class="flex">
+      <div
+        class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+      >
+        <a
+          class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+          href="/posts"
+          ><span class="flex items-center gap-3"
+            ><span class=""><span>Posts</span></span></span
+          ></a
+        >
+      </div>
+      <div
+        class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+      >
+        <a
+          class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+          href="/tags"
+          ><span class="flex items-center gap-3"
+            ><span class=""><span>Tags</span></span></span
+          ></a
+        >
+      </div>
+      <a
+        aria-label="About 페이지로 이동"
+        class="mr-2 block w-8 h-8 mt-2 xl:w-12 xl:h-12 xl:mt-0 xl:mr-1"
+        href="/about"
+        ><img
+          class="border border-solid rounded-full w-full h-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
     </div>
-    <a
-      aria-label="About 페이지로 이동"
-      class="mr-2 block w-8 h-8 mt-2"
-      href="/about"
-      ><img
-        class="border border-solid rounded-full w-full h-full border-white-blue"
-        src="/images/chul.webp"
-        alt="1ilsang"
-    /></a>
   </div>
 </nav>
 <section
   id="main-content"
   tabindex="-1"
-  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
+  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 xl:pt-20 xl:pb-24 mx-4 min-[790px]:m-auto print:py-0 xl:!pb-6"
 >
   <h1 class="text-4xl break-words md:text-6xl">
     웹 개발자를 위한 도구 추천 - 유용한 Mac 앱들
@@ -144,7 +489,7 @@
       </p>
       <h2
         id="모아보기"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -152,7 +497,7 @@
           href="#모아보기"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >모아보기
       </h2>
@@ -367,7 +712,7 @@
       </ul>
       <h2
         id="chrome"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -375,7 +720,7 @@
           href="#chrome"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Chrome
       </h2>
@@ -417,9 +762,7 @@
           >
         </li>
       </ul>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           <a
             href="https://www.google.com/chrome"
@@ -432,7 +775,7 @@
       </blockquote>
       <h2
         id="homebrew"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -440,7 +783,7 @@
           href="#homebrew"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Homebrew
       </h2>
@@ -478,13 +821,11 @@
         <pre
           tabindex="0"
           data-language="sh"
-          data-theme="material-theme-palenight"
-        ><code data-language="sh" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic"># 터미널 설치</span></span>
-<span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> /bin/bash</span><span style="color:#C3E88D"> -c</span><span style="color:#89DDFF"> "$(</span><span style="color:#FFCB6B">curl</span><span style="color:#C3E88D"> -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh</span><span style="color:#89DDFF">)"</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="sh" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"># 터미널 설치</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">$</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> /bin/bash</span><span style="--shiki-light:#005CC5;--shiki-dark:#C3E88D"> -c</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> "$(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">curl</span><span style="--shiki-light:#005CC5;--shiki-dark:#C3E88D"> -fsSL</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">)"</span></span></code></pre>
       </figure>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           <a
             href="https://brew.sh/"
@@ -497,7 +838,7 @@
       </blockquote>
       <h2
         id="oh-my-zsh"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -505,7 +846,7 @@
           href="#oh-my-zsh"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Oh My Zsh
       </h2>
@@ -548,13 +889,11 @@
         <pre
           tabindex="0"
           data-language="sh"
-          data-theme="material-theme-palenight"
-        ><code data-language="sh" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic"># 터미널 설치</span></span>
-<span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> sh</span><span style="color:#C3E88D"> -c</span><span style="color:#89DDFF"> "$(</span><span style="color:#FFCB6B">curl</span><span style="color:#C3E88D"> -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh</span><span style="color:#89DDFF">)"</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="sh" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"># 터미널 설치</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">$</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> sh</span><span style="--shiki-light:#005CC5;--shiki-dark:#C3E88D"> -c</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> "$(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">curl</span><span style="--shiki-light:#005CC5;--shiki-dark:#C3E88D"> -fsSL</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">)"</span></span></code></pre>
       </figure>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           <a
             href="https://ohmyz.sh/#install"
@@ -567,7 +906,7 @@
       </blockquote>
       <h2
         id="iterm2"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -575,7 +914,7 @@
           href="#iterm2"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Iterm2
       </h2>
@@ -606,9 +945,7 @@
         <code>zsh</code>이 터미널의 내용을 관리한다면 터미널 창 자체로 디자인을
         제공해 주는 역할은 <code>iterm2</code>이다.
       </p>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           만약 커맨드라인에서 cmd + delete로
           <a
@@ -628,9 +965,7 @@
       <p class="mt-4 mb-4">
         이 외에도 각 탭에서 창 기본 크기, 배경 설정 등 할 수 있다.
       </p>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           <a
             href="https://iterm2.com/"
@@ -643,7 +978,7 @@
       </blockquote>
       <h2
         id="vscode"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -651,7 +986,7 @@
           href="#vscode"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >VSCode
       </h2>
@@ -678,9 +1013,7 @@
         VSCode에 너무 절여져 있어 다른 에디터는 이제 기억이 나지 않는다...
         유용한 익스텐션은 다음 포스트로 연재하겠다.
       </p>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           <a
             href="https://code.visualstudio.com/"
@@ -693,7 +1026,7 @@
       </blockquote>
       <h2
         id="neovim"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -701,7 +1034,7 @@
           href="#neovim"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >NeoVim
       </h2>
@@ -718,15 +1051,13 @@
         <pre
           tabindex="0"
           data-language="sh"
-          data-theme="material-theme-palenight"
-        ><code data-language="sh" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> brew</span><span style="color:#C3E88D"> install</span><span style="color:#C3E88D"> neovim</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic"># 기본 vi를 neovim으로 변경하고자 한다면 alias를 변경한다.</span></span>
-<span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> vi</span><span style="color:#C3E88D"> ~/.zshrc</span></span>
-<span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> alias</span><span style="color:#C3E88D"> vi=</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">nvim</span><span style="color:#89DDFF">"</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="sh" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">$</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> brew</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> install</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> neovim</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"># 기본 vi를 neovim으로 변경하고자 한다면 alias를 변경한다.</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">$</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> vi</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> ~/.zshrc</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">$</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> alias</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> vi=</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">nvim</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span></span></code></pre>
       </figure>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           <a
             href="https://neovim.io/"
@@ -739,7 +1070,7 @@
       </blockquote>
       <h2
         id="d2-coding"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -747,7 +1078,7 @@
           href="#d2-coding"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >D2 Coding
       </h2>
@@ -769,13 +1100,11 @@
           href="#iterm2에-d2coding을-기본-폰트로-적용하기"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >iterm2에 d2coding을 기본 폰트로 적용하기
       </h3>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">Profiles &gt; Text &gt; Font &gt; D2Coding</p>
         <p class="mt-4 mb-4">
           <a
@@ -797,13 +1126,11 @@
           href="#vscode-기본-폰트로-적용하기"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >VSCode 기본 폰트로 적용하기
       </h3>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           Setting(cmd + ,) &gt; Font Family &gt; D2Coding을 제일 앞에 적어준다.
         </p>
@@ -818,9 +1145,7 @@
         </p>
       </blockquote>
       <p class="mt-4 mb-4">상당히 개발자 친화적인 폰트라 생각한다.</p>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           <a
             href="https://github.com/naver/d2codingfont"
@@ -833,7 +1158,7 @@
       </blockquote>
       <h2
         id="nodejs"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -841,14 +1166,12 @@
           href="#nodejs"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Node.js
       </h2>
       <p class="mt-4 mb-4">"신"</p>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           <a
             href="https://nodejs.org/en"
@@ -861,7 +1184,7 @@
       </blockquote>
       <h2
         id="nvm"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -869,7 +1192,7 @@
           href="#nvm"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >NVM
       </h2>
@@ -884,33 +1207,31 @@
         <pre
           tabindex="0"
           data-language="sh"
-          data-theme="material-theme-palenight"
-        ><code data-language="sh" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic"># Nvm 다운로드.</span></span>
-<span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> curl</span><span style="color:#C3E88D"> -o-</span><span style="color:#C3E88D"> https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh</span><span style="color:#89DDFF"> |</span><span style="color:#FFCB6B"> bash</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic"># 터미널 실행시 자동으로 nvm을 사용하도록 설정.</span></span>
-<span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> vi</span><span style="color:#C3E88D"> ~/.zshrc</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic"># 아래 내용을 zshrc 아무곳에 붙여넣는다.</span></span>
-<span data-line=""><span style="color:#C792EA">export</span><span style="color:#BABED8"> NVM_DIR</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"$([</span><span style="color:#89DDFF"> -z</span><span style="color:#89DDFF"> "${</span><span style="color:#BABED8">XDG_CONFIG_HOME-</span><span style="color:#89DDFF">}"</span><span style="color:#89DDFF"> ]</span><span style="color:#89DDFF"> &amp;&amp;</span><span style="color:#82AAFF"> printf</span><span style="color:#C3E88D"> %s </span><span style="color:#89DDFF">"${</span><span style="color:#BABED8">HOME</span><span style="color:#89DDFF">}</span><span style="color:#C3E88D">/.nvm</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF"> ||</span><span style="color:#82AAFF"> printf</span><span style="color:#C3E88D"> %s </span><span style="color:#89DDFF">"${</span><span style="color:#BABED8">XDG_CONFIG_HOME</span><span style="color:#89DDFF">}</span><span style="color:#C3E88D">/nvm</span><span style="color:#89DDFF">")"</span></span>
-<span data-line=""><span style="color:#89DDFF">[</span><span style="color:#89DDFF"> -s</span><span style="color:#89DDFF"> "</span><span style="color:#BABED8">$NVM_DIR</span><span style="color:#C3E88D">/nvm.sh</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF"> ]</span><span style="color:#89DDFF"> &amp;&amp;</span><span style="color:#FFCB6B"> \.</span><span style="color:#89DDFF"> "</span><span style="color:#BABED8">$NVM_DIR</span><span style="color:#C3E88D">/nvm.sh</span><span style="color:#89DDFF">"</span><span style="color:#676E95;font-style:italic"> # This loads nvm</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic"># 쉘 반영</span></span>
-<span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> source</span><span style="color:#C3E88D"> ~/.zshrc</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="sh" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"># Nvm 다운로드.</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">$</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> curl</span><span style="--shiki-light:#005CC5;--shiki-dark:#C3E88D"> -o-</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> |</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> bash</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"># 터미널 실행시 자동으로 nvm을 사용하도록 설정.</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">$</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> vi</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> ~/.zshrc</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"># 아래 내용을 zshrc 아무곳에 붙여넣는다.</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">export</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> NVM_DIR</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"$([</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> -z</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> "${</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">XDG_CONFIG_HOME-</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">}"</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> ]</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> &amp;&amp;</span><span style="--shiki-light:#005CC5;--shiki-dark:#82AAFF"> printf</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> %s </span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"${</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">HOME</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">}</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">/.nvm</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> ||</span><span style="--shiki-light:#005CC5;--shiki-dark:#82AAFF"> printf</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> %s </span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"${</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">XDG_CONFIG_HOME</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">}</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">/nvm</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">")"</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">[</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> -s</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> "</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">$NVM_DIR</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">/nvm.sh</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ]</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> &amp;&amp;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> \.</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> "</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">$NVM_DIR</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">/nvm.sh</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> # This loads nvm</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"># 쉘 반영</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">$</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> source</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> ~/.zshrc</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">사용법은 아래와 같다.</p>
       <figure data-rehype-pretty-code-figure="">
         <pre
           tabindex="0"
           data-language="sh"
-          data-theme="material-theme-palenight"
-        ><code data-language="sh" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic"># .nvmrc 파일이 존재하면 지정된 노드 버전으로 설정됨.</span></span>
-<span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> nvm</span><span style="color:#C3E88D"> use</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic"># Node.js 20.10.0 버전 다운로드.</span></span>
-<span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> nvm</span><span style="color:#C3E88D"> install</span><span style="color:#F78C6C"> 20.10.0</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic"># Node.js 20.10.0 버전 사용.</span></span>
-<span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> nvm</span><span style="color:#C3E88D"> use</span><span style="color:#F78C6C"> 20.10.0</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="sh" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"># .nvmrc 파일이 존재하면 지정된 노드 버전으로 설정됨.</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">$</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> nvm</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> use</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"># Node.js 20.10.0 버전 다운로드.</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">$</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> nvm</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> install</span><span style="--shiki-light:#005CC5;--shiki-dark:#F78C6C"> 20.10.0</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"># Node.js 20.10.0 버전 사용.</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">$</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> nvm</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> use</span><span style="--shiki-light:#005CC5;--shiki-dark:#F78C6C"> 20.10.0</span></span></code></pre>
       </figure>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           <a
             href="https://github.com/nvm-sh/nvm/blob/master/README.md"
@@ -923,7 +1244,7 @@
       </blockquote>
       <h2
         id="docker"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -931,14 +1252,12 @@
           href="#docker"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Docker
       </h2>
       <p class="mt-4 mb-4">두 번째 "신"</p>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           <a
             href="https://www.docker.com/"
@@ -951,7 +1270,7 @@
       </blockquote>
       <h2
         id="giphy-capture"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -959,7 +1278,7 @@
           href="#giphy-capture"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >GIPHY Capture
       </h2>
@@ -985,9 +1304,7 @@
       <p class="mt-4 mb-4">
         간단하게 움짤(gif)을 따야 할 때 유용하게 쓸 수 있다.
       </p>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           <a
             href="https://apps.apple.com/kr/app/giphy-capture-the-gif-maker/id668208984"
@@ -1000,7 +1317,7 @@
       </blockquote>
       <h2
         id="deepl"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -1008,7 +1325,7 @@
           href="#deepl"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >DeepL
       </h2>
@@ -1017,9 +1334,7 @@
         번역하기도 지원하기 때문에 숏컷 활용도 또한 뛰어나다.
       </p>
       <p class="mt-4 mb-4">이후 다룰 크롬 익스텐션과 함께 사용하면 찰떡이다.</p>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           <a
             href="https://www.deepl.com/ko/app/"
@@ -1032,7 +1347,7 @@
       </blockquote>
       <h2
         id="screenhint"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -1040,7 +1355,7 @@
           href="#screenhint"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >ScreenHint
       </h2>
@@ -1080,9 +1395,7 @@
       <p class="mt-4 mb-4">
         맥 어플 전체화면시에도 올라가 있기 때문에 상당히 편리하다.
       </p>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           <a
             href="https://apps.apple.com/kr/app/screenhint/id1566621533?mt=12"
@@ -1095,7 +1408,7 @@
       </blockquote>
       <h2
         id="quick-notes"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -1103,7 +1416,7 @@
           href="#quick-notes"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Quick Notes
       </h2>
@@ -1133,9 +1446,7 @@
       <p class="mt-4 mb-4">
         유료라서 꼭 필요한 게 아니라면 크게 추천하고 싶진 않다.
       </p>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           <a
             href="https://apps.apple.com/kr/app/quick-notes/id1260480179?mt=12"
@@ -1148,7 +1459,7 @@
       </blockquote>
       <h2
         id="calculator-pro"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -1156,7 +1467,7 @@
           href="#calculator-pro"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Calculator Pro
       </h2>
@@ -1197,9 +1508,7 @@
       <p class="mt-4 mb-4">
         오른쪽 화면은 내가 쓰는 글로벌 숏컷이다. 껐다켰다하며 사용하기 편하다.
       </p>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           <a
             href="https://apps.apple.com/kr/app/calculator-pro-topbar-app/id576215086"
@@ -1212,7 +1521,7 @@
       </blockquote>
       <h2
         id="올ㅋ사전"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -1220,7 +1529,7 @@
           href="#올ㅋ사전"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >올ㅋ사전
       </h2>
@@ -1257,9 +1566,7 @@
         특정 단어를 검색해야 할 때 화면 이동을 하는 건 너무 귀찮다. 단축키로
         바로 열어서 찾는 것이 편리하다.
       </p>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           <a
             href="https://apps.apple.com/kr/app/%EC%98%AC%E3%85%8B%EC%82%AC%EC%A0%84-%EB%A7%A5%EC%97%90%EC%84%9C-%EB%8B%A8%EC%B6%95%ED%82%A4%EB%A5%BC-%EB%88%84%EB%A5%B4%EB%A9%B4-%EC%98%81%EC%96%B4%EC%82%AC%EC%A0%84%EC%9D%B4-%EB%99%87/id1033453958?mt=12"
@@ -1272,7 +1579,7 @@
       </blockquote>
       <h2
         id="codewhisperer"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -1280,7 +1587,7 @@
           href="#codewhisperer"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >CodeWhisperer
       </h2>
@@ -1321,12 +1628,10 @@
         <pre
           tabindex="0"
           data-language="sh"
-          data-theme="material-theme-palenight"
-        ><code data-language="sh" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> brew</span><span style="color:#C3E88D"> install</span><span style="color:#C3E88D"> --cask</span><span style="color:#C3E88D"> codewhisperer</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="sh" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">$</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> brew</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> install</span><span style="--shiki-light:#005CC5;--shiki-dark:#C3E88D"> --cask</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> codewhisperer</span></span></code></pre>
       </figure>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           <a
             href="https://aws.amazon.com/ko/codewhisperer/resources/?refid=d66b5e73-988d-4ff9-aa68-e067ce087ab"
@@ -1339,7 +1644,7 @@
       </blockquote>
       <h2
         id="flycut"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -1347,7 +1652,7 @@
           href="#flycut"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Flycut
       </h2>
@@ -1379,9 +1684,7 @@
         내용들을 기억하고 불러오는 것도 지원해 준다. 심지어 복사된 시간도
         알려준다.
       </p>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           <a
             href="https://apps.apple.com/kr/app/flycut-clipboard-manager/id442160987?mt=12"
@@ -1394,7 +1697,7 @@
       </blockquote>
       <h2
         id="screenbrush"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -1402,7 +1705,7 @@
           href="#screenbrush"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >ScreenBrush
       </h2>
@@ -1433,9 +1736,7 @@
         화면에 무엇인가 작성하거나 포인터가 필요할 때 예쁘게 시선을 잡아주는
         효자 앱이다.
       </p>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           <a
             href="https://apps.apple.com/kr/app/screenbrush/id1233965871?mt=12"
@@ -1448,7 +1749,7 @@
       </blockquote>
       <h2
         id="keycastr"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -1456,7 +1757,7 @@
           href="#keycastr"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Keycastr
       </h2>
@@ -1487,12 +1788,10 @@
         <pre
           tabindex="0"
           data-language="sh"
-          data-theme="material-theme-palenight"
-        ><code data-language="sh" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> brew</span><span style="color:#C3E88D"> install</span><span style="color:#C3E88D"> --cask</span><span style="color:#C3E88D"> keycastr</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="sh" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">$</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> brew</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> install</span><span style="--shiki-light:#005CC5;--shiki-dark:#C3E88D"> --cask</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> keycastr</span></span></code></pre>
       </figure>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           <a
             href="https://github.com/keycastr/keycastr"
@@ -1505,7 +1804,7 @@
       </blockquote>
       <h2
         id="ngrok"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -1513,7 +1812,7 @@
           href="#ngrok"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Ngrok
       </h2>
@@ -1548,18 +1847,16 @@
         <pre
           tabindex="0"
           data-language="sh"
-          data-theme="material-theme-palenight"
-        ><code data-language="sh" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#FFCB6B">$</span><span style="color:#C3E88D"> ngrok</span><span style="color:#C3E88D"> http</span><span style="color:#F78C6C"> 3000</span><span style="color:#676E95;font-style:italic"> # 3000번 포트로 http 통신을 허용한다.</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic"># 위의 이미지처럼 https://7421-1-235-243-130.ngrok-free.app URL이 생성(일회용 랜덤)된다.</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic"># 이후 해당 URL로 접근하면 localhost:3000으로 접속한 것과 같이 된다.</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic"># 이로써 정적 배포/서버 없이 누구에게나 열린 일회용 퍼블릭 URL을 가지게 되었다!</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="sh" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">$</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> ngrok</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> http</span><span style="--shiki-light:#005CC5;--shiki-dark:#F78C6C"> 3000</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> # 3000번 포트로 http 통신을 허용한다.</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"># 위의 이미지처럼 https://7421-1-235-243-130.ngrok-free.app URL이 생성(일회용 랜덤)된다.</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"># 이후 해당 URL로 접근하면 localhost:3000으로 접속한 것과 같이 된다.</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"># 이로써 정적 배포/서버 없이 누구에게나 열린 일회용 퍼블릭 URL을 가지게 되었다!</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         단, 사용하기 위해선 로그인 이후 인증 토큰을 넣어야 한다.
       </p>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           <a
             href="https://ngrok.com/download"
@@ -1572,7 +1869,7 @@
       </blockquote>
       <h2
         id="hidden-bar"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -1580,7 +1877,7 @@
           href="#hidden-bar"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Hidden bar
       </h2>
@@ -1607,9 +1904,7 @@
         이쯤 되면 상단바가 상당히 늘어났다는 것을 확인할 수 있다.
         <code>Hidden bar</code>는 필요한 앱들만 상단바에 노출시켜 주는 앱이다.
       </p>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           <a
             href="https://apps.apple.com/kr/app/hidden-bar/id1452453066?mt=12"
@@ -1622,7 +1917,7 @@
       </blockquote>
       <h2
         id="digital-color-meter"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -1630,7 +1925,7 @@
           href="#digital-color-meter"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Digital Color Meter
       </h2>
@@ -1662,226 +1957,333 @@
       class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
       aria-label="목차"
     >
-      <ul
-        class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
+      <div
+        class="sticky top-32 ml-9 w-[216px] min-[1320px]:top-48 min-[1320px]:ml-20"
       >
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="모아보기"
-            href="#모아보기"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >모아보기</a
+        <p class="mb-2 px-3 text-[10px] tracking-[0.18em] text-dark uppercase">
+          On this page
+        </p>
+        <ul>
+          <li class="relative select-none">
+            <a
+              id="모아보기"
+              href="#모아보기"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >모아보기</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="chrome"
+              href="#chrome"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Chrome</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="homebrew"
+              href="#homebrew"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Homebrew</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="oh-my-zsh"
+              href="#oh-my-zsh"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Oh My Zsh</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="iterm2"
+              href="#iterm2"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Iterm2</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="vscode"
+              href="#vscode"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >VSCode</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="neovim"
+              href="#neovim"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >NeoVim</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="d2-coding"
+              href="#d2-coding"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >D2 Coding</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="chrome"
-            href="#chrome"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Chrome</a
+            <a
+              id="iterm2에-d2coding을-기본-폰트로-적용하기"
+              href="#iterm2에-d2coding을-기본-폰트로-적용하기"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >iterm2에 d2coding을 기본 폰트로 적용하기</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-1/2"
           >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="homebrew"
-            href="#homebrew"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Homebrew</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="oh-my-zsh"
-            href="#oh-my-zsh"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Oh My Zsh</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="iterm2"
-            href="#iterm2"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Iterm2</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="vscode"
-            href="#vscode"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >VSCode</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="neovim"
-            href="#neovim"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >NeoVim</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="d2-coding"
-            href="#d2-coding"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >D2 Coding</a
-          >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="iterm2에-d2coding을-기본-폰트로-적용하기"
-            href="#iterm2에-d2coding을-기본-폰트로-적용하기"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >iterm2에 d2coding을 기본 폰트로 적용하기</a
-          >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
-        >
-          <a
-            id="vscode-기본-폰트로-적용하기"
-            href="#vscode-기본-폰트로-적용하기"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >VSCode 기본 폰트로 적용하기</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="nodejs"
-            href="#nodejs"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Node.js</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="nvm"
-            href="#nvm"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >NVM</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="docker"
-            href="#docker"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Docker</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="giphy-capture"
-            href="#giphy-capture"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >GIPHY Capture</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="deepl"
-            href="#deepl"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >DeepL</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="screenhint"
-            href="#screenhint"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >ScreenHint</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="quick-notes"
-            href="#quick-notes"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Quick Notes</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="calculator-pro"
-            href="#calculator-pro"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Calculator Pro</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="올ㅋ사전"
-            href="#올ㅋ사전"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >올ㅋ사전</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="codewhisperer"
-            href="#codewhisperer"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >CodeWhisperer</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="flycut"
-            href="#flycut"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Flycut</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="screenbrush"
-            href="#screenbrush"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >ScreenBrush</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="keycastr"
-            href="#keycastr"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Keycastr</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="ngrok"
-            href="#ngrok"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Ngrok</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="hidden-bar"
-            href="#hidden-bar"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Hidden bar</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="digital-color-meter"
-            href="#digital-color-meter"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Digital Color Meter</a
-          >
-        </li>
-      </ul>
+            <a
+              id="vscode-기본-폰트로-적용하기"
+              href="#vscode-기본-폰트로-적용하기"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >VSCode 기본 폰트로 적용하기</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="nodejs"
+              href="#nodejs"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Node.js</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="nvm"
+              href="#nvm"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >NVM</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="docker"
+              href="#docker"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Docker</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="giphy-capture"
+              href="#giphy-capture"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >GIPHY Capture</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="deepl"
+              href="#deepl"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >DeepL</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="screenhint"
+              href="#screenhint"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >ScreenHint</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="quick-notes"
+              href="#quick-notes"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Quick Notes</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="calculator-pro"
+              href="#calculator-pro"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Calculator Pro</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="올ㅋ사전"
+              href="#올ㅋ사전"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >올ㅋ사전</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="codewhisperer"
+              href="#codewhisperer"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >CodeWhisperer</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="flycut"
+              href="#flycut"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Flycut</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="screenbrush"
+              href="#screenbrush"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >ScreenBrush</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="keycastr"
+              href="#keycastr"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Keycastr</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="ngrok"
+              href="#ngrok"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Ngrok</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="hidden-bar"
+              href="#hidden-bar"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Hidden bar</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="digital-color-meter"
+              href="#digital-color-meter"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Digital Color Meter</span
+              ></a
+            >
+          </li>
+        </ul>
+      </div>
     </aside>
   </section>
   <a
-    class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water"
+    class="inline-block text-highlight leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-highlight after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water"
     href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] %EC%9B%B9%20%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%A5%BC%20%EC%9C%84%ED%95%9C%20%EB%8F%84%EA%B5%AC%20%EC%B6%94%EC%B2%9C%20-%20%EC%9C%A0%EC%9A%A9%ED%95%9C%20Mac%20%EC%95%B1%EB%93%A4&amp;body=&lt;!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 --&gt;"
     rel="noopener noreferrer"
     target="_blank"
@@ -1904,7 +2306,7 @@
       <a
         class="group flex flex-col gap-1 max-w-[45%] hover:text-highlight duration-300 items-start text-left"
         aria-label="이전 글: 우아한 타입스크립트 with 리액트 리뷰"
-        href="/posts/woowa-type-review"
+        href="/post/woowa-type-review"
         ><span class="text-sm text-date-gray">← 이전 글</span
         ><span class="title-underline"
           >우아한 타입스크립트 with 리액트 리뷰</span
@@ -1912,13 +2314,13 @@
       ><a
         class="group flex flex-col gap-1 max-w-[45%] hover:text-highlight duration-300 items-end text-right ml-auto"
         aria-label="다음 글: 발리 한 달 리모트 워크 후기"
-        href="/posts/bali-remote-work"
+        href="/post/bali-remote-work"
         ><span class="text-sm text-date-gray">다음 글 →</span
         ><span class="title-underline">발리 한 달 리모트 워크 후기</span></a
       >
     </div>
   </nav>
-  <section aria-labelledby="related-posts-heading" class="mt-12 mb-40">
+  <section aria-labelledby="related-posts-heading" class="mt-12 mb-12 xl:mb-0">
     <h2 id="related-posts-heading" class="text-2xl mb-4">더 보기</h2>
     <ul>
       <li
@@ -1927,7 +2329,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-is-supply-chain-attack-description"
-          href="/posts/is-supply-chain-attack"
+          href="/post/is-supply-chain-attack"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -1942,18 +2344,18 @@
           </div>
           <div class="w-full mt-2 md:mt-0">
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               is 패키지의 Supply Chain Attack 과정 분석
             </h3>
             <p
               id="related-post-is-supply-chain-attack-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               메인테이너는 어떻게 토큰을 탈취당했을까?
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2025-09-10 20:02"
               >2025-09-10 20:02</time
             >
@@ -1966,7 +2368,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-2024-woowa-ignite-description"
-          href="/posts/2024-woowa-ignite"
+          href="/post/2024-woowa-ignite"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -1981,18 +2383,18 @@
           </div>
           <div class="w-full mt-2 md:mt-0">
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               우아콘 이그나이트 - 오픈소스 참여 경험 발표 후기
             </h3>
             <p
               id="related-post-2024-woowa-ignite-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               발표 준비 과정과 생각 정리
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2025-01-05 21:24"
               >2025-01-05 21:24</time
             >
@@ -2005,7 +2407,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-leetcode-medium-238-description"
-          href="/posts/leetcode-medium-238"
+          href="/post/leetcode-medium-238"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -2023,18 +2425,18 @@
               >다른 주제 탐색</span
             >
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               [LeetCode] 238. Product of Array Except Self
             </h3>
             <p
               id="related-post-leetcode-medium-238-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               연속되는 곱셈을 어떻게 처리할까?
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2023-08-13 22:31"
               >2023-08-13 22:31</time
             >
@@ -2047,7 +2449,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-2023-description"
-          href="/posts/2023"
+          href="/post/2023"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -2065,18 +2467,18 @@
               >다른 주제 탐색</span
             >
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               2023 회고록
             </h3>
             <p
               id="related-post-2023-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               올해를 돌아보며
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2023-12-31 14:27"
               >2023-12-31 14:27</time
             >

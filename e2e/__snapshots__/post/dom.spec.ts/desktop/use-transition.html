@@ -17,46 +17,391 @@
       "name": "1ilsang",
       "url": "https://1ilsang.dev"
     },
-    "url": "https://1ilsang.dev/posts/use-transition",
+    "url": "https://1ilsang.dev/post/use-transition",
     "keywords": ["react", "frontend", "javascript"]
   }
 </script>
 <progress
   id="nav-progress"
-  class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none xl:right-0 xl:left-[calc((100vw-1280px)/2+256px)] xl:w-auto [&amp;::-webkit-progress-value]:bg-base-og"
   aria-label="페이지 읽기 진행률"
   value="0"
   max="1"
 ></progress>
 <nav
   aria-label="메인 네비게이션"
-  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] shadow-nav shadow-lg"
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center max-xl:hover:animate-rainbow-water max-xl:hover:bg-nav max-xl:hover:bg-[length:400%_400%] xl:top-0 xl:left-0 xl:h-screen xl:w-[calc((100vw-1280px)/2+256px)] xl:flex-col xl:flex-nowrap xl:items-stretch xl:justify-start xl:border-r xl:border-base/40 xl:bg-sidebar xl:py-[40px] max-xl:shadow-nav max-xl:shadow-lg"
 >
-  <div class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
-    <a class="hover:underline" href="/">1ilsang</a>
+  <div class="hidden h-full w-[216px] xl:mr-5 xl:ml-auto xl:flex xl:flex-col">
+    <div class="ml-3 mb-4 flex items-center">
+      <a
+        aria-label="About 페이지로 이동"
+        class="mr-2 block w-8 h-8 mt-2 xl:w-12 xl:h-12 xl:mt-0 xl:mr-1"
+        href="/about"
+        ><img
+          class="border border-solid rounded-full w-full h-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+      <div class="flex min-w-0 flex-col items-start justify-center">
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-2xl font-bold my-2 ml-3.5 xl:m-0"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-1 hover:no-underline"
+            href="/"
+            ><span class="flex items-center gap-3"
+              ><span class="flex flex-col"
+                ><span>1ilsang.dev</span
+                ><span class="whitespace-nowrap text-xs font-normal text-dark"
+                  >Software Engineer</span
+                ></span
+              ></span
+            ></a
+          >
+        </div>
+      </div>
+    </div>
+    <ul class="flex flex-col gap-1">
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="m3 11 9-8 9 8"></path>
+                <path d="M5 10v10h14V10M9 20v-6h6v6"></path></svg
+              ><span class=""><span>Home</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/posts"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M6 3h9l4 4v14H6z"></path>
+                <path d="M14 3v5h5M9 12h6M9 16h6"></path></svg
+              ><span class=""><span>Posts</span></span></span
+            ></a
+          >
+        </div>
+        <ul aria-label="포스트 카테고리" class="mt-0.5 ml-[21px] py-1 pl-3">
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              aria-current="page"
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-base/60 bg-base/20 text-white"
+              href="/posts/javascript"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="m9 7-5 5 5 5M15 7l5 5-5 5"></path></svg
+              ><span class="truncate">JavaScript</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/rust"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="12" r="5"></circle>
+                <path
+                  d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"
+                ></path></svg
+              ><span class="truncate">Rust</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/activity"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M3 12h4l2-6 4 12 2-6h6"></path></svg
+              ><span class="truncate">Activity</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/book"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M4 5a3 3 0 0 1 3-2h5v17H7a3 3 0 0 0-3 2z"></path>
+                <path
+                  d="M20 5a3 3 0 0 0-3-2h-5v17h5a3 3 0 0 1 3 2z"
+                ></path></svg
+              ><span class="truncate">Book</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/retrospect"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="12" r="8"></circle>
+                <path d="M12 8v5l3 2M5 5 3 8"></path></svg
+              ><span class="truncate">Retrospect</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/tool"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path
+                  d="M14 6a4 4 0 0 0-5 5L3 17l4 4 6-6a4 4 0 0 0 5-5l-3 3-4-4z"
+                ></path></svg
+              ><span class="truncate">Tool</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-1/2"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/algorithm"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="6" cy="5" r="2"></circle>
+                <circle cx="18" cy="12" r="2"></circle>
+                <circle cx="6" cy="19" r="2"></circle>
+                <path
+                  d="M8 5h3a3 3 0 0 1 3 3v1M8 19h3a3 3 0 0 0 3-3v-1"
+                ></path></svg
+              ><span class="truncate">Algorithm</span></a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/tags"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M20 12 12 20 4 12V4h8z"></path>
+                <circle cx="9" cy="9" r="1.3"></circle></svg
+              ><span class=""><span>Tags</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/about"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="7" r="3"></circle>
+                <path d="M5 21v-2a7 7 0 0 1 14 0v2"></path></svg
+              ><span class=""><span>About</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+    </ul>
+    <div class="mt-auto">
+      <button
+        type="button"
+        class="flex w-full cursor-pointer items-center gap-2 rounded-sm border border-base/40 px-3 py-2 text-left text-xs text-sub-blue transition-colors hover:border-base/70 hover:bg-base/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight"
+        aria-label="라이트 모드로 전환"
+      >
+        <svg
+          aria-hidden="true"
+          class="h-4 w-4 flex-none"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.7"
+          viewBox="0 0 24 24"
+        >
+          <circle cx="12" cy="12" r="4"></circle>
+          <path
+            d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+          ></path></svg
+        ><span
+          >라이트<!-- -->
+          모드</span
+        >
+      </button>
+      <p class="mt-4 border-t border-base/40 pt-5 text-xs text-dark">
+        © 1ilsang
+      </p>
+    </div>
   </div>
-  <div class="flex">
-    <div class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/posts">posts</a>
+  <div class="flex w-full justify-between xl:hidden">
+    <div
+      class="tracking-tight mr-6 xl:mr-0 text-2xl font-bold my-2 ml-3.5 xl:m-0"
+    >
+      <a
+        class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+        href="/"
+        ><span class="flex items-center gap-3"
+          ><span class=""><span>1ilsang</span></span></span
+        ></a
+      >
     </div>
-    <div class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/tags">tags</a>
+    <div class="flex">
+      <div
+        class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+      >
+        <a
+          class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+          href="/posts"
+          ><span class="flex items-center gap-3"
+            ><span class=""><span>Posts</span></span></span
+          ></a
+        >
+      </div>
+      <div
+        class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+      >
+        <a
+          class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+          href="/tags"
+          ><span class="flex items-center gap-3"
+            ><span class=""><span>Tags</span></span></span
+          ></a
+        >
+      </div>
+      <a
+        aria-label="About 페이지로 이동"
+        class="mr-2 block w-8 h-8 mt-2 xl:w-12 xl:h-12 xl:mt-0 xl:mr-1"
+        href="/about"
+        ><img
+          class="border border-solid rounded-full w-full h-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
     </div>
-    <a
-      aria-label="About 페이지로 이동"
-      class="mr-2 block w-8 h-8 mt-2"
-      href="/about"
-      ><img
-        class="border border-solid rounded-full w-full h-full border-white-blue"
-        src="/images/chul.webp"
-        alt="1ilsang"
-    /></a>
   </div>
 </nav>
 <section
   id="main-content"
   tabindex="-1"
-  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
+  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 xl:pt-20 xl:pb-24 mx-4 min-[790px]:m-auto print:py-0 xl:!pb-6"
 >
   <h1 class="text-4xl break-words md:text-6xl">useTransition 이해하기</h1>
   <section class="flex items-center mt-4">
@@ -160,9 +505,7 @@
           >번역 PR</a
         >을 올릴수 있었다.
       </p>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           <a
             href="https://ko.react.dev/reference/react/useTransition"
@@ -178,7 +521,7 @@
       </p>
       <h2
         id="tldr"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -186,7 +529,7 @@
           href="#tldr"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >TL;DR!
       </h2>
@@ -199,7 +542,7 @@
       </p>
       <h2
         id="목차"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -207,7 +550,7 @@
           href="#목차"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >목차
       </h2>
@@ -239,7 +582,7 @@
       </ol>
       <h2
         id="usetransition이란"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -247,7 +590,7 @@
           href="#usetransition이란"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >useTransition이란?
       </h2>
@@ -260,8 +603,8 @@
         <pre
           tabindex="0"
           data-language="jsx"
-          data-theme="material-theme-palenight"
-        ><code data-language="jsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#89DDFF"> [</span><span style="color:#BABED8">isPending</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> startTransition</span><span style="color:#89DDFF">]</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> useTransition</span><span style="color:#BABED8">()</span><span style="color:#89DDFF">;</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="jsx" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> [</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">isPending</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> startTransition</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">]</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> useTransition</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">()</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         여기서 <em>UI를 차단하지 않고</em> 라는 문구를 유의하기 바란다.
@@ -306,7 +649,7 @@
           href="#ispending-starttransition-이해하기"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >isPending, startTransition 이해하기
       </h3>
@@ -314,22 +657,22 @@
         <pre
           tabindex="0"
           data-language="jsx"
-          data-theme="material-theme-palenight"
-        ><code data-language="jsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> TabButton </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> ({</span><span style="color:#BABED8;font-style:italic"> children</span><span style="color:#89DDFF">,</span><span style="color:#BABED8;font-style:italic"> onClick</span><span style="color:#89DDFF"> })</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#89DDFF"> [</span><span style="color:#BABED8">isPending</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> startTransition</span><span style="color:#89DDFF">]</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> useTransition</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#89DDFF"> [</span><span style="color:#BABED8">tab</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> setTab</span><span style="color:#89DDFF">]</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> useState</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">about</span><span style="color:#89DDFF">'</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="jsx" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> TabButton</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ({</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic"> children</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic"> onClick</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> })</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  const</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> [</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">isPending</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> startTransition</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">]</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> useTransition</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">()</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  const</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> [</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">tab</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> setTab</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">]</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> useState</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">about</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">  if</span><span style="color:#F07178"> (</span><span style="color:#BABED8">isPending</span><span style="color:#F07178">) </span><span style="color:#89DDFF">{</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">    return</span><span style="color:#89DDFF"> &lt;</span><span style="color:#F07178">b</span><span style="color:#C792EA"> className</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">pending</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">&gt;{</span><span style="color:#BABED8">children</span><span style="color:#89DDFF">}&lt;/</span><span style="color:#F07178">b</span><span style="color:#89DDFF">&gt;;</span></span>
-<span data-line=""><span style="color:#89DDFF">  }</span></span>
-<span data-line=""><span style="color:#C792EA">  function</span><span style="color:#82AAFF"> selectTab</span><span style="color:#89DDFF">(</span><span style="color:#BABED8;font-style:italic">nextTab</span><span style="color:#89DDFF">)</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#82AAFF">    startTransition</span><span style="color:#F07178">(</span><span style="color:#89DDFF">()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">      // NOTE: async 함수는 들어오면 안된다.</span></span>
-<span data-line=""><span style="color:#82AAFF">      setTab</span><span style="color:#F07178">(</span><span style="color:#BABED8">nextTab</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">    }</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">  }</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">  // ...아래에서 풀 코드로 설명</span></span>
-<span data-line=""><span style="color:#89DDFF">};</span></span></code></pre>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">  if</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> (</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">isPending</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">) </span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">    return</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> &lt;</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">b</span><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA"> className</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">pending</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;{</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">children</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}&lt;/</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">b</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  }</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  function</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> selectTab</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">(</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic">nextTab</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">    startTransition</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">      // NOTE: async 함수는 들어오면 안된다.</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">      setTab</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">nextTab</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">    }</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  }</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">  // ...아래에서 풀 코드로 설명</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">};</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         useTransition은 두 개의 항목이 있는 배열을 반환한다.
@@ -354,7 +697,7 @@
           href="#starttransition-유의-사항"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >startTransition 유의 사항
       </h4>
@@ -381,7 +724,7 @@
           href="#전체-코드로-이해하기"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >전체 코드로 이해하기
       </h3>
@@ -401,76 +744,76 @@
         <pre
           tabindex="0"
           data-language="jsx"
-          data-theme="material-theme-palenight"
-        ><code data-language="jsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> App </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#89DDFF"> [</span><span style="color:#BABED8">tab</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> setTab</span><span style="color:#89DDFF">]</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> useState</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">about</span><span style="color:#89DDFF">'</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="jsx" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> App</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  const</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> [</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">tab</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> setTab</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">]</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> useState</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">about</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#F07178"> (</span></span>
-<span data-line=""><span style="color:#89DDFF">    &lt;&gt;</span></span>
-<span data-line=""><span style="color:#89DDFF">      {</span><span style="color:#676E95;font-style:italic">/* 탭을 클릭하면 렌더링할 탭 컴포넌트가 설정된다 */</span><span style="color:#89DDFF">}</span></span>
-<span data-line=""><span style="color:#89DDFF">      &lt;</span><span style="color:#FFCB6B">TabButton</span><span style="color:#C792EA"> isActive</span><span style="color:#89DDFF">={</span><span style="color:#BABED8">tab </span><span style="color:#89DDFF">===</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">about</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">} </span><span style="color:#C792EA">onClick</span><span style="color:#89DDFF">={()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#82AAFF"> setTab</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">about</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">}&gt;</span></span>
-<span data-line=""><span style="color:#BABED8">        About</span></span>
-<span data-line=""><span style="color:#89DDFF">      &lt;/</span><span style="color:#FFCB6B">TabButton</span><span style="color:#89DDFF">&gt;</span></span>
-<span data-line=""><span style="color:#89DDFF">      &lt;</span><span style="color:#FFCB6B">TabButton</span><span style="color:#C792EA"> isActive</span><span style="color:#89DDFF">={</span><span style="color:#BABED8">tab </span><span style="color:#89DDFF">===</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">posts</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">} </span><span style="color:#C792EA">onClick</span><span style="color:#89DDFF">={()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#82AAFF"> setTab</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">posts</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">}&gt;</span></span>
-<span data-line=""><span style="color:#BABED8">        Posts (slow)</span></span>
-<span data-line=""><span style="color:#89DDFF">      &lt;/</span><span style="color:#FFCB6B">TabButton</span><span style="color:#89DDFF">&gt;</span></span>
-<span data-line=""><span style="color:#89DDFF">      &lt;</span><span style="color:#FFCB6B">TabButton</span><span style="color:#C792EA"> isActive</span><span style="color:#89DDFF">={</span><span style="color:#BABED8">tab </span><span style="color:#89DDFF">===</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">contact</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">} </span><span style="color:#C792EA">onClick</span><span style="color:#89DDFF">={()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#82AAFF"> setTab</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">contact</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">}&gt;</span></span>
-<span data-line=""><span style="color:#BABED8">        Contact</span></span>
-<span data-line=""><span style="color:#89DDFF">      &lt;/</span><span style="color:#FFCB6B">TabButton</span><span style="color:#89DDFF">&gt;</span></span>
-<span data-line=""><span style="color:#89DDFF">      &lt;</span><span style="color:#F07178">hr</span><span style="color:#89DDFF"> /&gt;</span></span>
-<span data-line=""><span style="color:#89DDFF">      {</span><span style="color:#676E95;font-style:italic">/* 현재 탭에 따라 탭 컴포넌트가 렌더링 된다 */</span><span style="color:#89DDFF">}</span></span>
-<span data-line=""><span style="color:#89DDFF">      {</span><span style="color:#BABED8">tab </span><span style="color:#89DDFF">===</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">about</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> &amp;&amp;</span><span style="color:#89DDFF"> &lt;</span><span style="color:#FFCB6B">AboutTab</span><span style="color:#89DDFF"> /&gt;}</span></span>
-<span data-line=""><span style="color:#89DDFF">      {</span><span style="color:#BABED8">tab </span><span style="color:#89DDFF">===</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">posts</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> &amp;&amp;</span><span style="color:#89DDFF"> &lt;</span><span style="color:#FFCB6B">PostsTab</span><span style="color:#89DDFF"> /&gt;}</span></span>
-<span data-line=""><span style="color:#89DDFF">      {</span><span style="color:#BABED8">tab </span><span style="color:#89DDFF">===</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">contact</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> &amp;&amp;</span><span style="color:#89DDFF"> &lt;</span><span style="color:#FFCB6B">ContactTab</span><span style="color:#89DDFF"> /&gt;}</span></span>
-<span data-line=""><span style="color:#89DDFF">    &lt;/&gt;</span></span>
-<span data-line=""><span style="color:#F07178">  )</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">};</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">  return</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> (</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">    &lt;&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">      {</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">/* 탭을 클릭하면 렌더링할 탭 컴포넌트가 설정된다 */</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">      &lt;</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B">TabButton</span><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA"> isActive</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">tab </span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">===</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">about</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">} </span><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA">onClick</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> setTab</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">about</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">        About</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">      &lt;/</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B">TabButton</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">      &lt;</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B">TabButton</span><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA"> isActive</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">tab </span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">===</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">posts</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">} </span><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA">onClick</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> setTab</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">posts</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">        Posts (slow)</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">      &lt;/</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B">TabButton</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">      &lt;</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B">TabButton</span><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA"> isActive</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">tab </span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">===</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">contact</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">} </span><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA">onClick</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> setTab</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">contact</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">        Contact</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">      &lt;/</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B">TabButton</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">      &lt;</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">hr</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> /&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">      {</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">/* 현재 탭에 따라 탭 컴포넌트가 렌더링 된다 */</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">      {</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">tab </span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">===</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">about</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> &amp;&amp;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> &lt;</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B">AboutTab</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> /&gt;}</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">      {</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">tab </span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">===</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">posts</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> &amp;&amp;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> &lt;</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B">PostsTab</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> /&gt;}</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">      {</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">tab </span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">===</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">contact</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> &amp;&amp;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> &lt;</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B">ContactTab</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> /&gt;}</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">    &lt;/&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">  )</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">};</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> TabButton </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> ({</span><span style="color:#BABED8;font-style:italic"> children</span><span style="color:#89DDFF">,</span><span style="color:#BABED8;font-style:italic"> isActive</span><span style="color:#89DDFF">,</span><span style="color:#BABED8;font-style:italic"> onClick</span><span style="color:#89DDFF"> })</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#89DDFF"> [</span><span style="color:#BABED8">isPending</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> startTransition</span><span style="color:#89DDFF">]</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> useTransition</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> TabButton</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ({</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic"> children</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic"> isActive</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic"> onClick</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> })</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  const</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> [</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">isPending</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> startTransition</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">]</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> useTransition</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">()</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#676E95;font-style:italic">  // 현재 탭이 활성화 되면 isActive 상태가 된다.</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">  if</span><span style="color:#F07178"> (</span><span style="color:#BABED8">isActive</span><span style="color:#F07178">) </span><span style="color:#89DDFF">{</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">    return</span><span style="color:#89DDFF"> &lt;</span><span style="color:#F07178">b</span><span style="color:#89DDFF">&gt;{</span><span style="color:#BABED8">children</span><span style="color:#89DDFF">}&lt;/</span><span style="color:#F07178">b</span><span style="color:#89DDFF">&gt;;</span></span>
-<span data-line=""><span style="color:#89DDFF">  }</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">  // 대기 중인 transition이 있다면 isPending이 된다.</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">  if</span><span style="color:#F07178"> (</span><span style="color:#BABED8">isPending</span><span style="color:#F07178">) </span><span style="color:#89DDFF">{</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">    return</span><span style="color:#89DDFF"> &lt;</span><span style="color:#F07178">b</span><span style="color:#C792EA"> className</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">pending</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">&gt;{</span><span style="color:#BABED8">children</span><span style="color:#89DDFF">}&lt;/</span><span style="color:#F07178">b</span><span style="color:#89DDFF">&gt;;</span></span>
-<span data-line=""><span style="color:#89DDFF">  }</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">  /**</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">   * props로 받은 onClick 함수를 startTransition으로 감싸주기 때문에</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">   * onClick 함수(setTab)은 transition으로 설정되어 렌더링시 우선순위에서 밀리게 된다.</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">   * 그 결과 오랜시간이 걸리는 PostsTab 컴포넌트를 렌더링 하는 도중 다른 탭을 누르게 되면</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">   * PostsTab 컴포넌트의 렌더링을 멈추고 다른 컴포넌트를 렌더링하게 된다.</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">   **/</span></span>
-<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> handleButtonClick</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#82AAFF">    startTransition</span><span style="color:#F07178">(</span><span style="color:#89DDFF">()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#82AAFF">      onClick</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">    }</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">  };</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#89DDFF"> &lt;</span><span style="color:#F07178">button</span><span style="color:#C792EA"> onClick</span><span style="color:#89DDFF">={</span><span style="color:#BABED8">handleButtonClick</span><span style="color:#89DDFF">}&gt;{</span><span style="color:#BABED8">children</span><span style="color:#89DDFF">}&lt;/</span><span style="color:#F07178">button</span><span style="color:#89DDFF">&gt;;</span></span>
-<span data-line=""><span style="color:#89DDFF">};</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">  // 현재 탭이 활성화 되면 isActive 상태가 된다.</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">  if</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> (</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">isActive</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">) </span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">    return</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> &lt;</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">b</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;{</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">children</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}&lt;/</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">b</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  }</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">  // 대기 중인 transition이 있다면 isPending이 된다.</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">  if</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> (</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">isPending</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">) </span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">    return</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> &lt;</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">b</span><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA"> className</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">pending</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;{</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">children</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}&lt;/</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">b</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  }</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">  /**</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">   * props로 받은 onClick 함수를 startTransition으로 감싸주기 때문에</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">   * onClick 함수(setTab)은 transition으로 설정되어 렌더링시 우선순위에서 밀리게 된다.</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">   * 그 결과 오랜시간이 걸리는 PostsTab 컴포넌트를 렌더링 하는 도중 다른 탭을 누르게 되면</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">   * PostsTab 컴포넌트의 렌더링을 멈추고 다른 컴포넌트를 렌더링하게 된다.</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">   **/</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> handleButtonClick</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">    startTransition</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">      onClick</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">()</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">    }</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  };</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">  return</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> &lt;</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">button</span><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA"> onClick</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">handleButtonClick</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}&gt;{</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">children</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}&lt;/</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">button</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">};</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> AboutTab </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#89DDFF"> &lt;</span><span style="color:#F07178">p</span><span style="color:#89DDFF">&gt;</span><span style="color:#BABED8">Welcome to my profile!</span><span style="color:#89DDFF">&lt;/</span><span style="color:#F07178">p</span><span style="color:#89DDFF">&gt;;</span></span>
-<span data-line=""><span style="color:#89DDFF">};</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> PostsTab </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> startTime</span><span style="color:#89DDFF"> =</span><span style="color:#BABED8"> performance</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">now</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">  while</span><span style="color:#F07178"> (</span><span style="color:#BABED8">performance</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">now</span><span style="color:#F07178">() </span><span style="color:#89DDFF">-</span><span style="color:#BABED8"> startTime</span><span style="color:#89DDFF"> &lt;</span><span style="color:#F78C6C"> 1</span><span style="color:#F07178">) </span><span style="color:#89DDFF">{</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">    // 1 ms 동안 아무것도 하지 않음으로써 매우 느린 코드를 실행한다.</span></span>
-<span data-line=""><span style="color:#89DDFF">  }</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#89DDFF"> &lt;</span><span style="color:#F07178">p</span><span style="color:#89DDFF">&gt;</span><span style="color:#BABED8">PostsTab</span><span style="color:#89DDFF">&lt;/</span><span style="color:#F07178">p</span><span style="color:#89DDFF">&gt;;</span></span>
-<span data-line=""><span style="color:#89DDFF">};</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> ContactTab </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#89DDFF"> &lt;</span><span style="color:#F07178">p</span><span style="color:#89DDFF">&gt;</span><span style="color:#BABED8">ContactTab</span><span style="color:#89DDFF">&lt;/</span><span style="color:#F07178">p</span><span style="color:#89DDFF">&gt;;</span></span>
-<span data-line=""><span style="color:#89DDFF">};</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> ContactTab </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#89DDFF"> &lt;</span><span style="color:#F07178">p</span><span style="color:#89DDFF">&gt;</span><span style="color:#BABED8">ContactTab</span><span style="color:#89DDFF">&lt;/</span><span style="color:#F07178">p</span><span style="color:#89DDFF">&gt;;</span></span>
-<span data-line=""><span style="color:#89DDFF">};</span></span></code></pre>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> AboutTab</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">  return</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> &lt;</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">p</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">Welcome to my profile!</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&lt;/</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">p</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">};</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> PostsTab</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> startTime</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> performance</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">now</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">()</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">  while</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> (</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">performance</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">now</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">() </span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">-</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> startTime</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> &lt;</span><span style="--shiki-light:#005CC5;--shiki-dark:#F78C6C"> 1</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">) </span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">    // 1 ms 동안 아무것도 하지 않음으로써 매우 느린 코드를 실행한다.</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  }</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">  return</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> &lt;</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">p</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">PostsTab</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&lt;/</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">p</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">};</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> ContactTab</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">  return</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> &lt;</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">p</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">ContactTab</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&lt;/</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">p</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">};</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> ContactTab</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">  return</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> &lt;</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">p</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">ContactTab</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&lt;/</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">p</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">};</span></span></code></pre>
       </figure>
       <h2
         id="suspense와-연계하기"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -478,7 +821,7 @@
           href="#suspense와-연계하기"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Suspense와 연계하기
       </h2>
@@ -486,16 +829,16 @@
         <pre
           tabindex="0"
           data-language="jsx"
-          data-theme="material-theme-palenight"
-        ><code data-language="jsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> App </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#F07178"> (</span></span>
-<span data-line=""><span style="color:#89DDFF">    &lt;</span><span style="color:#FFCB6B">Suspense</span><span style="color:#C792EA"> fallback</span><span style="color:#89DDFF">={&lt;</span><span style="color:#FFCB6B">Spinner</span><span style="color:#89DDFF"> /&gt;}&gt;</span></span>
-<span data-line=""><span style="color:#89DDFF">      {</span><span style="color:#676E95;font-style:italic">/*</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">        위의 App 코드와 동일</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">       */</span><span style="color:#89DDFF">}</span></span>
-<span data-line=""><span style="color:#89DDFF">    &lt;/</span><span style="color:#FFCB6B">Suspense</span><span style="color:#89DDFF">&gt;</span></span>
-<span data-line=""><span style="color:#F07178">  )</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">};</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="jsx" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> App</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">  return</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> (</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">    &lt;</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B">Suspense</span><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA"> fallback</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{&lt;</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B">Spinner</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> /&gt;}&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">      {</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">/*</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">        위의 App 코드와 동일</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">       */</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">    &lt;/</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B">Suspense</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">  )</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">};</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         useTransition의 <code>startTransition</code>을 <code>Suspense</code>와
@@ -532,7 +875,7 @@
       </ol>
       <h2
         id="그외-자잘한-팁들"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -540,7 +883,7 @@
           href="#그외-자잘한-팁들"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >그외 자잘한 팁들
       </h2>
@@ -554,7 +897,7 @@
           href="#vs-throttle-debounce"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >vs throttle, debounce
       </h3>
@@ -581,7 +924,7 @@
           href="#starttransition에-전달된-함수는-즉시-실행된다"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >startTransition에 전달된 함수는 즉시 실행된다
       </h3>
@@ -589,15 +932,15 @@
         <pre
           tabindex="0"
           data-language="jsx"
-          data-theme="material-theme-palenight"
-        ><code data-language="jsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#BABED8">console</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">log</span><span style="color:#BABED8">(</span><span style="color:#F78C6C">1</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#82AAFF">startTransition</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#BABED8">  console</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">log</span><span style="color:#F07178">(</span><span style="color:#F78C6C">2</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#82AAFF">  setPage</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">/about</span><span style="color:#89DDFF">'</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#BABED8">console</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">log</span><span style="color:#BABED8">(</span><span style="color:#F78C6C">3</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="jsx" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">console</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">log</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#F78C6C">1</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">startTransition</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">  console</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">log</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#F78C6C">2</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">  setPage</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">/about</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">console</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">log</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#F78C6C">3</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#676E95;font-style:italic">// 1, 2, 3</span></span></code></pre>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">// 1, 2, 3</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         startTransition의 콜백 함수는 즉시 실행된다. 함수가 실행되는 동안 예약된
@@ -607,23 +950,23 @@
         <pre
           tabindex="0"
           data-language="jsx"
-          data-theme="material-theme-palenight"
-        ><code data-language="jsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// React 작동 방식의 간소화된 버전</span></span>
-<span data-line=""><span style="color:#C792EA">let</span><span style="color:#BABED8"> isInsideTransition </span><span style="color:#89DDFF">=</span><span style="color:#FF9CAC"> false</span><span style="color:#89DDFF">;</span></span>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="jsx" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">// React 작동 방식의 간소화된 버전</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">let</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> isInsideTransition </span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#FF9CAC"> false</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#C792EA">function</span><span style="color:#82AAFF"> startTransition</span><span style="color:#89DDFF">(</span><span style="color:#BABED8;font-style:italic">scope</span><span style="color:#89DDFF">)</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#BABED8">  isInsideTransition</span><span style="color:#89DDFF"> =</span><span style="color:#FF9CAC"> true</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#82AAFF">  scope</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#BABED8">  isInsideTransition</span><span style="color:#89DDFF"> =</span><span style="color:#FF9CAC"> false</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">function</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> startTransition</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">(</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic">scope</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">  isInsideTransition</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#005CC5;--shiki-dark:#FF9CAC"> true</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">  scope</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">()</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">  isInsideTransition</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#005CC5;--shiki-dark:#FF9CAC"> false</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#C792EA">function</span><span style="color:#82AAFF"> setState</span><span style="color:#89DDFF">()</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">  if</span><span style="color:#F07178"> (</span><span style="color:#BABED8">isInsideTransition</span><span style="color:#F07178">) </span><span style="color:#89DDFF">{</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">    // ... transition state 업데이트 예약 ...</span></span>
-<span data-line=""><span style="color:#89DDFF">  }</span><span style="color:#89DDFF;font-style:italic"> else</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">    // ... 긴급 state 업데이트 예약 ...</span></span>
-<span data-line=""><span style="color:#89DDFF">  }</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">function</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> setState</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">()</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">  if</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> (</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">isInsideTransition</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">) </span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">    // ... transition state 업데이트 예약 ...</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  }</span><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic"> else</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">    // ... 긴급 state 업데이트 예약 ...</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  }</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         transition으로 처리된 경우 transitionState로 예약(큐잉)되고 아닌 경우
@@ -643,7 +986,7 @@
           href="#usedeferredvalue"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >useDeferredValue
       </h3>
@@ -654,7 +997,7 @@
       </p>
       <h2
         id="마무리"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -662,7 +1005,7 @@
           href="#마무리"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >마무리
       </h2>
@@ -698,112 +1041,156 @@
       class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
       aria-label="목차"
     >
-      <ul
-        class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
+      <div
+        class="sticky top-32 ml-9 w-[216px] min-[1320px]:top-48 min-[1320px]:ml-20"
       >
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="tldr"
-            href="#tldr"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >TL;DR!</a
+        <p class="mb-2 px-3 text-[10px] tracking-[0.18em] text-dark uppercase">
+          On this page
+        </p>
+        <ul>
+          <li class="relative select-none">
+            <a
+              id="tldr"
+              href="#tldr"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >TL;DR!</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="목차"
+              href="#목차"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >목차</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="usetransition이란"
+              href="#usetransition이란"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >useTransition이란?</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="목차"
-            href="#목차"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >목차</a
+            <a
+              id="ispending-starttransition-이해하기"
+              href="#ispending-starttransition-이해하기"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >isPending, startTransition 이해하기</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-1/2"
           >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="usetransition이란"
-            href="#usetransition이란"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >useTransition이란?</a
+            <a
+              id="전체-코드로-이해하기"
+              href="#전체-코드로-이해하기"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >전체 코드로 이해하기</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="suspense와-연계하기"
+              href="#suspense와-연계하기"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Suspense와 연계하기</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="그외-자잘한-팁들"
+              href="#그외-자잘한-팁들"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >그외 자잘한 팁들</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="ispending-starttransition-이해하기"
-            href="#ispending-starttransition-이해하기"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >isPending, startTransition 이해하기</a
+            <a
+              id="vs-throttle-debounce"
+              href="#vs-throttle-debounce"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >vs throttle, debounce</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
-        >
-          <a
-            id="전체-코드로-이해하기"
-            href="#전체-코드로-이해하기"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >전체 코드로 이해하기</a
+            <a
+              id="starttransition에-전달된-함수는-즉시-실행된다"
+              href="#starttransition에-전달된-함수는-즉시-실행된다"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >startTransition에 전달된 함수는 즉시 실행된다</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-1/2"
           >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="suspense와-연계하기"
-            href="#suspense와-연계하기"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Suspense와 연계하기</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="그외-자잘한-팁들"
-            href="#그외-자잘한-팁들"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >그외 자잘한 팁들</a
-          >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="vs-throttle-debounce"
-            href="#vs-throttle-debounce"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >vs throttle, debounce</a
-          >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="starttransition에-전달된-함수는-즉시-실행된다"
-            href="#starttransition에-전달된-함수는-즉시-실행된다"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >startTransition에 전달된 함수는 즉시 실행된다</a
-          >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
-        >
-          <a
-            id="usedeferredvalue"
-            href="#usedeferredvalue"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >useDeferredValue</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="마무리"
-            href="#마무리"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >마무리</a
-          >
-        </li>
-      </ul>
+            <a
+              id="usedeferredvalue"
+              href="#usedeferredvalue"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >useDeferredValue</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="마무리"
+              href="#마무리"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >마무리</span
+              ></a
+            >
+          </li>
+        </ul>
+      </div>
     </aside>
   </section>
   <a
-    class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water"
+    class="inline-block text-highlight leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-highlight after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water"
     href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] useTransition%20%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0&amp;body=&lt;!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 --&gt;"
     rel="noopener noreferrer"
     target="_blank"
@@ -826,7 +1213,7 @@
       <a
         class="group flex flex-col gap-1 max-w-[45%] hover:text-highlight duration-300 items-start text-left"
         aria-label="이전 글: 알랑말랑 암묵적 형변환 말랑말랑 이해하기"
-        href="/posts/implicit-coercion"
+        href="/post/implicit-coercion"
         ><span class="text-sm text-date-gray">← 이전 글</span
         ><span class="title-underline"
           >알랑말랑 암묵적 형변환 말랑말랑 이해하기</span
@@ -834,13 +1221,13 @@
       ><a
         class="group flex flex-col gap-1 max-w-[45%] hover:text-highlight duration-300 items-end text-right ml-auto"
         aria-label='다음 글: "일의 격"을 읽고'
-        href="/posts/quality-of-job-review"
+        href="/post/quality-of-job-review"
         ><span class="text-sm text-date-gray">다음 글 →</span
         ><span class="title-underline">"일의 격"을 읽고</span></a
       >
     </div>
   </nav>
-  <section aria-labelledby="related-posts-heading" class="mt-12 mb-40">
+  <section aria-labelledby="related-posts-heading" class="mt-12 mb-12 xl:mb-0">
     <h2 id="related-posts-heading" class="text-2xl mb-4">더 보기</h2>
     <ul>
       <li
@@ -849,7 +1236,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-use-prevent-leave-description"
-          href="/posts/use-prevent-leave"
+          href="/post/use-prevent-leave"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -864,18 +1251,18 @@
           </div>
           <div class="w-full mt-2 md:mt-0">
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               페이지 이탈시 확인 컨펌창 만들기
             </h3>
             <p
               id="related-post-use-prevent-leave-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               usePreventLeave를 알아보자
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2023-03-12 15:14"
               >2023-03-12 15:14</time
             >
@@ -888,7 +1275,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-micro-state-management-review-description"
-          href="/posts/micro-state-management-review"
+          href="/post/micro-state-management-review"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -903,18 +1290,18 @@
           </div>
           <div class="w-full mt-2 md:mt-0">
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               Micro State Management with React Hooks 리뷰
             </h3>
             <p
               id="related-post-micro-state-management-review-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               상태 관리의 종류와 기술들에 대한 이해
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2024-03-01 09:00"
               >2024-03-01 09:00</time
             >
@@ -927,7 +1314,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-jeju-remote-work-description"
-          href="/posts/jeju-remote-work"
+          href="/post/jeju-remote-work"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -945,18 +1332,18 @@
               >다른 주제 탐색</span
             >
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               제주 한 달 리모트 워크 후기
             </h3>
             <p
               id="related-post-jeju-remote-work-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               제주 한 달 살기 얼마나 낭만 있을까?
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2023-09-16 12:19"
               >2023-09-16 12:19</time
             >
@@ -969,7 +1356,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-goorm-195696-description"
-          href="/posts/goorm-195696"
+          href="/post/goorm-195696"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -987,18 +1374,18 @@
               >다른 주제 탐색</span
             >
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               [구름톤 챌린지] 작은 노드
             </h3>
             <p
               id="related-post-goorm-195696-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               양방향 그래프 가볍게 복습하기
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2023-09-03 21:14"
               >2023-09-03 21:14</time
             >

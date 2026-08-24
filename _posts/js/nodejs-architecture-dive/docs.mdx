@@ -91,7 +91,7 @@ Node는 이 문제에서 탄생했다. <u>어떻게 두 가지를 동시에 처�
 
 > NOTE> 이벤트 루프의 웹 표준은 [WHATWG](https://en.wikipedia.org/wiki/WHATWG)이 [권고](https://html.spec.whatwg.org/#event-loops)하고 있지만 강제성은 없다.
 
-이와 같은 실행 환경 및 구현체의 차이는 `window` vs `global` 부터 [WebAPI](https://developer.mozilla.org/en-US/docs/Web/API)와 [N-API](/posts/n-api) 등의 다양한 차이를 만들어냈다.
+이와 같은 실행 환경 및 구현체의 차이는 `window` vs `global` 부터 [WebAPI](https://developer.mozilla.org/en-US/docs/Web/API)와 [N-API](/post/n-api) 등의 다양한 차이를 만들어냈다.
 
 ## 아키텍처 살펴보기
 
@@ -120,7 +120,7 @@ Node는 이 문제에서 탄생했다. <u>어떻게 두 가지를 동시에 처�
     [
       '[C/C++ Addons](https://nodejs.org/api/addons.html)',
       `- 성능, 확장성 등의 이유로 C/C++ 코드가 필요할 경우 애드온으로 작성해 노드에서 실행시킬 수 있다
-      - 노드에서 제공하는 [Node-API](/posts/n-api) 인터페이스를 활용하면 쉽게 만들 수 있다`,
+      - 노드에서 제공하는 [Node-API](/post/n-api) 인터페이스를 활용하면 쉽게 만들 수 있다`,
     ],
     [
       '[Builtin Modules](https://nodejs.org/api/modules.html#built-in-modules)',
@@ -289,8 +289,8 @@ fs.readFile('hello.txt', 'utf-8', (err, data) => {
 
 다이빙 과정이 흥미로웠다면 아래의 글도 추천한다.
 
-- [Array.prototype.sort() 이해하기](/posts/array-prototype-sort)
-- [Vite Dev Server 이해하기 (feat. HMR)](/posts/vite-dev-server)
-- [Object.keys()는 왜 string[] 타입일까?](/posts/typescript-subtyping)
-- [Object vs object vs \{}](/posts/object-type)
-- [알랑말랑 암묵적 형변환 말랑말랑 이해하기](/posts/implicit-coercion)
+- [Array.prototype.sort() 이해하기](/post/array-prototype-sort)
+- [Vite Dev Server 이해하기 (feat. HMR)](/post/vite-dev-server)
+- [Object.keys()는 왜 string[] 타입일까?](/post/typescript-subtyping)
+- [Object vs object vs \{}](/post/object-type)
+- [알랑말랑 암묵적 형변환 말랑말랑 이해하기](/post/implicit-coercion)

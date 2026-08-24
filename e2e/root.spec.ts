@@ -44,6 +44,25 @@ test.describe('metadata', () => {
     expect(metaKeywords).toBe(MetaKeywords.HOME);
   });
 
+  test('should expose system theme colors', async ({ page }) => {
+    await page.goto('/');
+    const themeColors = await page
+      .locator('meta[name="theme-color"]')
+      .evaluateAll((elements) =>
+        elements.map((element) => ({
+          color: element.getAttribute('content'),
+          media: element.getAttribute('media'),
+        })),
+      );
+
+    expect(themeColors).toEqual([
+      {
+        color: 'rgb(20 22 33)',
+        media: null,
+      },
+    ]);
+  });
+
   test('should exist open graph', async ({ page }) => {
     await page.goto('/');
     const openGraph = await page.evaluate(() => {
@@ -71,6 +90,8 @@ test.describe('metadata', () => {
       '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
     );
     expect(bodyText).toContain(MyProfile.blog.href);
+    expect(bodyText).toContain(`${MyProfile.blog.href}/posts/javascript`);
+    expect(bodyText).toContain(`${MyProfile.blog.href}/post/`);
   });
 
   test('should exist feed.xml with valid RSS', async ({ page }) => {
@@ -83,6 +104,8 @@ test.describe('metadata', () => {
     expect(bodyText).toContain('<title>1ilsang.dev</title>');
     expect(bodyText).toContain('<item>');
     expect(bodyText).toContain(MyProfile.blog.href);
+    expect(bodyText).toContain(`<link>${MyProfile.blog.href}/post/`);
+    expect(bodyText).toContain(`<guid>${MyProfile.blog.href}/post/`);
   });
 
   test('should exist twitter card meta', async ({ page }) => {

@@ -30,7 +30,7 @@ export const RelatedPostItem: FunctionComponent<Props> = ({
     <li className="px-1 md:px-4 py-3 mb-1 md:rounded-sm hover:bg-rainbow-water hover:animate-rainbow-water hover:bg-[length:400%_400%] group overflow-hidden transform-gpu duration-300">
       <Link
         className="flex flex-col items-center md:flex-row"
-        href={`/posts/${slug}`}
+        href={`/post/${slug}`}
         aria-describedby={descriptionId}
         onClick={() => trackPostNavigation(kind, currentSlug, slug, rank)}
       >
@@ -50,17 +50,17 @@ export const RelatedPostItem: FunctionComponent<Props> = ({
               다른 주제 탐색
             </span>
           )}
-          <h3 className="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg">
+          <h3 className="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant">
             {title}
           </h3>
           <p
             id={descriptionId}
-            className="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+            className="text-white-blue group-hover:text-on-vibrant line-clamp-2"
           >
             {description}
           </p>
           <DateFormatter
-            className="text-sub-blue group-hover:text-snazzy-bg"
+            className="text-sub-blue group-hover:text-on-vibrant"
             type="iso"
             date={date}
           />

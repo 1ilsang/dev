@@ -104,7 +104,7 @@ describe('logger', () => {
       const actionType = 'linkClick';
       const value = {
         type: 'internal',
-        value: '/posts/한글-제목-with-특수문자!',
+        value: '/post/한글-제목-with-특수문자!',
       };
 
       ga(actionType, value);

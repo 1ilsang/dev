@@ -4,7 +4,7 @@ export const BasicTable = (props: JSX.IntrinsicElements['table']) => {
   return (
     <table
       {...props}
-      className="w-full mb-4 text-[#dfdfdf] table-fixed break-words"
+      className="mb-4 w-full table-fixed break-words text-white"
     >
       {props.children}
     </table>

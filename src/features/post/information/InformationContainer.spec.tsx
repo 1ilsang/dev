@@ -9,7 +9,7 @@ const createPost = (
   ({
     MDX: () => null,
     toc: [],
-    url: '/posts/sample',
+    url: '/post/sample',
     slug: 'sample',
     fullSlug: 'js/sample',
     category: 'JavaScript',

@@ -35,7 +35,7 @@ export const ImageModal: FunctionComponent<ImageModalProps> = () => {
         className="absolute inset-0 w-full h-full cursor-zoom-out border-none bg-transparent p-0"
         onClick={handleDialogClick}
       >
-        <span className="block w-full h-full bg-snazzy-bg opacity-90" />
+        <span className="block h-full w-full bg-modal-backdrop opacity-90" />
       </button>
       <div className="pointer-events-none absolute w-[95vw] h-[90vh] max-w-[95vw] max-h-[90vh] md:w-[85vw] md:h-[85vh]">
         {loading && (

@@ -10,7 +10,7 @@ const prettierOptions = {
 export const gotoUrl = async ({
   page,
   url,
-  timeout = 3_000,
+  timeout = 30_000,
 }: {
   page: Page;
   url: string;
@@ -44,74 +44,65 @@ const scrollToEnd = async (page: Page) => {
   }
 };
 
+const waitForStableDocumentHeight = async (page: Page) => {
+  await page.evaluate(async () => {
+    let previousHeight = -1;
+    let stableChecks = 0;
+
+    for (let attempt = 0; attempt < 30; attempt++) {
+      await new Promise((resolve) => setTimeout(resolve, 100));
+      const currentHeight = document.body.scrollHeight;
+      stableChecks = currentHeight === previousHeight ? stableChecks + 1 : 0;
+      if (stableChecks >= 3) return;
+      previousHeight = currentHeight;
+    }
+
+    throw new Error('Document height did not stabilize');
+  });
+};
+
 export const waitImages = async ({
   page,
-  projectName,
-}: Pick<ScreenshotFullPageOptions, 'page' | 'projectName'>) => {
+}: Pick<ScreenshotFullPageOptions, 'page'>) => {
   const curUrl = page.url();
   const isPosts = curUrl.endsWith('/posts');
 
   // Step 1. 모든 이미지 로딩을 기다림
   // https://stackoverflow.com/questions/77287441/how-to-wait-for-full-rendered-image-in-playwright
-  const locators = page.locator('img');
-  const scrollPromises = (await locators.all()).map(async (locator) => {
+  const visibleImages = await page.locator('img:visible').all();
+  for (const image of visibleImages) {
     // https://playwright.dev/docs/api/class-locator#locator-scroll-into-view-if-needed
     // 이미지 요소가 준비되었는지 확인
-    return await locator.scrollIntoViewIfNeeded();
-  });
-  await Promise.all(scrollPromises);
-  // Set up listeners concurrently
-  const imgLoadingPromises = (await locators.all()).map((locator) => {
-    return locator.evaluate<unknown, HTMLImageElement>(
-      (image) => {
-        // 로드는 성공했으나 이미지 크기가 0이므로 정상적인 이미지 로딩에 실패
-        if (image.complete && image.naturalWidth === 0) {
-          throw new Error(`\nImage Load failure: [${image.src}]`);
+    await image.scrollIntoViewIfNeeded();
+    await image.evaluate<unknown, HTMLImageElement>(
+      async (element) => {
+        if (!element.complete) {
+          await new Promise<void>((resolve) => {
+            element.addEventListener('load', () => resolve(), { once: true });
+          });
         }
-        return (
-          image.complete || new Promise((resolve) => (image.onload = resolve))
-        );
+
+        // 로드는 성공했으나 이미지 크기가 0이므로 정상적인 이미지 로딩에 실패
+        if (element.naturalWidth === 0) {
+          throw new Error(`\nImage Load failure: [${element.src}]`);
+        }
+        await element.decode();
       },
       { timeout: 3_000 },
     );
-  });
-  // Wait for all once
-  await Promise.all(imgLoadingPromises);
+  }
 
   if (isPosts) {
     await scrollToEnd(page);
   }
 
-  // Step 3. body 기준 뷰포트 설정
-  // 스크롤바 커스텀으로인해 window가 아닌 body에 스크롤이 걸려있음. body 컴포넌트 크기로 뷰포트 변경
-  const viewportSize = await page
-    .locator('body')
-    .evaluate(({ scrollWidth }) => {
-      // 문서 높이 계산
-      // https://ko.javascript.info/size-and-scroll-window#ref-190
-      const scrollHeight = Math.max(
-        document.body.scrollHeight,
-        document.documentElement.scrollHeight,
-        document.body.offsetHeight,
-        document.documentElement.offsetHeight,
-        document.body.clientHeight,
-        document.documentElement.clientHeight,
-      );
-      return {
-        height: scrollHeight,
-        width: scrollWidth,
-      };
-    });
-  // FIXME: posts 에서 높이가 틀어지는 문제가 있음. 임시방편.
-  if (projectName === 'desktop' || projectName === 'mobile') {
-    viewportSize.height = projectName === 'desktop' ? 6_500 : 11_000;
-  }
-  await page.setViewportSize(viewportSize);
+  await waitForStableDocumentHeight(page);
 
-  // Step 4. 최상단으로 스크롤 이동
+  // Step 3. 최상단으로 스크롤 이동
   // https://github.com/microsoft/playwright/issues/18827#issuecomment-2015560128
   await page.evaluate(() => document.body.scrollTo(0, 0));
   await page.waitForFunction(() => document.body.scrollTop === 0);
+  await waitForStableDocumentHeight(page);
 };
 
 export type ScreenshotFullPageOptions = {
@@ -120,7 +111,6 @@ export type ScreenshotFullPageOptions = {
   arg: string[];
   timeout?: number;
   options?: PageAssertionsToHaveScreenshotOptions;
-  projectName?: 'desktop' | 'mobile';
 };
 export const screenshotFullPage = async ({
   page,
@@ -128,10 +118,9 @@ export const screenshotFullPage = async ({
   arg,
   timeout,
   options,
-  projectName,
 }: ScreenshotFullPageOptions) => {
   await gotoUrl({ page, url });
-  await waitImages({ page, projectName });
+  await waitImages({ page });
 
   const screenOptions: PageAssertionsToHaveScreenshotOptions = {
     fullPage: true,
@@ -144,18 +133,6 @@ export const screenshotFullPage = async ({
   await expect(page).toHaveScreenshot([...arg], screenOptions);
 };
 
-// DOM 스냅샷은 정적 마크업만 검증한다. 스크롤 위치에 따라 rAF/IO 이후
-// 붙는 TOC 활성화 클래스는 타이밍에 따라 달라져 flaky 하므로 제외한다.
-const DYNAMIC_DOM_CLASSES = ['animate-toc-index'] as const;
-
-const normalizeDomSnapshot = (html: string): string => {
-  const classPattern = new RegExp(
-    `\\s*(?:${DYNAMIC_DOM_CLASSES.join('|')})`,
-    'g',
-  );
-  return html.replace(classPattern, '');
-};
-
 export const getPageDomInnerHTML = async ({
   page,
   selector = 'main',
@@ -163,7 +140,15 @@ export const getPageDomInnerHTML = async ({
   page: Page;
   selector?: string;
 }): Promise<string> => {
+  await page.evaluate(() => document.body.scrollTo(0, 0));
+  await page.waitForFunction(() => document.body.scrollTop === 0);
+  await page.evaluate(
+    () =>
+      new Promise<void>((resolve) => {
+        requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
+      }),
+  );
+
   const body = await page.locator(selector).innerHTML();
-  const prettyHtml = await prettier.format(body, prettierOptions);
-  return normalizeDomSnapshot(prettyHtml);
+  return prettier.format(body, prettierOptions);
 };

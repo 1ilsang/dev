@@ -255,7 +255,7 @@ test.describe(MACRO_SUITE.SCREEN_SNAPSHOT, () => {
     const url = urls[i];
 
     test(`${url}`, async ({ page }) => {
-      await page.goto(`/posts/${url}`);
+      await page.goto(`/post/${url}`);
       await page.waitForTimeout(3000);
       await expect(page).toHaveScreenshot({ fullPage: true });
     });

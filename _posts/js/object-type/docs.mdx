@@ -70,7 +70,7 @@ type Test = 'foo' | 'bar' | (string & {}) extends string ? true : false; // true
 
 ### 구체적인 타입
 
-타입스크립트의 타입 시스템은 [구조적 서브 타이핑](/posts/typescript-subtyping#%EA%B5%AC%EC%A1%B0%EC%A0%81-%EC%84%9C%EB%B8%8C-%ED%83%80%EC%9D%B4%ED%95%91%EC%9D%B4%EB%9E%80)을 따른다. 그렇기에 각 타입을 구조적으로 비교한다.
+타입스크립트의 타입 시스템은 [구조적 서브 타이핑](/post/typescript-subtyping#%EA%B5%AC%EC%A1%B0%EC%A0%81-%EC%84%9C%EB%B8%8C-%ED%83%80%EC%9D%B4%ED%95%91%EC%9D%B4%EB%9E%80)을 따른다. 그렇기에 각 타입을 구조적으로 비교한다.
 
 이때 교집합(`&`)을 사용하면 더 구체적인 타입으로 나타낼 수 있다.
 
@@ -262,7 +262,7 @@ const obj7: {} = []; // OK.
 
 > 타입스크립트 공식 FAQ - [#Primitives are \{}, and \{} Doesn't Mean object](https://github.com/microsoft/TypeScript/wiki/FAQ#primitives-are---and---doesnt-mean-object).
 >
-> 해당 FAQ를 보면 [원시 타입](/posts/implicit-coercion#%EB%93%A4%EC%96%B4%EA%B0%80%EA%B8%B0-%EC%A0%84%EC%97%90)은 `{}`이며 `{}`는 object 타입을 의미하지 않는다고 한다.
+> 해당 FAQ를 보면 [원시 타입](/post/implicit-coercion#%EB%93%A4%EC%96%B4%EA%B0%80%EA%B8%B0-%EC%A0%84%EC%97%90)은 `{}`이며 `{}`는 object 타입을 의미하지 않는다고 한다.
 
 ```ts
 const obj1: {} = { a: 1 };
@@ -317,13 +317,13 @@ type EmptyObject = Record<string, never>; // {} 대신 사용.
 
 실제로 객체 타입을 정의할 때에는 `Record` 타입과 같은 유틸리티 타입을 사용하는 것이 좋다. 이는 타입스크립트의 타입 추론을 돕고, 코드의 가독성을 높여준다.
 
-이 글이 흥미로웠다면 [Object.keys()는 왜 string[] 타입일까?](/posts/typescript-subtyping)도 읽어보길 추천한다. 이 글은 타입스크립트의 구조적 서브 타이핑에 대한 이해를 돕는다.
+이 글이 흥미로웠다면 [Object.keys()는 왜 string[] 타입일까?](/post/typescript-subtyping)도 읽어보길 추천한다. 이 글은 타입스크립트의 구조적 서브 타이핑에 대한 이해를 돕는다.
 
 ## 참고
 
 - https://stackoverflow.com/questions/18961203/any-vs-object
 - https://stackoverflow.com/questions/49464634/difference-between-object-and-object-in-typescript
-- [알랑말랑 암묵적 형변환 말랑말랑 이해하기](/posts/implicit-coercion)
+- [알랑말랑 암묵적 형변환 말랑말랑 이해하기](/post/implicit-coercion)
 - https://www.reddit.com/r/typescript/comments/1e61bla/demystifying_intersection_and_union_types_in/
 - https://ivov.dev/notes/typescript-and-set-theory
 - https://blog.hwahae.co.kr/all/tech/9954

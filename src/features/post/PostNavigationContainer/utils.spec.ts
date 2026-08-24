@@ -39,7 +39,7 @@ const createPost = (
   },
 ): PostForNavigation => ({
   slug,
-  url: `/posts/${slug}`,
+  url: `/post/${slug}`,
   fullSlug: `js/${slug}`,
   category: options.category ?? 'JavaScript',
   frontmatter: {

@@ -17,46 +17,391 @@
       "name": "1ilsang",
       "url": "https://1ilsang.dev"
     },
-    "url": "https://1ilsang.dev/posts/object-type",
+    "url": "https://1ilsang.dev/post/object-type",
     "keywords": ["typescript", "frontend", "javascript"]
   }
 </script>
 <progress
   id="nav-progress"
-  class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none xl:right-0 xl:left-[calc((100vw-1280px)/2+256px)] xl:w-auto [&amp;::-webkit-progress-value]:bg-base-og"
   aria-label="페이지 읽기 진행률"
   value="0"
   max="1"
 ></progress>
 <nav
   aria-label="메인 네비게이션"
-  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] shadow-nav shadow-lg"
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center max-xl:hover:animate-rainbow-water max-xl:hover:bg-nav max-xl:hover:bg-[length:400%_400%] xl:top-0 xl:left-0 xl:h-screen xl:w-[calc((100vw-1280px)/2+256px)] xl:flex-col xl:flex-nowrap xl:items-stretch xl:justify-start xl:border-r xl:border-base/40 xl:bg-sidebar xl:py-[40px] max-xl:shadow-nav max-xl:shadow-lg"
 >
-  <div class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
-    <a class="hover:underline" href="/">1ilsang</a>
+  <div class="hidden h-full w-[216px] xl:mr-5 xl:ml-auto xl:flex xl:flex-col">
+    <div class="ml-3 mb-4 flex items-center">
+      <a
+        aria-label="About 페이지로 이동"
+        class="mr-2 block w-8 h-8 mt-2 xl:w-12 xl:h-12 xl:mt-0 xl:mr-1"
+        href="/about"
+        ><img
+          class="border border-solid rounded-full w-full h-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+      <div class="flex min-w-0 flex-col items-start justify-center">
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-2xl font-bold my-2 ml-3.5 xl:m-0"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-1 hover:no-underline"
+            href="/"
+            ><span class="flex items-center gap-3"
+              ><span class="flex flex-col"
+                ><span>1ilsang.dev</span
+                ><span class="whitespace-nowrap text-xs font-normal text-dark"
+                  >Software Engineer</span
+                ></span
+              ></span
+            ></a
+          >
+        </div>
+      </div>
+    </div>
+    <ul class="flex flex-col gap-1">
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="m3 11 9-8 9 8"></path>
+                <path d="M5 10v10h14V10M9 20v-6h6v6"></path></svg
+              ><span class=""><span>Home</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/posts"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M6 3h9l4 4v14H6z"></path>
+                <path d="M14 3v5h5M9 12h6M9 16h6"></path></svg
+              ><span class=""><span>Posts</span></span></span
+            ></a
+          >
+        </div>
+        <ul aria-label="포스트 카테고리" class="mt-0.5 ml-[21px] py-1 pl-3">
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              aria-current="page"
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-base/60 bg-base/20 text-white"
+              href="/posts/javascript"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="m9 7-5 5 5 5M15 7l5 5-5 5"></path></svg
+              ><span class="truncate">JavaScript</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/rust"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="12" r="5"></circle>
+                <path
+                  d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"
+                ></path></svg
+              ><span class="truncate">Rust</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/activity"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M3 12h4l2-6 4 12 2-6h6"></path></svg
+              ><span class="truncate">Activity</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/book"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M4 5a3 3 0 0 1 3-2h5v17H7a3 3 0 0 0-3 2z"></path>
+                <path
+                  d="M20 5a3 3 0 0 0-3-2h-5v17h5a3 3 0 0 1 3 2z"
+                ></path></svg
+              ><span class="truncate">Book</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/retrospect"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="12" r="8"></circle>
+                <path d="M12 8v5l3 2M5 5 3 8"></path></svg
+              ><span class="truncate">Retrospect</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/tool"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path
+                  d="M14 6a4 4 0 0 0-5 5L3 17l4 4 6-6a4 4 0 0 0 5-5l-3 3-4-4z"
+                ></path></svg
+              ><span class="truncate">Tool</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-1/2"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/algorithm"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="6" cy="5" r="2"></circle>
+                <circle cx="18" cy="12" r="2"></circle>
+                <circle cx="6" cy="19" r="2"></circle>
+                <path
+                  d="M8 5h3a3 3 0 0 1 3 3v1M8 19h3a3 3 0 0 0 3-3v-1"
+                ></path></svg
+              ><span class="truncate">Algorithm</span></a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/tags"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M20 12 12 20 4 12V4h8z"></path>
+                <circle cx="9" cy="9" r="1.3"></circle></svg
+              ><span class=""><span>Tags</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/about"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="7" r="3"></circle>
+                <path d="M5 21v-2a7 7 0 0 1 14 0v2"></path></svg
+              ><span class=""><span>About</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+    </ul>
+    <div class="mt-auto">
+      <button
+        type="button"
+        class="flex w-full cursor-pointer items-center gap-2 rounded-sm border border-base/40 px-3 py-2 text-left text-xs text-sub-blue transition-colors hover:border-base/70 hover:bg-base/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight"
+        aria-label="라이트 모드로 전환"
+      >
+        <svg
+          aria-hidden="true"
+          class="h-4 w-4 flex-none"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.7"
+          viewBox="0 0 24 24"
+        >
+          <circle cx="12" cy="12" r="4"></circle>
+          <path
+            d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+          ></path></svg
+        ><span
+          >라이트<!-- -->
+          모드</span
+        >
+      </button>
+      <p class="mt-4 border-t border-base/40 pt-5 text-xs text-dark">
+        © 1ilsang
+      </p>
+    </div>
   </div>
-  <div class="flex">
-    <div class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/posts">posts</a>
+  <div class="flex w-full justify-between xl:hidden">
+    <div
+      class="tracking-tight mr-6 xl:mr-0 text-2xl font-bold my-2 ml-3.5 xl:m-0"
+    >
+      <a
+        class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+        href="/"
+        ><span class="flex items-center gap-3"
+          ><span class=""><span>1ilsang</span></span></span
+        ></a
+      >
     </div>
-    <div class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/tags">tags</a>
+    <div class="flex">
+      <div
+        class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+      >
+        <a
+          class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+          href="/posts"
+          ><span class="flex items-center gap-3"
+            ><span class=""><span>Posts</span></span></span
+          ></a
+        >
+      </div>
+      <div
+        class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+      >
+        <a
+          class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+          href="/tags"
+          ><span class="flex items-center gap-3"
+            ><span class=""><span>Tags</span></span></span
+          ></a
+        >
+      </div>
+      <a
+        aria-label="About 페이지로 이동"
+        class="mr-2 block w-8 h-8 mt-2 xl:w-12 xl:h-12 xl:mt-0 xl:mr-1"
+        href="/about"
+        ><img
+          class="border border-solid rounded-full w-full h-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
     </div>
-    <a
-      aria-label="About 페이지로 이동"
-      class="mr-2 block w-8 h-8 mt-2"
-      href="/about"
-      ><img
-        class="border border-solid rounded-full w-full h-full border-white-blue"
-        src="/images/chul.webp"
-        alt="1ilsang"
-    /></a>
   </div>
 </nav>
 <section
   id="main-content"
   tabindex="-1"
-  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
+  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 xl:pt-20 xl:pb-24 mx-4 min-[790px]:m-auto print:py-0 xl:!pb-6"
 >
   <h1 class="text-4xl break-words md:text-6xl">Object vs object vs {}</h1>
   <section class="flex items-center mt-4">
@@ -141,7 +486,7 @@
       <p class="mt-4 mb-4">두 가지를 다뤄보려고 한다.</p>
       <h2
         id="tldr"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -149,11 +494,11 @@
           href="#tldr"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >TL;DR
       </h2>
-      <table class="w-full mb-4 text-[#dfdfdf] table-fixed break-words">
+      <table class="mb-4 w-full table-fixed break-words text-white">
         <thead>
           <tr>
             <th>타입</th>
@@ -189,7 +534,7 @@
       </table>
       <h2
         id="의문"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -197,7 +542,7 @@
           href="#의문"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >의문
       </h2>
@@ -205,9 +550,9 @@
         <pre
           tabindex="0"
           data-language="ts"
-          data-theme="material-theme-palenight"
-        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> StringHint</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">foo</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">bar</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#FFCB6B"> string</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // foo, bar 힌트가 보이지 않음.</span></span>
-<span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> StringHint</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">foo</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">bar</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#BABED8"> (</span><span style="color:#FFCB6B">string</span><span style="color:#89DDFF"> &amp;</span><span style="color:#89DDFF"> {}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // foo, bar 힌트가 보이면서 문자 입력 가능.</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="ts" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">type</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> StringHint</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">foo</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> |</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">bar</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> |</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> string</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // foo, bar 힌트가 보이지 않음.</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">type</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> StringHint</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">foo</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> |</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">bar</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> |</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> (</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B">string</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> &amp;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {}</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // foo, bar 힌트가 보이면서 문자 입력 가능.</span></span></code></pre>
       </figure>
       <div class="img-container">
         <div
@@ -228,9 +573,7 @@
           </button>
         </div>
       </div>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           문자열 리터럴과 (string &amp; {})의 유니온으로 리터럴 힌트 및 문자
           확장이 가능한 모습
@@ -265,7 +608,7 @@
       </p>
       <h2
         id="string--"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -273,7 +616,7 @@
           href="#string--"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >string &amp; {}
       </h2>
@@ -281,9 +624,9 @@
         <pre
           tabindex="0"
           data-language="ts"
-          data-theme="material-theme-palenight"
-        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> Test</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">foo</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">bar</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#FFCB6B"> string</span><span style="color:#C792EA"> extends</span><span style="color:#FFCB6B"> string</span><span style="color:#89DDFF"> ?</span><span style="color:#FFCB6B"> true</span><span style="color:#89DDFF"> :</span><span style="color:#FFCB6B"> false</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // true</span></span>
-<span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> Test</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">foo</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">bar</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#BABED8"> (</span><span style="color:#FFCB6B">string</span><span style="color:#89DDFF"> &amp;</span><span style="color:#89DDFF"> {}</span><span style="color:#BABED8">) </span><span style="color:#C792EA">extends</span><span style="color:#FFCB6B"> string</span><span style="color:#89DDFF"> ?</span><span style="color:#FFCB6B"> true</span><span style="color:#89DDFF"> :</span><span style="color:#FFCB6B"> false</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // true</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="ts" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">type</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> Test</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">foo</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> |</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">bar</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> |</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> string</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> extends</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> string</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> ?</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> true</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> :</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> false</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // true</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">type</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> Test</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">foo</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> |</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">bar</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> |</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> (</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B">string</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> &amp;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {}</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">) </span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">extends</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> string</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> ?</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> true</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> :</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> false</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // true</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         <code>string &amp; {}</code>는 <code>string</code>과 <code>{}</code>의
@@ -307,9 +650,7 @@
         이러한 특성 때문에 우리는 문자열 리터럴을 사용하면서 문자열을 확장할 수
         있게 된다.
       </p>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           관련 내용은 타입스크립트 이슈(<a
             href="https://github.com/microsoft/TypeScript/issues/29729#issuecomment-567871939"
@@ -330,14 +671,14 @@
           href="#구체적인-타입"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >구체적인 타입
       </h3>
       <p class="mt-4 mb-4">
         타입스크립트의 타입 시스템은
         <a
-          href="/posts/typescript-subtyping#%EA%B5%AC%EC%A1%B0%EC%A0%81-%EC%84%9C%EB%B8%8C-%ED%83%80%EC%9D%B4%ED%95%91%EC%9D%B4%EB%9E%80"
+          href="/post/typescript-subtyping#%EA%B5%AC%EC%A1%B0%EC%A0%81-%EC%84%9C%EB%B8%8C-%ED%83%80%EC%9D%B4%ED%95%91%EC%9D%B4%EB%9E%80"
           class="underline-highlight-fade"
           target="_blank"
           rel="noreferrer noopener"
@@ -352,10 +693,10 @@
         <pre
           tabindex="0"
           data-language="ts"
-          data-theme="material-theme-palenight"
-        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> A</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> {</span><span style="color:#F07178"> a</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> string</span><span style="color:#89DDFF"> };</span></span>
-<span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> B</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> {</span><span style="color:#F07178"> a</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">A</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">B</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">;</span><span style="color:#F07178"> b</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> number</span><span style="color:#89DDFF"> };</span></span>
-<span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> ANB</span><span style="color:#89DDFF"> =</span><span style="color:#FFCB6B"> A</span><span style="color:#89DDFF"> &amp;</span><span style="color:#FFCB6B"> B</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // { a: 'A' | 'B', b: number };</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="ts" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">type</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> A</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span><span style="--shiki-light:#E36209;--shiki-dark:#F07178"> a</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> string</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> };</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">type</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> B</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span><span style="--shiki-light:#E36209;--shiki-dark:#F07178"> a</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">A</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> |</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">B</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#E36209;--shiki-dark:#F07178"> b</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> number</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> };</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">type</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> ANB</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> A</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> &amp;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> B</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // { a: 'A' | 'B', b: number };</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         구조적 서브 타이핑에 익숙하지 않으면 위의 예에서 "중첩"만 생각해
@@ -386,9 +727,7 @@
           ><span aria-hidden="true">⎋</span></a
         >.
       </p>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           {★, ●}, {★, ●, ◆}의 교집합은 {★, ●}이다. 교집합은 부모와 같아질 수
           있다.
@@ -398,9 +737,9 @@
         <pre
           tabindex="0"
           data-language="ts"
-          data-theme="material-theme-palenight"
-        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> Test1</span><span style="color:#89DDFF"> =</span><span style="color:#FFCB6B"> ANB</span><span style="color:#C792EA"> extends</span><span style="color:#FFCB6B"> A</span><span style="color:#89DDFF"> ?</span><span style="color:#FFCB6B"> true</span><span style="color:#89DDFF"> :</span><span style="color:#FFCB6B"> false</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // true</span></span>
-<span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> Test2</span><span style="color:#89DDFF"> =</span><span style="color:#FFCB6B"> ANB</span><span style="color:#C792EA"> extends</span><span style="color:#FFCB6B"> B</span><span style="color:#89DDFF"> ?</span><span style="color:#FFCB6B"> true</span><span style="color:#89DDFF"> :</span><span style="color:#FFCB6B"> false</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // true</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="ts" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">type</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> Test1</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> ANB</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> extends</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> A</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> ?</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> true</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> :</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> false</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // true</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">type</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> Test2</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> ANB</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> extends</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> B</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> ?</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> true</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> :</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> false</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // true</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         그렇다면 위의 논리로 <code>ANB</code>를 살펴보자. <code>ANB</code>는
@@ -418,9 +757,7 @@
         <code>A</code>와 <code>B</code>의 모든 속성을 가져오고 속성이 겹친다면
         가장 좁은 타입을 적용하게 된다.
       </p>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           { a: string, b: number } 타입은 A는 만족하지만 B는 만족하지 않기 때문.
         </p>
@@ -430,31 +767,31 @@
         <pre
           tabindex="0"
           data-language="ts"
-          data-theme="material-theme-palenight"
-        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> A</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> {</span><span style="color:#F07178"> a</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> string</span><span style="color:#89DDFF"> };</span></span>
-<span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> B</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> {</span><span style="color:#F07178"> a</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">A</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">B</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">;</span><span style="color:#F07178"> b</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> number</span><span style="color:#89DDFF"> };</span></span>
-<span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> ANB</span><span style="color:#89DDFF"> =</span><span style="color:#FFCB6B"> A</span><span style="color:#89DDFF"> &amp;</span><span style="color:#FFCB6B"> B</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // { a: 'A' | 'B', b: number };</span></span>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="ts" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">type</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> A</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span><span style="--shiki-light:#E36209;--shiki-dark:#F07178"> a</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> string</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> };</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">type</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> B</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span><span style="--shiki-light:#E36209;--shiki-dark:#F07178"> a</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">A</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> |</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">B</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#E36209;--shiki-dark:#F07178"> b</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> number</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> };</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">type</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> ANB</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> A</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> &amp;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> B</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // { a: 'A' | 'B', b: number };</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> a </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> {</span><span style="color:#F07178"> a</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">Astring</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> };</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> aa </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> {</span><span style="color:#F07178"> a</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">Astring</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#F07178"> b</span><span style="color:#89DDFF">:</span><span style="color:#F78C6C"> 1</span><span style="color:#89DDFF"> };</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">// 타입 B의 a 프로퍼티가 'A' | 'B' 타입이므로 더 좁은 타입으로 강제 지정해줘야 함.</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> b </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> {</span><span style="color:#F07178"> a</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">B</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF;font-style:italic"> as</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">A</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">B</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#F07178"> b</span><span style="color:#89DDFF">:</span><span style="color:#F78C6C"> 2</span><span style="color:#89DDFF"> };</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> bb </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> {</span><span style="color:#F07178"> a</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">B</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF;font-style:italic"> as</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">A</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">B</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#F07178"> b</span><span style="color:#89DDFF">:</span><span style="color:#F78C6C"> 2</span><span style="color:#89DDFF">,</span><span style="color:#F07178"> c</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">ddd</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> };</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> a</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> a</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">Astring</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> };</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> aa</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> a</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">Astring</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> b</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#F78C6C"> 1</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> };</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">// 타입 B의 a 프로퍼티가 'A' | 'B' 타입이므로 더 좁은 타입으로 강제 지정해줘야 함.</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> b</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> a</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">B</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic"> as</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">A</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> |</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">B</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> b</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#F78C6C"> 2</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> };</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> bb</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> a</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">B</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic"> as</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">A</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> |</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">B</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> b</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#F78C6C"> 2</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> c</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">ddd</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> };</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> goA </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">param</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> A</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#BABED8"> console</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">log</span><span style="color:#BABED8">(param)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> goB </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">param</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> B</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#BABED8"> console</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">log</span><span style="color:#BABED8">(param)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> goANB </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">param</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> ANB</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#BABED8"> console</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">log</span><span style="color:#BABED8">(param)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> goA</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> (</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic">param</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> A</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">)</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> console</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">log</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(param)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> goB</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> (</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic">param</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> B</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">)</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> console</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">log</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(param)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> goANB</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> (</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic">param</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> ANB</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">)</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> console</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">log</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(param)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#82AAFF">goA</span><span style="color:#BABED8">(a)</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // OK</span></span>
-<span data-line=""><span style="color:#82AAFF">goA</span><span style="color:#BABED8">(aa)</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // OK. 타입에 없는 b 프로퍼티가 추가되어도 a가 있으므로 "구조적으로" 상관없음.</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">goA</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(a)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // OK</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">goA</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(aa)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // OK. 타입에 없는 b 프로퍼티가 추가되어도 a가 있으므로 "구조적으로" 상관없음.</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#82AAFF">goB</span><span style="color:#BABED8">(b)</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // OK</span></span>
-<span data-line=""><span style="color:#82AAFF">goB</span><span style="color:#BABED8">(bb)</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // OK</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">goB</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(b)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // OK</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">goB</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(bb)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // OK</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#82AAFF">goANB</span><span style="color:#BABED8">(a)</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // Error. b 프로퍼티가 없음.</span></span>
-<span data-line=""><span style="color:#82AAFF">goANB</span><span style="color:#BABED8">(aa)</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // Error. a 프로퍼티의 타입이 구조적으로 맞지 않음(넓음).</span></span>
-<span data-line=""><span style="color:#82AAFF">goANB</span><span style="color:#BABED8">(b)</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // OK</span></span>
-<span data-line=""><span style="color:#82AAFF">goANB</span><span style="color:#BABED8">(bb)</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // OK. c 프로퍼티가 추가되어도 a, b가 있으므로 "구조적으로" 상관없음.</span></span></code></pre>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">goANB</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(a)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // Error. b 프로퍼티가 없음.</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">goANB</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(aa)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // Error. a 프로퍼티의 타입이 구조적으로 맞지 않음(넓음).</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">goANB</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(b)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // OK</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">goANB</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(bb)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // OK. c 프로퍼티가 추가되어도 a, b가 있으므로 "구조적으로" 상관없음.</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         요구하는 타입의 구조만 만족한다면 그 외의 속성이 있어도 타입 에러가
@@ -468,11 +805,11 @@
         <pre
           tabindex="0"
           data-language="ts"
-          data-theme="material-theme-palenight"
-        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> Test1</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">foo</span><span style="color:#89DDFF">'</span><span style="color:#C792EA"> extends</span><span style="color:#FFCB6B"> string</span><span style="color:#89DDFF"> ?</span><span style="color:#FFCB6B"> true</span><span style="color:#89DDFF"> :</span><span style="color:#FFCB6B"> false</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // true</span></span>
-<span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> Test2</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">foo</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> &amp;</span><span style="color:#FFCB6B"> string</span><span style="color:#C792EA"> extends</span><span style="color:#FFCB6B"> string</span><span style="color:#89DDFF"> ?</span><span style="color:#FFCB6B"> true</span><span style="color:#89DDFF"> :</span><span style="color:#FFCB6B"> false</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // true</span></span>
-<span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> Test3</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">foo</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> &amp;</span><span style="color:#89DDFF"> {}</span><span style="color:#C792EA"> extends</span><span style="color:#FFCB6B"> string</span><span style="color:#89DDFF"> ?</span><span style="color:#FFCB6B"> true</span><span style="color:#89DDFF"> :</span><span style="color:#FFCB6B"> false</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // true</span></span>
-<span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> Test4</span><span style="color:#89DDFF"> =</span><span style="color:#FFCB6B"> string</span><span style="color:#89DDFF"> &amp;</span><span style="color:#89DDFF"> {}</span><span style="color:#C792EA"> extends</span><span style="color:#FFCB6B"> string</span><span style="color:#89DDFF"> ?</span><span style="color:#FFCB6B"> true</span><span style="color:#89DDFF"> :</span><span style="color:#FFCB6B"> false</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // true</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="ts" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">type</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> Test1</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">foo</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> extends</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> string</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> ?</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> true</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> :</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> false</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // true</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">type</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> Test2</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">foo</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> &amp;</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> string</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> extends</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> string</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> ?</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> true</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> :</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> false</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // true</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">type</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> Test3</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">foo</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> &amp;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {}</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> extends</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> string</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> ?</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> true</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> :</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> false</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // true</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">type</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> Test4</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> string</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> &amp;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {}</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> extends</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> string</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> ?</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> true</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> :</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> false</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // true</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         위에서 다뤘던 문자열 리터럴 <code>'foo'</code>는 <code>string</code>의
@@ -490,7 +827,7 @@
       </p>
       <h2
         id="object-vs-object-vs-"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -498,7 +835,7 @@
           href="#object-vs-object-vs-"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Object vs object vs {}
       </h2>
@@ -520,7 +857,7 @@
           href="#자바스크립트의-타입"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >자바스크립트의 타입
       </h3>
@@ -528,30 +865,30 @@
         <pre
           tabindex="0"
           data-language="shell"
-          data-theme="material-theme-palenight"
-        ><code data-language="shell" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#89DDFF">[</span><span style="color:#BABED8">모든 값</span><span style="color:#89DDFF">]</span></span>
-<span data-line=""><span style="color:#FFCB6B">├──</span><span style="color:#BABED8"> [원시 </span><span style="color:#C3E88D">타입</span><span style="color:#BABED8"> (Primitive </span><span style="color:#C3E88D">Types</span><span style="color:#BABED8">)]</span></span>
-<span data-line=""><span style="color:#FFCB6B">│</span><span style="color:#C3E88D">   ├──</span><span style="color:#C3E88D"> undefined</span></span>
-<span data-line=""><span style="color:#FFCB6B">│</span><span style="color:#C3E88D">   ├──</span><span style="color:#C3E88D"> null</span></span>
-<span data-line=""><span style="color:#FFCB6B">│</span><span style="color:#C3E88D">   ├──</span><span style="color:#C3E88D"> boolean</span></span>
-<span data-line=""><span style="color:#FFCB6B">│</span><span style="color:#C3E88D">   ├──</span><span style="color:#C3E88D"> number</span></span>
-<span data-line=""><span style="color:#FFCB6B">│</span><span style="color:#C3E88D">   ├──</span><span style="color:#C3E88D"> string</span></span>
-<span data-line=""><span style="color:#FFCB6B">│</span><span style="color:#C3E88D">   ├──</span><span style="color:#C3E88D"> symbol</span><span style="color:#BABED8"> (ES6+)</span></span>
-<span data-line=""><span style="color:#FFCB6B">│</span><span style="color:#C3E88D">   └──</span><span style="color:#C3E88D"> bigint</span><span style="color:#BABED8"> (ES2020+)</span></span>
-<span data-line=""><span style="color:#FFCB6B">└──</span><span style="color:#BABED8"> [객체 </span><span style="color:#C3E88D">타입</span><span style="color:#BABED8"> (Object </span><span style="color:#C3E88D">Types</span><span style="color:#BABED8">)]</span></span>
-<span data-line=""><span style="color:#FFCB6B">    ├──</span><span style="color:#C3E88D"> 객체</span><span style="color:#BABED8"> (Object)</span></span>
-<span data-line=""><span style="color:#FFCB6B">    │</span><span style="color:#C3E88D">   ├──</span><span style="color:#C3E88D"> 일반</span><span style="color:#C3E88D"> 객체</span><span style="color:#BABED8"> (Plain </span><span style="color:#C3E88D">Object</span><span style="color:#BABED8">)</span></span>
-<span data-line=""><span style="color:#FFCB6B">    │</span><span style="color:#C3E88D">   ├──</span><span style="color:#C3E88D"> 배열</span><span style="color:#BABED8"> (Array)</span></span>
-<span data-line=""><span style="color:#FFCB6B">    │</span><span style="color:#C3E88D">   ├──</span><span style="color:#C3E88D"> 함수</span><span style="color:#BABED8"> (Function)</span></span>
-<span data-line=""><span style="color:#FFCB6B">    │</span><span style="color:#C3E88D">   ├──</span><span style="color:#C3E88D"> 날짜</span><span style="color:#BABED8"> (Date)</span></span>
-<span data-line=""><span style="color:#FFCB6B">    │</span><span style="color:#C3E88D">   ├──</span><span style="color:#C3E88D"> 정규식</span><span style="color:#BABED8"> (RegExp)</span></span>
-<span data-line=""><span style="color:#FFCB6B">    │</span><span style="color:#C3E88D">   └──</span><span style="color:#C3E88D"> 기타</span><span style="color:#C3E88D"> 내장</span><span style="color:#C3E88D"> 객체</span><span style="color:#BABED8"> (Map, </span><span style="color:#C3E88D">Set,</span><span style="color:#C3E88D"> Promise</span><span style="color:#C3E88D"> 등</span><span style="color:#BABED8">)</span></span>
-<span data-line=""><span style="color:#FFCB6B">    └──</span><span style="color:#C3E88D"> 래퍼</span><span style="color:#C3E88D"> 객체</span><span style="color:#BABED8"> (Wrapper </span><span style="color:#C3E88D">Objects</span><span style="color:#BABED8">)</span></span>
-<span data-line=""><span style="color:#FFCB6B">        ├──</span><span style="color:#C3E88D"> Boolean</span></span>
-<span data-line=""><span style="color:#FFCB6B">        ├──</span><span style="color:#C3E88D"> Number</span></span>
-<span data-line=""><span style="color:#FFCB6B">        ├──</span><span style="color:#C3E88D"> String</span></span>
-<span data-line=""><span style="color:#FFCB6B">        ├──</span><span style="color:#C3E88D"> Symbol</span></span>
-<span data-line=""><span style="color:#FFCB6B">        └──</span><span style="color:#C3E88D"> BigInt</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="shell" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">[</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">모든 값</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">]</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">├──</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> [원시 </span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">타입</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> (Primitive </span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">Types</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)]</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">│</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">   ├──</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> undefined</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">│</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">   ├──</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> null</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">│</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">   ├──</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> boolean</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">│</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">   ├──</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> number</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">│</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">   ├──</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> string</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">│</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">   ├──</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> symbol</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> (ES6+)</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">│</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">   └──</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> bigint</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> (ES2020+)</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">└──</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> [객체 </span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">타입</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> (Object </span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">Types</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)]</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">    ├──</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> 객체</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> (Object)</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">    │</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">   ├──</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> 일반</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> 객체</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> (Plain </span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">Object</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">    │</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">   ├──</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> 배열</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> (Array)</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">    │</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">   ├──</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> 함수</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> (Function)</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">    │</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">   ├──</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> 날짜</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> (Date)</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">    │</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">   ├──</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> 정규식</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> (RegExp)</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">    │</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">   └──</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> 기타</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> 내장</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> 객체</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> (Map, </span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">Set,</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> Promise</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> 등</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">    └──</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> 래퍼</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> 객체</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> (Wrapper </span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">Objects</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">        ├──</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> Boolean</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">        ├──</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> Number</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">        ├──</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> String</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">        ├──</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> Symbol</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">        └──</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> BigInt</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         자바스크립트는 7개의 원시 타입과 Object 객체 타입을 포함해 총 8개의
@@ -567,11 +904,11 @@
           href="#원시-타입과-객체-타입"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >원시 타입과 객체 타입
       </h3>
-      <table class="w-full mb-4 text-[#dfdfdf] table-fixed break-words">
+      <table class="mb-4 w-full table-fixed break-words text-white">
         <thead>
           <tr>
             <th>원시 타입</th>
@@ -602,9 +939,7 @@
           </tr>
         </tbody>
       </table>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           여기서 불변 가변은 let, const가 아닌 메모리에 저장되는 값의 변경
           여부를 의미한다.
@@ -624,7 +959,7 @@
           href="#object-타입"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Object 타입
       </h3>
@@ -632,14 +967,14 @@
         <pre
           tabindex="0"
           data-language="ts"
-          data-theme="material-theme-palenight"
-        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> obj1</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> Object</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> {</span><span style="color:#F07178"> a</span><span style="color:#89DDFF">:</span><span style="color:#F78C6C"> 1</span><span style="color:#89DDFF"> };</span><span style="color:#676E95;font-style:italic"> // OK. new Object({ a: 1 })</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> obj2</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> Object</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">hello</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // OK. 원시 타입도 허용</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> obj3</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> Object</span><span style="color:#89DDFF"> =</span><span style="color:#F78C6C"> 123</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // OK. 원시 타입도 허용</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> obj4</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> Object</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> null;</span><span style="color:#676E95;font-style:italic"> // Err. null은 허용되지 않음(래퍼 객체 없음)</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> obj5</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> Object</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> undefined;</span><span style="color:#676E95;font-style:italic"> // Err. undefined는 허용되지 않음(래퍼 객체 없음)</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> obj6</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> Object</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {};</span><span style="color:#676E95;font-style:italic"> // OK. 함수는 객체를 상속한다.</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> obj7</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> Object</span><span style="color:#89DDFF"> =</span><span style="color:#BABED8"> []</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // OK. 배열도 객체를 상속한다.</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="ts" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> obj1</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> Object</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> a</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#F78C6C"> 1</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> };</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // OK. new Object({ a: 1 })</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> obj2</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> Object</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">hello</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // OK. 원시 타입도 허용</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> obj3</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> Object</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#005CC5;--shiki-dark:#F78C6C"> 123</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // OK. 원시 타입도 허용</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> obj4</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> Object</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#005CC5;--shiki-dark:#89DDFF"> null</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // Err. null은 허용되지 않음(래퍼 객체 없음)</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> obj5</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> Object</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#005CC5;--shiki-dark:#89DDFF"> undefined</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // Err. undefined는 허용되지 않음(래퍼 객체 없음)</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> obj6</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> Object</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {};</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // OK. 함수는 객체를 상속한다.</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> obj7</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> Object</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> []</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // OK. 배열도 객체를 상속한다.</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         <code>Object</code> 타입은 자바스크립트의 <code>Object</code> 생성자
@@ -662,12 +997,12 @@
         <pre
           tabindex="0"
           data-language="ts"
-          data-theme="material-theme-palenight"
-        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">let</span><span style="color:#BABED8"> str </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">hello</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">// 원시 타입은 "값"이므로 메서드를 호출할 수 없다. 그럼에도 아래의 코드가 동작한다.</span></span>
-<span data-line=""><span style="color:#BABED8">console</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">log</span><span style="color:#BABED8">(str</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">toUpperCase</span><span style="color:#BABED8">())</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // "HELLO"</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">// 실제 런타임 상황에선 아래와 같이 래퍼 객체의 도움을 받는다.</span></span>
-<span data-line=""><span style="color:#BABED8">console</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">log</span><span style="color:#BABED8">(</span><span style="color:#82AAFF">String</span><span style="color:#BABED8">(str)</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">toUpperCase</span><span style="color:#BABED8">())</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // "HELLO"</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="ts" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">let</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> str </span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">hello</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">// 원시 타입은 "값"이므로 메서드를 호출할 수 없다. 그럼에도 아래의 코드가 동작한다.</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">console</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">log</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(str</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">toUpperCase</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">())</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // "HELLO"</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">// 실제 런타임 상황에선 아래와 같이 래퍼 객체의 도움을 받는다.</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">console</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">log</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">String</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(str)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">toUpperCase</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">())</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // "HELLO"</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         자바스크립트는 원시 타입을 객체처럼 다루기 위해 래퍼 객체를 제공한다.
@@ -694,7 +1029,7 @@
           href="#object-타입-1"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >object 타입
       </h3>
@@ -702,14 +1037,14 @@
         <pre
           tabindex="0"
           data-language="ts"
-          data-theme="material-theme-palenight"
-        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> obj1</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> object</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> {</span><span style="color:#F07178"> a</span><span style="color:#89DDFF">:</span><span style="color:#F78C6C"> 1</span><span style="color:#89DDFF"> };</span><span style="color:#676E95;font-style:italic"> // OK. new Object({ a: 1 })</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> obj2</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> object</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">hello</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // Err. 원시 타입 허용되지 않음</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> obj3</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> object</span><span style="color:#89DDFF"> =</span><span style="color:#F78C6C"> 123</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // Err.</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> obj4</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> object</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> null;</span><span style="color:#676E95;font-style:italic"> // Err.</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> obj5</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> object</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> undefined;</span><span style="color:#676E95;font-style:italic"> // Err.</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> obj6</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> object</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {};</span><span style="color:#676E95;font-style:italic"> // OK.</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> obj7</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> object</span><span style="color:#89DDFF"> =</span><span style="color:#BABED8"> []</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // OK.</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="ts" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> obj1</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> object</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> a</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#F78C6C"> 1</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> };</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // OK. new Object({ a: 1 })</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> obj2</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> object</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">hello</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // Err. 원시 타입 허용되지 않음</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> obj3</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> object</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#005CC5;--shiki-dark:#F78C6C"> 123</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // Err.</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> obj4</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> object</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#005CC5;--shiki-dark:#89DDFF"> null</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // Err.</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> obj5</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> object</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#005CC5;--shiki-dark:#89DDFF"> undefined</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // Err.</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> obj6</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> object</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {};</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // OK.</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> obj7</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> object</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> []</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // OK.</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         <code>object</code> 타입은
@@ -721,9 +1056,7 @@
           >원시 타입이 아닌 모든 값을 나타낸다</a
         >.
       </p>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           object 타입은 타입스크립트 2.2 버전에서 추가되었다.
         </p>
@@ -743,7 +1076,7 @@
           href="#-타입"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >{} 타입
       </h3>
@@ -751,14 +1084,14 @@
         <pre
           tabindex="0"
           data-language="ts"
-          data-theme="material-theme-palenight"
-        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> obj1</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {}</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> {</span><span style="color:#F07178"> a</span><span style="color:#89DDFF">:</span><span style="color:#F78C6C"> 1</span><span style="color:#89DDFF"> };</span><span style="color:#676E95;font-style:italic"> // OK. new Object({ a: 1 })</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> obj2</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {}</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">hello</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // OK. 원시 타입을 허용함.</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> obj3</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {}</span><span style="color:#89DDFF"> =</span><span style="color:#F78C6C"> 123</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // OK.</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> obj4</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {}</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> null;</span><span style="color:#676E95;font-style:italic"> // Err. Object 타입과 동일하게 래퍼 객체가 없으므로 허용되지 않음.</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> obj5</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {}</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> undefined;</span><span style="color:#676E95;font-style:italic"> // Err.</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> obj6</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {}</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {};</span><span style="color:#676E95;font-style:italic"> // OK.</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> obj7</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {}</span><span style="color:#89DDFF"> =</span><span style="color:#BABED8"> []</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // OK.</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="ts" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> obj1</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {}</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> a</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#F78C6C"> 1</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> };</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // OK. new Object({ a: 1 })</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> obj2</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {}</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">hello</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // OK. 원시 타입을 허용함.</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> obj3</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {}</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#005CC5;--shiki-dark:#F78C6C"> 123</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // OK.</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> obj4</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {}</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#005CC5;--shiki-dark:#89DDFF"> null</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // Err. Object 타입과 동일하게 래퍼 객체가 없으므로 허용되지 않음.</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> obj5</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {}</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#005CC5;--shiki-dark:#89DDFF"> undefined</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // Err.</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> obj6</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {}</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {};</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // OK.</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> obj7</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {}</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> []</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // OK.</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         자바스크립트에서 <code>{}</code>는 빈 객체를 의미하지만 타입스크립트에서
@@ -778,9 +1111,7 @@
         가지고 있는 <code>hasOwnProperty</code> 메서드를 포함하지 않는다는
         의미이다.
       </p>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           타입스크립트 공식 FAQ -
           <a
@@ -794,7 +1125,7 @@
         <p class="mt-4 mb-4">
           해당 FAQ를 보면
           <a
-            href="/posts/implicit-coercion#%EB%93%A4%EC%96%B4%EA%B0%80%EA%B8%B0-%EC%A0%84%EC%97%90"
+            href="/post/implicit-coercion#%EB%93%A4%EC%96%B4%EA%B0%80%EA%B8%B0-%EC%A0%84%EC%97%90"
             class="underline-highlight-fade"
             target="_blank"
             rel="noreferrer noopener"
@@ -807,9 +1138,9 @@
         <pre
           tabindex="0"
           data-language="ts"
-          data-theme="material-theme-palenight"
-        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> obj1</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {}</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> {</span><span style="color:#F07178"> a</span><span style="color:#89DDFF">:</span><span style="color:#F78C6C"> 1</span><span style="color:#89DDFF"> };</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> obj2</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> Object</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">hello</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">;</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="ts" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> obj1</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {}</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> a</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#F78C6C"> 1</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> };</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> obj2</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> Object</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">hello</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span></code></pre>
       </figure>
       <div class="img-container">
         <div
@@ -830,9 +1161,7 @@
           </button>
         </div>
       </div>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           (좌) {} 타입은 hasOwnProperty 메서드를 보여주지 않는다. (우) Object
           타입은 hasOwnProperty 메서드를 포함한다.
@@ -848,11 +1177,11 @@
           href="#정리"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >정리
       </h3>
-      <table class="w-full mb-4 text-[#dfdfdf] table-fixed break-words">
+      <table class="mb-4 w-full table-fixed break-words text-white">
         <thead>
           <tr>
             <th>타입</th>
@@ -916,10 +1245,10 @@
         <pre
           tabindex="0"
           data-language="ts"
-          data-theme="material-theme-palenight"
-        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> A</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">A</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">B</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#BABED8"> (</span><span style="color:#FFCB6B">string</span><span style="color:#89DDFF"> &amp;</span><span style="color:#FFCB6B"> Object</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> AA</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">A</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">B</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#BABED8"> (</span><span style="color:#FFCB6B">string</span><span style="color:#89DDFF"> &amp;</span><span style="color:#89DDFF"> {}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> AAA</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">A</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">B</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#BABED8"> (</span><span style="color:#FFCB6B">string</span><span style="color:#89DDFF"> &amp;</span><span style="color:#FFCB6B"> object</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="ts" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">type</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> A</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">A</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> |</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">B</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> |</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> (</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B">string</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> &amp;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> Object</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">type</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> AA</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">A</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> |</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">B</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> |</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> (</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B">string</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> &amp;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {}</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">type</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> AAA</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">A</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> |</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">B</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> |</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> (</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B">string</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> &amp;</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> object</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         이제 우리는 위의 타입이 어떤 의미를 가지는지 이해할 수 있다.
@@ -969,7 +1298,7 @@
       </ul>
       <h2
         id="마치며"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -977,7 +1306,7 @@
           href="#마치며"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >마치며
       </h2>
@@ -988,8 +1317,8 @@
         <pre
           tabindex="0"
           data-language="ts"
-          data-theme="material-theme-palenight"
-        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> EmptyObject</span><span style="color:#89DDFF"> =</span><span style="color:#FFCB6B"> Record</span><span style="color:#89DDFF">&lt;</span><span style="color:#FFCB6B">string</span><span style="color:#89DDFF">,</span><span style="color:#FFCB6B"> never</span><span style="color:#89DDFF">&gt;;</span><span style="color:#676E95;font-style:italic"> // {} 대신 사용.</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="ts" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">type</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> EmptyObject</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> Record</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&lt;</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B">string</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> never</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // {} 대신 사용.</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         실제로 객체 타입을 정의할 때에는 <code>Record</code> 타입과 같은
@@ -999,7 +1328,7 @@
       <p class="mt-4 mb-4">
         이 글이 흥미로웠다면
         <a
-          href="/posts/typescript-subtyping"
+          href="/post/typescript-subtyping"
           class="underline-highlight-fade"
           target="_blank"
           rel="noreferrer noopener"
@@ -1009,7 +1338,7 @@
       </p>
       <h2
         id="참고"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -1017,7 +1346,7 @@
           href="#참고"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >참고
       </h2>
@@ -1042,7 +1371,7 @@
         </li>
         <li class="my-1.25">
           <a
-            href="/posts/implicit-coercion"
+            href="/post/implicit-coercion"
             class="underline-highlight-fade"
             target="_blank"
             rel="noreferrer noopener"
@@ -1082,132 +1411,182 @@
       class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
       aria-label="목차"
     >
-      <ul
-        class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
+      <div
+        class="sticky top-32 ml-9 w-[216px] min-[1320px]:top-48 min-[1320px]:ml-20"
       >
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="tldr"
-            href="#tldr"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >TL;DR</a
+        <p class="mb-2 px-3 text-[10px] tracking-[0.18em] text-dark uppercase">
+          On this page
+        </p>
+        <ul>
+          <li class="relative select-none">
+            <a
+              id="tldr"
+              href="#tldr"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >TL;DR</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="의문"
+              href="#의문"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >의문</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="string--"
+              href="#string--"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >string &amp; {}</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-1/2"
           >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="의문"
-            href="#의문"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >의문</a
+            <a
+              id="구체적인-타입"
+              href="#구체적인-타입"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >구체적인 타입</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="object-vs-object-vs-"
+              href="#object-vs-object-vs-"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Object vs object vs {}</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="string--"
-            href="#string--"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >string &amp; {}</a
+            <a
+              id="자바스크립트의-타입"
+              href="#자바스크립트의-타입"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >자바스크립트의 타입</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
-        >
-          <a
-            id="구체적인-타입"
-            href="#구체적인-타입"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >구체적인 타입</a
+            <a
+              id="원시-타입과-객체-타입"
+              href="#원시-타입과-객체-타입"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >원시 타입과 객체 타입</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="object-vs-object-vs-"
-            href="#object-vs-object-vs-"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Object vs object vs {}</a
+            <a
+              id="object-타입"
+              href="#object-타입"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Object 타입</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="자바스크립트의-타입"
-            href="#자바스크립트의-타입"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >자바스크립트의 타입</a
+            <a
+              id="object-타입-1"
+              href="#object-타입-1"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >object 타입</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="원시-타입과-객체-타입"
-            href="#원시-타입과-객체-타입"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >원시 타입과 객체 타입</a
+            <a
+              id="-타입"
+              href="#-타입"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >{} 타입</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-1/2"
           >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="object-타입"
-            href="#object-타입"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Object 타입</a
-          >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="object-타입-1"
-            href="#object-타입-1"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >object 타입</a
-          >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="-타입"
-            href="#-타입"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >{} 타입</a
-          >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
-        >
-          <a
-            id="정리"
-            href="#정리"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >정리</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="마치며"
-            href="#마치며"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >마치며</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="참고"
-            href="#참고"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >참고</a
-          >
-        </li>
-      </ul>
+            <a
+              id="정리"
+              href="#정리"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >정리</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="마치며"
+              href="#마치며"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >마치며</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="참고"
+              href="#참고"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >참고</span
+              ></a
+            >
+          </li>
+        </ul>
+      </div>
     </aside>
   </section>
   <a
-    class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water"
+    class="inline-block text-highlight leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-highlight after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water"
     href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] Object%20vs%20object%20vs%20%7B%7D&amp;body=&lt;!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 --&gt;"
     rel="noopener noreferrer"
     target="_blank"
@@ -1230,7 +1609,7 @@
       <a
         class="group flex flex-col gap-1 max-w-[45%] hover:text-highlight duration-300 items-start text-left"
         aria-label="이전 글: 우아콘 이그나이트 - 오픈소스 참여 경험 발표 후기"
-        href="/posts/2024-woowa-ignite"
+        href="/post/2024-woowa-ignite"
         ><span class="text-sm text-date-gray">← 이전 글</span
         ><span class="title-underline"
           >우아콘 이그나이트 - 오픈소스 참여 경험 발표 후기</span
@@ -1238,7 +1617,7 @@
       ><a
         class="group flex flex-col gap-1 max-w-[45%] hover:text-highlight duration-300 items-end text-right ml-auto"
         aria-label="다음 글: N-API(Node-API) 얕게 알아보기(feat. Rust)"
-        href="/posts/n-api"
+        href="/post/n-api"
         ><span class="text-sm text-date-gray">다음 글 →</span
         ><span class="title-underline"
           >N-API(Node-API) 얕게 알아보기(feat. Rust)</span
@@ -1246,7 +1625,7 @@
       >
     </div>
   </nav>
-  <section aria-labelledby="related-posts-heading" class="mt-12 mb-40">
+  <section aria-labelledby="related-posts-heading" class="mt-12 mb-12 xl:mb-0">
     <h2 id="related-posts-heading" class="text-2xl mb-4">더 보기</h2>
     <ul>
       <li
@@ -1255,7 +1634,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-typescript-subtyping-description"
-          href="/posts/typescript-subtyping"
+          href="/post/typescript-subtyping"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -1270,18 +1649,18 @@
           </div>
           <div class="w-full mt-2 md:mt-0">
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               Object.keys()는 왜 string[] 타입일까?
             </h3>
             <p
               id="related-post-typescript-subtyping-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               구조적 서브 타이핑과 집합적 특징을 알아보자
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2024-05-10 22:11"
               >2024-05-10 22:11</time
             >
@@ -1294,7 +1673,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-typescript5-description"
-          href="/posts/typescript5"
+          href="/post/typescript5"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -1309,18 +1688,18 @@
           </div>
           <div class="w-full mt-2 md:mt-0">
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               TypeScript 5.0 살펴보기
             </h3>
             <p
               id="related-post-typescript5-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               5버전은 무엇이 달라졌을까?
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2023-04-09 16:24"
               >2023-04-09 16:24</time
             >
@@ -1333,7 +1712,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-quality-of-job-review-description"
-          href="/posts/quality-of-job-review"
+          href="/post/quality-of-job-review"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -1351,18 +1730,18 @@
               >다른 주제 탐색</span
             >
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               "일의 격"을 읽고
             </h3>
             <p
               id="related-post-quality-of-job-review-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               신수정님의 '일의 격' 책을 읽고 생각을 정리하게 되었다
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2023-06-22 20:36"
               >2023-06-22 20:36</time
             >
@@ -1375,7 +1754,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-leetcode-hard-42-description"
-          href="/posts/leetcode-hard-42"
+          href="/post/leetcode-hard-42"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -1393,18 +1772,18 @@
               >다른 주제 탐색</span
             >
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               [LeetCode] 42. Trapping Rain Water
             </h3>
             <p
               id="related-post-leetcode-hard-42-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               2차원 좌표의 영역을 빠르게 구해보자
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2023-10-14 17:10"
               >2023-10-14 17:10</time
             >

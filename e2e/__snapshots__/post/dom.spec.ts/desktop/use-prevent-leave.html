@@ -17,46 +17,391 @@
       "name": "1ilsang",
       "url": "https://1ilsang.dev"
     },
-    "url": "https://1ilsang.dev/posts/use-prevent-leave",
+    "url": "https://1ilsang.dev/post/use-prevent-leave",
     "keywords": ["react", "nextjs", "frontend", "javascript"]
   }
 </script>
 <progress
   id="nav-progress"
-  class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none xl:right-0 xl:left-[calc((100vw-1280px)/2+256px)] xl:w-auto [&amp;::-webkit-progress-value]:bg-base-og"
   aria-label="페이지 읽기 진행률"
   value="0"
   max="1"
 ></progress>
 <nav
   aria-label="메인 네비게이션"
-  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] shadow-nav shadow-lg"
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center max-xl:hover:animate-rainbow-water max-xl:hover:bg-nav max-xl:hover:bg-[length:400%_400%] xl:top-0 xl:left-0 xl:h-screen xl:w-[calc((100vw-1280px)/2+256px)] xl:flex-col xl:flex-nowrap xl:items-stretch xl:justify-start xl:border-r xl:border-base/40 xl:bg-sidebar xl:py-[40px] max-xl:shadow-nav max-xl:shadow-lg"
 >
-  <div class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
-    <a class="hover:underline" href="/">1ilsang</a>
+  <div class="hidden h-full w-[216px] xl:mr-5 xl:ml-auto xl:flex xl:flex-col">
+    <div class="ml-3 mb-4 flex items-center">
+      <a
+        aria-label="About 페이지로 이동"
+        class="mr-2 block w-8 h-8 mt-2 xl:w-12 xl:h-12 xl:mt-0 xl:mr-1"
+        href="/about"
+        ><img
+          class="border border-solid rounded-full w-full h-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+      <div class="flex min-w-0 flex-col items-start justify-center">
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-2xl font-bold my-2 ml-3.5 xl:m-0"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-1 hover:no-underline"
+            href="/"
+            ><span class="flex items-center gap-3"
+              ><span class="flex flex-col"
+                ><span>1ilsang.dev</span
+                ><span class="whitespace-nowrap text-xs font-normal text-dark"
+                  >Software Engineer</span
+                ></span
+              ></span
+            ></a
+          >
+        </div>
+      </div>
+    </div>
+    <ul class="flex flex-col gap-1">
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="m3 11 9-8 9 8"></path>
+                <path d="M5 10v10h14V10M9 20v-6h6v6"></path></svg
+              ><span class=""><span>Home</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/posts"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M6 3h9l4 4v14H6z"></path>
+                <path d="M14 3v5h5M9 12h6M9 16h6"></path></svg
+              ><span class=""><span>Posts</span></span></span
+            ></a
+          >
+        </div>
+        <ul aria-label="포스트 카테고리" class="mt-0.5 ml-[21px] py-1 pl-3">
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              aria-current="page"
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-base/60 bg-base/20 text-white"
+              href="/posts/javascript"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="m9 7-5 5 5 5M15 7l5 5-5 5"></path></svg
+              ><span class="truncate">JavaScript</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/rust"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="12" r="5"></circle>
+                <path
+                  d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"
+                ></path></svg
+              ><span class="truncate">Rust</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/activity"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M3 12h4l2-6 4 12 2-6h6"></path></svg
+              ><span class="truncate">Activity</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/book"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M4 5a3 3 0 0 1 3-2h5v17H7a3 3 0 0 0-3 2z"></path>
+                <path
+                  d="M20 5a3 3 0 0 0-3-2h-5v17h5a3 3 0 0 1 3 2z"
+                ></path></svg
+              ><span class="truncate">Book</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/retrospect"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="12" r="8"></circle>
+                <path d="M12 8v5l3 2M5 5 3 8"></path></svg
+              ><span class="truncate">Retrospect</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/tool"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path
+                  d="M14 6a4 4 0 0 0-5 5L3 17l4 4 6-6a4 4 0 0 0 5-5l-3 3-4-4z"
+                ></path></svg
+              ><span class="truncate">Tool</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-1/2"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/algorithm"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="6" cy="5" r="2"></circle>
+                <circle cx="18" cy="12" r="2"></circle>
+                <circle cx="6" cy="19" r="2"></circle>
+                <path
+                  d="M8 5h3a3 3 0 0 1 3 3v1M8 19h3a3 3 0 0 0 3-3v-1"
+                ></path></svg
+              ><span class="truncate">Algorithm</span></a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/tags"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M20 12 12 20 4 12V4h8z"></path>
+                <circle cx="9" cy="9" r="1.3"></circle></svg
+              ><span class=""><span>Tags</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/about"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="7" r="3"></circle>
+                <path d="M5 21v-2a7 7 0 0 1 14 0v2"></path></svg
+              ><span class=""><span>About</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+    </ul>
+    <div class="mt-auto">
+      <button
+        type="button"
+        class="flex w-full cursor-pointer items-center gap-2 rounded-sm border border-base/40 px-3 py-2 text-left text-xs text-sub-blue transition-colors hover:border-base/70 hover:bg-base/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight"
+        aria-label="라이트 모드로 전환"
+      >
+        <svg
+          aria-hidden="true"
+          class="h-4 w-4 flex-none"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.7"
+          viewBox="0 0 24 24"
+        >
+          <circle cx="12" cy="12" r="4"></circle>
+          <path
+            d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+          ></path></svg
+        ><span
+          >라이트<!-- -->
+          모드</span
+        >
+      </button>
+      <p class="mt-4 border-t border-base/40 pt-5 text-xs text-dark">
+        © 1ilsang
+      </p>
+    </div>
   </div>
-  <div class="flex">
-    <div class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/posts">posts</a>
+  <div class="flex w-full justify-between xl:hidden">
+    <div
+      class="tracking-tight mr-6 xl:mr-0 text-2xl font-bold my-2 ml-3.5 xl:m-0"
+    >
+      <a
+        class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+        href="/"
+        ><span class="flex items-center gap-3"
+          ><span class=""><span>1ilsang</span></span></span
+        ></a
+      >
     </div>
-    <div class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/tags">tags</a>
+    <div class="flex">
+      <div
+        class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+      >
+        <a
+          class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+          href="/posts"
+          ><span class="flex items-center gap-3"
+            ><span class=""><span>Posts</span></span></span
+          ></a
+        >
+      </div>
+      <div
+        class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+      >
+        <a
+          class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+          href="/tags"
+          ><span class="flex items-center gap-3"
+            ><span class=""><span>Tags</span></span></span
+          ></a
+        >
+      </div>
+      <a
+        aria-label="About 페이지로 이동"
+        class="mr-2 block w-8 h-8 mt-2 xl:w-12 xl:h-12 xl:mt-0 xl:mr-1"
+        href="/about"
+        ><img
+          class="border border-solid rounded-full w-full h-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
     </div>
-    <a
-      aria-label="About 페이지로 이동"
-      class="mr-2 block w-8 h-8 mt-2"
-      href="/about"
-      ><img
-        class="border border-solid rounded-full w-full h-full border-white-blue"
-        src="/images/chul.webp"
-        alt="1ilsang"
-    /></a>
   </div>
 </nav>
 <section
   id="main-content"
   tabindex="-1"
-  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
+  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 xl:pt-20 xl:pb-24 mx-4 min-[790px]:m-auto print:py-0 xl:!pb-6"
 >
   <h1 class="text-4xl break-words md:text-6xl">
     페이지 이탈시 확인 컨펌창 만들기
@@ -167,9 +512,7 @@
           </button>
         </div>
       </div>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           <a
             href="https://developer.chrome.com/docs/web-platform/page-lifecycle-api?hl=ko"
@@ -222,7 +565,7 @@
       </p>
       <h2
         id="beforeunload로-페이지-이탈-방지하기"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -230,7 +573,7 @@
           href="#beforeunload로-페이지-이탈-방지하기"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >beforeunload로 페이지 이탈 방지하기
       </h2>
@@ -261,12 +604,12 @@
         <pre
           tabindex="0"
           data-language="tsx"
-          data-theme="material-theme-palenight"
-        ><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> handleBeforeUnload </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">event</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> Event</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#BABED8">  event</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">preventDefault</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#BABED8">  event</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">returnValue</span><span style="color:#89DDFF"> =</span><span style="color:#FF9CAC"> false</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // Chrome requires returnValue to be set.</span></span>
-<span data-line=""><span style="color:#89DDFF">};</span></span>
-<span data-line=""><span style="color:#BABED8">window</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">addEventListener</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">beforeunload</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> handleBeforeUnload)</span><span style="color:#89DDFF">;</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="tsx" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> handleBeforeUnload</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> (</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic">event</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> Event</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">)</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">  event</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">preventDefault</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">()</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">  event</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">returnValue</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#005CC5;--shiki-dark:#FF9CAC"> false</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // Chrome requires returnValue to be set.</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">};</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">window</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">addEventListener</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">beforeunload</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> handleBeforeUnload)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         코드로 작성하면 위와 같다. 이동을 막아줄 path에서 beforeunload 이벤트를
@@ -328,62 +671,62 @@
         <pre
           tabindex="0"
           data-language="tsx"
-          data-theme="material-theme-palenight"
-        ><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> usePreventLeave </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">global</span><span style="color:#89DDFF"> =</span><span style="color:#FF9CAC"> false</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> handleBeforeUnload</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">event</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> Event</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#BABED8">    event</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">preventDefault</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#BABED8">    event</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">returnValue</span><span style="color:#89DDFF"> =</span><span style="color:#FF9CAC"> false</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // Chrome requires returnValue to be set.</span></span>
-<span data-line=""><span style="color:#89DDFF">  };</span></span>
-<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> onPreventLeave</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#BABED8">    window</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">addEventListener</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">beforeunload</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> handleBeforeUnload</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">  };</span></span>
-<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> offPreventLeave</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#BABED8">    window</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">removeEventListener</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">beforeunload</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> handleBeforeUnload</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">  };</span></span>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="tsx" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> usePreventLeave</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> (</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic">global</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#005CC5;--shiki-dark:#FF9CAC"> false</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">)</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> handleBeforeUnload</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> (</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic">event</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> Event</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">)</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">    event</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">preventDefault</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">()</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">    event</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">returnValue</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#005CC5;--shiki-dark:#FF9CAC"> false</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // Chrome requires returnValue to be set.</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  };</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> onPreventLeave</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">    window</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">addEventListener</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">beforeunload</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> handleBeforeUnload</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  };</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> offPreventLeave</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">    window</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">removeEventListener</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">beforeunload</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> handleBeforeUnload</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  };</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#676E95;font-style:italic">  // 만약 페이지 전체에 적용할 경우 global을 true로 입력해 window에 적용하면 된다.</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">  // 단일 요소(e.g., HTMLInputElement)에 별개로 적용할 경우 on/off PreventLeave 이벤트를 사용한다.</span></span>
-<span data-line=""><span style="color:#82AAFF">  useEffect</span><span style="color:#F07178">(</span><span style="color:#89DDFF">()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">    if</span><span style="color:#F07178"> (</span><span style="color:#89DDFF">!</span><span style="color:#BABED8">global</span><span style="color:#F07178">) </span><span style="color:#89DDFF;font-style:italic">return</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#BABED8">    window</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">addEventListener</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">beforeunload</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> handleBeforeUnload</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">    return</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#BABED8">      window</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">removeEventListener</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">beforeunload</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> handleBeforeUnload</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">    };</span></span>
-<span data-line=""><span style="color:#89DDFF">  },</span><span style="color:#F07178"> [</span><span style="color:#BABED8">global</span><span style="color:#F07178">])</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">  // 만약 페이지 전체에 적용할 경우 global을 true로 입력해 window에 적용하면 된다.</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">  // 단일 요소(e.g., HTMLInputElement)에 별개로 적용할 경우 on/off PreventLeave 이벤트를 사용한다.</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">  useEffect</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">    if</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> (</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">!</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">global</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">) </span><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">return</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">    window</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">addEventListener</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">beforeunload</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> handleBeforeUnload</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">    return</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">      window</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">removeEventListener</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">beforeunload</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> handleBeforeUnload</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">    };</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  },</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> [</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">global</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">])</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#BABED8">    onPreventLeave</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#BABED8">    offPreventLeave</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#89DDFF">  };</span></span>
-<span data-line=""><span style="color:#89DDFF">};</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">  return</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">    onPreventLeave</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">    offPreventLeave</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  };</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">};</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> MyApp</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> FunctionComponent</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">  // CASE 1. 페이지 자체에 이벤트 적용(글로벌 적용)</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">  // usePreventLeave(true);</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> MyApp</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> FunctionComponent</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">  // CASE 1. 페이지 자체에 이벤트 적용(글로벌 적용)</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">  // usePreventLeave(true);</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#676E95;font-style:italic">  // CASE 2. 특정 요소가 변경될 경우 감지후 방지 이벤트 적용(e.g., form)</span></span>
-<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#89DDFF"> {</span><span style="color:#BABED8"> onPreventLeave</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> offPreventLeave</span><span style="color:#89DDFF"> }</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> usePreventLeave</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#89DDFF"> [</span><span style="color:#BABED8">changed</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> setChanged</span><span style="color:#89DDFF">]</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> useState</span><span style="color:#F07178">(</span><span style="color:#FF9CAC">false</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">  // CASE 2. 특정 요소가 변경될 경우 감지후 방지 이벤트 적용(e.g., form)</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  const</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> onPreventLeave</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> offPreventLeave</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> }</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> usePreventLeave</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">()</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  const</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> [</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">changed</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> setChanged</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">]</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> useState</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#FF9CAC">false</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> handleInputChange</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#82AAFF"> setChanged</span><span style="color:#F07178">(</span><span style="color:#FF9CAC">true</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> handleClearClick</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#82AAFF"> setChanged</span><span style="color:#F07178">(</span><span style="color:#FF9CAC">false</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> handleInputChange</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> setChanged</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#FF9CAC">true</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> handleClearClick</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> setChanged</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#FF9CAC">false</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#82AAFF">  useEffect</span><span style="color:#F07178">(</span><span style="color:#89DDFF">()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#C792EA">    const</span><span style="color:#BABED8"> fn</span><span style="color:#89DDFF"> =</span><span style="color:#BABED8"> changed</span><span style="color:#89DDFF"> ?</span><span style="color:#BABED8"> onPreventLeave</span><span style="color:#89DDFF"> :</span><span style="color:#BABED8"> offPreventLeave</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#82AAFF">    fn</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">    return</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#82AAFF">      offPreventLeave</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">    };</span></span>
-<span data-line=""><span style="color:#89DDFF">  },</span><span style="color:#F07178"> [</span><span style="color:#BABED8">changed</span><span style="color:#F07178">])</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">  useEffect</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">    const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> fn</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> changed</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> ?</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> onPreventLeave</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> :</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> offPreventLeave</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">    fn</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">()</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">    return</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">      offPreventLeave</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">()</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">    };</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  },</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> [</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">changed</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">])</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#F07178"> (</span></span>
-<span data-line=""><span style="color:#89DDFF">    &lt;</span><span style="color:#F07178">div</span><span style="color:#89DDFF">&gt;</span></span>
-<span data-line=""><span style="color:#89DDFF">      &lt;</span><span style="color:#F07178">input</span><span style="color:#C792EA"> type</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">text</span><span style="color:#89DDFF">"</span><span style="color:#C792EA"> onChange</span><span style="color:#89DDFF">={</span><span style="color:#BABED8">handleInputChange</span><span style="color:#89DDFF">} /&gt;</span></span>
-<span data-line=""><span style="color:#89DDFF">      &lt;</span><span style="color:#F07178">button</span><span style="color:#C792EA"> onClick</span><span style="color:#89DDFF">={</span><span style="color:#BABED8">handleClearClick</span><span style="color:#89DDFF">}&gt;</span><span style="color:#BABED8">clear</span><span style="color:#89DDFF">&lt;/</span><span style="color:#F07178">button</span><span style="color:#89DDFF">&gt;</span></span>
-<span data-line=""><span style="color:#89DDFF">      &lt;</span><span style="color:#F07178">h1</span><span style="color:#89DDFF">&gt;{</span><span style="color:#BABED8">changed </span><span style="color:#89DDFF">?</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">changed</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> :</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">none</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">}&lt;/</span><span style="color:#F07178">h1</span><span style="color:#89DDFF">&gt;</span></span>
-<span data-line=""><span style="color:#89DDFF">    &lt;/</span><span style="color:#F07178">div</span><span style="color:#89DDFF">&gt;</span></span>
-<span data-line=""><span style="color:#F07178">  )</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">};</span></span></code></pre>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">  return</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> (</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">    &lt;</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">div</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">      &lt;</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">input</span><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA"> type</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">text</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA"> onChange</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">handleInputChange</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">} /&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">      &lt;</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">button</span><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA"> onClick</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">handleClearClick</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">clear</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&lt;/</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">button</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">      &lt;</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">h1</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;{</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">changed </span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">?</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">changed</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> :</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">none</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}&lt;/</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">h1</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">    &lt;/</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">div</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">  )</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">};</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         위의 <code>usePreventLeave</code> 훅에서는 두 가지 방식으로
@@ -397,7 +740,7 @@
       </p>
       <h2
         id="spa에서-페이지-이탈-방지하기"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -405,7 +748,7 @@
           href="#spa에서-페이지-이탈-방지하기"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >SPA에서 페이지 이탈 방지하기
       </h2>
@@ -437,90 +780,90 @@
         <pre
           tabindex="0"
           data-language="tsx"
-          data-theme="material-theme-palenight"
-        ><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> usePreventLeave </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">global</span><span style="color:#89DDFF"> =</span><span style="color:#FF9CAC"> false</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">  // 앞의 beforeunload 이벤트 코드는 생략하였다. beforeunload 이벤트 코드도 추가해 주어야 모든 상황에서 대처 가능해진다.</span></span>
-<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#89DDFF"> [</span><span style="color:#BABED8">prevent</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> setPrevent</span><span style="color:#89DDFF">]</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> useState</span><span style="color:#F07178">(</span><span style="color:#FF9CAC">false</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="tsx" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> usePreventLeave</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> (</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic">global</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#005CC5;--shiki-dark:#FF9CAC"> false</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">)</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">  // 앞의 beforeunload 이벤트 코드는 생략하였다. beforeunload 이벤트 코드도 추가해 주어야 모든 상황에서 대처 가능해진다.</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  const</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> [</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">prevent</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> setPrevent</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">]</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> useState</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#FF9CAC">false</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#82AAFF">  useEffect</span><span style="color:#F07178">(</span><span style="color:#89DDFF">()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">    if</span><span style="color:#F07178"> (</span><span style="color:#89DDFF">!</span><span style="color:#BABED8">global</span><span style="color:#F07178">) </span><span style="color:#89DDFF;font-style:italic">return</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">  useEffect</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">    if</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> (</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">!</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">global</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">) </span><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">return</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#676E95;font-style:italic">    // 현재 페이지를 push하여 의도적으로 스택을 만든다. 이로써 뒤로가기시 현재 페이지가 다시 노출되며 팝업이 보이게 된다.</span></span>
-<span data-line=""><span style="color:#BABED8">    window</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">history</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">pushState</span><span style="color:#F07178">(</span><span style="color:#89DDFF">null,</span><span style="color:#89DDFF"> ""</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> window</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">location</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">href</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#BABED8">    window</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">addEventListener</span><span style="color:#F07178">(</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">popstate</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> handlePopstate</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">    return</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#BABED8">      window</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">removeEventListener</span><span style="color:#F07178">(</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">popstate</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> handlePopstate</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">    };</span></span>
-<span data-line=""><span style="color:#89DDFF">  },</span><span style="color:#F07178"> [</span><span style="color:#BABED8">global</span><span style="color:#F07178">])</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">    // 현재 페이지를 push하여 의도적으로 스택을 만든다. 이로써 뒤로가기시 현재 페이지가 다시 노출되며 팝업이 보이게 된다.</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">    window</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">history</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">pushState</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#89DDFF">null</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> ""</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> window</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">location</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">href</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">    window</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">addEventListener</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">popstate</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> handlePopstate</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">    return</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">      window</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">removeEventListener</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">popstate</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> handlePopstate</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">    };</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  },</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> [</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">global</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">])</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#676E95;font-style:italic">  // 특정 컴포넌트가 변경되었을 때에 이벤트를 적용하고 싶다면 beforeunload와 동일하게 처리해준다.</span></span>
-<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> onPreventLeave</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#BABED8">    window</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">history</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">pushState</span><span style="color:#F07178">(</span><span style="color:#89DDFF">null,</span><span style="color:#89DDFF"> ""</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> window</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">location</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">href</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#BABED8">    window</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">addEventListener</span><span style="color:#F07178">(</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">popstate</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> handlePopstate</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">  };</span></span>
-<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> offPreventLeave</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#BABED8">    window</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">removeEventListener</span><span style="color:#F07178">(</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">popstate</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> handlePopstate</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">  };</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">  // 특정 컴포넌트가 변경되었을 때에 이벤트를 적용하고 싶다면 beforeunload와 동일하게 처리해준다.</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> onPreventLeave</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">    window</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">history</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">pushState</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#89DDFF">null</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> ""</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> window</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">location</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">href</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">    window</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">addEventListener</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">popstate</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> handlePopstate</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  };</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> offPreventLeave</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">    window</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">removeEventListener</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">popstate</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> handlePopstate</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  };</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#676E95;font-style:italic">  // popstate 이벤트 발생시 팝업 노출을 위해 상태값을 변경한다.</span></span>
-<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> handlePopstate</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#82AAFF"> setPrevent</span><span style="color:#F07178">(</span><span style="color:#FF9CAC">true</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> handlePopupClose</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#BABED8">    window</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">history</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">pushState</span><span style="color:#F07178">(</span><span style="color:#89DDFF">null,</span><span style="color:#89DDFF"> ""</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> window</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">location</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">href</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#82AAFF">    setPrevent</span><span style="color:#F07178">(</span><span style="color:#FF9CAC">false</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">  };</span></span>
-<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> handlePopupLeave</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> (</span><span style="color:#82AAFF">onLeave</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#FFCB6B"> void</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#82AAFF">    setPrevent</span><span style="color:#F07178">(</span><span style="color:#FF9CAC">false</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#82AAFF">    onLeave</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">  };</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">  // preventLeave 함수를 외부로 return하여 컨펌창을 의도적으로 띄울수 있도록 한다.</span></span>
-<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> preventLeave</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">event</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> MouseEvent</span><span style="color:#89DDFF">&lt;</span><span style="color:#FFCB6B">HTMLElement</span><span style="color:#89DDFF">&gt;)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#BABED8">    event</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">preventDefault</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#82AAFF">    setPrevent</span><span style="color:#F07178">(</span><span style="color:#FF9CAC">true</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">  };</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">  // popstate 이벤트 발생시 팝업 노출을 위해 상태값을 변경한다.</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> handlePopstate</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> setPrevent</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#FF9CAC">true</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> handlePopupClose</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">    window</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">history</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">pushState</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#89DDFF">null</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> ""</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> window</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">location</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">href</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">    setPrevent</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#FF9CAC">false</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  };</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> handlePopupLeave</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">onLeave</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> void</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">)</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">    setPrevent</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#FF9CAC">false</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">    onLeave</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">()</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  };</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">  // preventLeave 함수를 외부로 return하여 컨펌창을 의도적으로 띄울수 있도록 한다.</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> preventLeave</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> (</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic">event</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> MouseEvent</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&lt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">HTMLElement</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;)</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">    event</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">preventDefault</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">()</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">    setPrevent</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#FF9CAC">true</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  };</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> PreventPopup</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> FunctionComponent</span><span style="color:#89DDFF">&lt;{</span><span style="color:#F07178"> onLeave</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#FFCB6B"> void</span><span style="color:#89DDFF"> }&gt;</span><span style="color:#89DDFF"> =</span><span style="color:#F07178"> (</span><span style="color:#89DDFF">{</span></span>
-<span data-line=""><span style="color:#BABED8">    onLeave</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#89DDFF">  }</span><span style="color:#F07178">) </span><span style="color:#C792EA">=&gt;</span><span style="color:#F07178"> (</span></span>
-<span data-line=""><span style="color:#89DDFF">    &lt;&gt;</span></span>
-<span data-line=""><span style="color:#89DDFF">      {</span><span style="color:#676E95;font-style:italic">/* popstate 이벤트에 따라 prevent 상태값이 변경되면 컨펌창이 노출된다 */</span><span style="color:#89DDFF">}</span></span>
-<span data-line=""><span style="color:#89DDFF">      {</span><span style="color:#BABED8">prevent </span><span style="color:#89DDFF">&amp;&amp;</span><span style="color:#BABED8"> (</span></span>
-<span data-line=""><span style="color:#89DDFF">        &lt;</span><span style="color:#F07178">div</span><span style="color:#89DDFF">&gt;</span></span>
-<span data-line=""><span style="color:#89DDFF">          &lt;</span><span style="color:#F07178">h1</span><span style="color:#89DDFF">&gt;</span><span style="color:#BABED8">페이지을 떠나시겠습니까?</span><span style="color:#89DDFF">&lt;/</span><span style="color:#F07178">h1</span><span style="color:#89DDFF">&gt;</span></span>
-<span data-line=""><span style="color:#89DDFF">          &lt;</span><span style="color:#F07178">button</span><span style="color:#C792EA"> onClick</span><span style="color:#89DDFF">={</span><span style="color:#BABED8">handlePopupClose</span><span style="color:#89DDFF">}&gt;</span><span style="color:#BABED8">아니요</span><span style="color:#89DDFF">&lt;/</span><span style="color:#F07178">button</span><span style="color:#89DDFF">&gt;</span></span>
-<span data-line=""><span style="color:#89DDFF">          &lt;</span><span style="color:#F07178">button</span><span style="color:#C792EA"> onClick</span><span style="color:#89DDFF">={()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#82AAFF"> handlePopupLeave</span><span style="color:#BABED8">(onLeave)</span><span style="color:#89DDFF">}&gt;</span><span style="color:#BABED8">네</span><span style="color:#89DDFF">&lt;/</span><span style="color:#F07178">button</span><span style="color:#89DDFF">&gt;</span></span>
-<span data-line=""><span style="color:#89DDFF">        &lt;/</span><span style="color:#F07178">div</span><span style="color:#89DDFF">&gt;</span></span>
-<span data-line=""><span style="color:#BABED8">      )</span><span style="color:#89DDFF">}</span></span>
-<span data-line=""><span style="color:#89DDFF">    &lt;/&gt;</span></span>
-<span data-line=""><span style="color:#F07178">  )</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> PreventPopup</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> FunctionComponent</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&lt;{</span><span style="--shiki-light:#6F42C1;--shiki-dark:#F07178"> onLeave</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> void</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> }&gt;</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> (</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">    onLeave</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  }</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">) </span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">=&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> (</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">    &lt;&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">      {</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">/* popstate 이벤트에 따라 prevent 상태값이 변경되면 컨펌창이 노출된다 */</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">      {</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">prevent </span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">&amp;&amp;</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> (</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">        &lt;</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">div</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">          &lt;</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">h1</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">페이지을 떠나시겠습니까?</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&lt;/</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">h1</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">          &lt;</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">button</span><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA"> onClick</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">handlePopupClose</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">아니요</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&lt;/</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">button</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">          &lt;</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">button</span><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA"> onClick</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> handlePopupLeave</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(onLeave)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">네</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&lt;/</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">button</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">        &lt;/</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">div</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">      )</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">    &lt;/&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">  )</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#89DDFF"> {</span><span style="color:#BABED8"> preventLeave</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> PreventPopup</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> onPreventLeave</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> offPreventLeave</span><span style="color:#89DDFF"> };</span></span>
-<span data-line=""><span style="color:#89DDFF">};</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">  return</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> preventLeave</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> PreventPopup</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> onPreventLeave</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> offPreventLeave</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> };</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">};</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> MyApp </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">  // CASE 1. 페이지 자체에 이벤트 적용(글로벌 적용)</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">  // const { PreventPopup } = usePreventLeave(true);</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> MyApp</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">  // CASE 1. 페이지 자체에 이벤트 적용(글로벌 적용)</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">  // const { PreventPopup } = usePreventLeave(true);</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#676E95;font-style:italic">  // CASE 2. 특정 요소가 변경될 경우 감지후 방지 이벤트 적용(e.g., form)</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">  //   - beforeunload 형태와 동일</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">  // const { preventLeave, PreventPopup, onPreventLeave, offPreventLeave } =</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">  //   usePreventLeave(true);</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">  // CASE 2. 특정 요소가 변경될 경우 감지후 방지 이벤트 적용(e.g., form)</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">  //   - beforeunload 형태와 동일</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">  // const { preventLeave, PreventPopup, onPreventLeave, offPreventLeave } =</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">  //   usePreventLeave(true);</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#676E95;font-style:italic">  // CASE 3. 라우터 이동이 있는 컴포넌트 막기</span></span>
-<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#89DDFF"> {</span><span style="color:#BABED8"> preventLeave</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> PreventPopup</span><span style="color:#89DDFF"> }</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> usePreventLeave</span><span style="color:#F07178">(</span><span style="color:#FF9CAC">true</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">  // CASE 3. 라우터 이동이 있는 컴포넌트 막기</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  const</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> preventLeave</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> PreventPopup</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> }</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> usePreventLeave</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#FF9CAC">true</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#F07178"> (</span></span>
-<span data-line=""><span style="color:#89DDFF">    &lt;</span><span style="color:#F07178">div</span><span style="color:#89DDFF">&gt;</span></span>
-<span data-line=""><span style="color:#89DDFF">      &lt;</span><span style="color:#F07178">input</span><span style="color:#C792EA"> type</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">text</span><span style="color:#89DDFF">"</span><span style="color:#C792EA"> onChange</span><span style="color:#89DDFF">={</span><span style="color:#BABED8">handleInputChange</span><span style="color:#89DDFF">} /&gt;</span></span>
-<span data-line=""><span style="color:#89DDFF">      &lt;</span><span style="color:#FFCB6B">PreventPopup</span><span style="color:#C792EA"> onLeave</span><span style="color:#89DDFF">={()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#BABED8"> console</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">log</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">left!</span><span style="color:#89DDFF">"</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">} /&gt;</span></span>
-<span data-line=""><span style="color:#89DDFF">      {</span><span style="color:#676E95;font-style:italic">/* 페이지 이동이 있는 컴포넌트에 preventLeave로 팝업 노출 적용 */</span><span style="color:#89DDFF">}</span></span>
-<span data-line=""><span style="color:#89DDFF">      &lt;</span><span style="color:#FFCB6B">Link</span><span style="color:#C792EA"> to</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">/1ilsang</span><span style="color:#89DDFF">"</span><span style="color:#C792EA"> onClick</span><span style="color:#89DDFF">={</span><span style="color:#BABED8">preventLeave</span><span style="color:#89DDFF">}&gt;</span></span>
-<span data-line=""><span style="color:#89DDFF">    &lt;/</span><span style="color:#F07178">div</span><span style="color:#89DDFF">&gt;</span></span>
-<span data-line=""><span style="color:#BABED8">  );</span></span>
-<span data-line=""><span style="color:#BABED8">};</span></span></code></pre>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">  return</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> (</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">    &lt;</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">div</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">      &lt;</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">input</span><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA"> type</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">text</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA"> onChange</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">handleInputChange</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">} /&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">      &lt;</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B">PreventPopup</span><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA"> onLeave</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> console</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">log</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">left!</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">} /&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">      {</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">/* 페이지 이동이 있는 컴포넌트에 preventLeave로 팝업 노출 적용 */</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">      &lt;</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B">Link</span><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA"> to</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">/1ilsang</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA"> onClick</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">preventLeave</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">    &lt;/</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">div</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">  );</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">};</span></span></code></pre>
       </figure>
       <h2
         id="합본-코드"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -528,7 +871,7 @@
           href="#합본-코드"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >합본 코드
       </h2>
@@ -536,63 +879,63 @@
         <pre
           tabindex="0"
           data-language="tsx"
-          data-theme="material-theme-palenight"
-        ><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> usePreventLeave </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">global</span><span style="color:#89DDFF"> =</span><span style="color:#FF9CAC"> false</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#89DDFF"> [</span><span style="color:#BABED8">prevent</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> setPrevent</span><span style="color:#89DDFF">]</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> useState</span><span style="color:#F07178">(</span><span style="color:#FF9CAC">false</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="tsx" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> usePreventLeave</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> (</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic">global</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#005CC5;--shiki-dark:#FF9CAC"> false</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">)</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  const</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> [</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">prevent</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> setPrevent</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">]</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> useState</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#FF9CAC">false</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#82AAFF">  useEffect</span><span style="color:#F07178">(</span><span style="color:#89DDFF">()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">    if</span><span style="color:#F07178"> (</span><span style="color:#89DDFF">!</span><span style="color:#BABED8">global</span><span style="color:#F07178">) </span><span style="color:#89DDFF;font-style:italic">return</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">  useEffect</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">    if</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> (</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">!</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">global</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">) </span><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">return</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#BABED8">    window</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">history</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">pushState</span><span style="color:#F07178">(</span><span style="color:#89DDFF">null,</span><span style="color:#89DDFF"> ''</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> window</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">location</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">href</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#BABED8">    window</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">addEventListener</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">popstate</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> handlePopstate</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">    return</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#BABED8">      window</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">removeEventListener</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">popstate</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> handlePopstate</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">    };</span></span>
-<span data-line=""><span style="color:#89DDFF">  },</span><span style="color:#F07178"> [</span><span style="color:#BABED8">global</span><span style="color:#F07178">])</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">    window</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">history</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">pushState</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#89DDFF">null</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> ''</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> window</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">location</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">href</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">    window</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">addEventListener</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">popstate</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> handlePopstate</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">    return</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">      window</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">removeEventListener</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">popstate</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> handlePopstate</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">    };</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  },</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> [</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">global</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">])</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> handleBeforeUnload</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">event</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> Event</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#BABED8">    event</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">preventDefault</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#BABED8">    event</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">returnValue</span><span style="color:#89DDFF"> =</span><span style="color:#FF9CAC"> false</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic"> // Chrome requires returnValue to be set.</span></span>
-<span data-line=""><span style="color:#89DDFF">  };</span></span>
-<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> handlePopstate</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#82AAFF"> setPrevent</span><span style="color:#F07178">(</span><span style="color:#FF9CAC">true</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> handlePopupClose</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#BABED8">    window</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">history</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">pushState</span><span style="color:#F07178">(</span><span style="color:#89DDFF">null,</span><span style="color:#89DDFF"> ''</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> window</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">location</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">href</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#82AAFF">    setPrevent</span><span style="color:#F07178">(</span><span style="color:#FF9CAC">false</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">  };</span></span>
-<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> handlePopupLeave</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> (</span><span style="color:#82AAFF">onLeave</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#FFCB6B"> void</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#82AAFF">    setPrevent</span><span style="color:#F07178">(</span><span style="color:#FF9CAC">false</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#82AAFF">    onLeave</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">  };</span></span>
-<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> preventLeave</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">event</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> MouseEvent</span><span style="color:#89DDFF">&lt;</span><span style="color:#FFCB6B">HTMLElement</span><span style="color:#89DDFF">&gt;)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#BABED8">    event</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">preventDefault</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#82AAFF">    setPrevent</span><span style="color:#F07178">(</span><span style="color:#FF9CAC">true</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">  };</span></span>
-<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> onPreventLeave</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#BABED8">    window</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">history</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">pushState</span><span style="color:#F07178">(</span><span style="color:#89DDFF">null,</span><span style="color:#89DDFF"> ''</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> window</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">location</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">href</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#BABED8">    window</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">addEventListener</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">popstate</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> handlePopstate</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#BABED8">    window</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">addEventListener</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">beforeunload</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> handleBeforeUnload</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">  };</span></span>
-<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> offPreventLeave</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#BABED8">    window</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">removeEventListener</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">popstate</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> handlePopstate</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#BABED8">    window</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">removeEventListener</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">beforeunload</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> handleBeforeUnload</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">  };</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> handleBeforeUnload</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> (</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic">event</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> Event</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">)</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">    event</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">preventDefault</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">()</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">    event</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">returnValue</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#005CC5;--shiki-dark:#FF9CAC"> false</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // Chrome requires returnValue to be set.</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  };</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> handlePopstate</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> setPrevent</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#FF9CAC">true</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> handlePopupClose</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">    window</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">history</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">pushState</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#89DDFF">null</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> ''</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> window</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">location</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">href</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">    setPrevent</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#FF9CAC">false</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  };</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> handlePopupLeave</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">onLeave</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> void</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">)</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">    setPrevent</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#FF9CAC">false</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">    onLeave</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">()</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  };</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> preventLeave</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> (</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic">event</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> MouseEvent</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&lt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B">HTMLElement</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;)</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">    event</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">preventDefault</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">()</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">    setPrevent</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#FF9CAC">true</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  };</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> onPreventLeave</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">    window</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">history</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">pushState</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#89DDFF">null</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> ''</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> window</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">location</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">href</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">    window</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">addEventListener</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">popstate</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> handlePopstate</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">    window</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">addEventListener</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">beforeunload</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> handleBeforeUnload</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  };</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#BABED8"> offPreventLeave</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">    window</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">removeEventListener</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">popstate</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> handlePopstate</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">    window</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">removeEventListener</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">beforeunload</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> handleBeforeUnload</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  };</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> PreventPopup</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> FunctionComponent</span><span style="color:#89DDFF">&lt;{</span><span style="color:#F07178"> onLeave</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#FFCB6B"> void</span><span style="color:#89DDFF"> }&gt;</span><span style="color:#89DDFF"> =</span><span style="color:#F07178"> (</span><span style="color:#89DDFF">{</span></span>
-<span data-line=""><span style="color:#BABED8">    onLeave</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#89DDFF">  }</span><span style="color:#F07178">) </span><span style="color:#C792EA">=&gt;</span><span style="color:#F07178"> (</span></span>
-<span data-line=""><span style="color:#89DDFF">    &lt;&gt;</span></span>
-<span data-line=""><span style="color:#89DDFF">      {</span><span style="color:#BABED8">prevent </span><span style="color:#89DDFF">&amp;&amp;</span><span style="color:#BABED8"> (</span></span>
-<span data-line=""><span style="color:#89DDFF">        &lt;</span><span style="color:#F07178">div</span><span style="color:#89DDFF">&gt;</span></span>
-<span data-line=""><span style="color:#89DDFF">          &lt;</span><span style="color:#F07178">h1</span><span style="color:#89DDFF">&gt;</span><span style="color:#BABED8">페이지을 떠나시겠습니까?</span><span style="color:#89DDFF">&lt;/</span><span style="color:#F07178">h1</span><span style="color:#89DDFF">&gt;</span></span>
-<span data-line=""><span style="color:#89DDFF">          &lt;</span><span style="color:#F07178">button</span><span style="color:#C792EA"> onClick</span><span style="color:#89DDFF">={</span><span style="color:#BABED8">handlePopupClose</span><span style="color:#89DDFF">}&gt;</span><span style="color:#BABED8">아니요</span><span style="color:#89DDFF">&lt;/</span><span style="color:#F07178">button</span><span style="color:#89DDFF">&gt;</span></span>
-<span data-line=""><span style="color:#89DDFF">          &lt;</span><span style="color:#F07178">button</span><span style="color:#C792EA"> onClick</span><span style="color:#89DDFF">={()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#82AAFF"> handlePopupLeave</span><span style="color:#BABED8">(onLeave)</span><span style="color:#89DDFF">}&gt;</span><span style="color:#BABED8">네</span><span style="color:#89DDFF">&lt;/</span><span style="color:#F07178">button</span><span style="color:#89DDFF">&gt;</span></span>
-<span data-line=""><span style="color:#89DDFF">        &lt;/</span><span style="color:#F07178">div</span><span style="color:#89DDFF">&gt;</span></span>
-<span data-line=""><span style="color:#BABED8">      )</span><span style="color:#89DDFF">}</span></span>
-<span data-line=""><span style="color:#89DDFF">    &lt;/&gt;</span></span>
-<span data-line=""><span style="color:#F07178">  )</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> PreventPopup</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> FunctionComponent</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&lt;{</span><span style="--shiki-light:#6F42C1;--shiki-dark:#F07178"> onLeave</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> void</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> }&gt;</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> (</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">    onLeave</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  }</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">) </span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">=&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> (</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">    &lt;&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">      {</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">prevent </span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">&amp;&amp;</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> (</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">        &lt;</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">div</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">          &lt;</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">h1</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">페이지을 떠나시겠습니까?</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&lt;/</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">h1</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">          &lt;</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">button</span><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA"> onClick</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">handlePopupClose</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">아니요</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&lt;/</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">button</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">          &lt;</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">button</span><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA"> onClick</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> handlePopupLeave</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(onLeave)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">네</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&lt;/</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">button</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">        &lt;/</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178">div</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">      )</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">    &lt;/&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">  )</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#89DDFF"> {</span><span style="color:#BABED8"> preventLeave</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> PreventPopup</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> onPreventLeave</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> offPreventLeave</span><span style="color:#89DDFF"> };</span></span>
-<span data-line=""><span style="color:#89DDFF">};</span></span></code></pre>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">  return</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> preventLeave</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> PreventPopup</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> onPreventLeave</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> offPreventLeave</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> };</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">};</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         이로써 유저 이탈시 컨펌창이 노출되는 것에 대한 최소한의 대응은 할수 있게
@@ -600,7 +943,7 @@
       </p>
       <h2
         id="참고"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -608,7 +951,7 @@
           href="#참고"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >참고
       </h2>
@@ -655,46 +998,67 @@
       class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
       aria-label="목차"
     >
-      <ul
-        class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
+      <div
+        class="sticky top-32 ml-9 w-[216px] min-[1320px]:top-48 min-[1320px]:ml-20"
       >
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="beforeunload로-페이지-이탈-방지하기"
-            href="#beforeunload로-페이지-이탈-방지하기"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >beforeunload로 페이지 이탈 방지하기</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="spa에서-페이지-이탈-방지하기"
-            href="#spa에서-페이지-이탈-방지하기"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >SPA에서 페이지 이탈 방지하기</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="합본-코드"
-            href="#합본-코드"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >합본 코드</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="참고"
-            href="#참고"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >참고</a
-          >
-        </li>
-      </ul>
+        <p class="mb-2 px-3 text-[10px] tracking-[0.18em] text-dark uppercase">
+          On this page
+        </p>
+        <ul>
+          <li class="relative select-none">
+            <a
+              id="beforeunload로-페이지-이탈-방지하기"
+              href="#beforeunload로-페이지-이탈-방지하기"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >beforeunload로 페이지 이탈 방지하기</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="spa에서-페이지-이탈-방지하기"
+              href="#spa에서-페이지-이탈-방지하기"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >SPA에서 페이지 이탈 방지하기</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="합본-코드"
+              href="#합본-코드"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >합본 코드</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="참고"
+              href="#참고"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >참고</span
+              ></a
+            >
+          </li>
+        </ul>
+      </div>
     </aside>
   </section>
   <a
-    class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water"
+    class="inline-block text-highlight leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-highlight after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water"
     href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] %ED%8E%98%EC%9D%B4%EC%A7%80%20%EC%9D%B4%ED%83%88%EC%8B%9C%20%ED%99%95%EC%9D%B8%20%EC%BB%A8%ED%8E%8C%EC%B0%BD%20%EB%A7%8C%EB%93%A4%EA%B8%B0&amp;body=&lt;!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 --&gt;"
     rel="noopener noreferrer"
     target="_blank"
@@ -717,19 +1081,19 @@
       <a
         class="group flex flex-col gap-1 max-w-[45%] hover:text-highlight duration-300 items-start text-left"
         aria-label="이전 글: Renovate 간단하게 살펴보기"
-        href="/posts/renovate"
+        href="/post/renovate"
         ><span class="text-sm text-date-gray">← 이전 글</span
         ><span class="title-underline">Renovate 간단하게 살펴보기</span></a
       ><a
         class="group flex flex-col gap-1 max-w-[45%] hover:text-highlight duration-300 items-end text-right ml-auto"
         aria-label="다음 글: TypeScript 5.0 살펴보기"
-        href="/posts/typescript5"
+        href="/post/typescript5"
         ><span class="text-sm text-date-gray">다음 글 →</span
         ><span class="title-underline">TypeScript 5.0 살펴보기</span></a
       >
     </div>
   </nav>
-  <section aria-labelledby="related-posts-heading" class="mt-12 mb-40">
+  <section aria-labelledby="related-posts-heading" class="mt-12 mb-12 xl:mb-0">
     <h2 id="related-posts-heading" class="text-2xl mb-4">더 보기</h2>
     <ul>
       <li
@@ -738,7 +1102,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-google-adsense-description"
-          href="/posts/google-adsense"
+          href="/post/google-adsense"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -753,18 +1117,18 @@
           </div>
           <div class="w-full mt-2 md:mt-0">
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               [Next.js] Google AdSense 광고 적용 및 이해하기
             </h3>
             <p
               id="related-post-google-adsense-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               구글 광고 적용기
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2024-08-22 16:26"
               >2024-08-22 16:26</time
             >
@@ -777,7 +1141,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-use-transition-description"
-          href="/posts/use-transition"
+          href="/post/use-transition"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -792,18 +1156,18 @@
           </div>
           <div class="w-full mt-2 md:mt-0">
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               useTransition 이해하기
             </h3>
             <p
               id="related-post-use-transition-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               상태 업데이트의 우선 순위를 지정해보자
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2023-06-04 20:38"
               >2023-06-04 20:38</time
             >
@@ -816,7 +1180,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-proving-ground-review-description"
-          href="/posts/proving-ground-review"
+          href="/post/proving-ground-review"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -834,18 +1198,18 @@
               >다른 주제 탐색</span
             >
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               "사라진 개발자들" 리뷰
             </h3>
             <p
               id="related-post-proving-ground-review-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               악삭박박과 최초의 개발자들
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2023-09-24 13:24"
               >2023-09-24 13:24</time
             >
@@ -858,7 +1222,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-goorm-195696-description"
-          href="/posts/goorm-195696"
+          href="/post/goorm-195696"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -876,18 +1240,18 @@
               >다른 주제 탐색</span
             >
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               [구름톤 챌린지] 작은 노드
             </h3>
             <p
               id="related-post-goorm-195696-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               양방향 그래프 가볍게 복습하기
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2023-09-03 21:14"
               >2023-09-03 21:14</time
             >

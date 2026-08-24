@@ -18,30 +18,50 @@ export const TocItem: FunctionComponent<TocItemProps> = ({
   lastSubList,
   handleIndexClick,
 }) => {
+  const subItem = item.depth === TOC_DEPTH.H3;
+  const selected = active || targetActive;
+
   return (
     <li
       key={item.id}
-      className={classNames([
-        'pt-0.5 text-base select-none',
-        {
-          'mb-0.5': item.depth === TOC_DEPTH.H2,
-          'animate-toc-index': active,
-          "before:content-['-'] before:mr-1 ml-2.5":
-            item.depth === TOC_DEPTH.H3,
-          'mb-1.5': lastSubList,
-        },
-      ])}
+      className={classNames('relative select-none', {
+        'before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50':
+          subItem,
+        'before:h-full': subItem && !lastSubList,
+        'before:h-1/2': subItem && lastSubList,
+      })}
     >
       <a
         id={item.id}
         href={`#${item.id}`}
-        className={classNames('cursor-pointer inline', {
-          'hover:text-sub-blue': !targetActive,
-          'text-orange-300 hover:text-orange-300': targetActive,
-        })}
+        className={classNames(
+          'group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors',
+          {
+            'gap-2 px-3 py-2 text-[13px]': !subItem,
+            'py-1.5 pr-3 pl-8 text-xs': subItem,
+            'border-base/60 bg-base/20': selected,
+            'border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white':
+              !selected,
+          },
+        )}
         onClick={handleIndexClick}
       >
-        {item.value}
+        {!subItem && (
+          <span aria-hidden="true" className="flex-none text-dark">
+            #
+          </span>
+        )}
+        <span
+          className={classNames(
+            'line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none',
+            {
+              'scale-102 text-highlight': selected,
+              'scale-100': !selected,
+            },
+          )}
+        >
+          {item.value}
+        </span>
       </a>
     </li>
   );

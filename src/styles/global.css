@@ -3,6 +3,49 @@
 
 @config '../../tailwind.config.cjs';
 
+:root {
+  color-scheme: dark;
+  --theme-background: light-dark(#fcfcfb, rgb(20 22 33));
+  --theme-sidebar-background: light-dark(#f2f4f7, #191d29);
+  --theme-content-background: light-dark(#fcfcfb, rgb(20 22 33));
+  --theme-foreground: light-dark(#24272e, #dfdfdf);
+  --theme-secondary: light-dark(#465260, #d9dee5);
+  --theme-muted: light-dark(#596a7d, #61768f);
+  --theme-subtle: light-dark(#6b7788, rgb(100 116 139));
+  --theme-date: light-dark(#626d79, #6c6e6f);
+  --theme-base: light-dark(#8a97a6, #425061);
+  --theme-accent: light-dark(#00845f, #30ffcb);
+  --theme-accent-strong: light-dark(#006b4d, #10ffcb);
+  --theme-progress: light-dark(#007a5a, #28bc97);
+  --theme-on-vibrant: #141621;
+  --theme-decoration: light-dark(rgb(66 80 97 / 24%), rgb(66 80 97 / 9%));
+  --theme-scrollbar: light-dark(#7b8796, #6b6b6b);
+  --theme-code-inline-background: light-dark(#e7ebf0, #19263a);
+  --theme-code-inline-border: light-dark(#b4bdc8, #425061);
+  --theme-code-inline-foreground: light-dark(#9a3412, #ffa657);
+  --theme-code-background: light-dark(#f4f6f8, #171c24);
+  --theme-code-caption-background: light-dark(#e9edf2, #121822);
+  --theme-code-border: light-dark(#aeb8c5, #2e3844);
+  --theme-code-line-hover: light-dark(#e1e7ee, rgb(53 63 76));
+  --theme-code-line-highlight: light-dark(#d8e4f3, rgb(53 63 76));
+  --theme-code-line-border: light-dark(#4975a9, rgb(73 107 161));
+  --theme-table-header: light-dark(#d9e0e8, rgb(100 116 139));
+  --theme-copy-background: light-dark(#e2e7ed, #2d3748);
+  --theme-copy-hover-background: light-dark(#cfd7e1, #4a5568);
+  --theme-copy-foreground: light-dark(#3f4b59, #a0aec0);
+  --theme-copy-success: light-dark(#166534, #68d391);
+  --theme-copy-success-background: light-dark(#bbf7d0, #22543d);
+  background-color: var(--theme-background);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+}
+
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still
@@ -29,6 +72,28 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  @media (min-width: 80rem) {
+    html,
+    .content-plane {
+      background-image: linear-gradient(
+        to right,
+        var(--theme-sidebar-background) 0,
+        var(--theme-sidebar-background) calc((100vw - 1280px) / 2 + 256px),
+        var(--theme-content-background) calc((100vw - 1280px) / 2 + 256px),
+        var(--theme-content-background) 100%
+      );
+    }
+  }
+
+  @media print {
+    html,
+    .content-plane {
+      background-image: none;
     }
   }
 }

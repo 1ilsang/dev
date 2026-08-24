@@ -11,7 +11,7 @@ jest.mock('@next/third-parties/google', () => ({
 
 const createPost = (slug: string): PostForNavigation => ({
   slug,
-  url: `/posts/${slug}`,
+  url: `/post/${slug}`,
   fullSlug: `js/${slug}`,
   category: 'JavaScript',
   frontmatter: {
@@ -52,7 +52,7 @@ describe('PrevNext', () => {
     const prevLink = screen.getByRole('link', {
       name: '이전 글: prev-post title',
     });
-    expect(prevLink).toHaveAttribute('href', '/posts/prev-post');
+    expect(prevLink).toHaveAttribute('href', '/post/prev-post');
     expect(screen.getByText('← 이전 글')).toBeVisible();
     expect(screen.queryByText('다음 글 →')).not.toBeInTheDocument();
   });
@@ -69,7 +69,7 @@ describe('PrevNext', () => {
     const nextLink = screen.getByRole('link', {
       name: '다음 글: next-post title',
     });
-    expect(nextLink).toHaveAttribute('href', '/posts/next-post');
+    expect(nextLink).toHaveAttribute('href', '/post/next-post');
     expect(screen.getByText('다음 글 →')).toBeVisible();
     expect(screen.queryByText('← 이전 글')).not.toBeInTheDocument();
   });
@@ -85,10 +85,10 @@ describe('PrevNext', () => {
 
     expect(
       screen.getByRole('link', { name: '이전 글: prev-post title' }),
-    ).toHaveAttribute('href', '/posts/prev-post');
+    ).toHaveAttribute('href', '/post/prev-post');
     expect(
       screen.getByRole('link', { name: '다음 글: next-post title' }),
-    ).toHaveAttribute('href', '/posts/next-post');
+    ).toHaveAttribute('href', '/post/next-post');
   });
 
   it('should track prev click', async () => {

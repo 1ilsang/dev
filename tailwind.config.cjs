@@ -1,32 +1,27 @@
 const colors = {
-  white: '#dfdfdf',
+  white: 'var(--theme-foreground)',
+  'pure-white': '#fff',
   black: '#101010',
-  'date-gray': '#6c6e6f',
-  base: '#425061',
-  dark: 'rgb(100 116 139)',
+  'date-gray': 'var(--theme-date)',
+  base: 'var(--theme-base)',
+  dark: 'var(--theme-subtle)',
   'base-og': '#ee7752',
-  'sub-blue': '#61768f',
-  'white-blue': '#d9dee5',
-  'highlight-more': '#10ffcb',
-  highlight: '#30ffcb',
-  progress: '#28bc97',
+  'sub-blue': 'var(--theme-muted)',
+  'white-blue': 'var(--theme-secondary)',
+  'highlight-more': 'var(--theme-accent-strong)',
+  highlight: 'var(--theme-accent)',
+  progress: 'var(--theme-progress)',
   'light-blue': '#6e94d8',
-  'snazzy-bg': 'rgb(20 22 33)',
+  'snazzy-bg': 'var(--theme-background)',
+  sidebar: 'var(--theme-sidebar-background)',
+  'on-vibrant': 'var(--theme-on-vibrant)',
+  'modal-backdrop': 'rgb(13 17 23)',
   peach: '#d7c0c0',
 };
 
 const keyframes = {
   bouncing: {
     '100%': { transform: 'translateY(-5px)' },
-  },
-  'toc-index': {
-    '0%': {
-      color: colors.base,
-    },
-    '100%': {
-      color: colors['light-blue'],
-      transform: `scale(1.02)`,
-    },
   },
   'rainbow-water': {
     '0%': {
@@ -79,6 +74,19 @@ const keyframes = {
       visibility: 'hidden',
     },
   },
+  'footer-sweep': {
+    '0%': {
+      opacity: 0,
+      transform: 'translateX(-100%)',
+    },
+    '20%, 80%': {
+      opacity: 1,
+    },
+    '100%': {
+      opacity: 0,
+      transform: 'translateX(300%)',
+    },
+  },
 };
 
 /** @type {import('tailwindcss').Config} */
@@ -94,10 +102,12 @@ module.exports = {
       padding: {
         'scroll-lock': 'var(--scroll-lock)',
       },
+      scale: {
+        102: '1.02',
+      },
       keyframes,
       animation: {
         bouncing: 'bouncing 0.3s infinite alternate',
-        'toc-index': 'toc-index 0.3s forwards',
         'rainbow-water': 'rainbow-water 5s ease infinite',
         'slow-spin': 'spin 2s linear infinite',
         'fade-in': 'fade-in 0.2s',
@@ -106,6 +116,7 @@ module.exports = {
           'skeleton 1.8s infinite ease-in-out, spin 1s infinite ease-in-out',
         show: 'show 0.5s forwards',
         hide: 'hide 0.25s forwards',
+        'footer-sweep': 'footer-sweep 7s ease-in-out infinite',
       },
       backgroundImage: {
         home: 'linear-gradient(to left,rgb(148, 148, 255),rgb(182, 182, 255))',
@@ -138,7 +149,7 @@ module.exports = {
           textShadow: `-0.5px 0 ${colors.base}, 0 0.5px ${colors.base}, 0.5px 0 ${colors.base}, 0 -0.5px ${colors.base}`,
           textDecoration: 'underline',
           textDecorationThickness: '0.15em',
-          textDecorationColor: '#42506117',
+          textDecorationColor: 'var(--theme-decoration)',
         },
         '.category-shadow': {
           textShadow: `-0.5px 0 ${colors.highlight}, 0 0.5px ${colors.highlight}, 0.5px 0 ${colors.highlight}, 0 -0.5px ${colors.highlight}`,
@@ -149,9 +160,9 @@ module.exports = {
             height: '10px',
           },
           '&::-webkit-scrollbar-thumb': {
-            backgroundColor: '#6b6b6b',
+            backgroundColor: 'var(--theme-scrollbar)',
             borderRadius: '10px',
-            border: '2px solid rgb(20 22 33)',
+            border: `2px solid ${colors['snazzy-bg']}`,
           },
           '&::-webkit-scrollbar-track': {
             background: 'transparent',
@@ -170,7 +181,7 @@ module.exports = {
             background: `linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)`,
             backgroundSize: `400% 400%`,
             borderRadius: `10px`,
-            border: `2px solid rgb(20 22 33)`,
+            border: `2px solid ${colors['snazzy-bg']}`,
           },
         },
         '.img-container': {

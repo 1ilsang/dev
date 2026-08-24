@@ -1,10 +1,10 @@
 .markdown th {
-  border: 1px solid #dfdfdf;
+  border: 1px solid var(--theme-secondary);
   padding: 0 0.2rem;
-  background-color: rgb(100, 116, 139);
+  background-color: var(--theme-table-header);
 }
 
 .markdown td {
-  border: 1px solid #dfdfdf;
+  border: 1px solid var(--theme-secondary);
   padding: 0 0.2rem;
 }

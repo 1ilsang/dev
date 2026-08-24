@@ -7,19 +7,13 @@ import { DateFormatter } from '~/shared/components/DateFormatter';
 
 export const PostItem: FunctionComponent<{
   post: ServerPost;
-  categoryFilter: Set<string>;
 }> = ({
   post: {
     slug,
     frontmatter: { title, coverImage, description, date },
-    category,
   },
-  categoryFilter,
 }) => {
-  const show = categoryFilter.size === 0 || categoryFilter.has(category);
   const coverAlt = `${title} 썸네일`;
-
-  if (!show) return null;
 
   return (
     <li
@@ -32,7 +26,7 @@ export const PostItem: FunctionComponent<{
     >
       <Link
         className="flex flex-col items-center md:flex-row"
-        href={`/posts/${slug}`}
+        href={`/post/${slug}`}
       >
         <div className="relative mr-6 overflow-hidden border rounded-sm h-28 w-52 md:w-44 min-w-44 md:h-24 border-white-blue">
           <img
@@ -45,14 +39,14 @@ export const PostItem: FunctionComponent<{
           />
         </div>
         <div className="w-full mt-2 md:mt-0">
-          <h2 className="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg">
+          <h2 className="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant">
             {title}
           </h2>
-          <p className="text-white-blue group-hover:text-snazzy-bg">
+          <p className="text-white-blue group-hover:text-on-vibrant">
             {description}
           </p>
           <DateFormatter
-            className="text-sub-blue group-hover:text-snazzy-bg"
+            className="text-sub-blue group-hover:text-on-vibrant"
             type="iso"
             date={date}
           />

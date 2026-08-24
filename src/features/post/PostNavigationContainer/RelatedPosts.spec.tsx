@@ -5,7 +5,7 @@ import type { PostForNavigation } from './models';
 
 const createPost = (slug: string): PostForNavigation => ({
   slug,
-  url: `/posts/${slug}`,
+  url: `/post/${slug}`,
   fullSlug: `js/${slug}`,
   category: 'JavaScript',
   frontmatter: {

@@ -30,7 +30,7 @@ export const PrevNext: FunctionComponent<Props> = ({
         {prev ? (
           <Link
             className={`${linkClassName} items-start text-left`}
-            href={`/posts/${prev.slug}`}
+            href={`/post/${prev.slug}`}
             aria-label={`이전 글: ${prev.frontmatter.title}`}
             onClick={() => trackPostNavigation('prev', currentSlug, prev.slug)}
           >
@@ -43,7 +43,7 @@ export const PrevNext: FunctionComponent<Props> = ({
         {next ? (
           <Link
             className={`${linkClassName} items-end text-right ml-auto`}
-            href={`/posts/${next.slug}`}
+            href={`/post/${next.slug}`}
             aria-label={`다음 글: ${next.frontmatter.title}`}
             onClick={() => trackPostNavigation('next', currentSlug, next.slug)}
           >

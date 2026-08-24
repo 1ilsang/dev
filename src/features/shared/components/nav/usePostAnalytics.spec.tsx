@@ -1,4 +1,4 @@
-let mockPathname = '/posts/test-slug';
+let mockPathname = '/post/test-slug';
 jest.mock('next/navigation', () => ({
   usePathname: () => mockPathname,
 }));
@@ -16,7 +16,7 @@ describe('usePostAnalytics', () => {
 
   beforeEach(() => {
     jest.useFakeTimers();
-    mockPathname = '/posts/test-slug';
+    mockPathname = '/post/test-slug';
     mockGa.mockClear();
     sessionStorage.clear();
     localStorage.clear();

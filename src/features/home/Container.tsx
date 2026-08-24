@@ -10,7 +10,11 @@ export const HomeContainer: FunctionComponent = () => {
   };
 
   return (
-    <div id="main-content" tabIndex={-1}>
+    <div
+      id="main-content"
+      tabIndex={-1}
+      className="xl:pl-[calc((100vw-1280px)/2+256px)]"
+    >
       <Link
         href="/posts"
         className="block cursor-pointer"
@@ -29,7 +33,7 @@ export const HomeContainer: FunctionComponent = () => {
           aria-hidden="true"
         />
         <div
-          className="fixed top-0 w-full h-full bg-home contrast-200 mix-blend-overlay"
+          className="fixed top-0 w-full h-full bg-home contrast-200 mix-blend-overlay xl:right-0 xl:left-[calc((100vw-1280px)/2+256px)] xl:w-auto"
           aria-hidden="true"
         />
       </Link>

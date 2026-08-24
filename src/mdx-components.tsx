@@ -13,7 +13,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     blockquote: (props) => {
       // > ... 참조
       return (
-        <blockquote className="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]">
+        <blockquote className="border-l-[0.25rem] border-base pl-4 text-sub-blue">
           {props.children}
         </blockquote>
       );

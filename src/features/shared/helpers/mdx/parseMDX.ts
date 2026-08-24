@@ -38,7 +38,8 @@ const parseCategory = (category: FileCategory): Category => {
 export const parseMDX = async (fullSlug: string): Promise<PostType> => {
   const category = parseCategory(fullSlug.split('/').shift() as FileCategory);
   const slug = fullSlug.split('/').pop();
-  const url = `/posts/${slug}`;
+  const url = `/post/${slug}`;
+  const assetUrl = `/posts/${slug}`;
   const {
     frontmatter,
     default: MDX,
@@ -53,7 +54,7 @@ export const parseMDX = async (fullSlug: string): Promise<PostType> => {
   return {
     frontmatter: {
       ...frontmatter,
-      coverImage: `${url}/${frontmatter.coverImage}`,
+      coverImage: `${assetUrl}/${frontmatter.coverImage}`,
     },
     toc,
     url,

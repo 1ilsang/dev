@@ -19,7 +19,7 @@ export const IntroductionContainer: FunctionComponent = () => {
           <br />
           <ExternalLink
             className={printUnderLine}
-            href="/posts/quality-of-job-review"
+            href="/post/quality-of-job-review"
             label={'"일의 격"'}
             disableDefaultCSSTransition
           />

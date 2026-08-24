@@ -27,5 +27,6 @@ describe('MainLayout', () => {
     );
 
     expect(screen.getByRole('main')).toHaveTextContent('child');
+    expect(screen.getByRole('main')).toHaveClass('content-plane', 'min-h-full');
   });
 });

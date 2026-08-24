@@ -28,7 +28,7 @@ describe('TocItem', () => {
 
     const link = screen.getByRole('link', { name: 'Section' });
     expect(link).toHaveAttribute('href', '#section');
-    expect(link).toHaveClass('hover:text-sub-blue');
+    expect(link).toHaveClass('text-sub-blue', 'border-transparent');
   });
 
   it('should apply target active and last sub list styles for h3', () => {
@@ -45,10 +45,17 @@ describe('TocItem', () => {
     );
 
     const item = screen.getByRole('listitem');
-    expect(item).toHaveClass('mb-1.5', 'animate-toc-index');
-    expect(screen.getByRole('link', { name: 'Subsection' })).toHaveClass(
-      'text-orange-300',
+    expect(item).toHaveClass('before:h-1/2');
+    expect(item).not.toHaveClass('ml-[21px]', 'pl-3');
+    const link = screen.getByRole('link', { name: 'Subsection' });
+    expect(link).toHaveClass('border-base/60', 'bg-base/20', 'pl-8');
+    expect(screen.getByText('Subsection')).toHaveClass(
+      'scale-102',
+      'text-highlight',
+      'transition-[color,scale]',
+      'origin-left',
     );
+    expect(link.querySelector('[aria-hidden="true"]')).not.toBeInTheDocument();
   });
 
   it('should call handleIndexClick on link click', async () => {

@@ -9,7 +9,7 @@ export const openSource: Activity[] = [
   },
   {
     name: 'Mozilla Developer Network(MDN) @mdn/yari-content-ko 팀 합류',
-    url: '/posts/mdn-ko-organizer',
+    url: '/post/mdn-ko-organizer',
     startDate: 1709113159904,
   },
   {

@@ -49,7 +49,7 @@ describe('styles', () => {
   it('should have nav styles when nav is true', async () => {
     render(<Avatar nav />);
     const link = screen.getByRole('link', { name: 'About 페이지로 이동' });
-    expect(link).toHaveClass('mr-2', 'w-8', 'h-8', 'mt-2');
+    expect(link).toHaveClass('mr-2', 'w-8', 'h-8', 'mt-2', 'xl:mr-1');
 
     const img = screen.getByAltText(MyProfile.personal.alt);
     expect(img).toHaveClass(

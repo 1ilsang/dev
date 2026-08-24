@@ -19,9 +19,9 @@ export const usePostAnalytics = () => {
   const milestonesRef = useRef<Set<number>>(new Set());
 
   useEffect(() => {
-    if (!pathname.startsWith('/posts/')) return;
+    if (!pathname.startsWith('/post/')) return;
 
-    const slug = pathname.replace('/posts/', '');
+    const slug = pathname.replace('/post/', '');
     readFiredRef.current = false;
     engagedFiredRef.current = false;
     milestonesRef.current = new Set();

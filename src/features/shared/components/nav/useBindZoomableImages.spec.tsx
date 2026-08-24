@@ -3,7 +3,7 @@ import { renderHook } from '@testing-library/react';
 const mockSetImageSrc = jest.fn();
 const mockSetImageAlt = jest.fn();
 
-let mockPathname = '/posts/test';
+let mockPathname = '/post/test';
 jest.mock('next/navigation', () => ({
   usePathname: () => mockPathname,
 }));
@@ -24,7 +24,7 @@ describe('useBindZoomableImages', () => {
   let container: HTMLDivElement;
 
   beforeEach(() => {
-    mockPathname = '/posts/test';
+    mockPathname = '/post/test';
     mockSetImageSrc.mockClear();
     mockSetImageAlt.mockClear();
 

@@ -28,7 +28,7 @@ export const hackathon: Activity[] = [
   },
   {
     name: 'Junction Asia 2023',
-    url: '/posts/junction2023',
+    url: '/post/junction2023',
     startDate: 1692284400000,
     endDate: 1692457200000,
   },

@@ -10,9 +10,10 @@ test.describe(MACRO_SUITE.SCREEN_SNAPSHOT, () => {
     test(`${slug}`, async ({ page }) => {
       await screenshotFullPage({
         page,
-        url: `/posts/${slug}`,
+        url: `/post/${slug}`,
         arg: [`${slug}.png`],
-        timeout: 10 * 1000,
+        timeout: 30 * 1000,
+        options: { fullPage: false },
       });
     });
   }

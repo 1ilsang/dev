@@ -3,8 +3,8 @@ import { type Metadata, type NextPage } from 'next';
 import { Footer } from '~/shared/components/Footer';
 import { MainLayout } from '~/shared/components/MainLayout';
 import { Navbar } from '~/shared/components/nav/Navbar';
-import { getAllTag } from '~/shared/helpers/mdx/getPost';
-import { TagListContainer } from '~/tags/tagList/Container';
+import { getAllPost } from '~/shared/helpers/mdx/getPost';
+import { getTagSummaries, TagListContainer } from '~/tags/tagList';
 
 export const metadata: Metadata = {
   title: '1ilsang | Tags',
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 const Tags: NextPage = async () => {
-  const tags = await getAllTag();
+  const tags = getTagSummaries(await getAllPost());
 
   return (
     <MainLayout>

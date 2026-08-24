@@ -36,7 +36,7 @@ export type PostType = {
   toc: TOC[];
   /** MDX 문서 메타데이터 */
   frontmatter: PostMetadata;
-  /** Post URL (ex: /posts/2024-woowa-ignite) */
+  /** Post URL (ex: /post/2024-woowa-ignite) */
   url: string;
   /** Post Slug (ex: 2024-woowa-ignite) */
   slug: string;

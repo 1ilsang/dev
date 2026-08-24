@@ -10,7 +10,7 @@ export const HeadingFactory = (): HeadingFactory => {
   const commonClass = 'font-semibold leading-snug pb-0.5 pt-6 mb-2 group';
 
   const headingClass: Record<Heading, string> = {
-    h2: 'text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]',
+    h2: 'text-3xl mt-12 border-b border-base/50',
     h3: 'text-2xl mt-8',
     h4: 'text-xl mt-6',
     h5: 'text-lg pt-4 mb-0.5',
@@ -29,7 +29,7 @@ export const HeadingFactory = (): HeadingFactory => {
           className: classNames(
             AnchorSpan.props.className,
             'opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300',
-            'before:absolute before:w-[40px] before:left-[-25px] before:content-["⧉"] before:text-[#61768f] before:mr-2',
+            'before:absolute before:w-[40px] before:left-[-25px] before:content-["⧉"] before:text-sub-blue before:mr-2',
           ),
         }),
       });

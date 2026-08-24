@@ -1,7 +1,7 @@
 import localFont from 'next/font/local';
 import { MainLayout } from '~/shared/components/MainLayout';
 
-export default function PostsLayout({
+export default function PostLayout({
   children,
 }: {
   children: React.ReactNode;

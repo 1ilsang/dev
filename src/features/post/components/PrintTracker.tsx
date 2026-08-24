@@ -9,7 +9,7 @@ export const PrintTracker = () => {
 
   useEffect(() => {
     const handler = () => {
-      const slug = pathname.replace('/posts/', '');
+      const slug = pathname.replace('/post/', '');
       ga('printPost', { type: 'print', value: slug });
     };
     window.addEventListener('beforeprint', handler);

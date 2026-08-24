@@ -17,46 +17,391 @@
       "name": "1ilsang",
       "url": "https://1ilsang.dev"
     },
-    "url": "https://1ilsang.dev/posts/storybook7",
+    "url": "https://1ilsang.dev/post/storybook7",
     "keywords": ["storybook", "devtools", "frontend", "react"]
   }
 </script>
 <progress
   id="nav-progress"
-  class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none xl:right-0 xl:left-[calc((100vw-1280px)/2+256px)] xl:w-auto [&amp;::-webkit-progress-value]:bg-base-og"
   aria-label="페이지 읽기 진행률"
   value="0"
   max="1"
 ></progress>
 <nav
   aria-label="메인 네비게이션"
-  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] shadow-nav shadow-lg"
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center max-xl:hover:animate-rainbow-water max-xl:hover:bg-nav max-xl:hover:bg-[length:400%_400%] xl:top-0 xl:left-0 xl:h-screen xl:w-[calc((100vw-1280px)/2+256px)] xl:flex-col xl:flex-nowrap xl:items-stretch xl:justify-start xl:border-r xl:border-base/40 xl:bg-sidebar xl:py-[40px] max-xl:shadow-nav max-xl:shadow-lg"
 >
-  <div class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
-    <a class="hover:underline" href="/">1ilsang</a>
+  <div class="hidden h-full w-[216px] xl:mr-5 xl:ml-auto xl:flex xl:flex-col">
+    <div class="ml-3 mb-4 flex items-center">
+      <a
+        aria-label="About 페이지로 이동"
+        class="mr-2 block w-8 h-8 mt-2 xl:w-12 xl:h-12 xl:mt-0 xl:mr-1"
+        href="/about"
+        ><img
+          class="border border-solid rounded-full w-full h-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+      <div class="flex min-w-0 flex-col items-start justify-center">
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-2xl font-bold my-2 ml-3.5 xl:m-0"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-1 hover:no-underline"
+            href="/"
+            ><span class="flex items-center gap-3"
+              ><span class="flex flex-col"
+                ><span>1ilsang.dev</span
+                ><span class="whitespace-nowrap text-xs font-normal text-dark"
+                  >Software Engineer</span
+                ></span
+              ></span
+            ></a
+          >
+        </div>
+      </div>
+    </div>
+    <ul class="flex flex-col gap-1">
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="m3 11 9-8 9 8"></path>
+                <path d="M5 10v10h14V10M9 20v-6h6v6"></path></svg
+              ><span class=""><span>Home</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/posts"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M6 3h9l4 4v14H6z"></path>
+                <path d="M14 3v5h5M9 12h6M9 16h6"></path></svg
+              ><span class=""><span>Posts</span></span></span
+            ></a
+          >
+        </div>
+        <ul aria-label="포스트 카테고리" class="mt-0.5 ml-[21px] py-1 pl-3">
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              aria-current="page"
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-base/60 bg-base/20 text-white"
+              href="/posts/javascript"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="m9 7-5 5 5 5M15 7l5 5-5 5"></path></svg
+              ><span class="truncate">JavaScript</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/rust"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="12" r="5"></circle>
+                <path
+                  d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"
+                ></path></svg
+              ><span class="truncate">Rust</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/activity"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M3 12h4l2-6 4 12 2-6h6"></path></svg
+              ><span class="truncate">Activity</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/book"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M4 5a3 3 0 0 1 3-2h5v17H7a3 3 0 0 0-3 2z"></path>
+                <path
+                  d="M20 5a3 3 0 0 0-3-2h-5v17h5a3 3 0 0 1 3 2z"
+                ></path></svg
+              ><span class="truncate">Book</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/retrospect"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="12" r="8"></circle>
+                <path d="M12 8v5l3 2M5 5 3 8"></path></svg
+              ><span class="truncate">Retrospect</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/tool"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path
+                  d="M14 6a4 4 0 0 0-5 5L3 17l4 4 6-6a4 4 0 0 0 5-5l-3 3-4-4z"
+                ></path></svg
+              ><span class="truncate">Tool</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-1/2"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/algorithm"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="6" cy="5" r="2"></circle>
+                <circle cx="18" cy="12" r="2"></circle>
+                <circle cx="6" cy="19" r="2"></circle>
+                <path
+                  d="M8 5h3a3 3 0 0 1 3 3v1M8 19h3a3 3 0 0 0 3-3v-1"
+                ></path></svg
+              ><span class="truncate">Algorithm</span></a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/tags"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M20 12 12 20 4 12V4h8z"></path>
+                <circle cx="9" cy="9" r="1.3"></circle></svg
+              ><span class=""><span>Tags</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/about"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="7" r="3"></circle>
+                <path d="M5 21v-2a7 7 0 0 1 14 0v2"></path></svg
+              ><span class=""><span>About</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+    </ul>
+    <div class="mt-auto">
+      <button
+        type="button"
+        class="flex w-full cursor-pointer items-center gap-2 rounded-sm border border-base/40 px-3 py-2 text-left text-xs text-sub-blue transition-colors hover:border-base/70 hover:bg-base/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight"
+        aria-label="라이트 모드로 전환"
+      >
+        <svg
+          aria-hidden="true"
+          class="h-4 w-4 flex-none"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.7"
+          viewBox="0 0 24 24"
+        >
+          <circle cx="12" cy="12" r="4"></circle>
+          <path
+            d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+          ></path></svg
+        ><span
+          >라이트<!-- -->
+          모드</span
+        >
+      </button>
+      <p class="mt-4 border-t border-base/40 pt-5 text-xs text-dark">
+        © 1ilsang
+      </p>
+    </div>
   </div>
-  <div class="flex">
-    <div class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/posts">posts</a>
+  <div class="flex w-full justify-between xl:hidden">
+    <div
+      class="tracking-tight mr-6 xl:mr-0 text-2xl font-bold my-2 ml-3.5 xl:m-0"
+    >
+      <a
+        class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+        href="/"
+        ><span class="flex items-center gap-3"
+          ><span class=""><span>1ilsang</span></span></span
+        ></a
+      >
     </div>
-    <div class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/tags">tags</a>
+    <div class="flex">
+      <div
+        class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+      >
+        <a
+          class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+          href="/posts"
+          ><span class="flex items-center gap-3"
+            ><span class=""><span>Posts</span></span></span
+          ></a
+        >
+      </div>
+      <div
+        class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+      >
+        <a
+          class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+          href="/tags"
+          ><span class="flex items-center gap-3"
+            ><span class=""><span>Tags</span></span></span
+          ></a
+        >
+      </div>
+      <a
+        aria-label="About 페이지로 이동"
+        class="mr-2 block w-8 h-8 mt-2 xl:w-12 xl:h-12 xl:mt-0 xl:mr-1"
+        href="/about"
+        ><img
+          class="border border-solid rounded-full w-full h-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
     </div>
-    <a
-      aria-label="About 페이지로 이동"
-      class="mr-2 block w-8 h-8 mt-2"
-      href="/about"
-      ><img
-        class="border border-solid rounded-full w-full h-full border-white-blue"
-        src="/images/chul.webp"
-        alt="1ilsang"
-    /></a>
   </div>
 </nav>
 <section
   id="main-content"
   tabindex="-1"
-  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
+  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 xl:pt-20 xl:pb-24 mx-4 min-[790px]:m-auto print:py-0 xl:!pb-6"
 >
   <h1 class="text-4xl break-words md:text-6xl">Storybook 7.0 살펴보기</h1>
   <section class="flex items-center mt-4">
@@ -142,7 +487,7 @@
       </p>
       <h2
         id="tldr"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -150,7 +495,7 @@
           href="#tldr"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >TL;DR!
       </h2>
@@ -167,7 +512,7 @@
       </ul>
       <h2
         id="사전-번들-제공"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -175,7 +520,7 @@
           href="#사전-번들-제공"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >사전 번들 제공
       </h2>
@@ -211,9 +556,7 @@
           </button>
         </div>
       </div>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           20초 걸리던 매니저 빌드 타임이 사전 번들 덕분에 1초대로 줄었으며
           프리뷰 영역도 2초 정도 단축되었다. wow
@@ -221,7 +564,7 @@
       </blockquote>
       <h2
         id="csf-v3"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -229,7 +572,7 @@
           href="#csf-v3"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >CSF v3
       </h2>
@@ -259,59 +602,59 @@
         <pre
           tabindex="0"
           data-language="js"
-          data-theme="material-theme-palenight"
-        ><code data-language="js" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// v6 {id}.stories.tsx</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">export</span><span style="color:#C792EA"> const</span><span style="color:#BABED8"> Pair </span><span style="color:#89DDFF">=</span><span style="color:#BABED8"> Template</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">bind</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">{}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#BABED8">Pair</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">argTypes </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#F07178">  type</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#F07178">    options</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> [</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">mobile</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">pc</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">]</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#F07178">    control</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {</span><span style="color:#F07178"> type</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">radio</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> },</span></span>
-<span data-line=""><span style="color:#F07178">    defaultValue</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">mobile</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#89DDFF">  },</span></span>
-<span data-line=""><span style="color:#F07178">  slot</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#F07178">    options</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> [</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">header</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">toolbar left</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">toolbar right</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">more</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">]</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#F07178">    control</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {</span><span style="color:#F07178"> type</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">radio</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> },</span></span>
-<span data-line=""><span style="color:#F07178">    defaultValue</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">header</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#89DDFF">  },</span></span>
-<span data-line=""><span style="color:#89DDFF">};</span></span>
-<span data-line=""><span style="color:#BABED8">Pair</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">args </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">  /* ... */</span></span>
-<span data-line=""><span style="color:#89DDFF">};</span></span>
-<span data-line=""><span style="color:#BABED8">Pair</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">parameter </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">  /* ... */</span></span>
-<span data-line=""><span style="color:#89DDFF">};</span></span>
-<span data-line=""><span style="color:#BABED8">Pair</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">action </span><span style="color:#89DDFF">=</span><span style="color:#82AAFF"> clickPair</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">toolbar</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="js" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">// v6 {id}.stories.tsx</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">export</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> Pair</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> Template</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">bind</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{}</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">Pair</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">argTypes </span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">  type</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">    options</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> [</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">mobile</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">pc</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">]</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">    control</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> type</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">radio</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> },</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">    defaultValue</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">mobile</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  },</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">  slot</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">    options</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> [</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">header</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">toolbar left</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">toolbar right</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">more</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">]</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">    control</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> type</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">radio</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> },</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">    defaultValue</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">header</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  },</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">};</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">Pair</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">args </span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">  /* ... */</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">};</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">Pair</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">parameter </span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">  /* ... */</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">};</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">Pair</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">action </span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> clickPair</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">toolbar</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#676E95;font-style:italic">// v7 {id}.stories.tsx</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">export</span><span style="color:#89DDFF;font-style:italic"> default</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#F07178">  title</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">Buttons/color</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#F07178">  argTypes</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#F07178">    type</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#F07178">      options</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> [</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">mobile</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">pc</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">]</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#F07178">      control</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {</span><span style="color:#F07178"> type</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">radio</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> },</span></span>
-<span data-line=""><span style="color:#89DDFF">    },</span></span>
-<span data-line=""><span style="color:#F07178">    slot</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#F07178">      options</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> [</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">header</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">toolbar left</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">toolbar right</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">more</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">]</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#F07178">      control</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {</span><span style="color:#F07178"> type</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">radio</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> },</span></span>
-<span data-line=""><span style="color:#89DDFF">    },</span></span>
-<span data-line=""><span style="color:#89DDFF">  },</span></span>
-<span data-line=""><span style="color:#89DDFF">};</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">export</span><span style="color:#C792EA"> const</span><span style="color:#BABED8"> Pair </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#F07178">  name</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">Pair</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#F07178">  action</span><span style="color:#89DDFF">:</span><span style="color:#82AAFF"> clickPair</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">toolbar</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#F07178">  render</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> Template</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#F07178">  args</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#F07178">    type</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">mobile</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#F07178">    slot</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">header</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#89DDFF">  },</span></span>
-<span data-line=""><span style="color:#F07178">  parameter</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">    /* ... */</span></span>
-<span data-line=""><span style="color:#89DDFF">  },</span></span>
-<span data-line=""><span style="color:#89DDFF">};</span></span></code></pre>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">// v7 {id}.stories.tsx</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">export</span><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic"> default</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">  title</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">Buttons/color</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">  argTypes</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">    type</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">      options</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> [</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">mobile</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">pc</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">]</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">      control</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> type</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">radio</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> },</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">    },</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">    slot</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">      options</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> [</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">header</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">toolbar left</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">toolbar right</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">more</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">]</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">      control</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> type</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">radio</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> },</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">    },</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  },</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">};</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">export</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> Pair</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">  name</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">Pair</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">  action</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> clickPair</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">toolbar</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">  render</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> Template</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">  args</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">    type</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">mobile</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">    slot</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">header</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  },</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">  parameter</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">    /* ... */</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  },</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">};</span></span></code></pre>
       </figure>
       <h2
         id="mdx-v2"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -319,7 +662,7 @@
           href="#mdx-v2"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >MDX v2
       </h2>
@@ -346,21 +689,21 @@
         <pre
           tabindex="0"
           data-language="jsx"
-          data-theme="material-theme-palenight"
-        ><code data-language="jsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// v6 guide.stories.mdx</span></span>
-<span data-line=""><span style="color:#89DDFF">&lt;</span><span style="color:#FFCB6B">Meta</span><span style="color:#C792EA"> title</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">Component/Title/Guide</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF"> /&gt;</span></span>
-<span data-line=""><span style="color:#89DDFF">&lt;</span><span style="color:#FFCB6B">Story</span><span style="color:#C792EA"> id</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">component-title--red-title</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF"> /&gt;</span></span>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="jsx" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">// v6 guide.stories.mdx</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&lt;</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B">Meta</span><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA"> title</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">Component/Title/Guide</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> /&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&lt;</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B">Story</span><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA"> id</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">component-title--red-title</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> /&gt;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#676E95;font-style:italic">// v7 guide.mdx</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">import</span><span style="color:#BABED8"> TitleGuide</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> {</span><span style="color:#BABED8">RedTitle</span><span style="color:#89DDFF">}</span><span style="color:#89DDFF;font-style:italic"> from</span><span style="color:#89DDFF"> "</span><span style="color:#C3E88D">./Component/TitleGuide</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">&lt;</span><span style="color:#FFCB6B">Meta</span><span style="color:#C792EA"> of</span><span style="color:#89DDFF">={</span><span style="color:#BABED8">TitleGuide</span><span style="color:#89DDFF">} /&gt;</span></span>
-<span data-line=""><span style="color:#89DDFF">&lt;</span><span style="color:#FFCB6B">Story</span><span style="color:#C792EA"> of</span><span style="color:#89DDFF">={</span><span style="color:#BABED8">RedTitle</span><span style="color:#89DDFF">} /&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">// v7 guide.mdx</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">import</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> TitleGuide</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">RedTitle</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}</span><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic"> from</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> "</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">./Component/TitleGuide</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&lt;</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B">Meta</span><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA"> of</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">TitleGuide</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">} /&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&lt;</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B">Story</span><span style="--shiki-light:#6F42C1;--shiki-dark:#C792EA"> of</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">RedTitle</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">} /&gt;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#676E95;font-style:italic">// ./Component/TitleGuide.stories.mdx</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">export</span><span style="color:#C792EA"> const</span><span style="color:#BABED8"> RedTitle </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> {</span><span style="color:#676E95;font-style:italic"> /* ... */</span><span style="color:#89DDFF"> };</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">export</span><span style="color:#89DDFF;font-style:italic"> default</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#F07178">  title</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">Component/Title/Guide</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#89DDFF">};</span></span></code></pre>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">// ./Component/TitleGuide.stories.mdx</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">export</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> RedTitle</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"> /* ... */</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> };</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">export</span><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic"> default</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">  title</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">Component/Title/Guide</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">};</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">v7이 되면서 MDX1에서 MDX2로 업데이트 되었다.</p>
       <p class="mt-4 mb-4">
@@ -380,11 +723,11 @@
         <pre
           tabindex="0"
           data-language="jsx"
-          data-theme="material-theme-palenight"
-        ><code data-language="jsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#89DDFF">|</span><span style="color:#BABED8">   name   </span><span style="color:#89DDFF">|</span><span style="color:#BABED8">       type       </span><span style="color:#89DDFF">|</span><span style="color:#BABED8">    description     </span><span style="color:#89DDFF">|</span></span>
-<span data-line=""><span style="color:#89DDFF">|</span><span style="color:#BABED8"> :</span><span style="color:#89DDFF">------</span><span style="color:#BABED8">: </span><span style="color:#89DDFF">|</span><span style="color:#BABED8"> :</span><span style="color:#89DDFF">--------------</span><span style="color:#BABED8">: </span><span style="color:#89DDFF">|</span><span style="color:#BABED8"> :</span><span style="color:#89DDFF">----------------</span><span style="color:#BABED8">: </span><span style="color:#89DDFF">|</span></span>
-<span data-line=""><span style="color:#89DDFF">|</span><span style="color:#BABED8"> videoRef </span><span style="color:#89DDFF">|</span><span style="color:#BABED8"> HTMLVideoElement </span><span style="color:#89DDFF">|</span><span style="color:#BABED8">   video element    </span><span style="color:#89DDFF">|</span></span>
-<span data-line=""><span style="color:#89DDFF">|</span><span style="color:#BABED8">  event   </span><span style="color:#89DDFF">|</span><span style="color:#BABED8">    MouseEvent    </span><span style="color:#89DDFF">|</span><span style="color:#BABED8"> click event object </span><span style="color:#89DDFF">|</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="jsx" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">|</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">   name   </span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">|</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">       type       </span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">|</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">    description     </span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">|</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">|</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> :</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">------</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">: </span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">|</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> :</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">--------------</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">: </span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">|</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> :</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">----------------</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">: </span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">|</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">|</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> videoRef </span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">|</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> HTMLVideoElement </span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">|</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">   video element    </span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">|</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">|</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">  event   </span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">|</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">    MouseEvent    </span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">|</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> click event object </span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">|</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         기본적으로 MDX는
@@ -408,7 +751,7 @@
       </p>
       <h2
         id="그-외"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -416,7 +759,7 @@
           href="#그-외"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >그 외
       </h2>
@@ -496,28 +839,28 @@
         <pre
           tabindex="0"
           data-language="tsx"
-          data-theme="material-theme-palenight"
-        ><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> meta</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> Meta</span><span style="color:#89DDFF">&lt;typeof</span><span style="color:#BABED8"> SignupForm</span><span style="color:#89DDFF">&gt;</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#F07178">  title</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">SignupForm</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#F07178">  component</span><span style="color:#89DDFF">:</span><span style="color:#BABED8"> SignupForm</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#89DDFF">};</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">export</span><span style="color:#89DDFF;font-style:italic"> default</span><span style="color:#BABED8"> meta</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#C792EA">type</span><span style="color:#FFCB6B"> Story</span><span style="color:#89DDFF"> =</span><span style="color:#FFCB6B"> StoryObj</span><span style="color:#89DDFF">&lt;typeof</span><span style="color:#BABED8"> SignupForm</span><span style="color:#89DDFF">&gt;;</span></span>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="tsx" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> meta</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> Meta</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&lt;</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">typeof</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> SignupForm</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">  title</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">SignupForm</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">  component</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> SignupForm</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">};</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">export</span><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic"> default</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> meta</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">type</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> Story</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> StoryObj</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&lt;</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">typeof</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> SignupForm</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">export</span><span style="color:#C792EA"> const</span><span style="color:#BABED8"> Submitted</span><span style="color:#89DDFF">:</span><span style="color:#FFCB6B"> Story</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#82AAFF">  play</span><span style="color:#89DDFF">:</span><span style="color:#C792EA"> async</span><span style="color:#89DDFF"> ({</span><span style="color:#BABED8;font-style:italic"> args</span><span style="color:#89DDFF">,</span><span style="color:#BABED8;font-style:italic"> canvasElement</span><span style="color:#89DDFF">,</span><span style="color:#BABED8;font-style:italic"> step</span><span style="color:#89DDFF"> })</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#C792EA">    const</span><span style="color:#BABED8"> canvas</span><span style="color:#89DDFF"> =</span><span style="color:#82AAFF"> within</span><span style="color:#F07178">(</span><span style="color:#BABED8">canvasElement</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">export</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> Submitted</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> Story</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">  play</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> async</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ({</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic"> args</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic"> canvasElement</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic"> step</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> })</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">    const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> canvas</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> within</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">canvasElement</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">    await</span><span style="color:#82AAFF"> step</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">Enter email and password</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#C792EA"> async</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">      await</span><span style="color:#BABED8"> userEvent</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">type</span><span style="color:#F07178">(</span><span style="color:#BABED8">canvas</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">getByTestId</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">email</span><span style="color:#89DDFF">'</span><span style="color:#F07178">)</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">hi@example.com</span><span style="color:#89DDFF">'</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">      await</span><span style="color:#BABED8"> userEvent</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">type</span><span style="color:#F07178">(</span><span style="color:#BABED8">canvas</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">getByTestId</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">password</span><span style="color:#89DDFF">'</span><span style="color:#F07178">)</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">supersecret</span><span style="color:#89DDFF">'</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">    }</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">    await</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> step</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">Enter email and password</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> async</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">      await</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> userEvent</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">type</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">canvas</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">getByTestId</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">email</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">hi@example.com</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">      await</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> userEvent</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">type</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">canvas</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">getByTestId</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">password</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">supersecret</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">    }</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">    await</span><span style="color:#82AAFF"> step</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">Submit form</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#C792EA"> async</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">      await</span><span style="color:#BABED8"> userEvent</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">click</span><span style="color:#F07178">(</span><span style="color:#BABED8">canvas</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">getByRole</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">button</span><span style="color:#89DDFF">'</span><span style="color:#F07178">))</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">    }</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">  },</span></span>
-<span data-line=""><span style="color:#89DDFF">};</span></span></code></pre>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">    await</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> step</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">Submit form</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> async</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">      await</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> userEvent</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">click</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">canvas</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">getByRole</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">button</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">))</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">    }</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  },</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">};</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         기존의 <code>play</code> 함수에서 추가된 <code>step</code>을 활용해
@@ -528,7 +871,7 @@
       </p>
       <h2
         id="마무리"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -536,7 +879,7 @@
           href="#마무리"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >마무리
       </h2>
@@ -553,7 +896,7 @@
       </ol>
       <h2
         id="참고"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -561,7 +904,7 @@
           href="#참고"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >참고
       </h2>
@@ -590,70 +933,103 @@
       class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
       aria-label="목차"
     >
-      <ul
-        class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
+      <div
+        class="sticky top-32 ml-9 w-[216px] min-[1320px]:top-48 min-[1320px]:ml-20"
       >
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="tldr"
-            href="#tldr"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >TL;DR!</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="사전-번들-제공"
-            href="#사전-번들-제공"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >사전 번들 제공</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="csf-v3"
-            href="#csf-v3"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >CSF v3</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="mdx-v2"
-            href="#mdx-v2"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >MDX v2</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="그-외"
-            href="#그-외"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >그 외</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="마무리"
-            href="#마무리"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >마무리</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="참고"
-            href="#참고"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >참고</a
-          >
-        </li>
-      </ul>
+        <p class="mb-2 px-3 text-[10px] tracking-[0.18em] text-dark uppercase">
+          On this page
+        </p>
+        <ul>
+          <li class="relative select-none">
+            <a
+              id="tldr"
+              href="#tldr"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >TL;DR!</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="사전-번들-제공"
+              href="#사전-번들-제공"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >사전 번들 제공</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="csf-v3"
+              href="#csf-v3"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >CSF v3</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="mdx-v2"
+              href="#mdx-v2"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >MDX v2</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="그-외"
+              href="#그-외"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >그 외</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="마무리"
+              href="#마무리"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >마무리</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="참고"
+              href="#참고"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >참고</span
+              ></a
+            >
+          </li>
+        </ul>
+      </div>
     </aside>
   </section>
   <a
-    class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water"
+    class="inline-block text-highlight leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-highlight after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water"
     href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] Storybook%207.0%20%EC%82%B4%ED%8E%B4%EB%B3%B4%EA%B8%B0&amp;body=&lt;!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 --&gt;"
     rel="noopener noreferrer"
     target="_blank"
@@ -676,7 +1052,7 @@
       <a
         class="group flex flex-col gap-1 max-w-[45%] hover:text-highlight duration-300 items-start text-left"
         aria-label="이전 글: [LeetCode] 2727. Is Object Empty"
-        href="/posts/leetcode-easy-2727"
+        href="/post/leetcode-easy-2727"
         ><span class="text-sm text-date-gray">← 이전 글</span
         ><span class="title-underline"
           >[LeetCode] 2727. Is Object Empty</span
@@ -684,7 +1060,7 @@
       ><a
         class="group flex flex-col gap-1 max-w-[45%] hover:text-highlight duration-300 items-end text-right ml-auto"
         aria-label="다음 글: [LeetCode] 238. Product of Array Except Self"
-        href="/posts/leetcode-medium-238"
+        href="/post/leetcode-medium-238"
         ><span class="text-sm text-date-gray">다음 글 →</span
         ><span class="title-underline"
           >[LeetCode] 238. Product of Array Except Self</span
@@ -692,7 +1068,7 @@
       >
     </div>
   </nav>
-  <section aria-labelledby="related-posts-heading" class="mt-12 mb-40">
+  <section aria-labelledby="related-posts-heading" class="mt-12 mb-12 xl:mb-0">
     <h2 id="related-posts-heading" class="text-2xl mb-4">더 보기</h2>
     <ul>
       <li
@@ -701,7 +1077,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-google-adsense-description"
-          href="/posts/google-adsense"
+          href="/post/google-adsense"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -716,18 +1092,18 @@
           </div>
           <div class="w-full mt-2 md:mt-0">
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               [Next.js] Google AdSense 광고 적용 및 이해하기
             </h3>
             <p
               id="related-post-google-adsense-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               구글 광고 적용기
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2024-08-22 16:26"
               >2024-08-22 16:26</time
             >
@@ -740,7 +1116,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-visual-regression-test-description"
-          href="/posts/visual-regression-test"
+          href="/post/visual-regression-test"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -755,18 +1131,18 @@
           </div>
           <div class="w-full mt-2 md:mt-0">
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               시각적 회귀 테스트 도입기
             </h3>
             <p
               id="related-post-visual-regression-test-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               playwright 소개와 트러블 슈팅
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2024-05-06 14:34"
               >2024-05-06 14:34</time
             >
@@ -779,7 +1155,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-quality-of-job-review-description"
-          href="/posts/quality-of-job-review"
+          href="/post/quality-of-job-review"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -797,18 +1173,18 @@
               >다른 주제 탐색</span
             >
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               "일의 격"을 읽고
             </h3>
             <p
               id="related-post-quality-of-job-review-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               신수정님의 '일의 격' 책을 읽고 생각을 정리하게 되었다
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2023-06-22 20:36"
               >2023-06-22 20:36</time
             >
@@ -821,7 +1197,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-leetcode-medium-238-description"
-          href="/posts/leetcode-medium-238"
+          href="/post/leetcode-medium-238"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -839,18 +1215,18 @@
               >다른 주제 탐색</span
             >
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               [LeetCode] 238. Product of Array Except Self
             </h3>
             <p
               id="related-post-leetcode-medium-238-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               연속되는 곱셈을 어떻게 처리할까?
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2023-08-13 22:31"
               >2023-08-13 22:31</time
             >

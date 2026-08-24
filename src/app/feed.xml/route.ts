@@ -11,8 +11,8 @@ export async function GET() {
     .map(({ slug, frontmatter: { title, description, date } }) => {
       return `    <item>
       <title><![CDATA[${title}]]></title>
-      <link>${href}/posts/${slug}</link>
-      <guid>${href}/posts/${slug}</guid>
+      <link>${href}/post/${slug}</link>
+      <guid>${href}/post/${slug}</guid>
       <pubDate>${new Date(date).toUTCString()}</pubDate>
       <description><![CDATA[${description}]]></description>
     </item>`;

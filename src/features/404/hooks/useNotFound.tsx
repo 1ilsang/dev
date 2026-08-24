@@ -4,16 +4,19 @@ import { useEffect, useState } from 'react';
 
 export const useNotFound = () => {
   const [redirect, setRedirect] = useState<null | string>(null);
-  const { push } = useRouter();
+  const { replace } = useRouter();
 
   useEffect(() => {
     const url = new URL(window.location.href);
     const { pathname, hash } = url;
-    const redirectUrl = redirectUrlMapper[pathname];
+    const legacyPostMatch = pathname.match(/^\/posts\/([^/]+)$/);
+    const redirectUrl =
+      redirectUrlMapper[pathname] ??
+      (legacyPostMatch ? `/post/${legacyPostMatch[1]}` : undefined);
 
     setRedirect(redirectUrl ?? '');
     if (redirectUrl) {
-      push(`${redirectUrl}${hash}`);
+      replace(`${redirectUrl}${hash}`);
     }
   }, []);
 

@@ -8,7 +8,7 @@ test.describe(MACRO_SUITE.DOM_SNAPSHOT, () => {
     const slug = slugList[i];
 
     test(`${slug}`, async ({ page }) => {
-      await gotoUrl({ page, url: `/posts/${slug}` });
+      await gotoUrl({ page, url: `/post/${slug}` });
 
       const prettyHtml = await getPageDomInnerHTML({ page });
 

@@ -61,7 +61,7 @@ const main = async () => {
     process.exit(1);
   }
 
-  const slug = await ask('URL 슬러그(kebab-case, /posts/SLUG 형태가 됨): ');
+  const slug = await ask('URL 슬러그(kebab-case, /post/SLUG 형태가 됨): ');
   if (!slug) {
     console.error('❌ 슬러그를 입력해주세요');
     process.exit(1);

@@ -13,52 +13,32 @@ const mockPost: ServerPost = {
     tags: [],
   },
   toc: [],
-  url: '/posts/test-post',
+  url: '/post/test-post',
   fullSlug: 'test-post',
   readingTime: 6,
 };
 
 describe('PostItem', () => {
   it('should render post title', () => {
-    render(<PostItem post={mockPost} categoryFilter={new Set()} />);
+    render(<PostItem post={mockPost} />);
     expect(screen.getByText('Test Title')).toBeInTheDocument();
   });
 
   it('should render post description', () => {
-    render(<PostItem post={mockPost} categoryFilter={new Set()} />);
+    render(<PostItem post={mockPost} />);
     expect(screen.getByText('Test description')).toBeInTheDocument();
   });
 
   it('should render cover image', () => {
-    render(<PostItem post={mockPost} categoryFilter={new Set()} />);
+    render(<PostItem post={mockPost} />);
     expect(screen.getByAltText('Test Title 썸네일')).toHaveAttribute(
       'src',
       '/images/test.png',
     );
   });
 
-  it('should show when categoryFilter is empty', () => {
-    render(<PostItem post={mockPost} categoryFilter={new Set()} />);
-    expect(screen.getByRole('listitem')).toBeInTheDocument();
-  });
-
-  it('should show when category matches filter', () => {
-    render(
-      <PostItem post={mockPost} categoryFilter={new Set(['JavaScript'])} />,
-    );
-    expect(screen.getByRole('listitem')).toBeInTheDocument();
-  });
-
-  it('should hide when category does not match filter', () => {
-    render(<PostItem post={mockPost} categoryFilter={new Set(['Rust'])} />);
-    expect(screen.queryByRole('listitem')).not.toBeInTheDocument();
-  });
-
   it('should link to correct post URL', () => {
-    render(<PostItem post={mockPost} categoryFilter={new Set()} />);
-    expect(screen.getByRole('link')).toHaveAttribute(
-      'href',
-      '/posts/test-post',
-    );
+    render(<PostItem post={mockPost} />);
+    expect(screen.getByRole('link')).toHaveAttribute('href', '/post/test-post');
   });
 });

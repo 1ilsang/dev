@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { MyProfile } from '~/about/headline/data/profile';
+import { CATEGORY_LIST, getCategoryPath } from '~/posts/constants';
 import { infoLog } from '~/shared/helpers/logger';
 import { getAllPost, getAllTag } from '~/shared/helpers/mdx/getPost';
 
@@ -37,6 +38,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: PRIORITY.MID,
     };
   });
+  const categoryUrls: MetadataRoute.Sitemap = CATEGORY_LIST.map((category) => {
+    const post = posts.find((post) => post.category === category)!;
+    return {
+      url: `${DOMAIN}${getCategoryPath(category)}`,
+      lastModified: new Date(
+        post.frontmatter.updatedAt ?? post.frontmatter.date,
+      ),
+      changeFrequency: 'weekly',
+      priority: PRIORITY.HIGH,
+    };
+  });
 
   return [
     {
@@ -64,6 +76,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: PRIORITY.MID,
     },
     ...postUrls,
+    ...categoryUrls,
     ...tagUrls,
   ];
 }

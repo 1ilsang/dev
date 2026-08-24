@@ -9,7 +9,7 @@ type LeftTableProps = {
 
 export const LeftTable: FunctionComponent<LeftTableProps> = ({ rows }) => {
   return (
-    <table className="w-full mb-4 text-[#dfdfdf] break-words">
+    <table className="mb-4 w-full break-words text-white">
       <THead rows={rows[0]} />
       <tbody>
         {rows.slice(1).map((row, index) => (
@@ -29,7 +29,7 @@ const THead = ({ rows }) => {
             <th
               key={index}
               className={classNames(
-                'text-left text-sm font-normal p-2 border-b border-[#5e5e5e]',
+                'border-b border-base/70 p-2 text-left text-sm font-normal',
                 item.w,
               )}
             >
@@ -72,7 +72,7 @@ const TableRow: FunctionComponent<{ row: TableRowItem[] }> = ({ row }) => {
         return (
           <td
             key={index}
-            className="text-left text-sm p-2 border-b border-[#5e5e5e]"
+            className="border-b border-base/70 p-2 text-left text-sm"
           >
             {plainText ? (
               <PlainTextTd text={text} />

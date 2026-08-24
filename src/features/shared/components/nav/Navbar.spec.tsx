@@ -1,5 +1,4 @@
-import { render, screen, act } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render, screen, act, fireEvent } from '@testing-library/react';
 
 let mockPathname = '/posts';
 jest.mock('next/navigation', () => ({
@@ -27,10 +26,13 @@ const setScrollTop = (value: number) => {
 
 describe('Navbar', () => {
   let scrollToSpy: jest.Mock;
+  let scrollBySpy: jest.Mock;
 
   beforeEach(() => {
     scrollToSpy = jest.fn();
+    scrollBySpy = jest.fn();
     document.body.scrollTo = scrollToSpy;
+    document.body.scrollBy = scrollBySpy;
     mockPathname = '/posts';
     mockPrint = false;
     setScrollTop(0);
@@ -47,9 +49,82 @@ describe('Navbar', () => {
   describe('렌더링', () => {
     it('nav에 aria-label 설정', () => {
       render(<Navbar />);
-      expect(screen.getByRole('navigation')).toHaveAttribute(
-        'aria-label',
-        '메인 네비게이션',
+      const navigation = screen.getByRole('navigation');
+      expect(navigation).toHaveAttribute('aria-label', '메인 네비게이션');
+      expect(navigation).toHaveClass(
+        'xl:left-0',
+        'xl:w-[calc((100vw-1280px)/2+256px)]',
+      );
+    });
+
+    it('posts 하위에 카테고리 링크 표시', () => {
+      render(<Navbar />);
+
+      const categoryTree = screen.getByRole('list', {
+        name: '포스트 카테고리',
+      });
+      expect(categoryTree).toBeVisible();
+      expect(screen.getByRole('link', { name: 'JavaScript' })).toHaveAttribute(
+        'href',
+        '/posts/javascript',
+      );
+      expect(screen.getByRole('link', { name: 'Rust' })).toHaveAttribute(
+        'href',
+        '/posts/rust',
+      );
+    });
+
+    it('프로필 이름과 직무를 같은 세로 영역에 표시', () => {
+      render(<Navbar />);
+
+      const desktopLogo = screen.getByRole('link', {
+        name: '1ilsang.dev Software Engineer',
+      });
+      const role = screen.getByText('Software Engineer');
+
+      expect(desktopLogo).toContainElement(role);
+      expect(desktopLogo).toHaveClass('hover:no-underline');
+      expect(desktopLogo).not.toHaveClass('hover:underline');
+      expect(desktopLogo).toHaveClass('xl:px-1');
+      expect(role.parentElement).toHaveClass('flex-col');
+    });
+
+    it('카테고리 경로에서는 카테고리 링크만 현재 위치로 표시', () => {
+      mockPathname = '/posts/javascript';
+      render(<Navbar />);
+
+      expect(screen.getByRole('link', { name: 'JavaScript' })).toHaveAttribute(
+        'aria-current',
+        'page',
+      );
+      expect(
+        screen.getAllByRole('link', { name: 'Posts' })[0],
+      ).not.toHaveAttribute('aria-current');
+    });
+
+    it('포스트 상세에서는 해당 글의 카테고리를 현재 위치로 표시', () => {
+      mockPathname = '/post/test-post';
+      render(<Navbar activeCategory="Rust" />);
+
+      expect(screen.getByRole('link', { name: 'Rust' })).toHaveAttribute(
+        'aria-current',
+        'page',
+      );
+      expect(
+        screen.getByRole('link', { name: 'JavaScript' }),
+      ).not.toHaveAttribute('aria-current');
+      expect(
+        screen.getAllByRole('link', { name: 'Posts' })[0],
+      ).not.toHaveAttribute('aria-current');
+    });
+
+    it('태그 상세에서는 tags를 현재 위치로 표시', () => {
+      mockPathname = '/tags/javascript';
+      render(<Navbar />);
+
+      expect(screen.getAllByRole('link', { name: 'Tags' })[0]).toHaveAttribute(
+        'aria-current',
+        'page',
       );
     });
 
@@ -61,17 +136,17 @@ describe('Navbar', () => {
   });
 
   describe('NavText 클릭', () => {
-    it('현재 pathname과 같은 링크 클릭 시 scrollTo(0,0)', async () => {
+    it('현재 pathname과 같은 링크 클릭 시 scrollTo(0,0)', () => {
       mockPathname = '/posts';
       render(<Navbar />);
-      await userEvent.click(screen.getByText('posts'));
+      fireEvent.click(screen.getAllByText('Posts')[0], { button: 1 });
       expect(scrollToSpy).toHaveBeenCalledWith(0, 0);
     });
 
-    it('다른 pathname 링크 클릭 시 scrollTo 미호출', async () => {
+    it('다른 pathname 링크 클릭 시 scrollTo 미호출', () => {
       mockPathname = '/tags';
       render(<Navbar />);
-      await userEvent.click(screen.getByText('posts'));
+      fireEvent.click(screen.getAllByText('Posts')[0], { button: 1 });
       expect(scrollToSpy).not.toHaveBeenCalled();
     });
   });
@@ -150,6 +225,23 @@ describe('Navbar', () => {
 
       const nav = screen.getByRole('navigation');
       expect(nav.className).toContain('shadow-nav');
+    });
+  });
+
+  describe('사이드바 휠', () => {
+    it('휠 입력을 본문 스크롤로 전달', () => {
+      render(<Navbar />);
+
+      fireEvent.wheel(screen.getByRole('navigation'), {
+        deltaMode: WheelEvent.DOM_DELTA_PIXEL,
+        deltaY: 120,
+      });
+
+      expect(scrollBySpy).toHaveBeenCalledWith({
+        top: 120,
+        left: 0,
+        behavior: 'auto',
+      });
     });
   });
 

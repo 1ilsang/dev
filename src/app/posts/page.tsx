@@ -24,7 +24,7 @@ const PostHome: NextPage = async () => {
   );
 
   return (
-    <MainLayout>
+    <MainLayout className="flex min-h-dvh flex-col">
       <Navbar showPrint />
       <PostListContainer posts={posts} />
       <Footer showPrint />

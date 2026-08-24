@@ -17,46 +17,391 @@
       "name": "1ilsang",
       "url": "https://1ilsang.dev"
     },
-    "url": "https://1ilsang.dev/posts/visual-regression-test",
+    "url": "https://1ilsang.dev/post/visual-regression-test",
     "keywords": ["testing", "playwright", "frontend", "devtools"]
   }
 </script>
 <progress
   id="nav-progress"
-  class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none [&amp;::-webkit-progress-value]:bg-base-og"
+  class="[&amp;::-webkit-progress-bar]:bg-sub-blue fixed top-0 left-0 z-10 w-full h-[3px] appearance-none xl:right-0 xl:left-[calc((100vw-1280px)/2+256px)] xl:w-auto [&amp;::-webkit-progress-value]:bg-base-og"
   aria-label="페이지 읽기 진행률"
   value="0"
   max="1"
 ></progress>
 <nav
   aria-label="메인 네비게이션"
-  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center hover:animate-rainbow-water hover:bg-nav hover:bg-[length:400%_400%] shadow-nav shadow-lg"
+  class="fixed z-40 flex flex-wrap w-full justify-between justify-items-center max-xl:hover:animate-rainbow-water max-xl:hover:bg-nav max-xl:hover:bg-[length:400%_400%] xl:top-0 xl:left-0 xl:h-screen xl:w-[calc((100vw-1280px)/2+256px)] xl:flex-col xl:flex-nowrap xl:items-stretch xl:justify-start xl:border-r xl:border-base/40 xl:bg-sidebar xl:py-[40px] max-xl:shadow-nav max-xl:shadow-lg"
 >
-  <div class="tracking-tight mr-6 text-2xl font-bold my-2 ml-3.5">
-    <a class="hover:underline" href="/">1ilsang</a>
+  <div class="hidden h-full w-[216px] xl:mr-5 xl:ml-auto xl:flex xl:flex-col">
+    <div class="ml-3 mb-4 flex items-center">
+      <a
+        aria-label="About 페이지로 이동"
+        class="mr-2 block w-8 h-8 mt-2 xl:w-12 xl:h-12 xl:mt-0 xl:mr-1"
+        href="/about"
+        ><img
+          class="border border-solid rounded-full w-full h-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
+      <div class="flex min-w-0 flex-col items-start justify-center">
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-2xl font-bold my-2 ml-3.5 xl:m-0"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-1 hover:no-underline"
+            href="/"
+            ><span class="flex items-center gap-3"
+              ><span class="flex flex-col"
+                ><span>1ilsang.dev</span
+                ><span class="whitespace-nowrap text-xs font-normal text-dark"
+                  >Software Engineer</span
+                ></span
+              ></span
+            ></a
+          >
+        </div>
+      </div>
+    </div>
+    <ul class="flex flex-col gap-1">
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="m3 11 9-8 9 8"></path>
+                <path d="M5 10v10h14V10M9 20v-6h6v6"></path></svg
+              ><span class=""><span>Home</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/posts"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M6 3h9l4 4v14H6z"></path>
+                <path d="M14 3v5h5M9 12h6M9 16h6"></path></svg
+              ><span class=""><span>Posts</span></span></span
+            ></a
+          >
+        </div>
+        <ul aria-label="포스트 카테고리" class="mt-0.5 ml-[21px] py-1 pl-3">
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              aria-current="page"
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-base/60 bg-base/20 text-white"
+              href="/posts/javascript"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="m9 7-5 5 5 5M15 7l5 5-5 5"></path></svg
+              ><span class="truncate">JavaScript</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/rust"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="12" r="5"></circle>
+                <path
+                  d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"
+                ></path></svg
+              ><span class="truncate">Rust</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/activity"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M3 12h4l2-6 4 12 2-6h6"></path></svg
+              ><span class="truncate">Activity</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/book"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M4 5a3 3 0 0 1 3-2h5v17H7a3 3 0 0 0-3 2z"></path>
+                <path
+                  d="M20 5a3 3 0 0 0-3-2h-5v17h5a3 3 0 0 1 3 2z"
+                ></path></svg
+              ><span class="truncate">Book</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/retrospect"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="12" r="8"></circle>
+                <path d="M12 8v5l3 2M5 5 3 8"></path></svg
+              ><span class="truncate">Retrospect</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/tool"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path
+                  d="M14 6a4 4 0 0 0-5 5L3 17l4 4 6-6a4 4 0 0 0 5-5l-3 3-4-4z"
+                ></path></svg
+              ><span class="truncate">Tool</span></a
+            >
+          </li>
+          <li
+            class="relative before:absolute before:-left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:-left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-1/2"
+          >
+            <a
+              class="group flex min-w-0 items-center gap-2.5 border px-3 py-2 text-[13px] transition-colors border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              href="/posts/algorithm"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="6" cy="5" r="2"></circle>
+                <circle cx="18" cy="12" r="2"></circle>
+                <circle cx="6" cy="19" r="2"></circle>
+                <path
+                  d="M8 5h3a3 3 0 0 1 3 3v1M8 19h3a3 3 0 0 0 3-3v-1"
+                ></path></svg
+              ><span class="truncate">Algorithm</span></a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/tags"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <path d="M20 12 12 20 4 12V4h8z"></path>
+                <circle cx="9" cy="9" r="1.3"></circle></svg
+              ><span class=""><span>Tags</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+      <li>
+        <div
+          class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+        >
+          <a
+            class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+            href="/about"
+            ><span class="flex items-center gap-3"
+              ><svg
+                aria-hidden="true"
+                class="h-[18px] w-[18px] flex-none"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              >
+                <circle cx="12" cy="7" r="3"></circle>
+                <path d="M5 21v-2a7 7 0 0 1 14 0v2"></path></svg
+              ><span class=""><span>About</span></span></span
+            ></a
+          >
+        </div>
+      </li>
+    </ul>
+    <div class="mt-auto">
+      <button
+        type="button"
+        class="flex w-full cursor-pointer items-center gap-2 rounded-sm border border-base/40 px-3 py-2 text-left text-xs text-sub-blue transition-colors hover:border-base/70 hover:bg-base/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight"
+        aria-label="라이트 모드로 전환"
+      >
+        <svg
+          aria-hidden="true"
+          class="h-4 w-4 flex-none"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.7"
+          viewBox="0 0 24 24"
+        >
+          <circle cx="12" cy="12" r="4"></circle>
+          <path
+            d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+          ></path></svg
+        ><span
+          >라이트<!-- -->
+          모드</span
+        >
+      </button>
+      <p class="mt-4 border-t border-base/40 pt-5 text-xs text-dark">
+        © 1ilsang
+      </p>
+    </div>
   </div>
-  <div class="flex">
-    <div class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/posts">posts</a>
+  <div class="flex w-full justify-between xl:hidden">
+    <div
+      class="tracking-tight mr-6 xl:mr-0 text-2xl font-bold my-2 ml-3.5 xl:m-0"
+    >
+      <a
+        class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+        href="/"
+        ><span class="flex items-center gap-3"
+          ><span class=""><span>1ilsang</span></span></span
+        ></a
+      >
     </div>
-    <div class="tracking-tight mr-6 text-xl mt-2.5">
-      <a class="hover:underline" href="/tags">tags</a>
+    <div class="flex">
+      <div
+        class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+      >
+        <a
+          class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+          href="/posts"
+          ><span class="flex items-center gap-3"
+            ><span class=""><span>Posts</span></span></span
+          ></a
+        >
+      </div>
+      <div
+        class="tracking-tight mr-6 xl:mr-0 text-xl mt-2.5 xl:mt-0 xl:text-[1rem]"
+      >
+        <a
+          class="xl:block xl:rounded-sm xl:border xl:border-transparent xl:py-2.5 xl:no-underline xl:transition-colors xl:hover:border-base/40 xl:hover:bg-base/10 xl:px-3 hover:underline"
+          href="/tags"
+          ><span class="flex items-center gap-3"
+            ><span class=""><span>Tags</span></span></span
+          ></a
+        >
+      </div>
+      <a
+        aria-label="About 페이지로 이동"
+        class="mr-2 block w-8 h-8 mt-2 xl:w-12 xl:h-12 xl:mt-0 xl:mr-1"
+        href="/about"
+        ><img
+          class="border border-solid rounded-full w-full h-full border-white-blue"
+          src="/images/chul.webp"
+          alt="1ilsang"
+      /></a>
     </div>
-    <a
-      aria-label="About 페이지로 이동"
-      class="mr-2 block w-8 h-8 mt-2"
-      href="/about"
-      ><img
-        class="border border-solid rounded-full w-full h-full border-white-blue"
-        src="/images/chul.webp"
-        alt="1ilsang"
-    /></a>
   </div>
 </nav>
 <section
   id="main-content"
   tabindex="-1"
-  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 mx-4 min-[790px]:m-auto print:py-0"
+  class="h-auto min-h-full max-w-(--breakpoint-md) py-20 md:py-28 xl:pt-20 xl:pb-24 mx-4 min-[790px]:m-auto print:py-0 xl:!pb-6"
 >
   <h1 class="text-4xl break-words md:text-6xl">시각적 회귀 테스트 도입기</h1>
   <section class="flex items-center mt-4">
@@ -129,9 +474,7 @@
           </button>
         </div>
       </div>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           Image Source:
           <a
@@ -150,7 +493,7 @@
       </p>
       <h2
         id="index"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -158,7 +501,7 @@
           href="#index"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Index
       </h2>
@@ -334,7 +677,7 @@
       </ul>
       <h2
         id="tldr"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -342,7 +685,7 @@
           href="#tldr"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >TL;DR!
       </h2>
@@ -358,7 +701,7 @@
       </ol>
       <h2
         id="도입-배경"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -366,7 +709,7 @@
           href="#도입-배경"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >도입 배경
       </h2>
@@ -389,9 +732,7 @@
           </button>
         </div>
       </div>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           Image Source:
           <a
@@ -432,7 +773,7 @@
       </p>
       <h2
         id="시각적-회귀-테스트란"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -440,7 +781,7 @@
           href="#시각적-회귀-테스트란"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >시각적 회귀 테스트란
       </h2>
@@ -463,9 +804,7 @@
           </button>
         </div>
       </div>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           (좌) 차이가 생긴 렌더링 결과물. (우) 차이가 생긴 부분 히트맵
         </p>
@@ -488,7 +827,7 @@
       </p>
       <h2
         id="playwright"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -496,7 +835,7 @@
           href="#playwright"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Playwright
       </h2>
@@ -523,7 +862,7 @@
         어떤 방식의 테스트를 할지 결정되었으니 자연스럽게 어떤 도구로 테스트를
         작성할지 고민하게 되었다.
       </p>
-      <table class="w-full mb-4 text-[#dfdfdf] table-fixed break-words">
+      <table class="mb-4 w-full table-fixed break-words text-white">
         <thead>
           <tr>
             <th style="text-align: center">Aspect</th>
@@ -574,9 +913,7 @@
           </tr>
         </tbody>
       </table>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           더 자세한 내용은
           <a
@@ -661,7 +998,7 @@
           href="#dom-snapshot"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >DOM Snapshot
       </h3>
@@ -669,14 +1006,14 @@
         <pre
           tabindex="0"
           data-language="ts"
-          data-theme="material-theme-palenight"
-        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#89DDFF;font-style:italic">import</span><span style="color:#89DDFF"> {</span><span style="color:#BABED8"> expect</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> test</span><span style="color:#89DDFF"> }</span><span style="color:#89DDFF;font-style:italic"> from</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">@playwright/test</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">;</span></span>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="ts" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">import</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> expect</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> test</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> }</span><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic"> from</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">@playwright/test</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#82AAFF">test</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">should match DOM snapshot</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#C792EA"> async</span><span style="color:#89DDFF"> ({</span><span style="color:#BABED8;font-style:italic"> page</span><span style="color:#89DDFF"> })</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">  await</span><span style="color:#BABED8"> page</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">goto</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">/about</span><span style="color:#89DDFF">'</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#C792EA">  const</span><span style="color:#BABED8"> body</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF;font-style:italic"> await</span><span style="color:#BABED8"> page</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">locator</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">#__next</span><span style="color:#89DDFF">'</span><span style="color:#F07178">)</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">innerHTML</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
-<span data-line="" data-highlighted-line=""><span style="color:#82AAFF">  expect</span><span style="color:#F07178">(</span><span style="color:#BABED8">body</span><span style="color:#F07178">)</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">toMatchSnapshot</span><span style="color:#F07178">([</span><span style="color:#89DDFF">`</span><span style="color:#C3E88D">about.html</span><span style="color:#89DDFF">`</span><span style="color:#F07178">])</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">test</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">should match DOM snapshot</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> async</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ({</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic"> page</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> })</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">  await</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> page</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">goto</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">/about</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">  const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> body</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic"> await</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> page</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">locator</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">#__next</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">innerHTML</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">()</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line="" data-highlighted-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">  expect</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">body</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">toMatchSnapshot</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">([</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">`</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">about.html</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">`</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">])</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         나는 Next.js를 사용하고 있으므로 <code>__next</code> 하위의 DOM만
@@ -704,7 +1041,7 @@
           href="#screenshot"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Screenshot
       </h3>
@@ -712,13 +1049,13 @@
         <pre
           tabindex="0"
           data-language="ts"
-          data-theme="material-theme-palenight"
-        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#89DDFF;font-style:italic">import</span><span style="color:#89DDFF"> {</span><span style="color:#BABED8"> expect</span><span style="color:#89DDFF">,</span><span style="color:#BABED8"> test</span><span style="color:#89DDFF"> }</span><span style="color:#89DDFF;font-style:italic"> from</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">@playwright/test</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">;</span></span>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="ts" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">import</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> expect</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> test</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> }</span><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic"> from</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">@playwright/test</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#82AAFF">test</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">should match Screenshot</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#C792EA"> async</span><span style="color:#89DDFF"> ({</span><span style="color:#BABED8;font-style:italic"> page</span><span style="color:#89DDFF"> })</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">  await</span><span style="color:#BABED8"> page</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">goto</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">/about</span><span style="color:#89DDFF">'</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line="" data-highlighted-line=""><span style="color:#89DDFF;font-style:italic">  await</span><span style="color:#82AAFF"> expect</span><span style="color:#F07178">(</span><span style="color:#BABED8">page</span><span style="color:#F07178">)</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">toHaveScreenshot</span><span style="color:#F07178">(</span><span style="color:#89DDFF">{</span><span style="color:#F07178"> fullPage</span><span style="color:#89DDFF">:</span><span style="color:#FF9CAC"> true</span><span style="color:#89DDFF"> }</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">test</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">should match Screenshot</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> async</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ({</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic"> page</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> })</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">  await</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> page</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">goto</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">/about</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line="" data-highlighted-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">  await</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> expect</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">page</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">toHaveScreenshot</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> fullPage</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#FF9CAC"> true</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> }</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         스크린샷 또한 playwright에서 제공하는
@@ -744,7 +1081,7 @@
           href="#시각적-회귀-테스트는-다양한-이유로-실패할-수-있다"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >시각적 회귀 테스트는 다양한 이유로 실패할 수 있다
       </h3>
@@ -801,7 +1138,7 @@
       <p class="mt-4 mb-4">기본적인 설정은 되었으므로 CI/CD를 구축하자.</p>
       <h2
         id="github-actions"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -809,7 +1146,7 @@
           href="#github-actions"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Github Actions
       </h2>
@@ -832,9 +1169,7 @@
           </button>
         </div>
       </div>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           Image Source:
           <a
@@ -866,42 +1201,42 @@
         <figcaption
           data-rehype-pretty-code-title=""
           data-language="yml"
-          data-theme="material-theme-palenight"
+          data-theme="github-light material-theme-palenight"
         >
           .github/workflow/playwright.yml
         </figcaption>
         <pre
           tabindex="0"
           data-language="yml"
-          data-theme="material-theme-palenight"
-        ><code data-language="yml" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#F07178">name</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> Playwright Tests</span></span>
-<span data-line=""><span style="color:#FF9CAC">on</span><span style="color:#89DDFF">:</span></span>
-<span data-line=""><span style="color:#F07178">  push</span><span style="color:#89DDFF">:</span></span>
-<span data-line=""><span style="color:#F07178">    branches</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> [</span><span style="color:#C3E88D">main</span><span style="color:#89DDFF">]</span></span>
-<span data-line=""><span style="color:#F07178">  pull_request</span><span style="color:#89DDFF">:</span></span>
-<span data-line=""><span style="color:#F07178">    branches</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> [</span><span style="color:#C3E88D">main</span><span style="color:#89DDFF">]</span></span>
-<span data-line=""><span style="color:#F07178">jobs</span><span style="color:#89DDFF">:</span></span>
-<span data-line=""><span style="color:#F07178">  test</span><span style="color:#89DDFF">:</span></span>
-<span data-line=""><span style="color:#F07178">    timeout-minutes</span><span style="color:#89DDFF">:</span><span style="color:#F78C6C"> 60</span></span>
-<span data-line=""><span style="color:#F07178">    runs-on</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> ubuntu-latest</span></span>
-<span data-line=""><span style="color:#F07178">    steps</span><span style="color:#89DDFF">:</span></span>
-<span data-line=""><span style="color:#89DDFF">      -</span><span style="color:#F07178"> uses</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> actions/checkout@v4</span></span>
-<span data-line=""><span style="color:#89DDFF">      -</span><span style="color:#F07178"> uses</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> actions/setup-node@v4</span></span>
-<span data-line=""><span style="color:#F07178">        with</span><span style="color:#89DDFF">:</span></span>
-<span data-line=""><span style="color:#F07178">          node-version-file</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> .nvmrc</span></span>
-<span data-line=""><span style="color:#89DDFF">      -</span><span style="color:#F07178"> name</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> Install dependencies</span></span>
-<span data-line=""><span style="color:#F07178">        run</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> npm ci</span></span>
-<span data-line=""><span style="color:#89DDFF">      -</span><span style="color:#F07178"> name</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> Install Playwright Browsers</span></span>
-<span data-line=""><span style="color:#F07178">        run</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> npx playwright install --with-deps</span></span>
-<span data-line=""><span style="color:#89DDFF">      -</span><span style="color:#F07178"> name</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> Run Playwright tests</span></span>
-<span data-line=""><span style="color:#F07178">        run</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> npx playwright test</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">      # artifact에 playwright report를 업로드해 어디서 실패했는지 확인할 수 있다</span></span>
-<span data-line=""><span style="color:#89DDFF">      -</span><span style="color:#F07178"> uses</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> actions/upload-artifact@v4</span></span>
-<span data-line=""><span style="color:#F07178">        if</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> failure()</span></span>
-<span data-line=""><span style="color:#F07178">        with</span><span style="color:#89DDFF">:</span></span>
-<span data-line=""><span style="color:#F07178">          name</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> playwright-report</span></span>
-<span data-line=""><span style="color:#F07178">          path</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> playwright-report/</span></span>
-<span data-line=""><span style="color:#F07178">          retention-days</span><span style="color:#89DDFF">:</span><span style="color:#F78C6C"> 30</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="yml" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">name</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> Playwright Tests</span></span>
+<span data-line=""><span style="--shiki-light:#005CC5;--shiki-dark:#FF9CAC">on</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">  push</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">    branches</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> [</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">main</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">]</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">  pull_request</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">    branches</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> [</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">main</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">]</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">jobs</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">  test</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">    timeout-minutes</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#F78C6C"> 60</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">    runs-on</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> ubuntu-latest</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">    steps</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">      -</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178"> uses</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> actions/checkout@v4</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">      -</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178"> uses</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> actions/setup-node@v4</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">        with</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">          node-version-file</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> .nvmrc</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">      -</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178"> name</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> Install dependencies</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">        run</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> npm ci</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">      -</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178"> name</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> Install Playwright Browsers</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">        run</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> npx playwright install --with-deps</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">      -</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178"> name</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> Run Playwright tests</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">        run</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> npx playwright test</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">      # artifact에 playwright report를 업로드해 어디서 실패했는지 확인할 수 있다</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">      -</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178"> uses</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> actions/upload-artifact@v4</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">        if</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> failure()</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">        with</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">          name</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> playwright-report</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">          path</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> playwright-report/</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">          retention-days</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#F78C6C"> 30</span></span></code></pre>
       </figure>
       <div class="img-container">
         <div
@@ -924,7 +1259,7 @@
       </div>
       <h2
         id="성능-개선"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -932,7 +1267,7 @@
           href="#성능-개선"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >성능 개선
       </h2>
@@ -955,7 +1290,7 @@
           href="#테스트-방식"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >테스트 방식
       </h3>
@@ -993,20 +1328,20 @@
         <figcaption
           data-rehype-pretty-code-title=""
           data-language="json"
-          data-theme="material-theme-palenight"
+          data-theme="github-light material-theme-palenight"
         >
           package.json
         </figcaption>
         <pre
           tabindex="0"
           data-language="json"
-          data-theme="material-theme-palenight"
-        ><code data-language="json" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#89DDFF">{</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">  // ...</span></span>
-<span data-line=""><span style="color:#89DDFF">  "</span><span style="color:#C792EA">e2e:others</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> "</span><span style="color:#C3E88D">pnpm playwright test --grep-invert /@/</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#89DDFF">  "</span><span style="color:#C792EA">e2e:dom</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> "</span><span style="color:#C3E88D">pnpm playwright test --grep '@dom-snapshot'</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#89DDFF">  "</span><span style="color:#C792EA">e2e:screen</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> "</span><span style="color:#C3E88D">pnpm playwright test --grep '@screen-snapshot'</span><span style="color:#89DDFF">"</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="json" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">  // ...</span></span>
+<span data-line=""><span style="--shiki-light:#005CC5;--shiki-dark:#89DDFF">  "</span><span style="--shiki-light:#005CC5;--shiki-dark:#C792EA">e2e:others</span><span style="--shiki-light:#005CC5;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> "</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">pnpm playwright test --grep-invert /@/</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#005CC5;--shiki-dark:#89DDFF">  "</span><span style="--shiki-light:#005CC5;--shiki-dark:#C792EA">e2e:dom</span><span style="--shiki-light:#005CC5;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> "</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">pnpm playwright test --grep '@dom-snapshot'</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#005CC5;--shiki-dark:#89DDFF">  "</span><span style="--shiki-light:#005CC5;--shiki-dark:#C792EA">e2e:screen</span><span style="--shiki-light:#005CC5;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> "</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">pnpm playwright test --grep '@screen-snapshot'</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         따라서 playwright에서 제공하는
@@ -1028,35 +1363,35 @@
         <figcaption
           data-rehype-pretty-code-title=""
           data-language="ts"
-          data-theme="material-theme-palenight"
+          data-theme="github-light material-theme-palenight"
         >
           e2e/about.spec.ts
         </figcaption>
         <pre
           tabindex="0"
           data-language="ts"
-          data-theme="material-theme-palenight"
-        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#89DDFF;font-style:italic">export</span><span style="color:#C792EA"> enum</span><span style="color:#FFCB6B"> MACRO_SUITE</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#BABED8">  DOM_SNAPSHOT </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">@dom-snapshot</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#BABED8">  SCREEN_SNAPSHOT </span><span style="color:#89DDFF">=</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">@screen-snapshot</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span></span>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="ts" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">export</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> enum</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> MACRO_SUITE</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">  DOM_SNAPSHOT</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">@dom-snapshot</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">  SCREEN_SNAPSHOT</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">@screen-snapshot</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#BABED8">test</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">describe</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">about</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#82AAFF">  test</span><span style="color:#F07178">(</span><span style="color:#BABED8">MACRO_SUITE</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">SCREEN_SNAPSHOT</span><span style="color:#89DDFF">,</span><span style="color:#C792EA"> async</span><span style="color:#89DDFF"> ({</span><span style="color:#BABED8;font-style:italic"> page</span><span style="color:#89DDFF"> })</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">    await</span><span style="color:#82AAFF"> screenshotFullPage</span><span style="color:#F07178">(</span><span style="color:#89DDFF">{</span><span style="color:#BABED8"> page</span><span style="color:#89DDFF">,</span><span style="color:#F07178"> url</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> `</span><span style="color:#C3E88D">/about</span><span style="color:#89DDFF">`</span><span style="color:#89DDFF">,</span><span style="color:#F07178"> arg</span><span style="color:#89DDFF">:</span><span style="color:#F07178"> [</span><span style="color:#89DDFF">`</span><span style="color:#C3E88D">about.png</span><span style="color:#89DDFF">`</span><span style="color:#F07178">] </span><span style="color:#89DDFF">}</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">  }</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">test</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">describe</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">about</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">  test</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">MACRO_SUITE</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">SCREEN_SNAPSHOT</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> async</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ({</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic"> page</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> })</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">    await</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> screenshotFullPage</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> page</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> url</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> `</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">/about</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">`</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> arg</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> [</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">`</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">about.png</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">`</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">] </span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  }</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#82AAFF">  test</span><span style="color:#F07178">(</span><span style="color:#BABED8">MACRO_SUITE</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">DOM_SNAPSHOT</span><span style="color:#89DDFF">,</span><span style="color:#C792EA"> async</span><span style="color:#89DDFF"> ({</span><span style="color:#BABED8;font-style:italic"> page</span><span style="color:#89DDFF"> })</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">    await</span><span style="color:#82AAFF"> gotoUrl</span><span style="color:#F07178">(</span><span style="color:#89DDFF">{</span><span style="color:#BABED8"> page</span><span style="color:#89DDFF">,</span><span style="color:#F07178"> url</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">/about</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> }</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#C792EA">    const</span><span style="color:#BABED8"> body</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF;font-style:italic"> await</span><span style="color:#BABED8"> page</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">locator</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">#__next</span><span style="color:#89DDFF">'</span><span style="color:#F07178">)</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">innerHTML</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#82AAFF">    expect</span><span style="color:#F07178">(</span><span style="color:#BABED8">body</span><span style="color:#F07178">)</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">toMatchSnapshot</span><span style="color:#F07178">([</span><span style="color:#89DDFF">`</span><span style="color:#C3E88D">about.html</span><span style="color:#89DDFF">`</span><span style="color:#F07178">])</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">  }</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">  test</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">MACRO_SUITE</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">DOM_SNAPSHOT</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> async</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ({</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic"> page</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> })</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">    await</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> gotoUrl</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> page</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> url</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">/about</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> }</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">    const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> body</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic"> await</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> page</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">locator</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">#__next</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">innerHTML</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">()</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">    expect</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">body</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">toMatchSnapshot</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">([</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">`</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">about.html</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">`</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">])</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  }</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#82AAFF">  test</span><span style="color:#F07178">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">should redirect 404</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#C792EA"> async</span><span style="color:#89DDFF"> ({</span><span style="color:#BABED8;font-style:italic"> page</span><span style="color:#89DDFF"> })</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">    await</span><span style="color:#82AAFF"> gotoUrl</span><span style="color:#F07178">(</span><span style="color:#89DDFF">{</span><span style="color:#BABED8"> page</span><span style="color:#89DDFF">,</span><span style="color:#F07178"> url</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">/something_wrong_path</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#F07178"> timeout</span><span style="color:#89DDFF">:</span><span style="color:#F78C6C"> 60_000</span><span style="color:#89DDFF"> }</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">    await</span><span style="color:#82AAFF"> expect</span><span style="color:#F07178">(</span><span style="color:#BABED8">page</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">getByText</span><span style="color:#F07178">(</span><span style="color:#89DDFF">/</span><span style="color:#C3E88D">404 ERROR</span><span style="color:#89DDFF">/</span><span style="color:#F07178">))</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">toBeVisible</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">  }</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">  test</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">should redirect 404</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> async</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ({</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic"> page</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> })</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">    await</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> gotoUrl</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> page</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> url</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">/something_wrong_path</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> timeout</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#F78C6C"> 60_000</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> }</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">    await</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> expect</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">page</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">getByText</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">/</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">404 ERROR</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">/</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">))</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">toBeVisible</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">()</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  }</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         이제 우리는 dom, screen, others 세 가지 테스트 피처를 가지게 되었다.
@@ -1072,7 +1407,7 @@
           href="#테스트-속도"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >테스트 속도
       </h3>
@@ -1080,18 +1415,18 @@
         <pre
           tabindex="0"
           data-language="ts"
-          data-theme="material-theme-palenight"
-        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#BABED8">test</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">describe</span><span style="color:#BABED8">(MACRO_SUITE</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">SCREEN_SNAPSHOT</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> ()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">  for</span><span style="color:#F07178"> (</span><span style="color:#C792EA">let</span><span style="color:#BABED8"> i</span><span style="color:#89DDFF"> =</span><span style="color:#F78C6C"> 0</span><span style="color:#89DDFF">;</span><span style="color:#BABED8"> i</span><span style="color:#89DDFF"> &lt;</span><span style="color:#BABED8"> urls</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">length</span><span style="color:#89DDFF">;</span><span style="color:#BABED8"> i</span><span style="color:#89DDFF">++</span><span style="color:#F07178">) </span><span style="color:#89DDFF">{</span></span>
-<span data-line=""><span style="color:#C792EA">    const</span><span style="color:#BABED8"> url</span><span style="color:#89DDFF"> =</span><span style="color:#BABED8"> urls</span><span style="color:#F07178">[</span><span style="color:#BABED8">i</span><span style="color:#F07178">]</span><span style="color:#89DDFF">;</span></span>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="ts" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">test</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">describe</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">MACRO_SUITE</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">SCREEN_SNAPSHOT</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">  for</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> (</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">let</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> i</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#005CC5;--shiki-dark:#F78C6C"> 0</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> i</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> &lt;</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> urls</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">length</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> i</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">++</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">) </span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">    const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> url</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> urls</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">[</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">i</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">]</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#82AAFF">    test</span><span style="color:#F07178">(</span><span style="color:#89DDFF">`${</span><span style="color:#BABED8">url</span><span style="color:#89DDFF">}`</span><span style="color:#89DDFF">,</span><span style="color:#C792EA"> async</span><span style="color:#89DDFF"> ({</span><span style="color:#BABED8;font-style:italic"> page</span><span style="color:#89DDFF"> })</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">      await</span><span style="color:#BABED8"> page</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">goto</span><span style="color:#F07178">(</span><span style="color:#89DDFF">`</span><span style="color:#C3E88D">/posts/</span><span style="color:#89DDFF">${</span><span style="color:#BABED8">url</span><span style="color:#89DDFF">}`</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line="" data-highlighted-line=""><span style="color:#89DDFF;font-style:italic">      await</span><span style="color:#BABED8"> page</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">waitForTimeout</span><span style="color:#F07178">(</span><span style="color:#F78C6C">3000</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">      await</span><span style="color:#82AAFF"> expect</span><span style="color:#F07178">(</span><span style="color:#BABED8">page</span><span style="color:#F07178">)</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">toHaveScreenshot</span><span style="color:#F07178">(</span><span style="color:#89DDFF">{</span><span style="color:#F07178"> fullPage</span><span style="color:#89DDFF">:</span><span style="color:#FF9CAC"> true</span><span style="color:#89DDFF"> }</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">    }</span><span style="color:#F07178">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">  }</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre>
+<span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">    test</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">`${</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">url</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">}`</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> async</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> ({</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic"> page</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> })</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">      await</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> page</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">goto</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">`</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">/post/</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">${</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">url</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">}`</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line="" data-highlighted-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">      await</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> page</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">waitForTimeout</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#F78C6C">3000</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">      await</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> expect</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">page</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">toHaveScreenshot</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">(</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> fullPage</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#FF9CAC"> true</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> }</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">    }</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  }</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         테스트 속도에는 많은 것들의 영향이 있겠지만 기본적으로 wait timeout이
@@ -1110,25 +1445,25 @@
         <pre
           tabindex="0"
           data-language="ts"
-          data-theme="material-theme-palenight"
-        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic">// Image 로딩 wait</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> locators </span><span style="color:#89DDFF">=</span><span style="color:#BABED8"> page</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">locator</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">'</span><span style="color:#C3E88D">img</span><span style="color:#89DDFF">'</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> scrollPromises </span><span style="color:#89DDFF">=</span><span style="color:#BABED8"> (</span><span style="color:#89DDFF;font-style:italic">await</span><span style="color:#BABED8"> locators</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">all</span><span style="color:#BABED8">())</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">map</span><span style="color:#BABED8">(</span><span style="color:#C792EA">async</span><span style="color:#89DDFF"> (</span><span style="color:#BABED8;font-style:italic">locator</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">  // https://playwright.dev/docs/api/class-locator#locator-scroll-into-view-if-needed</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">  // 이미지 요소가 준비되었는지 확인</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">  return</span><span style="color:#89DDFF;font-style:italic"> await</span><span style="color:#BABED8"> locator</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">scrollIntoViewIfNeeded</span><span style="color:#F07178">()</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">await</span><span style="color:#FFCB6B"> Promise</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">all</span><span style="color:#BABED8">(scrollPromises)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#C792EA">const</span><span style="color:#BABED8"> imgLoadingPromises </span><span style="color:#89DDFF">=</span><span style="color:#BABED8"> (</span><span style="color:#89DDFF;font-style:italic">await</span><span style="color:#BABED8"> locators</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">all</span><span style="color:#BABED8">())</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">map</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">(</span><span style="color:#BABED8;font-style:italic">locator</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span></span>
-<span data-line=""><span style="color:#BABED8">  locator</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">evaluate</span><span style="color:#89DDFF">&lt;</span><span style="color:#FFCB6B">any</span><span style="color:#89DDFF">,</span><span style="color:#FFCB6B"> HTMLImageElement</span><span style="color:#89DDFF">&gt;</span><span style="color:#BABED8">(</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">    // 이미지 요소의 로딩 상태 확인</span></span>
-<span data-line=""><span style="color:#89DDFF">    (</span><span style="color:#BABED8;font-style:italic">image</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#BABED8"> image</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">complete </span><span style="color:#89DDFF">||</span><span style="color:#89DDFF"> new</span><span style="color:#FFCB6B"> Promise</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">(</span><span style="color:#BABED8;font-style:italic">f</span><span style="color:#89DDFF">)</span><span style="color:#C792EA"> =&gt;</span><span style="color:#BABED8"> (image</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">onload </span><span style="color:#89DDFF">=</span><span style="color:#BABED8"> f))</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#BABED8">  )</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">await</span><span style="color:#FFCB6B"> Promise</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">all</span><span style="color:#BABED8">(imgLoadingPromises)</span><span style="color:#89DDFF">;</span></span>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="ts" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">// Image 로딩 wait</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> locators</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> page</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">locator</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">img</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> scrollPromises</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> (</span><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">await</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> locators</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">all</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">())</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">map</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">async</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> (</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic">locator</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">)</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">  // https://playwright.dev/docs/api/class-locator#locator-scroll-into-view-if-needed</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">  // 이미지 요소가 준비되었는지 확인</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">  return</span><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic"> await</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> locator</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">scrollIntoViewIfNeeded</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">()</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">await</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> Promise</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">all</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(scrollPromises)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8"> imgLoadingPromises</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> (</span><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">await</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> locators</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">all</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">())</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">map</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">(</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic">locator</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">)</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">  locator</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">evaluate</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&lt;</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B">any</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB6B"> HTMLImageElement</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">    // 이미지 요소의 로딩 상태 확인</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">    (</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic">image</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">)</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> image</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">complete </span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">||</span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF"> new</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> Promise</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">(</span><span style="--shiki-light:#E36209;--shiki-light-font-style:inherit;--shiki-dark:#BABED8;--shiki-dark-font-style:italic">f</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">)</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> (image</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">onload </span><span style="--shiki-light:#D73A49;--shiki-dark:#89DDFF">=</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> f))</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">  )</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">await</span><span style="--shiki-light:#005CC5;--shiki-dark:#FFCB6B"> Promise</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">all</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(imgLoadingPromises)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#676E95;font-style:italic">// Font wait</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">await</span><span style="color:#BABED8"> page</span><span style="color:#89DDFF">.</span><span style="color:#82AAFF">evaluate</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#BABED8"> document</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">fonts</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">ready)</span><span style="color:#89DDFF">;</span></span></code></pre>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">// Font wait</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">await</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> page</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">evaluate</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8"> document</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">fonts</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">ready)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         이처럼 유동적인 사이드 이펙트는 이벤트로 처리하면 보다 안정적으로 처리할
@@ -1144,7 +1479,7 @@
           href="#cicd"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >CI/CD
       </h3>
@@ -1164,29 +1499,29 @@
         <figcaption
           data-rehype-pretty-code-title=""
           data-language="yml"
-          data-theme="material-theme-palenight"
+          data-theme="github-light material-theme-palenight"
         >
           workflows
         </figcaption>
         <pre
           tabindex="0"
           data-language="yml"
-          data-theme="material-theme-palenight"
-        ><code data-language="yml" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#F07178">jobs</span><span style="color:#89DDFF">:</span></span>
-<span data-line=""><span style="color:#F07178">  others</span><span style="color:#89DDFF">:</span></span>
-<span data-line=""><span style="color:#F07178">    uses</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">./.github/workflows/e2e-reusable.yml</span><span style="color:#89DDFF">'</span></span>
-<span data-line=""><span style="color:#F07178">    with</span><span style="color:#89DDFF">:</span></span>
-<span data-line=""><span style="color:#F07178">      others</span><span style="color:#89DDFF">:</span><span style="color:#FF9CAC"> true</span></span>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="yml" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">jobs</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">  others</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">    uses</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">./.github/workflows/e2e-reusable.yml</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">    with</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">      others</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#FF9CAC"> true</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#F07178">  dom-snapshot</span><span style="color:#89DDFF">:</span></span>
-<span data-line=""><span style="color:#F07178">    uses</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">./.github/workflows/e2e-reusable.yml</span><span style="color:#89DDFF">'</span></span>
-<span data-line=""><span style="color:#F07178">    with</span><span style="color:#89DDFF">:</span></span>
-<span data-line=""><span style="color:#F07178">      dom-snapshot</span><span style="color:#89DDFF">:</span><span style="color:#FF9CAC"> true</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">  dom-snapshot</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">    uses</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">./.github/workflows/e2e-reusable.yml</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">    with</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">      dom-snapshot</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#FF9CAC"> true</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#F07178">  screen-snapshot</span><span style="color:#89DDFF">:</span></span>
-<span data-line=""><span style="color:#F07178">    uses</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">./.github/workflows/e2e-reusable.yml</span><span style="color:#89DDFF">'</span></span>
-<span data-line=""><span style="color:#F07178">    with</span><span style="color:#89DDFF">:</span></span>
-<span data-line=""><span style="color:#F07178">      screen-snapshot</span><span style="color:#89DDFF">:</span><span style="color:#FF9CAC"> true</span></span></code></pre>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">  screen-snapshot</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">    uses</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">./.github/workflows/e2e-reusable.yml</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">    with</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">      screen-snapshot</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#FF9CAC"> true</span></span></code></pre>
       </figure>
       <div class="img-container">
         <div
@@ -1244,53 +1579,53 @@
         <figcaption
           data-rehype-pretty-code-title=""
           data-language="yml"
-          data-theme="material-theme-palenight"
+          data-theme="github-light material-theme-palenight"
         >
           actions
         </figcaption>
         <pre
           tabindex="0"
           data-language="yml"
-          data-theme="material-theme-palenight"
-        ><code data-language="yml" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#676E95;font-style:italic"># playwright 설치 캐시</span></span>
-<span data-line=""><span style="color:#89DDFF">-</span><span style="color:#F07178"> name</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> Cache Playwright Browsers for Playwright's Version</span></span>
-<span data-line=""><span style="color:#F07178">  uses</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> actions/cache@v4</span></span>
-<span data-line=""><span style="color:#F07178">  with</span><span style="color:#89DDFF">:</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">    # https://playwright.dev/docs/browsers#managing-browser-binaries</span></span>
-<span data-line=""><span style="color:#F07178">    path</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> ~/Library/Caches/ms-playwright</span></span>
-<span data-line=""><span style="color:#F07178">    key</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> ${{ runner.os }}-playwright-${{ steps.playwright-version.outputs.PLAYWRIGHT_VERSION }}</span></span>
-<span data-line=""><span style="color:#F07178">  id</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> cache-playwright-browsers</span></span>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="yml" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"># playwright 설치 캐시</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">-</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178"> name</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> Cache Playwright Browsers for Playwright's Version</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">  uses</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> actions/cache@v4</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">  with</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">    # https://playwright.dev/docs/browsers#managing-browser-binaries</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">    path</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> ~/Library/Caches/ms-playwright</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">    key</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> ${{ runner.os }}-playwright-${{ steps.playwright-version.outputs.PLAYWRIGHT_VERSION }}</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">  id</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> cache-playwright-browsers</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#89DDFF">-</span><span style="color:#F07178"> name</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> Setup Playwright</span></span>
-<span data-line=""><span style="color:#F07178">  shell</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> bash</span></span>
-<span data-line=""><span style="color:#F07178">  if</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> steps.cache-playwright-browsers.outputs.cache-hit != 'true'</span></span>
-<span data-line=""><span style="color:#F07178">  run</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> pnpm e2e:install</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">-</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178"> name</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> Setup Playwright</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">  shell</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> bash</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">  if</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> steps.cache-playwright-browsers.outputs.cache-hit != 'true'</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">  run</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> pnpm e2e:install</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#676E95;font-style:italic"># pnpm 설치 캐시</span></span>
-<span data-line=""><span style="color:#89DDFF">-</span><span style="color:#F07178"> name</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> Setup pnpm cache</span></span>
-<span data-line=""><span style="color:#F07178">  uses</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> actions/cache@v4</span></span>
-<span data-line=""><span style="color:#F07178">  with</span><span style="color:#89DDFF">:</span></span>
-<span data-line=""><span style="color:#F07178">    path</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> ${{ env.STORE_PATH }}</span></span>
-<span data-line=""><span style="color:#F07178">    key</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}</span></span>
-<span data-line=""><span style="color:#F07178">    restore-keys</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF;font-style:italic"> |</span></span>
-<span data-line=""><span style="color:#C3E88D">      ${{ runner.os }}-pnpm-store-</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"># pnpm 설치 캐시</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">-</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178"> name</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> Setup pnpm cache</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">  uses</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> actions/cache@v4</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">  with</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">    path</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> ${{ env.STORE_PATH }}</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">    key</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">    restore-keys</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic"> |</span></span>
+<span data-line=""><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">      ${{ runner.os }}-pnpm-store-</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#676E95;font-style:italic"># Next.js Build and Export 캐시</span></span>
-<span data-line=""><span style="color:#89DDFF">-</span><span style="color:#F07178"> name</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> Restore Next.js related caches</span></span>
-<span data-line=""><span style="color:#F07178">  uses</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> actions/cache@v4</span></span>
-<span data-line=""><span style="color:#F07178">  with</span><span style="color:#89DDFF">:</span></span>
-<span data-line=""><span style="color:#F07178">    path</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF;font-style:italic"> |</span></span>
-<span data-line=""><span style="color:#C3E88D">      ${{ github.workspace }}/.next</span></span>
-<span data-line=""><span style="color:#C3E88D">      ${{ github.workspace }}/out</span></span>
-<span data-line=""><span style="color:#F07178">    key</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> ${{ runner.os }}-nextjs-store-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx', '**.md') }}-${{ inputs.e2e == 'true' &amp;&amp; 'e2e' || 'default' }}</span></span>
-<span data-line=""><span style="color:#F07178">    restore-keys</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF;font-style:italic"> |</span></span>
-<span data-line=""><span style="color:#C3E88D">      ${{ runner.os }}-nextjs-store-${{ hashFiles('**/pnpm-lock.yaml') }}-</span></span>
-<span data-line=""><span style="color:#F07178">  id</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> cache-nextjs-build</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic"># Next.js Build and Export 캐시</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">-</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178"> name</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> Restore Next.js related caches</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">  uses</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> actions/cache@v4</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">  with</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">    path</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic"> |</span></span>
+<span data-line=""><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">      ${{ github.workspace }}/.next</span></span>
+<span data-line=""><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">      ${{ github.workspace }}/out</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">    key</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> ${{ runner.os }}-nextjs-store-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx', '**.md') }}-${{ inputs.e2e == 'true' &amp;&amp; 'e2e' || 'default' }}</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">    restore-keys</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic"> |</span></span>
+<span data-line=""><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">      ${{ runner.os }}-nextjs-store-${{ hashFiles('**/pnpm-lock.yaml') }}-</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">  id</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> cache-nextjs-build</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#89DDFF">-</span><span style="color:#F07178"> name</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> Build and Export [default]</span></span>
-<span data-line=""><span style="color:#F07178">  shell</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> bash</span></span>
-<span data-line=""><span style="color:#F07178">  if</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> steps.cache-nextjs-build.outputs.cache-hit != 'true'</span></span>
-<span data-line=""><span style="color:#F07178">  run</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> pnpm e2e:build</span></span></code></pre>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">-</span><span style="--shiki-light:#22863A;--shiki-dark:#F07178"> name</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> Build and Export [default]</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">  shell</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> bash</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">  if</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> steps.cache-nextjs-build.outputs.cache-hit != 'true'</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">  run</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> pnpm e2e:build</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         Job을 분리하면 불필요한 반복 빌드 작업이 발생하게 되는데 이를 캐싱을
@@ -1336,7 +1671,7 @@
       </p>
       <h2
         id="트러블-슈팅"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -1344,7 +1679,7 @@
           href="#트러블-슈팅"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >트러블 슈팅
       </h2>
@@ -1358,7 +1693,7 @@
           href="#로컬-테스트를-포기해야-할까"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >로컬 테스트를 포기해야 할까
       </h3>
@@ -1392,9 +1727,7 @@
           </button>
         </div>
       </div>
-      <blockquote
-        class="pl-4 text-[#8b949e] border-l-[0.25rem] border-[#425061]"
-      >
+      <blockquote class="border-l-[0.25rem] border-base pl-4 text-sub-blue">
         <p class="mt-4 mb-4">
           Runner
           <a
@@ -1410,10 +1743,10 @@
         <pre
           tabindex="0"
           data-language="yml"
-          data-theme="material-theme-palenight"
-        ><code data-language="yml" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#F07178">jobs</span><span style="color:#89DDFF">:</span></span>
-<span data-line=""><span style="color:#F07178">  my-job</span><span style="color:#89DDFF">:</span></span>
-<span data-line=""><span style="color:#F07178">    runs-on</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> macos-latest</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="yml" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">jobs</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">  my-job</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">    runs-on</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> macos-latest</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         Github에서 제공해주는 Actions Runner에 MacOS가 존재하기 때문에 로컬과
@@ -1433,7 +1766,7 @@
           href="#timezone"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Timezone
       </h3>
@@ -1445,12 +1778,12 @@
         <pre
           tabindex="0"
           data-language="yml"
-          data-theme="material-theme-palenight"
-        ><code data-language="yml" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#F07178">jobs</span><span style="color:#89DDFF">:</span></span>
-<span data-line=""><span style="color:#F07178">  my-job</span><span style="color:#89DDFF">:</span></span>
-<span data-line=""><span style="color:#F07178">    runs-on</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> macos-latest</span></span>
-<span data-line=""><span style="color:#F07178">    env</span><span style="color:#89DDFF">:</span></span>
-<span data-line=""><span style="color:#F07178">      TZ</span><span style="color:#89DDFF">:</span><span style="color:#C3E88D"> Asia/Seoul</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="yml" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">jobs</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">  my-job</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">    runs-on</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> macos-latest</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">    env</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span></span>
+<span data-line=""><span style="--shiki-light:#22863A;--shiki-dark:#F07178">      TZ</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D"> Asia/Seoul</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         깃헙 액션에서는 <code>env</code>로 타임존 값을 넘길수 있다. 이를 통해
@@ -1472,21 +1805,21 @@
         <figcaption
           data-rehype-pretty-code-title=""
           data-language="ts"
-          data-theme="material-theme-palenight"
+          data-theme="github-light material-theme-palenight"
         >
           playwright.config.ts
         </figcaption>
         <pre
           tabindex="0"
           data-language="ts"
-          data-theme="material-theme-palenight"
-        ><code data-language="ts" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#89DDFF;font-style:italic">export</span><span style="color:#89DDFF;font-style:italic"> default</span><span style="color:#82AAFF"> defineConfig</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">{</span></span>
-<span data-line=""><span style="color:#676E95;font-style:italic">  // ...</span></span>
-<span data-line=""><span style="color:#F07178">  use</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#F07178">    browserName</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">webkit</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#F07178">    timezoneId</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#C3E88D">Asia/Seoul</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#89DDFF">  },</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span><span style="color:#BABED8">)</span><span style="color:#89DDFF">;</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="ts" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">export</span><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic"> default</span><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF"> defineConfig</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span></span>
+<span data-line=""><span style="--shiki-light:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#676E95;--shiki-dark-font-style:italic">  // ...</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">  use</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">    browserName</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">webkit</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#F07178">    timezoneId</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> '</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">Asia/Seoul</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">'</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">  },</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">)</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span></code></pre>
       </figure>
       <h3
         id="테스트-분기"
@@ -1498,7 +1831,7 @@
           href="#테스트-분기"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >테스트 분기
       </h3>
@@ -1510,18 +1843,18 @@
         <figcaption
           data-rehype-pretty-code-title=""
           data-language="json"
-          data-theme="material-theme-palenight"
+          data-theme="github-light material-theme-palenight"
         >
           package.json
         </figcaption>
         <pre
           tabindex="0"
           data-language="json"
-          data-theme="material-theme-palenight"
-        ><code data-language="json" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#89DDFF">{</span></span>
-<span data-line=""><span style="color:#89DDFF">  "</span><span style="color:#C792EA">deploy-blog</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> "</span><span style="color:#C3E88D">next build &amp;&amp; next export</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span></span>
-<span data-line=""><span style="color:#89DDFF">  "</span><span style="color:#C792EA">e2e:build</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> "</span><span style="color:#C3E88D">NEXT_PUBLIC_CI=true next build &amp;&amp; next export</span><span style="color:#89DDFF">"</span></span>
-<span data-line=""><span style="color:#89DDFF">}</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="json" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">{</span></span>
+<span data-line=""><span style="--shiki-light:#005CC5;--shiki-dark:#89DDFF">  "</span><span style="--shiki-light:#005CC5;--shiki-dark:#C792EA">deploy-blog</span><span style="--shiki-light:#005CC5;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> "</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">next build &amp;&amp; next export</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">,</span></span>
+<span data-line=""><span style="--shiki-light:#005CC5;--shiki-dark:#89DDFF">  "</span><span style="--shiki-light:#005CC5;--shiki-dark:#C792EA">e2e:build</span><span style="--shiki-light:#005CC5;--shiki-dark:#89DDFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF"> "</span><span style="--shiki-light:#032F62;--shiki-dark:#C3E88D">NEXT_PUBLIC_CI=true next build &amp;&amp; next export</span><span style="--shiki-light:#032F62;--shiki-dark:#89DDFF">"</span></span>
+<span data-line=""><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">}</span></span></code></pre>
       </figure>
       <p class="mt-4 mb-4">
         e2e를 위한 빌드 스크립트를 만든 다음 환경변수를 주입해 코드에서 적용할
@@ -1531,9 +1864,9 @@
         <pre
           tabindex="0"
           data-language="tsx"
-          data-theme="material-theme-palenight"
-        ><code data-language="tsx" data-theme="material-theme-palenight" style="display:grid"><span data-line=""><span style="color:#82AAFF">useEffect</span><span style="color:#BABED8">(</span><span style="color:#89DDFF">()</span><span style="color:#C792EA"> =&gt;</span><span style="color:#89DDFF"> {</span></span>
-<span data-line=""><span style="color:#89DDFF;font-style:italic">  if</span><span style="color:#F07178"> (</span><span style="color:#BABED8">process</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">env</span><span style="color:#89DDFF">.</span><span style="color:#BABED8">NEXT_PUBLIC_CI</span><span style="color:#F07178">) </span><span style="color:#89DDFF;font-style:italic">return</span><span style="color:#89DDFF">;</span></span></code></pre>
+          data-theme="github-light material-theme-palenight"
+        ><code data-language="tsx" data-theme="github-light material-theme-palenight" style="display:grid"><span data-line=""><span style="--shiki-light:#6F42C1;--shiki-dark:#82AAFF">useEffect</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">(</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">()</span><span style="--shiki-light:#D73A49;--shiki-dark:#C792EA"> =&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF"> {</span></span>
+<span data-line=""><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">  if</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178"> (</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">process</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#BABED8">env</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">.</span><span style="--shiki-light:#005CC5;--shiki-dark:#BABED8">NEXT_PUBLIC_CI</span><span style="--shiki-light:#24292E;--shiki-dark:#F07178">) </span><span style="--shiki-light:#D73A49;--shiki-light-font-style:inherit;--shiki-dark:#89DDFF;--shiki-dark-font-style:italic">return</span><span style="--shiki-light:#24292E;--shiki-dark:#89DDFF">;</span></span></code></pre>
       </figure>
       <h3
         id="1px"
@@ -1545,7 +1878,7 @@
           href="#1px"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >1px
       </h3>
@@ -1590,7 +1923,7 @@
           href="#image-load"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >Image load
       </h3>
@@ -1606,7 +1939,7 @@
       </p>
       <h2
         id="마무리"
-        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-[hsl(210deg_18%_87%_/100%)]"
+        class="font-semibold leading-snug pb-0.5 pt-6 mb-2 group text-3xl mt-12 border-b border-base/50"
       >
         <a
           aria-hidden="true"
@@ -1614,7 +1947,7 @@
           href="#마무리"
           aria-label="이 섹션 링크"
           ><span
-            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-[#61768f] before:mr-2"
+            class="icon icon-link opacity-0 group-hover:opacity-100 ease-in-out transition-opacity duration-300 before:absolute before:w-[40px] before:left-[-25px] before:content-[&quot;⧉&quot;] before:text-sub-blue before:mr-2"
           ></span></a
         >마무리
       </h2>
@@ -1657,196 +1990,270 @@
       class="absolute top-0 inline-block h-full break-words left-full max-xl:hidden"
       aria-label="목차"
     >
-      <ul
-        class="ml-9 sticky pl-4 top-32 w-[calc(50vw-35vw)] border-l-2 border-l-base min-[1320px]:ml-20 min-[1320px]:top-48"
+      <div
+        class="sticky top-32 ml-9 w-[216px] min-[1320px]:top-48 min-[1320px]:ml-20"
       >
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="index"
-            href="#index"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Index</a
+        <p class="mb-2 px-3 text-[10px] tracking-[0.18em] text-dark uppercase">
+          On this page
+        </p>
+        <ul>
+          <li class="relative select-none">
+            <a
+              id="index"
+              href="#index"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Index</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="tldr"
+              href="#tldr"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >TL;DR!</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="도입-배경"
+              href="#도입-배경"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >도입 배경</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="시각적-회귀-테스트란"
+              href="#시각적-회귀-테스트란"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >시각적 회귀 테스트란</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="playwright"
+              href="#playwright"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Playwright</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="tldr"
-            href="#tldr"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >TL;DR!</a
+            <a
+              id="dom-snapshot"
+              href="#dom-snapshot"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >DOM Snapshot</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="도입-배경"
-            href="#도입-배경"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >도입 배경</a
+            <a
+              id="screenshot"
+              href="#screenshot"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Screenshot</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-1/2"
           >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="시각적-회귀-테스트란"
-            href="#시각적-회귀-테스트란"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >시각적 회귀 테스트란</a
+            <a
+              id="시각적-회귀-테스트는-다양한-이유로-실패할-수-있다"
+              href="#시각적-회귀-테스트는-다양한-이유로-실패할-수-있다"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >시각적 회귀 테스트는 다양한 이유로 실패할 수 있다</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="github-actions"
+              href="#github-actions"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Github Actions</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="성능-개선"
+              href="#성능-개선"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >성능 개선</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="playwright"
-            href="#playwright"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Playwright</a
+            <a
+              id="테스트-방식"
+              href="#테스트-방식"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >테스트 방식</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="dom-snapshot"
-            href="#dom-snapshot"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >DOM Snapshot</a
+            <a
+              id="테스트-속도"
+              href="#테스트-속도"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >테스트 속도</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-1/2"
           >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="screenshot"
-            href="#screenshot"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Screenshot</a
+            <a
+              id="cicd"
+              href="#cicd"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >CI/CD</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="트러블-슈팅"
+              href="#트러블-슈팅"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >트러블 슈팅</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
-        >
-          <a
-            id="시각적-회귀-테스트는-다양한-이유로-실패할-수-있다"
-            href="#시각적-회귀-테스트는-다양한-이유로-실패할-수-있다"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >시각적 회귀 테스트는 다양한 이유로 실패할 수 있다</a
+            <a
+              id="로컬-테스트를-포기해야-할까"
+              href="#로컬-테스트를-포기해야-할까"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >로컬 테스트를 포기해야 할까</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="github-actions"
-            href="#github-actions"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Github Actions</a
+            <a
+              id="timezone"
+              href="#timezone"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Timezone</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="성능-개선"
-            href="#성능-개선"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >성능 개선</a
+            <a
+              id="테스트-분기"
+              href="#테스트-분기"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >테스트 분기</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-full"
           >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="테스트-방식"
-            href="#테스트-방식"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >테스트 방식</a
+            <a
+              id="1px"
+              href="#1px"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >1px</span
+              ></a
+            >
+          </li>
+          <li
+            class="relative select-none before:absolute before:left-3 before:top-0 before:w-px before:bg-base/50 after:absolute after:left-3 after:top-1/2 after:h-px after:w-3 after:bg-base/50 before:h-1/2"
           >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="테스트-속도"
-            href="#테스트-속도"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >테스트 속도</a
-          >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
-        >
-          <a
-            id="cicd"
-            href="#cicd"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >CI/CD</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="트러블-슈팅"
-            href="#트러블-슈팅"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >트러블 슈팅</a
-          >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="로컬-테스트를-포기해야-할까"
-            href="#로컬-테스트를-포기해야-할까"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >로컬 테스트를 포기해야 할까</a
-          >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="timezone"
-            href="#timezone"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Timezone</a
-          >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="테스트-분기"
-            href="#테스트-분기"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >테스트 분기</a
-          >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5"
-        >
-          <a
-            id="1px"
-            href="#1px"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >1px</a
-          >
-        </li>
-        <li
-          class="pt-0.5 text-base select-none before:content-['-'] before:mr-1 ml-2.5 mb-1.5"
-        >
-          <a
-            id="image-load"
-            href="#image-load"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >Image load</a
-          >
-        </li>
-        <li class="pt-0.5 text-base select-none mb-0.5">
-          <a
-            id="마무리"
-            href="#마무리"
-            class="cursor-pointer inline hover:text-sub-blue"
-            >마무리</a
-          >
-        </li>
-      </ul>
+            <a
+              id="image-load"
+              href="#image-load"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors py-1.5 pr-3 pl-8 text-xs border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >Image load</span
+              ></a
+            >
+          </li>
+          <li class="relative select-none">
+            <a
+              id="마무리"
+              href="#마무리"
+              class="group flex w-full cursor-pointer items-start border text-left leading-snug transition-colors gap-2 px-3 py-2 text-[13px] border-transparent text-sub-blue hover:border-base/40 hover:bg-base/10 hover:text-white"
+              ><span aria-hidden="true" class="flex-none text-dark">#</span
+              ><span
+                class="line-clamp-2 origin-left transition-[color,scale] duration-300 ease-out motion-reduce:transition-none scale-100"
+                >마무리</span
+              ></a
+            >
+          </li>
+        </ul>
+      </div>
     </aside>
   </section>
   <a
-    class="inline-block text-[#30ffcb] leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-[#30ffcb] after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water"
+    class="inline-block text-highlight leading-[1.1] after:transition-[width] after:duration-500 ease-in-out hover:after:w-[100%] after:w-0 after:block after:h-[1px] print:text-black print:underline after:bg-highlight after:content-[&quot;&quot;] mt-24 [&amp;&amp;]:text-transparent bg-rainbow-water bg-clip-text bg-[length:400%_400%] animate-rainbow-water"
     href="https://github.com/1ilsang/dev/issues/new?labels=🧊 comment&amp;assignees=1ilsang&amp;title=[🧊] %EC%8B%9C%EA%B0%81%EC%A0%81%20%ED%9A%8C%EA%B7%80%20%ED%85%8C%EC%8A%A4%ED%8A%B8%20%EB%8F%84%EC%9E%85%EA%B8%B0&amp;body=&lt;!-- 환영합니다. 이슈 남겨주시면 빠르게 답변드리겠습니다. 🙇 --&gt;"
     rel="noopener noreferrer"
     target="_blank"
@@ -1869,7 +2276,7 @@
       <a
         class="group flex flex-col gap-1 max-w-[45%] hover:text-highlight duration-300 items-start text-left"
         aria-label="이전 글: @mdn/yari-content-ko Organizer 합류 여정"
-        href="/posts/mdn-ko-organizer"
+        href="/post/mdn-ko-organizer"
         ><span class="text-sm text-date-gray">← 이전 글</span
         ><span class="title-underline"
           >@mdn/yari-content-ko Organizer 합류 여정</span
@@ -1877,7 +2284,7 @@
       ><a
         class="group flex flex-col gap-1 max-w-[45%] hover:text-highlight duration-300 items-end text-right ml-auto"
         aria-label="다음 글: Object.keys()는 왜 string[] 타입일까?"
-        href="/posts/typescript-subtyping"
+        href="/post/typescript-subtyping"
         ><span class="text-sm text-date-gray">다음 글 →</span
         ><span class="title-underline"
           >Object.keys()는 왜 string[] 타입일까?</span
@@ -1885,7 +2292,7 @@
       >
     </div>
   </nav>
-  <section aria-labelledby="related-posts-heading" class="mt-12 mb-40">
+  <section aria-labelledby="related-posts-heading" class="mt-12 mb-12 xl:mb-0">
     <h2 id="related-posts-heading" class="text-2xl mb-4">더 보기</h2>
     <ul>
       <li
@@ -1894,7 +2301,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-vite-dev-server-description"
-          href="/posts/vite-dev-server"
+          href="/post/vite-dev-server"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -1909,18 +2316,18 @@
           </div>
           <div class="w-full mt-2 md:mt-0">
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               Vite Dev Server 이해하기 (feat. HMR)
             </h3>
             <p
               id="related-post-vite-dev-server-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               Dev 서버의 동작 방식은 어떻게 될까?
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2024-02-04 22:50"
               >2024-02-04 22:50</time
             >
@@ -1933,7 +2340,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-deploy-eslint-plugin-description"
-          href="/posts/deploy-eslint-plugin"
+          href="/post/deploy-eslint-plugin"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -1948,18 +2355,18 @@
           </div>
           <div class="w-full mt-2 md:mt-0">
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               ESLint 플러그인 배포하기
             </h3>
             <p
               id="related-post-deploy-eslint-plugin-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               ESLint 플러그인 배포 방법 알아보기
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2023-09-01 15:48"
               >2023-09-01 15:48</time
             >
@@ -1972,7 +2379,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-goorm-195698-description"
-          href="/posts/goorm-195698"
+          href="/post/goorm-195698"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -1990,18 +2397,18 @@
               >다른 주제 탐색</span
             >
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               [구름톤 챌린지] 연합
             </h3>
             <p
               id="related-post-goorm-195698-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               단방향 그래프의 집합을 BFS 및 Union-Find로 구해보자
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2023-09-06 19:12"
               >2023-09-06 19:12</time
             >
@@ -2014,7 +2421,7 @@
         <a
           class="flex flex-col items-center md:flex-row"
           aria-describedby="related-post-2023-description"
-          href="/posts/2023"
+          href="/post/2023"
           ><div
             class="relative mr-4 overflow-hidden border rounded-sm h-24 w-44 min-w-44 border-white-blue"
           >
@@ -2032,18 +2439,18 @@
               >다른 주제 탐색</span
             >
             <h3
-              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-snazzy-bg"
+              class="text-xl mb-1.5 title-underline transform-gpu group-hover:text-on-vibrant"
             >
               2023 회고록
             </h3>
             <p
               id="related-post-2023-description"
-              class="text-white-blue group-hover:text-snazzy-bg line-clamp-2"
+              class="text-white-blue group-hover:text-on-vibrant line-clamp-2"
             >
               올해를 돌아보며
             </p>
             <time
-              class="text-sub-blue group-hover:text-snazzy-bg"
+              class="text-sub-blue group-hover:text-on-vibrant"
               datetime="2023-12-31 14:27"
               >2023-12-31 14:27</time
             >

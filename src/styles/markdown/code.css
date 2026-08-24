@@ -1,30 +1,30 @@
 /* 문장 속 강조 `...` */
 .markdown code {
   padding: 2px 3px;
-  background-color: #19263a;
-  border: 1px solid #425061;
+  background-color: var(--theme-code-inline-background);
+  border: 1px solid var(--theme-code-inline-border);
   border-radius: 3px;
-  color: #ffa657;
+  color: var(--theme-code-inline-foreground);
   font-family: var(--d2coding), sans-serif;
 }
 
 /* 코드부 ```js...``` */
 .markdown figure {
-  border: 0.1px solid #2e3844;
-  border-left: 6px solid #2e3844;
+  border: 0.1px solid var(--theme-code-border);
+  border-left: 6px solid var(--theme-code-border);
   margin: 1rem 0;
 }
 
 .markdown figure figcaption {
-  border-bottom: 0.1px dotted #2e3844;
-  background-color: #121822;
+  border-bottom: 0.1px dotted var(--theme-code-border);
+  background-color: var(--theme-code-caption-background);
   padding: 0.7rem 1.2rem;
   font-size: 1.2rem;
   font-weight: bold;
 }
 
 .markdown figure pre {
-  background-color: #171c24;
+  background-color: var(--theme-code-background);
   font-size: 0.9em;
   line-height: 1.7em;
   overflow: auto;
@@ -38,11 +38,11 @@
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   background-size: 400% 400%;
   border-radius: 10px;
-  border: 2px solid rgb(20 22 33);
+  border: 2px solid var(--theme-background);
 }
 
 .markdown figure code {
-  background-color: #171c24;
+  background-color: var(--theme-code-background);
   padding: 1rem 0;
   border: none;
   counter-reset: line;
@@ -53,7 +53,7 @@
 }
 
 .markdown figure code span[data-line]:hover {
-  background-color: rgb(53, 63, 76);
+  background-color: var(--theme-code-line-hover);
 }
 
 .markdown figure code > [data-line]::before {
@@ -87,17 +87,21 @@
 }
 
 .markdown figure code > [data-highlighted-line] {
-  background-color: rgb(53, 63, 76);
-  border-left: 2px solid rgb(73, 107, 161);
+  background-color: var(--theme-code-line-highlight);
+  border-left: 2px solid var(--theme-code-line-border);
 }
 
 .markdown figure [data-line] > [data-highlighted-chars-mark] {
-  background-color: rgb(53, 63, 76);
+  background-color: var(--theme-code-line-highlight);
   padding: 0.1rem;
 }
 
 .markdown u {
   padding-bottom: 1px;
-  border-bottom: 3px dashed #61768f;
+  border-bottom: 3px dashed var(--theme-muted);
   text-decoration: none;
+}
+
+.markdown [data-theme*=' '] span {
+  color: light-dark(var(--shiki-light), var(--shiki-dark)) !important;
 }

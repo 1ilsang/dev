@@ -113,92 +113,45 @@ describe('useToc', () => {
     });
   });
 
-  describe('IntersectionObserver', () => {
-    it('헤딩이 뷰포트에 진입하면 activeId 갱신', () => {
+  describe('스크롤 기반 순차 활성화', () => {
+    it('스크롤 위치에 따라 문서 순서대로 activeId 갱신', () => {
       setScrollTop(0);
-
-      let ioCallback: IntersectionObserverCallback;
-      const mockObserve = jest.fn();
-      const mockDisconnect = jest.fn();
-
-      jest.spyOn(window, 'IntersectionObserver').mockImplementation((cb) => {
-        ioCallback = cb;
-        return {
-          observe: mockObserve,
-          disconnect: mockDisconnect,
-          unobserve: jest.fn(),
-          root: null,
-          rootMargin: '',
-          thresholds: [],
-          takeRecords: jest.fn(),
-        };
-      });
-
       const { result } = renderHook(() => useToc({ toc: MOCK_TOC }));
-
-      expect(mockObserve).toHaveBeenCalledTimes(4);
-
-      // setup 헤딩이 뷰포트에 진입
-      act(() => {
-        ioCallback(
-          [
-            { isIntersecting: true, target: { id: 'setup' } },
-          ] as unknown as IntersectionObserverEntry[],
-          {} as IntersectionObserver,
-        );
-      });
-
-      expect(result.current.activeId).toBe('setup');
-    });
-
-    it('isIntersecting=false인 엔트리는 무시', () => {
-      setScrollTop(0);
-
-      let ioCallback: IntersectionObserverCallback;
-      jest.spyOn(window, 'IntersectionObserver').mockImplementation((cb) => {
-        ioCallback = cb;
-        return {
-          observe: jest.fn(),
-          disconnect: jest.fn(),
-          unobserve: jest.fn(),
-          root: null,
-          rootMargin: '',
-          thresholds: [],
-          takeRecords: jest.fn(),
-        };
-      });
-
-      const { result } = renderHook(() => useToc({ toc: MOCK_TOC }));
-
-      act(() => {
-        ioCallback(
-          [
-            { isIntersecting: false, target: { id: 'conclusion' } },
-          ] as unknown as IntersectionObserverEntry[],
-          {} as IntersectionObserver,
-        );
-      });
-
       expect(result.current.activeId).toBe('introduction');
+
+      setScrollTop(550);
+      act(() => {
+        document.body.dispatchEvent(new Event('scroll'));
+      });
+      expect(result.current.activeId).toBe('setup');
+
+      setScrollTop(1100);
+      act(() => {
+        document.body.dispatchEvent(new Event('scroll'));
+      });
+      expect(result.current.activeId).toBe('install');
+
+      setScrollTop(1600);
+      act(() => {
+        document.body.dispatchEvent(new Event('scroll'));
+      });
+      expect(result.current.activeId).toBe('conclusion');
     });
 
-    it('언마운트 시 disconnect 호출', () => {
+    it('언마운트 시 scroll 리스너 제거', () => {
       setScrollTop(0);
-      const mockDisconnect = jest.fn();
-      jest.spyOn(window, 'IntersectionObserver').mockImplementation(() => ({
-        observe: jest.fn(),
-        disconnect: mockDisconnect,
-        unobserve: jest.fn(),
-        root: null,
-        rootMargin: '',
-        thresholds: [],
-        takeRecords: jest.fn(),
-      }));
+      const removeEventListener = jest.spyOn(
+        document.body,
+        'removeEventListener',
+      );
 
       const { unmount } = renderHook(() => useToc({ toc: MOCK_TOC }));
       unmount();
 
-      expect(mockDisconnect).toHaveBeenCalled();
+      expect(removeEventListener).toHaveBeenCalledWith(
+        'scroll',
+        expect.any(Function),
+      );
     });
   });
 

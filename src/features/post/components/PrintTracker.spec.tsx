@@ -8,7 +8,7 @@ jest.mock('@next/third-parties/google', () => ({
 }));
 
 jest.mock('next/navigation', () => ({
-  usePathname: () => '/posts/sample-post',
+  usePathname: () => '/post/sample-post',
 }));
 
 describe('PrintTracker', () => {
